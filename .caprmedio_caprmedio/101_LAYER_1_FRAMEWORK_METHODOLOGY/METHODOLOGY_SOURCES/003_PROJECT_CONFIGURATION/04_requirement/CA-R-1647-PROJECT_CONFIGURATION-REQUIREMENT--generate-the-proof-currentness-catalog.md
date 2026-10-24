@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "evaluation"
+  governs: evaluation
   depends_on: []
-version: 19
-updated_at: "2026-10-19 14:46:22 +0400"
+version: 21
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   resolution_of:
-    - CAPRMEDIO-GOV-CONC-054--how-should-proof-currentness-be-represented
-atom_id: "CA-R-1647"
-content_role: "Requirement"
+  - CAPRMEDIO-GOV-CONC-054--how-should-proof-currentness-be-represented
+atom_id: CA-R-1647
+content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

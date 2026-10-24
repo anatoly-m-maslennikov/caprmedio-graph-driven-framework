@@ -1,19 +1,26 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Operations/Type: Workflow"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
   depends_on:
-    ["Atom/Content Role: Operations", "Type", "Atom.Substance", "Workflow", "Step", "Atom/Content Role: Operations/Type: Step"]
-version: 7
-updated_at: "2026-10-15 12:22:36 +0000"
-relations: {"relates_to": ["CA-R-1530", "CA-R-1565"]}
-atom_id: "CA-R-1563"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Subject/Graph/Relation/Type
+  - Atom.Substance
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1530
+  - CA-R-1565
+atom_id: CA-R-1563
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

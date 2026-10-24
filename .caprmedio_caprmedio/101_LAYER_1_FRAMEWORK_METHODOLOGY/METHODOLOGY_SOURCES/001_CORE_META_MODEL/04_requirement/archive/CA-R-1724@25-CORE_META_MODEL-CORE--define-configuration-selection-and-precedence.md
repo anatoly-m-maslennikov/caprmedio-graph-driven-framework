@@ -1,0 +1,33 @@
+---
+subjects:
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings
+  depends_on:
+  - Entity/Node/Continuant/Project.Framework Settings
+  - Extension
+  - Subject/Engineering/Configuration/Tool Selection and Activation Precedence
+version: 25
+updated_at: 2026-10-23 01:47:30 +0400
+relations: {}
+atom_id: CA-R-1724@25
+content_role: "Requirement"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "Core"
+status: Archived
+author: "Anatoly Maslennikov"
+global_tier: 9
+type: Rule
+---
+# Summary
+
+Define Configuration selection and precedence
+
+## Scope
+
+Framework Instance Settings Artifact selection of available Tools **and** Extensions.
+
+## Claim
+
+the Framework Instance Settings Artifact **may** select, combine, parameterize, activate **in** foreground **or** background, **or** disable available Tools **and** Extensions **and** **must** resolve composition precedence explicitly **without** changing **any** selected capability's governed meaning. installation establishes availability, **not** activation: an installed Extension **may** remain disabled, **and** its retained settings do **not** enable it **unless** the Framework Instance Settings Artifact explicitly does so. the Framework Instance Settings Artifact **must** own the current activation selection **and** selected revision of **every** selected Extension.
+
+## Details

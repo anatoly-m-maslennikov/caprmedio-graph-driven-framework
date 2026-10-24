@@ -8,10 +8,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Final-partition worker retirement and composed-gate evidence"
-  depends_on: [Project, Operations]
-version: 1
-updated_at: "2026-10-04 12:01:15 +0000"
+  governs: Final-partition worker retirement and composed-gate evidence
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1316]
   relates_to: [CA-A-905, CA-A-910, CA-A-1030, CA-C-342, CA-P-1129, CA-P-1332]

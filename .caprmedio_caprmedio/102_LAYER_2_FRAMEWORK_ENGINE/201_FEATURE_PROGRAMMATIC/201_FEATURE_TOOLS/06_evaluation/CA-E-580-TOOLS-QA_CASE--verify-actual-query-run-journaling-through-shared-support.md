@@ -1,20 +1,25 @@
 ---
 atom_id: CA-E-580
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/Run evidence"
-  depends_on: [Tool, Workflow Run, Action Run, Journal, Evaluation]
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  depends_on:
+  - Subject/Engineering/Shared Run Evidence
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Action Run
+  - Subject/Engineering/Journal Event Query
+  - Evaluation
 relations:
-  evaluation_for: [CA-R-1867]
+  evaluation_for:
+  - CA-R-1867
+tier: 4
 ---
 # Summary
 

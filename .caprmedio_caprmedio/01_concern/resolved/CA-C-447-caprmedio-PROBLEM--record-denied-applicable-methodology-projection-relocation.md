@@ -7,11 +7,14 @@ local_tier: Standard
 global_tier: 2
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 09:45:00 +0000"
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Applicable Methodology Projection relocation"
-  depends_on: [Projection, Implementation, Evaluation]
+  governs: Applicable Methodology Projection relocation
+  depends_on:
+  - Subject/Domain/Node/Continuant/Projection
+  - Implementation
+  - Evaluation
 relations:
   concern_about: [CA-P-1549, CA-P-1556, CA-P-1519, CA-P-1123]
 ---

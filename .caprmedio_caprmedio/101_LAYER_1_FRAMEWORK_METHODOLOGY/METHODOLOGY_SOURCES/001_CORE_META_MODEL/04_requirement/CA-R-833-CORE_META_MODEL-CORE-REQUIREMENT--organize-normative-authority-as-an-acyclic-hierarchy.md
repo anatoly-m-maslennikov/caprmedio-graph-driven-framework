@@ -1,21 +1,21 @@
 ---
-version: 17
-updated_at: "2026-10-19 15:54:24 +0400"
+version: 21
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - "CA-R-1407"
+  - CA-R-1407
 subjects:
-  governs: "Entity/Node/Continuant/Selection"
+  governs: Subject/Domain/Node/Continuant/Selection
   depends_on:
-    ["Entity/Node/Continuant/Project"]
-atom_id: "CA-R-833"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - Subject/Domain/Node/Continuant/Project
+atom_id: CA-R-833
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

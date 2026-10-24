@@ -4,17 +4,30 @@ content_role: Operations
 type: Action
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-13 02:50:00 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool"
-  depends_on: ["Project", "Project Structure", "Project Settings", "Workflow"]
+  governs: Subject/Domain/Node/Continuant/Governing Configuration
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/Project Structure Declaration
+  - Subject/Engineering/Project Settings Snapshot
 relations:
-  relates_to: [CA-R-1942, CA-M-382, CA-E-634, CA-D-631, CA-R-1936, CA-M-376, CA-D-625, CA-O-204, CA-M-375, CA-O-219, CA-O-220]
+  relates_to:
+  - CA-R-1942
+  - CA-M-382
+  - CA-E-634
+  - CA-D-631
+  - CA-R-1936
+  - CA-M-376
+  - CA-D-625
+  - CA-O-204
+  - CA-M-375
+  - CA-O-219
+  - CA-O-220
+tier: 3
 ---
 # Summary
 

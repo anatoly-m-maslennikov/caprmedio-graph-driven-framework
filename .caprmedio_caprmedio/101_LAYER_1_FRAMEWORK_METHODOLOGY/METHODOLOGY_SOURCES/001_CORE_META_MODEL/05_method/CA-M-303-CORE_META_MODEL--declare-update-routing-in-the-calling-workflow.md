@@ -1,19 +1,31 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
   depends_on:
-    ["Author", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Summary", "Assess Atom Update Identity"]
-version: 7
-updated_at: "2026-10-19 15:54:49 +0400"
-relations: {"relates_to": ["CA-M-301", "CA-O-067", "CA-R-1432", "CA-R-1464", "CA-R-1520"]}
-atom_id: "CA-M-303"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Actor
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Assess Atom Update Identity
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-M-301
+  - CA-O-067
+  - CA-R-1432
+  - CA-R-1464
+  - CA-R-1520
+atom_id: CA-M-303
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

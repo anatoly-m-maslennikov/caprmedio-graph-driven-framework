@@ -3,17 +3,29 @@ atom_id: CA-R-1901
 content_role: Requirement
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-21T08:58:22Z"
+version: 10
+updated_at: 2026-10-24 04:05:50 +0400
 subjects:
-  governs: "Workflow Orchestrator/Project MCP runtime admission"
-  depends_on: [Project, MCP, Docker Runtime, Image, Gateway, Operator, Carrier, Project Settings]
+  governs: Subject/Engineering/Tool//PROJECT_MCP_RUNTIME_ADMISSION
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/MCP
+  - Subject/Engineering/Runtime/Docker Runtime
+  - Subject/Engineering/Image
+  - Subject/Engineering/Gateway
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project.Settings
 relations:
-  relates_to: [CA-R-1818, CA-R-1819, CA-R-1884, CA-R-1885]
+  relates_to:
+  - CA-R-1818
+  - CA-R-1819
+  - CA-R-1884
+  - CA-R-1885
+tier: 3
+type: Rule
 ---
 # Summary
 

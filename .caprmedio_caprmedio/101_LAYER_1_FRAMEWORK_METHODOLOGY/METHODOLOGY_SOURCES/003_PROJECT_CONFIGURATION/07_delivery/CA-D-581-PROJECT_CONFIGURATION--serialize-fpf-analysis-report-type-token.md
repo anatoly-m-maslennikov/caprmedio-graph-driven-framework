@@ -1,22 +1,27 @@
 ---
-atom_id: "CA-D-581"
-content_role: "Delivery"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+atom_id: CA-D-581
+content_role: Delivery
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Atom/Content Role: Analysis/Type: FPF Analysis Report"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis/Type: FPF Analysis Report'
   depends_on:
-    - "Project-Owned Markdown Atom Carrier/Filename"
-    - "Entity/Carrier"
-version: 2
-updated_at: "2026-10-19 15:56:25 +0400"
+  - Subject/Engineering/Carrier/File Carrier.Filename
+  - Subject/Engineering/Carrier
+version: 6
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  delivery_for: ["CA-R-1888"]
-  relates_to: ["CA-D-283", "CA-D-284", "CA-D-389", "CA-D-466"]
+  delivery_for:
+  - CA-R-1888
+  relates_to:
+  - CA-D-283
+  - CA-D-284
+  - CA-D-389
+  - CA-D-466
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

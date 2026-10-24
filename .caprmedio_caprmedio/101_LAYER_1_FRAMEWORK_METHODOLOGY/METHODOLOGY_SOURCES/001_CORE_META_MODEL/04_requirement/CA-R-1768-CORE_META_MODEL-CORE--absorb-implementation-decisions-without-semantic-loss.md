@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Method"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
   depends_on: []
-version: 19
-updated_at: "2026-10-19 15:54:02 +0400"
+version: 23
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1768"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1768
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 
@@ -20,10 +20,12 @@ Absorb Implementation Decisions without semantic loss
 
 ## Scope
 
-Implementation Decisions.
+Eng Decisions.
 
 ## Claim
 
-an Implementation Decision **may** be archived as absorbed **only** **after** **`>=1`** active Implementation Methods preserve **every** part of its still-necessary governed meaning for the affected realization scope.
+an Eng Decision **may** be archived as absorbed **only** **after** **`>=1`** active Eng Policies preserve **every** part of its still-necessary governed meaning for the affected realization scope.
 
 ## Details
+
+Absorption does not create artificial children or override actual-child ownership. If a Scope Unit loses its last actual child, review, relocate or reclassify any locally owned Eng Policy under CA-R-2119; do not infer an automatic runtime conversion.

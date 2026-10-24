@@ -7,11 +7,17 @@ local_tier: Standard
 global_tier: 2
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-07 23:11:27 +0000"
+version: 5
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Tool/FRAMEWORK_IMAGE_RESTORATION/Terminal recording recovery"
-  depends_on: [Tool, Action Run, Journal, Framework Package, Docker Image, Operator]
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
+  depends_on:
+  - Subject/Engineering/Journal/Terminal Event Recording
+  - Action Run
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Framework Package
+  - Docker Image
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
   concern_about: [CA-P-1826, CA-R-1897, CA-M-353, CA-E-596, CA-D-591]
 ---

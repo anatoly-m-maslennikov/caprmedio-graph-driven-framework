@@ -1,21 +1,26 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Plan.Work Sequence Number"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Work Sequence Number'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom/Content Role: Plan.Work Sequence Number", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Relation", "Entity/Node/Continuant/Atom.Owning Scope Unit", "Entity/Node/Continuant/Atom.Target Scope Unit"]
-version: 22
-updated_at: "2026-10-19 15:54:38 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Work Sequence Number'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Label'
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/Atom.Local Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Target Scope Unit
+version: 28
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-991
-atom_id: "CA-R-992"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-991
+atom_id: CA-R-992
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

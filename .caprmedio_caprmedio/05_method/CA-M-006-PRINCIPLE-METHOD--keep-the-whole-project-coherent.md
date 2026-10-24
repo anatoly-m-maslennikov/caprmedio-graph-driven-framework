@@ -1,17 +1,24 @@
 ---
-cce_version: "cce_1"
-cce_form: "method"
+cce_version: cce_1
+cce_form: method
 subjects:
-  governs: "Project"
+  governs: Subject/Domain/Node/Continuant/Project
   depends_on:
-    - "Term"
-    - "Claim"
-    - "Atom/Content Role: Implementation"
-version: 8
-updated_at: "2026-09-15 21:31:49 +0000"
+  - Term
+  - Claim
+  - 'Atom/Content Role: Implementation'
+version: 15
+updated_at: 2026-10-24 03:45:03 +0400
 relations:
   child_of:
-    - "ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-caprmedio--create-and-evolve-a-working-caprmedio-framework"
+  - CA-R-2155
+atom_id: CA-M-006
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Eng Policy
+tier: 0
 ---
 # Keep the whole project coherent
 

@@ -2,28 +2,35 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "FPF"
+  governs: FPF
   depends_on:
-    - "Extension Candidate"
-    - "Installed Extensions Catalog Entry"
-    - "Project Configuration"
-    - "Tool"
-    - "MCP"
-    - "Skill"
-version: 4
-updated_at: "2026-09-15 02:22:01 +0400"
+  - Extension Candidate
+  - Installed Extensions Catalog Entry
+  - Project Configuration
+  - Tool
+  - MCP
+  - Skill
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
-    - CA-R-1475
-    - CA-R-1476
-    - CA-R-1477
-    - CA-R-1478
-    - CA-R-1479
-    - CA-R-1480
-    - CA-R-1481
-    - CA-R-1482
+  - CA-R-1475
+  - CA-R-1476
+  - CA-R-1477
+  - CA-R-1478
+  - CA-R-1479
+  - CA-R-1480
+  - CA-R-1481
+  - CA-R-1482
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+content_role: Method
+current_scope_unit: CORE_EXTENSIONS
+status: Active
+author: Anatoly Maslennikov
+atom_id: CA-M-290
+type: Implementation Method
+tier: 2
 ---
 # Materialize, install, and activate the FPF Extension
 

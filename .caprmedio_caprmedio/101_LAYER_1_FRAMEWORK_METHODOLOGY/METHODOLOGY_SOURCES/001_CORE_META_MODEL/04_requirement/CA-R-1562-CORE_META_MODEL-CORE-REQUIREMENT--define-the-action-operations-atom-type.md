@@ -1,19 +1,25 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations", "Type", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action"]
-version: 8
-updated_at: "2026-10-19 15:53:30 +0400"
-relations: {"relates_to": ["CA-R-1530", "CA-R-1565"]}
-atom_id: "CA-R-1562"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Subject/Domain/Node/Continuant/Atom.Type
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1530
+  - CA-R-1565
+atom_id: CA-R-1562
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

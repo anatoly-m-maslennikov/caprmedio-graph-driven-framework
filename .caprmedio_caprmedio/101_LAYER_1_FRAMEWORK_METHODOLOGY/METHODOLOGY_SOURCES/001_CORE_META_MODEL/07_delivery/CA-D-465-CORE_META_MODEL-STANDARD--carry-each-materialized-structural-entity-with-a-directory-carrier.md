@@ -1,19 +1,26 @@
 ---
 subjects:
-  governs: "Structural Entity"
+  governs: Structural Entity
   depends_on:
-    ["Structural Entity", "Entity/Carrier/Directory Carrier", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Structure"]
-version: 8
-updated_at: "2026-10-19 15:55:52 +0400"
-relations: {"relates_to": ["CA-R-1956", "CA-D-312", "CA-R-1484"]}
-atom_id: "CA-D-465"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - Structural Entity
+  - Subject/Engineering/Carrier/Directory Carrier
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Structure
+version: 11
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1956
+  - CA-D-312
+  - CA-R-1484
+atom_id: CA-D-465
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

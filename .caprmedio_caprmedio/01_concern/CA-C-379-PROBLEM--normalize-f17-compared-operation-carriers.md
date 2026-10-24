@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F17 compared Operation carrier conformance"
-  depends_on: [Operations, "Markdown Atom Carrier/Structure"]
-version: 1
-updated_at: "2026-10-04 13:33:43 +0000"
+  governs: F17 compared Operation carrier conformance
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Markdown Atom Carrier/Structure
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-O-028, CA-O-051, CA-O-053, CA-O-058, CA-O-067, CA-O-077, CA-O-005, CA-O-006, CA-O-079]
   relates_to: [CA-P-1406, CA-A-1126, CA-D-479, CA-C-374]

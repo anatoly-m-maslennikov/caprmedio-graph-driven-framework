@@ -1,0 +1,30 @@
+---
+subjects:
+  governs: "Entity/Node/Continuant/Atom.Substance"
+  depends_on:
+    ["Entity/Node/Continuant/Atom"]
+version: 15
+updated_at: "2026-10-19 15:52:42 +0400"
+relations: {}
+atom_id: CA-R-1269@15
+content_role: "Requirement"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "Core"
+status: Archived
+author: "Anatoly Maslennikov"
+global_tier: 9
+---
+# Summary
+
+Define Claim
+
+## Scope
+
+the definition of Claim.
+
+## Claim
+
+a Claim **means** one independently replaceable statement owned by **`=1`** Atom.
+
+## Details

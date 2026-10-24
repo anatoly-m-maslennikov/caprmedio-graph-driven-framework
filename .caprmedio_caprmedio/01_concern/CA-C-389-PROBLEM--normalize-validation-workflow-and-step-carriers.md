@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Validation Workflow and Step Carrier conformance"
-  depends_on: [Operations, "Markdown Atom Carrier/Structure"]
-version: 1
-updated_at: "2026-10-04 13:46:41 +0000"
+  governs: Validation Workflow and Step Carrier conformance
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Markdown Atom Carrier/Structure
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-O-080, CA-O-088]
   relates_to: [CA-P-1420, CA-A-1140, CA-D-479, CA-C-376]

@@ -1,22 +1,25 @@
 ---
 subjects:
-  governs: "Lineage Impact Analysis"
+  governs: Lineage Impact Analysis
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Atom Change Classification", "Carrier-Only Recoding", "Verification"]
-version: 24
-updated_at: "2026-10-19 15:53:46 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Atom Change Classification
+  - Subject/Engineering/Carrier
+  - Verification
+version: 28
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - CA-R-1632
-    - CA-R-1687
-atom_id: "CA-R-1633"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-R-1632
+  - CA-R-1687
+atom_id: CA-R-1633
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

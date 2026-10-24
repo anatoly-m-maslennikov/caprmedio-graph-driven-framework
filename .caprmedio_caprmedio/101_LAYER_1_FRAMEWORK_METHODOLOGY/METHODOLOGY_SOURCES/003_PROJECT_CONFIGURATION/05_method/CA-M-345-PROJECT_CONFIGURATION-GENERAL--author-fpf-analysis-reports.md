@@ -1,22 +1,23 @@
 ---
-atom_id: "CA-M-345"
-content_role: "Method"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "General"
-global_tier: 10
-author: "Anatoly Maslennikov"
-status: "Active"
+atom_id: CA-M-345
+content_role: Method
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Atom/Content Role: Analysis/Type: FPF Analysis Report"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis/Type: FPF Analysis Report'
   depends_on:
-    - "Atom/Summary"
-    - "FPF"
-    - "Artifact/Revision"
-version: 1
-updated_at: "2026-10-05 23:46:22 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - FPF
+  - Artifact/Revision
+version: 5
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  method_for: ["CA-R-1889"]
+  method_for:
+  - CA-R-1889
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

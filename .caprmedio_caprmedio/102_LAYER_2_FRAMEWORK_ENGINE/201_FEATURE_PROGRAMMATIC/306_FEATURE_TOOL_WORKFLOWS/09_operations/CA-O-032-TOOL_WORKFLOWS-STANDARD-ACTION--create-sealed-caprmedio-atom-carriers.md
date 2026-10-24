@@ -4,24 +4,22 @@ content_role: Operations
 type: Action
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Create Sealed Atom Carriers"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Action"
-    - "Tool/ATOM_CREATE"
-    - "Atom"
-    - "Atom/Identifier"
-    - "Atom/Revision"
-    - "Atom/Summary"
-    - "Artifact/Carrier"
-    - "Journal/Record"
-version: 8
-updated_at: "2026-10-15 23:45:00 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Tool//ATOM_CREATE
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Engineering/Carrier
+version: 12
+updated_at: 2026-10-24 00:51:05 +0400
 relations: {}
+tier: 3
 ---
 # Summary
 

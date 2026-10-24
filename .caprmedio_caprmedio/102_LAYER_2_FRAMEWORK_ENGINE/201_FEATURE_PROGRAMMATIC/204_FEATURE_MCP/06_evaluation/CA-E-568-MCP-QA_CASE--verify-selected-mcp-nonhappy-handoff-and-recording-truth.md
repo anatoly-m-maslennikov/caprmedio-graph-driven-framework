@@ -1,20 +1,28 @@
 ---
 atom_id: CA-E-568
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-15 00:35:00 +0000"
+version: 9
+updated_at: 2026-10-24 03:32:45 +0400
 subjects:
-  governs: "MCP/selected Workflow non-happy truth"
-  depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal]
+  governs: Subject/Engineering/MCP.selected Workflow non-happy truth
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Engineering/Tool
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution/Run
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  evaluation_for: [CA-R-1847, CA-R-1848]
+  evaluation_for:
+  - CA-R-1847
+  - CA-R-1848
+tier: 4
 ---
 # Summary
 
@@ -50,6 +58,8 @@ no-op outcomes from shared support; assert the MCP result retains the exact
 outcome, safe refs, and diagnostics without a success conversion or fabricated
 effect.
 
+For the current source-bound `run_implementation_workflow` O016 Version 18 Integrated binding, assert that the pending prompt plus complete bound inputs, result contract and opaque continuation do not claim completion. Exercise wrong operation, run/action/continuation identity, malformed result, caller policy override, stale continuation, exact duplicate, conflicting duplicate and oversized submission: exact duplicates return the original response, every other invalid/conflicting case refuses without replay, and no effects are recovered automatically. Read-only `status` strips `capture.definitions`, exposes actual retained recording diagnostics and never recovers or replays work.
+
 For `find_and_fetch_journal_events`, retain the pre-dispatch sealed source
 prefix, then attempt source-member mutation, truncation, deletion, unreadable
 member bytes, stale continuation and self-Run/Event inclusion. Read repeated
@@ -61,6 +71,8 @@ result, and no logging retry or recovery route is introduced. Assert a preview h
 actual query records only actual outcomes through shared support after snapshot
 capture, never by replay.
 
+For an intentional source-blocked terminal, assert the exact public wrapper and canonical Run outcome: `disposition=terminal`, `status=interrupted_pending`, `outcome=interrupted_pending`, `graph_result.outcome=interrupted_pending`, and actual underlying `run_disposition=interrupted`; a later read-only status matches that outcome and retains diagnostics. With no checkpoint, assert read-only observation is `not_observed` with the requested Run ID only and no fabricated actual root/Run start, prompt or recovery. An unknown root or child interruption without bound canonical graph proof stays `interrupted_pending` with no prompt, while tampered or missing graph references refuse. Do not auto-recover or replay. This terminal assertion is MCP boundary QA; CA-E-652 owns the Workflow algorithm, and Journal completeness remains no permission gate. O016 Version 17 remains the legacy projection and DBOS/queue dispatch path; Version 18 is the observed current admission, not a timeless `>=18` rule, and a future Version requires fresh compatible admission.
+
 Simulate an Action with independently observed completed source effects and a plain Journal append I/O failure. Retain its actual Action/Run outcome, safe effect/result references and ordinary logging diagnostic without turning logging into permission, completion proof, a pending ledger or a retry/recovery gate. Repeated plain log rows never create another actual Run or invoke an Action/Workflow. Verify the obsolete `recover_selected_run_recording` route is not exposed; no replacement recording-retry route or automatic effect replay is introduced. Genuine unknown source effects remain unknown and require their independently governed inspection, not a successful log append.
 
 For the two direct Release commands, verify the closed connected-Project requests and explicit public draft, full-suite failure/unavailability/unknown-result stop before local delivery or public publication, including required integration tests. Missing Docker or another required test environment and skipped required tests must stop release, not produce a passing result. Required Docker integration tests build a disposable image from the current code; an old installed or running image is not a substitute, and test execution does not restart the running Project MCP. Verify there is no separate Active Atom metadata, placement or relation validation step. Retain truthful source-effect results independently of logging failure. Do not require a separate whole-catalog/dependency registry gate, old D527 selected execute envelope, DBOS dispatch or candidate/N+1 pipeline for release. Retain normal permissions, safe owned paths, installation locking/readback and public Git/PR boundaries; other selected routes keep their existing complete admission checks.
@@ -70,3 +82,4 @@ Acceptance retains request traces, target mutation traces, service invocation co
 ### Sources
 
 - CA-R-1847 v10; CA-R-1848 v6; CA-D-547 v7; CA-A-1142 v2; CA-P-1618 v1; CA-P-1535 v2; CA-D-527 v3; CA-R-1850 v2; CA-R-1866 v3; CA-R-1867 v1.
+- Current CA-O-016 Project Configuration Workflow (observed Version 18), CA-R-1527 Core Meta Model General, CA-R-1845 and CA-D-544 supply the Integrated prompt/continuation contract; CA-E-652 remains Workflow-level algorithm/evaluation authority, not an MCP admission gate.

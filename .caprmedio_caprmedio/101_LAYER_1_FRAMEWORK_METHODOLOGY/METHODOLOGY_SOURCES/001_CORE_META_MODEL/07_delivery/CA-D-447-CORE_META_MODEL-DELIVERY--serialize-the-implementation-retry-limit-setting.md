@@ -1,19 +1,31 @@
 ---
-version: 11
-updated_at: "2026-10-19 15:55:50 +0400"
-relations: {"relates_to": ["CA-D-361", "CA-R-1488", "CA-R-1489", "CA-D-408", "CA-D-460", "CA-D-470", "CA-M-295"]}
+version: 16
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-D-361
+  - CA-R-1488
+  - CA-R-1489
+  - CA-D-408
+  - CA-D-460
+  - CA-D-470
+  - CA-M-295
 subjects:
-  governs: "Implementation Retry Limit"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings.implementation.retry_limit
   depends_on:
-    ["Entity/Node/Continuant/Project.Framework Settings", "Default Settings", "Implementation Retry Limit", "Atom/Content Role: Plan/Type: Plan", "Entity/Carrier"]
-atom_id: "CA-D-447"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Default Settings
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Subject/Engineering/Carrier
+atom_id: CA-D-447
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

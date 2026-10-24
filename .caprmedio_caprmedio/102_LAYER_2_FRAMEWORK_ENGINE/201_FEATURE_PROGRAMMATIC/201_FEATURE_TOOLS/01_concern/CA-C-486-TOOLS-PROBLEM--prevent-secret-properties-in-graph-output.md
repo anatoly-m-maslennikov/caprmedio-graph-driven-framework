@@ -7,11 +7,13 @@ local_tier: Standard
 global_tier: 11
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 03:53:17 +0000"
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Prevent secret properties in graph output"
-  depends_on: [Tool, Implementation, Evaluation, Workflow Run, Journal]
+  governs: Subject/Domain/Node/Continuant/Projection
+  depends_on:
+  - Subject/Engineering/Projection Publication/Secret Exclusion
+  - Subject/Engineering/Source Discovery/Frontmatter Properties
 relations:
   concern_about: [CA-P-1760]
 ---

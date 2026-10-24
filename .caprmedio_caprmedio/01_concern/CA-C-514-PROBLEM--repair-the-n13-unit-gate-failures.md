@@ -7,11 +7,17 @@ local_tier: Standard
 global_tier: 2
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 20:24:00 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "N13 Unit gate failures"
-  depends_on: [Implementation, Evaluation, Source Carrier, Workflow, Action, Journal]
+  governs: N13 Unit gate failures
+  depends_on:
+  - Implementation
+  - Evaluation
+  - Subject/Engineering/Carrier/File Carrier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Journal
 relations:
   concern_about: [CA-P-1809, CA-P-1801, CA-P-1117]
 ---

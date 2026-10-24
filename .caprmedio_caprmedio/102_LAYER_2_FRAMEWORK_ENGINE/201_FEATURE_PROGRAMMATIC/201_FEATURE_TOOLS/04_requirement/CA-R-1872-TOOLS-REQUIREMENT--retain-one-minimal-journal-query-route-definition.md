@@ -3,17 +3,24 @@ atom_id: CA-R-1872
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 00:30:00 +0400"
+version: 3
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/route"
-  depends_on: [Workflow, Step, Action, Tool]
+  governs: Subject/Engineering/Journal Event Query/Source Route
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
 relations:
-  relates_to: [CA-O-161, CA-O-162, CA-O-163, CA-D-557]
+  relates_to:
+  - CA-O-161
+  - CA-O-162
+  - CA-O-163
+  - CA-D-557
+type: Rule
+tier: 3
 ---
 # Summary
 

@@ -2,28 +2,29 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "cyclomatic-complexity"
+  governs: Subject/Engineering/Python Style Checks
   depends_on:
-    - "programmatic software"
-version: 10
-updated_at: "2026-10-04 04:23:28 +0400"
+  - Subject/Engineering/Isolated Python Execution
+  - Subject/Engineering/Source Unit Responsibility
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-162
-    - CA-M-164
-    - CA-E-539
+  - CA-M-419
+  - CA-M-420
+  - CA-E-539
   derived_from:
-    - CA-A-053
+  - CA-A-053
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-365
 content_role: Evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
+tier: 6
+type: Eval Case
 ---
 # Reject unchecked cyclomatic complexity
 
@@ -51,5 +52,5 @@ block the changed unit from claiming source-boundary conformance.
 
 ## Sources
 
-- [CA-M-162 — Ratchet hand-authored Python source boundaries](../05_method/CA-M-162-PROGRAMMATIC-CORE-METHOD--ratchet-hand-authored-python-source-boundaries.md)
-- [CA-M-164 — Ratchet typing and automation adoption](../05_method/CA-M-164-PROGRAMMATIC-CORE-METHOD--ratchet-typing-and-automation-adoption.md)
+- [CA-M-419 — Ratchet hand-authored Python source boundaries](../05_method/CA-M-419-PROGRAMMATIC-STANDARD-ENG_POLICY--ratchet-hand-authored-python-source-boundaries.md)
+- [CA-M-420 — Ratchet typing and automation adoption](../05_method/CA-M-420-PROGRAMMATIC-STANDARD-ENG_POLICY--ratchet-typing-and-automation-adoption.md)

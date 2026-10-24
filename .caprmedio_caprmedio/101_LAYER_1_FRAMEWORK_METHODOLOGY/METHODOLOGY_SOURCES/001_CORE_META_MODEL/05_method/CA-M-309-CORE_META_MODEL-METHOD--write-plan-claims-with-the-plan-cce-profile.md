@@ -1,26 +1,29 @@
 ---
 subjects:
-  governs: "Plan CCE Role Profile"
+  governs: Subject/Graph/Rule/CCE Role Profile
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "CCE Operator"]
-version: 7
-updated_at: "2026-10-19 15:54:51 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Definition of Done'
+  - Subject/Engineering/CCE Operator
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-M-307
+  - CA-M-307
   relates_to:
-    - CA-M-123
-    - CA-M-306
-    - CA-R-1575
-    - CA-R-1581
-atom_id: "CA-M-309"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-M-123
+  - CA-M-306
+  - CA-R-1575
+  - CA-R-1581
+atom_id: CA-M-309
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 6
+type: Implementation Method
 ---
 # Summary
 

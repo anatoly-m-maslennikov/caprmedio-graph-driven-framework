@@ -3,17 +3,30 @@ atom_id: CA-O-166
 content_role: Operations
 type: Action
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Deliver and compile candidate Methodology"
-  depends_on: [Action, Methodology Source, Applicable Methodology, Delivery, Compiler, Artifact/Revision, Journal]
-version: 6
-updated_at: "2026-10-10 19:05:19 +0400"
+  governs: Subject/Engineering/Methodology
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Delivery
+  - Compiler
+  - Artifact/Revision
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 9
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-O-164, CA-O-172, CA-O-173, CA-O-011, CA-O-157, CA-R-1525, CA-R-1720]
+  relates_to:
+  - CA-O-164
+  - CA-O-172
+  - CA-O-173
+  - CA-O-011
+  - CA-O-157
+  - CA-R-1525
+  - CA-R-1720
+tier: 3
 ---
 # Summary
 

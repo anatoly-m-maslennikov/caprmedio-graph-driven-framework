@@ -2,17 +2,28 @@
 atom_id: CA-R-1813
 content_role: Requirement
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 20:12:24 +0400"
+version: 6
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "Workflow Run/recovery"
-  depends_on: [Workflow, Action, Atom, Operator, Journal, Implementation, Tool]
+  governs: Subject/Engineering/Tool//WORKFLOW_ORCHESTRATOR.Recovery
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Workflow Orchestration/Authority and Recovery Evaluation
+  - Subject/Engineering/Tool//WORKFLOW_ORCHESTRATOR.Recovery
 relations:
-  relates_to: [CA-R-1522, CA-R-1523, CA-R-1524, CA-O-104]
+  relates_to:
+  - CA-R-1522
+  - CA-R-1523
+  - CA-R-1524
+  - CA-O-104
+tier: 3
+type: Rule
 ---
 # Summary
 

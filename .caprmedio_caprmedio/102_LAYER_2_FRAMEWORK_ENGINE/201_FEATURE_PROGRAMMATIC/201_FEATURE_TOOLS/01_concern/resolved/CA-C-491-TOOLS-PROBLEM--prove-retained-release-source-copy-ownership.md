@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 04:41:21 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Retained Release source-copy ownership"
-  depends_on: [Implementation, Evaluation, Workflow Run, Journal, Manifest]
+  governs: Retained Release source-copy ownership
+  depends_on:
+  - Implementation
+  - Evaluation
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Manifest
 relations:
   concern_about: [CA-P-1774]
 ---

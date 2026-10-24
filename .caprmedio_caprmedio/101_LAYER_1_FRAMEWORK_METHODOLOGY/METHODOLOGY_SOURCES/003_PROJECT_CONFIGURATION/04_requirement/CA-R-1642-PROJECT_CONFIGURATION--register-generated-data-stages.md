@@ -1,20 +1,21 @@
 ---
 subjects:
-  governs: "Generated Data Stage Prefix"
+  governs: Generated Data Stage Prefix
   depends_on:
-    - "artifact-catalog"
-version: 20
-updated_at: "2026-10-03 01:23:33 +0400"
+  - artifact-catalog
+version: 22
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  {"depends_on": ["CA-R-1717"]}
-atom_id: "CA-R-1642"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  depends_on:
+  - CA-R-1717
+atom_id: CA-R-1642
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

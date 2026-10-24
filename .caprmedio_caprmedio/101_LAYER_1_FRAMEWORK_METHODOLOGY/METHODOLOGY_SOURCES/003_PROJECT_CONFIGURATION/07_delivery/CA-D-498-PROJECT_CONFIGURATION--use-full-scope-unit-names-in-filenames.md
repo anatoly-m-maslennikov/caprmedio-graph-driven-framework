@@ -1,25 +1,25 @@
 ---
-atom_id: "CA-D-498"
-version: 1
-updated_at: "2026-10-02 19:54:46 +0400"
-content_role: "Delivery"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
+atom_id: CA-D-498
+version: 6
+updated_at: 2026-10-24 01:37:42 +0400
+content_role: Delivery
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
 subjects:
-  governs: "Atom/Scope/Filename Token"
+  governs: Subject/Engineering/Carrier/File Carrier.Filename
   depends_on:
-    - "Atom"
-    - "Project"
-    - "Scope Unit"
-    - "Scope Unit/Name"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Scope Unit.Name
 relations:
   depends_on:
-    - CA-D-284
-    - CA-D-302
+  - CA-D-284
+  - CA-D-302
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

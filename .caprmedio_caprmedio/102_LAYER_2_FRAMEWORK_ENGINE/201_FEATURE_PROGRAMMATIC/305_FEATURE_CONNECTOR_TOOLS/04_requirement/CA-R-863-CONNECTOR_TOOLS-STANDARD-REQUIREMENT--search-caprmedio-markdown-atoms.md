@@ -3,22 +3,22 @@ atom_id: CA-R-863
 content_role: Requirement
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "Tool/ATOM_SEARCH"
+  governs: Subject/Engineering/Tool//ATOM_SEARCH
   depends_on:
-    - "Atom"
-    - "Artifact/Carrier"
-    - "Scope Unit"
-version: 21
-updated_at: "2026-10-21T16:54:03Z"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 26
+updated_at: 2026-10-24 01:37:42 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 3
+type: Rule
 ---
 # Summary
 

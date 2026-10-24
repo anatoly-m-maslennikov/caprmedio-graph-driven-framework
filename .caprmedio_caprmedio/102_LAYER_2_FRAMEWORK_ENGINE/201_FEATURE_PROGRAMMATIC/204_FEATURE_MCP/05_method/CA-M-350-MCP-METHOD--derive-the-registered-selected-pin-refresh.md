@@ -2,17 +2,27 @@
 atom_id: CA-M-350
 content_role: Method
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 17:27:56 +0000"
+version: 6
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "MCP/selected source pin refresh"
-  depends_on: [MCP, Projection, Workflow, Action, Operator, Journal, Atom, Source Carrier]
+  governs: Subject/Engineering/MCP
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier/File Carrier
 relations:
-  relates_to: [CA-P-1800, CA-D-588]
+  relates_to:
+  - CA-P-1800
+  - CA-D-588
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

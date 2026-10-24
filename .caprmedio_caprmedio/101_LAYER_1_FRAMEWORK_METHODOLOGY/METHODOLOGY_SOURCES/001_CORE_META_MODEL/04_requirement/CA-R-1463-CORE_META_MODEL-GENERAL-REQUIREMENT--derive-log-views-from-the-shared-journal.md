@@ -1,19 +1,25 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection"
+  governs: Subject/Domain/Node/Continuant/Projection
   depends_on:
-    ["Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Projection/Type: Artifact Change Log", "Entity/Node/Continuant/Projection/Type: Process Log"]
-version: 12
-updated_at: "2026-10-19 15:53:10 +0400"
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Artifact Change Log'
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Process Log'
+version: 16
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1463"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-R-1463
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Goal
 ---
 # Summary
 

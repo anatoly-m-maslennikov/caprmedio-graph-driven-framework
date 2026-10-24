@@ -1,20 +1,25 @@
 ---
 subjects:
-  governs: "Assess Source Conflicts"
+  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Global Tier", "Entity/Node/Continuant/Atom.Updated At", "Entity/Node/Continuant/Atom.Local Tier: Principle", "Entity/Node/Continuant/Actor/Type: Operator"]
-version: 12
-updated_at: "2026-10-19 15:56:26 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Entity/Node/Continuant/Atom.Global Tier
+  - Subject/Domain/Node/Continuant/Atom.Updated At
+  - 'Subject/Domain/Node/Continuant/Atom.Tier: Principle'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 17
+updated_at: 2026-10-24 00:51:05 +0400
 relations: {}
-atom_id: "CA-O-005"
-content_role: "Operations"
+atom_id: CA-O-005
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 ---
 # Summary
 

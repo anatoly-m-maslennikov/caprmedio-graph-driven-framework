@@ -3,17 +3,27 @@ atom_id: CA-R-1826
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Revision and History"
-  depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Journal/Record"]
-version: 1
-updated_at: "2026-10-04 18:30:23 +0000"
+  governs: Workflow Operations/Atom Lifecycle/Revision and History
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom.Summary
+version: 6
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  relates_to: [CA-O-067, CA-O-051, CA-R-866, CA-R-1041, CA-R-1415, CA-R-1371, CA-R-1788]
+  relates_to:
+  - CA-O-067
+  - CA-O-051
+  - CA-R-866
+  - CA-R-1041
+  - CA-R-1415
+  - CA-R-1371
+  - CA-R-1788
+tier: 3
+type: Rule
 ---
 # Summary
 

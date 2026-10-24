@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: active
 subjects:
-  governs: "Compared F15 source carrier conformance"
-  depends_on: ["Markdown Atom Carrier/Structure", Operations, Method]
-version: 1
-updated_at: "2026-10-04 13:26:54 +0000"
+  governs: Compared F15 source carrier conformance
+  depends_on:
+  - Markdown Atom Carrier/Structure
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Method
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-O-004, CA-O-009, CA-O-025, CA-O-027, CA-M-301]
   relates_to: [CA-P-1360, CA-A-1078, CA-D-479]

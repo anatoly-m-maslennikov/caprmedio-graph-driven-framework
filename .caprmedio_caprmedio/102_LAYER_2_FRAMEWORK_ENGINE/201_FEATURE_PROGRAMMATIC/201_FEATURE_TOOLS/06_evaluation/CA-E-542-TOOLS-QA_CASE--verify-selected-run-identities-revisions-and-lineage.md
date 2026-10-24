@@ -1,20 +1,26 @@
 ---
 atom_id: CA-E-542
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 22:39:38 +0400"
+version: 7
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "WORKFLOW_OPERATIONS/RUN_SUPPORT/Run provenance"
-  depends_on: [Workflow, Step, Action, Initiative, Journal, Evaluation]
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run.Provenance
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Initiative
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
 relations:
-  evaluation_for: [CA-R-1822]
+  evaluation_for:
+  - CA-R-1822
+tier: 4
 ---
 # Summary
 

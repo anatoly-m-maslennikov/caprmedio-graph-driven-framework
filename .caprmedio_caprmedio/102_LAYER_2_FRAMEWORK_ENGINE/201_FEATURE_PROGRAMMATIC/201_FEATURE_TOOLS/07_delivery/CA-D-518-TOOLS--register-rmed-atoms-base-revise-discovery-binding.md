@@ -2,25 +2,25 @@
 atom_id: CA-D-518
 content_role: Delivery
 current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-11 02:00:08 +0400"
+version: 9
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "Tool/RMED_ATOMS_BASE_REVISE/Carrier"
+  governs: Subject/Engineering/Tool Discovery Binding/RMED Atoms Base Revise
   depends_on:
-    - "Tool"
-    - "Action"
-    - "Workflow"
-    - "Atom"
-    - "Scope Unit"
-    - "Implementation"
-    - "Workflow Run"
-    - "Journal"
+  - Subject/Engineering/Tool Discovery Binding
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-O-104]
+  relates_to:
+  - CA-O-104
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

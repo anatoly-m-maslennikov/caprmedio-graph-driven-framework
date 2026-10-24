@@ -1,21 +1,23 @@
 ---
 subjects:
-  governs: "Relational Atom/Type"
+  governs: Subject/Domain/Node/Continuant/Atom.Type
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Demand", "Atom/Content Role: Plan/Type: Plan"]
-version: 23
-updated_at: "2026-10-19 15:54:28 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Demand'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+version: 29
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-923
-atom_id: "CA-R-924"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-R-923
+atom_id: CA-R-924
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 4
+type: Rule
 ---
 # Summary
 Register Core Relational Atom Classifications

@@ -2,17 +2,24 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "project-settings"
+  governs: project-settings
   depends_on: []
-version: 8
-updated_at: 2026-09-02 00:25:00 +0400
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
-    - CA-R-1143
+  - CA-R-1143
   derived_from:
-    - CA-A-058
+  - CA-A-058
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-212
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Policy
+tier: 2
 ---
 # Patch Project Settings with generated-value protection
 

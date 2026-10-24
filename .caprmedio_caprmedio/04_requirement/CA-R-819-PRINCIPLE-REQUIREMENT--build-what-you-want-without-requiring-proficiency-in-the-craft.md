@@ -1,17 +1,24 @@
 ---
-cce_version: "cce_1"
-cce_form: "obligation"
-version: 13
-updated_at: "2026-10-04 00:53:10 +0400"
+cce_version: cce_1
+cce_form: obligation
+version: 20
+updated_at: 2026-10-24 03:45:03 +0400
 relations:
   child_of:
-    - "ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-caprmedio--create-and-evolve-a-working-caprmedio-framework"
+  - CA-R-2155
 subjects:
-  governs: "Project/lifecycle"
+  governs: Project/lifecycle
   depends_on:
-    - "Project"
-    - "Operator"
-    - "CAPRMEDIO Framework Instance"
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - CAPRMEDIO Framework Instance
+atom_id: CA-R-819
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Rule
+tier: 0
 ---
 # Do not require human participants to master or personally perform specialist work
 

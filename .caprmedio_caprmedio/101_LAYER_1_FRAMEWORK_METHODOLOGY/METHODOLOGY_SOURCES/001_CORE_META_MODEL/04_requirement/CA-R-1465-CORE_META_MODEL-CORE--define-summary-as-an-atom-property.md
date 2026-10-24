@@ -1,19 +1,23 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Summary"
+  governs: Subject/Domain/Node/Continuant/Atom.Summary
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Property", "Entity/Node/Continuant/Atom.Substance", "Atom/Content Role", "Markdown Atom Carrier.Main Content"]
-version: 12
-updated_at: "2026-10-20 03:03:18 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Engineering/Carrier/File Carrier.Main Content
+version: 17
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1465"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1465
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

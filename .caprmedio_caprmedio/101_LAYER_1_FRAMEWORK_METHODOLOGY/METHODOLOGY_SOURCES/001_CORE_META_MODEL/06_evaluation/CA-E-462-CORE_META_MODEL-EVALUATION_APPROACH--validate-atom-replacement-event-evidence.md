@@ -1,23 +1,30 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/History/Journal.Record"
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
   depends_on:
-    ["Entity/Node/Continuant/History/Journal.Record", "Entity/Node/Continuant/Atom.ID", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Operations", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Projection/Type: Applicable Methodology"]
-version: 18
-updated_at: "2026-10-19 15:55:04 +0400"
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+version: 23
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
   evaluation_for:
-    - CA-R-1491
-    - CA-R-807
-atom_id: "CA-E-462"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-R-1491
+  - CA-R-807
+atom_id: CA-E-462
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 3
 ---
 # Summary
 

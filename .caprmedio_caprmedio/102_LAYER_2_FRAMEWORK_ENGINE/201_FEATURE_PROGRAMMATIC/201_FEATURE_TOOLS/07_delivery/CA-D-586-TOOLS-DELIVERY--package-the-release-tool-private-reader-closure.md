@@ -2,16 +2,21 @@
 atom_id: CA-D-586
 content_role: Delivery
 current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 06:30:13 +0000"
+version: 5
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Tool Package/Release Tool Private Reader Carriers"
-  depends_on: [Tool, Tool Package, Source Carrier, Manifest, Release Version, MCP]
+  governs: Subject/Engineering/Tool//RELEASE_VERSION.Package
+  depends_on:
+  - Subject/Engineering/Tool//RELEASE_VERSION.Package
+  - Subject/Engineering/Carrier/File Carrier
+  - Manifest
+  - Release Version
+  - Subject/Engineering/MCP
 relations: {}
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

@@ -1,20 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/History/Journal.Record"
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
   depends_on:
-    ["Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Tool", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/Projection"]
-version: 7
-updated_at: "2026-10-19 15:55:11 +0400"
-relations: {"evaluation_for": ["CA-R-1528", "CA-R-1511"]}
-atom_id: "CA-E-496"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Execution Trace/Tool Call Evidence Evaluation
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Projection
+version: 11
+updated_at: 2026-10-24 00:38:25 +0400
+relations:
+  evaluation_for:
+  - CA-R-1528
+  - CA-R-1511
+atom_id: CA-E-496
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 3
 ---
 # Summary
 

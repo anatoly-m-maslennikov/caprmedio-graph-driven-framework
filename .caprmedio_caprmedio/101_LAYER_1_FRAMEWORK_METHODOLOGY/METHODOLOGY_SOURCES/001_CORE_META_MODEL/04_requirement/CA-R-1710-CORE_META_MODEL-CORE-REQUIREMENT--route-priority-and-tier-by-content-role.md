@@ -1,18 +1,19 @@
 ---
 subjects:
-  governs: "authority"
-  depends_on: []
-version: 18
-updated_at: "2026-10-03 02:24:19 +0400"
+  governs: Subject/Domain/Node/Continuant/Atom.Tier
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+version: 21
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1710"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1710
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 
@@ -20,10 +21,10 @@ Route priority and tier by Content Role
 
 ## Scope
 
-Concern priority, Plan blocking, and Atom Local Tier.
+Concern priority, Plan blocking, and Atom numeric Tier.
 
 ## Claim
 
-Concern priority, Plan blocking, **and** Atom Local Tier **must** remain distinct coordinates; **every** Atom's Local Tier cardinality follows CA-R-155-CORE_META_MODEL-CORE-REQUIREMENT--give-every-non-project-goal-atom-one-local-tier regardless of its Content Role, **without** turning a Concern priority **or** a Plan Work Sequence Number into a Local Tier.
+Concern priority, Plan blocking, **and** Atom numeric Tier **must** remain distinct coordinates; **every** non-Project-Goal Atom's numeric Tier cardinality follows CA-R-2125 regardless of its Content Role, **without** turning a Concern priority **or** a Plan Work Sequence Number into a numeric Tier. No Content-Role or Type-to-Tier restriction is introduced.
 
 ## Details

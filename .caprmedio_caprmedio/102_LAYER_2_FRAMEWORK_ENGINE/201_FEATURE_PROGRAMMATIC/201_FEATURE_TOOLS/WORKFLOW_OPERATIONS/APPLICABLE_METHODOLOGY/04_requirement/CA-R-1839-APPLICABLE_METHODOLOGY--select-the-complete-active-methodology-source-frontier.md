@@ -1,20 +1,32 @@
 ---
 atom_id: CA-R-1839
 content_role: Requirement
-type: Requirement
+type: Rule
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 23:13:12 +0400"
+version: 4
+updated_at: 2026-10-24 01:50:12 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY"
-  depends_on: [Tool, Workflow, Step, Action, Methodology Source, Extension, Project Configuration, Atom Revision, Projection]
+  governs: Tool/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY
+  depends_on:
+  - Tool
+  - Workflow
+  - Step
+  - Action
+  - Methodology Source
+  - Extension
+  - Project Configuration
+  - Atom Revision
+  - Projection
 relations:
-  relates_to: [CA-O-011, CA-O-152, CA-O-004, CA-M-226]
+  relates_to:
+  - CA-O-011
+  - CA-O-152
+  - CA-O-004
+  - CA-M-226
+tier: 3
 ---
 # Summary
 

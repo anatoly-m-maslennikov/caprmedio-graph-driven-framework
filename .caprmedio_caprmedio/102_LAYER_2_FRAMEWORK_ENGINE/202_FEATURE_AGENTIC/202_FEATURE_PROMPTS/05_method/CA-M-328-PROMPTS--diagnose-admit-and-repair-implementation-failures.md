@@ -1,20 +1,27 @@
 ---
-atom_id: "CA-M-328"
-content_role: "Method"
-type: "Method"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 1
-updated_at: "2026-10-04 18:26:33 +0000"
+atom_id: CA-M-328
+content_role: Method
+type: Implementation Method
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 6
+updated_at: 2026-10-24 01:50:12 +0400
 subjects:
-  governs: "Implementation prompt failure handling"
-  depends_on: ["Prompt", "Evaluation", "Retry", "Evidence"]
+  governs: Subject/Engineering/Implementation prompt failure handling
+  depends_on:
+  - Subject/Engineering/Prompt
+  - Evaluation
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run.Retry
+  - Evidence
 relations:
-  relates_to: [CA-R-1846, CA-O-095, CA-O-096, CA-O-099]
+  relates_to:
+  - CA-R-1846
+  - CA-O-234
+  - CA-O-096
+  - CA-O-099
+tier: 3
 ---
 # Summary
 

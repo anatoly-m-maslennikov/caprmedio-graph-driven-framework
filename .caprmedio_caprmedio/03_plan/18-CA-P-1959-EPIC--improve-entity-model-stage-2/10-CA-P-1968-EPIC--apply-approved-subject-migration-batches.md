@@ -11,12 +11,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Entity
-  depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 6
-updated_at: "2026-10-15 11:24:25 +0000"
+  governs: Subject
+  depends_on: [Atom, Subject, Term, Property, Carrier, Scope Unit, Projection, Plan, Operator]
+version: 7
+updated_at: "2026-10-22 22:05:30 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
+  depends_on: [CA-P-1966, CA-P-2045]
   blocks: [CA-P-1969]
 ---
 # Summary
@@ -25,36 +26,20 @@ Apply approved Subject migration batches
 
 ## Objective
 
-Apply only the separately approved exact migration packet and retain truthful history and effect records.
+Organize and verify approved Candidate #7 methodology source increments before ordinary content updates, preserving predecessor history and truthful applied effects.
 
 ## Details
 
-### Operator-authorized minimum Subjects-only sequence — 2026-10-15
+Candidate #7 application is methodology-only: Subjects, defining Requirements/Deliveries, property rules, Type classifications and identity/ID rules. Re-read live source files before any effect and record actual current paths, old/new IDs, Versions, Statuses, timestamps, predecessor archives and changed fields. A classification-only Type correction may keep the ID only when Summary and Substance are unchanged. Preserve unrelated body content and ordinary content migration under CA-P-1970.
 
-The Operator now authorizes this Candidate #4 Subjects-only sequence through the existing Workflows: commit current work → create the selected edit drafts → commit drafts → archive exact current predecessors and promote drafts → rebuild the entity graph from actual migrated sources. No additional confirmation, independent post-stage full preview, semantic review or extra review/validation round is required. This checkpoint supersedes conflicting earlier prerequisite, approval and Definition-of-Done clauses for this sequence; it does not remove normal operation checks or expand generic content-update authority.
+Mapping research remains separate from source application. Use the fresh worklist and the integrated ledger from CA-P-2043/CA-P-2045; do not resurrect the old Candidate #3/#4 packet, fixed counts, CA-P-2188–CA-P-2193, the CA-P-2167 Tool gate or the CA-P-1909–CA-P-1912 sealed pipeline as current prerequisites. CA-P-1973 was canceled; its predecessor and cancellation path are history, not a current child-completion requirement.
 
-Retain current target/draft checks and ordinary operation results, canonical ID and original Status restoration, Version +1, actual Project-time updated_at and byte-exact predecessor archives. Stop at the first failed or unknown result, preserve completed predecessors and the untouched remainder, and perform no automatic replay or batch rollback. Existing Git commits and predecessor archives remain recovery evidence, not permission for automatic reset. Preserve all 29 held owners unchanged and ordinary content migration separately under CA-P-1970. Record actual graph-rebuild output; candidate-only reproduction or a planned graph is not that output.
+Each applied update must preserve its Summary unless a separately defined R/D source change requires a new identity; archive the predecessor with qualified ID@oldVersion and Archived Status, leaving archived numeric Version, Updated At and unrelated content unchanged. Stop on a failed or uncertain effect and leave completed effects plus untouched remainder visible. No automatic replay or rollback.
 
-CA-P-1911 retains single application ownership. The earlier requirement for a separately accepted final-preview packet, additional approval and completed effect-child hierarchy is superseded as a gate to this authorized sequence. This grouping Plan does not claim unperformed children Done.
+Before claiming the full Candidate #7 migration, maintain a separate current-Plan metadata and Draft-ID worklist. Verify Current Plan required properties, applicable Types, effective Labels, filename tokens, group-qualified Draft IDs and Draft lineage independently from Subject mapping; do not hide these cases inside a Subject-only count or treat a missing Draft field as a source guess.
 
-This grouping Plan has no own implementation work. Decompose the approved packet into bounded child Tasks before execution. Required prerequisites: CA-P-2167's complete independent Tool receipt, completed independently verified CA-P-1966 re-review/adaptation/re-pin, CA-P-1967, CA-P-1910's actual Done receipt and separate Operator approval of CA-P-1910's exact final preview hash/source frontier. CA-P-1911 owns the sole application execution; these Tasks only organize its bounded batches. Its current execution gates must pass before any effect.
-
-Reuse CA-P-2173's independently verified admitted route within the existing governed mutation boundary. Coordinate the applier with CA-P-1911; one owner applies each source once. If no admitted applier is available, stop and report the missing capability/authority; do not invoke raw ATOM_UPDATE internals or bypass the standalone apply guard. Intentional route implementation under verified contracts is separate from approval of this live packet.
-
-Recheck all pins before effects. Apply only approved Subjects, required ordinary Version +1/updated_at/history effects and the exact approved minimum grammar revisions. Preserve the original intended `status` rather than forcing `Active`, ordinary Summary/Substance/Scope/Details and all unrelated metadata. A type-change discovery is excluded, reported and routed to Step 2; it is not an admitted effect here. Preserve earlier Atom contents through Git and the applicable approved archive policy; record effect/Atom IDs in the Journal, not duplicate Atom bodies.
-
-Process disjoint approved batches with one integration/Git owner. Failed or uncertain effects stop; inspect actual state before resume. No automatic rollback, retry, runtime activation or release permission is implied. Validate each batch and record actual after pins.
-
-Preparation alone cannot complete this group. Require the prepared effect children, CA-P-1911's actual completed single execution and after-state verification. For each same-ID ordinary update, verify exact Version +1, actual Project-time timestamp, preserved intended status and required prior history/archive treatment; do not force an original non-archived Atom to `Active`. Git retains exact prior contents/versions. Report actual Journal record references for required effects; an absent/failed required record is incomplete, not a fabricated success.
-
-All other body updates remain blocked until CA-P-1969 passes.
-
-Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
-
-### Decomposing Plans
-
-- [CA-P-1973 — Prepare approved Subject application Tasks](10-CA-P-1968-EPIC--apply-approved-subject-migration-batches/01-CA-P-1973-TASK--prepare-approved-subject-application-tasks.md)
+No code, implementation schemas, MCP, tests, Settings values, runtime activation, Journal fabrication, release or deployment is included. This Plan does not claim a complete Subject migration or a rebuilt graph.
 
 ### Definition of Done
 
-The Plan is **not** Done if a live effect lacks exact approval/current pins, a source is applied twice, ordinary content changes, required history/records are missing, a failure is masked, or an admission guard is bypassed; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
+Not Done if an effect lacks a current approved mapping and source readback, a predecessor archive is malformed, a Type-only exception violates its Summary/Substance condition, ordinary content changes, a canceled child is treated as required, or actual effects are confused with a plan, scratch record or runtime receipt.

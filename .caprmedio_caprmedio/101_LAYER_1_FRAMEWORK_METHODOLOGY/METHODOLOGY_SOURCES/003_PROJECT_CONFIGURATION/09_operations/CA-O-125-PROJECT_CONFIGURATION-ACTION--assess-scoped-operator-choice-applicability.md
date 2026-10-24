@@ -4,17 +4,30 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Scoped Operator-choice Applicability"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Atom", "Artifact", "Entity/Node/Continuant/History/Journal"]
-version: 5
-updated_at: "2026-10-19 15:56:59 +0400"
+  governs: Subject/Engineering/Scoped Operator-choice Applicability
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 9
+updated_at: 2026-10-24 01:18:03 +0400
 relations:
-  relates_to: [CA-O-007, CA-O-008, CA-O-013, CA-O-022, CA-O-023, CA-O-065, CA-O-078, CA-O-118]
+  relates_to:
+  - CA-O-007
+  - CA-O-008
+  - CA-O-013
+  - CA-O-022
+  - CA-O-023
+  - CA-O-065
+  - CA-O-078
+  - CA-O-118
+tier: 3
 ---
 # Summary
 

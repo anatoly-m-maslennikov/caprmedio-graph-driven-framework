@@ -1,22 +1,25 @@
 ---
 subjects:
-  governs: "Entity/Type"
+  governs: Subject/Domain/Node.Type
   depends_on:
-    - "Entity"
-    - "Subject Expression"
-    - "Type"
-version: 13
-updated_at: "2026-10-02 20:03:51 +0400"
-relations: {"evaluation_for":["CA-R-1285","CA-R-1349","CA-R-1350"]}
-atom_id: "CA-E-387"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 10
+  - Subject/Domain/Node
+  - Subject
+  - Subject/Domain/Node.Type
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-1285
+  - CA-R-1349
+  - CA-R-1350
+atom_id: CA-E-387
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 3
 ---
 # Summary
 

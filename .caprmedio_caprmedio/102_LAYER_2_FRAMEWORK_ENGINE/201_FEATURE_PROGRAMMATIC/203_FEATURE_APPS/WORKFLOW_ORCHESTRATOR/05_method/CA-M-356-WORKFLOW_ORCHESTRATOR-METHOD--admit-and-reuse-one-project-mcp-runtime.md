@@ -3,18 +3,30 @@ atom_id: CA-M-356
 content_role: Method
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-21T08:58:22Z"
+version: 10
+updated_at: 2026-10-24 04:05:50 +0400
 subjects:
-  governs: "Workflow Orchestrator/Project MCP runtime admission method"
-  depends_on: [Project, MCP, Docker Runtime, Image, Gateway, Carrier, Project Settings]
+  governs: Subject/Engineering/Tool//PROJECT_MCP_RUNTIME_ADMISSION
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/MCP
+  - Subject/Engineering/Runtime/Docker Runtime
+  - Subject/Engineering/Image
+  - Subject/Engineering/Gateway
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project.Settings
 relations:
-  method_for: [CA-R-1901]
-  relates_to: [CA-M-324, CA-M-325, CA-M-341, CA-M-357]
+  method_for:
+  - CA-R-1901
+  relates_to:
+  - CA-M-324
+  - CA-M-325
+  - CA-M-341
+  - CA-M-357
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

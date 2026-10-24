@@ -1,26 +1,31 @@
 ---
 subjects:
-  governs: "Tool"
+  governs: Subject/Engineering/Tool
   depends_on:
-    - "Action"
-    - "Workflow"
-    - "Step"
-    - "Methodology"
-    - "Atom/Content Role: Operations"
-    - "Atom/Content Role: Implementation"
-    - "Spec"
-version: 1
-updated_at: "2026-10-03 05:59:00 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Engineering/Methodology
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Atom/Content Role: Implementation'
+  - Spec
+version: 7
+updated_at: 2026-10-24 01:50:12 +0400
 relations:
-  relates_to: [CA-R-1452, CA-R-1509, CA-R-1514, CA-R-1515, CA-R-1517]
-atom_id: "CA-R-1800"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  relates_to:
+  - CA-R-1452
+  - CA-R-1509
+  - CA-R-1514
+  - CA-R-1515
+  - CA-R-1517
+atom_id: CA-R-1800
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

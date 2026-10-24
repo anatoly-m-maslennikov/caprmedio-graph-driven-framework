@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Saved F03 execution and rebinding intents"
-  depends_on: [Operations, "Methodology Sources", "Atom/Content Role: Plan"]
-version: 1
-updated_at: "2026-10-04 13:29:38 +0000"
+  governs: Saved F03 execution and rebinding intents
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Methodology Sources
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1348]
   relates_to: [CA-A-1063, CA-A-1059, CA-A-1064, CA-P-1130, CA-C-371, CA-O-017, CA-O-079, CA-O-104, CA-O-105, CA-O-106, CA-O-111, CA-O-118]

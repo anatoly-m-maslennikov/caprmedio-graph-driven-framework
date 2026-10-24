@@ -2,18 +2,25 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: "Enforce Commit Automation Envelope"
+  governs: Enforce Commit Automation Envelope
   depends_on:
-    - "Action"
-    - "Commit Automation/Autonomy Envelope"
-    - "Operator"
-    - "Actor"
-    - "Journal/Record"
-version: 3
-updated_at: "2026-09-17 22:49:19 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Commit Automation/Autonomy Envelope
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-O-037
+status: Active
+content_role: Operations
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Action
+tier: 1
 ---
 # Enforce one commit-automation autonomy envelope
 Enforce Commit Automation Envelope **means** the reusable Action that checks **and** enforces the current admission boundary for a sealed commit-automation action under CA-R-1385. its modeled contribution is the complete admission **or** stop disposition at the required checkpoint, including its accountable budget effect **and** evidence; checking one limit alone is **not** successful admission.

@@ -10,12 +10,15 @@ status: resolved
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Entity/Continuant/Object/Atom"
+  governs: Entity/Continuant/Object/Atom
   depends_on:
-    ["Artifact/Revision", "Atom/Claim", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project"]
+  - Artifact/Revision
+  - Atom/Claim
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
 priority: medium
-version: 5
-updated_at: "2026-10-15 18:40:37 +0000"
+version: 6
+updated_at: 2026-10-23 03:14:50 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {"relates_to": ["CA-D-269", "CA-D-270", "CA-D-478", "CA-D-479", "CA-D-482", "CA-D-483", "CA-E-001", "CA-M-002", "CA-M-005", "CA-M-006", "CA-R-1270", "CA-R-1464", "CA-R-1470", "CA-R-1490", "CA-R-1493", "CA-R-1494", "CA-R-1598", "CA-R-918", "CAPRMEDIO-META-REQU-097", "CAPRMEDIO-META-REQU-657"]}

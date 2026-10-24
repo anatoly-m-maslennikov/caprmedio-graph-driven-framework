@@ -9,10 +9,14 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F16 legacy behavior extraction and RMED reconstruction reconciliation"
-  depends_on: [Operations, Implementation, Spec, Projection]
-version: 3
-updated_at: "2026-10-04 13:13:47 +0000"
+  governs: F16 legacy behavior extraction and RMED reconstruction reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Implementation
+  - Spec
+  - Subject/Domain/Node/Continuant/Projection
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1361]
   relates_to: [CA-A-1063, CA-A-933, CA-O-016, CA-O-017, CA-O-010, CA-O-006, CA-O-007, CA-O-008, CA-O-019, CA-C-362]

@@ -1,20 +1,24 @@
 ---
-atom_id: "CA-E-615"
-content_role: "Evaluation"
-type: "QA Case"
+atom_id: CA-E-615
+content_role: Evaluation
+type: Eval Case
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public release successful execution"
-  depends_on: [Git Commit, Pull Request, Tool]
-version: 4
-updated_at: "2026-10-14 12:27:48 +0000"
+  governs: Subject/Engineering/Public Release/Mocked Remote Effect
+  depends_on:
+  - Git Commit
+  - Subject/Engineering/Pull Request
+  - Subject/Engineering/Public Release/Mocked Remote Effect Evaluation
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: [CA-R-1925, CA-M-368]
+  evaluation_for:
+  - CA-R-1925
+  - CA-M-368
+tier: 5
 ---
 # Summary
 

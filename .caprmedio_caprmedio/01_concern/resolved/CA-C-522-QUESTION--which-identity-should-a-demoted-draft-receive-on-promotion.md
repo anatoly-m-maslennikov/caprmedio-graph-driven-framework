@@ -8,14 +8,14 @@ local_tier: Standard
 global_tier: 2
 status: Resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-15 23:54:28 +0400"
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
   governs: Atom/Status
   depends_on:
-  - Atom
-  - Journal
-  - Operator
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
   concern_about:
   - CA-P-2385

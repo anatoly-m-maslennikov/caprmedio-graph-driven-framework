@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "CCE Operator Expression Normalization"
+  governs: Subject/Graph/Rule/CCE Operator Expression Normalization
   depends_on:
-    - "CCE Operator Expression"
-    - "CCE Operator Registry"
-version: 12
-updated_at: "2026-10-02 20:25:13 +0400"
+  - Subject/Graph/Rule/CCE Operator Expression
+  - Subject/Graph/Rule/CCE Operator Registry
+version: 15
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-M-236"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-M-236
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

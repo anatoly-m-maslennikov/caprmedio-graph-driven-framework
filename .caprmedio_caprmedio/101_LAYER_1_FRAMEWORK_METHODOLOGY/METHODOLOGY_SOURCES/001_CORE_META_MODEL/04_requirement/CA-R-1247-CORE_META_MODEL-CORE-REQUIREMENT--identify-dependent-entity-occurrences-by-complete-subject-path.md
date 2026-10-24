@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "Dependent Entity Occurrence"
+  governs: Subject/Domain/Node/Continuant/Term//Dependent Entity
   depends_on:
-    - "Subject Path"
-version: 11
-updated_at: "2026-10-02 21:35:09 +0400"
+  - Subject
+version: 14
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1247"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1247
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

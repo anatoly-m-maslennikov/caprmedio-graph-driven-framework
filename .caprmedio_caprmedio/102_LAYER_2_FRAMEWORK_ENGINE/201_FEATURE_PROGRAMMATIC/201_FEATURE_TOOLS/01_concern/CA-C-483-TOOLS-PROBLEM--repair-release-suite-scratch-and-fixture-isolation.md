@@ -7,11 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 03:53:17 +0000"
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Repair Release suite scratch and fixture isolation"
-  depends_on: [Tool, Implementation, Evaluation, Workflow Run, Journal]
+  governs: Subject/Engineering/Test Isolation/Scratch and Imports
+  depends_on:
+  - Subject/Engineering/Test Isolation/Read-only Sources
 relations:
   concern_about: [CA-P-1755]
 ---

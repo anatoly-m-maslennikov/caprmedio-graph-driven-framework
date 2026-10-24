@@ -4,17 +4,48 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Reconcile Unfinished Work"
+  governs: Reconcile Unfinished Work
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Relation", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Occurrent/Execution/Workflow Run"]
-version: 8
-updated_at: "2026-10-19 15:56:48 +0400"
-relations: {"relates_to": ["CA-R-1715", "CA-M-306", "CA-R-1574", "CA-R-1576", "CA-R-1577", "CA-R-1579", "CA-R-1580", "CA-R-1583", "CA-R-1599", "CA-R-1539", "CA-R-1464", "CA-D-461", "CA-D-470", "CA-D-481", "CA-R-1490", "CA-R-1720"]}
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Definition of Done'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Status'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Label'
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Target Scope Unit
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+version: 13
+updated_at: 2026-10-24 00:51:05 +0400
+relations:
+  relates_to:
+  - CA-R-1715
+  - CA-M-306
+  - CA-R-1574
+  - CA-R-1576
+  - CA-R-1577
+  - CA-R-1579
+  - CA-R-1580
+  - CA-R-1583
+  - CA-R-1599
+  - CA-R-1539
+  - CA-R-1464
+  - CA-D-461
+  - CA-D-470
+  - CA-D-481
+  - CA-R-1490
+  - CA-R-1720
+tier: 3
 ---
 # Summary
 

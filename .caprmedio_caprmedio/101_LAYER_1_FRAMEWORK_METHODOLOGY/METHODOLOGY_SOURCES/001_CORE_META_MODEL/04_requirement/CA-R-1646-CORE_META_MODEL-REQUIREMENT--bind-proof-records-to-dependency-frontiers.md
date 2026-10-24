@@ -1,23 +1,26 @@
 ---
 subjects:
-  governs: "Evidence"
+  governs: Evidence
   depends_on:
-    ["Artifact", "Implementation", "Entity/Node/Continuant/Projection", "Entity/Carrier"]
-version: 22
-updated_at: "2026-10-19 15:53:47 +0400"
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Engineering/Execution Identity/Source Binding
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Engineering/Carrier
+version: 27
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   resolution_of:
-    - "CAPRMEDIO-GOV-CONC-054--how-should-proof-currentness-be-represented"
+  - CAPRMEDIO-GOV-CONC-054--how-should-proof-currentness-be-represented
   relates_to:
-    - "CA-D-329"
-atom_id: "CA-R-1646"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-D-329
+atom_id: CA-R-1646
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

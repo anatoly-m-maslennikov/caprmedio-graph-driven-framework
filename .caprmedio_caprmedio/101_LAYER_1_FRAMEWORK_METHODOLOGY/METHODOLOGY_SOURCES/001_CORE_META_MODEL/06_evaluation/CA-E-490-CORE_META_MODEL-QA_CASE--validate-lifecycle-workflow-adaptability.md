@@ -1,20 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
   depends_on:
-    ["Entity", "Entity/Node/Continuant/Atom", "Atom/Content Role", "Type", "Status", "Entity/Node/Continuant/Scope Unit", "Container Atom", "Entity/Carrier"]
-version: 8
-updated_at: "2026-10-19 15:55:10 +0400"
-relations: {"evaluation_for": ["CA-R-1521"]}
-atom_id: "CA-E-490"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - Subject/Domain/Node
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Scope Unit/Type
+  - Subject/Domain/Node/Continuant/Atom.Status
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Container Atom
+  - Subject/Engineering/Carrier
+version: 13
+updated_at: 2026-10-24 01:50:12 +0400
+relations:
+  evaluation_for:
+  - CA-R-1521
+atom_id: CA-E-490
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 3
 ---
 # Summary
 

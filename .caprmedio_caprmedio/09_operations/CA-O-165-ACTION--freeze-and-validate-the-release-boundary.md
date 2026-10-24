@@ -3,17 +3,26 @@ atom_id: CA-O-165
 content_role: Operations
 type: Action
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Validate local release inputs"
-  depends_on: [Action, Operator, Methodology, Delivery, Test]
-version: 9
-updated_at: "2026-10-21T16:23:32Z"
+  governs: Validate local release inputs
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Selection//Methodology Sources
+  - Delivery
+  - Test
+version: 13
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-O-164, CA-O-170, CA-O-025, CA-R-1525, CA-R-1720]
+  relates_to:
+  - CA-O-164
+  - CA-O-170
+  - CA-O-025
+  - CA-R-1525
+  - CA-R-1720
+tier: 3
 ---
 # Summary
 

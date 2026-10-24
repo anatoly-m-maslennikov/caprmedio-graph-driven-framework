@@ -1,20 +1,33 @@
 ---
 atom_id: CA-M-378
 content_role: Method
-type: Method
+type: Eng Decision
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-13 02:01:49 +0400"
+version: 7
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool"
-  depends_on: ["Scope Unit", "Project", "Project Structure", "Project Settings"]
+  governs: Subject/Engineering/Scope Unit Declaration Read Adapter Construction
+  depends_on:
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/Project Structure Declaration
+  - Subject/Engineering/Project Settings Snapshot
 relations:
-  relates_to: [CA-R-1938, CA-E-630, CA-D-627, CA-O-212, CA-R-1936, CA-M-376, CA-E-628, CA-D-625, CA-R-1484, CA-D-442]
+  relates_to:
+  - CA-R-1938
+  - CA-E-630
+  - CA-D-627
+  - CA-O-212
+  - CA-R-1936
+  - CA-M-376
+  - CA-E-628
+  - CA-D-625
+  - CA-R-1484
+  - CA-D-442
+tier: 3
 ---
 # Summary
 

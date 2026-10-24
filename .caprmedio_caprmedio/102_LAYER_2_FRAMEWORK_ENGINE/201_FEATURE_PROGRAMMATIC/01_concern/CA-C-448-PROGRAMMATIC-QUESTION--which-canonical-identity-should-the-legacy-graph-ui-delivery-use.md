@@ -9,11 +9,13 @@ global_tier: 8
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Legacy GRAPH_UI Delivery Identity Mapping"
-  depends_on: [Atom, Carrier]
-version: 1
+  governs: Legacy GRAPH_UI Delivery Identity Mapping
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+version: 3
 relations: {concern_about: [CA-C-443, CA-R-1048, CA-R-1432]}
-updated_at: 2026-10-05 00:22:22
+updated_at: 2026-10-23 03:14:50 +0400
 ---
 # Summary
 

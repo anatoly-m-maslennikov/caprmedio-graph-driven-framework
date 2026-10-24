@@ -1,20 +1,31 @@
 ---
 subjects:
-  governs: "Apply Approved Source Corrections"
+  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Artifact", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record", "Entity/Node/Continuant/Atom", "Entity/Relation", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Project.Settings"]
-version: 16
-updated_at: "2026-10-19 15:56:27 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Graph/Relation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Project.Settings
+version: 22
+updated_at: 2026-10-24 01:18:03 +0400
 relations: {}
-atom_id: "CA-O-008"
-content_role: "Operations"
+atom_id: CA-O-008
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 ---
 # Summary
 

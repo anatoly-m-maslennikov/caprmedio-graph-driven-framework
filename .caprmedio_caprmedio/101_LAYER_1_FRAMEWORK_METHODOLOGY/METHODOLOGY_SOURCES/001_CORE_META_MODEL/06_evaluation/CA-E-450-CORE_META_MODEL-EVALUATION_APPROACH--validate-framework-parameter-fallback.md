@@ -1,25 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Framework Settings.Parameter Resolution Validation"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings.Parameter Resolution Validation
   depends_on:
-    ["Entity/Node/Continuant/Project.Framework Settings", "Default Settings", "Entity/Node/Continuant/Project", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
-version: 11
-updated_at: "2026-10-19 15:55:02 +0400"
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Default Settings
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - "CA-D-407"
-    - "CA-D-408"
-    - "CA-M-279"
-    - "CA-R-1441"
-atom_id: "CA-E-450"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-D-407
+  - CA-D-408
+  - CA-M-279
+  - CA-R-1441
+atom_id: CA-E-450
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 5
 ---
 # Summary
 Validate framework parameter fallback

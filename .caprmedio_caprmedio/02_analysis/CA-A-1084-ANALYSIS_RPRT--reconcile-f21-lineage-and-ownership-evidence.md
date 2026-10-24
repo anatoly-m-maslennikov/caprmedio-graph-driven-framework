@@ -9,10 +9,14 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Historical missing lineage and ownership evidence reconciliation"
-  depends_on: [Operations, "Atom/Claim", "Atom/Revision", Evaluation]
-version: 1
-updated_at: "2026-10-04 13:13:59 +0000"
+  governs: Historical missing lineage and ownership evidence reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Atom/Claim
+  - Atom/Revision
+  - Evaluation
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1366]
   relates_to: [CA-A-1063, CA-A-1019, CA-A-1023, CA-A-1028, CA-A-1060, CA-O-058, CA-O-005, CA-O-067, CA-C-367]

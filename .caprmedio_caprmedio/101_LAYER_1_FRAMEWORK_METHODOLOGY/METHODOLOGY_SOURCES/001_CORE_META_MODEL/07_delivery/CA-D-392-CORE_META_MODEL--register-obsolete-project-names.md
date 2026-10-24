@@ -1,21 +1,23 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Scope Unit Graph"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Scope Unit Graph'
   depends_on:
-    ["Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project.Settings.Project Name", "Entity/Node/Continuant/Project.Settings.Obsolete Names"]
-version: 14
-updated_at: "2026-10-19 15:55:42 +0400"
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Settings.Project Name
+  - Subject/Domain/Node/Continuant/Project.Settings.Obsolete Names
+version: 18
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - "CA-R-1052"
-atom_id: "CA-D-392"
-content_role: "Delivery"
+  - CA-R-1052
+atom_id: CA-D-392
+content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

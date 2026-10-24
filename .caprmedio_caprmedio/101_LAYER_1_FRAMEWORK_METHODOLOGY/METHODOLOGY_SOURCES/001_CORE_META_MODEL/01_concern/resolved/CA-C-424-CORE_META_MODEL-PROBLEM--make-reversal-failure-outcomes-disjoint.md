@@ -8,11 +8,15 @@ local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
-version: 3
-updated_at: "2026-10-15 18:40:59 +0000"
+version: 5
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Approved Change Reversal/Outcomes"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Plan"]
+  governs: Approved Change Reversal/Outcomes
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
 relations:
   concern_about: [CA-O-131, CA-P-1450]
 ---

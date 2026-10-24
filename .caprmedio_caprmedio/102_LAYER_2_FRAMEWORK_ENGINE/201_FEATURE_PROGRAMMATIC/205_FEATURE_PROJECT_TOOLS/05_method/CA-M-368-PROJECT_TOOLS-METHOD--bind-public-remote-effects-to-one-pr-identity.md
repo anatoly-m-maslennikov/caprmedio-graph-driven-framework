@@ -1,19 +1,26 @@
 ---
-atom_id: "CA-M-368"
-content_role: "Method"
+atom_id: CA-M-368
+content_role: Method
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public release remote effects"
-  depends_on: [Git Commit, Personal Remote, Pull Request, Tool Call]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
+  governs: Public release remote effects
+  depends_on:
+  - Git Commit
+  - Personal Remote
+  - Subject/Engineering/Pull Request
+  - Subject/Domain/Node/Occurrent/Execution
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  method_for: [CA-R-1925, CA-R-1926, CA-R-1927]
+  method_for:
+  - CA-R-1925
+  - CA-R-1926
+  - CA-R-1927
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

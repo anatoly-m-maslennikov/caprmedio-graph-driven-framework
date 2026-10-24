@@ -2,11 +2,17 @@
 atom_id: CA-C-108
 priority: low
 subjects:
-  governs: "Entity"
+  governs: Entity
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Atom/Claim", "Atom/Subjects", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Scope Unit", "Atom/Tier/Local Tier"]
-version: 5
-updated_at: "2026-10-15 18:39:33 +0000"
+  - Entity/Continuant/Object/Atom
+  - Atom/Claim
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Atom/Tier/Local Tier
+version: 7
+updated_at: 2026-10-23 03:14:50 +0400
 relations: {}
 content_role: "Concern"
 current_scope_unit: "CORE_META_MODEL"

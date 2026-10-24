@@ -1,20 +1,26 @@
 ---
-atom_id: "CA-O-191"
+atom_id: CA-O-191
 content_role: Operations
 type: Step
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-status: "Active"
-author: "Anatoly Maslennikov"
+status: Active
+author: Anatoly Maslennikov
 subjects:
-  governs: "Public release/Step: prepare materials"
-  depends_on: [README, Pull Request, Version History, Version, Journal]
-version: 2
-updated_at: "2026-10-10 19:05:19 +0400"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Public release/Step: prepare materials'
+  depends_on:
+  - README
+  - Subject/Engineering/Pull Request
+  - Subject/Engineering/Release/Version History
+  - Version
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 6
+updated_at: 2026-10-24 01:18:03 +0400
 relations:
-  part_of: [CA-O-188]
-  invokes: [CA-O-192]
+  part_of:
+  - CA-O-188
+  invokes:
+  - CA-O-192
+tier: 3
 ---
 # Summary
 

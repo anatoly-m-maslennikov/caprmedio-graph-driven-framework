@@ -3,21 +3,21 @@ atom_id: CA-R-004
 content_role: Requirement
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Core
-global_tier: 1
 status: Active
 author: Anatoly Maslennikov
-version: 18
-updated_at: "2026-09-30 21:46:00 +0000"
+version: 23
+updated_at: 2026-10-24 03:32:45 +0400
 relations:
   child_of:
-    - CA-P-033
+  - CA-P-033
 subjects:
-  governs: "CAPRMEDIO Framework Instance/control"
+  governs: CAPRMEDIO Framework Instance/control
   depends_on:
-    - "CAPRMEDIO Framework Instance"
-    - "Operator"
-    - "Project"
+  - CAPRMEDIO Framework Instance
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
+tier: 1
+type: Rule
 ---
 # Summary
 

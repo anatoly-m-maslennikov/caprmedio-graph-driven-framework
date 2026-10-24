@@ -1,19 +1,22 @@
 ---
 subjects:
-  governs: "Artifact.Applicability"
+  governs: Artifact.Applicability
   depends_on:
-    ["Artifact", "Artifact.Authority"]
-version: 6
-updated_at: "2026-10-15 12:22:13 +0000"
-relations: {child_of: [CA-M-001]}
-atom_id: "CA-R-1500"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Artifact.Authority
+version: 9
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  child_of:
+  - CA-M-001
+atom_id: CA-R-1500
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

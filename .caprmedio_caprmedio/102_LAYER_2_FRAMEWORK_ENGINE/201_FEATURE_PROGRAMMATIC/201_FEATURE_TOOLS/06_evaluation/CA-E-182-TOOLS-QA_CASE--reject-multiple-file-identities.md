@@ -1,18 +1,25 @@
 ---
 subjects:
-  governs: "Governed Change/File Identity"
+  governs: Governed Change/File Identity
   depends_on:
-    - "Artifact/Carrier"
-    - "Governed Change/Commit Action"
-version: 12
-updated_at: "2026-09-17 21:32:46 +0000"
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-802
-    - CA-M-087
-    - CA-R-805
+  - CA-R-802
+  - CA-M-087
+  - CA-R-805
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-182
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
 ---
 # Reject multiple file identities
 

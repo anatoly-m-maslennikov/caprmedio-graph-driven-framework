@@ -2,17 +2,24 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "programmatic-mutation"
+  governs: programmatic-mutation
   depends_on: []
-version: 7
-updated_at: 2026-09-01 23:47:24 +0400
+version: 12
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
-    - CA-R-1120
+  - CA-R-1120
   derived_from:
-    - CA-A-058
+  - CA-A-058
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-200
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Policy
+tier: 2
 ---
 # Reconcile Git and Journal provenance bidirectionally
 

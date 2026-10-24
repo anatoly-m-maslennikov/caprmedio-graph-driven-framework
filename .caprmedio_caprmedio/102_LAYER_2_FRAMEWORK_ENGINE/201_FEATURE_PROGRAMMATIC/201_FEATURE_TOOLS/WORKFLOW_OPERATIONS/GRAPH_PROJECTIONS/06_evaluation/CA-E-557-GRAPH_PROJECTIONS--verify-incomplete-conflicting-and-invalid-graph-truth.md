@@ -1,20 +1,26 @@
 ---
 atom_id: CA-E-557
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-12 04:07:03 +0400"
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/Failure truth cases"
-  depends_on: [Tool, Projection, Artifact, Journal]
+  governs: Subject/Domain/Node/Continuant/Projection
+  depends_on:
+  - Subject/Engineering/Graph Projection
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  evaluation_for: [CA-R-1835, CA-R-1836, CA-R-1837]
+  evaluation_for:
+  - CA-R-1835
+  - CA-R-1836
+  - CA-R-1837
+tier: 4
 ---
 # Summary
 

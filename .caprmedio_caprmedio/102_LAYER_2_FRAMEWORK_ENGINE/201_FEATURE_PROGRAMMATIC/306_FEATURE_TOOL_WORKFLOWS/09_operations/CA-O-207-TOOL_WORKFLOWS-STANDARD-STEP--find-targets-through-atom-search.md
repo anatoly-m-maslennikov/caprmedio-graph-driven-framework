@@ -4,17 +4,24 @@ content_role: Operations
 type: Step
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Step"
-  depends_on: ["Search Atom Carriers","Step Run","Workflow Run"]
-version: 2
-updated_at: "2026-10-12 23:49:24 +0400"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  depends_on:
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+version: 5
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-O-201, CA-O-046, CA-R-1509, CA-R-1511, CA-M-305]
+  relates_to:
+  - CA-O-201
+  - CA-O-046
+  - CA-R-1509
+  - CA-R-1511
+  - CA-M-305
+tier: 3
 ---
 # Summary
 

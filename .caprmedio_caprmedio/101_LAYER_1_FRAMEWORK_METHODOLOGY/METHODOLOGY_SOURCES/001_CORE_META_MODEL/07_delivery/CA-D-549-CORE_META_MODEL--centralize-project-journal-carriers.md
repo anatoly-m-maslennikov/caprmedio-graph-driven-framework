@@ -3,16 +3,21 @@ atom_id: CA-D-549
 content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Continuant/History/Journal"
-  depends_on: ["Entity/Node/Continuant/Project", "Entity/Node/Continuant/History/Journal", "Entity/Carrier", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
-version: 8
-updated_at: "2026-10-19 15:56:00 +0400"
+  governs: Subject/Domain/Node/Continuant/History/Journal
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

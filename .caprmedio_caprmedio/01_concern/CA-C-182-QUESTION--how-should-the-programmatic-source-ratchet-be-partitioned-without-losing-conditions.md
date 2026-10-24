@@ -2,17 +2,18 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Claim"
+  governs: Atom/Claim
   depends_on:
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Delivery"
-    - "Action"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 priority: medium
-version: 1
-updated_at: "2026-09-17 18:44:37 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-182
 ---
 # How should the PROGRAMMATIC source ratchet be partitioned without losing conditions?
 

@@ -1,16 +1,23 @@
 ---
 subjects:
-  governs: "Work Journal/Event/Result"
+  governs: Work Journal/Event/Result
   depends_on: []
-version: 13
-updated_at: 2026-09-12 04:15:38 +0400
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-805
-    - CA-R-812
-    - CA-D-417
+  - CA-R-805
+  - CA-R-812
+  - CA-D-417
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-201
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 2
 ---
 # Represent removal as a result tombstone
 

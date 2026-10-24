@@ -1,18 +1,18 @@
 ---
-atom_id: "CA-D-502"
-content_role: "Delivery"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
+atom_id: CA-D-502
+content_role: Delivery
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Carrier"
+  governs: Subject/Engineering/Carrier
   depends_on: []
-version: 2
-updated_at: "2026-10-18 03:35:01 +0400"
+version: 5
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

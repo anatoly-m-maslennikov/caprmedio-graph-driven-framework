@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 11
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 07:05:54 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Prior-image rollback retention"
-  depends_on: [Image, Manifest, Action, Framework Instance Settings, Evaluation]
+  governs: Prior-image rollback retention
+  depends_on:
+  - Image
+  - Manifest
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Evaluation
 relations:
   concern_about: [CA-P-1697, CA-O-169, CA-R-1880]
 ---

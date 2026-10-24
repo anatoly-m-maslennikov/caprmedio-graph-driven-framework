@@ -2,18 +2,19 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Project Configuration"
+  governs: Project Configuration
   depends_on:
-    - "Extension"
-    - "Methodology Source"
-    - "Framework Instance Settings"
-    - "Atom/Content Role"
+  - Extension
+  - Methodology Source
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Atom/Content Role
 priority: medium
-version: 2
-updated_at: "2026-09-17 20:06:40 +0000"
+version: 4
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-142
 ---
 # Which legacy adaptation Claims belong to Project Configuration?
 

@@ -1,18 +1,25 @@
 ---
-version: 11
-updated_at: "2026-09-27 11:29:50 +0400"
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-M-003
-    - CA-M-005
+  - CA-M-003
+  - CA-M-005
 subjects:
-  governs: "Project/information"
+  governs: Project/information
   depends_on:
-    - "Project"
+  - Subject/Domain/Node/Continuant/Project
 cce_version: cce_1
 cce_form: method
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-091
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Implementation Method
+tier: 2
 ---
 # Summary
 

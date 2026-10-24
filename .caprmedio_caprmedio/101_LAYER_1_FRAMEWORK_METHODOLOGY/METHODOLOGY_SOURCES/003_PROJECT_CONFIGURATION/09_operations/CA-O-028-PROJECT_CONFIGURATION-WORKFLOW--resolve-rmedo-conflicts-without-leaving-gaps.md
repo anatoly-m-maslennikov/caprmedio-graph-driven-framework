@@ -1,20 +1,43 @@
 ---
 subjects:
-  governs: "RMEDO Conflict Resolution"
+  governs: RMEDO Conflict Resolution
   depends_on:
-    ["Relation/Type: On Result", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Select Reconciliation Sources", "Assess Source Conflicts", "Propose Source Corrections", "Obtain Source Correction Decision", "Apply Approved Source Corrections", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Global Tier", "Entity/Node/Continuant/Atom.Updated At", "Entity/Node/Continuant/Atom.Local Tier: Principle", "Entity/Relation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Autonomous Confidence Threshold", "Entity/Node/Continuant/History/Journal"]
-version: 12
-updated_at: "2026-10-19 15:56:44 +0400"
-relations: {"relates_to":["CA-O-004","CA-O-005","CA-O-006","CA-O-007","CA-O-008","CA-R-1551","CA-R-807"]}
-atom_id: "CA-O-028"
-content_role: "Operations"
+  - 'Subject/Graph/Relation/Type: On Result'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Entity/Node/Continuant/Atom.Global Tier
+  - Subject/Domain/Node/Continuant/Atom.Updated At
+  - 'Subject/Domain/Node/Continuant/Atom.Tier: Principle'
+  - Subject/Graph/Relation
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Autonomous Confidence Threshold
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 17
+updated_at: 2026-10-24 00:51:05 +0400
+relations:
+  relates_to:
+  - CA-O-004
+  - CA-O-005
+  - CA-O-006
+  - CA-O-007
+  - CA-O-008
+  - CA-R-1551
+  - CA-R-807
+atom_id: CA-O-028
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Workflow"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Workflow
+tier: 3
 ---
 # Summary
 

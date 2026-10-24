@@ -2,17 +2,25 @@
 atom_id: CA-R-1880
 content_role: Requirement
 current_scope_unit: PROJECT_TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 16:53:24 +0000"
+version: 7
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "Tool/RELEASE_VERSION/Failure and recovery"
-  depends_on: [Tool, Workflow Run, Action Run, Journal, Artifact, Image]
+  governs: Subject/Engineering/Release Version/Failure and Effect Recovery
+  depends_on:
+  - Subject/Engineering/Release Version/Failure and Effect Recovery
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Action Run
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Image
 relations:
-  relates_to: [CA-R-1878, CA-R-1879]
+  relates_to:
+  - CA-R-1878
+  - CA-R-1879
+type: Rule
+tier: 3
 ---
 # Summary
 

@@ -1,21 +1,32 @@
 ---
 atom_id: CA-D-624
 content_role: Delivery
-type: Delivery
+type: Eng Decision
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Core
-global_tier: 9
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Workflow","Project Configuration","Scope Unit"]
-version: 3
-updated_at: "2026-10-13 02:45:51 +0400"
+  governs: Subject/Engineering/Configuration/Shared TOML Workflow Delivery
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  delivery_for: ["CA-R-1935"]
-  relates_to: ["CA-M-375","CA-O-204","CA-O-205","CA-O-206","CA-O-218","CA-D-631","CA-O-219","CA-O-220"]
+  delivery_for:
+  - CA-R-1935
+  relates_to:
+  - CA-M-375
+  - CA-O-204
+  - CA-O-205
+  - CA-O-206
+  - CA-O-218
+  - CA-D-631
+  - CA-O-219
+  - CA-O-220
+tier: 2
 ---
 # Summary
 

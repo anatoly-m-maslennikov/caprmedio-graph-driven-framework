@@ -1,19 +1,23 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Definition of Done'
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Condition Expression", "Entity/Node/Continuant/Atom.Substance"]
-version: 7
-updated_at: "2026-10-19 15:53:35 +0400"
-relations: {"relates_to": ["CA-M-123"]}
-atom_id: "CA-R-1581"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Condition Expression
+  - Subject/Domain/Node/Continuant/Atom.Substance
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-M-123
+atom_id: CA-R-1581
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

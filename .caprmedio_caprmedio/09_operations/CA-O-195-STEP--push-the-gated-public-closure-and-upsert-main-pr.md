@@ -1,20 +1,24 @@
 ---
-atom_id: "CA-O-195"
+atom_id: CA-O-195
 content_role: Operations
 type: Step
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-status: "Active"
-author: "Anatoly Maslennikov"
+status: Active
+author: Anatoly Maslennikov
 subjects:
-  governs: "Public release/Step: push and upsert main PR"
-  depends_on: [Git Commit, Personal Remote, Pull Request]
-version: 3
-updated_at: "2026-10-12 00:41:30 +0000"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Public release/Step: push and upsert main PR'
+  depends_on:
+  - Subject/Engineering/Git Commit
+  - Subject/Engineering/Personal Remote
+  - Subject/Engineering/Pull Request
+version: 7
+updated_at: 2026-10-24 04:03:11 +0400
 relations:
-  part_of: [CA-O-188]
-  invokes: [CA-O-196]
+  part_of:
+  - CA-O-188
+  invokes:
+  - CA-O-196
+tier: 3
 ---
 # Summary
 

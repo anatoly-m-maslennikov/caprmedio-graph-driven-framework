@@ -3,17 +3,24 @@ atom_id: CA-O-168
 content_role: Operations
 type: Action
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Verify candidate release package and image"
-  depends_on: [Action, Test, Methodology, Artifact/Revision, Journal]
-version: 7
-updated_at: "2026-10-10 19:05:19 +0400"
+  governs: Verify candidate release package and image
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Test
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Artifact/Revision
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 10
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-O-164, CA-O-185, CA-R-1525]
+  relates_to:
+  - CA-O-164
+  - CA-O-185
+  - CA-R-1525
+tier: 3
 ---
 # Summary
 

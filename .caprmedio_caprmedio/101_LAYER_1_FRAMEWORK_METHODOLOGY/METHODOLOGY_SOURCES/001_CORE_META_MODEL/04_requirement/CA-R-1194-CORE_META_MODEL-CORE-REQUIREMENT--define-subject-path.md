@@ -1,19 +1,21 @@
 ---
 subjects:
-  governs: "Subject Path"
+  governs: Subject
   depends_on:
-    ["Subject Expression", "Subject Target", "Entity/Relation", "Subject", "Entity/Node/Continuant/Term"]
-version: 17
-updated_at: "2026-10-21 01:47:52 +0400"
+  - Subject
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/Term
+version: 22
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1194"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1194
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

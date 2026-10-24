@@ -3,17 +3,21 @@ atom_id: CA-R-1864
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 00:30:00 +0400"
+version: 3
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/authorization boundary"
-  depends_on: [Journal, Tool, Operator]
+  governs: Subject/Engineering/Journal Event Query/Authorization Boundary
+  depends_on:
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
-  relates_to: [CA-O-162, CA-E-579]
+  relates_to:
+  - CA-O-162
+  - CA-E-579
+type: Rule
+tier: 3
 ---
 # Summary
 

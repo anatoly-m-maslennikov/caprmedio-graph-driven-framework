@@ -7,11 +7,15 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 06:19:48 +0000"
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Obsolete status-route golden inputs"
-  depends_on: [Atom, Tool, Workflow, Manifest, Evaluation]
+  governs: Subject/Engineering/MCP/Status Route Fixture Compatibility
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Engineering/Manifest
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
 relations:
   concern_about: [CA-P-1695, CA-P-1692]
 ---

@@ -2,19 +2,30 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "Workflow Run"
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run
   depends_on:
-    - "Workflow"
-    - "Action"
-    - "Operator"
-    - "Artifact"
-    - "Status"
-    - "Implementation"
-version: 1
-updated_at: "2026-09-18 21:23:47 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Artifact
+  - Status
+  - Implementation
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {"relates_to": ["CA-R-1522", "CA-R-1426", "CA-R-1524"]}
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations:
+  relates_to:
+  - CA-R-1522
+  - CA-R-1426
+  - CA-R-1524
+atom_id: CA-R-1523
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+type: Rule
+tier: 1
 ---
 # Keep long-running work independent of client sessions
 

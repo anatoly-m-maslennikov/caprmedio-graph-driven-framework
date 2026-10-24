@@ -2,17 +2,28 @@
 atom_id: CA-R-1891
 content_role: Requirement
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 01:01:23 +0000"
+version: 7
+updated_at: 2026-10-24 02:33:28 +0400
 subjects:
-  governs: "Release Version/Host Executor"
-  depends_on: [Release Version, Workflow Run, Operator, Permission, Queue, DBOS, Docker Image, Journal, Source, Implementation]
+  governs: Release Version/Host Executor
+  depends_on:
+  - Release Version
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Permission
+  - Queue
+  - DBOS
+  - Docker Image
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Runtime/Docker Workflow Execution
 relations:
-  relates_to: [CA-O-164, CA-R-1883]
+  relates_to:
+  - CA-O-164
+  - CA-R-1883
+tier: 3
+type: Rule
 ---
 # Summary
 

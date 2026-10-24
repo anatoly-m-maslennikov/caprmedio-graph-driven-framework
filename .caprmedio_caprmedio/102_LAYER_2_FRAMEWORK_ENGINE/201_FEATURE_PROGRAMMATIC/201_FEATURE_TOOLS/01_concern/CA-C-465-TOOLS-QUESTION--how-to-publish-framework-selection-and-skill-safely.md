@@ -7,11 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 06:07:49 +0000"
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Framework selection and Skill publication"
-  depends_on: [Tool, Manifest, Runtime, Skill, Image, Evaluation]
+  governs: Subject/Engineering/Release Publication/Selector and Skill Synchronization
+  depends_on:
+  - Subject/Engineering/Release Publication/Recovery
 relations:
   concern_about: [CA-P-1693, CA-D-562, CA-D-563]
 ---

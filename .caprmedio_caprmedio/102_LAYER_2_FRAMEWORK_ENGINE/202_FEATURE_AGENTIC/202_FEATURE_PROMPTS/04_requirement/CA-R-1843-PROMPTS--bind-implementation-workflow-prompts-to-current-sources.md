@@ -1,20 +1,31 @@
 ---
-atom_id: "CA-R-1843"
-content_role: "Requirement"
-type: "Requirement"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 1
-updated_at: "2026-10-04 18:26:33 +0000"
+atom_id: CA-R-1843
+content_role: Requirement
+type: Rule
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 8
+updated_at: 2026-10-24 04:05:50 +0400
 subjects:
-  governs: "Implementation Workflow prompt source currentness"
-  depends_on: ["Prompt", "Workflow", "Step", "Action"]
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow.Prompt Source Currentness'
+  depends_on:
+  - Subject/Engineering/Prompt
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
-  relates_to: [CA-O-016, CA-O-091, CA-O-092, CA-O-093, CA-O-094, CA-O-095, CA-O-096, CA-O-099]
+  relates_to:
+  - CA-O-016
+  - CA-O-231
+  - CA-O-232
+  - CA-O-233
+  - CA-O-094
+  - CA-O-234
+  - CA-O-096
+  - CA-O-099
+tier: 3
 ---
 # Summary
 
@@ -22,12 +33,12 @@ Bind implementation prompts to current Workflow sources
 
 ## Scope
 
-the PROMPTS implementation of the current seven-Step CA-O-016 Implementation Workflow.
+the PROMPTS implementation of the admitted CA-O-016 Implementation Workflow.
 
 ## Claim
 
-the Implementation **must** dispatch a Step prompt only with current, fully read bindings for O016v11, O091v4/O092v3/O093v3/O094v4/O095v3/O096v3/O099v2 and O017v6/O018v6/O019v4/O020v5/O089v3/O024v11/O021v9.
+the Implementation **must** dispatch a Step prompt only with current, fully read Workflow, Step, and Action source bindings for its actually admitted graph. Context, required inputs, result labels, candidate/evidence freshness, and retry state must match those definitions. A staged shared-context definition is not executable route admission.
 
 ## Details
 
-`source_bindings.json` is derived review evidence, not authority. A changed, absent, mismatched, or partially read source blocks the affected prompt until independent PROMPTS RMED review refreshes its binding; changing a pin only to satisfy a check is forbidden.
+`source_bindings.json` is derived review evidence, not authority. Keep staged definition frontiers separate from the admitted runtime manifest and its frozen test corpus; do not relabel the old executable graph as current or enable an unsupported Step by changing a pin. A changed, absent, mismatched, or partially read source blocks the affected prompt until independent PROMPTS RMED review refreshes its binding; changing a pin only to satisfy a check is forbidden.

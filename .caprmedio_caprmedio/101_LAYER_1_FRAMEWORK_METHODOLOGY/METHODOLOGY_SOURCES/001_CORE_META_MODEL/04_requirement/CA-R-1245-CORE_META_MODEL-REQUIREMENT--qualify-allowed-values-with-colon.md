@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "Subject Expression"
+  governs: Subject
   depends_on:
-    - "IS_ALLOWED_VALUE_OF"
-    - "Property"
-version: 13
-updated_at: "2026-10-02 21:35:09 +0400"
+  - IS_ALLOWED_VALUE_OF
+  - Subject/Domain/Node/Continuant/Term//Property
+version: 17
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1245"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-R-1245
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

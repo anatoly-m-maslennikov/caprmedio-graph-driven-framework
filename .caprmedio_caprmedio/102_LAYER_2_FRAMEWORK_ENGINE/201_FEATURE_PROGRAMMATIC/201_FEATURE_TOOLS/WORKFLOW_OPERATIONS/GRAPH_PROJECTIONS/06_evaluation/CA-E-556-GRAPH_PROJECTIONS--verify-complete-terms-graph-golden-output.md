@@ -1,20 +1,28 @@
 ---
 atom_id: CA-E-556
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 19:23:34 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/Terms Graph golden case"
-  depends_on: [Tool, Term, Governed Term, Definition Atom, Projection, Relation Kind]
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Terms Graph'
+  depends_on:
+  - Subject/Engineering/Graph Projection
+  - Term
+  - Subject/Domain/Node/Continuant/Term
+  - Definition Atom
+  - Subject/Domain/Node/Continuant/Projection
+  - Relation Kind
 relations:
-  evaluation_for: [CA-R-1836, CA-R-1837, CA-R-1838]
+  evaluation_for:
+  - CA-R-1836
+  - CA-R-1837
+  - CA-R-1838
+tier: 4
 ---
 # Summary
 

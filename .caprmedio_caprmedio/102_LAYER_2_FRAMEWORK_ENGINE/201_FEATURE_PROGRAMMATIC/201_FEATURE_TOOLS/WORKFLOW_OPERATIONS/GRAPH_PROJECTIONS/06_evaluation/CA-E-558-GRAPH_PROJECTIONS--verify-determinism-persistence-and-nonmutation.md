@@ -1,20 +1,27 @@
 ---
 atom_id: CA-E-558
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-12 04:07:03 +0400"
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/Persistence and boundary case"
-  depends_on: [Tool, Projection, Artifact, Journal, Workflow Run, Step Run]
+  governs: Subject/Domain/Node/Continuant/Projection
+  depends_on:
+  - Subject/Engineering/Graph Projection
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
 relations:
-  evaluation_for: [CA-R-1837, CA-R-1838]
+  evaluation_for:
+  - CA-R-1837
+  - CA-R-1838
+tier: 4
 ---
 # Summary
 

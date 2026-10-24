@@ -1,20 +1,27 @@
 ---
 atom_id: CA-E-551
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 23:02:03 +0400"
+version: 6
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool/PROJECT_STRUCTURE rejection cases"
-  depends_on: [Tool, Scope Unit, Project Structure, Operator]
+  governs: Subject/Domain/Node/Continuant/Scope Unit
+  depends_on:
+  - Subject/Engineering/Project Structure
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
-  relates_to: [CA-R-1662, CA-R-1829, CA-R-1830, CA-R-1831]
+  relates_to:
+  - CA-R-1662
+  - CA-R-1829
+  - CA-R-1830
+  - CA-R-1831
+tier: 3
 ---
 # Summary
 

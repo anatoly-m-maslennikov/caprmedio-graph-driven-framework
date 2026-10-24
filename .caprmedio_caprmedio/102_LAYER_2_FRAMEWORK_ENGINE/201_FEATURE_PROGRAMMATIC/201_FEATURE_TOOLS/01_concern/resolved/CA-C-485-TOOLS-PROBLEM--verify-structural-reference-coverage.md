@@ -7,11 +7,13 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-06 05:30:29 +0000"
+version: 3
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Verify structural reference coverage"
-  depends_on: [Tool, Implementation, Evaluation, Workflow Run, Journal]
+  governs: Subject/Domain/Node/Continuant/Scope Unit
+  depends_on:
+  - Subject/Engineering/Structural Change/Reference Coverage
+  - Subject/Engineering/Source Discovery/Declared References
 relations:
   concern_about: [CA-P-1759]
 ---

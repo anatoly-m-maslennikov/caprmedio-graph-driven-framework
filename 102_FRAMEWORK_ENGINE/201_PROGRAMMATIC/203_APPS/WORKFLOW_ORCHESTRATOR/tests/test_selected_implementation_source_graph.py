@@ -15,6 +15,8 @@ if str(APP) not in sys.path:
     sys.path.insert(0, str(APP))
 
 from selected_execution import SelectedExecution, SelectedExecutionError  # noqa: E402
+from selected_graph_validation import assemble_d547_graph  # noqa: E402
+from selected_implementation_packet import implementation_packet  # noqa: E402
 
 
 _STEPS = (
@@ -116,7 +118,7 @@ class SelectedImplementationSourceGraphTests(unittest.TestCase):
         return rows
 
     def test_uses_exact_current_source_edges_not_stale_manifest_labels(self) -> None:
-        steps, entry = self._reader()._d547_steps(self._route())
+        steps, entry = assemble_d547_graph(self.root, self._route())
 
         self.assertEqual("CA-O-091", entry)
         self.assertEqual(
@@ -150,7 +152,7 @@ class SelectedImplementationSourceGraphTests(unittest.TestCase):
 
     def test_refuses_source_graph_with_an_undeclared_terminal_status(self) -> None:
         with self.assertRaisesRegex(SelectedExecutionError, "terminal"):
-            self._reader()._d547_steps(self._route(invalid_terminal=True))
+            assemble_d547_graph(self.root, self._route(invalid_terminal=True))
 
     def test_native_implementation_label_remains_the_source_edge_label(self) -> None:
         adapter = types.ModuleType("implementation_actions")
@@ -227,10 +229,10 @@ class SelectedImplementationSourceGraphTests(unittest.TestCase):
             "result": "repaired", "outputs": {"changed_paths": ["fixture.py"]},
         }]
 
-        before_repair = SelectedExecution._implementation_packet(parameters, "CA-O-096", permitted_only)
-        round_start = SelectedExecution._implementation_packet(parameters, "CA-O-099", permitted_only)
-        first_recheck = SelectedExecution._implementation_packet(parameters, "CA-O-096", completed_round)
-        repeated_recheck = SelectedExecution._implementation_packet(parameters, "CA-O-096", completed_round)
+        before_repair = implementation_packet(parameters, "CA-O-096", permitted_only)
+        round_start = implementation_packet(parameters, "CA-O-099", permitted_only)
+        first_recheck = implementation_packet(parameters, "CA-O-096", completed_round)
+        repeated_recheck = implementation_packet(parameters, "CA-O-096", completed_round)
 
         self.assertEqual(0, before_repair["retry"]["consumed"])
         self.assertEqual(1, round_start["retry"]["consumed"])

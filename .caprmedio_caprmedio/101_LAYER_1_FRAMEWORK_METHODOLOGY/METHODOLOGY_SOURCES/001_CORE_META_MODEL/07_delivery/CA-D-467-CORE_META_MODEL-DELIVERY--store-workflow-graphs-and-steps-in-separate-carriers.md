@@ -1,19 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
   depends_on:
-    ["Entity/Carrier/Directory Carrier", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step"]
-version: 11
-updated_at: "2026-10-19 15:55:53 +0400"
-relations: {"delivery_for": ["CA-R-1570", "CA-R-1569"], "relates_to": ["CA-D-457", "CA-D-285"]}
-atom_id: "CA-D-467"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - Subject/Engineering/Carrier/Directory Carrier
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+version: 16
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  delivery_for:
+  - CA-R-1570
+  - CA-R-1569
+  relates_to:
+  - CA-D-457
+  - CA-D-651
+atom_id: CA-D-467
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

@@ -3,17 +3,23 @@ atom_id: CA-D-529
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 19:36:28 +0000"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "WORKFLOW_OPERATIONS/RUN_SUPPORT/delivery placement"
-  depends_on: [Tool, Journal, Workflow, Action, Implementation]
+  governs: Subject/Engineering/Shared Run Support/Library Placement
+  depends_on:
+  - Subject/Engineering/Shared Run Support
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
-  delivery_for: [CA-D-527, CA-D-528]
+  delivery_for:
+  - CA-D-527
+  - CA-D-528
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

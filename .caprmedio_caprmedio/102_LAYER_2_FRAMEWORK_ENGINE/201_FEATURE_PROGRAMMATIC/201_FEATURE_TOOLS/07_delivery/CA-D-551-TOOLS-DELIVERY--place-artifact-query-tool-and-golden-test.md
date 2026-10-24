@@ -3,17 +3,26 @@ atom_id: CA-D-551
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-05 04:58:25 +0400"
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
   governs: FIND_AND_FETCH_ARTIFACTS
-  depends_on: [Tool, Workflow, Action, Journal, Implementation]
+  depends_on:
+  - Subject/Engineering/Tool//FIND_AND_FETCH_ARTIFACTS
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Journal Event Query
+  - Subject/Engineering/Artifact Query
 relations:
-  delivery_for: [CA-R-1849, CA-R-1850, CA-M-330, CA-E-569]
+  delivery_for:
+  - CA-R-1849
+  - CA-R-1850
+  - CA-M-330
+  - CA-E-569
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

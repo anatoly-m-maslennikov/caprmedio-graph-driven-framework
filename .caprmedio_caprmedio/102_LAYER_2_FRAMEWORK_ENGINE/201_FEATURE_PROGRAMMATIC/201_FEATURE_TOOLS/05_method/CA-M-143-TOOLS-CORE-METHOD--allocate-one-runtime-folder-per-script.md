@@ -1,17 +1,24 @@
 ---
 subjects:
-  governs: "runtime"
+  governs: Subject/Engineering/Runtime
   depends_on: []
-version: 14
-updated_at: 2026-08-30 16:44:07 +0400
+version: 19
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   method_for:
-    - CA-R-1065
+  - CA-R-1065
   derived_from:
-    - CA-A-057
+  - CA-A-057
+atom_id: CA-M-143
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Policy
+tier: 2
 ---
 # Allocate one runtime folder per script
 

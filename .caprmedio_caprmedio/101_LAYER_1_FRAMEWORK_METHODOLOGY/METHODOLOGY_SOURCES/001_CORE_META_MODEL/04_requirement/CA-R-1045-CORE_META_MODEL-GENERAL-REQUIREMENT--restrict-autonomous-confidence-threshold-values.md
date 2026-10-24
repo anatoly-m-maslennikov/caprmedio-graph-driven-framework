@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "Autonomous Confidence Threshold"
-version: 12
-updated_at: "2026-10-02 21:26:39 +0400"
+  governs: Subject/Engineering/Autonomous Confidence Threshold
+version: 15
+updated_at: 2026-10-24 04:38:42 +0400
 relations:
   child_of:
-    - CA-R-1044
-atom_id: "CA-R-1045"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-R-1044
+atom_id: CA-R-1045
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

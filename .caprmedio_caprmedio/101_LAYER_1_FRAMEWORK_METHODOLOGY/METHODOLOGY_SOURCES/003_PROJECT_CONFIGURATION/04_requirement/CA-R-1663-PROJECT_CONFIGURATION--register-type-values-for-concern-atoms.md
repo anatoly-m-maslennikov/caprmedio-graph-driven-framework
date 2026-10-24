@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Concern/Type"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Concern/Type'
   depends_on: []
-version: 25
-updated_at: "2026-10-19 15:56:10 +0400"
+version: 28
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type
-atom_id: "CA-R-1663"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type
+atom_id: CA-R-1663
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

@@ -1,19 +1,19 @@
 ---
 atom_id: CA-E-591
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Semantic Update Assessment Evidence"
-  depends_on: ["CA-R-1892", "CA-M-348", "CA-D-585"]
-version: 2
-updated_at: "2026-10-17 18:52:34 +0400"
+  governs: Subject/Engineering/Tool//ATOM_LIFECYCLE.Semantic Update Assessment Evidence
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: [CA-R-1892, CA-M-348]
+  evaluation_for:
+  - CA-R-1892
+  - CA-M-348
+tier: 5
 ---
 # Summary
 

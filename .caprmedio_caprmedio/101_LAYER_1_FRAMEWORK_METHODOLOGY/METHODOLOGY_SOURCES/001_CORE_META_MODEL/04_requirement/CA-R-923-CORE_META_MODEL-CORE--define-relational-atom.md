@@ -1,21 +1,23 @@
 ---
 subjects:
-  governs: "Relational Atom"
+  governs: Subject/Domain/Node/Continuant/Atom
   depends_on:
-    ["Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom"]
-version: 25
-updated_at: "2026-10-19 15:54:28 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Target Scope Unit
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom
+version: 31
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-1596
-atom_id: "CA-R-923"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1596
+atom_id: CA-R-923
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Definition
 ---
 # Summary
 Define Relational Atom

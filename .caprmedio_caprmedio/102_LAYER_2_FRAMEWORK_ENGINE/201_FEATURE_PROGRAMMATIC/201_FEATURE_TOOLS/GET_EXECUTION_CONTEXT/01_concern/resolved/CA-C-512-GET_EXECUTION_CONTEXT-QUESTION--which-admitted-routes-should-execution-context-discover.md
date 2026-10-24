@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 14
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 18:38:40 +0000"
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Tool/GET_EXECUTION_CONTEXT"
-  depends_on: [Tool, Workflow, Action, Source Carrier, Projection, Operator]
+  governs: Subject/Engineering/Programmatic Action/Execution Context Retrieval Adapter
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
   concern_about: [CA-P-1807, CA-R-1804, CA-R-1805, CA-R-1806, CA-D-514]
 ---

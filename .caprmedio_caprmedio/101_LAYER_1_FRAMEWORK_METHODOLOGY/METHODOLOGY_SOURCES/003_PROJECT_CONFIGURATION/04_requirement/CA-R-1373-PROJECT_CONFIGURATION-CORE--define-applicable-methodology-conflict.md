@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology.Conflict"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology.Conflict'
   depends_on:
-    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology"]
-version: 15
-updated_at: "2026-10-19 15:56:05 +0400"
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+version: 19
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1373"
-content_role: "Requirement"
+atom_id: CA-R-1373
+content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

@@ -1,25 +1,26 @@
 ---
 subjects:
-  governs: "Entity/Carrier/File Carrier"
+  governs: Subject/Engineering/Carrier/File Carrier
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity/Carrier/File Carrier", "Entity/Node/Continuant/Project"]
-version: 20
-updated_at: "2026-10-19 15:55:03 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier/File Carrier
+  - Subject/Domain/Node/Continuant/Project
+version: 25
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-D-463
-    - CA-D-479
-    - CA-D-356
-    - CA-D-470
-atom_id: "CA-E-457"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-D-463
+  - CA-D-479
+  - CA-D-356
+  - CA-D-470
+atom_id: CA-E-457
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 4
 ---
 # Summary
 

@@ -4,21 +4,26 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Corrective Method Acceptance Step"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Corrective Method Acceptance Step'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Node/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run"]
-version: 9
-updated_at: "2026-10-19 15:56:52 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+version: 13
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
   relates_to:
-    - CA-O-090
-    - CA-R-1527
-    - CA-R-1525
-global_tier: 11
+  - CA-O-090
+  - CA-R-1527
+  - CA-R-1525
+tier: 3
 ---
 # Summary
 

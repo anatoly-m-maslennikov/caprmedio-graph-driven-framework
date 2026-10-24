@@ -9,12 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: active
 subjects:
-  governs: "Short-name screening Operation carrier"
+  governs: Short-name screening Operation carrier
   depends_on:
-    - "Operations"
-    - "Markdown Atom Carrier/Structure"
-version: 1
-updated_at: "2026-10-04 12:36:26 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Markdown Atom Carrier/Structure
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
     - CA-O-065

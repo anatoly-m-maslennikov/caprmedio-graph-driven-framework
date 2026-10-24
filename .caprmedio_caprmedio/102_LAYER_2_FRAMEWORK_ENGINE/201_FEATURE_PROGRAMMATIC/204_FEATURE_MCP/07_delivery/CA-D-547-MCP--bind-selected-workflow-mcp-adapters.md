@@ -3,17 +3,28 @@ atom_id: CA-D-547
 content_role: Delivery
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 10
-updated_at: "2026-10-15 11:27:33 +0000"
+version: 13
+updated_at: 2026-10-24 03:32:45 +0400
 subjects:
-  governs: "MCP/selected Workflow adapter Carrier"
-  depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal, Projection, Project]
+  governs: Subject/Engineering/MCP.selected Workflow adapter Carrier
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Engineering/Tool
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution/Run
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Project
 relations:
-  delivery_for: [CA-R-1847, CA-R-1848]
+  delivery_for:
+  - CA-R-1847
+  - CA-R-1848
+type: Eng Decision
+tier: 4
 ---
 # Summary
 
@@ -25,7 +36,7 @@ The declared delivery location and public request contract for selected MCP adap
 
 ## Claim
 
-The adapter surface **must** be implemented in one Project-local MCP binding. Non-Release selected routes delegate to shared Run support; the two direct Release commands invoke their existing local **or** public runner under the boundary below.
+The adapter surface **must** be implemented in one Project-local MCP binding. Except for the narrow current O016 Version 18 Integrated pending/status/`submit_result` handoff described below, Non-Release selected routes delegate to shared Run support; the two direct Release commands invoke their existing local **or** public runner under the boundary below.
 
 ## Details
 
@@ -60,14 +71,14 @@ files per operation, not compared to compiled historical Version/hash constants.
 or stale manifests reject without shared-support invocation, Run, Action Run,
 worker, effect, Event, or Journal write.
 
-Each non-Release selected route adapts to, rather than redefines, `run_selected_operation(request)`.
+Except for the narrow current O016 Version 18 Integrated pending/status/`submit_result` handoff described below, each non-Release selected route adapts to, rather than redefines, `run_selected_operation(request)`.
 Its shared request contains route/operation identity, typed input/parameters, an
 idempotency/retry key, real parent lineage only, and exactly the outer canonical
 `definition_manifest` (`manifest_ref`, `manifest_digest`). A mutation also
 contains explicit current sealed Initiative authorization. `source_freshness`
 retains only selected-source registry/binding evidence; a manifest ref/digest
 there or anywhere else is a shadow unknown field and is rejected, whether
-matching or different. Its shared `RunResult` contains real Run/definition IDs,
+matching or different. For those general routes, its shared `RunResult` contains real Run/definition IDs,
 outcome, result/effect/report/output refs, actual supplied Journal observations and logging I/O diagnostics when present,
 currentness and diagnostics, without Journal-proof or completion prerequisites. Non-Release selected MCP routes use `mode` defaulting to `preview`; preview
 has no Run/Event, and only explicit `execute` may request selected dispatch. An admitted
@@ -80,7 +91,34 @@ executor. Unknown fields, raw filesystem/shell instructions, mixed route
 capability, alternate root, `apply`, or execute without its required exact
 authorization/admission are errors or blocked outcomes.
 
-For non-Release selected routes, the only connected-process exception is the existing `update_atom` changed Subject-only execute variant admitted by CA-R-866/CA-O-030. Its actual outer `hot_reload.py` Gateway request/session invokes the private `subject_publication_confirmation.py` handler, using host-owned exact request, Operator and staged-candidate bindings, then consumes the one-use confirmation through the same-process existing `selected_execution.py` selected/shared Run dispatch. It reuses all current request, source, preview, permission, assessment, lock, effect, restoration and actual Run outcome checks; plain Journal append/read remains observation, not a permission, proof or completion gate, and introduces no recording retry or recovery. It returns the unchanged shared RunResult. The confirmation is never a public field, serialized queue record or child-session correlation assertion. Other non-Release selected routes and generic updates retain the declared DBOS dispatch; the direct Release commands follow their separately stated runner boundary. This placement declaration grants no publication, runtime activation or guard removal.
+For the current source-bound `run_implementation_workflow`, the explicitly
+admitted connected-session binding is the Project Configuration Workflow
+CA-O-016 at observed Version 18, limited to its eight Integrated Steps and
+CA-O-231 entry after the existing manifest/currentness/permission checks. It
+uses the existing APP and canonical RunTracker: a pending response carries the
+current Step prompt, complete bound inputs, expected result contract and
+opaque one-use continuation, and does not claim completion. The controlling
+session may perform or delegate the Step and submit through the same route
+with the closed inner fields `operation=submit_result`, `run_id`,
+`action_run_id`, `continuation_id`, and
+`result={result, outputs, evidence, blockers}`. The server owns admission,
+validation and digest/policy binding; exact duplicates return the original
+response, conflicting/stale/oversized submissions refuse, and no effect is
+replayed. Read-only status strips `capture.definitions`, exposes retained
+recording diagnostics and never recovers or replays work. With no checkpoint, read-only observation returns `not_observed` with the requested Run ID only; it never fabricates an actual root/Run start, prompt or recovery. A known graph-blocked
+terminal must expose the exact wrapper/canonical Run tuple
+`disposition=terminal`, `status=interrupted_pending`,
+`outcome=interrupted_pending`, `graph_result.outcome=interrupted_pending`,
+and `run_disposition=interrupted`; unknown root/child interruption without
+bound canonical graph proof stays `interrupted_pending` with no prompt, while
+tampered/missing graph refs refuse. O016 Version 17 remains the legacy
+projection and DBOS/queue dispatch path; Version 18 is the observed
+current admission, not a timeless `>=18` rule, and a future Version requires
+fresh current compatible admission. This delivery declaration adds no
+projection compilation gate or Journal completeness permission gate, and no
+new Tool, executor or registry.
+
+The separate connected-process exception is the existing `update_atom` changed Subject-only execute variant admitted by CA-R-866/CA-O-030. Its actual outer `hot_reload.py` Gateway request/session invokes the private `subject_publication_confirmation.py` handler, using host-owned exact request, Operator and staged-candidate bindings, then consumes the one-use confirmation through the same-process existing `selected_execution.py` selected/shared Run dispatch. It reuses all current request, source, preview, permission, assessment, lock, effect, restoration and actual Run outcome checks; plain Journal append/read remains observation, not a permission, proof or completion gate, and introduces no recording retry or recovery. It returns the unchanged shared RunResult. The confirmation is never a public field, serialized queue record or child-session correlation assertion. All remaining non-Release selected routes and generic updates retain the declared DBOS dispatch; the direct Release commands follow their separately stated runner boundary. This placement declaration grants no publication, runtime activation or guard removal.
 
 Only the two declared read-only Run observation routes remain; the obsolete
 `recover_selected_run_recording` route and Journal recording-retry protocol are
@@ -107,5 +145,6 @@ These direct commands do not weaken the complete manifest/source/currentness/per
 
 - Current CA-R-1847, CA-R-1848, CA-E-567 and CA-E-568.
 - Current CA-A-1142, CA-P-1618 and CA-P-1535; CA-D-527 v3; CA-D-521 v7; CA-D-548 v2; CA-D-523 v2.
+- Current CA-O-016 Project Configuration Workflow (observed Version 18), CA-R-1527 Core Meta Model General, CA-R-1845 and CA-D-544 supply the Integrated prompt/continuation contract; CA-E-652 remains Workflow-level algorithm/evaluation authority, not an MCP admission gate.
 
 The existing `atom_update` preparation Tool also binds CA-D-425's `stage_subject_batch` with closed `{operation, subject_batch: {path, digest}, limit?}`, strict limit1..10/default10, compact actual progress and final schema1 packet. This creates no canonical/history effect. Draft-backed packets bind every temporary-ID/Status proposal; map-only execution remains available. Existing request authorization admits subsequent exact promotion without an extra form/review/full-validation round. Restore canonical ID/original Status through normal writer checks; canonical ID grammar and ordinary `preview_subjects`/`stage_subjects` behavior are unchanged.

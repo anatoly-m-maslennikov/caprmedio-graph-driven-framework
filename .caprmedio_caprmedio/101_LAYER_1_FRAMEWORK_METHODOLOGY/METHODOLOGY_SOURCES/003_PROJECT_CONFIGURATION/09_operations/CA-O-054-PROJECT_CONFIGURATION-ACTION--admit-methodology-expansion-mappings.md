@@ -1,20 +1,30 @@
 ---
 subjects:
-  governs: "Admit Methodology Expansion Mapping"
+  governs: Admit Methodology Expansion Mapping
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Methodology Source.Expansion Mapping", "Methodology Source", "Extension", "Project Configuration", "Core Meta-Model", "Entity/Node/Continuant/Actor/Type: Operator"]
-version: 9
-updated_at: "2026-10-19 15:56:46 +0400"
-relations: {relates_to: [CA-M-298, CA-E-249, CA-R-1375, CA-R-1207]}
-atom_id: "CA-O-054"
-content_role: "Operations"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Methodology Source.Expansion Mapping
+  - Methodology Source
+  - Extension
+  - Project Configuration
+  - Core Meta-Model
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 12
+updated_at: 2026-10-24 00:38:25 +0400
+relations:
+  relates_to:
+  - CA-M-298
+  - CA-E-249
+  - CA-R-1375
+  - CA-R-1207
+atom_id: CA-O-054
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 ---
 # Summary
 

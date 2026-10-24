@@ -1,19 +1,27 @@
 ---
 atom_id: CA-E-538
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 04:10:07 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Action/execution/isolation evaluation"
-  depends_on: [AI Agent, Atom, Carrier, Implementation, Action, Operator]
+  governs: Subject/Engineering/Runtime/Docker Runtime.Agent Isolation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Engineering/Agent Execution/Project-Write Isolation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
-  evaluation_for: [CA-R-1819, CA-M-325, CA-D-525]
+  evaluation_for:
+  - CA-R-1819
+  - CA-M-325
+  - CA-D-525
+tier: 4
 ---
 # Summary
 

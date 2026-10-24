@@ -1,19 +1,24 @@
 ---
-atom_id: "CA-D-505"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-global_tier: 9
-status: "Active"
-version: 3
-updated_at: "2026-10-15 18:52:26 +0000"
-author: "Anatoly Maslennikov"
+atom_id: CA-D-505
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
+author: Anatoly Maslennikov
 subjects:
-  governs: "Entity Carrier Binding"
+  governs: 'Subject/Graph/Relation/Type: CARRIES'
   depends_on:
-    ["Entity", "Property", "Entity/Carrier", "Primary Entity", "Atom Carrier Binding", "Scope Unit Carrier Binding", "IS_CARRIED_BY"]
+  - Subject/Domain/Node
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Engineering/Carrier
+  - Primary Entity
+  - 'Subject/Graph/Relation/Type: CARRIES'
+  - IS_CARRIED_BY
 relations: {}
+tier: 1
+type: Eng Decision
 ---
 # Summary
 

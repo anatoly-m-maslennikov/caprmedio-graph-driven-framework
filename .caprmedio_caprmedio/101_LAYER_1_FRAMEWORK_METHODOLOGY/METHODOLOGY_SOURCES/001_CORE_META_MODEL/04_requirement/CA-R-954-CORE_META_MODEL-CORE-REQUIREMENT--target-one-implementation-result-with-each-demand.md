@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Demand"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Demand'
   depends_on:
-    ["Implementation"]
-version: 19
-updated_at: "2026-10-19 15:54:33 +0400"
+  - Subject/Engineering/Implementation
+version: 24
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-933
-atom_id: "CA-R-954"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-933
+atom_id: CA-R-954
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 6
+type: Rule
 ---
 # Summary
 Target one Implementation result with each Demand

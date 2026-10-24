@@ -12,6 +12,7 @@ TESTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TESTS))
 import test_selected_execution as queue_tests  # noqa: E402
 from selected_execution import SelectedExecution, SelectedExecutionError, build_requested_runs  # noqa: E402
+from selected_graph_sources import validate_definition  # noqa: E402
 import selected_routes  # noqa: E402
 sys.path.insert(0, str(queue_tests.MCP / "tests"))
 import test_selected_routes_mcp as route_tests  # noqa: E402
@@ -31,13 +32,18 @@ class SelectedFullRegistryGuardTest(unittest.TestCase):
         route = manifest["routes"][0]
         steps = []
         for source in route["steps"]:
-            step = self.runner._definition(source, expected_kind="step")
-            step["actions"] = [self.runner._definition(action, expected_kind="action") for action in source["actions"]]
+            step = validate_definition(self.runner.root, source, expected_kind="step")
+            step["actions"] = [
+                validate_definition(self.runner.root, action, expected_kind="action")
+                for action in source["actions"]
+            ]
             step["on_result"] = copy.deepcopy(source["on_result"])
             steps.append(step)
         return {"request": request, "graph": {
             "route": route["route"],
-            "workflow": self.runner._definition(route["workflow"], expected_kind="workflow"),
+            "workflow": validate_definition(
+                self.runner.root, route["workflow"], expected_kind="workflow"
+            ),
             "steps": steps, "entry_step": steps[0]["atom_id"], "native_action_calls": [],
             "manifest_ref": self.fixture.manifest_path.relative_to(self.fixture.root).as_posix(),
             "manifest_digest": manifest["canonical_manifest_sha256"],

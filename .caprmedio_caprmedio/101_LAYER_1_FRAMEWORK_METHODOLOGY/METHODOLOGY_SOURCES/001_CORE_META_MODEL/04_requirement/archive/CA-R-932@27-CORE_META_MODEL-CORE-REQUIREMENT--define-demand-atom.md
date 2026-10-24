@@ -1,0 +1,35 @@
+---
+subjects:
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Demand'
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Consumer
+  - Producer
+  - Subject/Domain/Node/Continuant/Atom.Local Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Target Scope Unit
+version: 27
+updated_at: 2026-10-24 00:51:05 +0400
+relations:
+  child_of:
+  - CA-R-923
+atom_id: CA-R-932@27
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 1
+---
+# Summary
+
+Define Demand Atom
+
+## Scope
+
+Atoms with Content Role Requirement **and** Type Demand.
+
+## Claim
+
+a Demand Atom **means** a Relational Atom with Content Role Requirement **and** Type Demand that is owned by its Consumer Scope Unit **and** constrains results of its Producer Claim Target Scope Unit within the applicability restrictions of its Claim.
+
+## Details

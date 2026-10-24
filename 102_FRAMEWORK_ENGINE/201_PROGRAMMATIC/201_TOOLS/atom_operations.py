@@ -47,6 +47,14 @@ CURRENT_FILENAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_@-]*--[a-z0-9][a-z0-9_-]*
 # consistency check, not the only identity carrier.
 ATOM_ID = re.compile(r"(?:^|-)(CA-[CAPRMEDO]-[0-9]+)(?=-|$)")
 _IDENTITY_LOCKS = threading.local()
+_SCAN_SCHEMA_ERRORS = frozenset({
+    "atom-frontmatter-missing",
+    "atom-frontmatter-invalid",
+    "atom-frontmatter-id-required",
+    "atom-frontmatter-id-mismatch",
+    "draft-marker-invalid",
+    "draft-has-stable-id",
+})
 
 
 class ToolError(RuntimeError):
@@ -293,7 +301,46 @@ def _atom_from_path(root: Path, path: Path, control: Path) -> Atom:
                 lifecycle, role or "control-root", frontmatter, content)
 
 
-def scan_atoms(root: Path, *, under: str | None = None, lifecycle: str = "all") -> list[Atom]:
+def _record_scan_diagnostic(root: Path, path: Path, error: Exception,
+                            diagnostics: list[dict[str, str]]) -> None:
+    """Report one skipped content-role carrier without changing scan callers."""
+    relative = path.relative_to(root).as_posix()
+    failure = FailureRecord(
+        "WARNING",
+        "schema_invalid",
+        "Atom carrier is malformed or invalid",
+        {"path": relative},
+        exception_class=type(error).__name__,
+    )
+    logger = _cli_logger(root)
+    if logger is not None:
+        logger = replace(logger, component="ATOM_SEARCH")
+    secondary = "diagnostic logger unavailable"
+    if logger is not None:
+        secondary = logger.emit(
+            code=failure.code,
+            relative_path=relative,
+            reason=failure.message,
+            operation="atom_search",
+            exception_class=failure.exception_class,
+        )
+    diagnostics.append({"code": failure.code, "path": relative, "reason": failure.message})
+    if secondary:
+        diagnostics.append({
+            "code": "diagnostic_logging_failed",
+            "path": relative,
+            "reason": f"technical diagnostic emission failed: {secondary}",
+        })
+
+
+def _scan_schema_error(error: Exception) -> bool:
+    return isinstance(error, UnicodeDecodeError) or (
+        isinstance(error, ToolError) and error.code in _SCAN_SCHEMA_ERRORS
+    )
+
+
+def scan_atoms(root: Path, *, under: str | None = None, lifecycle: str = "all",
+               diagnostics: list[dict[str, str]] | None = None) -> list[Atom]:
     root = root.resolve()
     control = control_root(root)
     base = safe_path(root, under, must_exist=True) if under else control
@@ -302,7 +349,14 @@ def scan_atoms(root: Path, *, under: str | None = None, lifecycle: str = "all") 
     for path in candidates:
         try:
             atom = _atom_from_path(root, path, control)
-        except (ToolError, UnicodeDecodeError, OSError):
+        except (ToolError, UnicodeDecodeError, OSError) as error:
+            candidate = (_role_directory(path, control) is not None
+                         and "_projection" not in path.relative_to(control).parts)
+            if diagnostics is not None and candidate:
+                if _scan_schema_error(error):
+                    _record_scan_diagnostic(root, path, error, diagnostics)
+                    continue
+                raise
             continue
         if lifecycle == "all" or atom.lifecycle == lifecycle:
             atoms.append(atom)
@@ -1677,7 +1731,9 @@ def run_search(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     if (any(getattr(args, field, None) for field in ("subject_field", "subject_match", "content_role", "scope_unit"))
             or getattr(args, "subject_profile", None) is not None):
         raise ToolError("input-invalid", "Subject filters require --subject")
-    atoms = scan_atoms(root, under=args.under, lifecycle=args.lifecycle or "all")
+    scan_diagnostics: list[dict[str, str]] = []
+    atoms = scan_atoms(root, under=args.under, lifecycle=args.lifecycle or "all",
+                       diagnostics=scan_diagnostics)
     if args.atom:
         selected = {atom.relative for atom in resolve_selectors(root, args.atom)}
         atoms = [atom for atom in atoms if atom.relative in selected]
@@ -1686,7 +1742,17 @@ def run_search(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         atoms = [atom for atom in atoms if needle in "\n".join((atom.relative, atom.frontmatter, atom.content)).casefold()]
     if args.limit is not None:
         atoms = atoms[:args.limit]
-    return {"count": len(atoms), "atoms": [present(atom, args.view) for atom in atoms]}
+    result: dict[str, Any] = {"count": len(atoms), "atoms": [present(atom, args.view) for atom in atoms]}
+    if scan_diagnostics:
+        result.update({
+            "complete": False,
+            "warnings": scan_diagnostics,
+            "errors": [{
+                "code": "schema_invalid",
+                "message": "One or more Atom carriers failed schema validation and were skipped",
+            }],
+        })
+    return result
 
 
 def run_read(root: Path, args: argparse.Namespace) -> dict[str, Any]:

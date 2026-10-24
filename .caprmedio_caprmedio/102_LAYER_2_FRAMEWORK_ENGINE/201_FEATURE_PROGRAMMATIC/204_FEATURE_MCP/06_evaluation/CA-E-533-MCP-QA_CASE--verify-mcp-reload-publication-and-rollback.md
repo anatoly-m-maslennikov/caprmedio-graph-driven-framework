@@ -1,17 +1,23 @@
 ---
 atom_id: CA-E-533
 content_role: Evaluation
-type: QA_CASE
+type: Eval Case
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 20:41:31 +0400"
+version: 7
+updated_at: 2026-10-24 01:50:12 +0400
 subjects:
-  governs: "MCP/implementation"
-  depends_on: [MCP, Tool, Operator, Project, Implementation, Workflow, Atom]
+  governs: Subject/Engineering/MCP/implementation
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Engineering/MCP.Hot Reload Evaluation
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/MCP/Reload Control and Generation Evidence
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+tier: 3
 ---
 # Summary
 

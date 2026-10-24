@@ -1,20 +1,36 @@
 ---
 subjects:
-  governs: "Entity/Carrier"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Artifact", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Scope Unit", "Atom/Content Role", "Entity/Node/Continuant/Actor/Type: Operator", "Runtime State"]
-version: 4
-updated_at: "2026-10-19 15:55:17 +0400"
-relations: {"evaluation_for": ["CA-D-308", "CA-D-341", "CA-R-1463", "CA-R-1467", "CA-R-1468", "CA-R-1720", "CA-R-1745"]}
-atom_id: "CA-E-522"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Runtime.State
+version: 11
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-D-308
+  - CA-D-341
+  - CA-R-1463
+  - CA-R-1467
+  - CA-R-1468
+  - CA-R-1720
+  - CA-R-1745
+atom_id: CA-E-522
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 

@@ -1,19 +1,21 @@
 ---
-atom_id: "CA-D-507"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-global_tier: 9
-status: "Active"
-version: 3
-updated_at: "2026-10-15 18:52:28 +0000"
-author: "Anatoly Maslennikov"
+atom_id: CA-D-507
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+version: 6
+updated_at: 2026-10-24 01:37:42 +0400
+author: Anatoly Maslennikov
 subjects:
-  governs: "Entity Identity"
+  governs: Entity Identity
   depends_on:
-    ["Entity.Identity", "Entity/Carrier.Format", "Entity/Carrier/File Carrier.Extension"]
+  - Entity.Identity
+  - Subject/Engineering/Carrier.Format
+  - Subject/Engineering/Carrier/File Carrier.Extension
 relations: {}
+tier: 1
+type: Eng Decision
 ---
 # Summary
 

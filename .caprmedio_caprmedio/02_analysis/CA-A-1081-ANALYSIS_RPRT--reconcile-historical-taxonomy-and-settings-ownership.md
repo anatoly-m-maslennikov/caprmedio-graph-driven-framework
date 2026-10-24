@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Historical coherent taxonomy and settings ownership reconciliation"
-  depends_on: [Operations, "Methodology Sources", Project]
-version: 4
-updated_at: "2026-10-04 13:10:29 +0000"
+  governs: Historical coherent taxonomy and settings ownership reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Methodology Sources
+  - Subject/Domain/Node/Continuant/Project
+version: 5
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1363]
   relates_to: [CA-A-1063, CA-A-1019, CA-A-1023, CA-A-1028, CA-A-1015, CA-A-1032, CA-C-364]

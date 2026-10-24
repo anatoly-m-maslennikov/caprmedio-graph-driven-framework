@@ -1,20 +1,26 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom"
+  governs: Subject/Domain/Node/Continuant/Atom
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Demand", "Entity/Node/Continuant/Atom/Content Role: Plan"]
-version: 19
-updated_at: "2026-10-19 15:54:59 +0400"
-relations: {"evaluation_for": ["CA-R-923", "CA-R-924", "CA-R-1576", "CA-R-1588"]}
-atom_id: "CA-E-425"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Demand'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 23
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-923
+  - CA-R-924
+  - CA-R-1576
+  - CA-R-1588
+atom_id: CA-E-425
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 5
 ---
 # Summary
 

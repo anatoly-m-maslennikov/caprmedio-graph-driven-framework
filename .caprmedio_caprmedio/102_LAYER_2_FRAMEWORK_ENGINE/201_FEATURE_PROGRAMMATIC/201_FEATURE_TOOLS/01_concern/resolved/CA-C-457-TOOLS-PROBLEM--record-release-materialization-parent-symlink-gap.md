@@ -7,11 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 04:21:12 +0000"
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Release child materialization containment"
-  depends_on: [Atom, Carrier, Tool, Evaluation]
+  governs: Subject/Engineering/Filesystem Containment/Symlink Validation
+  depends_on:
+  - Subject/Engineering/Release Packaging/Materialization
 relations:
   concern_about: [CA-P-1650, CA-D-561, CA-D-571]
 ---

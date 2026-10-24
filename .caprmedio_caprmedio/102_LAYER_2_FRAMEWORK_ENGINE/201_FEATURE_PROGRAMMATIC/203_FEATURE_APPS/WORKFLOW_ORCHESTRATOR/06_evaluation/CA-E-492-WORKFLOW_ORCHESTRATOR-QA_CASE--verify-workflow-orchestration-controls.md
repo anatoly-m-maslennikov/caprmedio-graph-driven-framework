@@ -2,21 +2,37 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Workflow Run"
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Step Run"
-    - "Action"
-    - "Tool"
-    - "Operator"
-    - "Applicable Methodology"
-    - "Implementation"
-version: 3
-updated_at: "2026-09-20 15:47:25 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Tool//WORKFLOW_ORCHESTRATOR
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Implementation
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {"evaluation_for": ["CA-R-1522", "CA-R-1523", "CA-M-302"], "relates_to": ["CA-E-489", "CA-E-495", "CA-E-496", "CA-E-497"]}
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations:
+  evaluation_for:
+  - CA-R-1522
+  - CA-R-1523
+  - CA-M-302
+  relates_to:
+  - CA-E-489
+  - CA-E-495
+  - CA-E-496
+  - CA-E-497
+atom_id: CA-E-492
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+type: Eval Case
+tier: 5
 ---
 # Verify Workflow orchestration controls
 

@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type'
   depends_on:
-    - "Entity/Carrier"
-version: 12
-updated_at: "2026-10-20 15:50:37 +0400"
+  - Subject/Engineering/Carrier
+version: 16
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-399"
-content_role: "Delivery"
+atom_id: CA-D-399
+content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

@@ -1,20 +1,28 @@
 ---
-atom_id: "CA-R-1846"
-content_role: "Requirement"
-type: "Requirement"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 1
-updated_at: "2026-10-04 18:26:33 +0000"
+atom_id: CA-R-1846
+content_role: Requirement
+type: Rule
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 5
+updated_at: 2026-10-24 01:50:12 +0400
 subjects:
-  governs: "Implementation prompt outcomes"
-  depends_on: ["Prompt", "Evaluation", "Workflow Run", "Evidence"]
+  governs: Subject/Engineering/Implementation prompt outcomes
+  depends_on:
+  - Subject/Engineering/Prompt
+  - Evaluation
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Evidence
 relations:
-  relates_to: [CA-O-016, CA-O-020, CA-O-024, CA-O-089, CA-O-021]
+  relates_to:
+  - CA-O-016
+  - CA-O-020
+  - CA-O-024
+  - CA-O-089
+  - CA-O-021
+tier: 3
 ---
 # Summary
 

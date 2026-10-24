@@ -1,21 +1,23 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Settings.Atom Prefix"
+  governs: Subject/Domain/Node/Continuant/Project.Settings.Atom Prefix
   depends_on:
-    ["Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Actor/Type: Operator"]
-version: 15
-updated_at: "2026-10-19 15:55:38 +0400"
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 20
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - "CA-D-366"
-atom_id: "CA-D-376"
-content_role: "Delivery"
+  - CA-D-366
+atom_id: CA-D-376
+content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 7
+type: Eng Decision
 ---
 # Summary
 

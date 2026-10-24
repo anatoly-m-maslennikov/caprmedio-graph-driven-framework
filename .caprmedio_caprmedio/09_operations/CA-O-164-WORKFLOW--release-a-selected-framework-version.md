@@ -3,17 +3,32 @@ atom_id: CA-O-164
 content_role: Operations
 type: Workflow
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Release selected Framework Version"
-  depends_on: [Workflow, Step, Action, Operator, Version, Methodology, Implementation, Skill, Test, Journal]
-version: 20
-updated_at: "2026-10-21T16:23:32Z"
+  governs: Release selected Framework Version
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Version
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Engineering/Release Version/Source Compilation and Package Carriers
+  - Skill
+  - Test
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 24
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-O-011, CA-O-165, CA-O-166, CA-O-168, CA-O-169, CA-R-1525]
+  relates_to:
+  - CA-O-011
+  - CA-O-165
+  - CA-O-166
+  - CA-O-168
+  - CA-O-169
+  - CA-R-1525
+tier: 3
 ---
 # Summary
 

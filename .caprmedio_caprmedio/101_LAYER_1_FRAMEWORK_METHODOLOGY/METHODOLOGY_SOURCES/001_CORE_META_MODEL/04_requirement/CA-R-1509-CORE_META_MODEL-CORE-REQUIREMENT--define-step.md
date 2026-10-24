@@ -1,19 +1,27 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Occurrent/Execution/Step Run", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Agentic Step Execution Context", "Tool"]
-version: 9
-updated_at: "2026-10-19 15:53:18 +0400"
-relations: {"relates_to": ["CA-R-1569"]}
-atom_id: "CA-R-1509"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action/Execution Kind'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  - Subject/Engineering/Workflow Execution/Tool Call Step Boundary
+version: 14
+updated_at: 2026-10-24 00:51:05 +0400
+relations:
+  relates_to:
+  - CA-R-1569
+atom_id: CA-R-1509
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Definition
+tier: 1
 ---
 # Summary
 

@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 18:38:40 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Align prepared replacement successors"
-  depends_on: [Implementation, Evaluation, Action, Workflow Run, Journal]
+  governs: Align prepared replacement successors
+  depends_on:
+  - Implementation
+  - Evaluation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Journal
 relations:
   concern_about: [CA-P-1799, CA-P-1794, CA-P-1655]
 ---

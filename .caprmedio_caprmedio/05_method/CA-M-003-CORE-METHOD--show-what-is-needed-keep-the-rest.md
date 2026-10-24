@@ -2,16 +2,23 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "Project/information"
+  governs: Project/information
   depends_on:
-    - "Project"
-version: 12
-updated_at: 2026-09-05 01:15:08 +0400
+  - Subject/Domain/Node/Continuant/Project
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-1420
+  - CA-R-1420
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-003
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Eng Policy
+tier: 1
 ---
 # Show what is needed; keep the rest
 

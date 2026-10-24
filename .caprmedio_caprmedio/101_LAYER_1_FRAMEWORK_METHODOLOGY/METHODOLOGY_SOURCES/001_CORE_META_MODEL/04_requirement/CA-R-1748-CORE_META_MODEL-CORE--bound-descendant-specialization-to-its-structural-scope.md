@@ -1,21 +1,26 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Scope Unit"
+  governs: Subject/Domain/Node/Continuant/Scope Unit
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Local Tier", "Methodology Source", "Core Meta-Model", "Extension", "Project Configuration"]
-version: 19
-updated_at: "2026-10-19 15:53:57 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Tier
+  - Methodology Source
+  - Core Meta-Model
+  - Subject/Domain/Node/Continuant/Selection//Extension Sources
+  - Project Configuration
+version: 26
+updated_at: 2026-10-24 02:04:43 +0400
 relations:
   child_of:
-    - CAPRMEDIO-REQU-033-REQUIREMENT--preserve-ancestor-core-authority-across-structural-levels
-atom_id: "CA-R-1748"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-033
+atom_id: CA-R-1748
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 
@@ -30,7 +35,7 @@ Applicable inherited authority in descendant Scope Units and specializations wit
 applicable inherited authority **must** remain effective **in** a descendant Scope Unit **unless** that authority explicitly permits a specialization **and** the specialization stays within the permitted boundary.
 
 - the specialization **must not** change the parent meaning outside its declared descendant scope.
-- ancestor Core authority remains protected under CAPRMEDIO-REQU-033-REQUIREMENT--preserve-ancestor-core-authority-across-structural-levels; a child declaration **or** an override label does **not** grant permission **to** weaken it.
-- Extension **and** Project Configuration additions **must** also preserve Core Meta-Model authority at **every** Local Tier under CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission. changing the descendant's local rank **or** retaining unchanged Core Carrier bytes does **not** bypass that boundary.
+- ancestor Core authority remains protected under CA-R-033; a child declaration **or** an override label does **not** grant permission **to** weaken it.
+- Extension **and** Project Configuration additions **must** also preserve Core Meta-Model authority at **every** numeric Tier under CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission. changing the descendant's numeric Tier **or** retaining unchanged Core Carrier bytes does **not** bypass that boundary. No Content-Role or Type-to-Tier restriction is introduced.
 
 ## Details

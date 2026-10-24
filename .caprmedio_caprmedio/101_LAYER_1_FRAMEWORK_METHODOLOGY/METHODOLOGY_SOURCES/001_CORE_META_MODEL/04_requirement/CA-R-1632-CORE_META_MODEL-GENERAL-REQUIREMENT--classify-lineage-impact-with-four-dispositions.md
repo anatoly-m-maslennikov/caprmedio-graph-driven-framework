@@ -1,20 +1,17 @@
 ---
 subjects:
-  governs: "relation-model"
-  depends_on:
-    - "atom-boundary"
-version: 20
-updated_at: "2026-10-03 01:23:33 +0400"
-relations:
-  {}
-atom_id: "CA-R-1632"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  governs: Subject/Graph/Relation
+version: 24
+updated_at: 2026-10-24 01:37:42 +0400
+relations: {}
+atom_id: CA-R-1632
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

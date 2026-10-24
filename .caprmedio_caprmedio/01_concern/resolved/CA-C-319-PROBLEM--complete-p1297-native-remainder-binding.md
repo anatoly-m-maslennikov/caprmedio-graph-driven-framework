@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "CA-P-1297 harvest completion and source binding"
-  depends_on: [Project, Artifact, "Atom/Content Role: Plan"]
-version: 2
-updated_at: "2026-10-04 13:41:16 +0400"
+  governs: CA-P-1297 harvest completion and source binding
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - Artifact
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1297]
   relates_to: [CA-A-1015, CA-P-1301]

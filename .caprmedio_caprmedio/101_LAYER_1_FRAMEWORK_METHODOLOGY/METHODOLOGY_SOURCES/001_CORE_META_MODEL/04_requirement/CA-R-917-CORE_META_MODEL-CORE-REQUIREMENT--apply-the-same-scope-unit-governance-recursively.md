@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Scope Unit"
+  governs: Subject/Domain/Node/Continuant/Scope Unit
   depends_on:
-    ["Entity/Node/Continuant/Scope Unit"]
-version: 22
-updated_at: "2026-10-19 15:54:26 +0400"
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 26
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-1719
-atom_id: "CA-R-917"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1719
+atom_id: CA-R-917
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 Apply the same Scope Unit governance recursively

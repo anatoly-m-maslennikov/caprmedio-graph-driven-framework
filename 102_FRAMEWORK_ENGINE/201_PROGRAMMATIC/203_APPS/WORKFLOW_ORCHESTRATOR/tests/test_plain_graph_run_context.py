@@ -10,7 +10,7 @@ TOOLS = APP.parents[1] / "201_TOOLS"
 for location in (APP, TOOLS, TOOLS / "GENERATE_ENTITY_GRAPH"):
     sys.path.insert(0, str(location))
 
-from selected_execution import SelectedExecution  # noqa: E402
+from selected_graph_inputs import graph_parameters_with_actual_recording  # noqa: E402
 import generate_entity_graph as graph  # noqa: E402
 
 
@@ -41,7 +41,7 @@ class PlainGraphRunContextTests(unittest.TestCase):
 
     def test_actual_action_context_needs_no_journal_receipt(self):
         session = self.session()
-        bound = SelectedExecution._graph_parameters_with_actual_recording(
+        bound = graph_parameters_with_actual_recording(
             {"graph_kind": "entities"},
             session,
             workflow_run_id="workflow",
@@ -59,7 +59,7 @@ class PlainGraphRunContextTests(unittest.TestCase):
         parameters = {"graph_kind": "entities"}
         self.assertIs(
             parameters,
-            SelectedExecution._graph_parameters_with_actual_recording(
+            graph_parameters_with_actual_recording(
                 parameters,
                 session,
                 workflow_run_id="workflow",

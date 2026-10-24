@@ -1,20 +1,27 @@
 ---
 atom_id: CA-E-550
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 18:30:31 +0000"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool/PROJECT_STRUCTURE remove and no-op cases"
-  depends_on: [Tool, Scope Unit, Project Structure, Carrier]
+  governs: Subject/Domain/Node/Continuant/Scope Unit
+  depends_on:
+  - Subject/Engineering/Project Structure
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Engineering/Carrier
 relations:
-  relates_to: [CA-R-1662, CA-R-1829, CA-R-1831, CA-R-1832]
+  relates_to:
+  - CA-R-1662
+  - CA-R-1829
+  - CA-R-1831
+  - CA-R-1832
+tier: 3
 ---
 # Summary
 

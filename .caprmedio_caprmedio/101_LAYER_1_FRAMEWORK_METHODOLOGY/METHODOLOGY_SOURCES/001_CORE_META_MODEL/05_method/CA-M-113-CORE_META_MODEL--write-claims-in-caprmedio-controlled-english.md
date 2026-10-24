@@ -1,30 +1,33 @@
 ---
 subjects:
-  governs: "language"
+  governs: language
   depends_on:
-    ["artifact-model", "CCE", "Author", "Entity/Node/Continuant/Atom.Substance"]
-version: 20
-updated_at: "2026-10-19 15:54:39 +0400"
+  - artifact-model
+  - Subject/Graph/Rule/CCE
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject/Domain/Node/Continuant/Atom.Substance
+version: 25
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-M-111
-    - CA-M-112
-    - CA-R-941
+  - CA-M-111
+  - CA-M-112
+  - CA-R-941
   relates_to:
-    - CA-M-229
-    - CA-M-301
-    - CA-M-294
-    - CA-M-307
-    - CA-M-308
-    - CA-M-315
-atom_id: "CA-M-113"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-M-229
+  - CA-M-301
+  - CA-M-294
+  - CA-M-307
+  - CA-M-308
+  - CA-M-315
+atom_id: CA-M-113
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 4
+type: Implementation Method
 ---
 # Summary
 

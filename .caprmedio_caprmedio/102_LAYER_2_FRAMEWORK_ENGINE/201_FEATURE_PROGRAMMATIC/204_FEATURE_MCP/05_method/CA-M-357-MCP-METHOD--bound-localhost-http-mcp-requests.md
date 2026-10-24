@@ -2,17 +2,24 @@
 atom_id: CA-M-357
 content_role: Method
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-09 04:37:30 +0400"
+version: 8
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "MCP/HTTP endpoint/Access implementation"
-  depends_on: [MCP, HTTP, Request, Operator, Permission, Session]
+  governs: Subject/Engineering/MCP/HTTP endpoint/Access implementation
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Engineering/HTTP
+  - Subject/Engineering/HTTP/Request
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Permission
+  - Subject/Domain/Node/Occurrent/Session
 relations:
-  method_for: [CA-R-1885]
+  method_for:
+  - CA-R-1885
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

@@ -1,22 +1,22 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection.Updated At"
+  governs: Subject/Domain/Node/Continuant/Projection.Updated At
   depends_on:
-    ["Entity/Node/Continuant/Projection"]
-version: 10
-updated_at: "2026-10-19 15:53:16 +0400"
+  - Subject/Domain/Node/Continuant/Projection
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - "CA-R-1708"
-    - CAPRMEDIO-META-REQU-128--separate-artifact-carrier-and-revision
-atom_id: "CA-R-1495"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-R-1708
+  - CAPRMEDIO-META-REQU-128--separate-artifact-carrier-and-revision
+atom_id: CA-R-1495
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

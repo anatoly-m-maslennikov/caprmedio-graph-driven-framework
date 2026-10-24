@@ -8,8 +8,9 @@ subjects:
       - Programmatic Policy
       - Method Authority
       - Evaluation Coverage
-version: 2
-updated_at: 2026-08-30 17:21:33 +0400
+version: 3
+updated_at: 2026-10-23 03:17:34 +0400
+atom_id: CA-A-053
 ---
 # Reconcile shared PROGRAMMATIC policy decisions
 

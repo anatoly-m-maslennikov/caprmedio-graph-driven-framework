@@ -1,20 +1,32 @@
 ---
 atom_id: CA-E-600
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-21T08:58:22Z"
+version: 10
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Workflow Orchestrator/Project MCP runtime admission evaluation"
-  depends_on: [Project, MCP, Docker Runtime, Image, Gateway, Credential, Carrier, Project Settings]
+  governs: Subject/Engineering/Tool//PROJECT_MCP_RUNTIME_ADMISSION.Evaluation
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/MCP
+  - Subject/Engineering/Runtime/Docker Runtime
+  - Image
+  - Gateway
+  - Credential
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project.Settings
 relations:
-  evaluation_for: [CA-R-1901, CA-M-356]
-  relates_to: [CA-E-537, CA-E-584, CA-E-585]
+  evaluation_for:
+  - CA-R-1901
+  - CA-M-356
+  relates_to:
+  - CA-E-537
+  - CA-E-584
+  - CA-E-585
+tier: 5
 ---
 # Summary
 

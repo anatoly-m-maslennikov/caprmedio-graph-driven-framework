@@ -2,20 +2,21 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Content Role"
+  governs: Subject/Domain/Node/Continuant/Atom/Content Role
   depends_on:
-    - "Actor"
-    - "Atom/Content Role: Plan"
-    - "Atom/Content Role: Operations"
-    - "Atom/Local Tier: Principle"
-    - "Operator"
-    - "AI Agent"
+  - Subject/Domain/Node/Continuant/Actor
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Atom/Local Tier: Principle'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
 priority: medium
-version: 1
-updated_at: "2026-09-17 15:13:27 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-153
 ---
 # How should the remaining Plan Action Policies be classified?
 

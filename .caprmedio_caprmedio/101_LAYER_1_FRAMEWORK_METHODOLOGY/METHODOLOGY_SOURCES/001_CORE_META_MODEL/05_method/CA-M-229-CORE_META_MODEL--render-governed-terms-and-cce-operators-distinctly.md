@@ -1,22 +1,27 @@
 ---
 subjects:
-  governs: "Governed Term Rendering"
+  governs: Subject/Domain/Node/Continuant/Term
   depends_on:
-    ["CCE Operator", "General Term", "Governed Term", "Entity/Node/Continuant/Scope Unit.Name", "Author", "Markdown Atom Carrier.Main Content.CCE Operator"]
-version: 15
-updated_at: "2026-10-19 15:54:41 +0400"
+  - Subject/Engineering/CCE Operator
+  - General Term
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Domain/Node/Continuant/Scope Unit.Name
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject/Engineering/Carrier/File Carrier.Main Content.CCE Operator
+version: 20
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - CA-D-280
-    - CA-M-299
-atom_id: "CA-M-229"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-D-280
+  - CA-M-299
+atom_id: CA-M-229
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

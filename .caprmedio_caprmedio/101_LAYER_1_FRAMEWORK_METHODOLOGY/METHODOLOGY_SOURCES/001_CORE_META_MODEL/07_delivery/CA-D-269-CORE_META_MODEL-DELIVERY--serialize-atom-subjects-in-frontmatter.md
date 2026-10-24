@@ -1,19 +1,23 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Subjects"
+  governs: Subject/Domain/Node/Continuant/Atom.Subjects
   depends_on:
-    ["Entity/Node/Continuant/Atom.Subjects", "GOVERNS", "DEPENDS_ON", "Subject Path", "Subject", "Relation Kind"]
-version: 15
-updated_at: "2026-10-19 15:55:19 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - 'Subject/Graph/Relation/Type: GOVERNS'
+  - 'Subject/Graph/Relation/Type: DEPENDS_ON'
+  - Subject
+  - Subject/Graph/Relation/Type
+version: 19
+updated_at: 2026-10-24 01:50:12 +0400
 relations: {}
-atom_id: "CA-D-269"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-269
+content_role: Delivery
+type: Eng Decision
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
 ---
 # Summary
 
@@ -25,7 +29,7 @@ New **or** migrated Markdown Atom Carriers.
 
 ## Claim
 
-**every** new **or** migrated Markdown Atom Carrier **must** serialize its Subjects directly as **`=1`** scalar Subject Path at `subjects.governs` **and** an unordered collection of **`>=0`** unique scalar Subject Paths at `subjects.depends_on`; an absent dependency collection **means** zero dependencies. the `governs` **or** `depends_on` key encodes the Subject Relation Kind; the source Atom is implicit **and** the scalar value encodes its target's Subject Path, **not** the Subject Relation itself. these values resolve their canonical targets under CA-R-1202-CORE_META_MODEL-CORE-REQUIREMENT--resolve-every-direct-subject-target-once **without** an intermediate Subject/Entity **or** Subject/Reference field **or** a repeated target-kind field.
+a new **or** migrated Markdown Atom Carrier **may** omit `subjects` when it has no Subject Relations. **when** present, `subjects.governs` **may** contain one scalar Subject Path **and** `subjects.depends_on` an unordered collection of **`>=0`** unique scalar Subject Paths; an absent `governs` key **means** zero governed Subjects **and** an absent dependency collection **means** zero dependencies. the `governs` **or** `depends_on` key encodes the Subject Relation Kind; the source Atom is implicit **and** the scalar value encodes its target's Subject Path, **not** the Subject Relation itself. these values resolve their canonical targets under CA-R-1202-CORE_META_MODEL-CORE-REQUIREMENT--resolve-every-direct-subject-target-once **without** an intermediate Subject/Entity **or** Subject/Reference field **or** a repeated target-kind field.
 
 ## Details
 

@@ -2,20 +2,21 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Task"
+  governs: 'Atom/Content Role: Plan/Type: Task'
   depends_on:
-    - "Operator"
-    - "AI Agent"
-    - "Actor"
-    - "Atom"
-    - "Artifact"
-    - "Atom/Claim"
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject/Domain/Node/Continuant/Atom
+  - Artifact
+  - Atom/Claim
 priority: medium
-version: 2
-updated_at: "2026-09-21 00:39:50 +0000"
+version: 4
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-131
 ---
 # Which unfinished session work requires a persisted Task?
 

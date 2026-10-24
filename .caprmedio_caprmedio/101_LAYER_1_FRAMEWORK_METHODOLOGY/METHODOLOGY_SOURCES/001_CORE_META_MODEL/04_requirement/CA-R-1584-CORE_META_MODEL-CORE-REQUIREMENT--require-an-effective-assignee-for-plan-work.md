@@ -1,19 +1,22 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Plan.Assignee"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Assignee'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Actor"]
-version: 9
-updated_at: "2026-10-19 15:53:36 +0400"
-relations: {"relates_to": ["CA-R-1575"]}
-atom_id: "CA-R-1584"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - Subject/Domain/Node/Continuant/Actor
+version: 14
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1575
+atom_id: CA-R-1584
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

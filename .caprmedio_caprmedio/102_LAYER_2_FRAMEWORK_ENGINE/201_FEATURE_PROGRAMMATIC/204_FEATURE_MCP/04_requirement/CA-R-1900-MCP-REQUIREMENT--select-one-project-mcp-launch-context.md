@@ -3,17 +3,28 @@ atom_id: CA-R-1900
 content_role: Requirement
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-09 00:25:33 +0400"
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "MCP/Project launcher/selection boundary"
-  depends_on: [Project, Project Settings, Project Structure, MCP, Gateway, Registry, Query Source, Runtime, Operator]
+  governs: Subject/Engineering/MCP
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Engineering/MCP
+  - Gateway
+  - Registry
+  - Subject/Engineering/Runtime
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
-  relates_to: [CA-R-1884, CA-R-1885, CA-R-1818]
+  relates_to:
+  - CA-R-1884
+  - CA-R-1885
+  - CA-R-1818
+tier: 3
+type: Rule
 ---
 # Summary
 
@@ -34,3 +45,12 @@ the Project MCP launcher **must** resolve **=1** safe, explicit Project context 
 - canonical Project identity is the SHA-256 of the canonical host Project-root path, a NUL separator, and the selected control-root path relative to that Project root. It is computed before `/project` container translation and remains the same selected-instance identity there. Thus two Project roots under one Git repository have separate identities even when their control-root names, Engine sources, or image fingerprints match.
 - the immutable selected context contains that identity, canonical Project-root path, the selected control-root relative path, and the exact Project-local manifest, registry, and query-source bindings. Gateway construction, hot-reload storage, registry reads, and query-source reads receive that context; they must not fall back to a process-global root or another Project's binding. Local `.git` is not a selection precondition.
 - every runtime-owned lock, Gateway context, reload receipt, pending-launch record, and cache is namespaced by the selected Project identity below that Project's installed runtime state. A state entry from another identity is neither reusable input nor a cleanup target. This rule adds no runtime-kind enum and does not change a selected Workflow, queue, worker, or Release boundary.
+- an explicit canonical Project root may be nested below the configured host
+  projects-root mount when it satisfies the same local-control-root and
+  identity checks. Startup candidate discovery remains bounded to direct
+  children of that mount; the bounded discovery rule does not prohibit an
+  explicitly selected nested Project.
+- this record scopes the legacy one-Project launcher mode. A shared per-request
+  runtime may serve multiple explicit Projects through one container and
+  endpoint under CA-R-2008; that shared mode is not a global one-Project
+  restriction.

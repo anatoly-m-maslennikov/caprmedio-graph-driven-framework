@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Concurrent committed-state recovery frontier"
-  depends_on: [Journal, "Artifact/Revision", Evaluation]
-version: 1
-updated_at: "2026-10-04 14:18:42 +0000"
+  governs: Concurrent committed-state recovery frontier
+  depends_on:
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Artifact/Revision
+  - Evaluation
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1376]
 ---

@@ -1,20 +1,26 @@
 ---
-atom_id: "CA-D-546"
-content_role: "Delivery"
-type: "Delivery"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 1
-updated_at: "2026-10-04 18:26:33 +0000"
+atom_id: CA-D-546
+content_role: Delivery
+type: Eng Decision
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 5
+updated_at: 2026-10-24 01:50:12 +0400
 subjects:
-  governs: "Implementation prompt contract tests"
-  depends_on: ["Prompt", "Evaluation", "Carrier"]
+  governs: Subject/Engineering/Implementation prompt contract tests
+  depends_on:
+  - Subject/Engineering/Prompt
+  - Evaluation
+  - Subject/Engineering/Carrier
 relations:
-  relates_to: [CA-E-563, CA-E-564, CA-E-565, CA-E-566]
+  relates_to:
+  - CA-E-563
+  - CA-E-564
+  - CA-E-565
+  - CA-E-566
+tier: 3
 ---
 # Summary
 

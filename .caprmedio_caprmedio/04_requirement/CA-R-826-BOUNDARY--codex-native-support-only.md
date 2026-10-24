@@ -1,13 +1,23 @@
 ---
 subject_scopes:
-  - applicability
-version: 5
-updated_at: 2026-09-06 01:45:12 +0400
+- applicability
+version: 12
+updated_at: 2026-10-24 04:48:21 +0400
 relations:
   child_of:
-    - CAPRMEDIO-REQU-622-CORE-REQUIREMENT--keep-selected-settings-in-their-authoritative-settings-artifact
+  - CA-R-622
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-826
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Boundary
+tier: 2
+subjects:
+  governs: Subject/Engineering/Codex Plugin
+  depends_on: []
 ---
 # Codex native support only
 

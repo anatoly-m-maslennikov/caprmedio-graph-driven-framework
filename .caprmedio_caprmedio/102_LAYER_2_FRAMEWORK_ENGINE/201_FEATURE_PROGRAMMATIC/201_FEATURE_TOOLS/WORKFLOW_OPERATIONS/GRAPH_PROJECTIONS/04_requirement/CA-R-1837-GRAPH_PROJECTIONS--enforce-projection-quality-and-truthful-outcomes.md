@@ -3,17 +3,28 @@ atom_id: CA-R-1837
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 19:23:34 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/Quality disposition"
-  depends_on: [Tool, Projection, Artifact, Journal, Workflow Run, Step Run]
+  governs: Subject/Domain/Node/Continuant/Projection
+  depends_on:
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Domain/Node/Continuant/History/Journal.Record
 relations:
-  relates_to: [CA-R-1835, CA-R-1836, CA-O-134, CA-O-137, CA-R-1387, CA-E-432, CA-E-433]
+  relates_to:
+  - CA-R-1835
+  - CA-R-1836
+  - CA-O-134
+  - CA-O-137
+  - CA-R-1387
+  - CA-E-432
+  - CA-E-433
+type: Rule
+tier: 3
 ---
 # Summary
 

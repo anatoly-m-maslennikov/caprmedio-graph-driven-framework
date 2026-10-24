@@ -2,17 +2,30 @@
 atom_id: CA-D-561
 content_role: Delivery
 current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 8
-updated_at: "2026-10-14 16:53:24 +0000"
+version: 13
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Tool/RELEASE_VERSION/Source and compilation carriers"
-  depends_on: [Tool, Methodology, Projection, Manifest, Project Structure, Framework Settings, Framework Package, Installation, Journal, Source Carrier]
+  governs: Subject/Engineering/Release Version/Source Compilation and Package Carriers
+  depends_on:
+  - Subject/Engineering/Release Version
+  - Subject/Domain/Node/Continuant/Selection//Methodology Sources
+  - Subject/Domain/Node/Continuant/Projection
+  - Manifest
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Framework Package
+  - Installation
+  - Subject/Engineering/Carrier/Journal Serialization
+  - Subject/Engineering/Carrier/File Carrier
 relations:
-  delivery_for: [CA-R-1878, CA-M-332, CA-M-362]
+  delivery_for:
+  - CA-R-1878
+  - CA-M-332
+  - CA-M-362
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

@@ -2,17 +2,28 @@
 atom_id: CA-R-1883
 content_role: Requirement
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 17:17:04 +0400"
+version: 6
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "Release Version recovery request"
-  depends_on: [Release Version, Workflow Run, Step Run, Action Run, Operator, Permission, Journal, Source, Implementation]
+  governs: Release Version recovery request
+  depends_on:
+  - Release Version
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Action Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Permission
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Release Version/Failure and Effect Recovery
 relations:
-  relates_to: [CA-R-1524, CA-D-574, CA-O-164]
+  relates_to:
+  - CA-R-1524
+  - CA-D-574
+  - CA-O-164
+tier: 3
+type: Rule
 ---
 # Summary
 

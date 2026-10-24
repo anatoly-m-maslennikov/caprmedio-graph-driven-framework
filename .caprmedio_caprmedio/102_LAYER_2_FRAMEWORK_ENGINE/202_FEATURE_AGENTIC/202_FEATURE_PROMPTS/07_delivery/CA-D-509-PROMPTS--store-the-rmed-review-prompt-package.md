@@ -1,29 +1,29 @@
 ---
-atom_id: "CA-D-509"
-content_role: "Delivery"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 1
-updated_at: "2026-10-03 06:25:11 +0400"
+atom_id: CA-D-509
+content_role: Delivery
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 6
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "Prompt/Carrier"
+  governs: Subject/Engineering/Carrier/File Carrier
   depends_on:
-    - "Prompt"
-    - "Action"
-    - "Step"
-    - "Workflow"
-    - "Scope Unit"
-    - "Implementation"
+  - Subject/Engineering/Prompt
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Engineering/Prompt Construction/Action Instructions
 relations:
   relates_to:
-    - CA-O-108
-    - CA-O-109
-    - CA-O-110
-    - CA-R-1801
+  - CA-O-108
+  - CA-O-109
+  - CA-O-110
+  - CA-R-1801
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

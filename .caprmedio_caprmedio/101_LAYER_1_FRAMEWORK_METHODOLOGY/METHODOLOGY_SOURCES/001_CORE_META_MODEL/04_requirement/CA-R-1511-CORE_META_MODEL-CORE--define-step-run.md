@@ -1,19 +1,25 @@
 ---
 subjects:
-  governs: "Entity/Node/Occurrent/Execution/Step Run"
+  governs: Subject/Domain/Node/Occurrent/Execution/Step Run
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/History/Journal.Record", "Agentic Step Execution Context", "Tool", "Tool Call"]
-version: 8
-updated_at: "2026-10-19 15:53:19 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  - Subject/Engineering/Execution Trace/Step-Run Tool Call Parentage
+  - Subject/Domain/Node/Occurrent/Execution
+version: 13
+updated_at: 2026-10-24 00:51:05 +0400
 relations: {}
-atom_id: "CA-R-1511"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1511
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Definition
+tier: 1
 ---
 # Summary
 Define Step Run

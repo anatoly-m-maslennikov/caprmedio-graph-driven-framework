@@ -1,23 +1,25 @@
 ---
-version: 8
-updated_at: "2026-10-19 15:54:48 +0400"
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-1487
+  - CA-R-1487
   method_for:
-    - CA-R-1487
+  - CA-R-1487
 subjects:
-  governs: "Project Lexicographic Selection"
+  governs: Subject/Domain/Node/Continuant/Selection//PROJECT_LEXICOGRAPHIC
   depends_on:
-    ["Entity/Node/Continuant/Actor/Type: Operator", "Project Priority Model Application", "Entity/Node/Continuant/Atom/Content Role: Method"]
-atom_id: "CA-M-297"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+atom_id: CA-M-297
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 4
+type: Implementation Method
 ---
 # Summary
 

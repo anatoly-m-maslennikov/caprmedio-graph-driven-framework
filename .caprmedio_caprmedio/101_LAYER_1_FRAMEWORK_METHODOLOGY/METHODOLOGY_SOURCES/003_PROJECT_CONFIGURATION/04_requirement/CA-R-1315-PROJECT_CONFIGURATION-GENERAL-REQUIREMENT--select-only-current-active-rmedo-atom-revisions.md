@@ -1,19 +1,20 @@
 ---
 subjects:
-  governs: "Applicable Methodology Membership Selection"
+  governs: Subject/Domain/Node/Continuant/Selection//Methodology Sources
   depends_on:
-    ["Atom/Content Role", "Atom/Type.Status"]
-version: 18
-updated_at: "2026-10-18 07:49:20 +0400"
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Atom.Status
+version: 23
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1315"
-content_role: "Requirement"
+atom_id: CA-R-1315
+content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

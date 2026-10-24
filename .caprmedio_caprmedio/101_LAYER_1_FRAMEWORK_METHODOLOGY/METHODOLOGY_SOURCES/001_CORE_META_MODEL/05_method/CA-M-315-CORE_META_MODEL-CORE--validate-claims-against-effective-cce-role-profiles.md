@@ -1,26 +1,30 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Substance"
+  governs: Subject/Domain/Node/Continuant/Atom.Substance
   depends_on:
-    ["CCE Role Profile", "CCE Operator", "Entity/Node/Continuant/Atom.Substance", "Atom/Content Role", "Type"]
-version: 7
-updated_at: "2026-10-19 15:54:53 +0400"
+  - Subject/Graph/Rule/CCE Role Profile
+  - Subject/Engineering/CCE Operator
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Atom.Type
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-M-307
-    - CA-M-308
+  - CA-M-307
+  - CA-M-308
   relates_to:
-    - CA-M-113
-    - CA-M-229
-    - CA-M-234
-atom_id: "CA-M-315"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-M-113
+  - CA-M-229
+  - CA-M-234
+atom_id: CA-M-315
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 7
+type: Implementation Method
 ---
 # Summary
 

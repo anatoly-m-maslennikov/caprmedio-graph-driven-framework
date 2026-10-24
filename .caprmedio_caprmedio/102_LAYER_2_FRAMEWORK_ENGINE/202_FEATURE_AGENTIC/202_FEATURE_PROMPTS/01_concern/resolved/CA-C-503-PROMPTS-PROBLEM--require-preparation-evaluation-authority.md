@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 17:23:10 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Require preparation Evaluation authority"
-  depends_on: [Implementation, Evaluation, Action, Workflow Run, Journal]
+  governs: Require preparation Evaluation authority
+  depends_on:
+  - Implementation
+  - Evaluation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Journal
 relations:
   concern_about: [CA-P-1797, CA-P-1794, CA-P-1655]
 ---

@@ -1,22 +1,26 @@
 ---
-atom_id: "CA-R-1889"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "General"
-global_tier: 10
-author: "Anatoly Maslennikov"
-status: "Active"
+atom_id: CA-R-1889
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Atom/Content Role: Analysis/Type: FPF Analysis Report"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis/Type: FPF Analysis Report'
   depends_on:
-    - "Atom/Content Role: Analysis"
-    - "Analysis Report"
-    - "FPF"
-version: 1
-updated_at: "2026-10-05 23:46:22 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis'
+  - Analysis Report
+  - FPF
+version: 5
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  relates_to: ["CA-R-1888", "CA-R-1727", "CA-R-1875", "CA-D-479"]
+  relates_to:
+  - CA-R-1888
+  - CA-R-1727
+  - CA-R-1875
+  - CA-D-479
+tier: 2
+type: Definition
 ---
 # Summary
 

@@ -2,18 +2,25 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: "Ingest External Analysis"
+  governs: Ingest External Analysis
   depends_on:
-    - "Action"
-    - "Artifact"
-    - "Atom/Content Role: Analysis"
-    - "Atom/Claim"
-    - "Artifact/Revision"
-version: 2
-updated_at: "2026-09-17 03:15:34 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Artifact
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis'
+  - Atom/Claim
+  - Artifact/Revision
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-O-035
+status: Active
+content_role: Operations
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Action
+tier: 1
 ---
 # Ingest one external Analysis
 

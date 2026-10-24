@@ -1,19 +1,29 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Property"
+  governs: Subject/Domain/Node/Continuant/Atom.Property
   depends_on:
-    ["Entity/Node/Continuant/Atom.Property", "Entity/Carrier/File Carrier", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Relation"]
-version: 9
-updated_at: "2026-10-19 15:55:56 +0400"
-relations: {"delivery_for": ["CA-R-1598"], "relates_to": ["CA-D-479", "CA-D-268", "CA-R-1470"]}
-atom_id: "CA-D-478"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - Subject/Domain/Node/Continuant/Atom.Property
+  - Subject/Engineering/Carrier/File Carrier
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Graph/Relation
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  delivery_for:
+  - CA-R-1598
+  relates_to:
+  - CA-D-479
+  - CA-D-268
+  - CA-R-1470
+atom_id: CA-D-478
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Eng Decision
 ---
 # Summary
 

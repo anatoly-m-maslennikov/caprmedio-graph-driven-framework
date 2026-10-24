@@ -1,17 +1,20 @@
 ---
 subjects:
-  governs: "artifact-operations"
+  governs: Subject/Engineering/Carrier
   depends_on: []
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 12
-updated_at: "2026-10-12 23:58:28 +0400"
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+version: 19
+status: Active
+updated_at: 2026-10-24 03:08:30 +0400
 content_role: Requirement
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
+atom_id: CA-R-1133
+tier: 3
+type: Rule
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Source Reconciliation candidate reconciliation"
-  depends_on: [Operations, "Methodology Sources"]
-version: 1
-updated_at: "2026-10-04 16:51:30 +0400"
+  governs: Source Reconciliation candidate reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Methodology Sources
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   relates_to: [CA-P-1340, CA-P-1130, CA-A-924, CA-O-010, CA-O-011, CA-D-479, CA-C-350]
 ---

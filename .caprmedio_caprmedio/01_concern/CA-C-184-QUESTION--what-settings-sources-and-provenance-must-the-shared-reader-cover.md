@@ -2,19 +2,20 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Framework Instance Settings"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings
   depends_on:
-    - "Project Settings"
-    - "Default Settings"
-    - "Project Structure"
-    - "Artifact/Revision"
-    - "Carrier"
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Default Settings
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Artifact/Revision
+  - Subject/Engineering/Carrier
 priority: medium
-version: 4
-updated_at: "2026-09-17 22:28:45 +0000"
+version: 6
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-184
 ---
 # What Settings sources and provenance must the shared Reader cover?
 

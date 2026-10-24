@@ -8,11 +8,13 @@ local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
-version: 3
-updated_at: "2026-10-04 19:29:30 +0000"
+version: 4
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Tool/Selected Workflow RMED/Review"
-  depends_on: [Atom, Tool, Journal, Operator, Action]
+  governs: Subject/Domain/Node/Continuant/Atom
+  depends_on:
+  - Subject/Engineering/Specification Review/Workflow Contracts
+  - Subject/Engineering/Specification Review/Metadata and Sections
 relations:
   concern_about: [CA-P-1484, CA-P-1485, CA-P-1486, CA-P-1487, CA-P-1488, CA-P-1489, CA-P-1491, CA-P-1501, CA-P-1502, CA-P-1503, CA-P-1504, CA-P-1505, CA-P-1506]
 ---

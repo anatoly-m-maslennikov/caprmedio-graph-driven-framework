@@ -1,19 +1,27 @@
 ---
 subjects:
-  governs: "Plan Blocking Relations"
+  governs: 'Subject/Graph/Relation/Type: BLOCKS'
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Plan Graph", "Entity/Node/Continuant/Atom/Content Role: Plan.Status: Done", "Hub Atom", "Subject Relation Kind: DEPENDS_ON"]
-version: 7
-updated_at: "2026-10-19 15:53:35 +0400"
-relations: {"relates_to": ["CA-R-1583", "CA-D-471", "CA-R-1200"]}
-atom_id: "CA-R-1580"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Plan Graph
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Status: Done'
+  - Hub Atom
+  - 'Subject/Graph/Relation/Type: DEPENDS_ON'
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1583
+  - CA-D-471
+  - CA-R-1200
+atom_id: CA-R-1580
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

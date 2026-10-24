@@ -1,17 +1,22 @@
 ---
 atom_id: CA-E-535
 content_role: Evaluation
-type: QA_CASE
+type: Eval Case
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 01:12:38 +0400"
+version: 6
+updated_at: 2026-10-24 01:50:12 +0400
 subjects:
-  governs: "Workflow Run/coverage"
-  depends_on: [Workflow, Step, Action, Atom, Operator, Journal]
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run.Coverage
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+tier: 3
 ---
 # Summary
 

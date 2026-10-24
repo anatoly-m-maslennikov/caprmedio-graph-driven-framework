@@ -8,11 +8,14 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 01:45:00 +0400"
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Journal Event selector absence semantics"
-  depends_on: [Tool, Event, QUERY_FILTER]
+  governs: Subject/Domain/Node/Continuant/Selection
+  depends_on:
+  - Subject/Engineering/Data Filtering/Absent Values
+  - Subject/Engineering/Data Filtering/JSON Pointer
+  - Subject/Domain/Node/Continuant/History/Journal.Record
 relations:
   concern_about: [CA-R-1850, CA-R-1869, CA-E-575, CA-P-1533]
 ---

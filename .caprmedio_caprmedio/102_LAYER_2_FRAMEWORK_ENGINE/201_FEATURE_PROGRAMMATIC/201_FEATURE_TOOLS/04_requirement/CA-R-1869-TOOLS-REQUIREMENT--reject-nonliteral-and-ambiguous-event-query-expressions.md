@@ -3,17 +3,22 @@ atom_id: CA-R-1869
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-05 01:45:00 +0400"
+version: 5
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/filter safety"
-  depends_on: [Tool, Event]
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
+  depends_on:
+  - Subject/Engineering/Journal Event Query/Selector Admission
 relations:
-  relates_to: [CA-R-1850, CA-R-1862, CA-R-1864, CA-E-575]
+  relates_to:
+  - CA-R-1850
+  - CA-R-1862
+  - CA-R-1864
+  - CA-E-575
+type: Rule
+tier: 3
 ---
 # Summary
 

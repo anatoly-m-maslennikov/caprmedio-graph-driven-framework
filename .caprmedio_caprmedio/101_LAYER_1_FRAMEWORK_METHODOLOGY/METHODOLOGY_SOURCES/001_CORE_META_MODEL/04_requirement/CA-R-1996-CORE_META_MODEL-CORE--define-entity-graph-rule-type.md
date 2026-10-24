@@ -3,18 +3,18 @@ atom_id: CA-R-1996
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Graph Rule.Type
+  governs: Subject/Graph/Rule.Type
   depends_on:
-  - Entity/Graph Rule
-  - 'Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Rule'
+  - Subject/Graph/Rule
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Rule'
 relations: {}
-version: 2
-updated_at: "2026-10-20 00:26:28 +0400"
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 1
+type: Definition
 ---
 # Summary
 

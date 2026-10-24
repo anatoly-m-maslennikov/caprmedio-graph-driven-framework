@@ -2,18 +2,18 @@
 subjects:
   governs: APPS/Goal
   depends_on:
-  - PROGRAMMATIC
-version: 11
-updated_at: "2026-10-18 03:45:03 +0400"
+  - Subject/Engineering/programmatic software
+version: 14
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
 atom_id: CA-R-1187
 content_role: Requirement
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: APPS
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

@@ -8,11 +8,15 @@ local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
-version: 3
-updated_at: "2026-10-15 18:40:51 +0000"
+version: 5
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Selected Operations/Carrier"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Artifact/Carrier"]
+  governs: Selected Operations/Carrier
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Carrier
 relations:
   concern_about: [CA-P-1440, CA-P-1442, CA-O-007, CA-O-008]
 ---

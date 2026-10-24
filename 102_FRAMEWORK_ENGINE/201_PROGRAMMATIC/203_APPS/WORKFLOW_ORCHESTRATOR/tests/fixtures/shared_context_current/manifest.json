@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "kind": "shared_context_current_frozen_fixture",
+  "oracle": "checked_in_source_bytes",
+  "live_read": false,
+  "workflow": {
+    "atom_id": "CA-O-016",
+    "version": 17,
+    "entry_step": "CA-O-231",
+    "steps": [
+      "CA-O-231",
+      "CA-O-232",
+      "CA-O-233",
+      "CA-O-094",
+      "CA-O-234",
+      "CA-O-096",
+      "CA-O-099",
+      "CA-O-230"
+    ],
+    "transitions": [
+      {
+        "from": "CA-O-231",
+        "result": "evaluation_ready",
+        "to": "CA-O-232"
+      },
+      {
+        "from": "CA-O-231",
+        "result": "requirement_ready",
+        "to": "CA-O-233"
+      },
+      {
+        "from": "CA-O-231",
+        "result": "evaluation_runnable",
+        "to": "CA-O-094"
+      },
+      {
+        "from": "CA-O-231",
+        "result": "review_ready",
+        "to": "CA-O-230"
+      },
+      {
+        "from": "CA-O-231",
+        "result": "complete",
+        "to": "completed"
+      },
+      {
+        "from": "CA-O-231",
+        "result": "blocked",
+        "to": "blocked"
+      },
+      {
+        "from": "CA-O-232",
+        "result": "prepared",
+        "to": "CA-O-231"
+      },
+      {
+        "from": "CA-O-232",
+        "result": "blocked",
+        "to": "blocked"
+      },
+      {
+        "from": "CA-O-233",
+        "result": "implemented",
+        "to": "CA-O-231"
+      },
+      {
+        "from": "CA-O-233",
+        "result": "blocked",
+        "to": "blocked"
+      },
+      {
+        "from": "CA-O-094",
+        "result": "passed",
+        "to": "CA-O-231"
+      },
+      {
+        "from": "CA-O-094",
+        "result": "failed",
+        "to": "CA-O-234"
+      },
+      {
+        "from": "CA-O-094",
+        "result": "blocked",
+        "to": "blocked"
+      },
+      {
+        "from": "CA-O-234",
+        "result": "expected_initial_failure",
+        "to": "CA-O-231"
+      },
+      {
+        "from": "CA-O-234",
+        "result": "implementation_defect",
+        "to": "CA-O-096"
+      },
+      {
+        "from": "CA-O-234",
+        "result": "test_implementation_defect",
+        "to": "CA-O-096"
+      },
+      {
+        "from": "CA-O-234",
+        "result": "authority_change_required",
+        "to": "blocked"
+      },
+      {
+        "from": "CA-O-234",
+        "result": "environment_blocker",
+        "to": "blocked"
+      },
+      {
+        "from": "CA-O-234",
+        "result": "unresolved",
+        "to": "blocked"
+      },
+      {
+        "from": "CA-O-096",
+        "result": "retry_permitted",
+        "to": "CA-O-099"
+      },
+      {
+        "from": "CA-O-096",
+        "result": "retry_blocked",
+        "to": "blocked"
+      },
+      {
+        "from": "CA-O-099",
+        "result": "repaired",
+        "to": "CA-O-231"
+      },
+      {
+        "from": "CA-O-099",
+        "result": "authority_change_required",
+        "to": "blocked"
+      },
+      {
+        "from": "CA-O-099",
+        "result": "blocked",
+        "to": "blocked"
+      },
+      {
+        "from": "CA-O-230",
+        "result": "preliminary_clear",
+        "to": "CA-O-231"
+      },
+      {
+        "from": "CA-O-230",
+        "result": "passed",
+        "to": "CA-O-231"
+      },
+      {
+        "from": "CA-O-230",
+        "result": "findings",
+        "to": "CA-O-234"
+      },
+      {
+        "from": "CA-O-230",
+        "result": "partial",
+        "to": "blocked"
+      },
+      {
+        "from": "CA-O-230",
+        "result": "unresolved",
+        "to": "blocked"
+      }
+    ]
+  },
+  "source_pins": [
+    {
+      "atom_id": "CA-O-016",
+      "version": 17,
+      "kind": "workflow",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior.md",
+      "fixture_path": "sources/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior.md",
+      "sha256": "198591050d738d5d290820b02991183d6b844c8c10ea50420d000262b9ce60aa"
+    },
+    {
+      "atom_id": "CA-O-231",
+      "version": 1,
+      "kind": "step",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-231-PROJECT_CONFIGURATION-STEP--prepare-shared-context-implementation-work.md",
+      "fixture_path": "sources/CA-O-231-PROJECT_CONFIGURATION-STEP--prepare-shared-context-implementation-work.md",
+      "sha256": "27f4d0705182049d95b3116d8b75433cff91a0592bdb174802ae8d9f2f56d82a"
+    },
+    {
+      "atom_id": "CA-O-232",
+      "version": 1,
+      "kind": "step",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-232-PROJECT_CONFIGURATION-STEP--prepare-tests-in-shared-implementation-context.md",
+      "fixture_path": "sources/CA-O-232-PROJECT_CONFIGURATION-STEP--prepare-tests-in-shared-implementation-context.md",
+      "sha256": "2b7bba62e683da86e69db834c2c1c262d82e11d55fdbb36fa8dac77615824380"
+    },
+    {
+      "atom_id": "CA-O-233",
+      "version": 1,
+      "kind": "step",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-233-PROJECT_CONFIGURATION-STEP--implement-requirements-in-shared-implementation-context.md",
+      "fixture_path": "sources/CA-O-233-PROJECT_CONFIGURATION-STEP--implement-requirements-in-shared-implementation-context.md",
+      "sha256": "b1585715bfd79006287a3883c3a6339f8fb40916c07bc1ee3807e72812c10cc0"
+    },
+    {
+      "atom_id": "CA-O-094",
+      "version": 9,
+      "kind": "step",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-094-PROJECT_CONFIGURATION-STEP--run-the-selected-implementation-checks.md",
+      "fixture_path": "sources/CA-O-094-PROJECT_CONFIGURATION-STEP--run-the-selected-implementation-checks.md",
+      "sha256": "02890626c9020c6a3da10fa550918c33b2059e7945a1587cf1476de879ae0c10"
+    },
+    {
+      "atom_id": "CA-O-234",
+      "version": 1,
+      "kind": "step",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-234-PROJECT_CONFIGURATION-STEP--diagnose-failures-in-shared-implementation-context.md",
+      "fixture_path": "sources/CA-O-234-PROJECT_CONFIGURATION-STEP--diagnose-failures-in-shared-implementation-context.md",
+      "sha256": "d8680ae3771b1a1c6beeab76521ab178f98a066b8cd24966b46cf2b9ac7f1b5b"
+    },
+    {
+      "atom_id": "CA-O-096",
+      "version": 9,
+      "kind": "step",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-096-PROJECT_CONFIGURATION-STEP--admit-an-implementation-repair-retry.md",
+      "fixture_path": "sources/CA-O-096-PROJECT_CONFIGURATION-STEP--admit-an-implementation-repair-retry.md",
+      "sha256": "224ba049a71aa457bb3cbb2bb26ec615073dbe1dea1cdfe90e501b946218173a"
+    },
+    {
+      "atom_id": "CA-O-099",
+      "version": 9,
+      "kind": "step",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-099-PROJECT_CONFIGURATION-STEP--repair-code-and-retain-issue-evidence.md",
+      "fixture_path": "sources/CA-O-099-PROJECT_CONFIGURATION-STEP--repair-code-and-retain-issue-evidence.md",
+      "sha256": "c4bbdac06056f8775c30ccbe6f52f3442a6619510a573bc8f9786c2240f2b70d"
+    },
+    {
+      "atom_id": "CA-O-230",
+      "version": 2,
+      "kind": "step",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-230-PROJECT_CONFIGURATION-STEP--review-code-in-shared-implementation-context.md",
+      "fixture_path": "sources/CA-O-230-PROJECT_CONFIGURATION-STEP--review-code-in-shared-implementation-context.md",
+      "sha256": "8a263e37dc852bc3bbe5e4b761d90547bacb024f15eb2cea018b021541925be7"
+    },
+    {
+      "atom_id": "CA-O-017",
+      "version": 11,
+      "kind": "action",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-017-PROJECT_CONFIGURATION-ACTION--prepare-implementation-work.md",
+      "fixture_path": "sources/CA-O-017-PROJECT_CONFIGURATION-ACTION--prepare-implementation-work.md",
+      "sha256": "942312e409bb564eef845975f9c53253d7a31981c442db033b0655ed480f472f"
+    },
+    {
+      "atom_id": "CA-O-018",
+      "version": 11,
+      "kind": "action",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-018-PROJECT_CONFIGURATION-ACTION--implement-evaluations.md",
+      "fixture_path": "sources/CA-O-018-PROJECT_CONFIGURATION-ACTION--implement-evaluations.md",
+      "sha256": "bb554e16425d6d2ed6b91cde1cc8ac2d10950cda0dc95005522dd42cb3a02ec3"
+    },
+    {
+      "atom_id": "CA-O-019",
+      "version": 9,
+      "kind": "action",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-019-PROJECT_CONFIGURATION-ACTION--implement-requirements.md",
+      "fixture_path": "sources/CA-O-019-PROJECT_CONFIGURATION-ACTION--implement-requirements.md",
+      "sha256": "0530e019f61154a5c91b8fe0b8048ccf95d4859ec7732f3d264446ab912a0886"
+    },
+    {
+      "atom_id": "CA-O-020",
+      "version": 10,
+      "kind": "action",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-020-PROJECT_CONFIGURATION-ACTION--run-implementation-evaluations.md",
+      "fixture_path": "sources/CA-O-020-PROJECT_CONFIGURATION-ACTION--run-implementation-evaluations.md",
+      "sha256": "38109b884f3af64e4506445b78b270e1383a165d916e06a2d5576586b2bbec3c"
+    },
+    {
+      "atom_id": "CA-O-021",
+      "version": 14,
+      "kind": "action",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-021-PROJECT_CONFIGURATION-ACTION--repair-nonconforming-implementation.md",
+      "fixture_path": "sources/CA-O-021-PROJECT_CONFIGURATION-ACTION--repair-nonconforming-implementation.md",
+      "sha256": "4fe52e7c2b3cfb8b893a8cadfdcb6436b714c75261a35155563ba6402a73115a"
+    },
+    {
+      "atom_id": "CA-O-024",
+      "version": 15,
+      "kind": "action",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-024-PROJECT_CONFIGURATION-ACTION--control-implementation-retries.md",
+      "fixture_path": "sources/CA-O-024-PROJECT_CONFIGURATION-ACTION--control-implementation-retries.md",
+      "sha256": "0c7d7803fc3679f27e65bf676bbdd314f528771b70bbe0b7fe09491711b7214a"
+    },
+    {
+      "atom_id": "CA-O-089",
+      "version": 8,
+      "kind": "action",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-089-PROJECT_CONFIGURATION-ACTION--diagnose-implementation-test-failures.md",
+      "fixture_path": "sources/CA-O-089-PROJECT_CONFIGURATION-ACTION--diagnose-implementation-test-failures.md",
+      "sha256": "09b66ff3cd7d9dc6207505828d62a23be0f218ec64a2cc7feff28f7fe6fd7a81"
+    },
+    {
+      "atom_id": "CA-O-225",
+      "version": 4,
+      "kind": "action",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-225-PROJECT_CONFIGURATION-ACTION--review-code-candidate-evidence-and-applicable-method-policy-without-editing.md",
+      "fixture_path": "sources/CA-O-225-PROJECT_CONFIGURATION-ACTION--review-code-candidate-evidence-and-applicable-method-policy-without-editing.md",
+      "sha256": "0bb03638761e9ba99aa686edb31e3323f43d28082dfd51dd083cf9c838582263"
+    }
+  ],
+  "support_closure": [
+    "project_settings",
+    "journal_root",
+    "runtime_root",
+    "git_marker"
+  ],
+  "expected_boundary": {
+    "current_graph_requires_native_step_dispatch": true,
+    "legacy_action_map_expected": "unsupported",
+    "no_execution_proof": true
+  }
+}
+

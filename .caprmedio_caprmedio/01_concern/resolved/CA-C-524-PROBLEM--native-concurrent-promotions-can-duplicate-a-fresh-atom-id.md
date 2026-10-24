@@ -8,11 +8,14 @@ local_tier: Standard
 global_tier: 2
 status: Resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-16 00:37:01 +0400"
+version: 3
+updated_at: 2026-10-23 03:06:32 +0400
 subjects:
-  governs: Atom/Status
-  depends_on: [Atom, Tool, Operator]
+  governs: Subject/Domain/Node/Continuant/Atom.ID
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Atom Identity/Concurrent Fresh-ID Allocation and Publication
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
   concern_about: [CA-P-2385, CA-P-2387, CA-P-2400]
   relates_to: [CA-A-1215, CA-C-523]

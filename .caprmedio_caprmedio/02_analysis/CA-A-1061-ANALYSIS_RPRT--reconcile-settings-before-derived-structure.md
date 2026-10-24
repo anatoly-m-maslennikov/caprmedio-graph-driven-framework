@@ -9,10 +9,15 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Settings before derived structure reconciliation"
-  depends_on: [Operations, "Project Settings", "Framework Instance Settings", "Project Structure", Journal]
-version: 1
-updated_at: "2026-10-04 12:38:54 +0000"
+  governs: Settings before derived structure reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Journal
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1343]
   relates_to: [CA-A-1031, CA-A-1035, CA-O-052, CA-C-353]

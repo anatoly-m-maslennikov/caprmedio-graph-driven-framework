@@ -1,19 +1,26 @@
 ---
 subjects:
-  governs: "Commit Context"
+  governs: Subject/Engineering/Tool//COMMIT_CONTEXT
   depends_on:
-    - "Journal"
-    - "Journal/Record"
-    - "Artifact/Carrier"
-version: 12
-updated_at: "2026-09-17 22:54:09 +0000"
+  - Subject/Engineering/Tool/Journal Append
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Engineering/Carrier
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1491
-    - CA-R-804
-    - CA-R-812
+  - CA-R-1491
+  - CA-R-804
+  - CA-R-812
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-187
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 2
 ---
 # Reject incomplete context before Journal append
 

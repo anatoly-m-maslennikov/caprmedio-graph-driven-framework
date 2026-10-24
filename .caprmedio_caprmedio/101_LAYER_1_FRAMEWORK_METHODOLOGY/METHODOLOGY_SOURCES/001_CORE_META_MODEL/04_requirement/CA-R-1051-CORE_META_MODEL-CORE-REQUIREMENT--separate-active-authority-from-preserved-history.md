@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "lifecycle-traceability"
+  governs: Subject/Domain/Node/Continuant/History
   depends_on: []
-version: 21
-updated_at: "2026-10-02 21:26:39 +0400"
+version: 24
+updated_at: 2026-10-24 04:38:42 +0400
 relations:
   child_of:
-    - "CA-M-002"
-atom_id: "CA-R-1051"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-M-002
+atom_id: CA-R-1051
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

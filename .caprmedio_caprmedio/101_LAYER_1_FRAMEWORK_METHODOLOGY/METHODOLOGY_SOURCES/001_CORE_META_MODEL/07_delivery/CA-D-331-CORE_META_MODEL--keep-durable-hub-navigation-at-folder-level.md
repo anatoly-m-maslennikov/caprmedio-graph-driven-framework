@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: "Hub Carrier.Navigation Entry"
+  governs: Subject/Engineering/Carrier/Directory Carrier
   depends_on: []
-version: 12
-updated_at: "2026-10-15 12:18:12 +0000"
+version: 15
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-331"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-331
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

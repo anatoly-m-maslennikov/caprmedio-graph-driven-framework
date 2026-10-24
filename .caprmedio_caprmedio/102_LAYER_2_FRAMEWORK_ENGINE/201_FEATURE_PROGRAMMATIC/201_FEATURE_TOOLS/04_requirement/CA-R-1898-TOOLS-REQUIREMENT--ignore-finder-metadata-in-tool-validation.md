@@ -2,17 +2,25 @@
 atom_id: CA-R-1898
 content_role: Requirement
 current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-07 22:25:26 +0000"
+version: 5
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "Tool/Validation/Finder metadata"
-  depends_on: [Tool, Carrier, Framework Package, Runtime, Skill, Projection, Journal]
+  governs: Subject/Engineering/Validation/Finder Metadata Exclusion
+  depends_on:
+  - Subject/Engineering/Tool
+  - Subject/Engineering/Carrier
+  - Framework Package
+  - Subject/Engineering/Runtime
+  - Skill
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Engineering/Journal Operations
 relations:
-  relates_to: [CA-R-1897]
+  relates_to:
+  - CA-R-1897
+tier: 3
+type: Rule
 ---
 # Summary
 

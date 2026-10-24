@@ -3,22 +3,22 @@ atom_id: CA-M-394
 content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Graph Rule
+  governs: Subject/Graph/Rule
   depends_on:
-  - Entity/Graph Rule.Type
-  - Entity/Graph Rule.Applies To
-  - Entity/Graph Rule.Condition
-  - Entity/Graph Rule.Default Value
-  - Entity/Node/Continuant/Atom.Substance
-  - Entity/Node/Continuant/Atom.Summary
+  - Subject/Graph/Rule.Type
+  - Subject/Graph/Rule.Applies To
+  - Subject/Graph/Rule.Condition
+  - Subject/Graph/Rule.Default Value
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Summary
 relations: {}
-version: 4
-updated_at: "2026-10-20 13:33:10 +0400"
+version: 11
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 1
+type: Implementation Method
 ---
 # Summary
 
@@ -40,4 +40,5 @@ to author a Graph Rule, the Author **must** express one independently replaceabl
 - split independently replaceable rules, including rules requiring different Graph Rule Types, into separate Atoms. Do not create a list of Type values in one rule.
 - retain the established Summary on update; if it must change, follow the existing new-Atom identity rule.
 - author Cardinality only under CA-D-637's registered schema. Bind the declared node domain independently of edges present, preserve zero-edge cases, select direction and opposite-endpoint kinds explicitly, and use its typed minimum/maximum bounds. Do not infer Selection membership from a filtered graph or treat structural parsing as evaluation.
-- do not invent missing Type schemas, whitelist merging, blacklist precedence, defaults, override behaviour or a general-purpose expression language. Report the specific gap before authoring a rule that depends on it.
+- use the closed Endpoint Constraint schema under CA-D-637 when the rule compares properties of both endpoints. Its `applies_to.relation_selection` value must be a full Subject string naming a source-declared Selection, and its `condition.ordering` value must be one of that schema's exact enumerated operators. For the approved RMED ordering, use the Selection defined by CA-R-2148 and the `same_scope_lower_target_tier_or_strict_ancestor` operator; do not replace these with aliases or a general-purpose expression language.
+- do not invent missing Type schemas, whitelist merging, blacklist precedence, defaults or override behaviour. Report any remaining specific gap before authoring a rule that depends on it.

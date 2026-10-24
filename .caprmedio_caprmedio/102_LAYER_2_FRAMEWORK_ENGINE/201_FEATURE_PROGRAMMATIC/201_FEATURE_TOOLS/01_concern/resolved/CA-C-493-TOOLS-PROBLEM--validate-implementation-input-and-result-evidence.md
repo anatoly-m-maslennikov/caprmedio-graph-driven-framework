@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-06 05:43:54 +0000"
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Implementation input and result evidence"
-  depends_on: [Implementation, Evaluation, Workflow, Plan, Permission]
+  governs: Implementation input and result evidence
+  depends_on:
+  - Implementation
+  - Evaluation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Plan
+  - Permission
 relations:
   concern_about: [CA-P-1777]
 ---

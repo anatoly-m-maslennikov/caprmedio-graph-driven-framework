@@ -1,19 +1,27 @@
 ---
 subjects:
-  governs: "Atom Property Default"
+  governs: Atom Property Default
   depends_on:
-    ["Property", "Atom Property Default", "Entity/Node/Continuant/Atom.Property", "Autonomous Confidence Threshold", "Implementation Retry Limit"]
-version: 7
-updated_at: "2026-10-19 15:55:59 +0400"
-relations: {"relates_to": ["CA-D-478", "CA-D-472", "CA-D-447"]}
-atom_id: "CA-D-485"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Atom Property Default
+  - Subject/Domain/Node/Continuant/Atom.Property
+  - Autonomous Confidence Threshold
+  - Subject/Domain/Node/Continuant/Project.Framework Settings.implementation.retry_limit
+version: 10
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-D-478
+  - CA-D-472
+  - CA-D-447
+atom_id: CA-D-485
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

@@ -3,18 +3,24 @@ atom_id: CA-O-172
 content_role: Operations
 type: Step
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Release Version/Step: deliver active sources"
-  depends_on: [Workflow, Step, Action, Methodology Source, Delivery]
-version: 5
-updated_at: "2026-10-12 00:00:51 +0000"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Release Version/Step: deliver active sources'
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Delivery
+version: 8
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  part_of: [CA-O-164]
-  invokes: [CA-O-166]
+  part_of:
+  - CA-O-164
+  invokes:
+  - CA-O-166
+tier: 3
 ---
 # Summary
 

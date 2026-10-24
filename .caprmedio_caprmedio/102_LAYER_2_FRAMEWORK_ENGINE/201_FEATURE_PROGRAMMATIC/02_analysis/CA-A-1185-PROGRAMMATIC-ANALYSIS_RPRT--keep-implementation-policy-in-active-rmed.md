@@ -9,9 +9,14 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: programmatic software
-  depends_on: [Atom/Content Role: Method, Implementation, Operator, Projection, Scope Unit]
-version: 1
-updated_at: "2026-10-15 17:49:43 +0400"
+  depends_on:
+  - Atom/Content Role: Method
+  - Implementation
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations: {}
 ---
 # Summary

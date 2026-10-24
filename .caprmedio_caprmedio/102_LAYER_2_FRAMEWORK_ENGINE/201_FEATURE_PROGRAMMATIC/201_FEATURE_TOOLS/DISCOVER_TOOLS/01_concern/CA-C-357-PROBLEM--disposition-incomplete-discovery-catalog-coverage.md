@@ -8,10 +8,13 @@ global_tier: 14
 author: Anatoly Maslennikov
 status: active
 subjects:
-  governs: "Tool/DISCOVER_TOOLS/catalog coverage"
-  depends_on: [Tool, Atom, Operations, Implementation]
-version: 1
-updated_at: "2026-10-04 12:42:25 +0000"
+  governs: Subject/Engineering/Tool Discovery Binding/Catalog Coverage Diagnostics
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Subject/Engineering/Tool Discovery Binding
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
 relations:
   concern_about: [CA-R-1804, CA-P-1123]
 ---

@@ -3,18 +3,27 @@ atom_id: CA-M-355
 content_role: Method
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 04:37:30 +0400"
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "MCP/Project launcher/selection method"
-  depends_on: [Project, Project Settings, Project Structure, Gateway, Registry, Query Source, Carrier]
+  governs: Subject/Engineering/MCP
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Gateway
+  - Registry
+  - Subject/Engineering/Carrier
 relations:
-  method_for: [CA-R-1900]
-  relates_to: [CA-M-341, CA-M-357]
+  method_for:
+  - CA-R-1900
+  relates_to:
+  - CA-M-341
+  - CA-M-357
+type: Eng Decision
+tier: 4
 ---
 # Summary
 
@@ -36,3 +45,11 @@ the launcher **must** construct one immutable `ProjectSelection` from the reques
 4. bind the selected manifest, active registry, and admitted query source from that selection only. Mount and pass only that selected Project context to the endpoint Gateway and reload subsystem; a Git-repository ancestor or sibling Project need not be mounted. A missing, changed, foreign, duplicate, or unadmitted binding stops launch before image inspection.
 5. derive the Project-scoped installed runtime namespace and per-Project lock from the identity. Store only the selected context's reload receipts, caches, pending-launch evidence, and safe runtime metadata there. Do not read, reuse, delete, or merge a sibling namespace.
 6. return the immutable selection or a structured refusal containing the selector error class and no substituted path. This method starts no container, listener, worker, queue, Workflow, Tool call, or Release action.
+7. allow an explicitly declared canonical Project root nested below the
+   configured host projects-root mount when its local control-root and identity
+   checks pass. Keep eager startup discovery bounded to direct children of the
+   mount; this does not reject an explicitly selected nested Project.
+8. This procedure scopes the legacy one-Project launcher. Shared per-request
+   selection uses the host-root/catalog binding and may serve multiple Projects
+   through one endpoint; when host and container roots are identical, carry the
+   same absolute root without translation.

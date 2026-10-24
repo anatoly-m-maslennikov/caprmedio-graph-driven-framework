@@ -1,19 +1,33 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Relation/Type: On Result", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Actor/Type: Operator", "Methodology"]
-version: 8
-updated_at: "2026-10-19 15:53:19 +0400"
-relations: {"relates_to": ["CA-R-1508", "CA-R-1509", "CA-R-1510", "CA-R-1511", "CA-R-1513", "CA-R-1525"]}
-atom_id: "CA-R-1519"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - 'Subject/Graph/Relation/Type: On Result'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Methodology
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1508
+  - CA-R-1509
+  - CA-R-1510
+  - CA-R-1511
+  - CA-R-1513
+  - CA-R-1525
+atom_id: CA-R-1519
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

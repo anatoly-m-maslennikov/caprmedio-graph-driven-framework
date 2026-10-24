@@ -1,19 +1,20 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Evaluation"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role", "Entity/Relation/Type: evaluation_for"]
-version: 14
-updated_at: "2026-10-19 15:54:44 +0400"
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - 'Subject/Graph/Relation/Type: evaluation_for'
+version: 18
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-M-265"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-M-265
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Implementation Method
 ---
 # Summary
 

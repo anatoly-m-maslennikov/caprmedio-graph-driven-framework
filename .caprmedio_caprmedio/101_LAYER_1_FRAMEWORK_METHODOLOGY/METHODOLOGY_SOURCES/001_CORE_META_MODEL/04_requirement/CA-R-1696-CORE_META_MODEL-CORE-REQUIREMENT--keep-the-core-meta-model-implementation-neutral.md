@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: "principles"
+  governs: Subject/Domain/Node/Continuant/Scope Unit//CORE_META_MODEL
   depends_on: []
-version: 24
-updated_at: "2026-10-03 02:10:09 +0400"
+version: 27
+updated_at: 2026-10-24 04:38:42 +0400
 relations:
   child_of:
-    - CA-M-001
-    - CA-M-261
-atom_id: "CA-R-1696"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-M-001
+  - CA-M-261
+atom_id: CA-R-1696
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

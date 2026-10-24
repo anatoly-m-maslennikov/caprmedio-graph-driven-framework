@@ -3,17 +3,21 @@ atom_id: CA-M-334
 content_role: Method
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 18:44:20 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/source snapshot"
-  depends_on: [Journal, Event, Tool]
+  governs: Subject/Engineering/Journal Event Query/Stable Source Snapshot
+  depends_on:
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
 relations:
-  method_for: [CA-R-1861, CA-R-1866]
+  method_for:
+  - CA-R-1861
+  - CA-R-1866
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

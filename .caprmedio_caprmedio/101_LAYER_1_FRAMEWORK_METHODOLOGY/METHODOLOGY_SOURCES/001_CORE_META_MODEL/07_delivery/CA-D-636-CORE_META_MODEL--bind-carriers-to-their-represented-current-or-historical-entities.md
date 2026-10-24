@@ -3,21 +3,21 @@ atom_id: CA-D-636
 content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Carrier
+  governs: Subject/Engineering/Carrier
   depends_on:
-  - Entity
-  - "Entity/Relation/Type: CARRIES"
-  - "Entity/Node/Continuant/History/Revision"
+  - Subject/Domain/Node
+  - 'Subject/Graph/Relation/Type: CARRIES'
+  - Entity/Node/Continuant/History/Revision
 relations:
   child_of:
   - CA-R-1174
-version: 3
-updated_at: "2026-10-19 15:56:03 +0400"
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 1
+type: Eng Decision
 ---
 # Summary
 

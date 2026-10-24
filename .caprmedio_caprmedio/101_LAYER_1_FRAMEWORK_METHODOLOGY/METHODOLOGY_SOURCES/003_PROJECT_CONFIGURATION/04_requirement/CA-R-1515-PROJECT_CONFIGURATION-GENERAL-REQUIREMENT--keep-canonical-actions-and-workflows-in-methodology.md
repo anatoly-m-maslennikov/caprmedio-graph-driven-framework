@@ -1,29 +1,32 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Operations"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   depends_on:
-    - "Action"
-    - "Workflow"
-    - "Methodology"
-    - "Methodology Source"
-    - "Scope Unit"
-    - "Tool"
-    - "Core Meta-Model"
-    - "Extension"
-    - "Project Configuration"
-    - "Atom/Content Role: Implementation"
-version: 5
-updated_at: "2026-10-02 23:59:06 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Methodology
+  - Methodology Source
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Engineering/Methodology/Tool Operation Definition Reference
+  - Core Meta-Model
+  - Subject/Domain/Node/Continuant/Selection//Extension Sources
+  - Project Configuration
+  - 'Atom/Content Role: Implementation'
+version: 9
+updated_at: 2026-10-24 01:28:26 +0400
 relations:
-  relates_to: [CA-M-002, CA-R-1530, CA-R-1222]
-atom_id: "CA-R-1515"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  relates_to:
+  - CA-M-002
+  - CA-R-1530
+  - CA-R-1222
+atom_id: CA-R-1515
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+type: Rule
+tier: 2
 ---
 # Summary
 

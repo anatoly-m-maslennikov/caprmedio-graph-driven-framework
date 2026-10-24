@@ -2,7 +2,7 @@
 # The framework release version remains canonical in version.toml.
 
 [tool.caprmedio.framework_engine_software]
-authority_atoms = ["CA-R-1047", "CA-M-110", "CA-E-250", "CA-D-250"]
+authority_atoms = ["CA-R-1047", "CA-M-415", "CA-E-250", "CA-D-250"]
 version_source = "version.toml"
 
 # The checked-in release workflow declares the same supported minor series.
@@ -24,7 +24,7 @@ cache_dir = ".caprmedio_tmp/cache/pytest"
 cache-dir = ".caprmedio_tmp/cache/uv"
 
 
-# Bounded runtime selection for VALIDATE_ATOMS (CA-M-316 and CA-M-286).
+# Bounded runtime selection for VALIDATE_ATOMS (CA-M-316 and CA-M-430).
 [dependency-groups]
 validate-atoms = ["pydantic==2.13.5", "PyYAML==6.0.3"]
 validate-atoms-dev = ["ruff==0.16.8", "mypy==2.3.1", "types-PyYAML==6.0.12.20260906"]
@@ -33,7 +33,7 @@ workflow-orchestrator = ["dbos==2.31.1", "pydantic==2.13.5", "PyYAML==6.0.3"]
 connector-toml = ["tomlkit==0.15.1"]
 
 [tool.caprmedio.framework_engine_software.components.validate_atoms]
-authority_atoms = ["CA-R-1622", "CA-R-1623", "CA-M-316", "CA-M-286", "CA-D-491", "CA-D-492", "CA-D-493"]
+authority_atoms = ["CA-R-1622", "CA-R-1623", "CA-M-316", "CA-M-430", "CA-D-491", "CA-D-492", "CA-D-493"]
 runtime_dependency_group = "validate-atoms"
 development_dependency_group = "validate-atoms-dev"
 source = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS"
@@ -42,6 +42,7 @@ evaluation = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS/tes
 [tool.ruff]
 target-version = "py314"
 line-length = 100
+cache-dir = ".caprmedio_tmp/cache/ruff"
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "C901"]
@@ -52,5 +53,96 @@ max-complexity = 10
 [tool.mypy]
 python_version = "3.14"
 strict = true
-files = ["102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS"]
+cache_dir = ".caprmedio_tmp/cache/mypy"
+mypy_path = [
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP",
+]
+files = [
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/subject_batch.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/subject_batch_execution.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/subject_batch_authorization.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/subject_batch_stage.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/implementation_agent.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/implementation_agent_contracts.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/implementation_agent_workspace.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/implementation_agent_transport.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_routes.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_adapter.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_manifest.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_query.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_queue.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_registration.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_request.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_request_checks.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_route.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_spec.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_support.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_validation.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_contract.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_release.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_route_request_support.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_execution_contracts.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_execution.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_execution_registration.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_evidence_io.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_execution_run_plan.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_graph_sources.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_source_graph_edges.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_graph_validation.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_graph_admission.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_creation_journal.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_replacement_journal.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_lifecycle_observation.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/shared_context_support.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/shared_context_packets.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/shared_context_graph.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/shared_context_current_fixture.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_shared_context_native_cases.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_shared_context_native_graph.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_creation_handler.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_creation_result.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_run_completion.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_replacement_handler.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_replacement_result.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/test_selected_route_manifest_diagnostics.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/test_selected_executor_exports.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_lifecycle_handler.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_lifecycle_result.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_lifecycle_status_handler.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_lifecycle_status_result.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_selected_lifecycle_effect_refs.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_selected_lifecycle_dispatch.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_selected_graph_reconciliation.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_selected_graph_recovery_parity.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/selected_graph_recovery_fixtures.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_compiler_inputs.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_graph_inputs.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_selected_creation_outcomes.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_selected_lifecycle_status_outcomes.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_freeze_state.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_lifecycle_dispatch.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_update_assessment.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_action_context.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_action_execution.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_graph_executor.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_graph_terminal.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_graph_traversal.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_compiler_handlers.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_native_domain_handlers.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_implementation_handlers.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_implementation_packet.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_graph_projection_handlers.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_project_structure_handlers.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_run_session.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_dispatch_state.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_dispatch.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_graph_reconciliation.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_graph_readback.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_selected_freeze_state.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_selected_workflow_error_boundaries.py",
+  "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/selected_workflow_error_fixtures.py",
+]
 follow_imports = "silent"

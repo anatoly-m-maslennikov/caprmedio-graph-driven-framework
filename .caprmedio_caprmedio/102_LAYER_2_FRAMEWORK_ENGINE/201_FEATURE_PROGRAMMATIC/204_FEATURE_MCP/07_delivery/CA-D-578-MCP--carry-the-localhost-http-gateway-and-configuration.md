@@ -2,17 +2,27 @@
 atom_id: CA-D-578
 content_role: Delivery
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-09 04:37:30 +0400"
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "MCP/HTTP endpoint/Carrier"
-  depends_on: [MCP, HTTP, Gateway, Implementation, Request, Session, Docker Runtime]
+  governs: Subject/Engineering/Carrier
+  depends_on:
+  - Subject/Engineering/MCP
+  - HTTP
+  - Gateway
+  - Request
+  - Session
+  - Subject/Engineering/Runtime/Docker Runtime
 relations:
-  delivery_for: [CA-R-1884, CA-R-1885, CA-M-341, CA-M-357]
+  delivery_for:
+  - CA-R-1884
+  - CA-R-1885
+  - CA-M-341
+  - CA-M-357
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

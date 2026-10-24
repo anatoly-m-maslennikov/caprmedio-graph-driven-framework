@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Status: Archived"
+  governs: 'Subject/Domain/Node/Continuant/Atom.Status: Archived'
   depends_on:
-    - "Entity/Node/Continuant/Atom.Status"
-    - "Entity/Node/Continuant/Atom.Version Number"
-version: 10
-updated_at: "2026-10-20 20:27:54 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Status
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+version: 14
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1419"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1419
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

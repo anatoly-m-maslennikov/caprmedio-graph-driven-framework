@@ -2,17 +2,17 @@
 atom_id: CA-M-348
 content_role: Method
 current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Semantic Update Assessment Verification"
-  depends_on: ["CA-R-1892", "CA-O-067", "CA-O-145", "CA-O-129"]
-version: 2
-updated_at: "2026-10-17 18:52:09 +0400"
+  governs: Subject/Engineering/Tool//ATOM_LIFECYCLE.Semantic Update Assessment Verification
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  method_for: [CA-R-1892]
+  method_for:
+  - CA-R-1892
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

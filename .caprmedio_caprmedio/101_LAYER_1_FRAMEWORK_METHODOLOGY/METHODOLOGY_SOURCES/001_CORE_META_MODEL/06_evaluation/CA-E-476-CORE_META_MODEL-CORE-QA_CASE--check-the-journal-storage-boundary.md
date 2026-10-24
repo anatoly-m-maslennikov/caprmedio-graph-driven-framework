@@ -1,24 +1,27 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/History/Journal"
+  governs: Subject/Domain/Node/Continuant/History/Journal
   depends_on:
-    ["Entity/Node/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Projection/Type: Applicable Methodology"]
-version: 10
-updated_at: "2026-10-19 15:55:08 +0400"
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1491
-    - CA-D-308
-    - CA-D-340
-atom_id: "CA-E-476"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 9
+  - CA-R-1491
+  - CA-D-308
+  - CA-D-340
+atom_id: CA-E-476
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 3
 ---
 # Summary
 

@@ -2,16 +2,22 @@
 atom_id: CA-R-1878
 content_role: Requirement
 current_scope_unit: PROJECT_TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-21T16:26:28Z"
+version: 11
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Tool/RELEASE_VERSION/Authority preservation"
-  depends_on: [Tool, Methodology, Projection, Journal, Project Settings, Framework Settings]
+  governs: Subject/Engineering/Release Version/Authoritative Source Preservation
+  depends_on:
+  - Subject/Engineering/Release Version/Authoritative Source Preservation
+  - Subject/Domain/Node/Continuant/Selection//Methodology Sources
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
 relations: {}
+type: Rule
+tier: 3
 ---
 # Summary
 

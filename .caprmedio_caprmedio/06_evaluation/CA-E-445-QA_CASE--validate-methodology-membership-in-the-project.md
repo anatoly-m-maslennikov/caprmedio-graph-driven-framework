@@ -2,26 +2,33 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Project/methodology ownership"
+  governs: Project/methodology ownership
   depends_on:
-    - "Project"
-    - "Scope Unit"
-    - "Structural Level"
-    - "Methodology Source"
-    - "Atom"
-    - "Atom/Local Tier: Principle"
-    - "Atom/Content Role: Requirement/Type: Goal"
-version: 7
-updated_at: "2026-09-22 17:59:17 +0000"
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Structural Level
+  - Methodology Source
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Atom/Local Tier: Principle'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CAPRMEDIO-REQU-706
-    - CAPRMEDIO-REQU-031
-    - CAPRMEDIO-META-REQU-679
-    - CA-R-718
-    - CA-D-325
+  - CA-R-706
+  - CA-R-031
+  - CAPRMEDIO-META-REQU-679
+  - CA-R-718
+  - CA-D-325
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-445
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Eval Case
+tier: 3
 ---
 # Validate Methodology membership in the Project
 

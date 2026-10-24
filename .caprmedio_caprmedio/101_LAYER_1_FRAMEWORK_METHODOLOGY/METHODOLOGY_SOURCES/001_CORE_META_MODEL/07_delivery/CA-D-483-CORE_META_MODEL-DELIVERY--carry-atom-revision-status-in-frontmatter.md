@@ -1,19 +1,27 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Status"
+  governs: Subject/Domain/Node/Continuant/Atom.Status
   depends_on:
-    ["Entity/Node/Continuant/Atom.Status", "Entity/Node/Continuant/Atom/Content Role", "Entity/Node/Continuant/Atom/Type", "Entity/Carrier.Canonical Address"]
-version: 10
-updated_at: "2026-10-19 15:55:58 +0400"
-relations: {"relates_to": ["CA-D-478", "CA-D-480", "CA-D-466", "CA-D-461"]}
-atom_id: "CA-D-483"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Atom.Status
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Atom/Type
+  - Subject/Engineering/Carrier.Canonical Address
+version: 14
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-D-478
+  - CA-D-480
+  - CA-D-466
+  - CA-D-461
+atom_id: CA-D-483
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

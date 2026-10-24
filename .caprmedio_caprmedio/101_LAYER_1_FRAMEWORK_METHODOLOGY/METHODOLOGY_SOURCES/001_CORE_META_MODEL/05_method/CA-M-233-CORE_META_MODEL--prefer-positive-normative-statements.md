@@ -1,19 +1,21 @@
 ---
 subjects:
-  governs: "Normative Atom Prose Authoring"
+  governs: Normative Atom Prose Authoring
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "CCE"]
-version: 15
-updated_at: "2026-10-19 15:54:43 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Graph/Rule/CCE
+version: 20
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-M-233"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-M-233
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

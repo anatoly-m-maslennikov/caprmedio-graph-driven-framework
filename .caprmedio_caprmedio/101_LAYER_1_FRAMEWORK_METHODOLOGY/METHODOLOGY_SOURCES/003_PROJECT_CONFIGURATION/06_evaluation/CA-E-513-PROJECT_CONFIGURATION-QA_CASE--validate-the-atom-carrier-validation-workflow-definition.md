@@ -1,28 +1,31 @@
 ---
 atom_id: CA-E-513
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Atom Carrier Validation"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Relation/Type: On Result", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
-version: 8
-updated_at: "2026-10-19 15:56:17 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph/Relation/Type: On Result'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-O-080
-    - CA-O-087
-    - CA-O-088
+  - CA-O-080
+  - CA-O-087
+  - CA-O-088
   relates_to:
-    - CA-E-486
-    - CA-E-494
-    - CA-E-500
-global_tier: 11
+  - CA-E-486
+  - CA-E-494
+  - CA-E-500
+tier: 4
 ---
 # Summary
 

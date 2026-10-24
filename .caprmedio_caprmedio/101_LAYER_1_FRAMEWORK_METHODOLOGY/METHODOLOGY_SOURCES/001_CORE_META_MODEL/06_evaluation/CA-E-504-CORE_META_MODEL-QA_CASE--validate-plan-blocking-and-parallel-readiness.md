@@ -1,20 +1,27 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Plan"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom/Content Role: Plan.Status: Done", "Entity/Node/Continuant/Atom/Content Role: Plan.Work Sequence Number"]
-version: 10
-updated_at: "2026-10-19 15:55:14 +0400"
-relations: {"evaluation_for": ["CA-R-1580", "CA-R-1583", "CA-R-1592", "CA-D-471", "CA-D-481"]}
-atom_id: "CA-E-504"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Status: Done'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Work Sequence Number'
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-1580
+  - CA-R-1583
+  - CA-R-1592
+  - CA-D-471
+  - CA-D-481
+atom_id: CA-E-504
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 

@@ -7,6 +7,8 @@ Context needs no Journal rows, receipts, leases, or sidecars. Dry-run is read-on
 
 from __future__ import annotations
 
+
+
 import argparse
 import datetime as dt
 import hashlib
@@ -14,6 +16,7 @@ import json
 import os
 import subprocess
 import sys
+from concurrent.futures import CancelledError as FutureCancelledError
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
@@ -46,7 +49,9 @@ from commit_context_logic import (  # noqa: E402
     validate_context,
     repository_root,
 )
-from work_journal import canonical_json_bytes, canonical_json_digest  # noqa: E402
+from operation_error_boundary import ExplicitBlockingRuntimeFailure, FailureRecord  # noqa: E402
+from runtime_failure_diagnostics import report_failure  # noqa: E402
+from work_journal import PartialAppendError, canonical_json_bytes, canonical_json_digest  # noqa: E402
 
 
 TOOL_ID = "COMMIT_CHANGE_SET"
@@ -600,12 +605,47 @@ def _verify_commit(
 
 
 def _appender_effects(envelope: object) -> dict[str, Any]:
-    """Accept only the peer's common success envelope, never a loose mapping."""
+    """Accept the peer's common envelope while retaining a partial result."""
     value = _require_mapping(envelope, "APPEND_CHANGE_RECORDS result envelope")
     tool = _require_mapping(value.get("tool"), "APPEND_CHANGE_RECORDS tool")
-    if value.get("ok") is not True or tool.get("capability_id") != "APPEND_CHANGE_RECORDS" or tool.get("kind") != "doer":
+    if tool.get("capability_id") != "APPEND_CHANGE_RECORDS" or tool.get("kind") != "doer":
+        raise ToolError("journal-append-failed", "APPEND_CHANGE_RECORDS returned an unsuccessful or incompatible envelope")
+    if value.get("ok") is not True and value.get("ok") is not False:
         raise ToolError("journal-append-failed", "APPEND_CHANGE_RECORDS returned an unsuccessful or incompatible envelope")
     return _require_mapping(value.get("result"), "APPEND_CHANGE_RECORDS result")
+
+
+def _recording_failure(
+    root: Path,
+    result: dict[str, Any],
+    *,
+    code: str,
+    message: str,
+    correlation_id: str | None,
+    diagnostics: Sequence[Mapping[str, Any]] | None = None,
+    source: ExplicitBlockingRuntimeFailure | None = None,
+) -> dict[str, Any]:
+    """Keep the verified commit and expose Journal recording as incomplete."""
+    if diagnostics is None:
+        failure, secondary = report_failure(
+            root,
+            source or FailureRecord("WARNING", code, message),
+            component=TOOL_ID,
+            operation="commit_change_set",
+            correlation_id=correlation_id,
+        )
+        reported = [{"code": failure.code, "message": failure.message}]
+        if secondary:
+            reported.append({"code": "diagnostic-emission-failed", "message": secondary})
+        code, message = failure.code, failure.message
+    else:
+        reported = [dict(item) for item in diagnostics]
+    result["state"] = "partial"
+    result["outcome"] = "partial"
+    result["incomplete"] = True
+    result["error"] = {"code": code, "message": message}
+    result["diagnostics"] = reported
+    return result
 
 
 def _commit_only(root: Path, context: Mapping[str, Any]) -> dict[str, Any]:
@@ -670,12 +710,47 @@ def run(root: Path, payload: Mapping[str, Any], *, apply: bool) -> dict[str, Any
         # Append the requested observation after the verified commit, not as
         # permission or proof required for that source change.
         try:
-            logged = _appender_effects(
-                _import_appender().run(root, {"context": result["context"]}, apply=True)
-            )
+            envelope = _import_appender().run(root, {"context": result["context"]}, apply=True)
+            logged = _appender_effects(envelope)
             result["receipts"] = logged.get("receipts", [])
+            if "uncertain" in logged:
+                result["uncertain"] = logged["uncertain"]
+            if envelope.get("ok") is not True:
+                result = _recording_failure(
+                    root,
+                    result,
+                    code="journal-append-incomplete",
+                    message="Journal append stopped before all requested records were observed",
+                    correlation_id=result.get("commit"),
+                    diagnostics=envelope.get("diagnostics")
+                    if isinstance(envelope.get("diagnostics"), list)
+                    and envelope["diagnostics"]
+                    else None,
+                )
+        except PartialAppendError as error:
+            result["receipts"] = list(error.completed_receipts)
+            result["uncertain"] = {
+                "record_index": error.uncertain_event_index,
+                "state": "unknown",
+            }
+            result = _recording_failure(
+                root,
+                result,
+                code="journal-append-incomplete",
+                message="Journal append stopped before all requested records were observed",
+                correlation_id=result.get("commit"),
+            )
+        except FutureCancelledError:
+            raise
         except Exception as error:
-            result["diagnostics"] = [{"code": "journal-append-failed", "message": str(error)}]
+            result = _recording_failure(
+                root,
+                result,
+                code="journal-append-failed",
+                message="Journal observation append failed",
+                correlation_id=result.get("commit"),
+                source=error if isinstance(error, ExplicitBlockingRuntimeFailure) else None,
+            )
     return result
 
 
@@ -790,16 +865,28 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
         )
         return 2
+    ok = result.get("incomplete") is not True
     print(
         json.dumps(
-            _envelope(ok=True, mode=mode, result=result),
+            _envelope(ok=ok, mode=mode, result=result),
             ensure_ascii=False,
             sort_keys=True,
             separators=(",", ":"),
         )
     )
-    return 0
+    return 0 if ok else 2
+
+
+def _image_main():
+    return main()
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    # Direct script execution needs the shared process boundary available from the tools root.
+    import sys
+    from pathlib import Path
+    _TOOLS_ROOT = next(p for p in Path(__file__).resolve().parents if p.name in {"201_TOOLS", "TOOLS"})
+    if str(_TOOLS_ROOT) not in sys.path:
+        sys.path.insert(0, str(_TOOLS_ROOT))
+    from runtime_process_boundary import run_process
+    raise SystemExit(run_process(_image_main, operation="COMMIT_CHANGE_SET/commit_change_set"))

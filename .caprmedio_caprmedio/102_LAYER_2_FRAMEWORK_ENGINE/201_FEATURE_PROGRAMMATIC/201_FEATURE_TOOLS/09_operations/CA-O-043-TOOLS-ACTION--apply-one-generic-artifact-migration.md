@@ -2,19 +2,26 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: "Apply Generic Artifact Migration"
+  governs: Apply Generic Artifact Migration
   depends_on:
-    - "Action"
-    - "Artifact"
-    - "Artifact/Carrier"
-    - "Artifact/Revision"
-    - "Relation"
-    - "Journal/Record"
-version: 3
-updated_at: "2026-09-17 03:35:21 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Artifact
+  - Subject/Engineering/Carrier
+  - Artifact/Revision
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-O-043
+status: Active
+content_role: Operations
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Action
+tier: 1
 ---
 # Apply one generic Artifact migration
 

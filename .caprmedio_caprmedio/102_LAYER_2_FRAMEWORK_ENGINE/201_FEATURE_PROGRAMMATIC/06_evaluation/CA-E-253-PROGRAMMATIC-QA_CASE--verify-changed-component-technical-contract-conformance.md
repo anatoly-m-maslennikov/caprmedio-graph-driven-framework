@@ -2,26 +2,25 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "technical-contract"
-  depends_on:
-    - "programmatic software"
-version: 12
-updated_at: "2026-10-15 23:23:10 +0400"
+  governs: Subject/Engineering/Programming Language Selection
+  depends_on: []
+version: 19
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-110
+  - CA-M-415
   derived_from:
-    - CA-A-053
+  - CA-A-053
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-253
 content_role: Evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
+tier: 4
+type: Eval Case
 ---
 # Verify changed component technical-contract conformance
 
@@ -55,4 +54,4 @@ separate bounded-exception evaluation.
 
 ## Sources
 
-- [CA-M-110 — Implement PROGRAMMATIC components in Python](../05_method/CA-M-110-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--implement-programmatic-components-in-python.md)
+- [CA-M-415 — Implement PROGRAMMATIC components in Python](../05_method/CA-M-415-PROGRAMMATIC-STANDARD-ENG_POLICY--implement-programmatic-components-in-python.md)

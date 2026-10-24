@@ -1,13 +1,20 @@
 ---
 subjects:
-  governs: "feature-boundary"
+  governs: feature-boundary
   depends_on: []
 cce_version: cce_1
 cce_form: obligation
-version: 22
-updated_at: 2026-09-04 03:10:59 +0400
+version: 27
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-802
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Definition
+tier: 1
 ---
 # Define asynchronous commit-provenance Tool topology
 

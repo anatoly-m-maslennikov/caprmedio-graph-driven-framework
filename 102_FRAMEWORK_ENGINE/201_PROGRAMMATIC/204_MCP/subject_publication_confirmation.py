@@ -16,7 +16,8 @@ from pydantic import ValidationError
 from atom_subject_apply import _parameters, _prepare
 from connector_bindings import FileSource, capture_source
 import atom_operations as operations
-from selected_execution import SelectedExecution, canonical_json
+from selected_execution import SelectedExecution
+from selected_execution_contracts import canonical_json
 from subject_publication_authorization import (
     _frontier, _reviewed_subject_candidate, authorize_subject_publication,
 )

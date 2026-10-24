@@ -3,19 +3,19 @@ atom_id: CA-R-1997
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Graph Rule.Applies To
+  governs: Subject/Graph/Rule.Applies To
   depends_on:
-  - Entity/Graph Rule
-  - Entity/Relation
+  - Subject/Graph/Rule
+  - Subject/Graph/Relation
   - Entity/Node
 relations: {}
-version: 3
-updated_at: "2026-10-20 13:46:55 +0400"
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 1
+type: Definition
 ---
 # Summary
 

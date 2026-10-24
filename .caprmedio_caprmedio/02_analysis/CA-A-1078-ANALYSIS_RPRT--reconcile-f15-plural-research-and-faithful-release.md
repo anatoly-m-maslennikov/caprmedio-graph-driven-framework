@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Plural research and faithful release reconciliation"
-  depends_on: [Analysis, Operations, "Methodology Sources"]
-version: 1
-updated_at: "2026-10-04 13:27:31 +0000"
+  governs: Plural research and faithful release reconciliation
+  depends_on:
+  - Analysis
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Methodology Sources
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1360]
   relates_to: [CA-A-1063, CA-C-374, CA-O-004, CA-O-009, CA-O-104]

@@ -3,17 +3,25 @@ atom_id: CA-D-537
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-14 20:12:21 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/REVERT_CHANGES/Delivery"
-  depends_on: [Tool, Workflow, Action, Journal, Implementation]
+  governs: Subject/Engineering/Tool//REVERT_CHANGES.Delivery
+  depends_on:
+  - Subject/Engineering/Tool//REVERT_CHANGES.Delivery
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Revert Changes
 relations:
-  delivery_for: [CA-R-1834, CA-E-553, CA-E-636]
+  delivery_for:
+  - CA-R-1834
+  - CA-E-553
+  - CA-E-636
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

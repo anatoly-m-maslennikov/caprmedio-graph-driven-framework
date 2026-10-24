@@ -1,19 +1,29 @@
 ---
-atom_id: "CA-O-192"
+atom_id: CA-O-192
 content_role: Operations
 type: Action
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-status: "Active"
-author: "Anatoly Maslennikov"
+status: Active
+author: Anatoly Maslennikov
 subjects:
-  governs: "Prepare bound public release materials"
-  depends_on: [README, Pull Request, Version History, Source Proof, Tool Call, Version, Local Release]
-version: 2
-updated_at: "2026-10-10 19:05:19 +0400"
+  governs: Prepare bound public release materials
+  depends_on:
+  - README
+  - Subject/Engineering/Pull Request
+  - Subject/Engineering/Release/Version History
+  - Subject/Domain/Node/Occurrent/Execution
+  - Version
+  - Local Release
+version: 6
+updated_at: 2026-10-24 01:18:03 +0400
 relations:
-  relates_to: [CA-O-188, CA-O-191, CA-R-1922, CA-R-1923, CA-R-1928]
+  relates_to:
+  - CA-O-188
+  - CA-O-191
+  - CA-R-1922
+  - CA-R-1923
+  - CA-R-1928
+tier: 3
 ---
 # Summary
 

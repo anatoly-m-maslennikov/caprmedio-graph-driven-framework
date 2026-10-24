@@ -3,29 +3,44 @@ atom_id: CA-R-1626
 content_role: Requirement
 current_scope_unit: SKILLS
 claim_target_scope_unit: SKILLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Skill/instruction boundary"
+  governs: Subject/Engineering/Skill
   depends_on:
-    - "AI Agent Delegation"
-    - "Action"
-    - "Action/Execution Kind"
-    - "CAPRMEDIO Main Skill"
-    - "Methodology"
-    - "Operator"
-    - "Project"
-    - "Skill"
-    - "Step"
-    - "Step Run"
-    - "Step/Agentic Execution Context"
-    - "Tool"
-    - "Workflow"
-version: 8
-updated_at: "2026-10-01 21:44:50 +0400"
-relations: {"child_of": ["CA-R-1124", "CA-R-643"], "relates_to": ["CA-R-852", "CA-R-1111", "CA-R-1522", "CA-R-1527", "CA-R-1552", "CA-R-1601", "CA-R-1789", "CA-R-1790", "CA-R-1791", "CA-R-1792", "CA-R-1793", "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-564"]}
+  - Subject/Engineering/AI Agent Delegation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action.Execution Kind'
+  - Subject/Engineering/CAPRMEDIO Main Skill
+  - Subject/Engineering/Methodology/Tool Operation Definition Reference
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Occurrent/Execution
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step.Agentic Execution Context'
+  - Subject/Engineering/Agentic Instruction/Tool Call Execution Detail
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+version: 11
+updated_at: 2026-10-24 02:04:43 +0400
+relations:
+  child_of:
+  - CA-R-1124
+  - CA-R-643
+  relates_to:
+  - CA-R-852
+  - CA-R-1111
+  - CA-R-1522
+  - CA-R-1527
+  - CA-R-1552
+  - CA-R-1601
+  - CA-R-1789
+  - CA-R-1790
+  - CA-R-1791
+  - CA-R-1792
+  - CA-R-1793
+  - CA-R-564
+type: Rule
+tier: 3
 ---
 # Summary
 

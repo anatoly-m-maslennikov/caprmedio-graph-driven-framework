@@ -1,21 +1,23 @@
 ---
 subjects:
-  governs: "Atom Claim Projection"
+  governs: Subject/Domain/Node/Continuant/Projection
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Translation"]
-version: 17
-updated_at: "2026-10-19 15:54:40 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Translation
+version: 21
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - CA-M-294
-atom_id: "CA-M-116"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-M-294
+atom_id: CA-M-116
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Implementation Method
 ---
 # Summary
 

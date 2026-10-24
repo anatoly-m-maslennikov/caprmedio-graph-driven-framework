@@ -2,14 +2,21 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "Applicable Methodology Retrieval Tool"
+  governs: Applicable Methodology Retrieval Tool
   depends_on:
-    - "Applicable Methodology/Compilation Output"
-version: 5
-updated_at: 2026-08-27 21:45:57 +0400
+  - Applicable Methodology/Compilation Output
+version: 10
+updated_at: 2026-10-24 02:14:24 +0400
 relations: {}
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-1241
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Rule
+tier: 1
 ---
 # Require Source-Backed Subject Retrieval
 

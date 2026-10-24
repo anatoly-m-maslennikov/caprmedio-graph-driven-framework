@@ -1,19 +1,20 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
   depends_on:
-    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Entity/Node/Continuant/Atom.Subjects"]
-version: 21
-updated_at: "2026-10-19 15:56:13 +0400"
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+version: 24
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-M-225"
-content_role: "Method"
+atom_id: CA-M-225
+content_role: Method
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

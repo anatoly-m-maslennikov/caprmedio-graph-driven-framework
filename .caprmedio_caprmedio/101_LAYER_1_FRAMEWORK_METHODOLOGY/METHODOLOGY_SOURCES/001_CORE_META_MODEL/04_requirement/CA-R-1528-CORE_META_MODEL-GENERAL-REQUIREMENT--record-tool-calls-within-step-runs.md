@@ -1,19 +1,30 @@
 ---
 subjects:
-  governs: "Tool Call"
+  governs: Subject/Domain/Node/Occurrent/Execution
   depends_on:
-    ["Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Tool", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record"]
-version: 8
-updated_at: "2026-10-19 15:53:21 +0400"
-relations: {"relates_to": ["CA-R-1452", "CA-R-1509", "CA-R-1511", "CA-R-1720"]}
-atom_id: "CA-R-1528"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Execution Trace/Tool Call Evidence
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 12
+updated_at: 2026-10-24 00:38:25 +0400
+relations:
+  relates_to:
+  - CA-R-1452
+  - CA-R-1509
+  - CA-R-1511
+  - CA-R-1720
+atom_id: CA-R-1528
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Rule
+tier: 2
 ---
 # Summary
 

@@ -1,22 +1,29 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Settings"
+  governs: Subject/Domain/Node/Continuant/Project.Settings
   depends_on:
-    ["Artifact", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom", "Implementation", "Entity/Node/Continuant/Projection", "Project Name", "Entity/Node/Continuant/Project.Settings.Atom Prefix"]
-version: 24
-updated_at: "2026-10-19 15:53:55 +0400"
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Implementation
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Project.Settings.Project Name
+  - Subject/Domain/Node/Continuant/Project.Settings.Atom Prefix
+version: 31
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - "CA-R-1708"
-    - CA-R-1052
-atom_id: "CA-R-1738"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1708
+  - CA-R-1052
+atom_id: CA-R-1738
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Definition
 ---
 # Summary
 

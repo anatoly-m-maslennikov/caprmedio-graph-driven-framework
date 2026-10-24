@@ -1,19 +1,18 @@
 ---
 atom_id: CA-E-637
 content_role: Evaluation
-type: Evaluation Approach
+type: Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Core
-global_tier: 6
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-15 22:37:03 +0400"
+version: 5
+updated_at: 2026-10-24 01:50:12 +0400
 subjects:
-  governs: "programmatic behavioral-acceptance evidence"
-  depends_on: ["programmatic software", "Spec", "Evaluation", "Implementation"]
+  governs: Subject/Engineering/Evaluation Technique Selection
+  depends_on: []
 relations: {}
+tier: 1
 ---
 # Summary
 

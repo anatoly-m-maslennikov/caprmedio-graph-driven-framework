@@ -1,19 +1,20 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Scope Unit/Type: Unordered"
+  governs: 'Subject/Domain/Node/Continuant/Scope Unit/Type: Unordered'
   depends_on:
-    ["Entity/Node/Continuant/Scope Unit.Local Order", "Entity/Node/Continuant/Scope Unit"]
-version: 24
-updated_at: "2026-10-19 15:54:00 +0400"
+  - Subject/Domain/Node/Continuant/Scope Unit.Local Order
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 28
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1761"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1761
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 Define Unordered as a Type Value under Scope Unit

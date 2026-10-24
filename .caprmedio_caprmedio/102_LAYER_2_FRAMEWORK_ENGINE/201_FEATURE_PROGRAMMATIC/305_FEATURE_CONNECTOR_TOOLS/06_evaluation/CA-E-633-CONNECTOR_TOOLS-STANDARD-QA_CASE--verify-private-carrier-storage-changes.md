@@ -1,20 +1,29 @@
 ---
 atom_id: CA-E-633
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Artifact/Carrier","Action","Workflow","Atom","Operator"]
-version: 5
-updated_at: "2026-10-14 23:49:48 +0400"
+  governs: Subject/Engineering/Private Carrier Storage Change Conformance Evaluation
+  depends_on:
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Workflow
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Actor
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: [CA-R-1941, CA-D-630, CA-O-215, CA-O-216, CA-O-217]
+  evaluation_for:
+  - CA-R-1941
+  - CA-D-630
+  - CA-O-215
+  - CA-O-216
+  - CA-O-217
+tier: 5
 ---
 # Summary
 

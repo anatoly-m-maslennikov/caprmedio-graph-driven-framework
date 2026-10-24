@@ -1,19 +1,24 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Operations/Type: Action/Execution Kind"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action.Execution Kind'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: AI Agent", "Tool", "Entity/Node/Continuant/Actor/Type: Operator"]
-version: 7
-updated_at: "2026-10-19 15:53:21 +0400"
-relations: {"relates_to": ["CA-R-1452"]}
-atom_id: "CA-R-1526"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Subject/Engineering/Action Execution/Agentic Tool Invocation
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 11
+updated_at: 2026-10-24 00:38:25 +0400
+relations:
+  relates_to:
+  - CA-R-1452
+atom_id: CA-R-1526
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Definition
+tier: 2
 ---
 # Summary
 

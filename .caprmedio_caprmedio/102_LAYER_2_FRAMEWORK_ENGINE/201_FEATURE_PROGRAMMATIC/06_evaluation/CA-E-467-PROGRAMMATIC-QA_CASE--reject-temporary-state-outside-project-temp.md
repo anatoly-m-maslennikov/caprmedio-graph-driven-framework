@@ -2,25 +2,25 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "PROGRAMMATIC/temporary execution state"
+  governs: Subject/Engineering/Temporary State Placement
   depends_on:
-    - "programmatic software"
+  - Subject/Engineering/External Effect Boundary
 llm_session_ids:
-  - codex:01a0263a-7510-7672-bce4-58830bc4d184
-version: 5
-updated_at: "2026-10-04 04:23:28 +0400"
+- codex:01a0263a-7510-7672-bce4-58830bc4d184
+version: 11
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1473
-    - CA-M-289
+  - CA-R-1473
+  - CA-M-422
 atom_id: CA-E-467
 content_role: Evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
+tier: 4
+type: Eval Case
 ---
 # Reject temporary state outside project temp
 

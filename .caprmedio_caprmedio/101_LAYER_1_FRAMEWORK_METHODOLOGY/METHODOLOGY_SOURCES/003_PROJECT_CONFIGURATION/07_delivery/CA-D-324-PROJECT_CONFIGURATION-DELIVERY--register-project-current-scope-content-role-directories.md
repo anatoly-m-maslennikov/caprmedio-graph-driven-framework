@@ -1,25 +1,29 @@
 ---
 subjects:
-  governs: "Artifact/Carrier Placement"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Project"
-    - "Scope Unit"
-    - "Atom/Content Role"
-    - "Entity/Carrier"
-    - "Artifact/Revision/Status"
-    - "Structural Entity"
-    - "Directory Carrier"
-version: 13
-updated_at: "2026-10-19 15:56:20 +0400"
-relations: {"relates_to":["CA-D-296","CA-D-451","CA-D-466"]}
-atom_id: "CA-D-324"
-content_role: "Delivery"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Engineering/Carrier
+  - Artifact/Revision/Status
+  - Structural Entity
+  - Subject/Engineering/Carrier/Directory Carrier
+version: 18
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-D-296
+  - CA-D-451
+  - CA-D-466
+atom_id: CA-D-324
+content_role: Delivery
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

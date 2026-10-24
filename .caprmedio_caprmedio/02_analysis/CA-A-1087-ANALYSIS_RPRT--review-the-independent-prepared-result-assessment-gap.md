@@ -9,10 +9,14 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Coalesced prepared-result assessment gap review"
-  depends_on: [Operations, Evaluation, Artifact, Operator]
-version: 2
-updated_at: "2026-10-04 14:22:23 +0000"
+  governs: Coalesced prepared-result assessment gap review
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Evaluation
+  - Artifact
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1372]
   relates_to: [CA-A-1122, CA-A-1123, CA-A-1124, CA-A-1131, CA-A-1132, CA-A-1133, CA-A-1134, CA-A-1135, CA-A-1136, CA-A-1137, CA-A-1064, CA-C-377, CA-C-400]

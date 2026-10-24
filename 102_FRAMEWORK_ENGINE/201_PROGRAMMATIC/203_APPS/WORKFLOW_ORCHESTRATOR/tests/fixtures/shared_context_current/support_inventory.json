@@ -1,0 +1,453 @@
+{
+  "schema_version": 1,
+  "kind": "shared_context_support_inventory",
+  "source": "checked_in_fixture_metadata",
+  "not_implicit": true,
+  "required_authority": [
+    {
+      "atom_id": "CA-R-1843",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/202_FEATURE_PROMPTS/04_requirement/CA-R-1843-PROMPTS--bind-implementation-workflow-prompts-to-current-sources.md",
+      "sha256": "36856e333cc8f4f0d2a7b56f7994fd3f034f72902c527a67e9d885a225acc02e",
+      "fixture_path": "support_sources/CA-R-1843.md"
+    },
+    {
+      "atom_id": "CA-R-1845",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/202_FEATURE_PROMPTS/04_requirement/CA-R-1845-PROMPTS--preserve-agentic-context-and-bounded-handoffs.md",
+      "sha256": "055b39e9d74603ebc8d99603ba62dc2a7aa2ca2110c7e73e97ab8e9a83da8352",
+      "fixture_path": "support_sources/CA-R-1845.md"
+    },
+    {
+      "atom_id": "CA-M-328",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/202_FEATURE_PROMPTS/05_method/CA-M-328-PROMPTS--diagnose-admit-and-repair-implementation-failures.md",
+      "sha256": "7bf32457f90701ff38de79c70ce4b29f3a46a9de05f44ae3f87fec4a2ac7b9d4",
+      "fixture_path": "support_sources/CA-M-328.md"
+    },
+    {
+      "atom_id": "CA-D-544",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/202_FEATURE_PROMPTS/07_delivery/CA-D-544-PROMPTS--deliver-current-implementation-workflow-prompt-carriers.md",
+      "sha256": "4e48fc205f673c4569d691d36e6801c9516e657852cd718895e69ce43cc98ded",
+      "fixture_path": "support_sources/CA-D-544.md"
+    }
+  ],
+  "applicable_rde": {
+    "requirements": [
+      {
+        "atom_id": "CA-R-1843",
+        "version": 3,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/202_FEATURE_PROMPTS/04_requirement/CA-R-1843-PROMPTS--bind-implementation-workflow-prompts-to-current-sources.md",
+        "sha256": "36856e333cc8f4f0d2a7b56f7994fd3f034f72902c527a67e9d885a225acc02e",
+        "fixture_path": "support_sources/CA-R-1843.md"
+      },
+      {
+        "atom_id": "CA-R-1845",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/202_FEATURE_PROMPTS/04_requirement/CA-R-1845-PROMPTS--preserve-agentic-context-and-bounded-handoffs.md",
+        "sha256": "055b39e9d74603ebc8d99603ba62dc2a7aa2ca2110c7e73e97ab8e9a83da8352",
+        "fixture_path": "support_sources/CA-R-1845.md"
+      }
+    ],
+    "deliveries": [
+      {
+        "atom_id": "CA-D-544",
+        "version": 3,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/202_FEATURE_PROMPTS/07_delivery/CA-D-544-PROMPTS--deliver-current-implementation-workflow-prompt-carriers.md",
+        "sha256": "4e48fc205f673c4569d691d36e6801c9516e657852cd718895e69ce43cc98ded",
+        "fixture_path": "support_sources/CA-D-544.md"
+      }
+    ],
+    "evaluations": [
+      {
+        "atom_id": "CA-E-253",
+        "version": 14,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-253-PROGRAMMATIC-QA_CASE--verify-changed-component-technical-contract-conformance.md",
+        "sha256": "e633dbc59db0063b36310ce19532db98ecb7a2d2a6644cff4fb671bdf0c17811",
+        "fixture_path": "support_sources/CA-E-253.md"
+      },
+      {
+        "atom_id": "CA-E-264",
+        "version": 12,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-264-PROGRAMMATIC-QA_CASE--surface-one-nonzero-subprocess-result.md",
+        "sha256": "e8dc17e4954e97e6565ea4c0e5135e590bab651bbdd8ddd5380898f49fca7ee0",
+        "fixture_path": "support_sources/CA-E-264.md"
+      },
+      {
+        "atom_id": "CA-E-265",
+        "version": 12,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-265-PROGRAMMATIC-QA_CASE--surface-one-subprocess-timeout.md",
+        "sha256": "aaccc3ace3cea171ab4fea7e35c304d78f4766f0bfc3aac6932f5ead634b619e",
+        "fixture_path": "support_sources/CA-E-265.md"
+      },
+      {
+        "atom_id": "CA-E-266",
+        "version": 12,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-266-PROGRAMMATIC-QA_CASE--verify-changed-source-boundary-or-exception.md",
+        "sha256": "96f5a152b5cd720f246566512fdddf3e5f202a7fb9c640029165eff2ed8ebf83",
+        "fixture_path": "support_sources/CA-E-266.md"
+      },
+      {
+        "atom_id": "CA-E-267",
+        "version": 12,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-267-PROGRAMMATIC-QA_CASE--verify-structured-diagnostic-schema.md",
+        "sha256": "fa90a7a1fa0d007213ac129e25d6702c9e9713dc99a933cbe841665d804add55",
+        "fixture_path": "support_sources/CA-E-267.md"
+      },
+      {
+        "atom_id": "CA-E-363",
+        "version": 10,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-363-PROGRAMMATIC-QA_CASE--reject-an-oversized-changed-python-file.md",
+        "sha256": "dee79249e39999c988d04e3f57ab0d2a8aa7c804169b671e8fc0044f2199e676",
+        "fixture_path": "support_sources/CA-E-363.md"
+      },
+      {
+        "atom_id": "CA-E-364",
+        "version": 11,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-364-PROGRAMMATIC-QA_CASE--reject-a-medium-unit-with-multiple-jobs.md",
+        "sha256": "4b35b74c38e2dc5e9689465726c77623d713f193bc7a8fd644a01f857fc45408",
+        "fixture_path": "support_sources/CA-E-364.md"
+      },
+      {
+        "atom_id": "CA-E-365",
+        "version": 12,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-365-PROGRAMMATIC-QA_CASE--reject-unchecked-cyclomatic-complexity.md",
+        "sha256": "5b4fb66a1e7df8fd4b360a93a7549a5caa73a22ad08d8154e83ae9968206a2ea",
+        "fixture_path": "support_sources/CA-E-365.md"
+      },
+      {
+        "atom_id": "CA-E-366",
+        "version": 11,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-366-PROGRAMMATIC-QA_CASE--reject-a-hidden-effect-in-changed-source.md",
+        "sha256": "e42458e93b2e6cfb5cfc8135eee511b87f6691c23d599bde426f526c77f04475",
+        "fixture_path": "support_sources/CA-E-366.md"
+      },
+      {
+        "atom_id": "CA-E-385",
+        "version": 10,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-385-PROGRAMMATIC-QA_CASE--verify-changed-python-with-mypy.md",
+        "sha256": "a2af32e7a99bee6f246357615598b0df14943d27bbc2c08775a18e5a4f2b20db",
+        "fixture_path": "support_sources/CA-E-385.md"
+      },
+      {
+        "atom_id": "CA-E-389",
+        "version": 14,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-389-PROGRAMMATIC-GENERAL-EVAL_APPROACH--combine-complementary-software-behavior-evidence.md",
+        "sha256": "b57b438572d156d83c51130f9df028f0abb033ce4b979df051a01a4eb0310255",
+        "fixture_path": "support_sources/CA-E-389.md"
+      },
+      {
+        "atom_id": "CA-E-453",
+        "version": 11,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-453-PROGRAMMATIC-QA_CASE--verify-changed-python-with-ruff.md",
+        "sha256": "ba55cc2ce077a3b2e796ff9dbcdac75f33a18548139ff1340b0754f3974021b3",
+        "fixture_path": "support_sources/CA-E-453.md"
+      },
+      {
+        "atom_id": "CA-E-539",
+        "version": 3,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-539-PROGRAMMATIC-GENERAL-EVAL_APPROACH--evaluate-python-source-boundaries-and-lint-ratchets.md",
+        "sha256": "4c592bdc6cb3e86e4430ea3b6a41eb420edbbbea4952a5c67d45322688e728cc",
+        "fixture_path": "support_sources/CA-E-539.md"
+      },
+      {
+        "atom_id": "CA-E-540",
+        "version": 3,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-540-PROGRAMMATIC-GENERAL-EVAL_APPROACH--evaluate-static-typing-baselines-and-suppressions.md",
+        "sha256": "eca426cc4ca3b2b09c5036079133e176e63afade91bc02db0c700d37886b3da5",
+        "fixture_path": "support_sources/CA-E-540.md"
+      },
+      {
+        "atom_id": "CA-E-642",
+        "version": 4,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-642-PROGRAMMATIC-GENERAL-EVAL_APPROACH--evaluate-active-method-coverage.md",
+        "sha256": "ef570d9d917186721ff7607579523b00bcd3b924655213afbdaef8f269e309d8",
+        "fixture_path": "support_sources/CA-E-642.md"
+      }
+    ],
+    "selection": "explicit current O225 review frontier; this list is not the full Project R/E/D universe"
+  },
+  "method_projection": {
+    "projection": "mrt_programmatic_methods_full.projection.json",
+    "count": 39,
+    "sources": [
+      {
+        "atom_id": "CA-M-191",
+        "version": 13,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-191-PROGRAMMATIC-METHOD--bind-one-programmatic-mutation-to-its-initiative.md",
+        "sha256": "f199efa23fbf1e74875ede5aca72fbc460bd1bafef5ced56cfc86b6174b5c8f7",
+        "fixture_path": "support_sources/methods/CA-M-191.md"
+      },
+      {
+        "atom_id": "CA-M-193",
+        "version": 14,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-193-PROGRAMMATIC-METHOD--supply-the-active-tool-frontier-to-mcp.md",
+        "sha256": "efccee9fb89413b139f74b863f40902e997a990597333f324b4cf1fcb80326b8",
+        "fixture_path": "support_sources/methods/CA-M-193.md"
+      },
+      {
+        "atom_id": "CA-M-284",
+        "version": 17,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-284-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--read-engine-settings-through-one-shared-boundary.md",
+        "sha256": "337e624bfea4ad3083a48aa91178c5d190c9ffa5b4f0ccdb0617e33fbce56782",
+        "fixture_path": "support_sources/methods/CA-M-284.md"
+      },
+      {
+        "atom_id": "CA-M-395",
+        "version": 3,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-395-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--prepare-coherent-changes-through-a-closed-dependency-world.md",
+        "sha256": "08d790dc35ffaab5059f6673406c1cf3c072f2b1ce30ba56ef2cf4d2f92f6ae5",
+        "fixture_path": "support_sources/methods/CA-M-395.md"
+      },
+      {
+        "atom_id": "CA-M-396",
+        "version": 3,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-396-PROGRAMMATIC-CORE-IMPLEMENTATION_METHOD--make-failures-observable-without-disabling-healthy-runtime.md",
+        "sha256": "d77dd023bf87a663311b320395f51b3f698b7497e5274acfca34efa65cae5d0a",
+        "fixture_path": "support_sources/methods/CA-M-396.md"
+      },
+      {
+        "atom_id": "CA-M-397",
+        "version": 3,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-397-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--contain-invalid-input-and-project-artifact-failures.md",
+        "sha256": "4cf6f8d46cbffa0f9f51f7ddc5ff11481c4f040f0d0197adead55865d30855b7",
+        "fixture_path": "support_sources/methods/CA-M-397.md"
+      },
+      {
+        "atom_id": "CA-M-398",
+        "version": 3,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-398-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--return-verified-partial-results-before-failure-details.md",
+        "sha256": "5280348b962f6ccf792b06f1e9b6e5d1bb957a3e67e215089a9404d92c3455b8",
+        "fixture_path": "support_sources/methods/CA-M-398.md"
+      },
+      {
+        "atom_id": "CA-M-399",
+        "version": 3,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-399-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--record-business-workflow-lifecycle-separately-from-technical-diagnostics.md",
+        "sha256": "ab66f760cf1bc816b1eb6fd74d214ef4a6ee9ad620a1092cb79fd011c2328c11",
+        "fixture_path": "support_sources/methods/CA-M-399.md"
+      },
+      {
+        "atom_id": "CA-M-400",
+        "version": 4,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-400-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--apply-one-shared-public-operation-error-boundary.md",
+        "sha256": "01247992a444568c142426b828d23a38f40ca5ce5dfad4454631722339ffd4c2",
+        "fixture_path": "support_sources/methods/CA-M-400.md"
+      },
+      {
+        "atom_id": "CA-M-401",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-401-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--bind-caller-context-and-carry-project-identity.md",
+        "sha256": "acaaaa8e792394dc023c01d2a736111fc58aec8114a3dea2baa5bee76d0c0277",
+        "fixture_path": "support_sources/methods/CA-M-401.md"
+      },
+      {
+        "atom_id": "CA-M-402",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-402-PROGRAMMATIC-CORE-IMPLEMENTATION_METHOD--implement-only-declared-business-logic.md",
+        "sha256": "b662855e7877334ec0f0a32f04b79b9cff29799bb751bbe9167674674b9fe186",
+        "fixture_path": "support_sources/methods/CA-M-402.md"
+      },
+      {
+        "atom_id": "CA-M-403",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-403-PROGRAMMATIC-CORE-IMPLEMENTATION_METHOD--keep-one-canonical-owner-of-behavior.md",
+        "sha256": "a3df6f9c0df9be1a895ab2b30dee6aafc1157866749910a98dca0456c3dd4644",
+        "fixture_path": "support_sources/methods/CA-M-403.md"
+      },
+      {
+        "atom_id": "CA-M-404",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-404-PROGRAMMATIC-CORE-IMPLEMENTATION_METHOD--limit-effects-to-the-authorized-target-and-delta.md",
+        "sha256": "01e4e044c3c247ecf191b16ecb316bffa98354077b751a8e0e7063d36964f78e",
+        "fixture_path": "support_sources/methods/CA-M-404.md"
+      },
+      {
+        "atom_id": "CA-M-405",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-405-PROGRAMMATIC-CORE-IMPLEMENTATION_METHOD--report-outcomes-from-observed-evidence.md",
+        "sha256": "4e018a7e620bcb453cc80bf81c8b16bd4488a628cd7271b103ab9b20b0e757f2",
+        "fixture_path": "support_sources/methods/CA-M-405.md"
+      },
+      {
+        "atom_id": "CA-M-406",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-406-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--adopt-current-python-idioms-only-for-declared-benefit.md",
+        "sha256": "b19dc98ea27d9281127aa7452b892498e1ab9ba8dcee0207b6c72330fddcbba4",
+        "fixture_path": "support_sources/methods/CA-M-406.md"
+      },
+      {
+        "atom_id": "CA-M-407",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-407-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--allocate-deterministic-transformations-to-functions.md",
+        "sha256": "13b588762c82e5704414b97739a9c9655a4135170dcf0de3de504458244cb28f",
+        "fixture_path": "support_sources/methods/CA-M-407.md"
+      },
+      {
+        "atom_id": "CA-M-408",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-408-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--allocate-owned-state-and-lifecycle-to-objects.md",
+        "sha256": "416ab21e125f34f36a300c7207eb77fd826c3a3e64eb32d3ebbc4801f0e7b256",
+        "fixture_path": "support_sources/methods/CA-M-408.md"
+      },
+      {
+        "atom_id": "CA-M-409",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-409-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--bound-file-and-subprocess-effects.md",
+        "sha256": "57c457e9666aae305a12c92bac5b247e59b9ee8455065f8443c8139f0ecd9626",
+        "fixture_path": "support_sources/methods/CA-M-409.md"
+      },
+      {
+        "atom_id": "CA-M-410",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-410-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--bound-resource-use-to-the-workload.md",
+        "sha256": "9b31bab978d0a3c33c6b67c36a2dac3048612b422b7f5494b82c83a841c4d560",
+        "fixture_path": "support_sources/methods/CA-M-410.md"
+      },
+      {
+        "atom_id": "CA-M-411",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-411-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--concentrate-requirement-and-delivery-implementation.md",
+        "sha256": "97355ed8c8c4be9e55f2853b49573cef85cd4977b4b485846d660424d6623c2c",
+        "fixture_path": "support_sources/methods/CA-M-411.md"
+      },
+      {
+        "atom_id": "CA-M-412",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-412-PROGRAMMATIC-STANDARD-IMPLEMENTATION_DECISION--declare-one-python-and-software-configuration-boundary.md",
+        "sha256": "47b58770be7e5301f7e62a822f2f26bf5c45784e9da9cf00f54c15756fb82ccb",
+        "fixture_path": "support_sources/methods/CA-M-412.md"
+      },
+      {
+        "atom_id": "CA-M-413",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-413-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--define-typed-contracts-at-replaceable-technical-boundaries.md",
+        "sha256": "8eac08b435f205eb9f88b4f1fb4b965ffcdbc44cf1cc27249d0d8d92c0e291eb",
+        "fixture_path": "support_sources/methods/CA-M-413.md"
+      },
+      {
+        "atom_id": "CA-M-414",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-414-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--emit-structured-operational-diagnostics.md",
+        "sha256": "d47e59d6c941f03f0098bb068084b44efee373ae084dfe4dbd43b0ed48fe3033",
+        "fixture_path": "support_sources/methods/CA-M-414.md"
+      },
+      {
+        "atom_id": "CA-M-415",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-415-PROGRAMMATIC-STANDARD-IMPLEMENTATION_DECISION--implement-programmatic-components-in-python.md",
+        "sha256": "cc6a55799e154fcc96e54e3c04c3116fee11d9d3e9bdde22d6113f5abbc46351",
+        "fixture_path": "support_sources/methods/CA-M-415.md"
+      },
+      {
+        "atom_id": "CA-M-416",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-416-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--measure-before-optimizing-programmatic-performance.md",
+        "sha256": "9a89addbecd15a56d4021043115527516a1d3025377f272ab88448cde85bf799",
+        "fixture_path": "support_sources/methods/CA-M-416.md"
+      },
+      {
+        "atom_id": "CA-M-417",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-417-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--pass-validated-configuration-through-one-shared-boundary.md",
+        "sha256": "0ada2eceead999c4c1dbe70afde66257e1d0d6001d7cc205b2a29a3c8b760e1a",
+        "fixture_path": "support_sources/methods/CA-M-417.md"
+      },
+      {
+        "atom_id": "CA-M-418",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-418-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--preserve-declared-interface-compatibility-boundaries.md",
+        "sha256": "222e85afcf16c9c4f80b8feec6a3e29bd80f9cf1723b6ff6a7873280a74c2891",
+        "fixture_path": "support_sources/methods/CA-M-418.md"
+      },
+      {
+        "atom_id": "CA-M-419",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-419-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--ratchet-hand-authored-python-source-boundaries.md",
+        "sha256": "23de71637e7abc58a66a04d22bb793bc1a0c5a76c538a474ba0d2270e3af5865",
+        "fixture_path": "support_sources/methods/CA-M-419.md"
+      },
+      {
+        "atom_id": "CA-M-420",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-420-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--ratchet-typing-and-automation-adoption.md",
+        "sha256": "c558f548e2fe7e95879470f1cf87be451f3d601a74c5ac2b92ea29188dfd9279",
+        "fixture_path": "support_sources/methods/CA-M-420.md"
+      },
+      {
+        "atom_id": "CA-M-421",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-421-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--reuse-suitable-established-solutions.md",
+        "sha256": "787c3999a45d4c079695efdf4128907c0d3e65114044a8d0f3ae89f2beb5c1f8",
+        "fixture_path": "support_sources/methods/CA-M-421.md"
+      },
+      {
+        "atom_id": "CA-M-422",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-422-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--route-all-temporary-carriers-through-project-temp.md",
+        "sha256": "17721877fe5c6dc6adb5a3bc06f5f74987c51a0f97a38dc70356063eb7c08f69",
+        "fixture_path": "support_sources/methods/CA-M-422.md"
+      },
+      {
+        "atom_id": "CA-M-423",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-423-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--run-project-python-only-in-uv-managed-isolated-environments.md",
+        "sha256": "27542e68df1546e00c1dab126b879e2010e4c949809562048953b42419530b34",
+        "fixture_path": "support_sources/methods/CA-M-423.md"
+      },
+      {
+        "atom_id": "CA-M-424",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-424-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--select-software-evaluation-techniques-by-failure-mode.md",
+        "sha256": "69d5c1fb606113f995027571f02d884c75c0653c5c88e643aacd3d880815cc7f",
+        "fixture_path": "support_sources/methods/CA-M-424.md"
+      },
+      {
+        "atom_id": "CA-M-425",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-425-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--separate-deterministic-transformations-from-effects-and-lifecycle.md",
+        "sha256": "a0ba16cc0ebdee6f020a5db372836c8d52ddf128abd4269473a263d8688d18c8",
+        "fixture_path": "support_sources/methods/CA-M-425.md"
+      },
+      {
+        "atom_id": "CA-M-426",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-426-PROGRAMMATIC-STANDARD-IMPLEMENTATION_METHOD--separate-pure-computation-from-effects-and-recording.md",
+        "sha256": "f8188810bec169ef1c711beb31d5dfc34ae347b7f8c002628b83a001b4a22aac",
+        "fixture_path": "support_sources/methods/CA-M-426.md"
+      },
+      {
+        "atom_id": "CA-M-427",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-427-PROGRAMMATIC-STANDARD-IMPLEMENTATION_DECISION--use-mypy-for-static-python-type-checking.md",
+        "sha256": "d7be941be0a6118d0d9d3bbaaf8e39c11b03416cd20f8cc66360fa3370faa9de",
+        "fixture_path": "support_sources/methods/CA-M-427.md"
+      },
+      {
+        "atom_id": "CA-M-428",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-428-PROGRAMMATIC-STANDARD-IMPLEMENTATION_DECISION--use-ruff-for-python-formatting-linting-and-complexity.md",
+        "sha256": "451a5af8ed5e4be73ead9d1b7c8b6b695bcc85eea74b0c0ca2881ea85a320923",
+        "fixture_path": "support_sources/methods/CA-M-428.md"
+      },
+      {
+        "atom_id": "CA-M-429",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-429-PROGRAMMATIC-STANDARD-IMPLEMENTATION_DECISION--use-uv-as-the-default-python-workflow-frontend.md",
+        "sha256": "ea89ca0b764e476cf84108d059a210f8220381ec2613b81866707816570a3fc3",
+        "fixture_path": "support_sources/methods/CA-M-429.md"
+      },
+      {
+        "atom_id": "CA-M-430",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-430-PROGRAMMATIC-STANDARD-IMPLEMENTATION_DECISION--validate-untrusted-structured-data-with-pydantic.md",
+        "sha256": "a967547cc8c80d0d2bef815f46bcf2da2243a3f75c23042a9d6b95224648509d",
+        "fixture_path": "support_sources/methods/CA-M-430.md"
+      }
+    ],
+    "fixture_path": "support_sources/method_projection.md",
+    "content_sha256": "7ef44ca88e458f3ee92435b159329386272d80ccc9d7df1aed1e083f1d9d5dcc"
+  }
+}
+

@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Other-primary harvest persistence transport"
-  depends_on: [Project, Operations, "Atom/Content Role: Plan"]
-version: 2
-updated_at: "2026-10-04 11:31:34 +0000"
+  governs: Other-primary harvest persistence transport
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1321]
 ---

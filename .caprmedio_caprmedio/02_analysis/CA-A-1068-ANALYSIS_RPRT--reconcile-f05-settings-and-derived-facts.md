@@ -9,10 +9,14 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F05 settings and derived facts reconciliation"
-  depends_on: [Operations, "Project Structure", "Framework Instance Settings", "Atom/Carrier"]
-version: 1
-updated_at: "2026-10-04 13:37:01 +0000"
+  governs: F05 settings and derived facts reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Atom/Carrier
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1350]
   relates_to: [CA-A-1063, CA-A-1061, CA-C-353, CA-C-380]

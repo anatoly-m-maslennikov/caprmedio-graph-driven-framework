@@ -13,9 +13,9 @@ subjects:
   governs: Entity/Node/Continuant/Implementation
   depends_on: []
 relations:
-  concern_about: [CA-R-863, CA-M-370, CA-E-301, CA-M-163, CA-P-2552]
-version: 4
-updated_at: "2026-10-21T17:25:04Z"
+  concern_about: [CA-R-863, CA-M-370, CA-E-301, CA-M-414, CA-P-2552]
+version: 5
+updated_at: "2026-10-21T23:29:13+00:00"
 ---
 # Summary
 
@@ -60,7 +60,7 @@ environment, token redaction, and Docker local logging inspection for
 `max-size=10m`, `max-file=3`, `mode=non-blocking`, and `max-buffer-size=1m`; it
 exited 0. This is source-mounted configuration evidence, not acceptance of a new
 image. Production remained unchanged and healthy. CA-R-863, CA-M-370 and CA-E-301
-carry the explicit scan disposition; CA-M-163 preserves the technical-diagnostic
+carry the explicit scan disposition; CA-M-414 preserves the technical-diagnostic
 versus Journal boundary. Existing query-Journal authorities CA-R-1865, CA-R-1867,
 CA-M-337, CA-E-577 and CA-E-580 remain the route for truthful actual-query
 evidence and do not authorize a competing log. The selected Docker `stderr`

@@ -3,20 +3,20 @@ atom_id: CA-R-1991
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow.Enabled Relations.Contains"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow.Enabled Relations.Contains'
   depends_on:
-  - "Entity/Node/Continuant/Atom.Enabled Relations.Contains"
-  - "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step"
+  - Subject/Domain/Node/Continuant/Atom.Enabled Relations.Contains
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
 relations:
   child_of:
   - CA-R-1945
-version: 3
-updated_at: "2026-10-19 15:54:17 +0400"
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 3
+type: Rule
 ---
 # Summary
 

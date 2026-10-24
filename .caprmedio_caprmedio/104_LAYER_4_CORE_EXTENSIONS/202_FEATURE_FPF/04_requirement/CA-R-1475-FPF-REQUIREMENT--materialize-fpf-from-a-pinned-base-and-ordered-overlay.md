@@ -2,17 +2,24 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "FPF"
+  governs: FPF
   depends_on:
-    - "Extension"
-    - "Extension Candidate"
-    - "Skill"
-    - "Content Digest"
-version: 3
-updated_at: "2026-09-15 02:22:01 +0400"
+  - Extension
+  - Extension Candidate
+  - Skill
+  - Content Digest
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 relations: {}
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+content_role: Requirement
+current_scope_unit: CORE_EXTENSIONS
+status: Active
+author: Anatoly Maslennikov
+atom_id: CA-R-1475
+type: Rule
+tier: 1
 ---
 # Materialize FPF from a pinned base and ordered overlay
 

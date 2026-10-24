@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 2
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 20:24:00 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Per-route candidate Run evidence retention"
-  depends_on: [Workflow, Action, Journal, Source Carrier, Evaluation]
+  governs: Per-route candidate Run evidence retention
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Carrier/File Carrier
+  - Evaluation
 relations:
   concern_about: [CA-P-1816, CA-P-1124]
 ---

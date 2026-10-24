@@ -3,17 +3,26 @@ atom_id: CA-R-1867
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 00:30:00 +0400"
+version: 3
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/Run evidence"
-  depends_on: [Workflow Run, Action Run, Journal, Tool]
+  governs: Subject/Domain/Node/Occurrent/Execution
+  depends_on:
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Engineering/Journal Event Query/Actual Invocation Recording
 relations:
-  relates_to: [CA-O-161, CA-D-527, CA-D-528, CA-D-529, CA-E-580]
+  relates_to:
+  - CA-O-161
+  - CA-D-527
+  - CA-D-528
+  - CA-D-529
+  - CA-E-580
+type: Rule
+tier: 3
 ---
 # Summary
 

@@ -1,24 +1,36 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Catalog"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Catalog'
   depends_on:
-    ["General Term", "Entity/Node/Continuant/Term", "Governed Term", "Definition Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Subjects", "Artifact", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Actor", "Subject Path", "Entity/Node/Continuant/Projection", "Entity/Relation", "Relation Kind", "Entity/Node/Continuant/Projection/Type: Terms Graph"]
-version: 10
-updated_at: "2026-10-19 15:53:09 +0400"
+  - General Term
+  - Subject/Domain/Node/Continuant/Term
+  - Definition Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Graph/Relation
+  - Subject/Graph/Relation/Type
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Terms Graph'
+version: 17
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-R-1318
-    - CA-R-1319
-    - CA-R-1320
-    - CA-R-1437
-atom_id: "CA-R-1455"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-R-1318
+  - CA-R-1319
+  - CA-R-1320
+  - CA-R-1437
+atom_id: CA-R-1455
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

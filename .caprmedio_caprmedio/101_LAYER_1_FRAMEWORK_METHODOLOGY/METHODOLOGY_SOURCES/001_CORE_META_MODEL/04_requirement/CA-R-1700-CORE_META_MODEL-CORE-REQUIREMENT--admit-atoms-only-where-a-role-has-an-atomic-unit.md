@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: "artifact-model"
+  governs: Subject/Domain/Node/Continuant/Atom.Type
   depends_on: []
-version: 21
-updated_at: "2026-10-03 02:15:29 +0400"
+version: 23
+updated_at: 2026-10-24 00:38:25 +0400
 relations: {}
-atom_id: "CA-R-1700"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1700
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Rule
+tier: 1
 ---
 # Summary
 
@@ -28,4 +28,4 @@ a Content Role admits a Type value for an Atom **only** **when** that role has a
 
 ## Details
 
-an Atom with Content Role Requirement, Method, **or** Delivery has a role-qualified Type **only** **when** a separately governed specialized Type applies. an ordinary Atom in these roles has no role-qualified Type; its Content Role already identifies its contribution. a specialized Atom retains **`=1`** admitted Type under its Content Role.
+Every Current Atom has exactly one substantive admitted Type under its Content Role. A Draft Atom may remain incomplete while being authored. A Type value must not be invented merely to fill a semantic coordinate, and a Content Role name must not be copied as a Type value. This rule does not constrain Type values to a particular local tier. General-name Type fields whose admission or full Subject path is not established remain uncovered and held; this rule does not claim that all Subject paths are complete.

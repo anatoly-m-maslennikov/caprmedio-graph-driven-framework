@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Whole oversized first-partition meta-model alignment report evidence"
-  depends_on: [Project, Operations, "Atom/Content Role: Plan"]
-version: 2
-updated_at: "2026-10-04 13:38:06 +0400"
+  governs: Whole oversized first-partition meta-model alignment report evidence
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   relates_to: [CA-P-1297, CA-P-1126]
 ---

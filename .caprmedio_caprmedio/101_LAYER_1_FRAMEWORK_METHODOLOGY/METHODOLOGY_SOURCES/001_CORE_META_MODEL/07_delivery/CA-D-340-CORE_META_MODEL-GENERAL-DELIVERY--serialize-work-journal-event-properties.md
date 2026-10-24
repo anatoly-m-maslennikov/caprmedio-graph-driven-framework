@@ -1,21 +1,26 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/History/Journal.Record"
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
   depends_on:
-    ["Entity/Node/Continuant/History/Journal.Record", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/Atom", "Entity/Carrier", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Projection/Type: Applicable Methodology"]
-version: 17
-updated_at: "2026-10-19 15:55:30 +0400"
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+version: 21
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - CA-R-1491
-atom_id: "CA-D-340"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-R-1491
+atom_id: CA-D-340
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Eng Decision
 ---
 # Summary
 Serialize Work Journal Event Properties

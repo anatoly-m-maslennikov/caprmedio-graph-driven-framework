@@ -1,25 +1,33 @@
 ---
 subjects:
-  governs: "RMEDO Conflict Resolution"
+  governs: RMEDO Conflict Resolution
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Node/Continuant/Atom.Global Tier", "Entity/Node/Continuant/Atom.Updated At", "Entity/Node/Continuant/Atom.Local Tier: Principle", "Entity/Relation", "Entity/Node/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Entity/Node/Continuant/History/Journal.Record"]
-version: 9
-updated_at: "2026-10-19 15:56:16 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Entity/Node/Continuant/Atom.Global Tier
+  - Subject/Domain/Node/Continuant/Atom.Updated At
+  - 'Subject/Domain/Node/Continuant/Atom.Tier: Principle'
+  - Subject/Graph/Relation
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Autonomous Confidence Threshold
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-O-028
-    - CA-O-005
-    - CA-O-006
-    - CA-O-008
-atom_id: "CA-E-477"
-content_role: "Evaluation"
+  - CA-O-028
+  - CA-O-005
+  - CA-O-006
+  - CA-O-008
+atom_id: CA-E-477
+content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 

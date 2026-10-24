@@ -1,19 +1,26 @@
 ---
 atom_id: CA-E-597
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-07 22:25:26 +0000"
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/Validation/Finder metadata acceptance"
-  depends_on: [Tool, Carrier, Framework Package, Runtime, Skill, Projection, Journal]
+  governs: Subject/Engineering/Validation/Finder Metadata Exclusion
+  depends_on:
+  - Subject/Engineering/Validation
+  - Subject/Engineering/Carrier
+  - Framework Package
+  - Subject/Engineering/Runtime
+  - Skill
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  evaluation_for: [CA-R-1898]
+  evaluation_for:
+  - CA-R-1898
+tier: 4
 ---
 # Summary
 

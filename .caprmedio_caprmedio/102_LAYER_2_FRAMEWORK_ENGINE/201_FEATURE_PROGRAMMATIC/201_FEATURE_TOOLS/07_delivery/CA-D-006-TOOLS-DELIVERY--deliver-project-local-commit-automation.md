@@ -2,13 +2,34 @@
 cce_version: cce_1
 cce_form: delivery
 subjects:
-  governs: "provenance"
+  governs: provenance
   depends_on: []
-version: 35
-updated_at: "2026-09-17 03:19:28 +0000"
-relations: {"depends_on":["CA-D-417"],"delivery_for":["CA-M-087","CA-M-182","CA-R-802","CA-R-803","CA-R-804","CA-R-805","CA-R-812","CA-R-1124","CA-R-1064","CA-R-1065","CA-R-1385"]}
+version: 40
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  depends_on:
+  - CA-D-417
+  delivery_for:
+  - CA-M-087
+  - CA-M-182
+  - CA-R-802
+  - CA-R-803
+  - CA-R-804
+  - CA-R-805
+  - CA-R-812
+  - CA-R-1124
+  - CA-R-1064
+  - CA-R-1065
+  - CA-R-1385
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-D-006
+status: Active
+content_role: Delivery
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Decision
+tier: 3
 ---
 # Deliver project-local commit automation
 

@@ -1,20 +1,25 @@
 ---
 atom_id: CA-R-1830
 content_role: Requirement
-type: Requirement
+type: Rule
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 23:02:03 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool/PROJECT_STRUCTURE declaration validation"
-  depends_on: [Tool, Scope Unit, Project Structure, Atom, Carrier]
+  governs: Subject/Domain/Node/Continuant/Project.Structure
+  depends_on:
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
 relations:
-  relates_to: [CA-R-1829, CA-O-012, CA-O-141]
+  relates_to:
+  - CA-R-1829
+  - CA-O-012
+  - CA-O-141
+tier: 3
 ---
 # Summary
 

@@ -2,20 +2,21 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Logging Policy"
+  governs: Logging Policy
   depends_on:
-    - "Journal"
-    - "Artifact/Carrier"
-    - "Atom/Content Role"
-    - "Framework Instance Settings"
-    - "Actor"
-    - "Action"
+  - Journal
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Actor
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 priority: medium
-version: 2
-updated_at: "2026-09-17 18:36:51 +0000"
+version: 4
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-156
 ---
 # How should production logging policy Claims be separated?
 

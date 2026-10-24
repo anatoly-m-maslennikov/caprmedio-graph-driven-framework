@@ -2,17 +2,24 @@
 atom_id: CA-D-621
 content_role: Delivery
 current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-11 01:44:36 +0400"
+version: 7
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "TOOLS/uniform self-description Carrier"
-  depends_on: [Tool, Model, Implementation, Action, Admission, Carrier]
+  governs: Subject/Engineering/Carrier
+  depends_on:
+  - Subject/Engineering/Tool.Self Description
+  - Subject/Engineering/Model
+  - Subject/Engineering/Tool Discovery Binding
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Admission
+  - Subject/Engineering/Carrier
 relations:
-  delivery_for: [CA-R-1930]
+  delivery_for:
+  - CA-R-1930
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

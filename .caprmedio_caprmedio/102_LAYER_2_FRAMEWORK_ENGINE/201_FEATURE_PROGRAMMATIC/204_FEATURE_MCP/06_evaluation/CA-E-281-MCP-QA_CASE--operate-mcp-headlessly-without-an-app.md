@@ -2,17 +2,24 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "framework-engine-mcp"
+  governs: framework-engine-mcp
   depends_on: []
-version: 6
-updated_at: "2026-09-23 04:25:00 +0400"
+version: 11
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-175
+  - CA-M-175
   derived_from:
-    - CA-A-057
+  - CA-A-057
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-281
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: MCP
+type: Eval Case
+tier: 3
 ---
 # Operate MCP headlessly without an App
 

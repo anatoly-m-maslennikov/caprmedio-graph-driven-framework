@@ -4,18 +4,28 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-19 15:56:34 +0400"
+version: 12
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Applicable Methodology Compilation Decide Step"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Applicable Methodology Compilation Decide Step'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Obtain Source Correction Decision", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Project Configuration", "Methodology Source.Expansion Boundary"]
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Scope Unit.Expansion Boundary
 relations:
-  relates_to: [CA-O-011, CA-O-007]
+  relates_to:
+  - CA-O-011
+  - CA-O-007
+tier: 3
 ---
 # Summary
 
@@ -27,9 +37,9 @@ this Step is the decide node **of** CA-O-011, Applicable Methodology Compilation
 
 ### Inputs and parameters
 
-bind the exact proposal from CA-O-154, conflict and source-frontier digest from CA-O-153, and the Workflow Run's required Operator approval context and canonical Journal reference.
+bind the exact proposal from CA-O-154, conflict and source-frontier digest from CA-O-153, and the Workflow Run's required Operator decision context with independently retained execution evidence.
 
-enforce CA-R-1317 through CA-O-007: obtain **`=1`** unambiguous actual Operator approval **and** record it **in** the Journal, bound **to** the exact proposal, conflict, **and** source-frontier digest. stale, partial, missing, ambiguous, **or** mismatched approval does **not** qualify. do **not** create an approval Atom **in** Project Configuration; approval **must not** itself bypass Core expansion boundaries.
+enforce CA-R-1317 through CA-O-007: obtain **`=1`** unambiguous current actual Operator decision bound **to** the exact proposal, conflict, **and** source-frontier digest, and independently retain **and** verify it through admitted execution evidence. the Journal append is a business-provenance attempt; failure yields a `recording_error` diagnostic and does **not** qualify or disqualify the decision, block dispatch, **or** serve as proof, permission, completion, **or** recovery gate. stale, partial, missing, ambiguous, **or** mismatched decision does **not** qualify. do **not** create an approval Atom **in** Project Configuration; approval **must not** itself bypass Core expansion boundaries.
 
 ### Agentic invocation binding
 

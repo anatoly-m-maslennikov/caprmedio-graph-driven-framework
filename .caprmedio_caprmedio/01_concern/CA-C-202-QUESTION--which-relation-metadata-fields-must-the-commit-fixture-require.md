@@ -2,17 +2,18 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Relation Kind/Registry Entry"
+  governs: Relation Kind/Registry Entry
   depends_on:
-    - "Relation"
-    - "CAPRMEDIO Graph"
-    - "Evaluation"
+  - Subject/Graph/Relation
+  - CAPRMEDIO Graph
+  - Evaluation
 priority: medium
-version: 1
-updated_at: "2026-09-17 21:33:05 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-202
 ---
 # Which Relation metadata fields must the commit fixture require?
 

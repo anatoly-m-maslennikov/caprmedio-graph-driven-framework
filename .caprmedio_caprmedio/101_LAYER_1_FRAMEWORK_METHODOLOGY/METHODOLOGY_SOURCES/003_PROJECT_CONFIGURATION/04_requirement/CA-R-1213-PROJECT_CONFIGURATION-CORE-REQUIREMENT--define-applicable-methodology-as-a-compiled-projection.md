@@ -1,19 +1,26 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
   depends_on:
-    ["Methodology Source", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Projection/Type: Reconciled Projection", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Delivery"]
-version: 21
-updated_at: "2026-10-19 15:56:03 +0400"
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Reconciled Projection'
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+version: 27
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1213"
-content_role: "Requirement"
+atom_id: CA-R-1213
+content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

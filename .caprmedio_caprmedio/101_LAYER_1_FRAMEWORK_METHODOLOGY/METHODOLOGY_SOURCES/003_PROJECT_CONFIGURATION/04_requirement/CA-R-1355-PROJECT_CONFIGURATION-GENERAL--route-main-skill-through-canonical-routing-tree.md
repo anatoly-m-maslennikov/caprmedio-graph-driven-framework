@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Main Skill Routing"
+  governs: CAPRMEDIO Main Skill Routing
   depends_on:
-    - "CAPRMEDIO Main Skill"
-    - "CAPRMEDIO Routing Tree"
-version: 9
-updated_at: "2026-10-02 22:23:29 +0400"
+  - CAPRMEDIO Main Skill
+  - CAPRMEDIO Routing Tree
+version: 11
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1355"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-R-1355
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

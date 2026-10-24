@@ -1,18 +1,26 @@
 ---
 subjects:
-  governs: "evaluation"
+  governs: evaluation
   depends_on: []
-version: 27
-updated_at: "2026-10-03 01:23:33 +0400"
-relations: {"relates_to": ["CA-R-1286", "CA-R-1634", "CA-R-1662"], "depends_on": ["CA-R-1503", "CA-R-1504", "CA-R-1505"]}
-atom_id: "CA-R-1635"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+version: 29
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1286
+  - CA-R-1634
+  - CA-R-1662
+  depends_on:
+  - CA-R-1503
+  - CA-R-1504
+  - CA-R-1505
+atom_id: CA-R-1635
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

@@ -1,20 +1,24 @@
 ---
-atom_id: "CA-E-617"
-content_role: "Evaluation"
-type: "QA Case"
+atom_id: CA-E-617
+content_role: Evaluation
+type: Eval Case
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public release merge exclusion"
-  depends_on: [Workflow, Pull Request, Tool]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
+  governs: Subject/Engineering/Public Release/Merge Exclusion
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Engineering/Pull Request
+  - Subject/Engineering/Public Release/Merge Exclusion Evaluation
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: [CA-R-1927, CA-M-368]
+  evaluation_for:
+  - CA-R-1927
+  - CA-M-368
+tier: 5
 ---
 # Summary
 

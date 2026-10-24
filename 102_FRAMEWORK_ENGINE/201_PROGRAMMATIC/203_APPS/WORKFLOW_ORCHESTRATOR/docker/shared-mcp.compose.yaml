@@ -1,0 +1,48 @@
+x-runtime-logging: &runtime-logging
+  driver: local
+  options:
+    max-size: "10m"
+    max-file: "3"
+    mode: non-blocking
+    max-buffer-size: "1m"
+
+services:
+  shared-mcp:
+    image: ${CAPRMEDIO_IMAGE:?An admitted immutable image is required}
+    logging: *runtime-logging
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: "no"
+    stop_grace_period: 30s
+    tmpfs: ["/tmp:rw,nosuid,nodev,size=256m"]
+    pids_limit: 256
+    mem_limit: 1g
+    cpus: 2
+    command: [shared-mcp]
+    environment:
+      CAPRMEDIO_HOST_SETTINGS: ${CAPRMEDIO_HOST_SETTINGS:?Host runtime settings are required}
+      CAPRMEDIO_PROJECTS_ROOT: ${CAPRMEDIO_PROJECTS_ROOT:?Shared Projects root is required}
+      CAPRMEDIO_MCP_HTTP_PORT: ${CAPRMEDIO_MCP_HTTP_PORT:?Shared HTTP port is required}
+      CAPRMEDIO_MAX_LOADED_PROJECTS: ${CAPRMEDIO_MAX_LOADED_PROJECTS:?Shared context limit is required}
+      CAPRMEDIO_SHARED_RUNTIME_ID: ${CAPRMEDIO_SHARED_RUNTIME_ID:?Shared runtime identity is required}
+    volumes:
+      - type: bind
+        source: ${CAPRMEDIO_PROJECTS_ROOT:?Shared Projects root is required}
+        target: ${CAPRMEDIO_PROJECTS_ROOT:?Shared Projects root is required}
+        read_only: false
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${CAPRMEDIO_HOST_SETTINGS:?Host runtime settings are required}
+        target: ${CAPRMEDIO_HOST_SETTINGS:?Host runtime settings are required}
+        read_only: true
+        bind: {create_host_path: false}
+    ports:
+      - "127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:?Shared HTTP port is required}:8092"
+    healthcheck:
+      test: [CMD, python, -c, "import json,urllib.request; assert json.load(urllib.request.urlopen('http://127.0.0.1:8092/health',timeout=3))['ready'] is True"]
+      interval: 2s
+      timeout: 5s
+      retries: 25
+      start_period: 90s

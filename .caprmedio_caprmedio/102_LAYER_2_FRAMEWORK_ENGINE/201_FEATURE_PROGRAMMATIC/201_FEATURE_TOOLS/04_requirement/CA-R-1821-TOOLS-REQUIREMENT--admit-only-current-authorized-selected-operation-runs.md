@@ -3,17 +3,24 @@ atom_id: CA-R-1821
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 23:03:24 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "WORKFLOW_OPERATIONS/RUN_SUPPORT/source admission"
-  depends_on: [Workflow, Action, Operator, Initiative, Journal, Tool, Implementation]
+  governs: Subject/Domain/Node/Occurrent/Execution
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
-  relates_to: [CA-R-1094, CA-R-1525, CA-R-1720]
+  relates_to:
+  - CA-R-1094
+  - CA-R-1525
+  - CA-R-1720
+type: Rule
+tier: 3
 ---
 # Summary
 

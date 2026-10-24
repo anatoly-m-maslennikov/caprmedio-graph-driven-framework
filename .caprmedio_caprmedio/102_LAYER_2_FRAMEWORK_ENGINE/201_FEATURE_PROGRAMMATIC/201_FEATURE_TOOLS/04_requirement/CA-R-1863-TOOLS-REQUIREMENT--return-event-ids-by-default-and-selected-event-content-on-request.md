@@ -3,17 +3,21 @@ atom_id: CA-R-1863
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 00:30:00 +0400"
+version: 3
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/result selection"
-  depends_on: [Event, Tool]
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
+  depends_on:
+  - Subject/Engineering/Journal Event Query/Result Selection
 relations:
-  relates_to: [CA-O-162, CA-M-336, CA-E-576]
+  relates_to:
+  - CA-O-162
+  - CA-M-336
+  - CA-E-576
+type: Rule
+tier: 3
 ---
 # Summary
 

@@ -1,19 +1,22 @@
 ---
 subjects:
-  governs: "Relation Kind"
+  governs: Subject/Graph/Relation/Type
   depends_on:
-    ["CAPRMEDIO Graph", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Entity/Node/Continuant/Projection", "Relation Kind Metadata"]
-version: 14
-updated_at: "2026-10-19 15:52:40 +0400"
+  - CAPRMEDIO Graph
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Domain/Node/Continuant/Projection
+  - Relation Kind Metadata
+version: 19
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1246"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1246
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

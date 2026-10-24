@@ -2,19 +2,26 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "release"
+  governs: release
   depends_on:
-    - "Journal/Record"
-    - "Artifact/Revision"
-version: 12
-updated_at: "2026-09-17 20:09:12 +0000"
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Artifact/Revision
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
-    - CA-R-1147
+  - CA-R-1147
   derived_from:
-    - CA-A-058
+  - CA-A-058
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-214
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Policy
+tier: 2
 ---
 # Record one verified release outcome
 

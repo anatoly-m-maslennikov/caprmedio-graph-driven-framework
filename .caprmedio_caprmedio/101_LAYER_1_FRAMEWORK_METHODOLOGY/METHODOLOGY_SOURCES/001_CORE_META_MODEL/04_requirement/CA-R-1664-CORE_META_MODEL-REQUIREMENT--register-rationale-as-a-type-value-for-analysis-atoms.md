@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Analysis/Type: Rationale"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis/Type: Rationale'
   depends_on:
-    - "artifact-catalog"
-version: 24
-updated_at: "2026-10-19 15:53:50 +0400"
+  - artifact-catalog
+version: 27
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type
-atom_id: "CA-R-1664"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type
+atom_id: CA-R-1664
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

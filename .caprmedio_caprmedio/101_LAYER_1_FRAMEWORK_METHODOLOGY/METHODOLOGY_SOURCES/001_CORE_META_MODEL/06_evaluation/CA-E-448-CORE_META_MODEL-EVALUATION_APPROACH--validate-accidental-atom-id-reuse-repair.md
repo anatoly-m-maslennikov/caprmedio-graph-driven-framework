@@ -1,22 +1,31 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.ID"
+  governs: Subject/Domain/Node/Continuant/Atom.ID
   depends_on:
-    ["Entity/Node/Continuant/Atom.ID", "Atom/Content Role", "Entity/Node/Continuant/Atom.Substance", "Atom Scope", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Carrier.Canonical Address", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator", "Confidence Threshold", "Entity/Node/Continuant/History/Journal"]
-version: 12
-updated_at: "2026-10-19 15:55:01 +0400"
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Local Scope Unit
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Subject/Engineering/Carrier.Canonical Address
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Confidence Threshold
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 19
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-276
-atom_id: "CA-E-448"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-M-276
+atom_id: CA-E-448
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 5
 ---
 # Summary
 

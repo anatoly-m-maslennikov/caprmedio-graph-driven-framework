@@ -4,18 +4,32 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Plan"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Relation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/History/Journal"]
-version: 7
-updated_at: "2026-10-19 15:56:57 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Definition of Done'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Status'
+  - Subject/Graph/Relation
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 11
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-R-1583, CA-R-1599, CA-R-1520, CA-R-1580, CA-O-079, CA-O-017, CA-O-077, CA-O-090]
+  relates_to:
+  - CA-R-1583
+  - CA-R-1599
+  - CA-R-1520
+  - CA-R-1580
+  - CA-O-079
+  - CA-O-017
+  - CA-O-077
+  - CA-O-090
+tier: 3
 ---
 # Summary
 

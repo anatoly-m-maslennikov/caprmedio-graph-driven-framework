@@ -1,19 +1,47 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Atom/Content Role: Plan.Assignee", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Plan Blocking Relations", "Autonomous Confidence Threshold", "Implementation Retry Limit", "Entity/Node/Continuant/Scope Unit", "Entity/Carrier/File Carrier"]
-version: 10
-updated_at: "2026-10-19 15:54:50 +0400"
-relations: {"relates_to": ["CA-R-1574", "CA-R-1575", "CA-R-1576", "CA-R-1577", "CA-R-1599", "CA-R-1584", "CA-R-1588", "CA-R-1589", "CA-R-1591", "CA-R-1418", "CA-M-123", "CA-M-271", "CA-M-295", "CA-D-470", "CA-D-471", "CA-D-481"]}
-atom_id: "CA-M-306"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Atom.Author
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Assignee'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Label'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Definition of Done'
+  - Plan Blocking Relations
+  - Autonomous Confidence Threshold
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Engineering/Carrier/File Carrier
+version: 16
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1574
+  - CA-R-1575
+  - CA-R-1576
+  - CA-R-1577
+  - CA-R-1599
+  - CA-R-1584
+  - CA-R-1588
+  - CA-R-1589
+  - CA-R-1591
+  - CA-R-1418
+  - CA-M-123
+  - CA-M-271
+  - CA-M-295
+  - CA-D-470
+  - CA-D-471
+  - CA-D-481
+atom_id: CA-M-306
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Implementation Method
 ---
 # Summary
 

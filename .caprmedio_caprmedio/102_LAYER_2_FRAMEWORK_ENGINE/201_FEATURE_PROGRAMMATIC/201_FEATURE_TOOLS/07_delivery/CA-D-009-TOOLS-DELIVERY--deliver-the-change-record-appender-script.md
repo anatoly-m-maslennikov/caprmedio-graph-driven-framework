@@ -3,21 +3,30 @@ atom_id: CA-D-009
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 cce_version: cce_1
 cce_form: serialization
 subjects:
-  governs: "provenance"
-  depends_on: [Journal, Journal/Record, Atom, Artifact/Carrier, Project, Applicable Methodology]
-version: 20
-updated_at: "2026-10-14 18:37:38 +0400"
+  governs: Subject/Engineering/Carrier
+  depends_on:
+  - Subject/Engineering/Carrier/Journal Serialization
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+version: 25
+updated_at: 2026-10-24 04:47:50 +0400
 relations:
-  delivery_for: [CA-R-812, CA-R-1124, CA-R-1064]
+  delivery_for:
+  - CA-R-812
+  - CA-R-1124
+  - CA-R-1064
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

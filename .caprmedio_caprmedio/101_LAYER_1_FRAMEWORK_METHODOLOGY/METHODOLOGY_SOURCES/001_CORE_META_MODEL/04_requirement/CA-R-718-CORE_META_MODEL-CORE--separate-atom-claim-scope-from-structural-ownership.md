@@ -1,21 +1,24 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Target Scope Unit"
+  governs: Subject/Domain/Node/Continuant/Atom.Target Scope Unit
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Atom.Substance Scope"]
-version: 27
-updated_at: "2026-10-19 15:54:21 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Atom.Substance Scope
+version: 34
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-1776
-atom_id: "CA-R-718"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1776
+atom_id: CA-R-718
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

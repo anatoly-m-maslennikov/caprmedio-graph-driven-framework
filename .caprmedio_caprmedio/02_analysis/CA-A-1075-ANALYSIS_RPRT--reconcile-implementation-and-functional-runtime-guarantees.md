@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Implementation and functional-runtime guarantee reconciliation"
-  depends_on: [Operations, Implementation, Evaluation]
-version: 2
-updated_at: "2026-10-04 13:16:49 +0000"
+  governs: Implementation and functional-runtime guarantee reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Implementation
+  - Evaluation
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1357]
   relates_to: [CA-A-1063, CA-P-1130, CA-C-370, CA-O-016, CA-O-017, CA-O-018, CA-O-020, CA-O-021, CA-O-102, CA-M-261, CA-M-270, CA-M-285, CA-E-389, CA-E-536]

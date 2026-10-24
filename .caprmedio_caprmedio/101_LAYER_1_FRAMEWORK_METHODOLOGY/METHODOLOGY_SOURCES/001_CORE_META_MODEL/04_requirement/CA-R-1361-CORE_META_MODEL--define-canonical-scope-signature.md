@@ -1,19 +1,23 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Canonical Scope Signature"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Canonical Scope Signature'
   depends_on:
-    ["Scope Expression", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.ID", "Artifact Carrier", "CCE Operator"]
-version: 16
-updated_at: "2026-10-19 15:52:54 +0400"
+  - Scope Expression
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Engineering/Carrier
+  - Subject/Engineering/CCE Operator
+version: 22
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1361"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-R-1361
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Definition
 ---
 # Summary
 

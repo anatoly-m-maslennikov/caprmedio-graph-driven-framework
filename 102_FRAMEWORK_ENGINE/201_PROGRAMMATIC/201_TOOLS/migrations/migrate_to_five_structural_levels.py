@@ -14,6 +14,8 @@ Atoms and are intentionally outside this mechanical migration.
 
 from __future__ import annotations
 
+
+
 import argparse
 import sys
 from pathlib import Path
@@ -215,5 +217,16 @@ def main() -> int:
     return 0
 
 
+def _image_main():
+    return main()
+
+
 if __name__ == "__main__":
-    raise SystemExit(main())
+    # Direct script execution needs the shared process boundary available from the tools root.
+    import sys
+    from pathlib import Path
+    _TOOLS_ROOT = next(p for p in Path(__file__).resolve().parents if p.name in {"201_TOOLS", "TOOLS"})
+    if str(_TOOLS_ROOT) not in sys.path:
+        sys.path.insert(0, str(_TOOLS_ROOT))
+    from runtime_process_boundary import run_process
+    raise SystemExit(run_process(_image_main, operation="migrations/migrate_to_five_structural_levels"))

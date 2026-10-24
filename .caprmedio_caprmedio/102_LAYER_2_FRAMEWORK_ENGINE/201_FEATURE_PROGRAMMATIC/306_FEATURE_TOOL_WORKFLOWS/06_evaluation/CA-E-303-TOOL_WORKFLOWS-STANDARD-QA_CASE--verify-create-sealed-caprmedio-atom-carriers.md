@@ -1,25 +1,27 @@
 ---
 atom_id: CA-E-303
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool/ATOM_CREATE"
+  governs: Subject/Engineering/Tool//ATOM_CREATE
   depends_on:
-    - "Atom"
-    - "Atom/Identifier"
-    - "Atom/Revision"
-    - "Create Sealed Atom Carriers"
-    - "Artifact/Carrier"
-    - "Journal/Record"
-version: 19
-updated_at: "2026-10-20 22:06:20 +0400"
-relations: {"evaluation_for":["CA-R-865","CA-O-032","CA-D-508"]}
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 25
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-865
+  - CA-O-032
+  - CA-D-508
+tier: 4
 ---
 # Summary
 

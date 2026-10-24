@@ -1,28 +1,28 @@
 ---
-atom_id: "CA-D-510"
-content_role: "Delivery"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 2
-updated_at: "2026-10-03 16:23:03 +0400"
+atom_id: CA-D-510
+content_role: Delivery
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 8
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "Evaluation/Report/Carrier"
+  governs: Subject/Engineering/Carrier/File Carrier
   depends_on:
-    - "Evaluation"
-    - "Atom"
-    - "Atom/Identifier"
-    - "Atom/Revision"
-    - "Workflow Run"
-    - "Property"
-    - "Prompt"
+  - Evaluation
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Engineering/Prompt
 relations:
   relates_to:
-    - CA-D-496
-    - CA-R-1802
+  - CA-D-496
+  - CA-R-1802
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

@@ -2,22 +2,25 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "feature-boundary"
+  governs: feature-boundary
   depends_on: []
-version: 11
-updated_at: "2026-10-12 23:58:28 +0400"
+version: 17
+status: Active
+updated_at: 2026-10-24 03:08:30 +0400
 relations:
   method_for:
-    - CA-R-1155
+  - CA-R-1155
   derived_from:
-    - CA-A-058
+  - CA-A-058
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 content_role: Method
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
+atom_id: CA-M-254
+type: Eng Decision
+tier: 4
+author: Anatoly Maslennikov
 ---
 # Summary
 

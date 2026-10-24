@@ -3,17 +3,25 @@ atom_id: CA-D-634
 content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Entities Graph"
-  depends_on: ["Entity", "Entity/Relation", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Projection"]
-version: 7
-updated_at: "2026-10-20 02:00:32 +0400"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Entities Graph'
+  depends_on:
+  - Subject/Domain/Node
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Projection
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  depends_on: [CA-R-1456, CA-D-310, CA-D-550, CA-D-635]
+  depends_on:
+  - CA-R-1456
+  - CA-D-310
+  - CA-D-550
+  - CA-D-635
+tier: 5
+type: Eng Decision
 ---
 # Summary
 

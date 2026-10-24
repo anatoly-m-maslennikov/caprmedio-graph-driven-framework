@@ -3,17 +3,21 @@ atom_id: CA-M-336
 content_role: Method
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/result selection"
-  depends_on: [Event, Tool]
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
+  depends_on:
+  - Subject/Engineering/Journal Event Query/Result Selection and Paging
 relations:
-  method_for: [CA-R-1863, CA-R-1865, CA-R-1871]
+  method_for:
+  - CA-R-1863
+  - CA-R-1865
+  - CA-R-1871
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

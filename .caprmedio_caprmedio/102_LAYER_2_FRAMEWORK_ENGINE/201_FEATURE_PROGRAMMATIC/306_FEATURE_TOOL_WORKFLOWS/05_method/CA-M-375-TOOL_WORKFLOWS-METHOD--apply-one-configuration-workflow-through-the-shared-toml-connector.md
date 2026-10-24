@@ -1,20 +1,30 @@
 ---
 atom_id: CA-M-375
 content_role: Method
-type: Method
+type: Eng Decision
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-15 22:16:58 +0400"
+version: 8
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool"
-  depends_on: ["Workflow", "Property", "Scope Unit"]
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Scope Unit
 relations:
-  relates_to: [CA-R-1935, CA-R-1829, CA-O-204, CA-O-205, CA-O-206, CA-O-218, CA-D-631, CA-O-219, CA-O-220]
+  relates_to:
+  - CA-R-1935
+  - CA-R-1829
+  - CA-O-204
+  - CA-O-205
+  - CA-O-206
+  - CA-O-218
+  - CA-D-631
+  - CA-O-219
+  - CA-O-220
+tier: 3
 ---
 # Summary
 

@@ -3,17 +3,30 @@ atom_id: CA-R-1825
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Dispatch"
-  depends_on: ["Atom", "Atom/Status", "Atom/Revision", "Artifact/Carrier"]
-version: 4
-updated_at: "2026-10-15 23:57:03 +0400"
+  governs: Subject/Engineering/Tool//ATOM_LIFECYCLE.Dispatch
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Status
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Engineering/Carrier
+version: 9
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  relates_to: [CA-O-127, CA-O-128, CA-O-129, CA-O-145, CA-O-067, CA-O-051, CA-R-866, CA-R-868, CA-R-1041]
+  relates_to:
+  - CA-O-127
+  - CA-O-128
+  - CA-O-129
+  - CA-O-145
+  - CA-O-067
+  - CA-O-051
+  - CA-R-866
+  - CA-R-868
+  - CA-R-1041
+tier: 3
+type: Rule
 ---
 # Summary
 

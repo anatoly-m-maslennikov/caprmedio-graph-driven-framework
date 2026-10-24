@@ -1,23 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/History/Journal"
+  governs: Subject/Domain/Node/Continuant/History/Journal
   depends_on:
-    ["Entity/Node/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
-version: 12
-updated_at: "2026-10-19 15:53:15 +0400"
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+version: 17
+updated_at: 2026-10-24 02:33:28 +0400
 relations:
   child_of:
-    - CA-R-1490
+  - CA-R-1490
   relates_to:
-    - CA-R-1745
-atom_id: "CA-R-1491"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1745
+atom_id: CA-R-1491
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

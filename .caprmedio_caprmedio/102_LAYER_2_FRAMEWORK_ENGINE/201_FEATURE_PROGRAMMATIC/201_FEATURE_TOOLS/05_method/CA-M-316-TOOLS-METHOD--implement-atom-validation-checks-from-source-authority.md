@@ -3,30 +3,27 @@ atom_id: CA-M-316
 content_role: Method
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool/VALIDATE_ATOMS"
+  governs: Subject/Engineering/Atom Validation/Source-bound Check Adapters
   depends_on:
-    - "Tool"
-    - "Atom"
-    - "Atom/Property"
-    - "Evaluation"
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Single Source of Truth"
-version: 6
-updated_at: "2026-10-01 21:46:55 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Property
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+version: 10
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
-    - CA-R-1622
-    - CA-R-1623
+  - CA-R-1622
+  - CA-R-1623
   relates_to:
-    - CA-E-506
-    - CA-O-087
+  - CA-E-506
+  - CA-O-087
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

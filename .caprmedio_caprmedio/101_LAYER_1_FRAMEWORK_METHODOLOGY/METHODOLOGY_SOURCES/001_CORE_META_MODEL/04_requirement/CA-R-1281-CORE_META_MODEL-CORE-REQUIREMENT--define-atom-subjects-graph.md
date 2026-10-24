@@ -1,19 +1,29 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Atom Subjects Graph"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Atom Subjects Graph'
   depends_on:
-    ["Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Subjects", "Subject Path", "Subject Target", "GOVERNS", "DEPENDS_ON", "Entity/Relation", "Relation Kind", "CAPRMEDIO Graph", "Subject", "Entity/Node/Continuant/Term"]
-version: 16
-updated_at: "2026-10-21 01:47:52 +0400"
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Atom Subjects Graph'
+  - 'Subject/Graph/Relation/Type: GOVERNS'
+  - 'Subject/Graph/Relation/Type: DEPENDS_ON'
+  - Subject/Graph/Relation
+  - Subject/Graph/Relation/Type
+  - CAPRMEDIO Graph
+  - Subject
+  - Subject/Domain/Node/Continuant/Term
+version: 23
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1281"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1281
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 
@@ -29,6 +39,6 @@ Atom Subjects Graph **means** the Type value under Projection whose instances ar
 
 ## Details
 
-**every** represented link retains the source Atom identity, exact Subject Path, canonical target identity, Relation Kind, direction, **and** source Artifact Revision. its Relation Kinds **and** endpoint constraints remain governed by their existing graph-qualified authority; naming this Projection Type does **not** admit another Relation Kind owner **or** an independently authored relation fact. represented targets retain their existing identities **without** an intermediate Subject object **or** duplicated target definitions.
+**every** represented link retains the source Atom identity, exact Subject Path, canonical target identity, Relation Kind, direction, **and** source Atom ID and Version. its Relation Kinds **and** endpoint constraints remain governed by their existing graph-qualified authority; naming this Projection Type does **not** admit another Relation Kind owner **or** an independently authored relation fact. represented targets retain their existing identities **without** an intermediate Subject object **or** duplicated target definitions.
 
-an Atom Subjects Graph may represent both Entity-root and Method-root Subject Targets. this specification does not claim that a particular renderer, tool, or existing Projection already supports either root.
+an Atom Subjects Graph may represent canonical Subject Targets under one Subject-rooted hierarchy. this Projection Type remains the bipartite Atom-to-Subject link view; this specification does not claim that a particular renderer, tool, or existing Projection already supports that hierarchy.

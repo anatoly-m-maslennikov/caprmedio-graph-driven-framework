@@ -2,18 +2,19 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Project Structure Maintenance"
+  governs: Project Structure Maintenance
   depends_on:
-    - "Project Structure"
-    - "Action"
-    - "Artifact/Carrier"
-    - "Operator"
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 priority: medium
-version: 2
-updated_at: "2026-09-20 23:49:39 +0000"
+version: 4
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-129
 ---
 # Which Action retires a Project Structure candidate?
 

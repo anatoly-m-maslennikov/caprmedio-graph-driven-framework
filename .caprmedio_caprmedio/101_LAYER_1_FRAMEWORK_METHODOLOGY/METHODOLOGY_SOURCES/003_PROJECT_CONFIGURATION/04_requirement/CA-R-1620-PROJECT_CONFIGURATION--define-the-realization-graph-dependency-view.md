@@ -3,24 +3,23 @@ atom_id: CA-R-1620
 content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Realization Graph"
+  governs: Realization Graph
   depends_on:
-    - "Entity"
-    - "Projection"
-    - "Entity/Relation"
-version: 5
-updated_at: "2026-10-19 15:56:09 +0400"
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/Projection
+version: 10
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - CA-R-1246
-    - CA-R-1494
-    - CA-R-1616
-    - CA-R-1746
-global_tier: 11
+  - CA-R-1246
+  - CA-R-1494
+  - CA-R-1616
+  - CA-R-1746
+tier: 3
+type: Definition
 ---
 # Summary
 

@@ -1,21 +1,31 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/History/Journal"
+  governs: Subject/Domain/Node/Continuant/History/Journal
   depends_on:
-    ["Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Project", "Artifact", "Implementation", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/History/Journal.Record", "Entity/Node/Continuant/Projection", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Delivery"]
-version: 22
-updated_at: "2026-10-19 15:53:53 +0400"
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Engineering/Implementation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+version: 29
+updated_at: 2026-10-24 02:04:43 +0400
 relations:
   child_of:
-    - CAPRMEDIO-REQU-007-CORE-REQUIREMENT--full-minimal-traceability
-atom_id: "CA-R-1720"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-007
+atom_id: CA-R-1720
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

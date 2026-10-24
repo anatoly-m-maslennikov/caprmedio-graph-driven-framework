@@ -1,21 +1,31 @@
 ---
 atom_id: CA-E-628
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Core
-global_tier: 9
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Atom","Scope Unit","Workflow","Project Configuration"]
-version: 1
-updated_at: "2026-10-12 23:51:44 +0400"
+  governs: Subject/Engineering/Connector Interface Conformance Evaluation
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Workflow
+  - Subject/Domain/Node/Continuant/Governing Configuration
+version: 4
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: ["CA-R-1936","CA-D-625"]
-  relates_to: ["CA-M-376","CA-D-527","CA-O-046","CA-O-047","CA-O-204"]
+  evaluation_for:
+  - CA-R-1936
+  - CA-D-625
+  relates_to:
+  - CA-M-376
+  - CA-D-527
+  - CA-O-046
+  - CA-O-047
+  - CA-O-204
+tier: 3
 ---
 # Summary
 

@@ -2,21 +2,28 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "FPF"
+  governs: FPF
   depends_on:
-    - "Extension Candidate"
-    - "Analysis Report"
-    - "Atom/Content Role: Concern"
-    - "Tool"
-    - "MCP"
-    - "Skill"
-version: 3
-updated_at: "2026-09-15 02:22:01 +0400"
+  - Extension Candidate
+  - Analysis Report
+  - 'Atom/Content Role: Concern'
+  - Tool
+  - MCP
+  - Skill
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-290
+  - CA-M-290
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+content_role: Evaluation
+current_scope_unit: CORE_EXTENSIONS
+status: Active
+author: Anatoly Maslennikov
+atom_id: CA-E-468
+type: Eval Case
+tier: 3
 ---
 # Verify one CAPRMEDIO-aligned FPF Extension revision
 

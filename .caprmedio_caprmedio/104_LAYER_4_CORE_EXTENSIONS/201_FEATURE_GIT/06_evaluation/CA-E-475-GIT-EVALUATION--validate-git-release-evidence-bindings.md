@@ -2,18 +2,25 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Evidence/Git reference validation"
+  governs: Evidence/Git reference validation
   depends_on:
-    - "Carrier"
-    - "Artifact/Revision"
-    - "Journal/Record"
-version: 1
-updated_at: "2026-09-16 17:31:26 +0000"
+  - Carrier
+  - Artifact/Revision
+  - Journal/Record
+version: 4
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   evaluation_for:
-    - "CA-D-448"
+  - CA-D-448
+content_role: Evaluation
+current_scope_unit: CORE_EXTENSIONS
+status: Active
+author: Anatoly Maslennikov
+atom_id: CA-E-475
+type: Eval Case
+tier: 2
 ---
 # Validate Git release evidence bindings
 

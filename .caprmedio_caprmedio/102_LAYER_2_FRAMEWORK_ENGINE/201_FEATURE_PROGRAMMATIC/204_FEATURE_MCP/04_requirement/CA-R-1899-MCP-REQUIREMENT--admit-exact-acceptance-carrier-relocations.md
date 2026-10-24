@@ -2,17 +2,25 @@
 atom_id: CA-R-1899
 content_role: Requirement
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-08 17:31:41 +0000"
+version: 6
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "MCP/exact acceptance-carrier relocation admission"
-  depends_on: [MCP, Projection, Operator, Run, Journal, Source Carrier]
+  governs: Subject/Engineering/Carrier
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Engineering/Carrier/Journal Serialization
+  - Subject/Engineering/Carrier/File Carrier
 relations:
-  relates_to: [CA-P-1117, CA-D-592]
+  relates_to:
+  - CA-P-1117
+  - CA-D-592
+tier: 3
+type: Rule
 ---
 # Summary
 

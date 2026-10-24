@@ -2,19 +2,26 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: "Verify Artifact Migration"
+  governs: Verify Artifact Migration
   depends_on:
-    - "Action"
-    - "Artifact"
-    - "Artifact/Revision"
-    - "Relation"
-    - "Projection"
-    - "Journal/Record"
-version: 4
-updated_at: "2026-09-17 03:14:49 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Artifact
+  - Artifact/Revision
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 10
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-O-033
+status: Active
+content_role: Operations
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Action
+tier: 1
 ---
 # Verify one generic Artifact migration
 

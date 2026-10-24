@@ -7,11 +7,17 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 10:46:48 +0000"
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Release Binding Refresh"
-  depends_on: [Operator, Manifest, Source Carrier, Release Version, Journal, MCP]
+  governs: Release Binding Refresh
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Manifest
+  - Subject/Engineering/Carrier/File Carrier
+  - Release Version
+  - Subject/Domain/Node/Continuant/History/Journal
+  - MCP
 relations:
   concern_about: [CA-R-1882, CA-M-339, CA-D-576, CA-P-1117]
 ---

@@ -2,19 +2,20 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "AI Agent/authorization"
+  governs: AI Agent/authorization
   depends_on:
-    - "Operator"
-    - "Actor"
-    - "Action"
-    - "Carrier"
-    - "Framework Instance Settings"
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Actor
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
 priority: medium
-version: 3
-updated_at: "2026-09-17 20:53:53 +0000"
+version: 5
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-196
 ---
 # Which authority owns the commit-autonomy envelope?
 

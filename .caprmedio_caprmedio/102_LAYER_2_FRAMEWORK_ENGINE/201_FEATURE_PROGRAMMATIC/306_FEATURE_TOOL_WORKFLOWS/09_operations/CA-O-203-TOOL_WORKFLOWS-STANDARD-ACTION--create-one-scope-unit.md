@@ -4,17 +4,25 @@ content_role: Operations
 type: Action
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Scope Unit","Project Structure","Action","Tool"]
-version: 2
-updated_at: "2026-10-12 23:49:24 +0400"
+  governs: Subject/Domain/Node/Continuant/Scope Unit
+  depends_on:
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Configuration/Scope Unit Create Realization
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 relations:
-  relates_to: [CA-R-1829, CA-O-204, CA-D-441, CA-R-1935, CA-M-375]
+  relates_to:
+  - CA-R-1829
+  - CA-O-204
+  - CA-D-441
+  - CA-R-1935
+  - CA-M-375
+tier: 3
 ---
 # Summary
 

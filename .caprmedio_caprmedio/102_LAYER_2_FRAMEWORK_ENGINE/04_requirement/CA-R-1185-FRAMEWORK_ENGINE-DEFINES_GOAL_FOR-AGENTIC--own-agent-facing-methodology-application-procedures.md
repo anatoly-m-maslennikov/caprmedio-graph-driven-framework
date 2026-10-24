@@ -2,14 +2,21 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "AGENTIC/Goal"
+  governs: AGENTIC/Goal
   depends_on:
-    - "FRAMEWORK_ENGINE"
-version: 9
-updated_at: 2026-09-23 04:25:00 +0400
+  - FRAMEWORK_ENGINE
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations: {}
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-1185
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: FRAMEWORK_ENGINE
+type: Goal
+tier: 1
 ---
 # Own Agent-Facing Methodology-Application Procedures
 

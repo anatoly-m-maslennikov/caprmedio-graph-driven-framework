@@ -7,11 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 00:31:56 +0000"
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Tool/RELEASE_VERSION/Installed N suite admission"
-  depends_on: [Tool, Test Suite, Runtime, Docker Image, Framework Package, Journal]
+  governs: Subject/Engineering/Release Testing/Executor Admission
+  depends_on:
+  - Subject/Engineering/Execution Identity/Runtime Image
 relations:
   concern_about: [CA-P-1717, CA-P-1620]
 ---

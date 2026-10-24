@@ -3,23 +3,22 @@ atom_id: CA-D-638
 content_role: Delivery
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-21 03:48:43 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: Entity/Carrier
+  governs: Subject/Engineering/Carrier
   depends_on:
-  - Entity/Node/Continuant/Implementation
-  - 'Entity/Node/Continuant/Atom/Content Role: Requirement'
-  - 'Entity/Node/Continuant/Atom/Content Role: Method'
-  - 'Entity/Node/Continuant/Atom/Content Role: Evaluation'
-  - 'Entity/Node/Continuant/Atom/Content Role: Delivery'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
 relations:
   delivery_for:
   - CA-M-395
+type: Eng Policy
+tier: 5
 ---
 # Summary
 

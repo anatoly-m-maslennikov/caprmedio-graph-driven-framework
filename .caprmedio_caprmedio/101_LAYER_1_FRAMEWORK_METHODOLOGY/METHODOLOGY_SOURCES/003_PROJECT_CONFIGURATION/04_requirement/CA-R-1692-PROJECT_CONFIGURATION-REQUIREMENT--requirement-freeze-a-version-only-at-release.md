@@ -1,31 +1,31 @@
 ---
 subjects:
-  governs: "Version/release"
+  governs: Version/release
   depends_on:
-    - "Version"
-    - "Journal/Record"
-    - "Artifact/Revision"
-    - "Atom/Content Role: Operations"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Evaluation"
-    - "Extension"
-    - "Project Configuration"
-version: 19
-updated_at: "2026-10-03 02:10:09 +0400"
+  - Version
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Artifact/Revision
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Atom/Content Role: Implementation'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Engineering/Extension
+  - Project Configuration
+version: 24
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - "CA-R-1712"
-    - "CA-R-1646"
-    - "CA-O-025"
-atom_id: "CA-R-1692"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-R-1712
+  - CA-R-1646
+  - CA-O-025
+atom_id: CA-R-1692
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

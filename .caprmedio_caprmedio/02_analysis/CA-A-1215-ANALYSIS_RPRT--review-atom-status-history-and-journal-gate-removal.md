@@ -8,11 +8,16 @@ local_tier: Standard
 global_tier: 2
 status: Done
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-16 00:44:07 +0400"
+version: 3
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: Tool
-  depends_on: [Atom, "Atom/Status", Journal, Workflow, Operator]
+  governs: Subject/Domain/Node/Continuant/Atom.Status
+  depends_on:
+  - Atom
+  - Atom/Status
+  - Journal
+  - Workflow
+  - Operator
 relations:
   relates_to: [CA-P-2385, CA-P-2386, CA-P-2387, CA-P-2388, CA-P-2389, CA-P-2390, CA-P-2400, CA-C-523]
 ---

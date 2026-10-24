@@ -1,19 +1,25 @@
 ---
 subjects:
-  governs: "Subject"
+  governs: Subject
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity", "Subject Target", "Entity/Node/Continuant/Term", "Entity/Relation", "GOVERNS", "DEPENDS_ON", "Subject Path"]
-version: 17
-updated_at: "2026-10-21 01:47:52 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node
+  - Subject
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Graph/Relation
+  - 'Subject/Graph/Relation/Type: GOVERNS'
+  - 'Subject/Graph/Relation/Type: DEPENDS_ON'
+version: 22
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1275"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1275
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

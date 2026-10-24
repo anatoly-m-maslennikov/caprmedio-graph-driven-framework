@@ -2,18 +2,30 @@
 atom_id: CA-D-590
 content_role: Delivery
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-07 13:56:09 +0000"
+version: 8
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "Release Version/Host Executor/Shutdown/Carrier"
-  depends_on: [Carrier, Release Version, Workflow Run, Operator, Permission, Queue, DBOS, Implementation]
+  governs: Subject/Engineering/Carrier/File Carrier
+  depends_on:
+  - Subject/Engineering/Carrier
+  - Subject/Engineering/Release Version
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Permission
+  - Subject/Engineering/Queue
+  - Subject/Engineering/DBOS
+  - Subject/Engineering/Runtime/Docker Control Adapter
 relations:
-  delivery_for: [CA-R-1896, CA-M-352]
-  relates_to: [CA-D-583, CA-D-589]
+  delivery_for:
+  - CA-R-1896
+  - CA-M-352
+  relates_to:
+  - CA-D-583
+  - CA-D-589
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

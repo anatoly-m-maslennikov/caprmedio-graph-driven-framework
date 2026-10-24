@@ -1,21 +1,30 @@
 ---
 atom_id: CA-E-626
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Core
-global_tier: 9
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Atom","Workflow"]
-version: 4
-updated_at: "2026-10-14 23:49:48 +0400"
+  governs: Subject/Engineering/Workflow Orchestration/Independent Atom Effects Evaluation
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: ["CA-R-1093","CA-R-1041","CA-R-1067"]
-  relates_to: ["CA-M-372","CA-O-201","CA-O-202","CA-E-247","CA-E-546"]
+  evaluation_for:
+  - CA-R-1093
+  - CA-R-1041
+  - CA-R-1067
+  relates_to:
+  - CA-M-372
+  - CA-O-201
+  - CA-O-202
+  - CA-E-247
+  - CA-E-546
+tier: 4
 ---
 # Summary
 

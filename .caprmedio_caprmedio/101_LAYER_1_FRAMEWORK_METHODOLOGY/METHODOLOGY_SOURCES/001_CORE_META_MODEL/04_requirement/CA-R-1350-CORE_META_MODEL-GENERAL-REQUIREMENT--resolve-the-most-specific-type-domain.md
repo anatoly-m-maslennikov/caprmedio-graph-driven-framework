@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "Entity/Type"
+  governs: Subject/Domain/Node.Type
   depends_on:
-    - "Subject Expression"
-    - "Type"
-version: 9
-updated_at: "2026-10-02 22:05:04 +0400"
+  - Subject
+  - Subject/Domain/Node.Type
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1350"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-R-1350
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

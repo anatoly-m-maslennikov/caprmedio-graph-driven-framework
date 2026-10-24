@@ -1,21 +1,23 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Structure"
+  governs: Subject/Domain/Node/Continuant/Project.Structure
   depends_on:
-    ["Entity/Node/Continuant/History/Revision", "Entity/Node/Continuant/History/Journal", "Entity/Carrier"]
-version: 9
-updated_at: "2026-10-19 15:55:48 +0400"
+  - Entity/Node/Continuant/History/Revision
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Carrier
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - "CA-D-440"
-atom_id: "CA-D-443"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-D-440
+atom_id: CA-D-443
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

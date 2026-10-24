@@ -1,24 +1,32 @@
 ---
 atom_id: CA-E-512
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Governed Term Rendering"
+  governs: Subject/Domain/Node/Continuant/Term
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "CCE", "CCE Operator", "CCE Operator Registry", "Entity/Node/Continuant/Atom/Content Role: Concern", "General Term", "Governed Term", "Markdown Atom Carrier.Main Content.CCE Operator", "Entity/Node/Continuant/Scope Unit.Name"]
-version: 6
-updated_at: "2026-10-19 15:55:16 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Graph/Rule/CCE
+  - Subject/Engineering/CCE Operator
+  - Subject/Graph/Rule/CCE Operator Registry
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Concern'
+  - General Term
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Engineering/Carrier/File Carrier.Main Content.CCE Operator
+  - Subject/Domain/Node/Continuant/Scope Unit.Name
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-D-280
-    - CA-M-229
-    - CA-M-234
-global_tier: 11
+  - CA-D-280
+  - CA-M-229
+  - CA-M-234
+tier: 4
 ---
 # Summary
 

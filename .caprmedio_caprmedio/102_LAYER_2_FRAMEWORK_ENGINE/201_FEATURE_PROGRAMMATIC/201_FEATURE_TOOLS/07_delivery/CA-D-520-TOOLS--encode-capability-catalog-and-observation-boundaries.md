@@ -2,25 +2,28 @@
 atom_id: CA-D-520
 content_role: Delivery
 current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 14:55:01 +0000"
+version: 6
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Capability Catalog/Carrier"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Tool"
-    - "Action"
-    - "Workflow"
-    - "Atom"
-    - "Scope Unit"
-    - "Implementation"
-    - "Workflow Run"
-    - "Journal"
+  - Subject/Engineering/Tool//CAPABILITY_CATALOG
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Engineering/Tool Discovery Binding/Catalog Coverage Diagnostics
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-R-1810, CA-M-318, CA-M-319]
+  relates_to:
+  - CA-R-1810
+  - CA-M-318
+  - CA-M-319
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

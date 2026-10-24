@@ -1,23 +1,24 @@
 ---
 subjects:
-  governs: "Type"
+  governs: Subject/Domain/Node.Type
   depends_on:
-    ["Atom/Content Role", "Entity/Carrier"]
-version: 9
-updated_at: "2026-10-15 18:51:50 +0000"
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Engineering/Carrier
+version: 14
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - "CA-R-1690"
-    - "CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type"
-    - "CAPRMEDIO-META-REQU-742--permit-one-internal-default-type-per-content-role"
-atom_id: "CA-D-393"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-R-1690
+  - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type
+  - CAPRMEDIO-META-REQU-742--permit-one-internal-default-type-per-content-role
+atom_id: CA-D-393
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "First-partition Principles-first audit repair instruction evidence"
-  depends_on: [Project, Operations, "Atom/Content Role: Plan"]
-version: 5
-updated_at: "2026-10-04 10:15:05 +0000"
+  governs: First-partition Principles-first audit repair instruction evidence
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 7
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   relates_to: [CA-P-1301, CA-P-1126, CA-A-1015, CA-C-321]
 ---

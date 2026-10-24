@@ -1,21 +1,22 @@
 ---
-version: 15
-updated_at: "2026-10-19 15:54:04 +0400"
+version: 19
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-R-1773
+  - CA-R-1773
 subjects:
-  governs: "Project Principle Universe"
+  governs: Subject/Domain/Node/Continuant/Project.Principle Universe
   depends_on:
-    ["Entity/Node/Continuant/Atom.Local Tier: Principle", "Entity/Node/Continuant/Project"]
-atom_id: "CA-R-1774"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom.Tier: Principle'
+  - Subject/Domain/Node/Continuant/Project
+atom_id: CA-R-1774
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

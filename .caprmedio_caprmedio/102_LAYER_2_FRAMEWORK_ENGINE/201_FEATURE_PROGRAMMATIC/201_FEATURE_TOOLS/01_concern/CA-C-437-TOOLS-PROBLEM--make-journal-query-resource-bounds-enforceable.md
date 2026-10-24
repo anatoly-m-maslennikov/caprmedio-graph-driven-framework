@@ -8,11 +8,14 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Journal query resource bounds"
-  depends_on: [Journal, QUERY_FILTER, Pagination]
+  governs: Journal query resource bounds
+  depends_on:
+  - Subject/Engineering/Journal Event Query
+  - QUERY_FILTER
+  - Pagination
 relations:
   relates_to: [CA-R-1865, CA-D-556, CA-E-575, CA-E-577]
 ---

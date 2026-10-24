@@ -1,19 +1,39 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Actor/Type: AI Agent"
+  governs: 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
   depends_on:
-    ["Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "AI Agent Confidence", "Entity/Node/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold", "Spec", "Entity/Node/Continuant/Atom", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Requirement", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Entity/Node/Continuant/Project", "Implementation Workflow"]
-version: 8
-updated_at: "2026-10-19 15:53:29 +0400"
-relations: {"child_of":["CA-M-261"],"relates_to":["CA-R-1591","CA-R-1552","CA-R-1080","CA-M-262"]}
-atom_id: "CA-R-1559"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - Subject/Domain/Node/Continuant/Atom.Author
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - AI Agent Confidence
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+  - Spec
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  child_of:
+  - CA-M-261
+  relates_to:
+  - CA-R-1591
+  - CA-R-1552
+  - CA-R-1080
+  - CA-M-262
+atom_id: CA-R-1559
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

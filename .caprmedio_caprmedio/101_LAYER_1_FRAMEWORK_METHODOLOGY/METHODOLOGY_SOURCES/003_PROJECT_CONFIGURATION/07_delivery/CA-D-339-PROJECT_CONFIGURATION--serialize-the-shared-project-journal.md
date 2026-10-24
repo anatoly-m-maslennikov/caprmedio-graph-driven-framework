@@ -1,27 +1,27 @@
 ---
 subjects:
-  governs: "Journal/Carrier"
+  governs: Subject/Engineering/Carrier/File Carrier
   depends_on:
-    - "Journal"
-    - "Journal/Record"
-    - "Project"
-    - "Work Journal"
-    - "Scope Unit"
-    - "Atom/Content Role"
-version: 14
-updated_at: "2026-10-04 22:11:59 +0000"
+  - Subject/Engineering/Carrier/Journal Serialization
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+version: 19
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - CA-D-308
-    - CA-R-1720
-atom_id: "CA-D-339"
-content_role: "Delivery"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-D-308
+  - CA-R-1720
+atom_id: CA-D-339
+content_role: Delivery
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

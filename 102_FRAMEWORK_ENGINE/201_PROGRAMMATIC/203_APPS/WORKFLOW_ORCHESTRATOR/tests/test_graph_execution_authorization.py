@@ -16,7 +16,7 @@ for location in (APP, TOOLS, GRAPH_TOOL):
         sys.path.insert(0, str(location))
 
 from generate_entity_graph import is_actual_recording_context  # noqa: E402
-from selected_execution import SelectedExecution  # noqa: E402
+from selected_graph_inputs import graph_parameters_with_actual_recording  # noqa: E402
 
 
 class GraphExecutionAuthorizationTests(unittest.TestCase):
@@ -85,7 +85,7 @@ class GraphExecutionAuthorizationTests(unittest.TestCase):
         }
 
     def invoke(self, session: SimpleNamespace) -> object:
-        return SelectedExecution._graph_parameters_with_actual_recording(
+        return graph_parameters_with_actual_recording(
             self.parameters, session,
             workflow_run_id="fixture-workflow",
             step_run_id="fixture-step",

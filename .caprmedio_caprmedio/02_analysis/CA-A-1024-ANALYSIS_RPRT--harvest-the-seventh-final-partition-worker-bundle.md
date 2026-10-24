@@ -8,10 +8,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Final-partition worker review and repair evidence"
-  depends_on: [Project, Operations]
-version: 3
-updated_at: "2026-10-04 10:10:01 +0000"
+  governs: Final-partition worker review and repair evidence
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1306]
   relates_to: [CA-P-1308, CA-P-1129, CA-A-1020, CA-A-905, CA-A-910, CA-C-323]

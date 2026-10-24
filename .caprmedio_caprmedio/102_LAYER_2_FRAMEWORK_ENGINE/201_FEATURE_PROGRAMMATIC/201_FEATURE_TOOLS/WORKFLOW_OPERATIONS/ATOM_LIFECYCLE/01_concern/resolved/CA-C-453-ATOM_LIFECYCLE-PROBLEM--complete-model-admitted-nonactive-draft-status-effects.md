@@ -8,10 +8,17 @@ global_tier: 14
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Tool/ATOM_LIFECYCLE/Status change coverage"
-  depends_on: [Atom, Status, Carrier, Identifier, Revision, Analysis, Draft]
-version: 1
-updated_at: "2026-10-05 03:51:50 +0000"
+  governs: Tool/ATOM_LIFECYCLE/Status change coverage
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Status
+  - Subject/Engineering/Carrier
+  - Identifier
+  - Revision
+  - Analysis
+  - Draft
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1637, CA-P-1664]
 ---

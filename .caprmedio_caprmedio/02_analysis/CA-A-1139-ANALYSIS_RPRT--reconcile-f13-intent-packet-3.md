@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F13 final save-boundary and recovery packet"
-  depends_on: [Operations, "Methodology Sources", Journal]
-version: 2
-updated_at: "2026-10-04 13:56:32 +0000"
+  governs: F13 final save-boundary and recovery packet
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Methodology Sources
+  - Journal
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1419]
   relates_to: [CA-P-1358, CA-A-1063, CA-A-1125, CA-A-1060, CA-A-1061]

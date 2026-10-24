@@ -1,0 +1,33 @@
+---
+subjects:
+  governs: Structural Entity Containment Relations
+  depends_on:
+  - Containment Relation Pair
+  - Directory Carrier Nesting
+version: 15
+updated_at: 2026-10-20 00:10:59 +0400
+relations: {}
+atom_id: CA-D-266@15
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+local_tier: Core
+status: Archived
+author: Anatoly Maslennikov
+global_tier: 9
+---
+# Summary
+
+Prohibit Persisting Derived Containment
+
+## Scope
+
+`CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting.
+
+## Claim
+
+`CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting **must not** be persisted as independent relation declarations.
+
+## Details
+
+This prohibition applies when canonical Carrier nesting already owns the containment fact. It does not ban an independently authored direct IS_CONTAINED_BY fact whose authority is the child's admitted relation declaration rather than nesting. Do not maintain both as independent sources for the same fact. CONTAINS remains a derived inverse in either representation and is not independently authored.

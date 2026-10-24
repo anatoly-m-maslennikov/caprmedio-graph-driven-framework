@@ -9,12 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: active
 subjects:
-  governs: "Project session metadata corpus/Source identity"
+  governs: Project session metadata corpus/Source identity
   depends_on:
-    - "Project"
-    - "Operator"
-version: 2
-updated_at: "2026-10-04 07:55:00 +0400"
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
     - CA-P-1125

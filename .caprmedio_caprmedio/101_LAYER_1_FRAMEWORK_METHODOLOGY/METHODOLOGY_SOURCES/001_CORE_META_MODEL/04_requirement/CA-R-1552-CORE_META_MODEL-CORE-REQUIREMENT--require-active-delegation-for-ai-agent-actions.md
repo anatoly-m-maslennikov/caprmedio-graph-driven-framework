@@ -1,21 +1,23 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Actor/Type: AI Agent"
+  governs: 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
   depends_on:
-    ["Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent.Permissions"]
-version: 9
-updated_at: "2026-10-19 15:53:27 +0400"
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent.Permissions'
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-P-034
-atom_id: "CA-R-1552"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-P-034
+atom_id: CA-R-1552
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

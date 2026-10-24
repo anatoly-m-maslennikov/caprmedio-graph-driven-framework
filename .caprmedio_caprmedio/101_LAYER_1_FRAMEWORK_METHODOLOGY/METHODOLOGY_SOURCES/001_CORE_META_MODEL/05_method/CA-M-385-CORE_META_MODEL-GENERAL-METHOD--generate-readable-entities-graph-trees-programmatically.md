@@ -3,17 +3,22 @@ atom_id: CA-M-385
 content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: General
-global_tier: 10
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Entities Graph"
-  depends_on: ["Entity", "Entity/Relation", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Projection"]
-version: 7
-updated_at: "2026-10-20 04:51:11 +0400"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Entities Graph'
+  depends_on:
+  - Subject/Domain/Node
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Projection
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  method_for: [CA-R-1456]
+  method_for:
+  - CA-R-1456
+tier: 4
+type: Implementation Method
 ---
 # Summary
 

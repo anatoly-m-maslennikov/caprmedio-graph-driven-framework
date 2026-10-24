@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F08 family reconciliation rollup"
-  depends_on: [Analysis, Operations, "Methodology Sources"]
-version: 1
-updated_at: "2026-10-04 14:21:38 +0000"
+  governs: F08 family reconciliation rollup
+  depends_on:
+  - Analysis
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Methodology Sources
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1353]
   relates_to: [CA-A-1063, CA-A-1060, CA-A-1123, CA-A-1132, CA-A-1133, CA-A-1134, CA-A-1135, CA-P-1372, CA-A-1087, CA-C-377, CA-C-400, CA-C-376, CA-C-380, CA-C-391]

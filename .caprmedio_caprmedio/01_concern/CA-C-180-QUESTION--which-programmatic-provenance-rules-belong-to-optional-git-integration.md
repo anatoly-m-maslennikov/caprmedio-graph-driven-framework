@@ -2,18 +2,19 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Journal"
+  governs: Subject/Domain/Node/Continuant/History/Journal
   depends_on:
-    - "Extension"
-    - "Carrier"
-    - "Action"
-    - "Atom/Content Role"
+  - Extension
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom/Content Role
 priority: medium
-version: 6
-updated_at: "2026-09-17 22:54:24 +0000"
+version: 8
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-180
 ---
 # Which programmatic provenance rules belong to optional Git integration?
 

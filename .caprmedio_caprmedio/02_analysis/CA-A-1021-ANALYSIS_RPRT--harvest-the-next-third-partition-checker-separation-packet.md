@@ -10,12 +10,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Third-partition checker separation evidence"
+  governs: Third-partition checker separation evidence
   depends_on:
-    - "Project"
-    - "Operations"
-version: 4
-updated_at: "2026-10-04 10:10:47 +0000"
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+version: 5
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   is_result_of:
     - CA-P-1303

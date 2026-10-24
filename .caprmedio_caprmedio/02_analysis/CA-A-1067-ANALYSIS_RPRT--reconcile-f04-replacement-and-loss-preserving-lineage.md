@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F04 replacement and lineage reconciliation rollup"
-  depends_on: [Operations, "Methodology Sources"]
-version: 1
-updated_at: "2026-10-04 14:01:04 +0000"
+  governs: F04 replacement and lineage reconciliation rollup
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Methodology Sources
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1349]
   relates_to: [CA-A-1063, CA-A-1060, CA-A-1121, CA-A-1129, CA-A-1130, CA-P-1401, CA-P-1409, CA-P-1410, CA-C-373, CA-C-385, CA-P-1131, CA-P-1156]

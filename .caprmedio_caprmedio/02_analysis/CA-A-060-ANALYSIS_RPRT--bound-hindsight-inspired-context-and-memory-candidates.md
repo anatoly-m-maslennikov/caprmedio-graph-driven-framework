@@ -7,8 +7,9 @@ subjects:
     continuant:
       - Project Context
       - Retrieval Integrity
-version: 2
-updated_at: 2026-08-30 17:21:33 +0400
+version: 3
+updated_at: 2026-10-23 03:17:34 +0400
+atom_id: CA-A-060
 ---
 # Bound Hindsight-inspired context and memory candidates
 

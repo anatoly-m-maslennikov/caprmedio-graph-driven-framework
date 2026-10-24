@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F08 first eighteen saved intent references"
-  depends_on: [Operations, Analysis, "Methodology Sources"]
-version: 1
-updated_at: "2026-10-04 13:31:26 +0000"
+  governs: F08 first eighteen saved intent references
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Analysis
+  - Methodology Sources
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1403]
   relates_to: [CA-P-1353, CA-A-1063, CA-C-375, CA-O-077, CA-O-087, CA-O-054, CA-O-104, CA-O-105, CA-O-106, CA-O-111, CA-O-118]

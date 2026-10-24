@@ -1,23 +1,26 @@
 ---
 subjects:
-  governs: "Prepare Structural Change"
+  governs: Prepare Structural Change
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier"]
-version: 9
-updated_at: "2026-10-19 15:56:36 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/Engineering/Carrier
+version: 12
+updated_at: 2026-10-24 00:38:25 +0400
 relations:
   relates_to:
-    - "CA-M-291"
-    - "CA-R-926"
-atom_id: "CA-O-012"
-content_role: "Operations"
+  - CA-M-291
+  - CA-R-926
+atom_id: CA-O-012
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 ---
 # Summary
 

@@ -1,25 +1,28 @@
 ---
 subjects:
-  governs: "Tool"
+  governs: Subject/Engineering/Tool
   depends_on:
-    - "Scope Unit"
-    - "Action"
-    - "Workflow"
-    - "Atom/Content Role: Operations"
-    - "Atom/Content Role: Evaluation"
-    - "Methodology"
-version: 4
-updated_at: "2026-10-03 00:00:05 +0400"
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Domain/Node/Continuant/Selection//Methodology Sources
+version: 9
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  relates_to: [CA-R-1515, CA-R-1516, CA-R-1518]
-atom_id: "CA-R-1517"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  relates_to:
+  - CA-R-1515
+  - CA-R-1516
+  - CA-R-1518
+atom_id: CA-R-1517
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

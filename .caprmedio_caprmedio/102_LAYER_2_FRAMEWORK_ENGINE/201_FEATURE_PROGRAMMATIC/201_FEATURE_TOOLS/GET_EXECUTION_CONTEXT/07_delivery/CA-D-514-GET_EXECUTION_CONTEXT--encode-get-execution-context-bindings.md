@@ -2,25 +2,27 @@
 atom_id: CA-D-514
 content_role: Delivery
 current_scope_unit: GET_EXECUTION_CONTEXT
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 14:55:01 +0000"
+version: 6
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Tool/GET_EXECUTION_CONTEXT/Carrier"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Tool"
-    - "Action"
-    - "Workflow"
-    - "Atom"
-    - "Scope Unit"
-    - "Implementation"
-    - "Workflow Run"
-    - "Journal"
+  - Subject/Engineering/Tool//GET_EXECUTION_CONTEXT
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Engineering/Programmatic Action/Execution Context Retrieval Adapter
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-O-114, CA-R-1806]
+  relates_to:
+  - CA-O-114
+  - CA-R-1806
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

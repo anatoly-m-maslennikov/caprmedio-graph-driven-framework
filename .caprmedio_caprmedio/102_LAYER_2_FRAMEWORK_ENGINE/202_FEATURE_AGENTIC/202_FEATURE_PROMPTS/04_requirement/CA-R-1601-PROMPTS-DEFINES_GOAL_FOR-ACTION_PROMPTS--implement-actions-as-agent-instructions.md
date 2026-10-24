@@ -2,15 +2,22 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "ACTION_PROMPTS/Goal"
+  governs: Subject/Engineering/Action Prompts.Goal
   depends_on:
-    - "PROMPTS"
-    - "Action"
-version: 1
-updated_at: "2026-09-23 04:20:00 +0400"
+  - PROMPTS
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 relations: {}
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-1601
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: PROMPTS
+type: Goal
+tier: 1
 ---
 # Implement Actions as Agent Instructions
 

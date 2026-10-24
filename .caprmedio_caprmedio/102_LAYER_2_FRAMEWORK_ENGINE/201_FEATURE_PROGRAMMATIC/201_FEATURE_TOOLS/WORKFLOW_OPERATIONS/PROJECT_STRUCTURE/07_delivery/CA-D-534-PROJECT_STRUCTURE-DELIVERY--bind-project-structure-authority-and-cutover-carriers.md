@@ -1,20 +1,26 @@
 ---
 atom_id: CA-D-534
 content_role: Delivery
-type: Delivery
+type: Eng Decision
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 18:30:31 +0000"
+version: 5
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool/PROJECT_STRUCTURE carrier boundaries"
-  depends_on: [Tool, Scope Unit, Project Structure, Carrier, Journal]
+  governs: Subject/Engineering/Project Structure/Authority and Cutover Carriers
+  depends_on:
+  - Subject/Engineering/Project Structure
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Engineering/Carrier
+  - Subject/Engineering/Carrier/Journal Serialization
 relations:
-  relates_to: [CA-R-1830, CA-R-1831]
+  relates_to:
+  - CA-R-1830
+  - CA-R-1831
+tier: 3
 ---
 # Summary
 

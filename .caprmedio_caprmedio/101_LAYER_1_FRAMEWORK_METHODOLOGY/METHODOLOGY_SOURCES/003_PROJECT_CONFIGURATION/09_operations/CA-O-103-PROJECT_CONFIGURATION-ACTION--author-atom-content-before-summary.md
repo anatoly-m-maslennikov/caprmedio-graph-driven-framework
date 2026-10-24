@@ -4,17 +4,28 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Atom Content Authoring"
+  governs: Atom Content Authoring
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Details", "Entity/Node/Continuant/Atom.Summary", "Atom/Content Role", "Author"]
-relations: {"relates_to": ["CA-M-111", "CA-D-479", "CA-R-1465", "CA-R-1464", "CA-E-384"]}
-version: 6
-updated_at: "2026-10-19 15:56:52 +0400"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Details
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Author
+relations:
+  relates_to:
+  - CA-M-111
+  - CA-D-479
+  - CA-R-1465
+  - CA-R-1464
+  - CA-E-384
+version: 10
+updated_at: 2026-10-24 00:51:05 +0400
+tier: 3
 ---
 # Summary
 

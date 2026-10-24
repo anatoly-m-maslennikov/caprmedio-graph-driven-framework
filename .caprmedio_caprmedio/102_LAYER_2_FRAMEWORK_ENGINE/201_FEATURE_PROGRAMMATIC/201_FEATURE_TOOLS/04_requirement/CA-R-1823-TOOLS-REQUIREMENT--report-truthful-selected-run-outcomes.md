@@ -3,17 +3,26 @@ atom_id: CA-R-1823
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 22:39:38 +0400"
+version: 7
+updated_at: 2026-10-24 02:33:28 +0400
 subjects:
-  governs: "WORKFLOW_OPERATIONS/RUN_SUPPORT/outcomes"
-  depends_on: [Workflow Run, Step Run, Action, Journal, Operator, Implementation]
+  governs: Subject/Domain/Node/Occurrent/Execution.Outcome
+  depends_on:
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Outcome Evidence
 relations:
-  relates_to: [CA-R-1520, CA-R-1643, CA-R-1720]
+  relates_to:
+  - CA-R-1520
+  - CA-R-1643
+  - CA-R-1720
+tier: 3
+type: Rule
 ---
 # Summary
 

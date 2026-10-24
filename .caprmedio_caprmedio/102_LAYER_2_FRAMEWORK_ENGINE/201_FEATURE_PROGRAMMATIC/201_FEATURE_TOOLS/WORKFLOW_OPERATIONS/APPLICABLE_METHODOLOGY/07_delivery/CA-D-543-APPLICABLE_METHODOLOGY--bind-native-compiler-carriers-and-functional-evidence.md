@@ -1,20 +1,33 @@
 ---
 atom_id: CA-D-543
 content_role: Delivery
-type: Delivery
+type: Eng Decision
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 18:37:19 +0000"
+version: 5
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/Carrier"
-  depends_on: [Tool, Carrier, Projection, Journal, Workflow Run, Step Run]
+  governs: Tool/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/Carrier
+  depends_on:
+  - Tool
+  - Carrier
+  - Projection
+  - Journal
+  - Workflow Run
+  - Step Run
 relations:
-  delivery_for: [CA-R-1839, CA-R-1840, CA-R-1841, CA-R-1842, CA-E-559, CA-E-560, CA-E-561, CA-E-562]
+  delivery_for:
+  - CA-R-1839
+  - CA-R-1840
+  - CA-R-2118
+  - CA-R-1842
+  - CA-E-559
+  - CA-E-560
+  - CA-E-561
+  - CA-E-562
+tier: 6
 ---
 # Summary
 
@@ -36,5 +49,5 @@ The delivered tests must implement CA-E-559 through CA-E-562 through the real CL
 
 ### Sources
 
-- CA-R-1839 through CA-R-1842; CA-E-559 through CA-E-562; CA-M-226 v6.
+- CA-R-1839, CA-R-1840, CA-R-2118, CA-R-1842; CA-E-559 through CA-E-562; CA-M-226 v6.
 - CA-P-1489 v1; CA-P-1117 v3.

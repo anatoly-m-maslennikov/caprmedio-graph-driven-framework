@@ -1,21 +1,24 @@
 ---
 subjects:
-  governs: "Tool/ATOM_READ"
+  governs: Subject/Engineering/Tool//ATOM_READ
   depends_on:
-    - "Atom"
-    - "Artifact/Carrier"
-    - "Scope Unit"
-version: 13
-updated_at: "2026-10-12 23:58:28 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 20
+status: Active
+updated_at: 2026-10-24 03:08:30 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 cce_version: cce_1
 cce_form: obligation
 content_role: Requirement
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
+atom_id: CA-R-864
+tier: 3
+type: Rule
+author: Anatoly Maslennikov
 ---
 # Summary
 

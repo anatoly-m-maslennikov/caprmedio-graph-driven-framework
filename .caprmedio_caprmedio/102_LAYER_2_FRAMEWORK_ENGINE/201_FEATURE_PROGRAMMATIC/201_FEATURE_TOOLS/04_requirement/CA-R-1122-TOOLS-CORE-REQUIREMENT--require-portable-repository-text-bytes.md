@@ -1,11 +1,18 @@
 ---
 subjects:
-  governs: "portable-text"
+  governs: portable-text
   depends_on: []
-version: 8
-updated_at: 2026-08-30 16:44:07 +0400
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-1122
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Rule
+tier: 1
 ---
 # Require portable repository text bytes
 

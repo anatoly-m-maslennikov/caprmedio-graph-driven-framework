@@ -2,18 +2,25 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "Applicable Methodology Compilation"
+  governs: Applicable Methodology Compilation
   depends_on:
-    - "Tool/COMPILE_APPLICABLE_METHODOLOGY"
-    - "Applicable Methodology/Sources"
-    - "Applicable Methodology/Compilation Output"
-version: 7
-updated_at: "2026-10-04 23:02:50 +0400"
+  - Tool/COMPILE_APPLICABLE_METHODOLOGY
+  - Applicable Methodology/Sources
+  - Applicable Methodology/Compilation Output
+version: 12
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
-    - CA-R-1842
+  - CA-R-1842
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-226
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Decision
+tier: 4
 ---
 # Compile Projected RMEDO Carriers Transactionally
 

@@ -1,19 +1,29 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Plan"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Node/Continuant/Atom/Content Role: Plan.Details", "Entity/Carrier/File Carrier"]
-version: 12
-updated_at: "2026-10-19 15:55:54 +0400"
-relations: {"relates_to": ["CA-R-1599", "CA-R-1586", "CA-D-482", "CA-D-460"]}
-atom_id: "CA-D-470"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Definition of Done'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Details'
+  - Subject/Engineering/Carrier/File Carrier
+version: 18
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1599
+  - CA-R-1586
+  - CA-D-482
+  - CA-D-460
+atom_id: CA-D-470
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

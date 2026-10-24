@@ -9,9 +9,14 @@ from html import escape
 MAX_HISTORY = 32
 MAX_FIELD_LENGTH = 160
 UNKNOWN = "unknown"
-SAFE_ERRORS = frozenset({
-    "connection", "returned-error", "timeout", "uncertain",
-})
+SAFE_ERRORS = frozenset(
+    {
+        "connection",
+        "returned-error",
+        "timeout",
+        "uncertain",
+    }
+)
 
 
 def _text(value: object, default: str = UNKNOWN) -> str:
@@ -41,6 +46,12 @@ def _field(row: Mapping[str, object], *names: str) -> object:
         if name in row:
             return row[name]
     return None
+
+
+def _project(row: Mapping[str, object]) -> str:
+    prefix = _field(row, "project_prefix", "prefix")
+    instance = _field(row, "project_instance_id", "instance_id")
+    return " / ".join(str(value) for value in (prefix, instance) if isinstance(value, str))
 
 
 def _availability(value: object) -> str:
@@ -75,8 +86,8 @@ def _registry_availability(gateway: object) -> tuple[str, str]:
 def _call_rows(calls: Sequence[Mapping[str, object]]) -> str:
     if not calls:
         return (
-            '<tr><td colspan="5">No Tool observations since gateway start; '
-            'outcome is unknown.</td></tr>'
+            '<tr><td colspan="6">No Tool observations since gateway start; '
+            "outcome is unknown.</td></tr>"
         )
     rows = []
     for call in calls:
@@ -87,6 +98,7 @@ def _call_rows(calls: Sequence[Mapping[str, object]]) -> str:
             f"<td>{_cell(_field(call, 'outcome', 'status'))}</td>"
             f"<td>{_cell(_field(call, 'returned_outcome', 'returned'))}</td>"
             f"<td>{_cell(_error(call))}</td>"
+            f"<td>{_cell(_project(call))}</td>"
             "</tr>"
         )
     return "".join(rows)
@@ -95,8 +107,8 @@ def _call_rows(calls: Sequence[Mapping[str, object]]) -> str:
 def _workflow_rows(workflows: Sequence[Mapping[str, object]]) -> str:
     if not workflows:
         return (
-            '<tr><td colspan="6">No Workflow observations since gateway start; '
-            'outcome is unknown.</td></tr>'
+            '<tr><td colspan="7">No Workflow observations since gateway start; '
+            "outcome is unknown.</td></tr>"
         )
     rows = []
     for workflow in workflows:
@@ -108,9 +120,16 @@ def _workflow_rows(workflows: Sequence[Mapping[str, object]]) -> str:
             f"<td>{_cell(workflow.get('outcome'))}</td>"
             f"<td>{_cell(workflow.get('disposition'))}</td>"
             f"<td>{_cell(_error(workflow))}</td>"
+            f"<td>{_cell(_project(workflow))}</td>"
             "</tr>"
         )
     return "".join(rows)
+
+
+def _context_rows(contexts: Sequence[Mapping[str, object]]) -> str:
+    if not contexts:
+        return "<tr><td>No Project contexts observed since gateway start.</td></tr>"
+    return "".join(f"<tr><td>{_cell(_project(context))}</td></tr>" for context in contexts)
 
 
 def render_health_page(snapshot: Mapping[str, object], *, ready: bool, gateway: object) -> str:
@@ -121,6 +140,7 @@ def render_health_page(snapshot: Mapping[str, object], *, ready: bool, gateway: 
     registry_status, tool_count = _registry_availability(gateway)
     calls = _recent(snapshot.get("calls"))
     workflows = _recent(snapshot.get("workflows"))
+    contexts = _recent(snapshot.get("known_project_contexts"))
     readiness = "ready" if ready else "not ready"
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
@@ -139,17 +159,19 @@ th{{background:#8882}}code{{overflow-wrap:anywhere}}.note{{color:#666}}
 <dt>Gateway task availability</dt><dd>{_cell(_availability(gateway_status))}</dd>
 <dt>Advertised registry availability</dt><dd>{_cell(_availability(registry_status))}
 ({_cell(tool_count)} tools advertised)</dd></dl></section>
-<p class="note">Process-local history since gateway start: {_cell(snapshot.get('started_at'))}.
+<p class="note">Process-local history since gateway start: {_cell(snapshot.get("started_at"))}.
 At most {MAX_HISTORY} Tool and {MAX_HISTORY} Workflow observations are retained;
 history resets when the gateway restarts. Missing or unobserved state remains unknown.</p>
 <p class="note">Provider and worker health are not probed; observations are historical and missing state is unknown.</p>
 <p class="note">Safe error categories: timeout (deadline exceeded); connection (transport failure); returned-error (the Tool returned an error); uncertain (the call result could not be established).</p>
+<section aria-labelledby="projects"><h2 id="projects">Known Project contexts</h2><table>
+<thead><tr><th>Project</th></tr></thead><tbody>{_context_rows(contexts)}</tbody></table></section>
 <section aria-labelledby="calls"><h2 id="calls">Recent Tool calls</h2><table>
 <thead><tr><th>Observed</th><th>Tool</th><th>Outcome</th><th>Returned outcome</th>
-<th>Safe error category</th></tr></thead><tbody>{_call_rows(calls)}</tbody></table></section>
+<th>Safe error category</th><th>Project</th></tr></thead><tbody>{_call_rows(calls)}</tbody></table></section>
 <section aria-labelledby="workflows"><h2 id="workflows">Recent Workflow observations</h2><table>
 <thead><tr><th>Observed</th><th>Run</th><th>Scheduler status</th><th>Actual outcome</th>
-<th>Disposition</th><th>Safe error category</th></tr></thead>
+<th>Disposition</th><th>Safe error category</th><th>Project</th></tr></thead>
 <tbody>{_workflow_rows(workflows)}</tbody></table></section>
 </body></html>"""
 

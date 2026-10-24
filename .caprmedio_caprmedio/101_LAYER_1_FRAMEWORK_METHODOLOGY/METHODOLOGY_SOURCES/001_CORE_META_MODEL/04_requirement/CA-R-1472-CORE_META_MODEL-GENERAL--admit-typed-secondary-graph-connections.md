@@ -1,19 +1,26 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Graph.Connectivity"
+  governs: CAPRMEDIO Graph.Connectivity
   depends_on:
-    ["CAPRMEDIO Graph", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Structural Entity", "Entity/Node/Continuant/History/Journal", "Entity/Relation", "Relation Kind", "Relation Kind Metadata"]
-version: 8
-updated_at: "2026-10-19 15:53:12 +0400"
+  - CAPRMEDIO Graph
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Atom
+  - Structural Entity
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Graph/Relation
+  - Subject/Graph/Relation/Type
+  - Relation Kind Metadata
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1472"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-R-1472
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

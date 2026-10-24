@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "kind": "current_source_pins_post_migration_verification",
+  "recorded_at": "2026-10-23T09:19:30+00:00",
+  "result": "pass",
+  "pins": {
+    "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/03_plan/05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/96-CA-P-2577-TASK--implement-the-shared-context-native-workflow/05-CA-P-2582-TASK--reconcile-current-workflow-bindings-and-frozen-fixtures/execution_evidence/p2613/current-source-pins.post-reconciliation-20261023.json",
+    "sha256": "f0acd20b450b056f61312eb560cd1c742d6fd0cf9a8972de8dfd41db7bf6ed8f",
+    "count": 50
+  },
+  "checks": {
+    "historical_pin_count_is_50": true,
+    "source_revalidation": {
+      "result": "pass",
+      "pin_count": 50
+    },
+    "unique_atom_ids": true,
+    "all_current_digests_are_sha256": true,
+    "all_current_versions_are_positive": true,
+    "project_manifest_canonical_digest": true,
+    "legacy_engine_manifest_canonical_digest": true,
+    "current_o016_profile_explicitly_supported": true
+  },
+  "deltas": {
+    "changed_pin_count": 48,
+    "unchanged_pin_count": 2,
+    "version_delta_counts": {
+      "2": 26,
+      "3": 17,
+      "4": 4,
+      "1": 1,
+      "0": 2
+    },
+    "path_changed_ids": [
+      "CA-O-159",
+      "CA-O-160"
+    ],
+    "body_comparison": {
+      "receipt_or_archive_checked": 48,
+      "body_equal_count": 37,
+      "body_unknown_count": 2,
+      "raw_body_delta_count": 11,
+      "archive_conversion_only_self_reference_count": 2,
+      "semantic_body_change_count": 0,
+      "semantic_body_change_unresolved_without_exact_receipt_count": 9
+    }
+  },
+  "remaining_decisions": [
+    "P2620/C583-specific detached-candidate compiler decision remains unresolved.",
+    "Do not mutate the live Project manifest or historical A1142 in this inventory lane."
+  ]
+}

@@ -2,18 +2,19 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Extension"
+  governs: Extension
   depends_on:
-    - "Framework Instance Settings"
-    - "Scope Unit"
-    - "Atom/Content Role"
-    - "Type"
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Type
 priority: medium
-version: 1
-updated_at: "2026-09-17 14:32:47 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-146
 ---
 # What authority admits Extension application bindings?
 

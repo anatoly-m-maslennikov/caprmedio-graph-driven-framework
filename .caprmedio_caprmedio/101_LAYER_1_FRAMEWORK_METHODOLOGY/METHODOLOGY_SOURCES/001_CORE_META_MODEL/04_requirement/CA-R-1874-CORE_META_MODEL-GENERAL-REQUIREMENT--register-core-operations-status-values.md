@@ -3,17 +3,28 @@ atom_id: CA-R-1874
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: General
-global_tier: 10
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Operations.Status"
+  governs: 'Entity/Node/Continuant/Atom/Content Role: Operations.Status'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations", "Atom/Content Role: Operations/Type", "Entity/Node/Continuant/Atom.Status", "Extension", "Project Configuration"]
-version: 4
-updated_at: "2026-10-19 15:54:07 +0400"
-relations: {relates_to: [CA-R-1530, CA-R-1565, CA-R-1306, CA-R-1308, CA-R-1312, CA-R-1313]}
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type'
+  - Subject/Domain/Node/Continuant/Atom.Status
+  - Subject/Domain/Node/Continuant/Selection//Extension Sources
+  - Project Configuration
+version: 8
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1530
+  - CA-R-1565
+  - CA-R-1306
+  - CA-R-1308
+  - CA-R-1312
+  - CA-R-1313
+tier: 2
+type: Rule
 ---
 # Summary
 

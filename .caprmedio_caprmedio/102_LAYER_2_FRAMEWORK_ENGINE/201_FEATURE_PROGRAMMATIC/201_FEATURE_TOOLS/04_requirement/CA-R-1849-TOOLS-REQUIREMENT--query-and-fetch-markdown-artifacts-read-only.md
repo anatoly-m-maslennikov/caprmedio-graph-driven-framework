@@ -3,17 +3,27 @@ atom_id: CA-R-1849
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-05 04:58:25 +0400"
+version: 5
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: FIND_AND_FETCH_ARTIFACTS
-  depends_on: [Tool, Workflow, Action, Artifact, Markdown, Journal]
+  governs: Subject/Domain/Node/Continuant/Selection
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Markdown
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-R-1850, CA-O-158, CA-O-159, CA-O-160, CA-D-527, CA-D-528, CA-D-529]
+  relates_to:
+  - CA-R-1850
+  - CA-O-158
+  - CA-O-159
+  - CA-O-160
+  - CA-D-527
+  - CA-D-528
+  - CA-D-529
+type: Rule
+tier: 3
 ---
 # Summary
 

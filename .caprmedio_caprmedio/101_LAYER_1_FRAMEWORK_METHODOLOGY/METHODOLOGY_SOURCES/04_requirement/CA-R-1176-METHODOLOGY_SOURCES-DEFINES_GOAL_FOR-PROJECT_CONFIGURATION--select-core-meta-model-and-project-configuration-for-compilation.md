@@ -1,20 +1,19 @@
 ---
 subjects:
-  governs: "PROJECT_CONFIGURATION/Goal"
+  governs: PROJECT_CONFIGURATION/Goal
   depends_on:
-    - "METHODOLOGY_SOURCES"
-version: 15
-updated_at: "2026-10-02 21:28:02 +0400"
+  - METHODOLOGY_SOURCES
+version: 16
+updated_at: 2026-10-24 02:24:42 +0400
 relations: {}
-atom_id: "CA-R-1176"
-content_role: "Requirement"
-current_scope_unit: "METHODOLOGY_SOURCES"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Goal"
-global_tier: 8
+atom_id: CA-R-1176
+content_role: Requirement
+current_scope_unit: METHODOLOGY_SOURCES
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+type: Goal
+tier: 3
 ---
 # Summary
 

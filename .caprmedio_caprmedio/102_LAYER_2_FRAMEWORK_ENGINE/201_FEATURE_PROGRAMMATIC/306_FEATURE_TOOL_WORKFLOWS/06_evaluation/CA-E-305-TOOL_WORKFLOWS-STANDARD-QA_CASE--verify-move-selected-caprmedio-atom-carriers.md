@@ -1,6 +1,4 @@
 ---
-global_tier: 11
-local_tier: Standard
 claim_target_scope_unit: TOOL_WORKFLOWS
 current_scope_unit: TOOL_WORKFLOWS
 content_role: Evaluation
@@ -8,15 +6,19 @@ atom_id: CA-E-305
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "artifact-operations"
+  governs: Subject/Engineering/Tool//ATOM_MOVE
   depends_on: []
-version: 11
-updated_at: "2026-10-12 23:54:41 +0400"
+version: 17
+status: Active
+updated_at: 2026-10-24 03:08:30 +0400
 relations:
   evaluation_for:
-    - CA-M-187
+  - CA-M-187
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 5
+type: Eval Case
+author: Anatoly Maslennikov
 ---
 # Verify move selected caprmedio atom carriers
 

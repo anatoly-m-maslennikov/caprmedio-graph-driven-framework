@@ -2,20 +2,27 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "artifact-operations"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Artifact"
-    - "Artifact/Carrier"
-    - "Atom/Content Role"
-version: 8
-updated_at: "2026-09-17 20:26:41 +0000"
+  - Artifact
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
-    - CA-R-1132
+  - CA-R-1132
   derived_from:
-    - CA-A-058
+  - CA-A-058
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-209
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Policy
+tier: 1
 ---
 # Create one generic Artifact carrier
 

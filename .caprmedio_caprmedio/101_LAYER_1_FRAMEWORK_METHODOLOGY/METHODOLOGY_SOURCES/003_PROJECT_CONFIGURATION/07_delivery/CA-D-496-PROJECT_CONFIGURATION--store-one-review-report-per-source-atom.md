@@ -3,17 +3,22 @@ atom_id: CA-D-496
 content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 12
-updated_at: "2026-10-19 15:56:23 +0400"
+version: 16
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "Entity/Node/Occurrent/Execution/Workflow Run"
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Carrier/File Carrier", "Entity/Node/Continuant/Projection"]
-relations: {"relates_to":["CA-E-520"]}
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Engineering/Carrier/File Carrier
+  - Subject/Domain/Node/Continuant/Projection
+relations:
+  relates_to:
+  - CA-E-520
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

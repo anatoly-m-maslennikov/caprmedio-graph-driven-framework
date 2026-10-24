@@ -8,10 +8,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "First-partition packet persistence"
-  depends_on: [Artifact, Project]
-version: 1
-updated_at: "2026-10-04 12:59:00 +0400"
+  governs: First-partition packet persistence
+  depends_on:
+  - Artifact
+  - Subject/Domain/Node/Continuant/Project
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concerns: [CA-P-1293, CA-A-1011]
 ---

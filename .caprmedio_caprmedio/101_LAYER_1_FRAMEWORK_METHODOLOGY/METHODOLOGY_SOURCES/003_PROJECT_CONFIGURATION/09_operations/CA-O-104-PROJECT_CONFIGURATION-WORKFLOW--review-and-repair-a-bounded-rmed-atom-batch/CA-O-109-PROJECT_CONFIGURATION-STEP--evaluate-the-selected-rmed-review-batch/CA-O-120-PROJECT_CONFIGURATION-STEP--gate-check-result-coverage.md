@@ -4,17 +4,24 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-19 15:56:55 +0400"
+version: 10
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "RMED Atom Review Check Coverage Gate Step"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal"]
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//RMED Atom Review Check Coverage Gate Step'
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-O-104, CA-O-118]
+  relates_to:
+  - CA-O-104
+  - CA-O-118
+tier: 3
 ---
 # Summary
 

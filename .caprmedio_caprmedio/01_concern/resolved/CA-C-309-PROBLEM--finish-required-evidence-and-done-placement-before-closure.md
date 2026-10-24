@@ -8,12 +8,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Harvest completion evidence"
+  governs: Harvest completion evidence
   depends_on:
-    - "Project"
-    - "Artifact"
-version: 1
-updated_at: "2026-10-04 12:03:00 +0400"
+  - Subject/Domain/Node/Continuant/Project
+  - Artifact
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concerns:
     - CA-P-1270

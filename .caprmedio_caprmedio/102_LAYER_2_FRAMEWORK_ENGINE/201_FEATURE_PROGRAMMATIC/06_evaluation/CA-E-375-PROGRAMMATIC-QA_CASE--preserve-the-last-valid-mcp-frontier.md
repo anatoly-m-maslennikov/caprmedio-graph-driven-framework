@@ -2,19 +2,26 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "framework-engine-mcp-frontier"
+  governs: framework-engine-mcp-frontier
   depends_on:
-    - "Projection"
-    - "programmatic software"
-version: 8
-updated_at: "2026-09-17 19:19:57 +0000"
+  - Subject/Domain/Node/Continuant/Projection
+  - programmatic software
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-193
+  - CA-M-193
   derived_from:
-    - CA-A-058
+  - CA-A-058
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-375
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: PROGRAMMATIC
+type: Eval Case
+tier: 5
 ---
 # Preserve the last valid MCP frontier
 

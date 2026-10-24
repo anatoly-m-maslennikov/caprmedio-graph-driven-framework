@@ -15,6 +15,7 @@ import sys
 import time
 import tomllib
 import uuid
+from concurrent.futures import CancelledError as FutureCancelledError
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Iterator, Mapping, Sequence
@@ -150,6 +151,26 @@ class WorkJournalError(RuntimeError):
     def __init__(self, code: str, message: str) -> None:
         self.code = code
         super().__init__(message)
+
+
+class PartialAppendError(WorkJournalError, OSError):
+    """A plain append stopped with only a prefix of receipts known."""
+
+    def __init__(
+        self,
+        completed_receipts: Sequence[Mapping[str, Any]],
+        *,
+        uncertain_event_index: int,
+        requested_count: int,
+    ) -> None:
+        self.completed_receipts = [dict(receipt) for receipt in completed_receipts]
+        self.receipts = self.completed_receipts
+        self.uncertain_event_index = uncertain_event_index
+        self.requested_count = requested_count
+        super().__init__(
+            "journal-append-incomplete",
+            "Journal append stopped before all requested records were observed",
+        )
 
 
 def canonical_json_bytes(value: object) -> bytes:
@@ -426,7 +447,19 @@ def append_sealed_events(
     The existing signature is retained for callers; timezone and append_context
     do not impose storage prerequisites.
     """
-    return [_append_event(root, event, str(author), str(local_date)) for event in events]
+    receipts: list[dict[str, Any]] = []
+    for index, event in enumerate(events):
+        try:
+            receipts.append(_append_event(root, event, str(author), str(local_date)))
+        except FutureCancelledError:
+            raise
+        except Exception as error:
+            raise PartialAppendError(
+                receipts,
+                uncertain_event_index=index,
+                requested_count=len(events),
+            ) from error
+    return receipts
 
 
 

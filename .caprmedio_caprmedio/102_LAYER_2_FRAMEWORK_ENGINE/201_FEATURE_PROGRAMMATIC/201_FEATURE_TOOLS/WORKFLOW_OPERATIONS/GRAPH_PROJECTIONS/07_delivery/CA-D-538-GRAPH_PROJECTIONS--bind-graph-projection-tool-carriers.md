@@ -3,17 +3,23 @@ atom_id: CA-D-538
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-11 02:00:08 +0400"
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/Carrier"
-  depends_on: [Tool, Projection, Artifact]
+  governs: Subject/Engineering/Carrier
+  depends_on:
+  - Subject/Engineering/Tool//GENERATE_ENTITY_GRAPH
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Term//Artifact
 relations:
-  delivery_for: [CA-R-1835, CA-R-1836, CA-R-1837]
+  delivery_for:
+  - CA-R-1835
+  - CA-R-1836
+  - CA-R-1837
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

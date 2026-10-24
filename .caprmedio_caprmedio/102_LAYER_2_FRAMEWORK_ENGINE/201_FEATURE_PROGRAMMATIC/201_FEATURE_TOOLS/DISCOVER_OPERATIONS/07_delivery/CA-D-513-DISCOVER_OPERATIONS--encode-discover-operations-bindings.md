@@ -2,25 +2,27 @@
 atom_id: CA-D-513
 content_role: Delivery
 current_scope_unit: DISCOVER_OPERATIONS
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 14:55:01 +0000"
+version: 6
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Tool/DISCOVER_OPERATIONS/Carrier"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Tool"
-    - "Action"
-    - "Workflow"
-    - "Atom"
-    - "Scope Unit"
-    - "Implementation"
-    - "Workflow Run"
-    - "Journal"
+  - Subject/Engineering/Tool//DISCOVER_OPERATIONS
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Engineering/Tool Discovery Binding
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-O-113, CA-R-1805]
+  relates_to:
+  - CA-O-113
+  - CA-R-1805
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

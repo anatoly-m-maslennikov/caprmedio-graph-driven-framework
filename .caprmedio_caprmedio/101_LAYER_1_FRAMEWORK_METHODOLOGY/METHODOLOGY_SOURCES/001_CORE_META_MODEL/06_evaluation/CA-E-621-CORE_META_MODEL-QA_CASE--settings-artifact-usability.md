@@ -1,25 +1,27 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Framework Settings"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings
   depends_on:
-    ["Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project.Structure", "Authority Mode", "Entity/Node/Continuant/Actor/Type: Operator"]
-version: 25
-updated_at: "2026-10-19 15:55:18 +0400"
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Project.Framework Settings.Authority Modes
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 29
+updated_at: 2026-10-24 01:50:12 +0400
 relations:
   evaluation_for:
-    - CA-R-1052
-    - CA-R-1402
-    - CA-R-1750
-    - CA-R-1430
-atom_id: "CA-E-621"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - CA-R-1052
+  - CA-R-1402
+  - CA-R-1750
+  - CA-R-1430
+atom_id: CA-E-621
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 3
 ---
 # Summary
 

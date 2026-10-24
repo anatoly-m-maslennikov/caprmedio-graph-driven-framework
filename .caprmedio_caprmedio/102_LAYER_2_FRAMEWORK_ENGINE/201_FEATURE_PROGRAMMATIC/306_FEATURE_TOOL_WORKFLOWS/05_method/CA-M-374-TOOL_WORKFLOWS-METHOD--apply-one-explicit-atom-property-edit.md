@@ -1,20 +1,25 @@
 ---
 atom_id: CA-M-374
 content_role: Method
-type: Method
+type: Eng Decision
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-15 22:16:58 +0400"
+version: 6
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool"
-  depends_on: ["Atom", "Property", "Action"]
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
-  relates_to: [CA-R-1934, CA-R-866, CA-M-371, CA-O-030]
+  relates_to:
+  - CA-R-1934
+  - CA-R-866
+  - CA-M-371
+  - CA-O-030
+tier: 3
 ---
 # Summary
 

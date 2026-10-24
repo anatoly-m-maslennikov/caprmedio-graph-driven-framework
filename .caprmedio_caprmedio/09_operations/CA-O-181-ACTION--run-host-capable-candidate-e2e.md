@@ -3,17 +3,27 @@ atom_id: CA-O-181
 content_role: Operations
 type: Action
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Run host-capable Candidate E2E"
-  depends_on: [Action, Test, Docker Image, Framework Package, Journal, Operator]
-version: 2
-updated_at: "2026-10-10 19:05:19 +0400"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Run host-capable Candidate E2E'
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Test
+  - Docker Image
+  - Framework Package
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 6
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-O-164, CA-O-186, CA-O-182, CA-R-1525, CA-R-1720]
+  relates_to:
+  - CA-O-164
+  - CA-O-186
+  - CA-O-182
+  - CA-R-1525
+  - CA-R-1720
+tier: 3
 ---
 # Summary
 

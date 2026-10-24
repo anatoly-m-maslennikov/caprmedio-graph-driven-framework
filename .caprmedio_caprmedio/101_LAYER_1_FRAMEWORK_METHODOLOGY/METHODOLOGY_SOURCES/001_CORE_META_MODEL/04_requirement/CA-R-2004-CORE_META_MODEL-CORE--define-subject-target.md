@@ -1,20 +1,19 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Subjects"
+  governs: Subject/Domain/Node/Continuant/Atom.Subjects
   depends_on:
-    - "Entity"
-    - "Method"
-atom_id: "CA-R-2004"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-version: 1
-updated_at: "2026-10-21 01:47:52 +0400"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - Subject
+atom_id: CA-R-2004
+content_role: Requirement
+type: Definition
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
+author: Anatoly Maslennikov
 relations: {}
+tier: 1
 ---
 # Summary
 
@@ -22,15 +21,14 @@ Define Subject Target
 
 ## Scope
 
-a direct Subject Relation target.
+a direct GOVERNS or DEPENDS_ON target in an Atom's Subjects.
 
 ## Claim
 
-a Subject Target **means** exactly one canonical target addressed by a Subject
-Expression. a Subject Target **must** be either an Entity or a Method Topic.
+a Subject Target **means** the topic addressed by a canonical Subject expression. its full path starts at Subject. a Subject can identify a kind, a dependent property, an allowed value or a named instance; it need not identify an independently carried object.
 
 ## Details
 
-a Subject Target is the endpoint of GOVERNS or DEPENDS_ON. the reference does
-not assign the target as the referencing Atom's owning Scope Unit or Carrier.
-resolving a Subject Target does not create an Entity, Method Topic, or relation fact.
+Subject says what an Atom concerns. Content Role says what its content does. They are independent by definition. An Atom of any RMED Role can govern a Domain topic, an Engineering topic or a global Graph topic. A topic about how work is performed does not require a separate Method root.
+
+The Subject does not repeat or assign the Atom's Local Scope Unit, folder or Carrier. Topic meanings come from source use and Semantics; the Terms Graph derives definitions from those cases rather than creating another authority layer.

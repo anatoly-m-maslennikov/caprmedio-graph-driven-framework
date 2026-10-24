@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 14:06:13 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Release Unit deadline sufficiency"
-  depends_on: [Framework Instance Settings, Test Suite, Source Carrier, Evaluation, Workflow Run]
+  governs: Release Unit deadline sufficiency
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Test Suite
+  - Subject/Engineering/Carrier/File Carrier
+  - Evaluation
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
 relations:
   concern_about: [CA-P-1792, CA-P-1782, CA-D-579, CA-D-580]
 ---

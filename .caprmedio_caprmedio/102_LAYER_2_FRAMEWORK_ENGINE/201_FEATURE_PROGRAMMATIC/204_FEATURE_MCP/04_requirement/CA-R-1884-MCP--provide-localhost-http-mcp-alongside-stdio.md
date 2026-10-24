@@ -2,17 +2,23 @@
 atom_id: CA-R-1884
 content_role: Requirement
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 17:12:15 +0000"
+version: 6
+updated_at: 2026-10-24 02:33:28 +0400
 subjects:
-  governs: "MCP/HTTP endpoint"
-  depends_on: [MCP, HTTP, Tool, Gateway, Implementation, Operator]
+  governs: MCP/HTTP endpoint
+  depends_on:
+  - Subject/Engineering/MCP
+  - HTTP
+  - Subject/Engineering/MCP.Localhost HTTP Transport
+  - Gateway
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
-  relates_to: [CA-R-1118]
+  relates_to:
+  - CA-R-1118
+tier: 3
+type: Rule
 ---
 # Summary
 

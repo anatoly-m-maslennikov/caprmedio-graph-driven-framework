@@ -3,20 +3,20 @@ atom_id: CA-R-865
 content_role: Requirement
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool/ATOM_CREATE"
+  governs: Subject/Engineering/Tool//ATOM_CREATE
   depends_on:
-    - "Atom"
-    - "Atom/Identifier"
-    - "Atom/Revision"
-    - "Artifact/Carrier"
-version: 17
-updated_at: "2026-10-15 23:45:00 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Subject/Engineering/Carrier
+version: 23
+updated_at: 2026-10-24 02:33:28 +0400
 relations: {}
+tier: 3
+type: Rule
 ---
 # Summary
 

@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F16 saved-candidate evidence read-boundary failure"
-  depends_on: [Operations, "Atom/Content Role: Analysis"]
-version: 3
-updated_at: "2026-10-04 13:13:47 +0000"
+  governs: F16 saved-candidate evidence read-boundary failure
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis'
+version: 5
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1361]
   relates_to: [CA-A-1079, CA-A-933]

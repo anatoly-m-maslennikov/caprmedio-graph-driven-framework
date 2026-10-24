@@ -3,17 +3,22 @@ atom_id: CA-R-1861
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 7
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/source"
-  depends_on: [Journal, Event, Tool]
+  governs: Subject/Engineering/Tool/FIND_AND_FETCH_JOURNAL_EVENTS/source
+  depends_on:
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Occurrent/Event
+  - Subject/Engineering/Tool//FIND_AND_FETCH_JOURNAL_EVENTS
 relations:
-  relates_to: [CA-O-162, CA-D-555]
+  relates_to:
+  - CA-O-162
+  - CA-D-555
+tier: 3
+type: Rule
 ---
 # Summary
 

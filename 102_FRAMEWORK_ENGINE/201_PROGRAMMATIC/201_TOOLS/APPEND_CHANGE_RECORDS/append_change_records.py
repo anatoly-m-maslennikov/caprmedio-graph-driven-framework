@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+
+
 import argparse
 import json
 from pathlib import Path
@@ -22,7 +24,9 @@ for directory in (TOOLS_ROOT, SCRIPT_PATH.parent):
         sys.path.insert(0, str(directory))
 
 from tool_description import binding_matches, make_tool_description  # noqa: E402
-from work_journal import append_sealed_events  # noqa: E402
+from operation_error_boundary import FailureRecord  # noqa: E402
+from runtime_failure_diagnostics import report_failure  # noqa: E402
+from work_journal import PartialAppendError, append_sealed_events  # noqa: E402
 from append_change_records_mcp import AppendChangeRecordsAdapter  # noqa: E402
 
 TOOL_ID = "APPEND_CHANGE_RECORDS"
@@ -96,17 +100,50 @@ def run(root: Path, payload: Mapping[str, Any], *, apply: bool) -> dict[str, Any
     else:
         context = payload
     events = context["predictions"]["journal_records"]
-    receipts = (
-        append_sealed_events(
-            root,
-            events,
-            author=context["author"],
-            local_date=context["local_date"],
-            timezone=context["timezone"],
+    try:
+        receipts = (
+            append_sealed_events(
+                root,
+                events,
+                author=context["author"],
+                local_date=context["local_date"],
+                timezone=context["timezone"],
+            )
+            if apply
+            else []
         )
-        if apply
-        else []
-    )
+    except PartialAppendError as error:
+        failure, secondary = report_failure(
+            root,
+            FailureRecord(
+                "WARNING",
+                "journal-append-incomplete",
+                "Journal append stopped before all requested records were observed",
+            ),
+            component=TOOL_ID,
+            operation="append_change_records",
+            correlation_id=context.get("context_id") if isinstance(context.get("context_id"), str) else None,
+        )
+        diagnostics = [{"code": failure.code, "message": failure.message}]
+        if secondary:
+            diagnostics.append({"code": "diagnostic-emission-failed", "message": secondary})
+        return _json_result(
+            ok=False,
+            mode="apply",
+            diagnostics=diagnostics,
+            result={
+                "resolved_targets": {"repository": str(root)},
+                "planned_effects": {"journal_records": events},
+                "receipts": list(error.completed_receipts),
+                "state": "incomplete",
+                "incomplete": True,
+                "uncertain": {
+                    "record_index": error.uncertain_event_index,
+                    "state": "unknown",
+                },
+                "error": {"code": failure.code, "message": failure.message},
+            },
+        )
     return _json_result(
         ok=True,
         mode="apply" if apply else "dry-run",
@@ -175,5 +212,16 @@ def main() -> int:
     return 0 if result["ok"] else 2
 
 
+def _image_main():
+    return main()
+
+
 if __name__ == "__main__":
-    raise SystemExit(main())
+    # Direct script execution needs the shared process boundary available from the tools root.
+    import sys
+    from pathlib import Path
+    _TOOLS_ROOT = next(p for p in Path(__file__).resolve().parents if p.name in {"201_TOOLS", "TOOLS"})
+    if str(_TOOLS_ROOT) not in sys.path:
+        sys.path.insert(0, str(_TOOLS_ROOT))
+    from runtime_process_boundary import run_process
+    raise SystemExit(run_process(_image_main, operation="APPEND_CHANGE_RECORDS/append_change_records"))

@@ -1,0 +1,6 @@
+schema_version = 1
+
+[shared_mcp]
+projects_root = "/Users/am/Documents/My_Repos"
+http_port = 8092
+max_loaded_projects = 2

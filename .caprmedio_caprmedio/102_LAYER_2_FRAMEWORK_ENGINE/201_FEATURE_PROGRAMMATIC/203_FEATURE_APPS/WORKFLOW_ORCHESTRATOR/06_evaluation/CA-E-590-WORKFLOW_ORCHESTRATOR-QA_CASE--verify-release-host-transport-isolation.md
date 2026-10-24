@@ -1,19 +1,30 @@
 ---
 atom_id: CA-E-590
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-07 10:07:12 +0000"
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Release Version/Host Executor/Evaluation"
-  depends_on: [Release Version, Workflow Run, Operator, Permission, Queue, DBOS, Source, Carrier, Journal, Implementation]
+  governs: Release Version/Host Executor/Evaluation
+  depends_on:
+  - Release Version
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Permission
+  - Queue
+  - DBOS
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Runtime/Docker Workflow Execution
 relations:
-  evaluation_for: [CA-R-1891, CA-M-347, CA-D-583]
+  evaluation_for:
+  - CA-R-1891
+  - CA-M-347
+  - CA-D-583
+tier: 6
 ---
 # Summary
 

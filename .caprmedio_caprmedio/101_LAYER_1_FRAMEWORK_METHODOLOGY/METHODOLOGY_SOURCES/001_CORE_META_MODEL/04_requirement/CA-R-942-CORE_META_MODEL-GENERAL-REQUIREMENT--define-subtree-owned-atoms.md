@@ -1,19 +1,20 @@
 ---
 subjects:
-  governs: "Subtree-owned Atoms"
+  governs: Subtree-owned Atoms
   depends_on:
-    ["Owned Atoms", "Entity/Node/Continuant/Scope Unit"]
-version: 19
-updated_at: "2026-10-19 15:54:31 +0400"
+  - Owned Atoms
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 22
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-942"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-R-942
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Definition
 ---
 # Summary
 Define Subtree-owned Atoms

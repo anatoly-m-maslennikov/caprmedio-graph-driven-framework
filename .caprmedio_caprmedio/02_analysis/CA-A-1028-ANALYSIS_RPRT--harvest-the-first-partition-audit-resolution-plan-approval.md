@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "First-partition audit resolution Plan approval evidence"
-  depends_on: [Project, Operations, "Atom/Content Role: Plan"]
-version: 2
-updated_at: "2026-10-04 11:22:54 +0000"
+  governs: First-partition audit resolution Plan approval evidence
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   relates_to: [CA-P-1310, CA-P-1126, CA-A-1023, CA-C-330]
 ---

@@ -4,18 +4,28 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-19 15:56:35 +0400"
+version: 13
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Applicable Methodology Compilation Correct Step"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Applicable Methodology Compilation Correct Step'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Apply Approved Source Corrections", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal.Record", "Methodology Source", "Entity/Node/Continuant/Atom.Substance"]
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Substance
 relations:
-  relates_to: [CA-O-011, CA-O-008]
+  relates_to:
+  - CA-O-011
+  - CA-O-008
+tier: 3
 ---
 # Summary
 
@@ -27,9 +37,9 @@ this Step is the correct node **of** CA-O-011, Applicable Methodology Compilatio
 
 ### Inputs and parameters
 
-bind the exact approved correction and recorded decision from CA-O-155, their selected frontier, and the Workflow Run's current source state and separately authorized owning-source change workflow.
+bind the exact approved correction and actual Operator decision from CA-O-155, independently retained **and** verified through admitted execution evidence, their selected frontier, and the Workflow Run's current source state and separately authorized owning-source change workflow.
 
-require the separately authorized source change workflow; corrections are **not** compiler side effects **or** edits **to** projected Claims. **if** **any** source changes, the Workflow Run returns **to** select **and** repeats assessment against the new frontier. failure **or** partial effects never justify publishing from the earlier assessment.
+require the separately authorized source change workflow; corrections are **not** compiler side effects **or** edits **to** projected Claims. the Journal append is a business-provenance attempt, not a prerequisite, proof, permission, completion, **or** recovery gate; an append failure yields a `recording_error` diagnostic while the actual decision and any effects remain independently evidenced. it does **not** authorize replay **or** a second correction execution; reconcile independent effects separately. **if** **any** source changes, the Workflow Run returns **to** select **and** repeats assessment against the new frontier. failure **or** partial effects never justify publishing from the earlier assessment.
 
 ### Agentic invocation binding
 

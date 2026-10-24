@@ -2,26 +2,25 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "deterministic-transformation"
-  depends_on:
-    - "programmatic software"
-version: 10
-updated_at: "2026-10-04 04:23:28 +0400"
+  governs: Subject/Engineering/Function Purity
+  depends_on: []
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-157
+  - CA-M-407
   derived_from:
-    - CA-A-053
+  - CA-A-053
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-256
 content_role: Evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
+tier: 5
+type: Eval Case
 ---
 # Verify deterministic transformation from declared inputs
 
@@ -54,4 +53,4 @@ effect boundary **to** the appropriate owner.
 
 ## Sources
 
-- [CA-M-157 — Allocate deterministic transformations to functions](../05_method/CA-M-157-PROGRAMMATIC-CORE-METHOD--allocate-deterministic-transformations-to-functions.md)
+- [CA-M-407 — Allocate deterministic transformations to functions](../05_method/CA-M-407-PROGRAMMATIC-STANDARD-ENG_POLICY--allocate-deterministic-transformations-to-functions.md)

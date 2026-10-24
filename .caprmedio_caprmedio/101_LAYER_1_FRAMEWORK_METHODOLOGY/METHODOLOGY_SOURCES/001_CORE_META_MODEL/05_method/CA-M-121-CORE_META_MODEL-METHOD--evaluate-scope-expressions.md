@@ -1,19 +1,18 @@
 ---
 subjects:
-  governs: "Scope Expression Evaluation"
-  depends_on:
-    - "Scope Expression"
-version: 17
-updated_at: "2026-09-29 22:34:56 +0000"
+  governs: Subject/Domain/Node/Continuant/Selection
+  depends_on: []
+version: 20
+updated_at: 2026-10-24 04:38:42 +0400
 relations: {}
-atom_id: "CA-M-121"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-M-121
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 Evaluate Scope Expressions

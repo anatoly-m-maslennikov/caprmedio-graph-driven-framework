@@ -1,16 +1,23 @@
 ---
 subjects:
-  governs: "feature-boundary"
+  governs: feature-boundary
   depends_on: []
-version: 23
-updated_at: 2026-09-12 04:15:08
+version: 28
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   delivery_for:
-    - CA-R-803
-    - CA-R-1124
-    - CA-R-1064
+  - CA-R-803
+  - CA-R-1124
+  - CA-R-1064
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-D-007
+status: Active
+content_role: Delivery
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Decision
+tier: 2
 ---
 # Deliver the commit-trigger script
 

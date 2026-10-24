@@ -2,18 +2,25 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: "Transition Generic Artifact Lifecycle"
+  governs: Transition Generic Artifact Lifecycle
   depends_on:
-    - "Action"
-    - "Artifact"
-    - "Artifact/Carrier"
-    - "Artifact/Revision"
-    - "Relation"
-version: 2
-updated_at: "2026-09-17 03:33:08 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Artifact
+  - Subject/Engineering/Carrier
+  - Artifact/Revision
+  - Subject/Graph/Relation
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-O-041
+status: Active
+content_role: Operations
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Action
+tier: 1
 ---
 # Transition one generic Artifact lifecycle
 

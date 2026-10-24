@@ -1,0 +1,100 @@
+{
+  "wrappers": [
+    "APPEND_CHANGE_RECORDS/append_change_records.py",
+    "CLOSE_ATOM/close_atom.py",
+    "COMMIT_CHANGE_SET/commit_change_set.py",
+    "COMMIT_CONTEXT/commit_context.py",
+    "COMMIT_TRIGGER/commit_trigger.py",
+    "COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
+    "COMPILE_APPLICABLE_METHODOLOGY/validate_expansion_boundary.py",
+    "DERIVE_CCE_CANONICAL_SIGNATURES/derive_cce_canonical_signatures.py",
+    "DERIVE_SCOPE_CANONICAL_SIGNATURES/derive_scope_canonical_signatures.py",
+    "DETECT_CLAIM_VALUE_SET_CANDIDATES/detect_claim_value_set_candidates.py",
+    "DISCOVER_OPERATIONS/discover_operations.py",
+    "DISCOVER_TOOLS/discover_tools.py",
+    "GENERATE_ENTITY_GRAPH/generate_entity_graph.py",
+    "GENERATE_ENTITY_GRAPH/mechanical_subject_graph.py",
+    "GENERATE_ENTITY_GRAPH/render_entity_tree.py",
+    "GENERATE_ENTITY_GRAPH/subject_notation_snapshot.py",
+    "GENERATE_ENTITY_GRAPH/subject_tree.py",
+    "GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
+    "GET_EXECUTION_CONTEXT/get_execution_context.py",
+    "GET_EXECUTION_STATUS/get_execution_status.py",
+    "INSTALL_TOOLS/install_tools.py",
+    "MIGRATE_ATOM_IDENTITY/migrate_atom_identity.py",
+    "REBIND_ATOM_RELATIONS/rebind_atom_relations.py",
+    "REPLACE_ATOM/replace_atom.py",
+    "RESUME_EXECUTION_CONTEXT/resume_execution_context.py",
+    "RETRIEVE_APPLICABLE_METHODOLOGY/retrieve_applicable_methodology.py",
+    "START_BACKGROUND_SERVICES/start_background_services.py",
+    "WATCH_EXECUTION/watch_execution.py",
+    "artifact_metadata.py",
+    "framework_settings_revision.py",
+    "generate_meta_requirement_catalog.py",
+    "generate_project_settings.py",
+    "generate_proof_currentness_catalog.py",
+    "migrations/apply_fpf_audit_repairs.py",
+    "migrations/apply_realization_releases_field_authority.py",
+    "migrations/backfill_atom_revision_metadata.py",
+    "migrations/backfill_global_tier.py",
+    "migrations/backfill_required_atom_properties.py",
+    "migrations/consolidate_spec_behavior_cores.py",
+    "migrations/distribute_project_principles_across_rmedo.py",
+    "migrations/migrate_framework_identity.py",
+    "migrations/migrate_project_settings_authority_to_rmed.py",
+    "migrations/migrate_to_five_structural_levels.py",
+    "migrations/migrate_to_six_framework_layers.py",
+    "migrations/move_project_goal_to_control_root.py",
+    "migrations/normalize_core_requirement_carriers.py",
+    "migrations/normalize_project_requirement_claims.py",
+    "migrations/prepare_active_rmedo_migration.py",
+    "migrations/remove_retired_atom_properties.py",
+    "migrations/rename_caprmedio_structural_units.py",
+    "migrations/rename_ops_content_role_to_operations.py",
+    "migrations/reorder_project_principle_filename_segments.py",
+    "migrations/resolve_cap_io_atom_lifecycles.py",
+    "migrations/split_layer_scope_contract_atoms.py",
+    "migrations/subject_notation_migration.py",
+    "native_atom_revision.py"
+  ],
+  "callback_entrypoint_groups": {
+    "run_cli(TOOL_ID, INPUT_SCHEMA, build_intent)": [
+      "CLOSE_ATOM/close_atom.py",
+      "REPLACE_ATOM/replace_atom.py"
+    ],
+    "cli()": [
+      "COMMIT_TRIGGER/commit_trigger.py",
+      "INSTALL_TOOLS/install_tools.py",
+      "START_BACKGROUND_SERVICES/start_background_services.py",
+      "native_atom_revision.py"
+    ],
+    "run()": [
+      "COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
+      "COMPILE_APPLICABLE_METHODOLOGY/validate_expansion_boundary.py",
+      "RETRIEVE_APPLICABLE_METHODOLOGY/retrieve_applicable_methodology.py"
+    ],
+    "main(sys.argv[1:])": [
+      "DERIVE_CCE_CANONICAL_SIGNATURES/derive_cce_canonical_signatures.py",
+      "DERIVE_SCOPE_CANONICAL_SIGNATURES/derive_scope_canonical_signatures.py"
+    ],
+    "_main()": [
+      "DISCOVER_OPERATIONS/discover_operations.py",
+      "DISCOVER_TOOLS/discover_tools.py",
+      "GET_EXECUTION_CONTEXT/get_execution_context.py",
+      "GET_EXECUTION_STATUS/get_execution_status.py",
+      "RESUME_EXECUTION_CONTEXT/resume_execution_context.py",
+      "WATCH_EXECUTION/watch_execution.py"
+    ],
+    "cli(['framework-settings', *sys.argv[1:]])": [
+      "framework_settings_revision.py"
+    ]
+  },
+  "imported_callbacks": {
+    "MIGRATE_ATOM_IDENTITY/migrate_atom_identity.py": "migrate_atom_identity_workers.runtime",
+    "REBIND_ATOM_RELATIONS/rebind_atom_relations.py": "rebind_atom_relations_workers.runtime"
+  },
+  "special_callback_bodies": {
+    "migrations/apply_fpf_audit_repairs.py": "\nparser = argparse.ArgumentParser(description=__doc__)\nparser.add_argument(\"--apply\", action=\"store_true\", help=\"write the bounded repair migration\")\nparser.add_argument(\"--updated-at\", help=\"operator-local revision timestamp (YYYY-MM-DD HH:MM:SS)\")\nparser.add_argument(\"--session-id\", help=\"session identity to record in generated provenance\")\nargs = parser.parse_args()\nif not args.apply:\n    print(\"dry-run: pass --apply to write the bounded repair migration\")\nelse:\n    apply(updated_at=args.updated_at, session_id=args.session_id)\n",
+    "migrations/migrate_framework_identity.py": "\ntry:\n    return main()\nexcept RuntimeError as error:\n    print(f\"error={error}\", file=sys.stderr)\n    return 2\n"
+  }
+}

@@ -1,36 +1,41 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Structure"
+  governs: Subject/Domain/Node/Continuant/Project.Structure
   depends_on:
-    ["Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Continuant/Node/Projection/Type: Applicable Methodology"]
-version: 15
-updated_at: "2026-10-18 03:34:22 +0400"
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+version: 20
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - "CA-R-1483"
-    - "CA-R-1484"
-    - "CA-R-1485"
-    - "CA-R-1738"
-    - "CA-R-1402"
-    - "CA-R-1052"
-    - "CA-R-1429"
-    - "CA-R-1430"
-    - "CA-R-1739"
-    - "CA-R-626"
-    - "CA-R-1740"
-    - "CA-D-317"
-    - "CA-D-318"
-    - "CA-D-359"
-    - "CA-D-364"
-atom_id: "CA-E-446"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - CA-R-1483
+  - CA-R-1484
+  - CA-R-1485
+  - CA-R-1738
+  - CA-R-1402
+  - CA-R-1052
+  - CA-R-1429
+  - CA-R-1430
+  - CA-R-1739
+  - CA-R-626
+  - CA-R-1740
+  - CA-D-317
+  - CA-D-318
+  - CA-D-359
+  - CA-D-364
+atom_id: CA-E-446
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 6
 ---
 # Summary
 

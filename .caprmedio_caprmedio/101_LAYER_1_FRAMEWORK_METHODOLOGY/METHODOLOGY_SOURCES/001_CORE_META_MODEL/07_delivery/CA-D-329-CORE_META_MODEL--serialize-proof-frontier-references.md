@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/History"
+  governs: Subject/Domain/Node/Continuant/History
   depends_on: []
-version: 16
-updated_at: "2026-10-19 15:55:29 +0400"
+version: 19
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-329"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-329
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

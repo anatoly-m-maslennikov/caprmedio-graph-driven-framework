@@ -2,18 +2,19 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Artifact/Carrier Placement"
+  governs: Artifact/Carrier Placement
   depends_on:
-    - "Project"
-    - "Directory Carrier"
-    - "Artifact"
-    - "Implementation Folder"
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/Carrier/Directory Carrier
+  - Artifact
+  - Implementation Folder
 priority: medium
-version: 1
-updated_at: "2026-09-17 15:27:02 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-158
 ---
 # What governs non-delivery placement at the Project root?
 

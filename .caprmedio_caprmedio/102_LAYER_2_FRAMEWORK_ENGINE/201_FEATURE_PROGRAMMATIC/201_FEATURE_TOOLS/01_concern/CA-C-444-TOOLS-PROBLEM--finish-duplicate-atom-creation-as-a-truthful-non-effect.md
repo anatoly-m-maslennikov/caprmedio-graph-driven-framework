@@ -9,10 +9,14 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Duplicate Atom Creation Run Completion"
-  depends_on: [Atom, Workflow, Run, Journal]
-version: 1
-updated_at: 2026-10-04 22:40:40
+  governs: Duplicate Atom Creation Run Completion
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Occurrent/Execution
+  - Journal
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations: {concern_about: [CA-O-127, CA-O-129, CA-O-128]}
 ---
 # Summary

@@ -3,23 +3,23 @@ atom_id: CA-D-637
 content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Graph Rule
+  governs: Subject/Graph/Rule
   depends_on:
-  - Entity/Graph Rule.Type
-  - Entity/Graph Rule.Applies To
-  - Entity/Graph Rule.Condition
-  - Entity/Graph Rule.Default Value
-  - 'Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Graph Rule'
-  - Entity/Node/Continuant/Atom.Summary
-  - Entity/Carrier/File Carrier
+  - Subject/Graph/Rule.Type
+  - Subject/Graph/Rule.Applies To
+  - Subject/Graph/Rule.Condition
+  - Subject/Graph/Rule.Default Value
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Graph Rule'
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Engineering/Carrier/File Carrier
 relations: {}
-version: 5
-updated_at: "2026-10-20 13:47:11 +0400"
+version: 13
+updated_at: 2026-10-24 03:43:56 +0400
+tier: 1
+type: Eng Decision
 ---
 # Summary
 
@@ -60,9 +60,9 @@ applies_to:
   relation_type: evaluation_for
 condition:
   source:
-    - "Entity/Node/Continuant/Atom/Content Role: Evaluation"
+    - "Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation"
   target:
-    - "Entity/Node/Continuant/Atom/Content Role: Requirement"
+    - "Subject/Domain/Node/Continuant/Atom/Content Role: Requirement"
 ```
 
 This block illustrates the schema; it is not a second live Rule instance.
@@ -85,16 +85,37 @@ CA-R-1997 defines the meaning and source-declared membership of the named Select
 ```yaml
 graph_rule_type: cardinality
 applies_to:
-  node: "Entity/Node/Continuant/Selection//Dependent Entity Occurrences"
+  node: "Subject/Domain/Node/Continuant/Selection//Dependent Entity Occurrences"
   relation_type: IS_BORNE_BY
   direction: outgoing
 condition:
   other_endpoint:
-    - Entity
+    - Subject/Domain/Node/Continuant/Atom
   minimum: 1
   maximum: 1
 ```
 
 This block illustrates the encoding and is not a live Rule instance. The concrete rule is authored separately with its own Atom identity.
 
-The remaining Type schemas, multiple-rule combination, unknown Relation Types, blacklist precedence and override policies still require their own declarations before use. This Delivery contract does not implement parser, validator, resolver or evaluator support.
+### Endpoint Constraint schema
+
+For `graph_rule_type: endpoint_constraint`, use this closed mapping; all listed fields are required and additional fields are invalid:
+
+- `applies_to.relation_selection`: one nonempty full Subject string naming a source-declared named Selection. For the approved governing-order Rule, the value is `Subject/Domain/Node/Continuant/Selection//Stored Governing RMED Relation Occurrences`, whose exact membership is defined by CA-R-2148.
+- `condition.ordering`: exactly `same_scope_lower_target_tier_or_strict_ancestor`.
+
+The Endpoint Constraint schema compares the stored governing Relation direction selected by CA-R-2148. A selected source must be a Current Requirement, Method, Evaluation, or Delivery Atom; the target may be any Current Atom permitted by the defining Relation requirement, including an Operations target for `evaluation_for`. In the same Scope Unit, the target Atom's numeric Tier must be strictly lower than the source Atom's numeric Tier. In different Scope Units, the target Scope Unit must be a strict ancestor of the source Scope Unit and their Tier numbers must not be compared. A descendant or sibling target is forbidden. Non-RMED source occurrences, including Plan or Operations containment sources, are outside this Selection. Derived inverse views are excluded.
+
+For ordering only, an endpoint verified as a Current Requirement of Type Project Goal under CA-R-2152 and CA-R-2132 uses its Target Project as its ordering Scope context. Its actual owner remains the Operator Actor. The Target Project must be the Project containing the other endpoint's declared Local Scope Unit; an unrelated Project does not qualify. Ordinary endpoints, including non-Project Goals, continue to use their Local Scope Unit. Compare the resulting contexts with the same lower-target-Tier or strict-ancestor rule. Do not create an Operator Scope Unit, change ownership, add a stored Property, or exempt a Project Goal from ordering. Unverified Goal identity, ownership, Tier or Project membership remains unresolved and does not pass.
+
+`default_value` is not applicable to Endpoint Constraint and must not be supplied. Unknown or incomplete Selection membership, an unregistered Relation Kind, a non-Current endpoint, a missing endpoint Tier, an unresolved ordering Scope context, or unresolved parentage is unresolved evidence and does not pass the Rule. This schema does not create a resolver, evaluator, fallback or general expression language.
+
+```yaml
+graph_rule_type: endpoint_constraint
+applies_to:
+  relation_selection: "Subject/Domain/Node/Continuant/Selection//Stored Governing RMED Relation Occurrences"
+condition:
+  ordering: same_scope_lower_target_tier_or_strict_ancestor
+```
+
+This block illustrates the closed Endpoint Constraint encoding and is not a second live Rule instance. Multiple-rule combination, unknown Relation Types outside a declared Selection, blacklist precedence and override policies still require their own declarations before use. This Delivery contract does not implement parser, validator, resolver or evaluator support.

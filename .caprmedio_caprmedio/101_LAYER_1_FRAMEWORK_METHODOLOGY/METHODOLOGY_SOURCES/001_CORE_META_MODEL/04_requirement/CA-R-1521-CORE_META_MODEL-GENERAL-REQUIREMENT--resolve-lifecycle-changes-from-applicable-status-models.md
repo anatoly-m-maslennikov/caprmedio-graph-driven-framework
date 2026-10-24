@@ -1,19 +1,30 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
   depends_on:
-    ["Entity", "Artifact", "Entity/Node/Continuant/Atom", "Atom/Content Role", "Type", "Status", "Structural Entity", "Entity/Node/Continuant/Scope Unit", "Container Atom", "Entity/Carrier"]
-version: 10
-updated_at: "2026-10-20T20:50:42.243Z"
-relations: {"relates_to": ["CA-R-1519"]}
-atom_id: "CA-R-1521"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - Subject/Domain/Node
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Scope Unit/Type
+  - Subject/Domain/Node/Continuant/Atom.Status
+  - Structural Entity
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Container Atom
+  - Subject/Engineering/Carrier
+version: 16
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1519
+atom_id: CA-R-1521
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

@@ -2,19 +2,20 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Project Structure"
+  governs: Subject/Domain/Node/Continuant/Project.Structure
   depends_on:
-    - "Project Settings"
-    - "Scope Unit"
-    - "Implementation Folder"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Projection"
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Implementation Folder
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/Domain/Node/Continuant/Projection
 priority: medium
-version: 8
-updated_at: "2026-09-17 23:13:18 +0000"
+version: 10
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-117
 ---
 # Which declarations complete the authoritative Project Structure?
 

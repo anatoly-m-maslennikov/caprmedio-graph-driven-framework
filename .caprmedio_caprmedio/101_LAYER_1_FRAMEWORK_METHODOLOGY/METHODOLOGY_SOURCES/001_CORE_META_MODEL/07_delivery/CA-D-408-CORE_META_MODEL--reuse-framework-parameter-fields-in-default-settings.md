@@ -1,28 +1,30 @@
 ---
 subjects:
-  governs: "Default Settings"
+  governs: Default Settings
   depends_on:
-    ["Default Settings", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Carrier"]
-version: 10
-updated_at: "2026-10-19 15:55:46 +0400"
+  - Default Settings
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Engineering/Carrier
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - "CA-D-407"
+  - CA-D-407
   relates_to:
-    - "CA-D-361"
-    - "CA-D-368"
-    - "CA-D-369"
-    - "CA-D-374"
-    - "CA-D-383"
-    - "CA-D-387"
-atom_id: "CA-D-408"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-D-361
+  - CA-D-368
+  - CA-D-369
+  - CA-D-374
+  - CA-D-383
+  - CA-D-387
+atom_id: CA-D-408
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 4
+type: Eng Decision
 ---
 # Summary
 

@@ -1,0 +1,37 @@
+---
+atom_id: CA-P-2601@2
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 6
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+local_tier: Standard
+global_tier: 8
+author: Anatoly Maslennikov
+status: Active
+version: 2
+updated_at: "2026-10-22T18:24:18Z"
+subjects:
+  governs: Entity/Node/Continuant/Implementation
+  depends_on: []
+relations:
+  is_decomposition_of: [CA-P-2581]
+  depends_on: [CA-P-2600]
+  relates_to: [CA-R-1527, CA-R-1843, CA-R-1845, CA-M-328, CA-D-544, CA-O-016]
+---
+# Summary
+
+Verify isolated current-session MCP continuation
+
+## Objective
+
+Run the isolated current-session MCP journey from the current root APP entry and its observed binding. Prove prompt return, current-session result submission, next Step selection, stale/mismatched and repeated-submission safety, reconnect, two-Project isolation and unchanged Isolated behavior against the current 41-Method fixture. No live CLI or production endpoint.
+
+## Details
+
+At most 15 minutes of own work per leaf; split before expanding. One Task per file. Review and update dependent Tasks after actual predecessor acceptance and before execution. Current source R1527@7 defines Integrated as the current participating session; a separate ephemeral CLI is not an Integrated implementation. The route must be selected from the current root APP entry and its observed binding, not from a caller-supplied label or an inferred route. Bind the current 41-Method fixture and its exact source pins. Keep bounded response/receipt evidence in separate references (`CA-C-581` and `CA-P-2610`); those references are evidence inputs, not replacements for APP, RMED or Workflow authority. Preserve existing native packet fields and current M/E/D guidance, explicit Project binding, source freshness, actual evidence and business-only Journal semantics. Use locked uv and configured Project Temporary State. Create a Concern for a real unresolved decision or blocker. No release, deployment, production MCP calls, full-suite run, uncertain replay or Git publication.
+
+### Definition of Done
+
+Retain exact changed paths, source bindings and bounded response references for every journey. Record focused functional and source-conformance outcomes separately from fixture integrity, implementation behavior, pending/current-session execution and runtime admission. A passing isolated journey must not be reported as public MCP, production or deployed-runtime acceptance; leave the reviewed next dependent Task explicit.

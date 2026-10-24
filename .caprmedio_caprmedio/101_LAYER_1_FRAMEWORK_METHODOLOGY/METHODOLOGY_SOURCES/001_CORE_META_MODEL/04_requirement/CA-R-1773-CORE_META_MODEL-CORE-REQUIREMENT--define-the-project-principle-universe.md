@@ -1,21 +1,23 @@
 ---
-version: 19
-updated_at: "2026-10-19 15:54:03 +0400"
+version: 26
+updated_at: 2026-10-24 01:44:12 +0400
 relations:
   child_of:
-    - CA-M-001
+  - CA-M-001
 subjects:
-  governs: "Project Principle Universe"
+  governs: Subject/Domain/Node/Continuant/Selection//Project Principle Universe
   depends_on:
-    ["Entity/Node/Continuant/Project", "Entity/Node/Continuant/Atom.Local Tier: Principle", "Structural Level", "Atom/Content Role", "Artifact", "Extension", "Project Configuration", "CAPRMEDIO Framework Instance"]
-atom_id: "CA-R-1773"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Atom.Tier
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+atom_id: CA-R-1773
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 
@@ -27,6 +29,6 @@ the Project Principle universe.
 
 ## Claim
 
-CAPRMEDIO **must** define the Project Principle universe as **all** irreducible governed invariants that apply across the entire current Project independently of Structural Level, scope label, Content Role, Artifact form, Extension, Project Configuration, **or** substrate.
+CAPRMEDIO **must** define the Project Principle universe as **all** irreducible governed invariants that apply across the entire current Project independently of Scope Unit ancestry, scope label, Content Role, Artifact form, Extension, Project Configuration, **or** substrate. Tier `0` is an admitted Project-owned ordering level under CA-R-1443; it does not create a structural field or a Content-Role restriction.
 
 ## Details

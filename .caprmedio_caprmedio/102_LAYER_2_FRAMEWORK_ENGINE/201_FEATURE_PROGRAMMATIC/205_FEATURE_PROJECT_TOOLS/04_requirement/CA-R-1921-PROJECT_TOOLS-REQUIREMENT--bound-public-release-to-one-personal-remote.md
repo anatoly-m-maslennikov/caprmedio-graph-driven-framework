@@ -1,18 +1,21 @@
 ---
-atom_id: "CA-R-1921"
-content_role: "Requirement"
+atom_id: CA-R-1921
+content_role: Requirement
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public release remote boundary"
-  depends_on: [Personal Remote, Git Branch, Pull Request]
-version: 2
-updated_at: "2026-10-14 12:27:48 +0000"
+  governs: Public release remote boundary
+  depends_on:
+  - Personal Remote
+  - Git Branch
+  - Subject/Engineering/Pull Request
+version: 5
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
+tier: 3
+type: Rule
 ---
 # Summary
 

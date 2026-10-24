@@ -1,22 +1,22 @@
 ---
 subjects:
-  governs: "Governance Origin"
+  governs: Governance Origin
   depends_on:
-    - "Project"
-    - "Artifact"
-    - "CAPRMEDIO Framework"
-    - "Project Configuration"
-version: 21
-updated_at: "2026-10-03 01:31:08 +0400"
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - CAPRMEDIO Framework
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+version: 26
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1645"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1645
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

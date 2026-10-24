@@ -1,20 +1,24 @@
 ---
-atom_id: "CA-E-616"
-content_role: "Evaluation"
-type: "QA Case"
+atom_id: CA-E-616
+content_role: Evaluation
+type: Eval Case
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public release Pull Request identity"
-  depends_on: [Pull Request, Personal Remote, Tool]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
+  governs: Subject/Engineering/Public Release/Pull Request Identity
+  depends_on:
+  - Subject/Engineering/Pull Request
+  - Personal Remote
+  - Subject/Engineering/Public Release/Pull Request Identity Evaluation
+version: 5
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: [CA-R-1926, CA-M-368]
+  evaluation_for:
+  - CA-R-1926
+  - CA-M-368
+tier: 5
 ---
 # Summary
 

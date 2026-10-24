@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "P1403 complete saved-candidate reading recovery"
-  depends_on: [Operations, Analysis]
-version: 1
-updated_at: "2026-10-04 13:31:26 +0000"
+  governs: P1403 complete saved-candidate reading recovery
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Analysis
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1403]
   relates_to: [CA-A-1123]

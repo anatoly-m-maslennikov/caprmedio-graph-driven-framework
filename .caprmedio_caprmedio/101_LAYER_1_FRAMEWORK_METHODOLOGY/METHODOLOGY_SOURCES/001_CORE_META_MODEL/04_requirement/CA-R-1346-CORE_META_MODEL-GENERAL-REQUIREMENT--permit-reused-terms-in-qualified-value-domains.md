@@ -1,19 +1,20 @@
 ---
 subjects:
-  governs: "IS_ALLOWED_VALUE_OF"
+  governs: IS_ALLOWED_VALUE_OF
   depends_on:
-    ["Entity/Node/Continuant/Term", "Property"]
-version: 12
-updated_at: "2026-10-19 15:52:52 +0400"
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Domain/Node/Continuant/Term//Property
+version: 15
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1346"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-R-1346
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 Permit reused Terms **in** qualified value domains

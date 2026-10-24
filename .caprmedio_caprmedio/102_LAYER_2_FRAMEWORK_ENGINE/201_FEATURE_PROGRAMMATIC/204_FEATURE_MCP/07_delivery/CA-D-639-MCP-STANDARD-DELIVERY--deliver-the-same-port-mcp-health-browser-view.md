@@ -3,17 +3,18 @@ atom_id: CA-D-639
 content_role: Delivery
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-21 04:12:05 +0400"
+version: 5
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: Entity/Carrier
+  governs: Subject/Engineering/Carrier
   depends_on: []
 relations:
-  delivery_for: [CA-R-2007]
+  delivery_for:
+  - CA-R-2007
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

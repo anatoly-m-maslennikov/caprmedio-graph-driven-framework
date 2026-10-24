@@ -2,25 +2,32 @@
 cce_version: cce_1
 cce_form: serialization
 subjects:
-  governs: "feature-boundary"
+  governs: feature-boundary
   depends_on:
-    - "Journal"
-    - "Journal/Record"
-    - "Atom"
-    - "Artifact/Carrier"
-    - "Project"
-    - "Applicable Methodology"
-version: 20
-updated_at: "2026-09-16 21:24:29 +0000"
+  - Subject/Engineering/Carrier/Journal Serialization
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+version: 26
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   relates_to:
-    - CA-R-1491
+  - CA-R-1491
   delivery_for:
-    - CA-R-804
-    - CA-R-1124
-    - CA-R-1064
+  - CA-R-804
+  - CA-R-1124
+  - CA-R-1064
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-D-008
+status: Active
+content_role: Delivery
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Decision
+tier: 2
 ---
 # Deliver the commit-context script
 

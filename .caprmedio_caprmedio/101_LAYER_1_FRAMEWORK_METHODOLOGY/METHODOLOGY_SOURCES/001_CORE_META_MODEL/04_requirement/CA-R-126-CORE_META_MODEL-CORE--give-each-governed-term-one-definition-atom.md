@@ -1,22 +1,22 @@
 ---
 subjects:
-  governs: "Governed Term"
+  governs: Subject/Domain/Node/Continuant/Term
   depends_on:
-    - "Definition Atom"
-version: 17
-updated_at: "2026-09-29 04:58:54 +0000"
+  - Definition Atom
+version: 21
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-918
-    - CA-R-1596
-atom_id: "CA-R-126"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-918
+  - CA-R-1596
+atom_id: CA-R-126
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 Give each governed term one Definition Atom

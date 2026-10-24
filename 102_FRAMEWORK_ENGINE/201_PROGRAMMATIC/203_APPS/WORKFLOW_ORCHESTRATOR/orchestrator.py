@@ -1,5 +1,9 @@
 """Explicit local worker and short-lived queue client for independent Workflow Runs."""
 
+# implementation of:
+# Requirement: CA-R-2117
+# Method: CA-M-431, CA-M-405
+
 import argparse
 import fcntl
 import json
@@ -7,20 +11,31 @@ import os
 from pathlib import Path
 import subprocess
 import sys
-from typing import Annotated
+from typing import Annotated, Any
 
 from pydantic import Field, TypeAdapter
-from contracts import Enqueue, EnqueueSelected, Status
+from contracts import Enqueue, EnqueueSelected, Status, SubmitResult
 from backend import enqueue, enqueue_selected, status, worker
 from engine import Coordinator
 from runtime_config import control_directory, docker_runtime
 
-Request = Annotated[Enqueue | EnqueueSelected | Status, Field(discriminator="operation")]
-ADAPTER = TypeAdapter(Request)
+Request = Annotated[
+    Enqueue | EnqueueSelected | Status | SubmitResult, Field(discriminator="operation")
+]
+ADAPTER: TypeAdapter[Request] = TypeAdapter(Request)
+
+
+def _run_native(root: Path, request: Request) -> tuple[bool, Any | None]:
+    from selected_integrated_entry import run as run_integrated
+
+    return run_integrated(root, request)
 
 
 def run(root, request):
     request = ADAPTER.validate_python(request)
+    handled, result = _run_native(root, request)
+    if handled:
+        return result
     if not docker_runtime():
         from docker_bridge import MARKER, invoke
 
@@ -74,8 +89,13 @@ def _foreground_worker(root):
         engine.save(directory / "worker.json", identity)
         completed = False
         try:
-            worker(engine.root, ready_file=directory / "worker.ready")
+            result = worker(
+                engine.root,
+                ready_file=directory / "worker.ready",
+                _process_boundary=True,
+            )
             completed = True
+            return result
         finally:
             if completed:
                 (directory / "worker.ready").unlink(missing_ok=True)
@@ -87,13 +107,21 @@ def main():
     parser.add_argument("--project-root", required=True, type=Path)
     parser.add_argument("--input", default="-")
     parser.add_argument(
-        "operation", choices=["worker", "start-worker", "enqueue", "enqueue_selected", "status"]
+        "operation",
+        choices=[
+            "worker",
+            "start-worker",
+            "enqueue",
+            "enqueue_selected",
+            "submit_result",
+            "status",
+        ],
     )
     args = parser.parse_args()
     if args.operation == "start-worker":
         print(json.dumps(_start_worker(args.project_root)))
     elif args.operation == "worker":
-        _foreground_worker(args.project_root)
+        return _foreground_worker(args.project_root) or 0
     else:
         raw = sys.stdin.read() if args.input == "-" else Path(args.input).read_text()
         request = json.loads(raw)
@@ -101,7 +129,15 @@ def main():
             parser.error("Operation conflicts with request")
         request["operation"] = args.operation
         print(json.dumps(run(args.project_root, request), default=str))
+    return 0
+
+
+def _main_process():
+    """Keep CLI failures out of protocol stdout and report them once."""
+    from runtime_process_boundary import run_process
+
+    return run_process(main, operation="WORKFLOW_ORCHESTRATOR/orchestrator")
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(_main_process())

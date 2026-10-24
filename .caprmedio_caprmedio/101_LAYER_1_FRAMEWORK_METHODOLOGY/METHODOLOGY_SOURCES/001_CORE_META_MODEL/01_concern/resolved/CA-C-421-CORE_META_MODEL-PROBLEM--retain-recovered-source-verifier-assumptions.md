@@ -8,11 +8,15 @@ local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
-version: 2
-updated_at: "2026-10-15 18:40:58 +0000"
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Source verification evidence"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Plan", "Artifact/Carrier"]
+  governs: Source verification evidence
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Implementation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - Subject/Engineering/Carrier
 relations:
   concern_about: [CA-P-1444, CA-P-1445]
 ---

@@ -29,18 +29,19 @@ class BatchAdmission:
     completed: dict[str, str] = field(default_factory=dict)
 
 
-def capture_batch_admission(runner: Any, frozen: Mapping[str, Any]) -> dict[str, Any]:
+def capture_batch_admission(root: Path, frozen: Mapping[str, Any]) -> dict[str, Any]:
     """Bind the selected packet and finite governing sources without a review round."""
+    root = Path(root).resolve(strict=True)
     from subject_notation import get_profile
     from ATOM_UPDATE.atom_update import SOURCE_PINS
 
     execution = frozen["request"]["execution"]
-    packet = load_subject_batch(runner.root, execution["parameters"])
-    require_subject_batch_frontier(packet, execution, root=runner.root)
-    require_git_checkpoint(runner.root, packet)
-    control = operations.control_root(runner.root)
+    packet = load_subject_batch(root, execution["parameters"])
+    require_subject_batch_frontier(packet, execution, root=root)
+    require_git_checkpoint(root, packet)
+    control = operations.control_root(root)
     paths = set(
-        (control / name).relative_to(runner.root).as_posix()
+        (control / name).relative_to(root).as_posix()
         for name in (
             "operators_registry.toml",
             "project_structure.toml",
@@ -52,7 +53,7 @@ def capture_batch_admission(runner: Any, frozen: Mapping[str, Any]) -> dict[str,
     paths.update(pin.path for pin in get_profile("approved").grammar_pins)
     paths.add(execution["definition_manifest"]["manifest_ref"])
     paths.add(execution["parameters"]["subject_batch"]["path"])
-    pins = {path: capture_source(runner.root, path).sha256 for path in sorted(paths)}
+    pins = {path: capture_source(root, path).sha256 for path in sorted(paths)}
     if any(value is None for value in pins.values()):
         raise ValueError("Subject batch authority frontier is incomplete")
     return {"packet": packet, "authorities": pins}
@@ -60,19 +61,20 @@ def capture_batch_admission(runner: Any, frozen: Mapping[str, Any]) -> dict[str,
 
 @contextmanager
 def bind_subject_batch(
-    runner: Any, frozen: Mapping[str, Any], session: Any
+    root: Path, frozen: Mapping[str, Any], session: Any
 ) -> Iterator[BatchAdmission]:
+    root = Path(root).resolve(strict=True)
     execution = frozen["request"]["execution"]
     if (
         not isinstance(session, RunExecutionSession)
-        or Path(session.tracker.root).resolve() != runner.root
+        or Path(session.tracker.root).resolve() != root
         or execution.get("mode") != "execute"
         or execution.get("operation_route") != "update_atom"
         or _canonical_digest(session.request) != _canonical_digest(execution)
     ):
         raise ValueError("Subject batch requires the actual authorized selected Session")
-    admitted = capture_batch_admission(runner, frozen)
-    state = BatchAdmission(runner.root, admitted["packet"], session, admitted["authorities"])
+    admitted = capture_batch_admission(root, frozen)
+    state = BatchAdmission(root, admitted["packet"], session, admitted["authorities"])
     token = _ACTIVE.set(state)
     try:
         yield state

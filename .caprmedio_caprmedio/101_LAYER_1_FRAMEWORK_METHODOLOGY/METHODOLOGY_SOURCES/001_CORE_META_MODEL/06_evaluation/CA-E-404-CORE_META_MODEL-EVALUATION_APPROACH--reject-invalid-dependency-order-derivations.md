@@ -1,20 +1,29 @@
 ---
 subjects:
-  governs: "Dependency Order Derivation Evaluation"
+  governs: 'Subject/Graph/Relation/Type: depends_on'
   depends_on:
-    ["Artifact", "DEPENDS_ON", "DERIVED_FROM", "Atom Direct Relation", "Dependency Order Derivation"]
-version: 13
-updated_at: "2026-10-15 12:19:10 +0000"
-relations: {"evaluation_for": ["CA-R-1026", "CA-R-915", "CA-D-268", "CA-M-239", "CA-R-1580"]}
-atom_id: "CA-E-404"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - 'Subject/Graph/Relation/Type: DEPENDS_ON'
+  - DERIVED_FROM
+  - Subject/Graph/Relation
+  - 'Subject/Graph/Relation/Type: depends_on'
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-1026
+  - CA-R-915
+  - CA-D-268
+  - CA-M-239
+  - CA-R-1580
+atom_id: CA-E-404
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 5
 ---
 # Summary
 

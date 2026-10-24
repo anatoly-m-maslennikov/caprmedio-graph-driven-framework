@@ -1,21 +1,35 @@
 ---
-cce_version: "cce_1"
-cce_form: "method"
-version: 9
-updated_at: "2026-09-21 00:39:50 +0000"
-relations: {"child_of":["CA-M-261"],"relates_to":["CA-M-262","CA-O-016","CA-R-1559","CA-O-024"]}
+cce_version: cce_1
+cce_form: method
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  child_of:
+  - CA-M-261
+  relates_to:
+  - CA-M-262
+  - CA-O-016
+  - CA-R-1559
+  - CA-O-024
 subjects:
-  governs: "Project/Implementation/refactoring verification"
+  governs: Project/Implementation/refactoring verification
   depends_on:
-    - "Spec"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Implementation"
-    - "Project"
+  - Spec
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - 'Atom/Content Role: Implementation'
+  - Subject/Domain/Node/Continuant/Project
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-270
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Implementation Method
+tier: 2
 ---
 # Prepare verification before refactoring
 

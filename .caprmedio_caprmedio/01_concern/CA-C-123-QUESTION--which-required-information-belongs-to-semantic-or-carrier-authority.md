@@ -2,18 +2,19 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Content Role"
+  governs: Subject/Domain/Node/Continuant/Atom/Content Role
   depends_on:
-    - "Atom/Claim"
-    - "Artifact/Carrier"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Delivery"
+  - Atom/Claim
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
 priority: medium
-version: 2
-updated_at: "2026-09-17 14:32:14 +0000"
+version: 4
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-123
 ---
 # Which required information belongs to semantic or Carrier authority?
 

@@ -3,17 +3,22 @@ atom_id: CA-D-531
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Dispatch Interface"
-  depends_on: ["Tool", "Authorization", "Atom"]
-version: 10
-updated_at: "2026-10-18 04:44:18 +0400"
+  governs: Subject/Engineering/Atom Lifecycle/Dispatch Interface
+  depends_on:
+  - Subject/Engineering/Atom Lifecycle
+  - Authorization
+  - Subject/Domain/Node/Continuant/Atom
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  delivery_for: [CA-R-1825, CA-R-1827]
+  delivery_for:
+  - CA-R-1825
+  - CA-R-1827
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

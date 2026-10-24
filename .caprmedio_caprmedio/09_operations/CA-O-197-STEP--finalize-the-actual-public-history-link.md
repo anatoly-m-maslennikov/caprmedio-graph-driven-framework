@@ -1,20 +1,25 @@
 ---
-atom_id: "CA-O-197"
+atom_id: CA-O-197
 content_role: Operations
 type: Step
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-status: "Active"
-author: "Anatoly Maslennikov"
+status: Active
+author: Anatoly Maslennikov
 subjects:
-  governs: "Public release/Step: finalize actual Version History link"
-  depends_on: [Version History, Pull Request, Git Commit, Journal]
-version: 3
-updated_at: "2026-10-14 12:27:48 +0000"
+  governs: 'Public release/Step: finalize actual Version History link'
+  depends_on:
+  - Subject/Engineering/Release/Version History
+  - Subject/Engineering/Pull Request
+  - Git Commit
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 7
+updated_at: 2026-10-24 01:18:03 +0400
 relations:
-  part_of: [CA-O-188]
-  invokes: [CA-O-198]
+  part_of:
+  - CA-O-188
+  invokes:
+  - CA-O-198
+tier: 3
 ---
 # Summary
 

@@ -1,19 +1,24 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Reconciled Projection"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Reconciled Projection'
   depends_on:
-    ["Entity/Node/Continuant/Projection", "Type", "Artifact", "Entity/Node/Continuant/Atom.Substance", "Entity/Carrier", "Entity/Node/Continuant/Actor/Type: Operator"]
-version: 8
-updated_at: "2026-10-19 15:53:10 +0400"
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Projection/Type
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 14
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1461"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1461
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

@@ -1,19 +1,25 @@
 ---
-atom_id: "CA-M-365"
-content_role: "Method"
+atom_id: CA-M-365
+content_role: Method
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public release request admission"
-  depends_on: [Operator, Personal Remote, Workflow, Journal]
-version: 3
-updated_at: "2026-10-10 19:05:35 +0400"
+  governs: Public release request admission
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Personal Remote
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  method_for: [CA-R-1920, CA-R-1921]
+  method_for:
+  - CA-R-1920
+  - CA-R-1921
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

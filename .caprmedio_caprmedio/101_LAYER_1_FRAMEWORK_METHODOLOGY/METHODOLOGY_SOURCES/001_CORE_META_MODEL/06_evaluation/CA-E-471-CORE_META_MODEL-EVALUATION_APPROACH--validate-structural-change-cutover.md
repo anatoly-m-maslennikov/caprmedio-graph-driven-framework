@@ -1,25 +1,31 @@
 ---
 subjects:
-  governs: "Project Structure Maintenance"
+  governs: Subject/Domain/Node/Continuant/Project.Structure
   depends_on:
-    ["Entity/Node/Continuant/Project.Structure", "Entity/Carrier", "Entity/Node/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
-version: 9
-updated_at: "2026-10-19 15:55:07 +0400"
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Autonomous Confidence Threshold
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+version: 14
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
   evaluation_for:
-    - "CA-O-012"
-    - "CA-O-013"
-    - "CA-O-014"
-    - "CA-O-015"
-atom_id: "CA-E-471"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-O-012
+  - CA-O-013
+  - CA-O-014
+  - CA-O-015
+atom_id: CA-E-471
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 3
 ---
 # Summary
 Validate structural change cutover

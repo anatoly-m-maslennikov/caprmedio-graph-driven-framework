@@ -1,10 +1,9 @@
 ---
 subjects:
-  governs: programmatic-mutation
-  depends_on:
-  - programmatic software
-version: 12
-updated_at: "2026-10-18 03:49:41 +0400"
+  governs: Subject/Engineering/Mutation Initiative Binding
+  depends_on: []
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
   - CA-R-1094
@@ -14,10 +13,10 @@ atom_id: CA-M-191
 content_role: Method
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
+type: Eng Policy
+tier: 4
 ---
 # Summary
 

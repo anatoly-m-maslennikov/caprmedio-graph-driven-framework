@@ -1,18 +1,22 @@
 ---
-atom_id: "CA-D-613"
-content_role: "Delivery"
+atom_id: CA-D-613
+content_role: Delivery
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public release Workflow bindings"
-  depends_on: [Workflow, Step, Action, Tool]
-version: 9
-updated_at: "2026-10-14 16:53:24 +0000"
+  governs: Subject/Engineering/Public Release/Workflow Binding
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Public Release/Workflow Binding
+version: 13
+updated_at: 2026-10-24 00:38:25 +0400
 relations: {}
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

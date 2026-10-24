@@ -1,19 +1,31 @@
 ---
 subjects:
-  governs: "Agentic Action Instruction"
+  governs: Subject/Engineering/Prompt Construction/Action Instructions
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Actor/Type: Operator", "Tool", "Atom/Content Role: Operations/Type: Action/Execution Kind: Agentic", "Tool Call"]
-version: 7
-updated_at: "2026-10-19 15:54:50 +0400"
-relations: {"method_for": ["CA-R-1789", "CA-R-1790", "CA-R-1791", "CA-R-1792", "CA-R-1793"]}
-atom_id: "CA-M-304"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Agentic Instruction/Tool Call Execution Detail
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action/Execution Kind: Agentic'
+  - Subject/Domain/Node/Occurrent/Execution
+version: 13
+updated_at: 2026-10-24 01:50:12 +0400
+relations:
+  method_for:
+  - CA-R-1789
+  - CA-R-1790
+  - CA-R-1791
+  - CA-R-1792
+  - CA-R-1793
+atom_id: CA-M-304
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Implementation Method
+tier: 3
 ---
 # Summary
 Write self-contained agentic Action instructions

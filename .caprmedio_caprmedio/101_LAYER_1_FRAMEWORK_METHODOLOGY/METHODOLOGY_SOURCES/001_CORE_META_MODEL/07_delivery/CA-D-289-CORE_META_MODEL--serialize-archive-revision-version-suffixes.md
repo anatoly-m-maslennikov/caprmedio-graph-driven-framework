@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "Entity/Carrier.Canonical Address.Segment"
+  governs: Subject/Engineering/Carrier.Canonical Address.Segment
   depends_on:
-    - "Entity/Node/Continuant/Atom.Version Number"
-version: 13
-updated_at: "2026-10-20 17:07:35 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+version: 16
+updated_at: 2026-10-24 01:50:12 +0400
 relations: {}
-atom_id: "CA-D-289"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-289
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+type: Eng Decision
+author: Anatoly Maslennikov
+tier: 3
 ---
 # Summary
 
@@ -25,6 +25,6 @@ Archive Carrier basenames for Archived Atom versions.
 
 ## Claim
 
-**every** Archived Atom Carrier basename **must** append `@<version>` immediately **before** its file extension **when** one exists; the suffix value is that Atom version's Version Number.
+**every** Archived Atom Carrier basename **must** serialize the archived Atom's canonical ID with exactly one `@<version>` marker, where `<version>` is the unchanged numeric Version Number of that Archived Atom version. The marker **must** occur in the filename's Atom-ID segment under CA-D-283; do **not** append a second `@<version>` to a basename that already carries the marker. Existing legacy archive basenames are not normalized automatically.
 
 ## Details

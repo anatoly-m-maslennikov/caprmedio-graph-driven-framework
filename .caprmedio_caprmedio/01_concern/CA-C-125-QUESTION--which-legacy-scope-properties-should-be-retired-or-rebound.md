@@ -2,19 +2,20 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Scope"
+  governs: Atom/Scope
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Claim/Structural Entity"
-    - "Scope Unit"
-    - "Operator"
-    - "Atom/Subjects"
+  - Atom/Claim
+  - Atom/Claim/Structural Entity
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Atom.Subjects
 priority: medium
-version: 2
-updated_at: "2026-09-17 17:41:11 +0000"
+version: 4
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-125
 ---
 # Which legacy Scope Properties should be retired or rebound?
 

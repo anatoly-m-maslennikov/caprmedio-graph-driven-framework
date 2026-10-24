@@ -9,10 +9,12 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Implementation Workflow/Carrier"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Artifact/Carrier"]
-version: 3
-updated_at: "2026-10-15 18:40:50 +0000"
+  governs: Implementation Workflow/Carrier
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Engineering/Carrier
+version: 5
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-O-016]
 ---

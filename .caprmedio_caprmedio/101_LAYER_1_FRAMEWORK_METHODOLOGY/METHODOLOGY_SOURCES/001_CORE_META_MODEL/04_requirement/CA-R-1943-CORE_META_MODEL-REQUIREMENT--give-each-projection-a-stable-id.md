@@ -3,17 +3,21 @@ atom_id: CA-R-1943
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Continuant/Projection.ID"
-  depends_on: ["Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Projection/Type", "Entity/Node/Continuant/Selection"]
-version: 5
-updated_at: "2026-10-19 15:54:08 +0400"
+  governs: Subject/Domain/Node/Continuant/Projection.ID
+  depends_on:
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Projection/Type
+  - Subject/Domain/Node/Continuant/Selection
+version: 9
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  depends_on: [CA-R-1746]
+  depends_on:
+  - CA-R-1746
+tier: 3
+type: Rule
 ---
 # Summary
 

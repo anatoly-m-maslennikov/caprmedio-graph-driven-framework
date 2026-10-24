@@ -1,26 +1,24 @@
 ---
 atom_id: CA-E-539
 content_role: Evaluation
-type: Evaluation Approach
+type: Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: General
-global_tier: 7
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 04:32:41 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "python-source-boundary-admission"
+  governs: Subject/Engineering/Source Unit Responsibility
   depends_on:
-    - "programmatic software"
-    - "Evaluation"
-    - "Implementation"
+  - Subject/Engineering/Source Check Adoption
+  - Subject/Engineering/Python Style Checks
 relations:
   evaluation_for:
-    - CA-M-162
-    - CA-M-164
-    - CA-M-282
+  - CA-M-419
+  - CA-M-420
+  - CA-M-428
+tier: 5
 ---
 # Summary
 
@@ -54,7 +52,7 @@ required measurements, configuration, **or** exception authority are unavailable
   **or** records the bounded exception for the failed rule. an absent profile
   **or** unpinned checker yields unresolved conformance.
 - a static mapping larger than 20 entries **or** 25 source lines is externalized.
-  CA-M-162 owns the representation choice for that data.
+  CA-M-419 owns the representation choice for that data.
 - changed source does **not** silently regress below its admitted passing
   boundary. unmodified oversized legacy source **and** generated Runtime **or**
   Delivery outputs are outside this changed-source check.
@@ -63,5 +61,5 @@ required measurements, configuration, **or** exception authority are unavailable
   justify obscuring a separate responsibility **or** required recovery boundary.
   measurements guide diagnosis **and** do **not** independently prove quality.
 
-this policy preserves the previously accepted CA-M-162, CA-M-164, **and**
-CA-M-282 acceptance conditions under Evaluation ownership.
+this policy preserves the previously accepted CA-M-419, CA-M-420, **and**
+CA-M-428 acceptance conditions under Evaluation ownership.

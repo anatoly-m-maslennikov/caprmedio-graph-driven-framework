@@ -1,34 +1,52 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Entities Graph"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Entities Graph'
   depends_on:
-    ["Entity", "Property", "Entity/Node/Continuant/Term", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Relation Kind", "Subject Path", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Subjects", "Artifact", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/History/Journal", "Entity/Carrier", "Entity/Node/Continuant/Atom", "Entity/Relation", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
-version: 19
-updated_at: "2026-10-20 13:39:10 +0400"
+  - Subject/Domain/Node
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Domain/Node/Continuant/Term
+  - IS_BORNE_BY
+  - IS_ALLOWED_VALUE_OF
+  - BEARS
+  - Subject/Graph/Relation/Type
+  - Subject
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Graph/Relation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+version: 25
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-2003
-    - CA-R-1201
-    - CA-R-1243
-    - CA-R-1246
-    - CA-R-1247
-    - CA-R-1248
-    - CA-R-1260
-    - CA-R-1346
-    - CA-R-1351
-    - CA-R-1406
-    - CA-R-1436
-    - CA-R-1438
-    - CA-R-1456
-atom_id: "CA-E-449"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 10
+  - CA-R-2003
+  - CA-R-2100
+  - CA-R-1243
+  - CA-R-1246
+  - CA-R-1247
+  - CA-R-1248
+  - CA-R-1260
+  - CA-R-1346
+  - CA-R-1351
+  - CA-R-1406
+  - CA-R-1436
+  - CA-R-1438
+  - CA-R-1456
+atom_id: CA-E-449
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 4
 ---
 # Summary
 Validate Entities Graph
@@ -44,7 +62,7 @@ the Evaluation **must** reject an Entities Graph **if** **any** of:
 - a selected view includes a node **or** source Relation that fails its declared source selection **or** fails its declared display selection, omits an eligible node **or** source Relation under CA-R-1456-CORE_META_MODEL-GENERAL-REQUIREMENT--derive-entities-views-from-selected-authority, **or** silently imports outside authority **to** complete the view.
 - a displayed node **or** edge lacks its exact governing source Claim **or** Artifact Revision for Entity **or** Relation admission, **or** a represented observed structural **or** recorded historical fact lacks its appropriate Scope Unit **or** Journal source under CA-R-1746-CORE_META_MODEL-CORE-REQUIREMENT--define-projection-artifact-form; derived inverse navigation lacks traceability **to** the original source Relation.
 - display membership, repeated appearance, a reusable Term, **or** a shortened path substitutes for the existing canonical Entity identity **or** complete bearer-qualified Subject Path.
-- multiple governing Atoms are treated as multiple identities for one Entity, **or** the **`=1`** GOVERNS target per Atom is treated as permitting **only** **`=1`** governing Atom per Entity.
+- multiple governing Atoms are treated as multiple identities for one Entity, **or** the at-most-one GOVERNS target per Atom is treated as permitting **only** one governing Atom per Entity.
 - a tree display is treated as the full combined graph **without** satisfying its declared selection, **or** legitimate sharing is rejected, duplicated, **or** discarded **to** force a tree.
 - a Relation Kind is unregistered **or** belongs **to** another graph kind under CA-R-1246-CORE_META_MODEL-CORE-REQUIREMENT--keep-relation-vocabularies-graph-specific.
 - an IS_BORNE_BY Relation has an invalid endpoint **or** direction under CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by, **or** violates the applicable immediate-bearer cardinality under CA-R-2003-CORE_META_MODEL-CORE--require-exactly-one-immediate-bearer **or** CA-R-1351-CORE_META_MODEL-CORE-REQUIREMENT--give-primary-entity-occurrences-no-bearer.

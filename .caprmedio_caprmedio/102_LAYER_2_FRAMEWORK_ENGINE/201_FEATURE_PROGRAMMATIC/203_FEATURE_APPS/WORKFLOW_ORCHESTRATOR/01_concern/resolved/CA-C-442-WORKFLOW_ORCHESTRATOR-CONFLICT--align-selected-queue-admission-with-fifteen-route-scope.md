@@ -8,11 +8,15 @@ local_tier: Standard
 global_tier: 14
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 22:52:48 +0000"
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Selected queue route admission"
-  depends_on: [Workflow, MCP, Implementation, Journal]
+  governs: Selected queue route admission
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - MCP
+  - Implementation
+  - Journal
 relations:
   concern_about: [CA-D-521, CA-D-547, CA-P-1527, CA-P-1551, CA-P-1552]
 ---

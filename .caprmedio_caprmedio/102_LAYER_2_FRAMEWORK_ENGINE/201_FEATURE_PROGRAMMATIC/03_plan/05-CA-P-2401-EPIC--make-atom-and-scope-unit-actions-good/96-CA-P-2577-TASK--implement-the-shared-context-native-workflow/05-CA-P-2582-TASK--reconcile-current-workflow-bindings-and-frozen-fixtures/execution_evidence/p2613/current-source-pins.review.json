@@ -1,0 +1,309 @@
+{
+  "baseline_sha256": "f6577216b7ee914d9abf3939677df9208d9658a3e91fe74ad13b34c09539329c",
+  "route_count": 15,
+  "admission_count": 2,
+  "pins": {
+    "CA-O-032": {
+      "atom_id": "CA-O-032",
+      "version": 8,
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-032-TOOL_WORKFLOWS-STANDARD-ACTION--create-sealed-caprmedio-atom-carriers.md",
+      "digest": "ffb130459bd9536b85165f251f122c7c3715eca1e2ceef3f74f40e3b3e66fdc2"
+    },
+    "CA-O-128": {
+      "atom_id": "CA-O-128",
+      "version": 15,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-128-PROJECT_CONFIGURATION-ACTION--apply-authorized-atom-lifecycle-changes.md",
+      "digest": "b2a46a984230f0e9d255c6598af9bd3a67c1316ebcbff20521627211a86fdcd8"
+    },
+    "CA-O-129": {
+      "atom_id": "CA-O-129",
+      "version": 12,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-129-PROJECT_CONFIGURATION-STEP--apply-an-admitted-atom-lifecycle-change.md",
+      "digest": "6b93bbc8dc557df1bc5ca19f0ff2bda2c8cb450e05dbf6d6f8ad656767ca3e07"
+    },
+    "CA-O-127": {
+      "atom_id": "CA-O-127",
+      "version": 15,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-127-PROJECT_CONFIGURATION-WORKFLOW--manage-atom-lifecycle.md",
+      "digest": "1a24e6ae16f8d7271662f386dd530ac1dea2824485d1e7dd7039c257ee9059d9"
+    },
+    "CA-O-030": {
+      "atom_id": "CA-O-030",
+      "version": 25,
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md",
+      "digest": "1be3aefde3fd6240c716e966b5cd632b45ae69bec23cdb04c094200145895c89"
+    },
+    "CA-O-067": {
+      "atom_id": "CA-O-067",
+      "version": 11,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-067-PROJECT_CONFIGURATION-ACTION--assess-atom-update-identity.md",
+      "digest": "1b00cda39bc20e14b2c6590dad4b1fc3704d8aa337e489c70842e864268870d8"
+    },
+    "CA-O-145": {
+      "atom_id": "CA-O-145",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-145-PROJECT_CONFIGURATION-STEP--assess-update-identity-for-atom-lifecycle.md",
+      "digest": "8f6e7e89467f1b0da65a8abc52c20c73ea3f68a746f3f9da18cf2da0c2c12897"
+    },
+    "CA-O-031": {
+      "atom_id": "CA-O-031",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-031-TOOL_WORKFLOWS-STANDARD-ACTION--validate-and-describe-one-atom-replacement.md",
+      "digest": "64690832632e980b490c7fd5edd8e552c379c223b5682a111e6482c4eb3703c9"
+    },
+    "CA-O-051": {
+      "atom_id": "CA-O-051",
+      "version": 11,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-051-PROJECT_CONFIGURATION-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md",
+      "digest": "d1b84e744465fae1bac2e84e93e8514d281847f6b5f0353ef6663728935749d5"
+    },
+    "CA-O-029": {
+      "atom_id": "CA-O-029",
+      "version": 10,
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-029-TOOL_WORKFLOWS-STANDARD-ACTION--archive-selected-active-atoms.md",
+      "digest": "34e4c88fbbcfa29ac0a9f85338c1f823db2b9927d4e8c2db94f2c7cef8dad923"
+    },
+    "CA-O-004": {
+      "atom_id": "CA-O-004",
+      "version": 9,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-004-PROJECT_CONFIGURATION-ACTION--select-reconciliation-sources.md",
+      "digest": "5426cd2321957b0f52a45e577ceea8267f70c69b587e3ff7c6b21319f26b7ab8"
+    },
+    "CA-O-012": {
+      "atom_id": "CA-O-012",
+      "version": 9,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-012-PROJECT_CONFIGURATION-ACTION--prepare-structural-change.md",
+      "digest": "a46406c43c552c11dee98161a8a52a174d04774f00d3b9fb7897ac5f1ea7a5ff"
+    },
+    "CA-O-005": {
+      "atom_id": "CA-O-005",
+      "version": 12,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-005-PROJECT_CONFIGURATION-ACTION--assess-source-conflicts.md",
+      "digest": "d3f9bff4cef7746ba01cd9fbb0d5f4c3cabb6de2cdf25be214a2fedf6d389ee7"
+    },
+    "CA-O-013": {
+      "atom_id": "CA-O-013",
+      "version": 8,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-013-PROJECT_CONFIGURATION-ACTION--authorize-structural-change.md",
+      "digest": "b72adca8d085eff6221d9e4f5368ce1dd80443f82aae3c4a3af6228d8b679411"
+    },
+    "CA-O-014": {
+      "atom_id": "CA-O-014",
+      "version": 8,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-014-PROJECT_CONFIGURATION-ACTION--apply-structural-change.md",
+      "digest": "e07f5d7928a5dbf62c77f0115c890bdfefa4e2dbe0aa661da033cab6aeeae367"
+    },
+    "CA-O-139": {
+      "atom_id": "CA-O-139",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-139-PROJECT_CONFIGURATION-STEP--select-project-structure-maintenance-sources.md",
+      "digest": "bc3b44f72acb2cf968f717224e4fde3b42ec5ea7a25f9a33e6bb308b877cee4c"
+    },
+    "CA-O-140": {
+      "atom_id": "CA-O-140",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-140-PROJECT_CONFIGURATION-STEP--prepare-project-structure-maintenance-change.md",
+      "digest": "2e420c8b0c23bd98d591744f9148cc83650966f4a875c92e31cfa6ee270d1d6b"
+    },
+    "CA-O-141": {
+      "atom_id": "CA-O-141",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-141-PROJECT_CONFIGURATION-STEP--assess-project-structure-maintenance-candidate.md",
+      "digest": "646f5d8f2651e14e31b3554100ca287fec96f55482a893bc5bb8ad7e40c12a76"
+    },
+    "CA-O-142": {
+      "atom_id": "CA-O-142",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-142-PROJECT_CONFIGURATION-STEP--authorize-project-structure-maintenance-change.md",
+      "digest": "c5af355b609a9fd8edb2970019be9413b903fa2d807b41446ca6b355910ed71e"
+    },
+    "CA-O-143": {
+      "atom_id": "CA-O-143",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-143-PROJECT_CONFIGURATION-STEP--apply-project-structure-maintenance-change.md",
+      "digest": "2c13d1ba9159797b0df015291137482297d9d053889108403527680b60114807"
+    },
+    "CA-O-144": {
+      "atom_id": "CA-O-144",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-144-PROJECT_CONFIGURATION-STEP--assess-project-structure-maintenance-result.md",
+      "digest": "29142803fb0e9e77efd70ac46a8b244f056746379d5617a981fce16ff9afa738"
+    },
+    "CA-O-015": {
+      "atom_id": "CA-O-015",
+      "version": 12,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-015-PROJECT_CONFIGURATION-WORKFLOW--maintain-project-structure.md",
+      "digest": "c907f61954743aa06db7d586fc8e44741ed5db7397cfd52f8ceaefe5a4f8b499"
+    },
+    "CA-O-131": {
+      "atom_id": "CA-O-131",
+      "version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-131-PROJECT_CONFIGURATION-ACTION--apply-an-approved-reversal.md",
+      "digest": "e5237851091e83983013df27385c5d7cbd94008e39e8873aad051bb9f90989a2"
+    },
+    "CA-O-132": {
+      "atom_id": "CA-O-132",
+      "version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-132-PROJECT_CONFIGURATION-STEP--apply-the-approved-change-reversal.md",
+      "digest": "680180ec22e73d843e6c1aeb6736b80012ed8a4b55b58ba0dd6b67f626ebeed3"
+    },
+    "CA-O-130": {
+      "atom_id": "CA-O-130",
+      "version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-130-PROJECT_CONFIGURATION-WORKFLOW--revert-approved-changes.md",
+      "digest": "1d2f2ca71961216cf10a15c6bb85957b1e8ceff7c35d0d3ddbe465f4106750c7"
+    },
+    "CA-O-134": {
+      "atom_id": "CA-O-134",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-134-PROJECT_CONFIGURATION-ACTION--construct-entities-graph-projection.md",
+      "digest": "056cf0db09b2249abd0383338f1fff12f9c38309752a75787c3bf53d09b60a94"
+    },
+    "CA-O-135": {
+      "atom_id": "CA-O-135",
+      "version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-135-PROJECT_CONFIGURATION-STEP--construct-the-requested-entities-graph.md",
+      "digest": "ed2bc60d8e2030bc0ac8f14323e4d3f33b3d579c989c4543f2eb9580273adad5"
+    },
+    "CA-O-133": {
+      "atom_id": "CA-O-133",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-133-PROJECT_CONFIGURATION-WORKFLOW--build-entities-graph.md",
+      "digest": "eba5ced0039eb276f3d841786e2f0b0be8611efc8c4d611f534ac3b5ef691bb9"
+    },
+    "CA-O-137": {
+      "atom_id": "CA-O-137",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-137-PROJECT_CONFIGURATION-ACTION--construct-terms-graph-projection.md",
+      "digest": "2bd6ec7e16c649c94fbbf2e4cac8abf7b6e8b05d59132a53c0d203f89ef5636f"
+    },
+    "CA-O-138": {
+      "atom_id": "CA-O-138",
+      "version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-138-PROJECT_CONFIGURATION-STEP--construct-the-requested-terms-graph.md",
+      "digest": "de0b5cde9808e26de9d0254a879d640651045fe83c228776d1b8e9a01cf413dd"
+    },
+    "CA-O-136": {
+      "atom_id": "CA-O-136",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-136-PROJECT_CONFIGURATION-WORKFLOW--build-terms-graph.md",
+      "digest": "3b200f496ad1f4d9a1696a339af77a2e1d0079325bdc90c779ace7ea0b18dad5"
+    },
+    "CA-O-006": {
+      "atom_id": "CA-O-006",
+      "version": 10,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-006-PROJECT_CONFIGURATION-ACTION--propose-source-corrections.md",
+      "digest": "2bde1343429fc65eee3da562e2cdf00e3d213ed327cab85c684e57a03138ef2c"
+    },
+    "CA-O-007": {
+      "atom_id": "CA-O-007",
+      "version": 10,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-007-PROJECT_CONFIGURATION-ACTION--obtain-source-correction-decisions.md",
+      "digest": "a75c26c864530c9d6dc19f36e04d156fb32daed92af085f7a64bb9b0d70ad1ad"
+    },
+    "CA-O-008": {
+      "atom_id": "CA-O-008",
+      "version": 16,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-008-PROJECT_CONFIGURATION-ACTION--apply-approved-source-corrections.md",
+      "digest": "39f590ce63eed03b20f4e64584b9c71230f6ff6c0b9ef1088d9856c7c785562a"
+    },
+    "CA-O-009": {
+      "atom_id": "CA-O-009",
+      "version": 9,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-009-PROJECT_CONFIGURATION-ACTION--publish-reconciled-projections.md",
+      "digest": "6ee82e002958f0ae8b073084d89663cca5d64f688e78e0b74fd137f3ce8a2eac"
+    },
+    "CA-O-152": {
+      "atom_id": "CA-O-152",
+      "version": 7,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-152-PROJECT_CONFIGURATION-STEP--select-the-applicable-methodology-sources.md",
+      "digest": "121f2f5d3100eb8f1dd19508c95414cd6d1077b186716b9c32fd3279b04cbb8c"
+    },
+    "CA-O-153": {
+      "atom_id": "CA-O-153",
+      "version": 7,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-153-PROJECT_CONFIGURATION-STEP--assess-applicable-methodology-source-conflicts.md",
+      "digest": "55b84ff49f8f08b7a4d5400c492f0d90926611c167c6d499ef4015f851b26195"
+    },
+    "CA-O-154": {
+      "atom_id": "CA-O-154",
+      "version": 7,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-154-PROJECT_CONFIGURATION-STEP--propose-applicable-methodology-source-corrections.md",
+      "digest": "3e860d752751a5d965f47718b5d32dc339d4297de7d5fb0fc44cc1523b0e0b7c"
+    },
+    "CA-O-155": {
+      "atom_id": "CA-O-155",
+      "version": 7,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-155-PROJECT_CONFIGURATION-STEP--obtain-the-applicable-methodology-correction-decision.md",
+      "digest": "43cebce0f050043a23ab6bebc99a64dd46fc3d623c027eaf8c2052b0442d4b5f"
+    },
+    "CA-O-156": {
+      "atom_id": "CA-O-156",
+      "version": 7,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-156-PROJECT_CONFIGURATION-STEP--apply-approved-applicable-methodology-source-corrections.md",
+      "digest": "c4c8701c4b98651ef3d41b510878b8b8d709de472760158cdb61fc71de937b95"
+    },
+    "CA-O-157": {
+      "atom_id": "CA-O-157",
+      "version": 7,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-157-PROJECT_CONFIGURATION-STEP--publish-the-applicable-methodology.md",
+      "digest": "c148000bb84db3bb2cce2380da3ff43a582a439fcaec9c1c0e041a22e2ca18e1"
+    },
+    "CA-O-011": {
+      "atom_id": "CA-O-011",
+      "version": 16,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+      "digest": "bdf82b8d5331fb425adc34360277bc39fbe6babcb18fda358e1484c0069e8427"
+    },
+    "CA-O-159": {
+      "atom_id": "CA-O-159",
+      "version": 3,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
+      "digest": "37ff9ac48de893d35b29fedcd2c9d333bc2b35e49cad5530afb81a80afe922d3"
+    },
+    "CA-O-160": {
+      "atom_id": "CA-O-160",
+      "version": 3,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md",
+      "digest": "45304b375babe3f70e7141fe57f87b296afa6364d990f24e0784a58220c6857e"
+    },
+    "CA-O-158": {
+      "atom_id": "CA-O-158",
+      "version": 7,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-158-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-artifacts.md",
+      "digest": "3560b87dd251e1d59acca577b187bde04b7c452e59e31ff55d73ecaff091a5df"
+    },
+    "CA-O-162": {
+      "atom_id": "CA-O-162",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-162-PROJECT_CONFIGURATION-ACTION--query-journal-events.md",
+      "digest": "4ef22c8e8f4af8100ac0da09bbed21ac5611101f6b063ed4e517b2813c5fefaa"
+    },
+    "CA-O-163": {
+      "atom_id": "CA-O-163",
+      "version": 8,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-161-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-journal-events/CA-O-163-PROJECT_CONFIGURATION-STEP--query-the-stable-journal-event-snapshot.md",
+      "digest": "02ddb04cb4740d756431a0c7530b3da05c8e2dd5b709d631b0fafcbbcac9c15b"
+    },
+    "CA-O-161": {
+      "atom_id": "CA-O-161",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-161-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-journal-events.md",
+      "digest": "39087031afbb21d2d89196a525bd9bd557c99c3448bea989db96cfef2cf00a1f"
+    },
+    "CA-P-1618": {
+      "atom_id": "CA-P-1618",
+      "version": 1,
+      "source_path": ".caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/08-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/29-CA-P-1618-TASK--accept-current-artifact-query-source-frontier.md",
+      "digest": "bdf10c928c10c102dc489c8e3e526ffe73e8a33d492f4dabc8b5d0129c453b1f"
+    },
+    "CA-P-1535": {
+      "atom_id": "CA-P-1535",
+      "version": 2,
+      "source_path": ".caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/08-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/15-CA-P-1535-TASK--accept-final-journal-query-source.md",
+      "digest": "6246b46d2961d795e29eeb224f01b14979434d4ad24cf3f4913c490268cf52dc"
+    }
+  },
+  "purpose": "Read-only source-review evidence; not a binding candidate, semantic approval, or runtime admission",
+  "recorded_at": "2026-10-22 20:29:52 UTC"
+}

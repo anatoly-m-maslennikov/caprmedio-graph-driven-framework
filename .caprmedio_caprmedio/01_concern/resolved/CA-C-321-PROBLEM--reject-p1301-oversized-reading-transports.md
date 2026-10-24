@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "P1301 reading and authority receipt integrity"
-  depends_on: [Project, "Atom/Content Role: Plan"]
-version: 5
-updated_at: "2026-10-04 10:15:05 +0000"
+  governs: P1301 reading and authority receipt integrity
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 7
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1301]
   relates_to: [CA-C-308, CA-C-293, CA-A-1019]

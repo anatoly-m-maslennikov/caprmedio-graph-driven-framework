@@ -3,17 +3,27 @@ atom_id: CA-R-1828
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Result Carriers"
-  depends_on: ["Atom", "Artifact/Carrier", "Journal/Record", "Authorization"]
-version: 3
-updated_at: "2026-10-15 23:57:03 +0400"
+  governs: Subject/Engineering/Carrier
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Authorization
+version: 8
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  relates_to: [CA-R-1825, CA-R-1826, CA-R-1827, CA-R-866, CA-R-868, CA-R-1041]
+  relates_to:
+  - CA-R-1825
+  - CA-R-1826
+  - CA-R-1827
+  - CA-R-866
+  - CA-R-868
+  - CA-R-1041
+tier: 3
+type: Rule
 ---
 # Summary
 

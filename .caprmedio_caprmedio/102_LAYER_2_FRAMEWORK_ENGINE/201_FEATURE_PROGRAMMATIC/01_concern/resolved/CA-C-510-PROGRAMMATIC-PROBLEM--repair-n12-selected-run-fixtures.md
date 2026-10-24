@@ -7,11 +7,15 @@ local_tier: Standard
 global_tier: 8
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 18:24:00 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Repair N12 selected Run fixtures"
-  depends_on: [Implementation, Evaluation, Source Carrier, Journal]
+  governs: Repair N12 selected Run fixtures
+  depends_on:
+  - Implementation
+  - Evaluation
+  - Subject/Engineering/Carrier/File Carrier
+  - Journal
 relations:
   concern_about: [CA-P-1805, CA-P-1801]
 ---

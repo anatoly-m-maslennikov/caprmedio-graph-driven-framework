@@ -1,40 +1,39 @@
 ---
-atom_id: "CA-E-524"
-content_role: "Evaluation"
-type: "QA Case"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 2
-updated_at: "2026-10-03 16:23:03 +0400"
+atom_id: CA-E-524
+content_role: Evaluation
+type: Eval Case
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Prompt"
+  governs: Subject/Engineering/Prompt
   depends_on:
-    - "Atom"
-    - "Carrier"
-    - "Property"
-    - "Scope"
-    - "Atom/Claim"
-    - "Atom/Details"
-    - "Atom/Summary"
-    - "Evaluation"
-    - "Workflow Run"
-    - "Implementation"
-    - "Journal"
-    - "Journal/Record"
-    - "Evaluation/Report"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Scope
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Atom/Details
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Evaluation
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Engineering/Prompt Construction/Action Instructions
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Evaluation/Report
 relations:
   evaluation_for:
-    - CA-D-509
-    - CA-D-510
-    - CA-D-511
-    - CA-M-317
-    - CA-R-1801
-    - CA-R-1802
-    - CA-R-1803
+  - CA-D-509
+  - CA-D-510
+  - CA-D-511
+  - CA-M-317
+  - CA-R-1801
+  - CA-R-1802
+  - CA-R-1803
+tier: 4
 ---
 # Summary
 

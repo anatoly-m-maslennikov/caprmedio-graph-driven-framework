@@ -1,20 +1,43 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Atom/Content Role: Plan.Assignee", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Node/Continuant/Atom/Content Role: Plan.Details", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Hub Atom", "Entity/Node/Continuant/Scope Unit", "Autonomous Confidence Threshold"]
-version: 10
-updated_at: "2026-10-19 15:55:13 +0400"
-relations: {"evaluation_for": ["CA-R-1574", "CA-R-1575", "CA-R-1576", "CA-R-1577", "CA-R-1581", "CA-R-1599", "CA-R-1583", "CA-R-1584", "CA-R-1587", "CA-R-1588", "CA-R-1589", "CA-M-306", "CA-D-470"]}
-atom_id: "CA-E-501"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Author
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Assignee'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Definition of Done'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Details'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Label'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Status'
+  - Hub Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Autonomous Confidence Threshold
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-1574
+  - CA-R-1575
+  - CA-R-1576
+  - CA-R-1577
+  - CA-R-1581
+  - CA-R-1599
+  - CA-R-1583
+  - CA-R-1584
+  - CA-R-1587
+  - CA-R-1588
+  - CA-R-1589
+  - CA-M-306
+  - CA-D-470
+atom_id: CA-E-501
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 

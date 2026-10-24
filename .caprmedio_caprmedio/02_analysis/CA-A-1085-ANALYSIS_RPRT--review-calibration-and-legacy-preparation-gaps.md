@@ -9,10 +9,15 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Calibration and legacy preparation gap acceptance"
-  depends_on: [Operations, Evaluation, Implementation, Spec, Operator]
-version: 1
-updated_at: "2026-10-04 14:48:57 +0000"
+  governs: Calibration and legacy preparation gap acceptance
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Evaluation
+  - Implementation
+  - Spec
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1370]
   relates_to: [CA-A-1077, CA-A-1079, CA-O-017, CA-O-018, CA-O-020, CA-O-104, CA-O-105, CA-O-106, CA-O-111, CA-O-118, CA-O-006, CA-O-007, CA-O-008, CA-O-019]

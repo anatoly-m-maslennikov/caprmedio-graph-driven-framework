@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "F07 independent artifact semantic acceptance adoption"
-  depends_on: [Operations, Evaluation]
-version: 2
-updated_at: "2026-10-04 14:20:39 +0000"
+  governs: F07 independent artifact semantic acceptance adoption
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Evaluation
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1352, CA-O-106, CA-O-118]
   relates_to: [CA-P-1402, CA-A-1122, CA-A-1087, CA-P-1372, CA-P-1131, CA-P-1156]

@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "Entity/Relation/Type: CONTAINS"
+  governs: 'Subject/Graph/Relation/Type: CONTAINS'
   depends_on:
-  - "Entity/Node/Continuant/Atom.Enabled Relations.Contains"
-  - "Entity/Node/Continuant/Scope Unit"
-version: 14
-updated_at: "2026-10-20 00:10:16 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Enabled Relations.Contains
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 18
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1368"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1368
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

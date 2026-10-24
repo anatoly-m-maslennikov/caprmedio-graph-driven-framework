@@ -127,10 +127,31 @@ class SubjectUpdateDispatchTests(unittest.TestCase):
         }
         with (
             patch.dict(sys.modules, {"atom_subject_apply": native}),
-            patch.object(selected, "_replacement_journal_context", return_value=("operator", "2026-10-12", "UTC", "2026-10-12T00:00:00+00:00"),
-                         side_effect=SelectedExecutionError("Journal metadata unavailable") if metadata_unavailable else None),
-            patch.object(selected, "_bound_action_structural_scope", return_value="FIXTURE"),
-            patch.object(selected, "_lifecycle_result_facts", return_value=({"path": self.target["path"], "sha256": "a" * 64}, b"before")),
+            patch(
+                "selected_lifecycle_handler.bound_action_structural_scope",
+                return_value="FIXTURE",
+            ),
+            patch(
+                "selected_lifecycle_observation.bound_action_structural_scope",
+                return_value="FIXTURE",
+            ),
+            patch(
+                "selected_lifecycle_handler.result_facts",
+                return_value=({"path": self.target["path"], "sha256": "a" * 64}, b"before"),
+            ),
+            patch(
+                "selected_lifecycle_result.result_facts",
+                return_value=({"path": self.target["path"], "sha256": "a" * 64}, b"before"),
+            ),
+            patch(
+                "selected_lifecycle_result.journal_context",
+                return_value=("operator", "2026-10-12", "UTC", "2026-10-12T00:00:00+00:00"),
+                side_effect=(
+                    SelectedExecutionError("Journal metadata unavailable")
+                    if metadata_unavailable
+                    else None
+                ),
+            ),
             patch("selected_lifecycle_journal.prepare_lifecycle_journal", side_effect=AssertionError("Journal admission called")),
             patch("selected_lifecycle_journal.admit_lifecycle_prior", side_effect=AssertionError("Journal admission called")),
             patch("selected_lifecycle_journal.record_lifecycle_change", side_effect=OSError("full") if log_failure else None),

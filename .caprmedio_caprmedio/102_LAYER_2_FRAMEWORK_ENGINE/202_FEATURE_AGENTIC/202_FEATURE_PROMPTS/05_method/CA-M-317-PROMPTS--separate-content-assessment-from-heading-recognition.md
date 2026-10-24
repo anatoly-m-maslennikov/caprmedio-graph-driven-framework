@@ -1,29 +1,29 @@
 ---
-atom_id: "CA-M-317"
-content_role: "Method"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 1
-updated_at: "2026-10-03 06:25:11 +0400"
+atom_id: CA-M-317
+content_role: Method
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "Prompt"
+  governs: Subject/Engineering/Prompt
   depends_on:
-    - "Atom"
-    - "Property"
-    - "Carrier"
-    - "Scope"
-    - "Atom/Claim"
-    - "Atom/Details"
-    - "Atom/Summary"
-    - "Evaluation"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Engineering/Carrier
+  - Scope
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Atom/Details
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Evaluation
 relations:
   relates_to:
-    - CA-E-520
-    - CA-R-1801
+  - CA-E-520
+  - CA-R-1801
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

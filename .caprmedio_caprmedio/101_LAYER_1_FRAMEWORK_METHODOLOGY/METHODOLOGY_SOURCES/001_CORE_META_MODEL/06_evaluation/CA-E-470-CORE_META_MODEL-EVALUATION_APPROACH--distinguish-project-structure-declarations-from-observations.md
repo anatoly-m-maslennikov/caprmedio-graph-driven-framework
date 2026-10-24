@@ -1,26 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Structure"
+  governs: Subject/Domain/Node/Continuant/Project.Structure
   depends_on:
-    ["Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Node/Continuant/Projection/Type: Scope Unit Graph"]
-version: 10
-updated_at: "2026-10-19 15:55:06 +0400"
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Scope Unit Graph'
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - "CA-R-1483"
-    - "CA-R-1484"
-    - "CA-R-926"
-    - "CA-R-626"
-    - "CA-M-291"
-atom_id: "CA-E-470"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-R-1483
+  - CA-R-1484
+  - CA-R-926
+  - CA-R-626
+  - CA-M-291
+atom_id: CA-E-470
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 6
 ---
 # Summary
 

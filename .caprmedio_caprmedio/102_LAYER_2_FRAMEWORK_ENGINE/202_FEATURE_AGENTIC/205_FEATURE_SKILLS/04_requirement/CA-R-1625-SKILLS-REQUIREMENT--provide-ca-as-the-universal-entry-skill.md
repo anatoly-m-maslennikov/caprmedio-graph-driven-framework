@@ -3,22 +3,27 @@ atom_id: CA-R-1625
 content_role: Requirement
 current_scope_unit: SKILLS
 claim_target_scope_unit: SKILLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "CAPRMEDIO Main Skill"
+  governs: Subject/Engineering/CAPRMEDIO Main Skill
   depends_on:
-    - "AI Agent"
-    - "Action"
-    - "Operator"
-    - "Skill"
-    - "Step Run"
-    - "Workflow"
-version: 9
-updated_at: "2026-10-01 21:44:50 +0400"
-relations: {"child_of": ["CAPRMEDIO-METHODOLOGY-REQU-508"], "relates_to": ["CA-R-1522", "CA-R-1626"]}
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Skill
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+version: 14
+updated_at: 2026-10-24 04:05:50 +0400
+relations:
+  child_of:
+  - CAPRMEDIO-METHODOLOGY-REQU-508
+  relates_to:
+  - CA-R-1522
+  - CA-R-1626
+tier: 3
+type: Goal
 ---
 # Summary
 

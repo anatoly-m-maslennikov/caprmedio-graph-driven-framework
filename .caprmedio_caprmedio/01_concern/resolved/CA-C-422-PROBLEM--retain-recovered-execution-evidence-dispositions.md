@@ -8,11 +8,15 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
-version: 1
-updated_at: "2026-10-04 18:07:06 +0000"
+version: 2
+updated_at: 2026-10-23 03:06:32 +0400
 subjects:
-  governs: "Plan Execution Evidence"
-  depends_on: [Atom, Artifact/Revision, Plan, Journal]
+  governs: Plan Execution Evidence
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Artifact/Revision
+  - Plan
+  - Journal
 relations:
   concern_about: [CA-P-1438, CA-P-1441, CA-P-1442, CA-P-1452, CA-P-1466, CA-P-1467, CA-P-1469, CA-P-1471, CA-P-1473, CA-P-1480]
   relates_to: [CA-C-421]

@@ -1,14 +1,21 @@
 ---
 subjects:
-  governs: "artifact-operations"
+  governs: Subject/Engineering/Tool//REBIND_ATOM_RELATIONS
   depends_on: []
-version: 8
-updated_at: 2026-09-06 01:45:12 +0400
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
-    - CA-R-1049
+  - CA-R-1049
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-156
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Decision
+tier: 1
 ---
 # Plan one sealed Atom relation rebinding
 

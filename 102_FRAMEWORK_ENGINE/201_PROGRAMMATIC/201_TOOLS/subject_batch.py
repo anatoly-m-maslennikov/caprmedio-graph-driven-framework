@@ -12,6 +12,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from ATOM_UPDATE.atom_update import TargetDescriptor
 from connector_bindings import FileSource
+from selected_execution_run_plan import lifecycle_native_binding, support_definition
 from VALIDATE_ATOMS.validate_atoms_workers.contracts import _unique_keys
 
 
@@ -141,21 +142,18 @@ def build_subject_batch_requested_runs(
     graph: Mapping[str, Any], run_id: str, count: int
 ) -> list[dict[str, Any]]:
     """Plan actual mapping-review branch Runs, without fictitious assessments."""
-    from selected_execution import SelectedExecution
-
-    definition = SelectedExecution._support_definition
     steps = [step for step in graph["steps"] if step["atom_id"] == "CA-O-129"]
     if len(steps) != 1 or count < 1:
         raise ValueError("Subject batch requires the existing O129 lifecycle Step")
     actions = [action for action in steps[0]["actions"] if action["atom_id"] == "CA-O-128"]
     if len(actions) != 1:
         raise ValueError("Subject batch requires the existing O128 lifecycle Action")
-    native = SelectedExecution._lifecycle_native_binding(graph, "CA-O-030")
+    native = lifecycle_native_binding(graph, "CA-O-030")
     rows = [
         {
             "requested_run_id": run_id,
             "kind": "workflow",
-            "definition": definition(graph["workflow"]),
+            "definition": support_definition(graph["workflow"]),
         }
     ]
     for ordinal in range(1, count + 1):
@@ -169,7 +167,7 @@ def build_subject_batch_requested_runs(
                 {
                     "requested_run_id": identity,
                     "kind": kind,
-                    "definition": definition(binding),
+                    "definition": support_definition(binding),
                     "parent_requested_run_id": parent,
                 }
             )

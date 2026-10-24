@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "scope-topology"
+  governs: Subject/Domain/Node/Continuant/Scope Unit
   depends_on: []
-version: 21
-updated_at: "2026-10-11 17:56:31 +0400"
+version: 26
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-1932
-atom_id: "CA-R-1677"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-R-2134
+atom_id: CA-R-1677
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 
@@ -22,10 +22,10 @@ Validate Structural coordinates against authority
 
 ## Scope
 
-encoded Structural coordinates and their components.
+derived Ordered Scope Unit locations and their components.
 
 ## Claim
 
-the validator **must** validate **every** encoded Structural coordinate **and** **every** of its components against the active authority defining that coordinate.
+the validator **must** validate **every** derived Ordered Scope Unit location **and** **every** of its components against the active authority defining the Scope Unit Path and Local Order. It **must not** treat a Structural Coordinate or persisted Structural Level field as an independent authority.
 
 ## Details

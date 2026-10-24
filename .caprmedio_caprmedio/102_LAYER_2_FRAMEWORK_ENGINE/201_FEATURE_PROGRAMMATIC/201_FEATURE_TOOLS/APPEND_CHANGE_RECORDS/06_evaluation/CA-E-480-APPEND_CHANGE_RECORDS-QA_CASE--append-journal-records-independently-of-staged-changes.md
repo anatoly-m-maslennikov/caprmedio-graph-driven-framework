@@ -2,18 +2,30 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Journal/Record"
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
   depends_on:
-    - "Journal"
-    - "Artifact/Carrier"
-    - "Project"
-    - "Git Index"
-    - "Commit Context"
-version: 3
-updated_at: "2026-10-14 18:37:38 +0400"
+  - Subject/Engineering/Tool/Journal Append
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project
+  - Git Index
+  - Subject/Engineering/Tool//COMMIT_CONTEXT
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {"evaluation_for":["CA-R-1491","CA-R-812","CA-R-802","CA-M-087"]}
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations:
+  evaluation_for:
+  - CA-R-1491
+  - CA-R-812
+  - CA-R-802
+  - CA-M-087
+atom_id: CA-E-480
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
 ---
 # Append Journal records independently of staged changes
 

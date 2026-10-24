@@ -1,24 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Scope Unit Graph"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Scope Unit Graph'
   depends_on:
-    ["Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Node/Continuant/Project.Framework Settings"]
-version: 28
-updated_at: "2026-10-19 15:54:19 +0400"
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+version: 32
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-R-843
-    - CA-R-960
-    - CA-R-961
-    - CA-R-962
-atom_id: "CA-R-626"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-R-843
+  - CA-R-960
+  - CA-R-961
+  - CA-R-962
+atom_id: CA-R-626
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

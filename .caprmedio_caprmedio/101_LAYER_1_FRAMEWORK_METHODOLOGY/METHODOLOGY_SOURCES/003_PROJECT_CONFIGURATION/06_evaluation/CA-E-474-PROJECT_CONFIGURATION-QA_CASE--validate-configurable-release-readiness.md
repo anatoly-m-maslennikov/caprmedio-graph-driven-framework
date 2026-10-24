@@ -1,37 +1,36 @@
 ---
 subjects:
-  governs: "Release Readiness"
+  governs: Release Readiness
   depends_on:
-    - "Step"
-    - "Refresh Required Release Projections"
-    - "Assess Release Readiness"
-    - "Implementation Workflow"
-    - "Operator"
-    - "Projection"
-    - "Journal/Record"
-    - "Artifact/Revision"
-    - "Project"
-    - "Version"
-    - "Atom/Content Role: Operations"
-    - "Atom/Content Role: Evaluation"
-version: 8
-updated_at: "2026-10-01 21:31:46 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Assess Release Readiness
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Artifact/Revision
+  - Subject/Domain/Node/Continuant/Project
+  - Version
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - "CA-O-025"
-    - "CA-O-026"
-    - "CA-O-027"
-    - "CA-R-1692"
-    - "CA-R-1646"
-atom_id: "CA-E-474"
-content_role: "Evaluation"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - CA-O-025
+  - CA-O-026
+  - CA-O-027
+  - CA-R-1692
+  - CA-R-1646
+atom_id: CA-E-474
+content_role: Evaluation
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 

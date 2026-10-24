@@ -1,19 +1,20 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Boundary"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Boundary'
   depends_on: []
-version: 22
-updated_at: "2026-10-20 16:26:15 +0400"
+version: 25
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  {"depends_on": ["CA-R-740"]}
-atom_id: "CA-R-825"
-content_role: "Requirement"
+  depends_on:
+  - CA-R-740
+atom_id: CA-R-825
+content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Definition
 ---
 # Summary
 

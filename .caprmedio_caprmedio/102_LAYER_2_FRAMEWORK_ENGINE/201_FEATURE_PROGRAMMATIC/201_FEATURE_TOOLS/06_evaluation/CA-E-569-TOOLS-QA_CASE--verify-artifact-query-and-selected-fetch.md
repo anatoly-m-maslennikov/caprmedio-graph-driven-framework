@@ -1,20 +1,26 @@
 ---
 atom_id: CA-E-569
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: FIND_AND_FETCH_ARTIFACTS
-  depends_on: [Tool, Artifact, Markdown, Journal, Evaluation]
+  governs: Subject/Domain/Node/Continuant/Selection
+  depends_on:
+  - Subject/Engineering/Artifact Query
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Markdown
+  - Subject/Engineering/Journal Event Query
+  - Evaluation
 relations:
-  evaluation_for: [CA-R-1849, CA-R-1850]
+  evaluation_for:
+  - CA-R-1849
+  - CA-R-1850
+tier: 4
 ---
 # Summary
 

@@ -12,10 +12,10 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
 subjects:
-  governs: Entity
-  depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 03:20:22 +0400"
+  governs: Subject
+  depends_on: [Atom, Subject, Term, Property, Carrier, Scope Unit, Projection, Plan, Operator]
+version: 2
+updated_at: "2026-10-22 22:05:30 +0400"
 relations:
   is_decomposition_of: [CA-P-2049]
 ---
@@ -25,12 +25,12 @@ Resolve methodology and configuration Subject mappings
 
 ## Objective
 
-Determine candidate targets for the 236 assigned unresolved Subject occurrences from current evidence.
+Refresh the methodology_configuration Candidate #7 mapping lane from the live worklist and return complete, source-backed dispositions.
 
 ## Details
 
-Estimated own work: 15 minutes. Read the supplement contract and the exact methodology ownership entry in current-subjects.research-ownership.json. Scope: 236 occurrences, 141 source files, 61 distinct old values. Pin and read the applicable definitions and every source span supporting a proposed mapping. Resolve repetitive fields using common confirmed rules plus source-specific meaning, not display-string availability. Preserve all qualifiers and source identities. Output .caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/methodology.review.json. Full assigned coverage includes explicit unresolved rows; unresolved research must remain tracked. If all mapping work cannot fit 15 minutes, return verified partial results and exact remainder for decomposition; do not mark this Task Done or overrun. No Core, Plan, frozen report, Git, MCP/FPF or runtime writes.
+Read the fresh methodology_configuration lane from .caprmedio_caprmedio/_projection/core-entity-review/presentation/candidate-7.remaining-subject-worklist.json. Keep abstract reusable Core definitions separate from project-specific Project Configuration procedures and choices; branch placement does not decide Content Role or source ownership. Include applicable R/M/E/D rule and Delivery definitions where the source requires them, preserving existing specific Types and IDs under Candidate #7. Return complete evidence-backed or unresolved rows. Apply no source, content, code, schema, MCP, test, Settings or runtime change.
 
 ### Definition of Done
 
-Not Done if assigned coverage or evidence is missing/stale, a meaning is guessed, unresolved work is hidden, Core or frozen evidence changes, an approval is inferred, tests fail, or own work exceeds 15 minutes without decomposition.
+Not Done if the fresh lane is absent/stale, assigned whole-owner or occurrence coverage is incomplete, a meaning is guessed, qualifiers or provenance are lost, unresolved rows are hidden, or any source effect or migration completion is claimed.

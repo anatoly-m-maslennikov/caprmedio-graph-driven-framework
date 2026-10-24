@@ -1,21 +1,28 @@
 ---
 cce_version: cce_1
 cce_form: method
-version: 8
-updated_at: "2026-09-05 23:00:00 +0400"
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-M-002
-    - CA-M-006
+  - CA-M-002
+  - CA-M-006
 subjects:
-  governs: "Entity/canonical definition"
+  governs: Entity/canonical definition
   depends_on:
-    - "Entity"
-    - "Property"
-    - "Project"
-    - "Operator"
+  - Entity
+  - Property
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-105
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Implementation Method
+tier: 1
 ---
 # One concept, one definition
 

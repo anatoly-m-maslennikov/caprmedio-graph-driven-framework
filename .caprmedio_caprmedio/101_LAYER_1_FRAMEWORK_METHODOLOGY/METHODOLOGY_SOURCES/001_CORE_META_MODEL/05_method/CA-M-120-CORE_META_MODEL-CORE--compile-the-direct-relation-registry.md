@@ -1,27 +1,36 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Direct Relation Registry"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Direct Relation Registry'
   depends_on:
-    ["Relation Kind", "Relation Kind Metadata", "CAPRMEDIO Graph", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Object/Relation.Authority", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Projection", "Generator", "Entity/Continuant/Object/Relation", "Single Source of Truth"]
-version: 16
-updated_at: "2026-10-15 18:47:52 +0000"
+  - Subject/Graph/Relation/Type
+  - Relation Kind Metadata
+  - CAPRMEDIO Graph
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph/Relation.Authority
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - Subject/Domain/Node/Continuant/Projection
+  - Generator
+  - Subject/Graph/Relation
+  - Single Source of Truth
+version: 22
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-295
-    - CA-R-326
+  - CA-R-295
+  - CA-R-326
   method_for:
-    - CA-R-806
-    - CA-R-1246
-    - CA-R-1437
-    - CA-R-1472
-atom_id: "CA-M-120"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-806
+  - CA-R-1246
+  - CA-R-1437
+  - CA-R-1472
+atom_id: CA-M-120
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

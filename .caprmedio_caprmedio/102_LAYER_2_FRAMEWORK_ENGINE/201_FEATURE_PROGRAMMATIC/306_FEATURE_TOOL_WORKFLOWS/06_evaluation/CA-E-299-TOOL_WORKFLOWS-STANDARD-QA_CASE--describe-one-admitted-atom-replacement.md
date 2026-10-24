@@ -1,24 +1,28 @@
 ---
 atom_id: CA-E-299
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Validate And Describe Atom Replacement"
+  governs: Validate And Describe Atom Replacement
   depends_on:
-    - "Atom"
-    - "Atom/Identifier"
-    - "Atom/Revision"
-    - "Action"
-    - "Journal/Record"
-version: 11
-updated_at: "2026-10-12 23:54:41 +0400"
-relations: {"evaluation_for":["CA-R-1041","CA-O-031","CA-R-807"],"derived_from":["CA-A-057"]}
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-1041
+  - CA-O-031
+  - CA-R-807
+  derived_from:
+  - CA-A-057
+tier: 4
 ---
 # Summary
 

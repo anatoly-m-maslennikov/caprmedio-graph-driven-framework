@@ -11,13 +11,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Entity
-  depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 161
-updated_at: "2026-10-14 15:18:49 +0400"
+  governs: Subject
+  depends_on: [Atom, Subject, Term, Property, Carrier, Scope Unit, Projection, Plan, Operator]
+version: 162
+updated_at: "2026-10-22 22:05:30 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
-  blocks: [CA-P-1967, CA-P-1909]
+  blocks: [CA-P-1968]
 ---
 # Summary
 
@@ -25,268 +25,37 @@ Map current Core Subject origins
 
 ## Objective
 
-Build a complete current old-Subject → prospective-Subject map covering the selected RMEDO Subject occurrences, and resolve unmapped or ambiguous old Subjects before their Subjects-only migration without guessing.
+Map every current Core Subject occurrence to a Candidate #7 disposition: an evidence-backed literal target, unchanged, held or unresolved. Keep mapping research separate from source application and ordinary content migration.
 
 ## Details
 
-### Current mapping-disposition checkpoint — 2026-10-14 15:18 +0400
+### Candidate #7 methodology-only boundary — 2026-10-22
 
-The mapping-disposition gate is complete under CA-P-1959's latest map-first, Subjects-only override. Earlier requirements below for all 48 deep per-owner reviews, separate per-packet semantic receipts, completion of their descendants and the old domain partitions are not prerequisites to this migration slice. Preserve those Plans and reports as historical evidence without claiming them Done or creating a completion cascade. This checkpoint supplies the current process, output and pin binding where older text conflicts; it does not rewrite old receipts or reopen the superseded deep-review gates.
+Candidate #7 is the current planning authority for this continuation. Subject is the single root; Domain and Engineering are current topic branches; Graph/Relation and Graph/Rule are global. UX and Design remain deferred. The scope includes Subjects, their defining Requirements/Deliveries, property rules, Type classification and identity/ID rules. A classification-only Type correction keeps its ID only when Summary and Substance stay unchanged. Ordinary content migration remains CA-P-1970.
 
-The integrated occurrence map is `.caprmedio_tmp/stage2-migration-20261014/subject-map/subject-map.current.json`, SHA-256 `647f7a91ca166a9cfd08560f1303cfb2cc7d2724848dc50794cd1eee78e062f8`. Its current Candidate #4 pin is `.caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.model.candidate-4.md`, SHA-256 `a23019a1ee6cd3586640d6c3d9e211091f3683ac5f136058d745650570e78ca7`, verified equal to live candidate bytes. All 906 owners and 4,530 occurrences have migration dispositions: 611 mapped-change candidates, 266 unchanged, 17 unchanged deferred-model owners, 10 unchanged uncertain owners and two unchanged pending retirement. Zero occurrences lack a disposition. All 29 excluded owners retain all 155 occurrences, including 44 otherwise-changeable mappings; no supported subset of an excluded owner enters the request. The 34 null targets and 11 open meaning questions remain visible and unadopted. An approved unchanged disposition is not a guessed meaning or completion of the deferred non-Atom revision model.
+Do not change code, implementation schemas, MCP, tests, Settings values or runtime here. Do not treat a saved graph, old Candidate #3/#4 packet, canceled migration gate or full canonical path by itself as semantic acceptance.
 
-Independent mapping-disposition check: `.caprmedio_tmp/stage2-migration-20261014/subject-map/mcp-readiness-checkpoint.md`, SHA-256 `83105d77652a6e6735a79496669e8c72ff231b143d4c40cb8606dafe719f7635`, identifies the exact current map and verifies complete owner/occurrence coverage, whole-owner exclusions and zero undisposed occurrences. Its earlier MCP baseline observations remain historical; use P1959/P2167's latest connected checkpoint for Tool/runtime state. For this Subjects-only slice, P2188's persisted integration and P2189's independent migration-disposition verification are satisfied by these current outputs and checks, not by unfinished old deep-review children. No full Atom-content semantic review or new FPF acceptance is claimed.
+### Fresh source worklist
 
-Keep the captured inventory/map provenance unchanged: `.caprmedio_tmp/stage2-migration-20261014/inventory/current-subjects.inventory.json`, SHA-256 `9226df3fcc8b57ca4c15908ed08e61899ea41c6aa32e1bd24c5ff4658efc2344`. The separate structural repair changed 44 source pins without changing approved Subject intent; do not silently present their older captured paths/Versions/hashes as current. The refreshed current-source binding is `.caprmedio_tmp/stage2-migration-20261014/structural-repair/request-generation/manifest.json`, SHA-256 `4347f853b7f7c88f3b89759621a3aa1cb0fa2f3dd25152f17b23ef7f3dbb67f5`. All its 906 source hashes were rechecked against live files; all 611 public expected ID/Version/hash tuples agree with it. The repaired-source validation receipt is `.caprmedio_tmp/stage2-migration-20261014/structural-repair/repaired-full-validation.json`, SHA-256 `9e981c76434bbce68d7c539ba569093bd3ac6af649c605f11f4473ab346468fe`.
+Use .caprmedio_caprmedio/_projection/core-entity-review/presentation/candidate-7.remaining-subject-worklist.json as the only current lane-ownership input. Refresh the seven lanes from that file; do not reuse old fixed counts, manifests, Candidate #4 ledgers or canceled packet assignments:
 
-Prepared public request: `.caprmedio_tmp/stage2-migration-20261014/structural-repair/request-generation/preview-subjects.request.json`, SHA-256 `3b931baa1c07fc50fb42668c63407543632c50b05c69540815bd794f54ebdc5c`, containing exactly 611 owners and 848 ordered Subject patches. Metadata/provenance remains outside the closed payload. The captured original conversion's independent receipt, `.caprmedio_tmp/stage2-migration-20261014/public-request/independent-review.md`, SHA-256 `a08be8e25dfeb01e97ce1d800622bded1eb8778482092597b286609521aac481`, stays historical to its exact original pins; the structural-repair generation explicitly records the 44 rebindings and preserved mapping intent, order and exclusions. Request preparation is complete and explicitly non-executable; it is not candidate Atom bytes, whole-request MCP acceptance or staging/publication approval.
+- history_actor
+- content_roles_types
+- operations
+- relations_subjects
+- carrier_storage
+- methodology_configuration
+- other
 
-Status remains Active in this checkpoint-only packet by explicit instruction, not because superseded deep-review prerequisites still bind. Remaining migration gates concern actual admitted Tool/runtime completion, an explicitly assigned and approved scratch tranche with exact staged-diff/preservation proof, the selected Codex human-confirmation trust decision, current selected-source admission and separate exact live-packet approval. Those responsibilities remain with the applicable preparation/staging/application Plans; they do not keep the completed mapping-disposition gate open. Preserve original sources, ordinary content, history, Journal and both uncertain D253 batches. No new stage, replay, migration, publication, broad connector/catalog/C+A work or content-epic execution is authorized here.
-
-### Latest Operator process override — 2026-10-14
-
-Build the complete current old-Subject → prospective-Subject map first, resolve unmapped or ambiguous old Subjects with the Operator, then perform the separately safeguarded Subjects-only migration. Review/update content grouped by Subject only after Subject migration, under CA-P-1970. This is a process requirement, not a claim that the map or migration is complete.
-
-For this sequence, earlier requirements below for all 48 deep per-Atom/full-owner semantic reviews, separate per-packet independent review receipts and completion of all review descendants are superseded as prerequisites to Subject mapping or migration. Existing reports, whole-owner holds and other review outputs remain preserved historical evidence and useful suggestions, not automatic current gates or permission to migrate. This override applies to the inherited process in the linked mapping/integration/staging descendants, without changing their statuses or rewriting their evidence.
-
-Retain complete current frontier/occurrence coverage, explicit unmapped/ambiguous values, current source pins and stale-source refusal, Subjects-only staged-diff checks and preservation of ordinary content, originals, history and Journal. Existing exact approved-publication and live-mutation safeguards remain binding; the map and old reviews grant no publication authority. No content change, new policy or completion cascade is authorized.
-
-This grouping Plan has no own implementation work. Before execution, create disjoint child Tasks of at most 15 minutes each.
-
-Required prerequisites for read-only current-source adaptation/re-pinning/mapping solely to create and review staged candidates: CA-P-1963 and CA-P-2183's independent staging receipt. That branch changes no original, history, Journal or publication state and does not require CA-P-2167's publication receipt. Full source implementation still requires CA-P-2167's complete independent Tool receipt; CA-P-1909–1912 retain the final accepted graph, sealed live packet, exact approval and application/reproduction gates. Independent design/review preparation may proceed meanwhile; do not consume unfinished Tool capabilities. Pin the current authoritative Core frontier and inventory every governs/depends_on occurrence, including unchanged and excluded cases. Compare current meanings with Candidate #4 plus later Operator decisions; older frozen candidate/review inputs remain historical evidence only. Do not overwrite captured inputs or reuse old pins as current.
-
-Read the actual source content to decide whether an old / denotes narrowing or bearer qualification and whether a whole Subject target needs replacement. Keep the governs/dependency distinction and content-role views. The 442 display-path proposals are not executable replacements; the 149 follow-ups remain research work until supported.
-
-Produce explicit occurrence-level before/after decisions, evidence refs, preserved distinctions and unresolved cases. Investigate uncertainty; if confidence remains below 90%, ask the Operator before adopting or staging that mapping. Do not delete redundant-looking entities or invent Carrier bindings. No authoritative write is permitted.
-
-Root owns integration of the complete ledger; workers own disjoint review batches.
-
-CA-P-1972's preparation alone cannot complete this group. The generated review/integration children must be present and Done, with complete actual ledger coverage. The current ledger feeds CA-P-1909's separately accepted graph; it does not grant candidate acceptance.
-
-Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
-
-Current model guidance is [Candidate #4](../../_projection/core-entity-review/presentation/operator.model.candidate-4.md), SHA-256 `6e63d7362514ef20c2551366777073c22300b35a9cef5ad79531ad56b770763d`, under CA-P-1959's inherited boundary. Entity is only the umbrella. The three top-level branches are Occurrent, Continuant and Carrier. Continuant explicitly excludes Carrier and contains Object, Actor, History, Projection and Selection. Object is authoritative content about what/how; Actor is who. Actual executions and sessions are Occurrents, not their Journal records. History contains Journals, records and Revisions; Projections are derived content, including Terms Graph. A Selection is a rule/expression; running it is an Occurrent, and a saved/tracked result is a Projection. A Carrier bears a representation without becoming that content. Term annotations preserve source meanings, allowed values and derived vocabulary, not another root. No new native Relation semantics, parser/schema change or Core adoption follows from this candidate. Before execution, inherit CA-P-1959's Candidate #4 review and repair gate, including the completed historical review, Operator dispositions and bounded independent consistency verification of the authorized repairs against the revised target. Affected work waits for that parent check; revised bytes do not inherit the historical analytical PASS. The unchanged full FPF review is not rerun, and no Core adoption or migration is implied. This supersedes stale descendant execution inputs, not historical report/receipt bytes or their acceptance pins; affected meanings need current re-review and independent acceptance.
-
-Current continuation is Subjects-only staging. CA-P-2187 checked the fresh inventory; CA-P-2193 assigns all 48 exact whole-source packets to review Plans with bounded execution Tasks and any required zero-own-work roll-ups. Every Task re-reads current sources against Candidate #4 and the latest Operator decisions, preserving distinct Owning Scope Unit, relational Target Scope Unit and exact governed Substance Scope. The old combined lookup context is a Selection, not a fourth scope. CA-P-2188/2189 integrate and independently verify the new ledger; CA-P-2190/2191 cover a frozen bounded staging tranche and its independent file/graph review. Allocate continuation Tasks for every remaining tranche before execution. Preserve Summary, Substance, scope, Semantics, body and unrelated metadata; only required illustrative Version/time may accompany Subject changes in candidates.
-
-The fresh inventory reports 907 sources and 4534 occurrences with zero errors; independent inventory acceptance passed; fresh semantic coverage remains pending. Old CA-P-2049/2050–2056 domain assignments and prior ledgers remain historical research, not current source partitions or approval. Reuse CA-P-2043/2045 for one Root-owned integrated ledger. Do not mark a group complete from preparation, a partial tranche or unchanged historical bytes.
-
-Bind the additive [compact scope-reference decision](../../../.caprmedio_tmp/stage2-migration-20261012/model/scope-reference-decision.md), SHA-256 `df2303d0128ca9b882e2877f41ebc2f17f2c9fc2ce4a3a7ffefa394000d249c0` alongside the unchanged base decisions: the first two compact names are Atom references, not Scope Unit kinds; combined lookup remains a source-specific Selection. Under the [approved content-conflict exclusions](../../../.caprmedio_tmp/stage2-migration-20261012/model/content-conflict-decision.md), SHA-256 `6f5bdf81ae3861bd2141df69ba7ffa936f78cf7fef0ac0b8f2ae8290c17d09fc`, review all 907 owners/4534 occurrences and independently reconcile every disposition before staging. A confirmed content conflict excludes the whole Atom, preserves its original bytes and inventory/graph presence, and records ID, Version, source hash, contradictory source/model/Operator evidence, reason and CA-P-1970 destination. Supported changes to other whole owners may be staged only after CA-P-2188/2189. Missing sources, uncertainty or weak evidence are not conflict exemptions; no content work or partial unreviewed coverage is approved.
-
-Bind the [approved unchanged unresolved-owner decision](../../../.caprmedio_tmp/stage2-migration-20261012/model/unresolved-owner-decision.md), SHA-256 `d325383d4d4b049347bc77381e3f17616d3a473d93fce587c6b23a11e0ad9912`, separately from confirmed content conflicts. If any required Subject mapping remains uncertain after review, keep the whole original Atom unchanged and omit all its rows from the staging payload. List unresolved owners separately with exact Atom ID, Version, source path/hash, affected occurrences, reason and open question; retain their unchanged inventory and BEFORE/AFTER graph coverage. Unresolved owners are not automatically CA-P-1970 work. This is a reviewed disposition, not permission to omit unreviewed sources, invent meanings or raise confidence. Only other fully supported, independently accepted whole owners may be staged after complete 907-owner/4534-occurrence review and CA-P-2188/2189 ledger/disposition acceptance.
+Read the actual current source when a mapping is ambiguous. Preserve governed meaning, dependent properties, allowed values, named instances and source identity. Below-90% conclusions remain unresolved and visible; do not invent entities, selectors or generic aliases. Canonical paths are evidence outputs, not acceptance by themselves.
 
 ### Decomposing Plans
 
-- [CA-P-2187 — Pin the fresh Core Subject inventory](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/117-CA-P-2187-TASK--pin-the-fresh-core-subject-inventory.md)
-- [CA-P-2193 — Re-review all current Core Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/120-CA-P-2193-EPIC--re-review-all-current-core-subjects.md)
-- [CA-P-2190 — Stage a bounded Subject migration tranche](08-CA-P-1966-EPIC--map-current-core-subject-origins/118-CA-P-2190-TASK--stage-a-bounded-subject-migration-tranche.md)
-- [CA-P-2191 — Verify staged Subject candidates and graph](08-CA-P-1966-EPIC--map-current-core-subject-origins/119-CA-P-2191-TASK--verify-staged-subject-candidates-and-graph.md)
+- CA-P-2043 — integrate the current Candidate #7 mapping ledger
+- CA-P-2049 — coordinate the seven fresh Candidate #7 mapping lanes
 
-- [CA-P-1972 — Prepare disjoint Subject mapping Tasks](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/01-CA-P-1972-TASK--prepare-disjoint-subject-mapping-tasks.md)
-- [CA-P-1992 — Review current Subject batch 001](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/02-CA-P-1992-TASK--review-current-subject-batch-001.md)
-- [CA-P-1993 — Review current Subject batch 002](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/03-CA-P-1993-TASK--review-current-subject-batch-002.md)
-- [CA-P-1994 — Review current Subject batch 003](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/04-CA-P-1994-TASK--review-current-subject-batch-003.md)
-- [CA-P-1995 — Review current Subject batch 004](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/05-CA-P-1995-TASK--review-current-subject-batch-004.md)
-- [CA-P-1996 — Review current Subject batch 005](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/06-CA-P-1996-TASK--review-current-subject-batch-005.md)
-- [CA-P-1997 — Review current Subject batch 006](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/07-CA-P-1997-TASK--review-current-subject-batch-006.md)
-- [CA-P-1998 — Review current Subject batch 007](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/08-CA-P-1998-TASK--review-current-subject-batch-007.md)
-- [CA-P-1999 — Review current Subject batch 008](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/09-CA-P-1999-TASK--review-current-subject-batch-008.md)
-- [CA-P-2000 — Review current Subject batch 009](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/10-CA-P-2000-TASK--review-current-subject-batch-009.md)
-- [CA-P-2001 — Review current Subject batch 010](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/11-CA-P-2001-TASK--review-current-subject-batch-010.md)
-- [CA-P-2002 — Review current Subject batch 011](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/12-CA-P-2002-TASK--review-current-subject-batch-011.md)
-- [CA-P-2003 — Review current Subject batch 012](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/13-CA-P-2003-TASK--review-current-subject-batch-012.md)
-- [CA-P-2004 — Review current Subject batch 013](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/14-CA-P-2004-TASK--review-current-subject-batch-013.md)
-- [CA-P-2005 — Review current Subject batch 014](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/15-CA-P-2005-TASK--review-current-subject-batch-014.md)
-- [CA-P-2006 — Review current Subject batch 015](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/16-CA-P-2006-TASK--review-current-subject-batch-015.md)
-- [CA-P-2007 — Review current Subject batch 016](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/17-CA-P-2007-TASK--review-current-subject-batch-016.md)
-- [CA-P-2008 — Review current Subject batch 017](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/18-CA-P-2008-TASK--review-current-subject-batch-017.md)
-- [CA-P-2009 — Review current Subject batch 018](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/19-CA-P-2009-TASK--review-current-subject-batch-018.md)
-- [CA-P-2010 — Review current Subject batch 019](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/20-CA-P-2010-TASK--review-current-subject-batch-019.md)
-- [CA-P-2011 — Review current Subject batch 020](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/21-CA-P-2011-TASK--review-current-subject-batch-020.md)
-- [CA-P-2012 — Review current Subject batch 021](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/22-CA-P-2012-TASK--review-current-subject-batch-021.md)
-- [CA-P-2013 — Review current Subject batch 022](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/23-CA-P-2013-TASK--review-current-subject-batch-022.md)
-- [CA-P-2014 — Review current Subject batch 023](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/24-CA-P-2014-TASK--review-current-subject-batch-023.md)
-- [CA-P-2015 — Review current Subject batch 024](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/25-CA-P-2015-TASK--review-current-subject-batch-024.md)
-- [CA-P-2016 — Review current Subject batch 025](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/26-CA-P-2016-TASK--review-current-subject-batch-025.md)
-- [CA-P-2017 — Review current Subject batch 026](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/27-CA-P-2017-TASK--review-current-subject-batch-026.md)
-- [CA-P-2018 — Review current Subject batch 027](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/28-CA-P-2018-TASK--review-current-subject-batch-027.md)
-- [CA-P-2019 — Review current Subject batch 028](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/29-CA-P-2019-TASK--review-current-subject-batch-028.md)
-- [CA-P-2020 — Review current Subject batch 029](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/30-CA-P-2020-TASK--review-current-subject-batch-029.md)
-- [CA-P-2021 — Review current Subject batch 030](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/31-CA-P-2021-TASK--review-current-subject-batch-030.md)
-- [CA-P-2022 — Review current Subject batch 031](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/32-CA-P-2022-TASK--review-current-subject-batch-031.md)
-- [CA-P-2023 — Review current Subject batch 032](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/33-CA-P-2023-TASK--review-current-subject-batch-032.md)
-- [CA-P-2024 — Review current Subject batch 033](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/34-CA-P-2024-TASK--review-current-subject-batch-033.md)
-- [CA-P-2025 — Review current Subject batch 034](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/35-CA-P-2025-TASK--review-current-subject-batch-034.md)
-- [CA-P-2026 — Review current Subject batch 035](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/36-CA-P-2026-TASK--review-current-subject-batch-035.md)
-- [CA-P-2027 — Review current Subject batch 036](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/37-CA-P-2027-TASK--review-current-subject-batch-036.md)
-- [CA-P-2028 — Review current Subject batch 037](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/38-CA-P-2028-TASK--review-current-subject-batch-037.md)
-- [CA-P-2029 — Review current Subject batch 038](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/39-CA-P-2029-TASK--review-current-subject-batch-038.md)
-- [CA-P-2030 — Review current Subject batch 039](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/40-CA-P-2030-TASK--review-current-subject-batch-039.md)
-- [CA-P-2031 — Review current Subject batch 040](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/41-CA-P-2031-TASK--review-current-subject-batch-040.md)
-- [CA-P-2032 — Review current Subject batch 041](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/42-CA-P-2032-TASK--review-current-subject-batch-041.md)
-- [CA-P-2033 — Review current Subject batch 042](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/43-CA-P-2033-TASK--review-current-subject-batch-042.md)
-- [CA-P-2034 — Review current Subject batch 043](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/44-CA-P-2034-TASK--review-current-subject-batch-043.md)
-- [CA-P-2035 — Review current Subject batch 044](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/45-CA-P-2035-TASK--review-current-subject-batch-044.md)
-- [CA-P-2036 — Review current Subject batch 045](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/46-CA-P-2036-TASK--review-current-subject-batch-045.md)
-- [CA-P-2037 — Review current Subject batch 046](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/47-CA-P-2037-TASK--review-current-subject-batch-046.md)
-- [CA-P-2038 — Review current Subject batch 047](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/48-CA-P-2038-TASK--review-current-subject-batch-047.md)
-- [CA-P-2039 — Review current Subject batch 048](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/49-CA-P-2039-TASK--review-current-subject-batch-048.md)
-- [CA-P-2040 — Review current Subject batch 049](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/50-CA-P-2040-TASK--review-current-subject-batch-049.md)
-- [CA-P-2041 — Review current Subject batch 050](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/51-CA-P-2041-TASK--review-current-subject-batch-050.md)
-- [CA-P-2042 — Review current Subject batch 051](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/52-CA-P-2042-TASK--review-current-subject-batch-051.md)
-- [CA-P-2043 — Integrate current Subject mapping ledger](08-CA-P-1966-EPIC--map-current-core-subject-origins/53-CA-P-2043-TASK--integrate-current-subject-mapping-ledger.md)
-
-- [CA-P-2047 — Record the Substance field decision](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/54-CA-P-2047-TASK--record-the-substance-field-decision.md)
-- [CA-P-2048 — Apply the Substance decision to Subject mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/55-CA-P-2048-TASK--apply-the-substance-decision-to-subject-mappings.md)
-- [CA-P-2049 — Resolve remaining Subject mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/56-CA-P-2049-TASK--resolve-remaining-subject-mappings.md)
-- [CA-P-2058 — Correct Actor Type Subject candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/57-CA-P-2058-TASK--correct-actor-type-subject-candidates.md)
-- [CA-P-2060 — Verify current Subject mapping supplements](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/58-CA-P-2060-TASK--verify-current-subject-mapping-supplements.md)
-
-- [CA-P-2072 — Review actor and history mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/59-CA-P-2072-TASK--review-actor-and-history-mapping-candidates.md)
-- [CA-P-2073 — Review operation mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/60-CA-P-2073-TASK--review-operation-mapping-candidates.md)
-- [CA-P-2074 — Review carrier mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/61-CA-P-2074-TASK--review-carrier-mapping-candidates.md)
-- [CA-P-2075 — Review relation and Subject mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/62-CA-P-2075-TASK--review-relation-and-subject-mapping-candidates.md)
-- [CA-P-2076 — Review simple field mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/63-CA-P-2076-TASK--review-simple-field-mapping-candidates.md)
-
-Independent semantic-review children assess the 573 currently proposed follow-up rows. Existing unresolved research, the unanswered role/type choice and stale grammar-era source pins remain open; these reviews do not admit the later source migration.
-
-- [CA-P-2077 — Audit current-source drift in mapping evidence](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/64-CA-P-2077-TASK--audit-current-source-drift-in-mapping-evidence.md)
-
-### Current review checkpoint
-
-CA-P-2094–2099 review 180 currently unresolved, baseline-only occurrences in six disjoint meaning families. Their bounded inputs select at most 25 owning sources per lane; remaining family occurrences and selector-dependent targets stay open. These are current evidence reports only, not Core edits or migration approval.
-
-- [CA-P-2094 — Review remaining snapshot fields](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/73-CA-P-2094-TASK--review-remaining-snapshot-fields.md)
-- [CA-P-2095 — Review remaining Scope Unit and Project targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/74-CA-P-2095-TASK--review-remaining-scope-unit-and-project-targets.md)
-- [CA-P-2096 — Review settings and methodology source targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/75-CA-P-2096-TASK--review-settings-and-methodology-source-targets.md)
-- [CA-P-2097 — Review remaining Relation targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/76-CA-P-2097-TASK--review-remaining-relation-targets.md)
-- [CA-P-2098 — Review Journal and Actor targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/77-CA-P-2098-TASK--review-journal-and-actor-targets.md)
-- [CA-P-2099 — Review projection and collection targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/78-CA-P-2099-TASK--review-projection-and-collection-targets.md)
-
-CA-P-2086–2093 are Done, with one commit per completed Task. The full current working ledger covers 907 sources and 4534 occurrences: 1468 proposed, 1540 unchanged and 1526 unresolved. All 33 current grammar-source rows are independently re-reviewed (15 proposed, 18 null) and included. Eight quarantined sources remain explicit. The strengthened independent live gate and 14 wrong-data/control tests pass; the ordinary lookup/update/graph suites also pass (296 tests). Exact evidence is `_projection/core-entity-review/stage2/checkpoint-working-ledger-2026-10-11.json`. This is a complete progress ledger, not complete semantic mapping or authorized source adoption. Original Core Subjects/content remain unchanged; the selector choice and final 1909–1912/1969 gates remain open.
-
-- [CA-P-2087 — Recheck current grammar Subject origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/72-CA-P-2087-TASK--recheck-current-grammar-subject-origins.md)
-
-CA-P-2086/2088/2089 completed the working-ledger construction, independent verification and initial provenance audit under CA-P-2045. CA-P-2087 supplied current meaning evidence for the five grammar-source effects, then CA-P-2092/2093 integrated and independently checked it. These tasks are Done; the mapping Epic remains Active for actual unresolved meanings and final migration gates.
-
-CA-P-2083 is Done: Fourteen Atom ID field mappings are supported by the current CA-R-728 definition after independent review corrected an overly conservative all-null proposal. Five compound identity cases remain null; no selector or source rewrite is introduced.
-
-CA-P-2058 is Done: all 43 baseline Actor Type corrections have supported targets (33 Operator, 10 AI Agent). The accepted subset composes independently reviewed rows from CA-P-2072 and CA-P-2085 without rewriting their raw evidence, the baseline ledger or original Subjects.
-
-CA-P-2082 is Done: Thirty-one Claim Target Scope Unit references map to the explicitly defined Atom field; 28 non-uniform Atom Scope references remain null. The target field stays distinct from ownership and Substance applicability.
-
-CA-P-2085 is Done: All seven remaining generic Operator references are supported as Actor.Type: Operator. No named Actor or permission/Execution identity is invented; original Subjects remain unchanged.
-
-CA-P-2084 is Done: Seven Scope Unit field mappings are supported; the single Scope Unit Scope reference remains null because no field identity is established. No original Subject was edited.
-
-- [CA-P-2082 — Resolve Atom scope field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/68-CA-P-2082-TASK--resolve-atom-scope-field-mappings.md)
-- [CA-P-2083 — Resolve Atom identity field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/69-CA-P-2083-TASK--resolve-atom-identity-field-mappings.md)
-- [CA-P-2084 — Resolve Scope Unit field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/70-CA-P-2084-TASK--resolve-scope-unit-field-mappings.md)
-- [CA-P-2085 — Resolve remaining Actor role mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/71-CA-P-2085-TASK--resolve-remaining-actor-role-mappings.md)
-
-CA-P-2082–2085 are Done: all 93 additional disjoint occurrences were reviewed, with 59 supported targets and 34 nulls. Source pins/spans and deliberately incorrect data were independently checked; the fourteen initially conservative Atom-ID nulls were corrected from current CA-R-728. The registered parent Plan context is historical after controlled lifecycle changes; every Core meaning-evidence pin remains current. The pending selector choice is not inferred. No original Subject or ordinary content was edited.
-
-- [CA-P-2078 — Correct generic Carrier mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/65-CA-P-2078-TASK--correct-generic-carrier-mapping-candidates.md)
-- [CA-P-2079 — Preserve named Operation mapping identities](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/66-CA-P-2079-TASK--preserve-named-operation-mapping-identities.md)
-- [CA-P-2080 — Resolve history and methodology mapping meanings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/67-CA-P-2080-TASK--resolve-history-and-methodology-mapping-meanings.md)
-
-These bounded follow-ups investigate rejected/unresolved meanings that do not require the pending conditional-owner choice. Their outputs remain proposals until independently reviewed.
-
-CA-P-2072–2077 are Done and committed individually. The five independent semantic reviews cover 573 unique proposed follow-up occurrences: 433 accepted as supported candidate meanings, 62 rejected and 78 unresolved. This is not complete inventory coverage or authorization to apply. Existing unresolved input research remains with CA-P-2049 and its children.
-
-Carrier-as-dependent proposals were rejected; two Revision.Status proposals are unsupported by the latest snapshot/history model. Selected Tier and relation/Subject evidence was checked with separately pinned current grammar, while the raw reports retain their stale, unselected grammar references.
-
-The unanswered conditional-owner notation choice affects 220 additional role/type-qualified occurrences across 123 sources. No choice was inferred. Original Core Subjects and ordinary content remain unchanged; the accepted graph, exact preview, application and reproduction gates are still open.
-
-Current integration checkpoint: CA-P-2094–2102 are Done. The six independently accepted reports cover 180 current origins across 134 owning sources (80 proposals, 100 explicit nulls). Their findings are now included in the live-verified derived ledger: 1548 proposed, 1540 unchanged, 1446 unresolved across 907 sources and4534 occurrences. Eighteen verifier tests and296 ordinary tool tests pass; ten complete-ledger wrong-data controls reject bad variants. Original Core Subjects/content remain unchanged; eight quarantined sources and the unanswered selector choice remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-families-2094-2099.json`. This is progress, not full mapping or migration approval.
-
-CA-P-2103–2108 review the next 183 disjoint baseline-only unresolved origins under the current 50ab0114 ledger. Each lane owns at most 25 sources and excludes all earlier reviewed rows. This is bounded research only; the previous progress ledger remains current until independently accepted findings are integrated.
-
-- [CA-P-2103 — Review next unresolved snapshot fields](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/79-CA-P-2103-TASK--review-remaining-snapshot-fields.md)
-- [CA-P-2104 — Review next unresolved Scope Unit and Project targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/80-CA-P-2104-TASK--review-remaining-scope-unit-and-project-targets.md)
-- [CA-P-2105 — Review settings and methodology source targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/81-CA-P-2105-TASK--review-settings-and-methodology-source-targets.md)
-- [CA-P-2106 — Review next unresolved Relation targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/82-CA-P-2106-TASK--review-remaining-relation-targets.md)
-- [CA-P-2107 — Review Journal and Actor targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/83-CA-P-2107-TASK--review-journal-and-actor-targets.md)
-- [CA-P-2108 — Review projection and collection targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/84-CA-P-2108-TASK--review-projection-and-collection-targets.md)
-
-Current integration checkpoint: CA-P-2103–2111 are Done. Their six independently accepted reports cover183 exact current origins (100 proposals,83 nulls). The live-verified derived ledger now has1648 proposed,1540 unchanged and1346 unresolved references across907 original Core sources and4534 occurrences. All317 relevant tests pass (21 focused verifier,296 native tool tests), plus ten complete-ledger wrong-data controls and66 report controls. Accepted proof fields and live supporting evidence are retained; arbitrary non-Core files are rejected. Original Core Subjects/content remain unchanged. Eight quarantines, the selector choice and final migration/content gates remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-families-2103-2108.json`; this is progress, not complete mapping or source adoption.
-
-CA-P-2112–2117 cover the final137 baseline-only unresolved origins in these existing research families, with two disjoint Scope Unit/Project partitions. Earlier reviewed nulls and all other families remain open. This is research, not source adoption.
-
-- [CA-P-2112 — Review final snapshot-field origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/85-CA-P-2112-TASK--review-final-snapshot-field-origins.md)
-- [CA-P-2113 — Review remaining scope and project origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/86-CA-P-2113-TASK--review-remaining-scope-and-project-origins.md)
-- [CA-P-2114 — Review final settings and methodology origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/87-CA-P-2114-TASK--review-final-settings-and-methodology-origins.md)
-- [CA-P-2115 — Review final relation-family origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/88-CA-P-2115-TASK--review-final-relation-family-origins.md)
-- [CA-P-2116 — Review final projection-family origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/89-CA-P-2116-TASK--review-final-projection-family-origins.md)
-- [CA-P-2117 — Review scope and project tail origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/90-CA-P-2117-TASK--review-scope-and-project-tail-origins.md)
-
-CA-P-2112–2117 are independently accepted: 137 exact origins, 87 supported proposals and 50 nulls. CA-P-2118–2120 integrate this final continuation for these families without changing authority. This completes their bounded research, not all semantic mapping; the current ledger is still the prior 1648/1540/1346 checkpoint until verified replacement.
-
-Latest integration checkpoint: CA-P-2112–2120 are Done. Six independently accepted reports cover 137 exact origins across 101 distinct current sources (87 proposals, 50 explicit nulls). The persisted derived ledger now has 1735 proposed, 1540 unchanged and 1259 unresolved references across 907 original Core sources and 4534 occurrences. All 319 relevant tests pass (23 focused verifier, 296 native), plus ten complete-ledger wrong-data controls and 66 report controls. Original Core remains unchanged; eight quarantines, the selector decision and final migration/content gates stay open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-families-2112-2117.json`. This is progress, not complete mapping or source adoption.
-
-CA-P-2121–2128 review 205 previously unreviewed baseline-only origins in eight disjoint families across 148 distinct current sources, at most twenty owners per lane. Basic fields/tiers, identity/authority, Carrier structure, CCE, expressions, topics, roles and Terms/Subject relations need body-supported meanings rather than mechanical label promotion. This is research only; previous nulls and the selector decision remain open.
-
-- [CA-P-2121 — Review remaining Atom-field and tier origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/91-CA-P-2121-TASK--review-remaining-atom-field-and-tier-origins.md)
-- [CA-P-2122 — Review Entity-identity and authority origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/92-CA-P-2122-TASK--review-entity-identity-and-authority-origins.md)
-- [CA-P-2123 — Review Carrier-structure origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/93-CA-P-2123-TASK--review-carrier-structure-origins.md)
-- [CA-P-2124 — Review CCE language and registry origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/94-CA-P-2124-TASK--review-cce-language-and-registry-origins.md)
-- [CA-P-2125 — Review Scope and value-expression origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/95-CA-P-2125-TASK--review-scope-and-value-expression-origins.md)
-- [CA-P-2126 — Review legacy model and topic Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/96-CA-P-2126-TASK--review-legacy-model-and-topic-subjects.md)
-- [CA-P-2127 — Review role and execution origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/97-CA-P-2127-TASK--review-role-and-execution-origins.md)
-- [CA-P-2128 — Review Term and Subject-relation origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/98-CA-P-2128-TASK--review-term-and-subject-relation-origins.md)
-
-Latest integration checkpoint: CA-P-2121–2131 are Done. Eight independently accepted reviews cover205 exact origins across148 distinct current sources:71 supported mappings and134 explicit nulls. The persisted ledger now has1806 proposed,1540 unchanged and1188 unresolved references across907 original Core sources/4534 occurrences. All321 relevant tests pass (25 focused and296 native), plus88 report controls andten complete-ledger wrong-data controls. Corrected emission preserves accepted proof exactly; rejected interim hypotheses stay out. Original Core remains unchanged; eight quarantines, the unanswered selector decision and final migration/content gates remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-domains-2121-2128.json`. This is progress, not complete mapping or source adoption.
-
-CA-P-2132–2139 review195 previously unreviewed current origins across148 distinct owners. Eight disjoint ownership lanes exclude already reviewed nulls and the known qualified/named-selector gate. These are research Tasks, not authorizations to change Core or shrink the full mapping objective.
-
-- [CA-P-2132 — Review remaining Atom and Artifact policy Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/99-CA-P-2132-TASK--review-remaining-atom-and-artifact-policy-subjects.md)
-- [CA-P-2133 — Review governance and expansion topic Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/100-CA-P-2133-TASK--review-governance-and-expansion-topic-subjects.md)
-- [CA-P-2134 — Review remaining role and Implementation Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/101-CA-P-2134-TASK--review-remaining-role-and-implementation-subjects.md)
-- [CA-P-2135 — Review relational Producer and Consumer Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/102-CA-P-2135-TASK--review-relational-producer-and-consumer-subjects.md)
-- [CA-P-2136 — Review remaining grammar and expression Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/103-CA-P-2136-TASK--review-remaining-grammar-and-expression-subjects.md)
-- [CA-P-2137 — Review remaining fields history and Carrier Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/104-CA-P-2137-TASK--review-remaining-fields-history-and-carrier-subjects.md)
-- [CA-P-2138 — Review remaining settings and structure Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/105-CA-P-2138-TASK--review-remaining-settings-and-structure-subjects.md)
-- [CA-P-2139 — Review remaining relation and projection record Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/106-CA-P-2139-TASK--review-remaining-relation-and-projection-record-subjects.md)
-
-Residual-domain review checkpoint: CA-P-2132–2139 are Done and individually committed. All195 selected origins across148 current owners passed exact pin/span/coverage controls and independent semantic acceptance:63 supported mappings and132 explicit nulls. Broad Structural Parent and missing Status mappings were corrected; unsupported Spec/Change singleton values were rejected. CA-P-2140–2142 integrate only final accepted reports under CA-P-2045. This does not authorize source adoption or complete mapping.
-
-The full prospective gate rejects CA-P-2133's old report because its proof contains Project Configuration CA-R-1667. Its raw report/receipt remain historical and are withdrawn from current integration. CA-P-2143 creates a separately accepted Core-only successor; the strict Core/canonical-Operator evidence boundary remains unchanged.
-
-- [CA-P-2143 — Reprove governance Subjects from Core only](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/107-CA-P-2143-TASK--reprove-governance-subjects-from-core-only.md)
-
-Latest integration checkpoint: CA-P-2132–2143 are Done, with one commit per completed Task. Eight accepted reviews cover 195 exact origins across 148 current owners: 63 supported mappings and 132 explicit nulls. The saved ledger has 1869 proposed, 1540 unchanged and 1125 unresolved references across 907 original Core sources and 4534 occurrences. All 326 fresh relevant tests pass (30 focused, 296 native), plus report controls and ten complete-ledger wrong-data controls. CA-P-2133 now uses a separately accepted Core-only successor; the withdrawn raw report and receipt remain unchanged as history. Live contract and predecessor proof checks pass. Original Core remains unchanged. Eight quarantines, the selector choice and final migration/content gates remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-domains-2132-2139.json`. This is progress, not complete mapping or source adoption.
-
-CA-P-2144–2151 review all 204 remaining unqualified baseline-only origins across 145 owners in eight disjoint bounded lanes. Complete bodies, current original Core definitions and independent acceptance decide meanings. Prior reviewed nulls, qualified-owner paths and the unanswered selector decision remain explicit; this registration does not authorize source edits or finish mapping.
-
-- [CA-P-2144 — Review remaining unqualified Subjects 001](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/108-CA-P-2144-TASK--review-remaining-unqualified-subjects-001.md)
-- [CA-P-2145 — Review remaining unqualified Subjects 002](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/109-CA-P-2145-TASK--review-remaining-unqualified-subjects-002.md)
-- [CA-P-2146 — Review remaining unqualified Subjects 003](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/110-CA-P-2146-TASK--review-remaining-unqualified-subjects-003.md)
-- [CA-P-2147 — Review remaining unqualified Subjects 004](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/111-CA-P-2147-TASK--review-remaining-unqualified-subjects-004.md)
-- [CA-P-2148 — Review remaining unqualified Subjects 005](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/112-CA-P-2148-TASK--review-remaining-unqualified-subjects-005.md)
-- [CA-P-2149 — Review remaining unqualified Subjects 006](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/113-CA-P-2149-TASK--review-remaining-unqualified-subjects-006.md)
-- [CA-P-2150 — Review remaining unqualified Subjects 007](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/114-CA-P-2150-TASK--review-remaining-unqualified-subjects-007.md)
-- [CA-P-2151 — Review remaining unqualified Subjects 008](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/115-CA-P-2151-TASK--review-remaining-unqualified-subjects-008.md)
-
-- [CA-P-2152 — Verify the unqualified review frontier](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/116-CA-P-2152-TASK--verify-the-unqualified-review-frontier.md)
-
-CA-P-2144–2152 are Done and separately committed. All 204 selected unqualified origins across 145 owners passed independent semantic acceptance and 112 exact report controls: 59 supported proposals, 145 explicit nulls. Four actual frontier-audit wrong-data controls reject defects. Corrected Projection/Journal false nulls, inverse-kind admission and the Principle omission are reflected only in final accepted reports; unsupported audit claims and display-only prefix rejection are not accepted. Current saved ledger remains 1869/1540/1125 until CA-P-2153–2155's separate integration passes. Original Core remains unchanged; full mapping, selectors, quarantines and migration/content gates remain open. Evidence: `_projection/core-entity-review/stage2/checkpoint-unqualified-research-2144-2152.json`.
-
-### Historical CA-P-2144–2155 checkpoint
-
-CA-P-2144–2155 complete this bounded increment: eight independently accepted reviews cover 204 origins across 145 owners, adding 59 supported mappings and retaining 145 explicit nulls. The actual saved ledger passes independent current-source verification: 907 sources, 4534 references, 1928 proposed, 1540 unchanged and 1066 unresolved. All 329 distinct relevant tests pass (33 focused, 296 native), plus 112 report controls, four frontier-audit controls and ten complete-ledger wrong-output controls. Original Core and frozen evidence are unchanged. Eight quarantines, selector grammar and final graph/preview/application/content gates remain open. Evidence: `_projection/core-entity-review/stage2/checkpoint-unqualified-integration-2144-2151.json`. This is verified mapping progress, not a completed Epic or source migration.
-
-Earlier research and integration totals above are historical.
-
-### Current prospective baseline and re-review gate
-
-The prospective mapping target is [Candidate #4](../../_projection/core-entity-review/presentation/operator.model.candidate-4.md), SHA-256 `6e63d7362514ef20c2551366777073c22300b35a9cef5ad79531ad56b770763d`, under the current model and FPF review gate above. Later Operator decisions prevail. Frozen captures and saved ledgers remain historical evidence and must not be rewritten.
-
-CA-P-2166 subsequently completed its bounded approved selector and metadata increment; its completed increment is documented in `_projection/core-entity-review/stage2/approved-implementation/current-increment.md`. The historical CA-P-2144–2155 checkpoint above records eight quarantines, selector grammar and final gates as open at that time. This statement does not claim that a fresh re-pin ran today.
-
-**PENDING — CA-P-1966 owns the required re-review, adaptation and re-pin before CA-P-1909 acceptance or CA-P-1967 sealing.** Re-review every prospective mapping against the current original source and Candidate #4, record verified explicit current source hashes plus the candidate version/reference, and retain semantic source evidence for each mapping. No old ledger row, mapping acceptance or frozen pin is silently inherited; settled Operator selector decisions remain settled. Examples such as `Atom.Atom ID` to prospective `Atom.ID`, `Scope Unit.ID`, the three roots and Continuant child identities and retained Term annotations require source evidence, not blind replacement. The current selected-Subject-tool frontier remains an explicit admitted limitation; do not bypass its safe guards.
-
-CA-P-2187 is Done after [independent current inventory acceptance](../../../.caprmedio_tmp/stage2-migration-20261012/inventory-independent-check.json) for 907 sources / 4534 occurrences and four rejected negative controls. Root rechecked all 12124 captured Core/history hashes: unchanged. Capture is accepted, not Candidate-3 semantics; every current source still needs fresh review and independent acceptance before CA-P-2188/2189 and migration staging. This Epic remains Active.
+Canceled/obsolete migration gates, including CA-P-1967, CA-P-1973, CA-P-2188–CA-P-2193, the CA-P-2167 Tool prerequisite and the old CA-P-1909–CA-P-1912 sealed pipeline, are not current prerequisites. Preserve their historical carriers and actual cancellation paths; do not reintroduce them as current decomposition edges.
 
 ### Definition of Done
 
-The Plan is **not** Done if any selected occurrence is missing from the current Subject map, a mapping is guessed or lacks current pins, unmapped or ambiguous old Subjects remain hidden or unresolved for migration, captured inputs are overwritten, source Atoms are edited by this mapping work, or own work exceeds 15 minutes without decomposition. Deep per-Atom reviews, separate per-packet semantic receipts and all review descendants being Done are not prerequisites. Mapping completion alone does not accept a staged diff or grant publication authority.
+Not Done if the fresh worklist or lane coverage is missing, a source is stale, a mapping is guessed, an unresolved row is hidden, a Type-only exception changes an identity without its Summary/Substance condition, a property/ID/R/D rule is silently omitted, or any source, code, schema, test, MCP, Settings or runtime effect is claimed. The complete ledger and later source application remain separate gates.

@@ -1,21 +1,23 @@
 ---
 subjects:
-  governs: "relation-model"
+  governs: Subject/Graph/Relation
   depends_on:
-    ["scope-topology", "Atom Scope", "Entity/Node/Continuant/Atom.Target Scope Unit"]
-version: 21
-updated_at: "2026-10-19 15:54:31 +0400"
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Local Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Target Scope Unit
+version: 27
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-932
-atom_id: "CA-R-935"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-R-932
+atom_id: CA-R-935
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 5
+type: Rule
 ---
 # Summary
 Prohibit Demands between ancestors and descendants

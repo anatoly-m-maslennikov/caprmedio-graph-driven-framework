@@ -3,25 +3,25 @@ atom_id: CA-R-1621
 content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Realization Graph"
+  governs: Realization Graph
   depends_on:
-    - "Implementation"
-    - "Project Configuration"
-    - "Projection"
-    - "Spec Content Roles"
-version: 4
-updated_at: "2026-10-03 01:07:45 +0400"
+  - Subject/Engineering/Graph Projection
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Selection
+version: 8
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - CA-R-1568
-    - CA-R-1616
-    - CA-R-1631
-    - CA-R-1746
-global_tier: 11
+  - CA-R-1568
+  - CA-R-1616
+  - CA-R-1631
+  - CA-R-1746
+tier: 3
+type: Rule
 ---
 # Summary
 

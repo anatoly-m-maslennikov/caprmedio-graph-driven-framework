@@ -3,17 +3,21 @@ atom_id: CA-D-532
 content_role: Delivery
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Result Carrier"
-  depends_on: ["Artifact/Carrier", "Journal/Record"]
-version: 5
-updated_at: "2026-10-15 23:57:03 +0400"
+  governs: Subject/Engineering/Carrier
+  depends_on:
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 9
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  delivery_for: [CA-R-1826, CA-R-1828]
+  delivery_for:
+  - CA-R-1826
+  - CA-R-1828
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

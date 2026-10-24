@@ -4,17 +4,22 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 12
-updated_at: "2026-10-19 15:56:56 +0400"
+version: 15
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Evaluate RMED Review Batch"
+  governs: Evaluate RMED Review Batch
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Occurrent/Execution/Workflow Run"]
-relations: {"relates_to":["CA-D-496","CA-E-520"]}
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+relations:
+  relates_to:
+  - CA-D-496
+  - CA-E-520
+tier: 3
 ---
 # Summary
 

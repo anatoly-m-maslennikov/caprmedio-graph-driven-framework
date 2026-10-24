@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 8
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 02:06:04 +0000"
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Artifact query snapshot order and source admission"
-  depends_on: [Tool, Workflow, Action, Journal, Evaluation]
+  governs: Artifact query snapshot order and source admission
+  depends_on:
+  - Tool
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Journal
+  - Evaluation
 relations:
   concern_about: [CA-O-158, CA-P-1611, CA-P-1527, CA-P-1528]
 ---

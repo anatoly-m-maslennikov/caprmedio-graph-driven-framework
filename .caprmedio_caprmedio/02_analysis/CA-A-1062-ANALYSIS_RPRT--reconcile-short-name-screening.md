@@ -9,12 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Short-name screening reconciliation"
+  governs: Short-name screening reconciliation
   depends_on:
-    - "Operations"
-    - "Operator"
-version: 1
-updated_at: "2026-10-04 12:36:26 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for:
     - CA-P-1344

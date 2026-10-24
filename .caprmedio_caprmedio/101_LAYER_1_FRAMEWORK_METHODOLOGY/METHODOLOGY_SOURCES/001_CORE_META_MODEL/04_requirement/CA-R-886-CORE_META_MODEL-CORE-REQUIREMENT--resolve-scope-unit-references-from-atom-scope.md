@@ -1,22 +1,22 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Owning Scope Unit"
+  governs: Subject/Domain/Node/Continuant/Atom.Local Scope Unit
   depends_on:
-    ["Entity/Node/Continuant/Atom.Owning Scope Unit"]
-version: 26
-updated_at: "2026-10-19 15:54:25 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Local Scope Unit
+version: 30
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-858
-    - CA-R-920
-atom_id: "CA-R-886"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-858
+  - CA-R-920
+atom_id: CA-R-886
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 Resolve Scope Unit References from Atom Scope

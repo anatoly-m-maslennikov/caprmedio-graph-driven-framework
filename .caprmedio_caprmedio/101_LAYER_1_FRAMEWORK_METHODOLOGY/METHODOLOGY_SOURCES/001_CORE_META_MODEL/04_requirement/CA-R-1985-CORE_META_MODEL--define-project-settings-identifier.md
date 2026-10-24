@@ -3,17 +3,17 @@ atom_id: CA-R-1985
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Continuant/Project.Settings.Identifier"
+  governs: Subject/Domain/Node/Continuant/Project.Settings.Identifier
 relations:
   child_of:
   - CA-R-1174
-version: 3
-updated_at: "2026-10-19 15:54:15 +0400"
+version: 6
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 3
+type: Rule
 ---
 # Summary
 

@@ -1,29 +1,37 @@
 ---
 subjects:
-  governs: "Applicable Methodology Compilation"
+  governs: Applicable Methodology Compilation
   depends_on:
-    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set", "Project Configuration", "Extension", "Entity/Node/Continuant/Project.Framework Settings", "Methodology Source.Expansion Boundary", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal.Record"]
-version: 25
-updated_at: "2026-10-19 15:56:15 +0400"
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Applicable Methodology Source Set
+  - Project Configuration
+  - Subject/Domain/Node/Continuant/Selection//Extension Sources
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Methodology Source.Expansion Boundary
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 32
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-D-305
-    - CA-O-007
-    - CA-O-008
-    - CA-R-1317
-    - CA-O-011
-    - CA-R-1228
-    - CA-R-1375
-    - CA-R-1434
-atom_id: "CA-E-379"
-content_role: "Evaluation"
+  - CA-D-305
+  - CA-O-007
+  - CA-O-008
+  - CA-R-1317
+  - CA-O-011
+  - CA-R-1228
+  - CA-R-1375
+  - CA-R-1434
+atom_id: CA-E-379
+content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 4
 ---
 # Summary
 

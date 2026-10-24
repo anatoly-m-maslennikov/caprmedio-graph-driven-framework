@@ -1,23 +1,29 @@
 ---
-version: 12
-updated_at: "2026-10-19 15:54:48 +0400"
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-1489
+  - CA-R-1489
   depends_on:
-    - CA-M-279
+  - CA-M-279
 subjects:
-  governs: "Implementation Retry Limit"
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run.Implementation Retry Limit
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Implementation Retry Limit", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project.Framework Settings", "Default Settings", "Hub Atom", "Plan Atom Carrier"]
-atom_id: "CA-M-295"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Default Settings
+  - Hub Atom
+  - Subject/Engineering/Carrier/File Carrier
+atom_id: CA-M-295
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 5
+type: Implementation Method
 ---
 # Summary
 

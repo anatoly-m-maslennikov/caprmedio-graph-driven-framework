@@ -1,28 +1,27 @@
 ---
 atom_id: CA-E-517
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool/VALIDATE_ATOMS"
+  governs: Subject/Engineering/Atom Validation/Isolation and Repeatability
   depends_on:
-    - "Tool"
-    - "Operator"
-    - "Artifact/Revision"
-    - "Evaluation"
-version: 4
-updated_at: "2026-10-01 21:46:55 +0400"
+  - Subject/Engineering/Atom Validation
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Artifact/Revision
+  - Evaluation
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-D-491
-    - CA-D-492
-    - CA-D-493
-    - CA-R-1623
+  - CA-D-491
+  - CA-D-492
+  - CA-D-493
+  - CA-R-1623
+tier: 6
 ---
 # Summary
 

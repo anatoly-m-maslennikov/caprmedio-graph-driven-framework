@@ -1,19 +1,20 @@
 ---
-atom_id: "CA-D-506"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-global_tier: 9
-status: "Active"
-version: 3
-updated_at: "2026-10-15 18:52:27 +0000"
-author: "Anatoly Maslennikov"
+atom_id: CA-D-506
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
+author: Anatoly Maslennikov
 subjects:
-  governs: "Non-ephemeral Entity"
+  governs: Non-ephemeral Entity
   depends_on:
-    ["Entity", "Entity/Carrier", "Property"]
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Term//Property
 relations: {}
+tier: 1
+type: Eng Decision
 ---
 # Summary
 

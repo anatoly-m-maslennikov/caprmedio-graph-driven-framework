@@ -1,19 +1,29 @@
 ---
 subjects:
-  governs: "Change Content Roles"
+  governs: Subject/Domain/Node/Continuant/Atom/Content Role
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Concern", "Entity/Node/Continuant/Atom/Content Role: Analysis", "Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom/Content Role: Operations", "Spec", "Implementation"]
-version: 6
-updated_at: "2026-10-19 15:53:25 +0400"
-relations: {"relates_to": ["CA-R-1336", "CA-R-1337", "CA-R-1338", "CA-R-1530"]}
-atom_id: "CA-R-1549"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Concern'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Spec
+  - Implementation
+version: 10
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1336
+  - CA-R-1337
+  - CA-R-1338
+  - CA-R-1530
+atom_id: CA-R-1549
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

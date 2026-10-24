@@ -3,17 +3,25 @@ atom_id: CA-M-370
 content_role: Method
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool/ATOM_SEARCH"
-  depends_on: [Atom, Subject, Artifact/Carrier, Scope Unit]
-version: 7
-updated_at: "2026-10-21T16:54:03Z"
+  governs: Subject/Engineering/Tool//ATOM_SEARCH
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 13
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-R-863, CA-O-046, CA-E-301, CA-D-424]
+  relates_to:
+  - CA-R-863
+  - CA-O-046
+  - CA-E-301
+  - CA-D-424
+type: Eng Decision
+tier: 3
 ---
 # Summary
 
@@ -35,7 +43,7 @@ For an isolated selected Atom whose schema is invalid but whose source frontier 
 safety checks remain usable, emit a technical warning with the repository-relative
 path and reason, skip that Atom, continue the bounded scan, and mark the result
 `complete: false`. Route that warning through the configured diagnostic logging
-abstraction under CA-M-163; do not append it as a business Journal event or repair
+abstraction under CA-M-414; do not append it as a business Journal event or repair
 the source. I/O, security, duplicate-identity, stale, ambiguous, and other
 incomplete-frontier failures remain fatal refusal/error outcomes rather than partial
 success.

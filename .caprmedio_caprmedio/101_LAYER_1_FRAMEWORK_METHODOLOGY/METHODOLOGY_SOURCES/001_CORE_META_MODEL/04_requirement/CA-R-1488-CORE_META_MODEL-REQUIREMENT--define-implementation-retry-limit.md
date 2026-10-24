@@ -1,19 +1,22 @@
 ---
-version: 9
-updated_at: "2026-10-19 15:53:14 +0400"
+version: 14
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
 subjects:
-  governs: "Implementation Retry Limit"
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run.Implementation Retry Limit
   depends_on:
-    ["Entity/Node/Occurrent/Execution/Workflow Run", "Implementation Workflow", "Implementation Retry Control", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
-atom_id: "CA-R-1488"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+atom_id: CA-R-1488
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Definition
 ---
 # Summary
 

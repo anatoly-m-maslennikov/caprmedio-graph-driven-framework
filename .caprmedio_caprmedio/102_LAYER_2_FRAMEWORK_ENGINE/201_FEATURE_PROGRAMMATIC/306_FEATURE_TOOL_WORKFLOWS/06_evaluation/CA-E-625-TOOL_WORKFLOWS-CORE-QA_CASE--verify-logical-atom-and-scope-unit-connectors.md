@@ -1,21 +1,38 @@
 ---
 atom_id: CA-E-625
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Core
-global_tier: 9
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Atom","Scope Unit","Workflow"]
-version: 2
-updated_at: "2026-10-12 23:54:41 +0400"
+  governs: Subject/Engineering/Connector/Logical Atom and Scope Unit Evaluation
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+version: 5
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: ["CA-R-1093","CA-R-1067","CA-R-863","CA-R-864","CA-R-865","CA-R-866","CA-R-868","CA-R-1829","CA-R-1933","CA-R-1934"]
-  relates_to: ["CA-M-373","CA-M-374","CA-O-201","CA-O-047","CA-O-203"]
+  evaluation_for:
+  - CA-R-1093
+  - CA-R-1067
+  - CA-R-863
+  - CA-R-864
+  - CA-R-865
+  - CA-R-866
+  - CA-R-868
+  - CA-R-1829
+  - CA-R-1933
+  - CA-R-1934
+  relates_to:
+  - CA-M-373
+  - CA-M-374
+  - CA-O-201
+  - CA-O-047
+  - CA-O-203
+tier: 4
 ---
 # Summary
 

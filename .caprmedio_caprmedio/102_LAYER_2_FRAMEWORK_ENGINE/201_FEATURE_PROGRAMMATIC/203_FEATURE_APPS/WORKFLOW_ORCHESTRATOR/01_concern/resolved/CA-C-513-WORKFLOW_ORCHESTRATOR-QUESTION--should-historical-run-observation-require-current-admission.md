@@ -7,11 +7,17 @@ local_tier: Standard
 global_tier: 14
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 18:56:40 +0000"
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Workflow Run/Observation"
-  depends_on: [Workflow Run, Action Run, Journal, Source Carrier, Projection, Operator]
+  governs: Workflow Run/Observation
+  depends_on:
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Action Run
+  - Journal
+  - Subject/Engineering/Carrier/File Carrier
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
   concern_about: [CA-P-1808, CA-R-1807, CA-P-1794]
 ---

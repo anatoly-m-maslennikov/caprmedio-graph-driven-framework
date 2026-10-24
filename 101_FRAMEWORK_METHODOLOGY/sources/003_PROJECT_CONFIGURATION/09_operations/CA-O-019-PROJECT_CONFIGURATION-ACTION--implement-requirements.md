@@ -11,8 +11,8 @@ subjects:
   governs: "Requirement Implementation"
   depends_on:
     ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom/Content Role: Requirement", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Implementation"]
-version: 8
-updated_at: "2026-10-19 15:56:41 +0400"
+version: 10
+updated_at: "2026-10-22T21:21:30+04:00"
 relations:
   relates_to:
     - CA-O-017
@@ -28,9 +28,11 @@ Implement Requirements
 
 Requirement Implementation **means** the Agentic Action that realizes the selected P/Plan item's applicable Requirements after their tests are prepared, applying **all** governing Methods within Delivery boundaries.
 
-- inputs: the assigned bounded Plan item, active Method Projection, selected R/E/D, current candidate, prepared tests **and** available baseline results, admitted prerequisites, **and** owned files/work boundary.
+- inputs: the assigned bounded Plan item, direct full `methods` rows, selected R/E/D, current candidate, prepared tests **and** available baseline results, admitted prerequisites, **and** owned files/work boundary. An optional legacy `method_projection` may accompany those rows but is not required.
 - implement **only** the selected ready work. preserve unrelated edits; do **not** alter expected test behavior **or** governing Atoms merely **to** obtain a pass.
 - preparation of tests precedes the behavior they check; runnable baseline tests precede that behavior. an explicitly necessary test-execution prerequisite is limited **to** that prerequisite **and** remains traceable.
 - return `implemented` with actual changes, fulfilled work, candidate identity **and** pending checks, **or** `blocked` with the exact cause. an unresolved Method conflict requires authority disposition; Atom ID **must not** select the winning Method. implementation is **not** proof of passing Evaluations.
+
+- a changed candidate invalidates affected previous review/check evidence. Return exact changed paths and candidate binding so preparation can select preliminary review, final checks, and final review; implemented is not acceptance.
 
 ## Details

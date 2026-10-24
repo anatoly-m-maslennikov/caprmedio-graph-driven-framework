@@ -1,22 +1,25 @@
 ---
 subjects:
-  governs: "Default Settings"
+  governs: Default Settings
   depends_on:
-    ["Artifact", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator"]
-version: 11
-updated_at: "2026-10-19 15:53:06 +0400"
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 15
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - "CA-R-1402"
-    - "CA-R-1750"
-atom_id: "CA-R-1441"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1402
+  - CA-R-1750
+atom_id: CA-R-1441
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

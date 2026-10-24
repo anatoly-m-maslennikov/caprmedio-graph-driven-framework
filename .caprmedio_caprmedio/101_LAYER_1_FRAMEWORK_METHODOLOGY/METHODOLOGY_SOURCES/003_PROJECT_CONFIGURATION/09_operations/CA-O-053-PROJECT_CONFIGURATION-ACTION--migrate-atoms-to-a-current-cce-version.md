@@ -1,23 +1,30 @@
 ---
 subjects:
-  governs: "Migrate Atom CCE Representation"
+  governs: Subject/Engineering/Migrate Atom CCE Representation
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Projection", "CCE", "Confidence Threshold", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent"]
-version: 9
-updated_at: "2026-10-19 15:56:45 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Graph/Rule/CCE
+  - Confidence Threshold
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+version: 15
+updated_at: 2026-10-24 01:18:03 +0400
 relations:
   child_of:
-    - CA-M-115
-    - CA-R-380
-atom_id: "CA-O-053"
-content_role: "Operations"
+  - CA-M-115
+  - CA-R-380
+atom_id: CA-O-053
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 ---
 # Summary
 

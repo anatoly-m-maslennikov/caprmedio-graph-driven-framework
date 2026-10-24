@@ -1,0 +1,42 @@
+---
+atom_id: CA-O-110@14
+content_role: Operations
+type: Step
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Archived
+author: Anatoly Maslennikov
+version: 14
+updated_at: 2026-10-24 00:38:25 +0400
+subjects:
+  governs: RMED Review Repair Step
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Agentic Step Execution Context
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Evaluation Report
+relations:
+  relates_to:
+  - CA-O-111
+tier: 3
+---
+# Summary
+
+Repair the evaluated RMED review batch
+
+## Operation
+
+RMED Review Repair Step **means** the Workflow node invoking **`=1`** Action, CA-O-111, **in** Isolated context.
+
+- bind the local check report, current source, correction boundary, confidence/retry policy, **and** context budget.
+- apply confirmed corrections **and** record them **in** the same report. return `fixed_not_rechecked` **only** **when** **all** initial checks concluded **and** no unresolved findings remain. safe partial fixes retain `blocked` **when** coverage **or** findings remain unresolved; this Step has no proposal review **or** saved-Atom recheck.
+- retain the caller's Run ID on correction records **and** handoffs; return actual edits, rejected findings, **and** unresolved work for its full report **and** shared Journal recording under CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.
+- preserve Entity **and** relation targets; route required identity-changing **or** cross-Atom work as a blocked proposal for separate authorization.
+- at the context threshold, save completed edits **and** unfinished work for a fresh subagent; resume **only** unfinished work.
+
+## Details
+
+the Step passes results **to** the caller **and** does **not** expand the local-review mutation boundary. native file **and** session capabilities are sufficient.

@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
   depends_on:
-    - "GOVERNS"
-    - "DEPENDS_ON"
-version: 16
-updated_at: "2026-10-19 15:56:20 +0400"
+  - 'Subject/Graph/Relation/Type: GOVERNS'
+  - 'Subject/Graph/Relation/Type: DEPENDS_ON'
+version: 19
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-307"
-content_role: "Delivery"
+atom_id: CA-D-307
+content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

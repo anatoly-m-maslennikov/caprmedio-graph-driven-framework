@@ -2,17 +2,26 @@
 atom_id: CA-R-1818
 content_role: Requirement
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 04:10:07 +0400"
+version: 6
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "Workflow Orchestrator/Docker runtime"
-  depends_on: [Operator, Workflow Run, Action, Tool, Implementation, Journal, Atom]
+  governs: Subject/Engineering/Runtime/Docker Workflow Execution
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Runtime/Docker Workflow Execution
+  - Subject/Engineering/Journal Operations
+  - Subject/Domain/Node/Continuant/Atom
 relations:
-  relates_to: [CA-R-1812, CA-R-1813, CA-R-1799]
+  relates_to:
+  - CA-R-1812
+  - CA-R-1813
+  - CA-R-1799
+type: Rule
+tier: 3
 ---
 # Summary
 

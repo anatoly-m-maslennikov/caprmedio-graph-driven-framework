@@ -8,11 +8,15 @@ local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
-version: 3
-updated_at: "2026-10-15 18:40:57 +0000"
+version: 5
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Graph Projection construction/Completion"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Plan", "Artifact/Carrier"]
+  governs: Graph Projection construction/Completion
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Implementation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - Subject/Engineering/Carrier
 relations:
   concern_about: [CA-P-1441, CA-O-133, CA-O-134, CA-O-136, CA-O-137]
 ---

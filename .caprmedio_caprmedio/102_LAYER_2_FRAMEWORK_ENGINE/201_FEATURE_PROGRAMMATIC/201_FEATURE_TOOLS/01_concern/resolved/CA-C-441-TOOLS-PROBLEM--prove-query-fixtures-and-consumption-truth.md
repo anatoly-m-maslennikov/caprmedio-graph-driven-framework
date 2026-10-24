@@ -8,11 +8,15 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 22:52:48 +0000"
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Prove query fixtures and consumption truth"
-  depends_on: [Journal, Projection, Evaluation, Implementation]
+  governs: Prove query fixtures and consumption truth
+  depends_on:
+  - Subject/Engineering/Journal Event Query
+  - Subject/Domain/Node/Continuant/Projection
+  - Evaluation
+  - Implementation
 relations:
   concern_about: [CA-P-1525, CA-P-1526, CA-P-1544, CA-P-1546, CA-P-1547, CA-P-1548]
 ---

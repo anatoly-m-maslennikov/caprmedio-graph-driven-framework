@@ -2,21 +2,22 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Identity/collision repair"
+  governs: Atom/Identity/collision repair
   depends_on:
-    - "Action"
-    - "Process"
-    - "Atom/Identifier"
-    - "Artifact/Revision"
-    - "Operator"
-    - "Journal"
-    - "Projection"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Process
+  - Atom/Identifier
+  - Artifact/Revision
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Journal
+  - Subject/Domain/Node/Continuant/Projection
 priority: medium
-version: 1
-updated_at: "2026-09-17 05:06:27 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-127
 ---
 # What Action boundaries preserve identity-collision repair?
 

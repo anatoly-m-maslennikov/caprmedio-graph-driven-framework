@@ -1,21 +1,28 @@
 ---
 atom_id: CA-E-635
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Project Configuration", "Property", "Carrier", "Method", "Delivery"]
-version: 2
-updated_at: "2026-10-13 20:15:34 +0400"
+  governs: Subject/Engineering/Pure TOML Materialization Conformance Evaluation
+  depends_on:
+  - Subject/Domain/Node/Continuant/Governing Configuration
+  - Subject/Engineering/Carrier
+  - Subject/Engineering/TOML Configuration Value
+version: 5
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: [CA-R-1936, CA-M-383, CA-D-632, CA-O-204]
-  depends_on: [CA-E-254]
+  evaluation_for:
+  - CA-R-1936
+  - CA-M-383
+  - CA-D-632
+  - CA-O-204
+  depends_on:
+  - CA-E-254
+tier: 6
 ---
 # Summary
 

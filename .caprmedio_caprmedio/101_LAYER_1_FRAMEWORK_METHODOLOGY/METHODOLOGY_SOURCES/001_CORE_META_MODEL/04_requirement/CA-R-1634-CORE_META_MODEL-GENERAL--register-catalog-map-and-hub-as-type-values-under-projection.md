@@ -1,19 +1,24 @@
 ---
 subjects:
-  governs: "Projection/Type"
+  governs: Subject/Domain/Node/Continuant/Projection/Type
   depends_on:
-    ["Entity/Node/Continuant/Projection", "Type", "Entity/Node/Continuant/Projection/Type: Catalog", "Entity/Node/Continuant/Projection/Type: Map", "Entity/Node/Continuant/Projection/Type: Hub", "Entity/Node/Continuant/Atom.Substance"]
-version: 29
-updated_at: "2026-10-19 15:53:46 +0400"
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Projection/Type
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Catalog'
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Map'
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Hub'
+  - Subject/Domain/Node/Continuant/Atom.Substance
+version: 35
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1634"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-R-1634
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

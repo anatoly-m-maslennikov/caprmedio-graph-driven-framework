@@ -1,19 +1,25 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Autonomous Confidence Threshold", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project.Framework Settings"]
-version: 7
-updated_at: "2026-10-19 15:53:37 +0400"
-relations: {"relates_to": ["CA-M-271", "CA-R-1044"]}
-atom_id: "CA-R-1587"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Autonomous Confidence Threshold
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-M-271
+  - CA-R-1044
+atom_id: CA-R-1587
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

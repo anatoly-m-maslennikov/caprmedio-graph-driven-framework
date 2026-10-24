@@ -1,33 +1,32 @@
 ---
 subjects:
-  governs: "Refresh Required Release Projections"
+  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-    - "Action"
-    - "Projection"
-    - "Artifact/Revision"
-    - "Operator"
-    - "Journal/Record"
-    - "Projection/Type: Reconciled Projection"
-    - "Applicable Methodology"
-    - "Atom/Claim"
-    - "Atom/Content Role: Delivery"
-version: 5
-updated_at: "2026-09-18 14:16:20 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Projection
+  - Artifact/Revision
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Reconciled Projection'
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+version: 9
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
   relates_to:
-    - "CA-O-025"
-    - "CA-O-010"
-    - "CA-O-011"
-    - "CA-R-1460"
-atom_id: "CA-O-026"
-content_role: "Operations"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+  - CA-O-025
+  - CA-O-010
+  - CA-O-011
+  - CA-R-1460
+atom_id: CA-O-026
+content_role: Operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 ---
 # Refresh required release Projections
 

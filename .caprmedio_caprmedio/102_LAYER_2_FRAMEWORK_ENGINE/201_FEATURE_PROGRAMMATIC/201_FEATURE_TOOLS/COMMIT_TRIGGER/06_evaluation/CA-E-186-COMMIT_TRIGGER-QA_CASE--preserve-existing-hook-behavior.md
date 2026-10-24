@@ -1,15 +1,21 @@
 ---
 subjects:
-  governs: "Git Hook"
-version: 13
-updated_at: "2026-09-15 21:31:49 +0000"
+  governs: Git Hook
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-856
-    - CA-D-010
-
+  - CA-R-856
+  - CA-D-010
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-186
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
 ---
 # Preserve existing Hook behavior
 

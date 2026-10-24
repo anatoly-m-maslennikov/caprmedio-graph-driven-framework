@@ -1,16 +1,19 @@
 ---
 subjects:
-  governs: "artifact-operations"
+  governs: Subject/Engineering/Tool//REBIND_ATOM_RELATIONS
   depends_on: []
-version: 13
-updated_at: "2026-10-12 23:58:28 +0400"
+version: 19
+status: Active
+updated_at: 2026-10-24 03:08:30 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 content_role: Requirement
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
+atom_id: CA-R-1049
+tier: 3
+type: Rule
+author: Anatoly Maslennikov
 ---
 # Summary
 

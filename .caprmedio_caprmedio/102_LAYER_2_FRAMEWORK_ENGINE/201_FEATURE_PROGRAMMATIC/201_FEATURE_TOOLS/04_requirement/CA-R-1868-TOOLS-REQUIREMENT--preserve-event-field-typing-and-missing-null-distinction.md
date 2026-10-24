@@ -3,17 +3,21 @@ atom_id: CA-R-1868
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/value semantics"
-  depends_on: [Event, Tool]
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
+  depends_on:
+  - Subject/Engineering/Journal Event Query/Selector Value Semantics
 relations:
-  relates_to: [CA-R-1850, CA-R-1862, CA-E-575]
+  relates_to:
+  - CA-R-1850
+  - CA-R-1862
+  - CA-E-575
+type: Rule
+tier: 3
 ---
 # Summary
 

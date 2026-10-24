@@ -1,19 +1,26 @@
 ---
 subjects:
-  governs: "Hub Atom"
+  governs: Hub Atom
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Atom/Content Role: Plan/Type: Plan", "Type", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Atom.Global Tier"]
-version: 7
-updated_at: "2026-10-19 15:53:34 +0400"
-relations: {"relates_to": ["CA-R-1534", "CA-R-1579"]}
-atom_id: "CA-R-1578"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Subject/Graph/Relation/Type
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Label'
+version: 12
+updated_at: 2026-10-24 01:31:19 +0400
+relations:
+  relates_to:
+  - CA-R-1534
+  - CA-R-1579
+atom_id: CA-R-1578
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

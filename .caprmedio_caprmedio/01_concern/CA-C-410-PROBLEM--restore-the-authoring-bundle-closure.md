@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Source-authoring Plan/paired Carrier closure"
-  depends_on: [Plan, Artifact/Carrier]
-version: 2
-updated_at: "2026-10-04 15:51:44 +0000"
+  governs: Source-authoring Plan/paired Carrier closure
+  depends_on:
+  - Plan
+  - Subject/Engineering/Carrier
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1131]
 ---

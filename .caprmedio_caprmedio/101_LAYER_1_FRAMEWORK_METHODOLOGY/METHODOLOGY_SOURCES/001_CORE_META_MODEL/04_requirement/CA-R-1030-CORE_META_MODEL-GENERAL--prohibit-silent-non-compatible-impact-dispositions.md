@@ -1,19 +1,17 @@
 ---
 subjects:
-  governs: "relation-model"
-  depends_on:
-    - "atom-boundary"
-version: 13
-updated_at: "2026-10-02 21:16:45 +0400"
+  governs: Subject/Graph/Relation
+version: 17
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1030"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-R-1030
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Prohibit silent non-compatible Impact dispositions
 

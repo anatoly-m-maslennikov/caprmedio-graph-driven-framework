@@ -3,17 +3,24 @@ atom_id: CA-D-635
 content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Continuant/Projection"
-  depends_on: ["Entity/Node/Continuant/Projection.ID", "Entity/Node/Continuant/Projection/Type", "Entity/Node/Continuant/Selection", "Entity/Node/Continuant/Scope Unit"]
-version: 5
-updated_at: "2026-10-19 15:56:03 +0400"
+  governs: Subject/Domain/Node/Continuant/Projection
+  depends_on:
+  - Subject/Domain/Node/Continuant/Projection.ID
+  - Subject/Domain/Node/Continuant/Projection/Type
+  - Subject/Domain/Node/Continuant/Selection
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 10
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  depends_on: [CA-R-1943, CA-D-310, CA-D-550]
+  depends_on:
+  - CA-R-1943
+  - CA-D-310
+  - CA-D-550
+tier: 4
+type: Eng Decision
 ---
 # Summary
 

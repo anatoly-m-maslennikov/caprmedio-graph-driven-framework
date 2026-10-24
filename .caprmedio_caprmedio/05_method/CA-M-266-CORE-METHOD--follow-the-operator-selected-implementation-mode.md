@@ -1,27 +1,34 @@
 ---
-cce_version: "cce_1"
-cce_form: "method"
-version: 5
-updated_at: "2026-09-05 23:00:00 +0400"
+cce_version: cce_1
+cce_form: method
+version: 11
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - "CA-M-261"
+  - CA-M-261
   relates_to:
-    - "CA-M-262"
+  - CA-M-262
 subjects:
-  governs: "Project/Implementation/mode selection"
+  governs: Project/Implementation/mode selection
   depends_on:
-    - "Operator"
-    - "Spec"
-    - "Atom/Content Role: Plan/Type: Task"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Delivery"
-    - "Project"
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Spec
+  - 'Atom/Content Role: Plan/Type: Task'
+  - 'Atom/Content Role: Implementation'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - Subject/Domain/Node/Continuant/Project
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-266
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Implementation Method
+tier: 2
 ---
 # Follow the Operator-selected implementation mode
 

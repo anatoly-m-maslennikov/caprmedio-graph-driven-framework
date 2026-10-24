@@ -3,17 +3,30 @@ atom_id: CA-O-180
 content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-09 16:36:54 +0400"
+version: 7
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Initialize first Framework runtime and project-local ca Skill"
-  depends_on: [Action, Operator, Framework Package, Runtime, Methodology, Skill, Docker Image, Journal]
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Initialize first Framework runtime and project-local ca Skill'
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Framework Package
+  - Subject/Engineering/Runtime
+  - Subject/Domain/Node/Continuant/Selection//Methodology Sources
+  - Skill
+  - Docker Image
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-O-164, CA-R-1525, CA-R-1720, CA-R-1881, CA-M-338, CA-D-575]
+  relates_to:
+  - CA-O-164
+  - CA-R-1525
+  - CA-R-1720
+  - CA-R-1881
+  - CA-M-338
+  - CA-D-575
+tier: 3
 ---
 # Summary
 

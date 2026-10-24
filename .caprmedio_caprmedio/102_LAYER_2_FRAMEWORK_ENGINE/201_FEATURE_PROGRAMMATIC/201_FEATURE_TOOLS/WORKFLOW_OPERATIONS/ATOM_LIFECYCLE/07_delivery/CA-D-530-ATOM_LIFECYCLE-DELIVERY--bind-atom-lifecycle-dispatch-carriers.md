@@ -3,17 +3,23 @@ atom_id: CA-D-530
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Carrier Topology"
-  depends_on: ["Tool", "Artifact/Carrier"]
-version: 1
-updated_at: "2026-10-04 18:30:23 +0000"
+  governs: Subject/Engineering/Atom Lifecycle/Dispatch Carrier Topology
+  depends_on:
+  - Subject/Engineering/Atom Lifecycle
+  - Subject/Engineering/Carrier
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  delivery_for: [CA-R-1825, CA-R-1826, CA-R-1827, CA-R-1828]
+  delivery_for:
+  - CA-R-1825
+  - CA-R-1826
+  - CA-R-1827
+  - CA-R-1828
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

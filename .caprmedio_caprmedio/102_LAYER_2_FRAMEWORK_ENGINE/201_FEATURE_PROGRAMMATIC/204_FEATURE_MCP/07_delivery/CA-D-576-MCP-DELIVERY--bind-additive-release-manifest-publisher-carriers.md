@@ -2,17 +2,28 @@
 atom_id: CA-D-576
 content_role: Delivery
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-06 10:15:24 +0000"
+version: 9
+updated_at: 2026-10-24 04:05:50 +0400
 subjects:
-  governs: "MCP/additive Release manifest publisher carriers"
-  depends_on: [MCP, Projection, Manifest, Workflow, Step, Action, Operator, Run, Journal]
+  governs: Subject/Engineering/Carrier
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Engineering/Manifest
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  delivery_for: [CA-R-1882, CA-M-339]
+  delivery_for:
+  - CA-R-1882
+  - CA-M-339
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

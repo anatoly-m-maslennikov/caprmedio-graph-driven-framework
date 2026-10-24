@@ -1,19 +1,24 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Subjects"
+  governs: Subject/Domain/Node/Continuant/Atom.Subjects
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Subject", "GOVERNS", "DEPENDS_ON", "Property", "Subject Target"]
-version: 17
-updated_at: "2026-10-21 01:47:52 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject
+  - 'Subject/Graph/Relation/Type: GOVERNS'
+  - 'Subject/Graph/Relation/Type: DEPENDS_ON'
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+version: 21
+updated_at: 2026-10-24 01:18:03 +0400
 relations: {}
-atom_id: "CA-R-1198"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1198
+content_role: Requirement
+type: Definition
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
 ---
 # Summary
 
@@ -25,6 +30,6 @@ the Atom Subjects Property.
 
 ## Claim
 
-the Atom Subjects Property **means** the Atom Property that records its direct Subject Relations: GOVERNS **and** DEPENDS_ON links from that Atom **to** canonical Subject Targets. it preserves the target identities **without** storing copies of the targets **or** introducing a separately identified Subject object **or** a nested Entity **or** Reference Property for **every** link.
+the Atom Subjects Property **means** the optional Atom Property that records zero **or** one direct GOVERNS Subject Relation **and** any number of direct DEPENDS_ON Subject Relations **to** canonical Subject Targets. it preserves target identities **without** storing copies of the targets **or** introducing a separately identified Subject object **or** a nested Entity **or** Reference Property for **every** link.
 
 ## Details

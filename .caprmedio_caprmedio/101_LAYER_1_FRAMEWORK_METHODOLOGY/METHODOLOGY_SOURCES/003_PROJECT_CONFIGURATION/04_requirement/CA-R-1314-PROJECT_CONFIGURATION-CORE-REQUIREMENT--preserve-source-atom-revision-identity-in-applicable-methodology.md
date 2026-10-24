@@ -1,19 +1,20 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology.Member"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology.Member'
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity/Relation/Type: DERIVED_FROM"]
-version: 19
-updated_at: "2026-10-19 15:56:04 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Graph/Relation/Type: DERIVED_FROM'
+version: 24
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1314"
-content_role: "Requirement"
+atom_id: CA-R-1314
+content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

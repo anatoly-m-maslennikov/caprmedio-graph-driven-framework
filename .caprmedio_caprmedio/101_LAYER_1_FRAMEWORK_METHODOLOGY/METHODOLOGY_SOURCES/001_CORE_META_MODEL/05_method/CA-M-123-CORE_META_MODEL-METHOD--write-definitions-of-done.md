@@ -1,24 +1,24 @@
 ---
 subjects:
-  governs: "semantics"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   depends_on:
-    - "CCE"
-version: 17
-updated_at: "2026-10-01 21:38:15 +0400"
+  - Subject/Graph/Rule/CCE
+version: 22
+updated_at: 2026-10-24 04:38:42 +0400
 relations:
   child_of:
-    - CA-M-113
-    - CA-M-122
-    - CA-R-1581
-    - CA-R-1583
-atom_id: "CA-M-123"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-M-113
+  - CA-M-122
+  - CA-R-1581
+  - CA-R-1583
+atom_id: CA-M-123
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 6
+type: Implementation Method
 ---
 # Summary
 

@@ -3,24 +3,27 @@ atom_id: CA-E-301
 content_role: Evaluation
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Tool/ATOM_SEARCH"
+  governs: Subject/Engineering/Tool//ATOM_SEARCH
   depends_on:
-    - "Atom"
-    - "Artifact/Carrier"
-    - "Scope Unit"
-    - "Search Atom Carriers"
-version: 20
-updated_at: "2026-10-21T16:54:03Z"
-relations: {"evaluation_for":["CA-R-863","CA-O-046","CA-O-201"]}
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 26
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-863
+  - CA-O-046
+  - CA-O-201
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 4
+type: Eval Case
 ---
 # Summary
 

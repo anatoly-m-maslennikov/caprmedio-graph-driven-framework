@@ -1,21 +1,27 @@
 ---
 subjects:
-  governs: "Confidence Threshold.Resolution"
+  governs: Confidence Threshold.Resolution
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Confidence Threshold", "Entity/Continuant/Actor/Type: Operator", "Hub Atom", "Entity/Continuant/Object/Project.Framework Settings", "Property", "Entity/Continuant/Actor/Type: AI Agent"]
-version: 10
-updated_at: "2026-10-15 18:48:10 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Confidence Threshold
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Hub Atom
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Term//Property
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+version: 15
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - "CA-R-1428"
-atom_id: "CA-M-271"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-R-1428
+atom_id: CA-M-271
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 Resolve confidence thresholds by source precedence

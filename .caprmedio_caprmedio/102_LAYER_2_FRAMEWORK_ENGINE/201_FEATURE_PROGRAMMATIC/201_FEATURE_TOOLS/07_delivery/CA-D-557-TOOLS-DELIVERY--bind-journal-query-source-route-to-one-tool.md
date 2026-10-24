@@ -3,17 +3,23 @@ atom_id: CA-D-557
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 04:47:55 +0400"
+version: 8
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/source binding"
-  depends_on: [Workflow, Step, Action, Tool, Implementation]
+  governs: Subject/Engineering/Tool/FIND_AND_FETCH_JOURNAL_EVENTS/source binding
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Tool//FIND_AND_FETCH_JOURNAL_EVENTS
+  - Subject/Engineering/Journal Event Query/Source Route
 relations:
-  delivery_for: [CA-R-1872]
+  delivery_for:
+  - CA-R-1872
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

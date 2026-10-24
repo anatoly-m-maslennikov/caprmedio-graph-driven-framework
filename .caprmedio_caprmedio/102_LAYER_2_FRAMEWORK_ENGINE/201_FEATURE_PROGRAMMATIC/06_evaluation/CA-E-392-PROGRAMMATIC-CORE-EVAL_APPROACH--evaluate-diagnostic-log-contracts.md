@@ -2,19 +2,26 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "diagnostic-log-contract"
+  governs: Subject/Engineering/Diagnostic Log.Contract
   depends_on:
-    - "programmatic software"
-    - "Logging Policy"
-version: 7
-updated_at: 2026-09-01 02:10:00 +0400
+  - programmatic software
+  - Logging Policy
+version: 12
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-163
+  - CA-M-163
   derived_from:
-    - CA-A-053
+  - CA-A-053
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-392
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: PROGRAMMATIC
+type: Eval Case
+tier: 1
 ---
 # Evaluate diagnostic log contracts
 

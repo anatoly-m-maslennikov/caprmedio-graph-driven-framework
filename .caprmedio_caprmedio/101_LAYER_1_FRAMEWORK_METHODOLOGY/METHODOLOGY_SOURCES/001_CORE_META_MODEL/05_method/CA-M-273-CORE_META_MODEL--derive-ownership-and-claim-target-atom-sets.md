@@ -1,19 +1,28 @@
 ---
 subjects:
-  governs: "Atom selection"
+  governs: Atom selection
   depends_on:
-    ["Entity/Node/Continuant/Atom.Author", "Owned Atoms", "Targeting Atoms", "Subtree-owned Atoms", "Subtree-targeting Atoms", "Entity/Node/Continuant/Scope Unit", "Entity/Carrier", "Entity/Node/Continuant/Atom.Target Scope Unit", "Atom/Content Role", "Entity/Node/Continuant/Atom.Status", "Entity/Node/Continuant/Atom", "Entity/Carrier/Directory Carrier"]
-version: 16
-updated_at: "2026-10-19 15:54:45 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Author
+  - Owned Atoms
+  - Subject/Domain/Node/Continuant/Atom
+  - Subtree-owned Atoms
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Atom.Target Scope Unit
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Atom.Status
+  - Subject/Engineering/Carrier/Directory Carrier
+version: 21
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-M-273"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-M-273
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

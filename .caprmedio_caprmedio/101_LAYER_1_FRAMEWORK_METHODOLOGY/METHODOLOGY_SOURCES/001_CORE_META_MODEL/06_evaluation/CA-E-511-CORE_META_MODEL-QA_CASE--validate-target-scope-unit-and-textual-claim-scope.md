@@ -1,29 +1,36 @@
 ---
 atom_id: CA-E-511
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Target Scope Unit"
+  governs: Subject/Domain/Node/Continuant/Atom.Target Scope Unit
   depends_on:
-    ["Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Atom.Substance", "Atom Scope", "Entity/Node/Continuant/Atom.Subjects", "Current-scope Atom", "Hub Atom", "Entity/Node/Continuant/Actor/Type: Operator", "Relational Atom", "Entity/Node/Continuant/Scope Unit"]
-version: 8
-updated_at: "2026-10-19 15:55:16 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Author
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Local Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - Current-scope Atom
+  - Hub Atom
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-D-482
-    - CA-D-495
-    - CA-R-1271
-    - CA-R-1588
-    - CA-R-1595
-    - CA-R-1596
-    - CA-R-922
-    - CA-R-923
-global_tier: 11
+  - CA-D-482
+  - CA-D-495
+  - CA-R-1271
+  - CA-R-1588
+  - CA-R-1595
+  - CA-R-1596
+  - CA-R-922
+  - CA-R-923
+tier: 4
 ---
 # Summary
 

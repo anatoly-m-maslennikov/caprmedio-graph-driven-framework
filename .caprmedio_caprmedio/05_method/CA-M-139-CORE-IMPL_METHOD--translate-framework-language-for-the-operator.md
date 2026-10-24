@@ -1,17 +1,28 @@
 ---
-version: 9
-updated_at: "2026-09-17 16:32:50 +0000"
-relations: {"child_of":["CA-M-005"],"method_for":["CA-R-1057"]}
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  child_of:
+  - CA-M-005
+  method_for:
+  - CA-R-1057
 subjects:
-  governs: "Operator/communication"
+  governs: Operator/communication
   depends_on:
-    - "Operator"
-    - "Term"
-    - "CAPRMEDIO Framework Instance"
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Term
+  - CAPRMEDIO Framework Instance
 cce_version: cce_1
 cce_form: method
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-139
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Implementation Method
+tier: 3
 ---
 # Translate framework language for the operator
 

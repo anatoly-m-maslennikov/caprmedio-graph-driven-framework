@@ -1,14 +1,27 @@
 ---
 subjects:
-  governs: "framework-engine-mcp"
-  depends_on: [Tool, Model, Implementation, Admission, Operator]
+  governs: framework-engine-mcp
+  depends_on:
+  - Subject/Engineering/MCP.Tool Invocation Contract
+  - Model
+  - Implementation
+  - Admission
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
-  relates_to: [CA-R-1930]
-version: 12
-updated_at: "2026-10-11 01:19:56 +0400"
+  relates_to:
+  - CA-R-1930
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a01cb6-4ee4-7553-b68d-0823dda35094
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-1107
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: MCP
+type: Rule
+tier: 1
 ---
 # Require complete Tool invocation contracts
 

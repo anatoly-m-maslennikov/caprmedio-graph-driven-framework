@@ -9,12 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Next third-partition Concern and Skill packet evidence"
+  governs: Next third-partition Concern and Skill packet evidence
   depends_on:
-    - "Project"
-    - "Operations"
-version: 1
-updated_at: "2026-10-04 10:20:47 +0400"
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   relates_to:
     - CA-P-1231

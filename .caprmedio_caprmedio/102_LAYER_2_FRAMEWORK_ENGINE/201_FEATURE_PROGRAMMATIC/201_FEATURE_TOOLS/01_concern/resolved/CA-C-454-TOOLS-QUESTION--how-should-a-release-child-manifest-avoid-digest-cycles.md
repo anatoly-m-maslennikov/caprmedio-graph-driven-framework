@@ -8,11 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 07:59:34 +0400"
+version: 3
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Release child manifest digest-cycle avoidance"
-  depends_on: [Tool, Manifest, Digest, Projection]
+  governs: Subject/Engineering/Manifest Hashing/Digest Cycles
+  depends_on:
+  - Subject/Engineering/Release Packaging/Derived Output Prediction
 relations:
   concern_about: [CA-D-561, CA-D-566, CA-D-567, CA-D-571, CA-E-572]
 ---

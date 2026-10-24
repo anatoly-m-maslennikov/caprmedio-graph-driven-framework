@@ -1,20 +1,27 @@
 ---
 subjects:
-  governs: "Atom/Current Active Snapshot"
+  governs: Atom/Current Active Snapshot
   depends_on:
-    - "Projection"
-    - "Artifact/Revision"
-version: 13
-updated_at: "2026-09-17 20:53:10 +0000"
+  - Subject/Domain/Node/Continuant/Projection
+  - Artifact/Revision
+version: 19
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   evaluation_for:
-    - CA-R-1060
-    - CA-R-1061
-    - CA-R-1062
-    - CA-M-147
+  - CA-R-1060
+  - CA-R-1061
+  - CA-R-1062
+  - CA-M-147
+atom_id: CA-E-070
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
 ---
 # Current active Atom snapshot correctness
 

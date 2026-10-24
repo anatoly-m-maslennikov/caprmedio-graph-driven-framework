@@ -3,15 +3,15 @@ atom_id: CA-R-1041
 content_role: Requirement
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "artifact-operations"
-version: 10
-updated_at: "2026-10-12 23:58:28 +0400"
+  governs: Subject/Engineering/Tool//REPLACE_ATOM
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
+tier: 3
+type: Rule
 ---
 # Summary
 

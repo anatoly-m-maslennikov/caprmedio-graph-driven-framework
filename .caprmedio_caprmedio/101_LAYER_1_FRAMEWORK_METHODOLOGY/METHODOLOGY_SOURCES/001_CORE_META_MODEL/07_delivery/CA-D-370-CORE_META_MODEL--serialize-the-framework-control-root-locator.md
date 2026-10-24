@@ -1,21 +1,23 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Framework Settings.Framework Control-Root Locator"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings.Framework Control-Root Locator
   depends_on:
-    ["Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Project", "Entity/Carrier/Directory Carrier"]
-version: 14
-updated_at: "2026-10-19 15:55:35 +0400"
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/Carrier/Directory Carrier
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - "CA-D-361"
-atom_id: "CA-D-370"
-content_role: "Delivery"
+  - CA-D-361
+atom_id: CA-D-370
+content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 6
+type: Eng Decision
 ---
 # Summary
 

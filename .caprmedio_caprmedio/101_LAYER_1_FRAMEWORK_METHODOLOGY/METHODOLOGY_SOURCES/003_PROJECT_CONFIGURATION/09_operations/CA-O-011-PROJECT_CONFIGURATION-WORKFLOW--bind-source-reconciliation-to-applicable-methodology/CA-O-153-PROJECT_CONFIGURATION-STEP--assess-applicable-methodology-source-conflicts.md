@@ -4,18 +4,27 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-19 15:56:33 +0400"
+version: 11
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Applicable Methodology Compilation Assess Step"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Applicable Methodology Compilation Assess Step'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Assess Source Conflicts", "Methodology Source.Expansion Boundary", "Core Meta-Model", "Entity/Node/Continuant/Atom", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest"]
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Domain/Node/Continuant/Scope Unit.Expansion Boundary
+  - Core Meta-Model
+  - Subject/Domain/Node/Continuant/Atom
 relations:
-  relates_to: [CA-O-011, CA-O-005]
+  relates_to:
+  - CA-O-011
+  - CA-O-005
+tier: 3
 ---
 # Summary
 

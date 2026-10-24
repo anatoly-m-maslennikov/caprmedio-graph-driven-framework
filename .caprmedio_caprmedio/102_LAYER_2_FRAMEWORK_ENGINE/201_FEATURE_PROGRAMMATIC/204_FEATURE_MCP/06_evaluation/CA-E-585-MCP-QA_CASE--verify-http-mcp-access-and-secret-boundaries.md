@@ -1,19 +1,27 @@
 ---
 atom_id: CA-E-585
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 04:37:30 +0400"
+version: 5
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "MCP/HTTP endpoint/Security evaluation"
-  depends_on: [MCP, HTTP, Request, Operator, Permission, Tool, Session]
+  governs: Subject/Engineering/MCP/HTTP Access Boundary Evaluation
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Engineering/HTTP
+  - Subject/Engineering/HTTP/Request
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Permission
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Engineering/Agentic Instruction/Tool Call Execution Detail
 relations:
-  evaluation_for: [CA-R-1885, CA-M-357]
+  evaluation_for:
+  - CA-R-1885
+  - CA-M-357
+tier: 5
 ---
 # Summary
 

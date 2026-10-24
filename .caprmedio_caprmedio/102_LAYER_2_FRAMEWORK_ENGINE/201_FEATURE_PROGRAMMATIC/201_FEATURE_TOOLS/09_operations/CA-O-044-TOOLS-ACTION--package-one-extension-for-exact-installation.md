@@ -2,17 +2,24 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: "Package Extension"
+  governs: Package Extension
   depends_on:
-    - "Action"
-    - "Extension"
-    - "Artifact/Carrier"
-    - "Artifact/Revision"
-version: 3
-updated_at: "2026-09-17 03:42:35 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Extension
+  - Subject/Engineering/Carrier
+  - Artifact/Revision
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-O-044
+status: Active
+content_role: Operations
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Action
+tier: 1
 ---
 # Package one Extension for exact installation
 

@@ -3,17 +3,20 @@ atom_id: CA-R-2007
 content_role: Requirement
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-21 04:10:54 +0400"
+version: 5
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: Entity/Node/Continuant/Implementation
+  governs: Subject/Engineering/Operational Diagnostics
   depends_on: []
 relations:
-  depends_on: [CA-R-1884, CA-R-1885, CA-R-1848]
+  depends_on:
+  - CA-R-1884
+  - CA-R-1885
+  - CA-R-1848
+tier: 4
+type: Goal
 ---
 # Summary
 

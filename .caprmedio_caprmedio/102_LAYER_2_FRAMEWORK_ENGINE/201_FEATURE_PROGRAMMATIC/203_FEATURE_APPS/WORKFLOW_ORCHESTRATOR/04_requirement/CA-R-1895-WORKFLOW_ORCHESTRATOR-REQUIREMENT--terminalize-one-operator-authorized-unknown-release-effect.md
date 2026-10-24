@@ -2,17 +2,29 @@
 atom_id: CA-R-1895
 content_role: Requirement
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-07 03:38:00 +0400"
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "Operator-authorized unknown Release effect resolution"
-  depends_on: [Release Version, Workflow Run, Step Run, Action Run, Operator, Permission, Journal, Source, DBOS, Implementation]
+  governs: Operator-authorized unknown Release effect resolution
+  depends_on:
+  - Release Version
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Action Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Permission
+  - Subject/Domain/Node/Continuant/History/Journal
+  - DBOS
+  - Subject/Engineering/Release Version/Failure and Effect Recovery
 relations:
-  relates_to: [CA-R-1883, CA-O-164, CA-C-517]
+  relates_to:
+  - CA-R-1883
+  - CA-O-164
+  - CA-C-517
+tier: 3
+type: Rule
 ---
 # Summary
 

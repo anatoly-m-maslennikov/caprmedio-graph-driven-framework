@@ -1,26 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/History/Journal"
+  governs: Subject/Domain/Node/Continuant/History/Journal
   depends_on:
-    ["Core Meta-Model", "Extension", "Entity/Node/Continuant/Projection/Type: Artifact Change Log", "Entity/Node/Continuant/Projection/Type: Process Log"]
-version: 9
-updated_at: "2026-10-19 15:55:05 +0400"
+  - Core Meta-Model
+  - Subject/Engineering/Extension
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Artifact Change Log'
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Process Log'
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1466
-    - CA-R-1720
-    - CA-R-1463
-    - CA-R-1467
-    - CA-R-1468
-atom_id: "CA-E-464"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-R-1466
+  - CA-R-1720
+  - CA-R-1463
+  - CA-R-1467
+  - CA-R-1468
+atom_id: CA-E-464
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 4
 ---
 # Summary
 

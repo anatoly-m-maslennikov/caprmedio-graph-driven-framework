@@ -1,25 +1,31 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Graph"
+  governs: CAPRMEDIO Graph
   depends_on:
-    ["Single Source of Truth", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Structural Entity", "Entity/Node/Continuant/History/Journal", "Entity/Relation", "Relation Kind"]
-version: 10
-updated_at: "2026-10-19 15:55:06 +0400"
+  - Single Source of Truth
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Structural Entity
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Graph/Relation
+  - Subject/Graph/Relation/Type
+version: 16
+updated_at: 2026-10-24 01:50:12 +0400
 relations:
   evaluation_for:
-    - CA-R-1437
-    - CA-R-1470
-    - CA-R-1471
-    - CA-R-1746
-atom_id: "CA-E-466"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - CA-R-1437
+  - CA-R-1470
+  - CA-R-1471
+  - CA-R-1746
+atom_id: CA-E-466
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 3
 ---
 # Summary
 Validate Single Source of Truth in secondary graphs

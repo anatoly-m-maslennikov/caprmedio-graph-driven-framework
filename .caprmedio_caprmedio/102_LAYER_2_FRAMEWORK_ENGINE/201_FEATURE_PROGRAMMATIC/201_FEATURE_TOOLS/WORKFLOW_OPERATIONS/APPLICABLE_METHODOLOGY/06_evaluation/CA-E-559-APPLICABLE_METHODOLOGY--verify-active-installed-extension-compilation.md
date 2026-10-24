@@ -1,20 +1,28 @@
 ---
 atom_id: CA-E-559
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 23:02:50 +0400"
+version: 5
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY"
-  depends_on: [Tool, Extension, Project Configuration, Methodology Source, Projection, Journal]
+  governs: Tool/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY
+  depends_on:
+  - Tool
+  - Extension
+  - Project Configuration
+  - Methodology Source
+  - Projection
+  - Journal
 relations:
-  evaluation_for: [CA-R-1839, CA-R-1842, CA-M-226]
+  evaluation_for:
+  - CA-R-1839
+  - CA-R-1842
+  - CA-M-226
+tier: 5
 ---
 # Summary
 

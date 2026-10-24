@@ -3,16 +3,23 @@ atom_id: CA-R-1847
 content_role: Requirement
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 14
-updated_at: "2026-10-18 13:31:41 +0400"
+version: 17
+updated_at: 2026-10-24 03:32:45 +0400
 subjects:
-  governs: "MCP/selected Workflow capability routes"
-  depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal]
+  governs: Subject/Engineering/MCP.selected Workflow capability routes
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Engineering/Tool
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution/Run
+  - Subject/Domain/Node/Continuant/History/Journal
 relations: {}
+type: Rule
+tier: 3
 ---
 # Summary
 
@@ -28,7 +35,7 @@ Exposure uses the Project Settings snapshot loaded when the MCP host/gateway sta
 
 ## Claim
 
-MCP **must** expose only the capability adapters admitted below through the existing reloadable Project-local server. Non-Release selected routes delegate execution and actual Run observations to shared `WORKFLOW_OPERATIONS/RUN_SUPPORT`; local **and** public Release use their existing direct runners.
+MCP **must** expose only the capability adapters admitted below through the existing reloadable Project-local server. Except for the narrow current O016 Version 18 Integrated pending/status/`submit_result` handoff described below, Non-Release selected routes delegate execution and actual Run observations to shared `WORKFLOW_OPERATIONS/RUN_SUPPORT`; local **and** public Release use their existing direct runners.
 
 ## Details
 
@@ -60,7 +67,7 @@ The only Release commands are `release_version` and `public.release`, bound in C
 
 Neither direct Release command requires a separate whole-catalog, dependency-registry or Release-source-admission validation gate. They do not require D572/D613 admission records or a schema-6 registry extension merely to execute release. Normal explicit inputs, connected Project ownership, current source/file safety, existing Operator/client permissions, installation locking, actual installed readback and the public Git/PR permission boundary remain applicable. Local and public release never implicitly invoke each other. This exception removes only the extra Release registry/dispatch machinery; the full canonical manifest gate and query admission frontiers remain mandatory for the other selected routes. Historical Tasks remain provenance, not extra current Release approval gates.
 
-Every non-Release selected route delegates one normalized CA-D-527 v3 request to shared
+Except for the narrow current O016 Version 18 Integrated pending/status/`submit_result` handoff described below, every non-Release selected route delegates one normalized CA-D-527 v3 request to shared
 `run_selected_operation(request)`: request/route identity, typed
 input/parameters, target-frontier and effects digests, caller-chosen
 idempotency/retry key, optional real parent lineage, explicit current sealed
@@ -70,7 +77,7 @@ the sole canonical manifest binding. `source_freshness` carries only current
 selected-source registry/binding evidence; `definition_manifest_ref`,
 `definition_manifest_digest`, or any other manifest ref/digest supplied there
 or elsewhere are unknown shadow fields and are rejected, including if their
-digest differs. It returns only the shared `RunResult`: real Run/definition IDs,
+digest differs. For those general routes, it returns only the shared `RunResult`: real Run/definition IDs,
 outcome, safe result/effect/report/output refs, actual supplied Journal observations and logging I/O diagnostics when present,
 source currentness and diagnostics, without Journal-proof or completion prerequisites. `mode` defaults to
 `preview`; preview creates no Run, Action Run, Event, mutation authority, or
@@ -92,7 +99,9 @@ expressions, secrets, or a second parser.
 
 `get_selected_workflow_run` and `get_selected_action_run` read only one exact actual Run/Action Run and return its observed status, safe output/result/effect references, lineage, source currentness and actual logging diagnostics when present. Journal entries do not prove those source-effect outcomes. The obsolete `recover_selected_run_recording` route, canonical receipt prerequisite and recording-retry protocol are not admitted. Reading or repeated log rows never create another Run or replay an Action or Workflow. MCP must not implement a parallel request schema or execution path.
 
-The adapters reuse the server's existing Project-root/stdin binding, discovery helpers, `workflow_orchestrator`, and hot-reload gateway. CA-D-521's existing DBOS `enqueue_selected` variant remains the general selected-dispatch variant. For non-Release selected routes, the sole connected-process exception is a changed Subject-only `update_atom` execute request admitted under CA-R-866/CA-O-030: the existing outer connected MCP host may obtain the real Codex request/session form response and privately issue and consume its nonserializable one-use confirmation through the existing selected execution and shared Run/lifecycle service in that same process, without DBOS enqueue. All existing request/preview/manifest/currentness/permission/assessment/actual-Run/lock/source-effect checks remain required; plain Journal append/read is not approval, proof or a completion gate. Every other non-Release selected execution retains the existing APP queue path; the exception introduces no second executor or schema, standalone route, caller approval field or child/worker confirmation relay. The adapters add no alternate root, shell, arbitrary path, generic mutation, implicit dispatch, Journal writer, or duplicate business behavior. Existing discovery/context helpers and the two read-only Run observation routes remain available; no replacement recovery route is introduced. Route annotations truthfully describe preview/execute behavior and do not override client permission policy.
+For the current source-bound `run_implementation_workflow`, the explicitly admitted current Integrated binding is the O016 Project Configuration Workflow at observed Version 18, limited to its eight Integrated Steps and the CA-O-231 entry, after the existing manifest/currentness/permission/assessment checks. Its direct APP/canonical RunTracker handoff may expose the current Step prompt, complete bound inputs, expected result contract and opaque one-use continuation while the Step remains pending: a prompt is not completion. The controlling session may perform or delegate the Step and call the same route with a closed `submit_result` packet whose inner fields are exactly `operation=submit_result`, `run_id`, `action_run_id`, `continuation_id`, and `result={result, outputs, evidence, blockers}`. The server owns continuation admission, result validation and digest/policy binding; callers cannot override policy. An exact duplicate returns the original response, while a conflicting, stale or oversized submission is refused without replay. Read-only status strips `capture.definitions`, exposes the actual retained recording diagnostics, and never recovers or replays work. With no checkpoint, read-only observation returns `not_observed` with the requested Run ID only; it never fabricates an actual root/Run start, prompt or recovery. A known graph-blocked terminal is reported by the public wrapper as `disposition=terminal`, `status=interrupted_pending`, `outcome=interrupted_pending`, `graph_result.outcome=interrupted_pending`, with the actual underlying `run_disposition=interrupted`; an unknown root or child interruption without bound canonical graph proof remains `interrupted_pending` with no prompt. Tampered or missing graph references refuse. O016 Version 17 retains its legacy projection and DBOS/queue dispatch path; Version 18 is the observed current admission, not a timeless `>=18` rule, and any future Version requires a fresh current compatible admission. No projection compilation gate is introduced.
+
+The adapters reuse the server's existing Project-root/stdin binding, discovery helpers, `workflow_orchestrator`, and hot-reload gateway. CA-D-521's existing DBOS `enqueue_selected` variant remains the general selected-dispatch variant. The separate connected-process exception is a changed Subject-only `update_atom` execute request admitted under CA-R-866/CA-O-030: the existing outer connected MCP host may obtain the real Codex request/session form response and privately issue and consume its nonserializable one-use confirmation through the existing selected execution and shared Run/lifecycle service in that same process, without DBOS enqueue. All existing request/preview/manifest/currentness/permission/assessment/actual-Run/lock/source-effect checks remain required; plain Journal append/read is not approval, proof or a completion gate. Every remaining non-Release selected execution retains the existing APP queue path; the exception introduces no second executor or schema, standalone route, caller approval field or child/worker confirmation relay. The adapters add no alternate root, shell, arbitrary path, generic mutation, implicit dispatch, Journal writer, or duplicate business behavior. Existing discovery/context helpers and the two read-only Run observation routes remain available; no replacement recovery route is introduced. Route annotations truthfully describe preview/execute behavior and do not override client permission policy.
 
 ### Instructed Subjects-only batch dispatch
 
@@ -102,5 +111,6 @@ The exact packet uses the existing selected update route, request Initiative and
 
 - Current CA-A-1142 selected registry; current CA-P-1618 and CA-P-1535 query admission carriers; current CA-O-164 and CA-D-547, the direct local Release binding; current CA-O-188, the direct public Release definition; CA-P-1622/CA-P-1869 retain historical acceptance provenance, not current runtime admission gates; CA-P-1117 v7 shared Run obligation.
 - CA-D-527 v3; CA-D-521 v7; CA-D-548 v2; CA-R-1720 v19; CA-R-1525 v7; CA-R-1728 v16; CA-D-523 v2; CA-R-1850 v2; CA-R-1866 v3; CA-R-1867 v1.
+- Current CA-O-016 Project Configuration Workflow (observed Version 18), CA-R-1527 Core Meta Model General, CA-R-1845 and CA-D-544 supply the Integrated prompt/continuation contract; CA-E-652 remains Workflow-level algorithm/evaluation authority, not an MCP admission gate.
 
 The existing `atom_update` preparation Tool also binds CA-D-425's `stage_subject_batch` with closed `{operation, subject_batch: {path, digest}, limit?}`, strict limit1..10/default10, compact actual progress and final schema1 packet. This creates no canonical/history effect. Draft-backed packets bind every temporary-ID/Status proposal; map-only execution remains available. Existing request authorization admits subsequent exact promotion without an extra form/review/full-validation round. Restore canonical ID/original Status through normal writer checks; canonical ID grammar and ordinary `preview_subjects`/`stage_subjects` behavior are unchanged.

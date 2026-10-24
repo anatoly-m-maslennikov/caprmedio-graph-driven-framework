@@ -2,20 +2,35 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Workflow Run"
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run
   depends_on:
-    - "Workflow"
-    - "Step Run"
-    - "Action"
-    - "Artifact/Revision"
-    - "Journal"
-    - "Projection"
-    - "Operator"
-version: 2
-updated_at: "2026-09-18 21:51:53 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Artifact/Revision
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {"evaluation_for": ["CA-R-1524", "CA-M-302"], "relates_to": ["CA-E-352", "CA-E-489", "CA-E-491", "CA-E-494"]}
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations:
+  evaluation_for:
+  - CA-R-1524
+  - CA-M-302
+  relates_to:
+  - CA-E-352
+  - CA-E-489
+  - CA-E-491
+  - CA-E-494
+atom_id: CA-E-493
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+type: Eval Case
+tier: 5
 ---
 # Verify Workflow handoff recovery
 

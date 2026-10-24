@@ -2,17 +2,25 @@
 atom_id: CA-M-341
 content_role: Method
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 17:12:15 +0000"
+version: 7
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "MCP/HTTP endpoint/Gateway implementation"
-  depends_on: [MCP, HTTP, Gateway, Tool, Generation, Session, Implementation]
+  governs: Subject/Engineering/MCP/HTTP endpoint/Gateway implementation
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Engineering/HTTP
+  - Subject/Engineering/Gateway
+  - Subject/Engineering/MCP.HTTP Transport
+  - Subject/Engineering/Generation
+  - Subject/Domain/Node/Occurrent/Session
+  - Subject/Engineering/MCP/Implementation Reload
 relations:
-  method_for: [CA-R-1884]
+  method_for:
+  - CA-R-1884
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

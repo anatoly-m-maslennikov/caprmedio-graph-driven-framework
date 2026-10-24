@@ -4,27 +4,25 @@ content_role: Operations
 type: Action
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: "Admit Sealed Drafts as Active Atoms"
+  governs: Admit Sealed Drafts as Active Atoms
   depends_on:
-    - "Action"
-    - "Tool/ATOM_PROMOTE"
-    - "Atom"
-    - "Atom/Identifier"
-    - "Atom/Revision"
-    - "Artifact/Carrier"
-    - "Journal/Record"
-version: 5
-updated_at: "2026-10-20 21:39:01 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Tool//ATOM_PROMOTE
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Engineering/Carrier
+version: 9
+updated_at: 2026-10-24 00:51:05 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+tier: 3
 ---
 # Admit sealed drafts as active Atoms
 

@@ -7,11 +7,17 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 18:38:40 +0000"
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "MCP/selected source pin refresh"
-  depends_on: [Projection, Workflow, Action, Operator, Journal, Source Carrier]
+  governs: MCP/selected source pin refresh
+  depends_on:
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Carrier/File Carrier
 relations:
   concern_about: [CA-P-1800, CA-P-1799]
 ---

@@ -1,20 +1,34 @@
 ---
 atom_id: CA-E-594
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-07 04:17:42 +0400"
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Operator-authorized unknown Release effect resolution/evaluation"
-  depends_on: [Release Version, Workflow Run, Step Run, Action Run, Operator, Permission, Journal, Source, Queue, DBOS, Implementation]
+  governs: Operator-authorized unknown Release effect resolution/evaluation
+  depends_on:
+  - Release Version
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Action Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Permission
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Queue
+  - DBOS
+  - Subject/Engineering/Release Version/Failure and Effect Recovery
 relations:
-  evaluation_for: [CA-R-1895, CA-M-351, CA-D-589]
-  relates_to: [CA-E-583, CA-C-517]
+  evaluation_for:
+  - CA-R-1895
+  - CA-M-351
+  - CA-D-589
+  relates_to:
+  - CA-E-583
+  - CA-C-517
+tier: 6
 ---
 # Summary
 

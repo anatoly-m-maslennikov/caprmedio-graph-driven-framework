@@ -3,16 +3,16 @@ atom_id: CA-R-1850
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: QUERY_FILTER
-  depends_on: [Tool, Query, Artifact, Journal]
+  governs: Subject/Engineering/Query Filter Contract
+  depends_on: []
 relations: {}
+type: Rule
+tier: 3
 ---
 # Summary
 

@@ -9,10 +9,13 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Atom/Revision/Status"
-  depends_on: ["Atom/Revision", "Artifact/Carrier", "Atom/Revision/Updated At"]
-version: 1
-updated_at: "2026-10-04 17:58:53 +0000"
+  governs: Atom/Revision/Status
+  depends_on:
+  - Atom/Revision
+  - Subject/Engineering/Carrier
+  - Atom/Revision/Updated At
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-O-010, CA-O-011, CA-O-015, CA-P-1478]
 ---

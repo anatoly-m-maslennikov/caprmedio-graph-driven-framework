@@ -1,19 +1,28 @@
 ---
-atom_id: "CA-O-188"
+atom_id: CA-O-188
 content_role: Operations
 type: Workflow
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-status: "Active"
-author: "Anatoly Maslennikov"
+status: Active
+author: Anatoly Maslennikov
 subjects:
-  governs: "Release a selected public Version"
-  depends_on: [Operator, Version, README, Pull Request, Version History, Tool]
-version: 7
-updated_at: "2026-10-15 00:35:00 +0000"
+  governs: Release a selected public Version
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Version
+  - README
+  - Pull Request
+  - Subject/Engineering/Release/Version History
+  - Tool
+version: 10
+updated_at: 2026-10-24 00:38:25 +0400
 relations:
-  invokes: [CA-O-189, CA-O-191, CA-O-195, CA-O-197]
+  invokes:
+  - CA-O-189
+  - CA-O-191
+  - CA-O-195
+  - CA-O-197
+tier: 3
 ---
 # Summary
 

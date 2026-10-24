@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: scope-topology
+  governs: Subject/Engineering/MCP
   depends_on: []
-version: 10
-updated_at: "2026-10-18 03:48:21 +0400"
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
 atom_id: CA-R-1096
 content_role: Requirement
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
 relations: {}
+tier: 3
+type: Rule
 ---
 # Summary
 

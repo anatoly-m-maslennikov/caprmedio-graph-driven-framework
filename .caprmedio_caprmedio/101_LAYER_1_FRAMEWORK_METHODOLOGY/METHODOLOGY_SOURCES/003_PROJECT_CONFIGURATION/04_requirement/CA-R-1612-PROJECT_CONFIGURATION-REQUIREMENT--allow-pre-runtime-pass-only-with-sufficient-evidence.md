@@ -3,26 +3,26 @@ atom_id: CA-R-1612
 content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Realization Graph"
+  governs: Realization Graph
   depends_on:
-    - "Atom/Claim"
-    - "Evaluation"
-    - "Evidence"
-    - "Relation Derivation Class"
-version: 4
-updated_at: "2026-10-03 00:55:03 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Evaluation
+  - Evidence
+  - 'Subject/Graph/Relation/Type: Relation Derivation Class'
+version: 8
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - CA-M-312
-    - CA-R-1494
-    - CA-R-1616
-    - CA-R-1617
-    - CA-R-1687
-global_tier: 11
+  - CA-M-312
+  - CA-R-1494
+  - CA-R-1616
+  - CA-R-1617
+  - CA-R-1687
+tier: 3
+type: Rule
 ---
 # Summary
 

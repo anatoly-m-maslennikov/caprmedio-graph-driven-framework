@@ -1,19 +1,22 @@
 ---
 subjects:
-  governs: "Entity/Carrier.Canonical Address"
+  governs: Subject/Engineering/Carrier.Canonical Address
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom", "Entity/Carrier/Directory Carrier"]
-version: 18
-updated_at: "2026-10-19 15:55:24 +0400"
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier/Directory Carrier
+version: 22
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-296"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-296
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

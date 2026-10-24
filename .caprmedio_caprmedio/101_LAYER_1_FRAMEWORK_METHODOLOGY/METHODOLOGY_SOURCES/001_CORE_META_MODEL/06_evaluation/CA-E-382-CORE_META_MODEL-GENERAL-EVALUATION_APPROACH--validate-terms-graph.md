@@ -1,31 +1,42 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Terms Graph"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Terms Graph'
   depends_on:
-    ["Entity/Node/Continuant/Term", "Root Term", "NARROWER_THAN", "Entity/Relation", "Relation Kind", "CAPRMEDIO Graph", "Governed Term", "Definition Atom", "Entity/Node/Continuant/Atom.Substance", "Entity", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom"]
-version: 24
-updated_at: "2026-10-19 15:54:56 +0400"
+  - Subject/Domain/Node/Continuant/Term
+  - Root Term
+  - NARROWER_THAN
+  - Subject/Graph/Relation
+  - Subject/Graph/Relation/Type
+  - CAPRMEDIO Graph
+  - Definition Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Atom
+version: 32
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1335
-    - CA-R-1246
-    - CA-R-1435
-    - CA-R-1244
-    - CA-R-1345
-    - CA-R-1347
-    - CA-R-1319
-    - CA-R-1454
-    - CA-R-1437
-    - CA-R-1472
-atom_id: "CA-E-382"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 10
+  - CA-R-1335
+  - CA-R-1246
+  - CA-R-1435
+  - CA-R-1244
+  - CA-R-1345
+  - CA-R-1347
+  - CA-R-1319
+  - CA-R-1454
+  - CA-R-1437
+  - CA-R-1472
+atom_id: CA-E-382
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 3
 ---
 # Summary
 

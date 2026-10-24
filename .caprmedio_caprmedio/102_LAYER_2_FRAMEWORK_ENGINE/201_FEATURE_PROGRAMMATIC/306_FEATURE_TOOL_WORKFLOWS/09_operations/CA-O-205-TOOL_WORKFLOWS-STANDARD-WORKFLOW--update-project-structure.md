@@ -4,17 +4,31 @@ content_role: Operations
 type: Workflow
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow"
-  depends_on: ["Project Structure","Scope Unit","Step","Workflow Run","Tool"]
-version: 4
-updated_at: "2026-10-13 02:50:00 +0400"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Engineering/Configuration/Project Structure Workflow Realization
+version: 6
+updated_at: 2026-10-24 00:38:25 +0400
 relations:
-  relates_to: [CA-O-219, CA-O-209, CA-O-218, CA-D-631, CA-O-204, CA-R-1829, CA-D-441, CA-R-1935, CA-M-375, CA-M-305]
+  relates_to:
+  - CA-O-219
+  - CA-O-209
+  - CA-O-218
+  - CA-D-631
+  - CA-O-204
+  - CA-R-1829
+  - CA-D-441
+  - CA-R-1935
+  - CA-M-375
+  - CA-M-305
+tier: 3
 ---
 # Summary
 

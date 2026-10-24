@@ -1,20 +1,37 @@
 ---
 subjects:
-  governs: "Entity/Carrier"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Carrier/File Carrier", "Entity/Carrier/Directory Carrier", "Entity/Node/Continuant/Atom.ID", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom/Content Role: Plan.Work Sequence Number", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done"]
-version: 14
-updated_at: "2026-10-20T20:50:42.246Z"
-relations: {"evaluation_for": ["CA-D-460", "CA-D-461", "CA-D-469", "CA-D-470", "CA-D-472", "CA-D-475", "CA-R-1534", "CA-R-1599", "CA-R-997"]}
-atom_id: "CA-E-502"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - Subject/Engineering/Carrier/File Carrier
+  - Subject/Engineering/Carrier/Directory Carrier
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Work Sequence Number'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Label'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Status'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Definition of Done'
+version: 20
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-D-460
+  - CA-D-461
+  - CA-D-469
+  - CA-D-470
+  - CA-D-472
+  - CA-D-475
+  - CA-R-1534
+  - CA-R-1599
+  - CA-R-997
+atom_id: CA-E-502
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 Validate Plan Carrier identity **and** placement

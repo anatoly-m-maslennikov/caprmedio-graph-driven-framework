@@ -3,20 +3,24 @@ atom_id: CA-R-1610
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Status"
+  governs: Subject/Domain/Node/Continuant/Atom.Status
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Implementation", "Entity/Node/Continuant/Projection", "Single Source of Truth", "Spec Content Roles"]
-version: 7
-updated_at: "2026-10-19 15:53:43 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Engineering/Implementation Reconstructability
+  - Subject/Domain/Node/Continuant/Projection
+  - Single Source of Truth
+  - Subject/Domain/Node/Continuant/Selection
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - CA-R-1470
-    - CA-R-1746
-global_tier: 11
+  - CA-R-1470
+  - CA-R-1746
+tier: 3
+type: Rule
 ---
 # Summary
 

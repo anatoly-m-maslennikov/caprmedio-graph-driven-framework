@@ -9,12 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Third-partition worker proof orchestration"
+  governs: Third-partition worker proof orchestration
   depends_on:
-    - "Project"
-    - "Operations"
-version: 1
-updated_at: "2026-10-04 11:30:08 +0000"
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
     - CA-P-1320

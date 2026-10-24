@@ -9,12 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Next third-partition validator and migration evidence"
+  governs: Next third-partition validator and migration evidence
   depends_on:
-    - "Project"
-    - "Operations"
-version: 1
-updated_at: "2026-10-04 11:17:17 +0400"
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   relates_to:
     - CA-P-1263

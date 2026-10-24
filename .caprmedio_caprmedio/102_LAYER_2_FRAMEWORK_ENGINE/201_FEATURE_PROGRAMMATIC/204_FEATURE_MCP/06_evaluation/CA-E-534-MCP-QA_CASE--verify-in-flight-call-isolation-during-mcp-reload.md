@@ -1,17 +1,21 @@
 ---
 atom_id: CA-E-534
 content_role: Evaluation
-type: QA_CASE
+type: Eval Case
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 00:48:12 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "MCP/Tool invocation"
-  depends_on: [MCP, Tool, Operator, Project, Implementation, Workflow, Atom]
+  governs: Subject/Engineering/MCP/Implementation Reload
+  depends_on:
+  - Subject/Engineering/MCP
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+tier: 3
 ---
 # Summary
 

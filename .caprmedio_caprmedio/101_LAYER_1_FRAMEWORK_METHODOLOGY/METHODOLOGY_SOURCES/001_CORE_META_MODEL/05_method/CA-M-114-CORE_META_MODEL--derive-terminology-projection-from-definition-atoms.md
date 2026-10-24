@@ -1,19 +1,28 @@
 ---
 subjects:
-  governs: "Terminology Projection Derivation"
+  governs: Subject/Domain/Node/Continuant/Projection
   depends_on:
-    ["Entity/Node/Continuant/Projection/Type: Catalog", "Generator", "Definition Atom", "Governed Term", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Atom.Substance", "Subject", "Subject Path", "Entity", "Entity/Node/Continuant/Term", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
-version: 23
-updated_at: "2026-10-19 15:54:40 +0400"
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Catalog'
+  - Generator
+  - Definition Atom
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject
+  - Subject/Domain/Node
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+version: 30
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-M-114"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-M-114
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

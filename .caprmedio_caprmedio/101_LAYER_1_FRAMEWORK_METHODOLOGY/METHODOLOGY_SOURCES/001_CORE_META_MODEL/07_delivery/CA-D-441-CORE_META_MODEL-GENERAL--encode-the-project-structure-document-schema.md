@@ -1,21 +1,24 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Structure"
+  governs: Subject/Domain/Node/Continuant/Project.Structure
   depends_on:
-    ["Entity/Node/Continuant/Scope Unit", "Entity/Carrier", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Project.Settings"]
-version: 10
-updated_at: "2026-10-19 15:55:47 +0400"
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Project.Settings
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - "CA-D-440"
-atom_id: "CA-D-441"
-content_role: "Delivery"
+  - CA-D-440
+atom_id: CA-D-441
+content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Eng Decision
 ---
 # Summary
 Encode the Project Structure document schema

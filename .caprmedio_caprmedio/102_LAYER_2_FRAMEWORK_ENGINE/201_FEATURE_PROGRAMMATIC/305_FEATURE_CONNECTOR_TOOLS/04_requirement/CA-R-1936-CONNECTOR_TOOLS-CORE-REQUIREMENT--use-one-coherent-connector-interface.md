@@ -1,20 +1,27 @@
 ---
 atom_id: CA-R-1936
 content_role: Requirement
-type: Requirement
+type: Rule
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-14 10:04:27 +0400"
+version: 7
+updated_at: 2026-10-24 01:50:12 +0400
 subjects:
-  governs: "Tool"
-  depends_on: ["Workflow", "Atom", "Scope Unit", "Property"]
+  governs: Subject/Engineering/Tool
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Term//Property
 relations:
-  relates_to: [CA-M-376, CA-D-625, CA-E-628, CA-R-1093]
+  relates_to:
+  - CA-M-376
+  - CA-D-625
+  - CA-E-628
+  - CA-R-1093
+tier: 1
 ---
 # Summary
 

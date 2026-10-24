@@ -2,17 +2,24 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "feature-boundary"
+  governs: feature-boundary
   depends_on: []
-version: 4
-updated_at: 2026-09-02 00:21:00 +0400
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
-    - CA-R-1101
+  - CA-R-1101
   derived_from:
-    - CA-A-058
+  - CA-A-058
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-242
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: APPS
+type: Eng Decision
+tier: 2
 ---
 # Register the AGENT_HOST_PLUGINS unit
 

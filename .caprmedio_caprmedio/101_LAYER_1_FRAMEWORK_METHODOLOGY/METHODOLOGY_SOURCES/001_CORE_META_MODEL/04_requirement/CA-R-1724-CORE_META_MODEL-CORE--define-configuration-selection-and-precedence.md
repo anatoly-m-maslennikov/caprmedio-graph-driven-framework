@@ -1,19 +1,21 @@
 ---
 subjects:
-  governs: "Configuration Selection and Precedence"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings
   depends_on:
-    ["Entity/Node/Continuant/Project.Framework Settings", "Extension", "Tool"]
-version: 24
-updated_at: "2026-10-19 15:53:53 +0400"
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Selection//Extension Sources
+  - Subject/Engineering/Configuration/Tool Selection and Activation Precedence
+version: 28
+updated_at: 2026-10-24 01:28:26 +0400
 relations: {}
-atom_id: "CA-R-1724"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1724
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Rule
+tier: 1
 ---
 # Summary
 

@@ -9,10 +9,14 @@ global_tier: 8
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Legacy Projection and Runtime Journal Consumer Alignment"
-  depends_on: [Implementation, Projection, Journal, Carrier]
-version: 2
-updated_at: "2026-10-05 00:24:06 +0000"
+  governs: Legacy Projection and Runtime Journal Consumer Alignment
+  depends_on:
+  - Implementation
+  - Subject/Domain/Node/Continuant/Projection
+  - Journal
+  - Subject/Engineering/Carrier
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations: {concern_about: [CA-M-153, CA-E-067, CA-M-154, CA-E-068, CA-M-104, CA-D-354, CA-R-1059, CA-R-1068]}
 ---
 # Summary

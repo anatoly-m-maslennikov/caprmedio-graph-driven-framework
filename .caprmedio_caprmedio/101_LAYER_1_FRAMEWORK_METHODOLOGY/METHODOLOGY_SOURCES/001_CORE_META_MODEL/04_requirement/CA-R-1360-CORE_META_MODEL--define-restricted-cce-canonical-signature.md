@@ -1,21 +1,23 @@
 ---
 subjects:
-  governs: "Atom Claim Canonical Signature"
+  governs: Atom Claim Canonical Signature
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "CCE Operator", "Subject Path"]
-version: 12
-updated_at: "2026-10-19 15:52:53 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Engineering/CCE Operator
+  - Subject
+version: 16
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-R-918
-atom_id: "CA-R-1360"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-R-918
+atom_id: CA-R-1360
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Definition
 ---
 # Summary
 Define Restricted CCE Canonical Signature

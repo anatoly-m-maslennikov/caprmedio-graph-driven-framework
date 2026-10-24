@@ -1,21 +1,24 @@
 ---
 subjects:
-  governs: "Atom Collection/Type"
+  governs: Atom Collection/Type
   depends_on:
-    - "Atom Collection/Type"
-    - "Atom Collection/Type: Ad Hoc"
-    - "Atom/Content Role: Plan/Type: Plan/Label"
-version: 5
-updated_at: "2026-10-03 00:06:54 +0400"
-relations: {"relates_to": ["CA-R-1381", "CA-R-1576"]}
-atom_id: "CA-R-1546"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - Atom Collection/Type
+  - 'Atom Collection/Type: Ad Hoc'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan/Label'
+version: 8
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1381
+  - CA-R-1576
+atom_id: CA-R-1546
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

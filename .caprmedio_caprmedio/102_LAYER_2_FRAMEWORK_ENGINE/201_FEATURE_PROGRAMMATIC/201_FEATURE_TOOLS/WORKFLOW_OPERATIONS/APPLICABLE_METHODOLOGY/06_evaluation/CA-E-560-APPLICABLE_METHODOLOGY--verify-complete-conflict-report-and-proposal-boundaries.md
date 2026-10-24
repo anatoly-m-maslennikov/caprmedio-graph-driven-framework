@@ -1,20 +1,27 @@
 ---
 atom_id: CA-E-560
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 23:02:50 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY"
-  depends_on: [Tool, Methodology Source, Extension, Operator, Journal, Projection]
+  governs: Tool/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY
+  depends_on:
+  - Tool
+  - Methodology Source
+  - Extension
+  - Operator
+  - Journal
+  - Projection
 relations:
-  evaluation_for: [CA-R-1840, CA-R-1841]
+  evaluation_for:
+  - CA-R-1840
+  - CA-R-2118
+tier: 4
 ---
 # Summary
 
@@ -32,8 +39,8 @@ An implementation **must** prove that every assessed conflict remains visible an
 
 Use fixtures with a duplicate selected Atom identity, unresolved replacement, incompatible retained candidates, unresolved priority, output collision, and one expansion-boundary or incomplete-coverage finding across Core, Extension, and Project Configuration inputs. The report must retain every source participant and one deterministic proposal per finding, set `publishable: false`, and leave source and pre-existing output unchanged. Reordering fixture files, changing an unrelated source, or adding an Extension must not silently select a winner.
 
-For a correction-required conflict, assert that the Tool returns a source-owner proposal and exposes no source-edit operation. For a candidate-selection decision, assert that only exact Journal-bound provenance can advance it to reselection and reassessment; proposal text, priority, LLM output, or a bare configuration record cannot do so. This carrier records planned functional proof, not a runtime pass.
+For a correction-required conflict, assert that the Tool returns a source-owner proposal and exposes no source-edit operation. For a candidate-selection decision, assert that only the exact current actual Operator decision for the assessed conflict, with independently verified admitted Run and effect evidence and current frontier bindings, can advance it to reselection and reassessment; an optional Journal reference is observational and cannot authorize. Proposal text, priority, LLM output, or a bare configuration record cannot do so. This carrier records planned functional proof, not a runtime pass.
 
 ### Sources
 
-- CA-R-1840; CA-R-1841; CA-O-153 v2 through CA-O-156 v2.
+- CA-R-1840; CA-R-2118; CA-O-153 v2 through CA-O-156 v2.

@@ -4,19 +4,21 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Check Atoms Step"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Check Atoms Step'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Check Atoms", "Entity/Node/Occurrent/Execution/Workflow Run"]
-version: 8
-updated_at: "2026-10-19 15:56:49 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Check Atoms
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+version: 12
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
   relates_to:
-    - CA-O-087
-global_tier: 11
+  - CA-O-087
+tier: 3
 ---
 # Summary
 

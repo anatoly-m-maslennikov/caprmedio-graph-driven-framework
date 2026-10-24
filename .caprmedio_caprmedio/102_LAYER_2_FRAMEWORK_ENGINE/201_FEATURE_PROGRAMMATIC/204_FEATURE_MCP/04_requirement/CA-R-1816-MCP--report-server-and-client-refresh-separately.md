@@ -2,15 +2,22 @@
 atom_id: CA-R-1816
 content_role: Requirement
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 20:41:31 +0400"
+version: 7
+updated_at: 2026-10-24 01:50:12 +0400
 subjects:
-  governs: "MCP/Tool registry"
-  depends_on: [MCP, Tool, Operator, Project, Implementation, Workflow, Atom]
+  governs: Subject/Engineering/MCP
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Engineering/MCP.Tool Registry Refresh
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/MCP/Reload Control and Generation Evidence
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+tier: 3
+type: Rule
 ---
 # Summary
 

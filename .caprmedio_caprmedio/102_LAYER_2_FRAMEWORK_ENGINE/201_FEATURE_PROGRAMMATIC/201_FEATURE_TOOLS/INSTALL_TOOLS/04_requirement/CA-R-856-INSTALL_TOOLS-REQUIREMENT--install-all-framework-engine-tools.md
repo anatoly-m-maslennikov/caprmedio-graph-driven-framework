@@ -1,8 +1,15 @@
 ---
 subjects:
-  governs: "feature-boundary"
-version: 15
-updated_at: "2026-09-15 21:31:49 +0000"
+  governs: feature-boundary
+version: 20
+updated_at: 2026-10-24 02:14:24 +0400
+atom_id: CA-R-856
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Rule
+tier: 1
 ---
 # Install all FRAMEWORK_ENGINE Tools
 

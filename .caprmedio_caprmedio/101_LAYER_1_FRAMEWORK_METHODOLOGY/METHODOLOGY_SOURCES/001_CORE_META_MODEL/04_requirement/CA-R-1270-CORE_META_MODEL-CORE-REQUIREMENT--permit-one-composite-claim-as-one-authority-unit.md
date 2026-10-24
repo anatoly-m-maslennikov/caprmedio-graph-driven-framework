@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "Composite Claim"
+  governs: Composite Claim
   depends_on:
-    - "Claim"
-version: 11
-updated_at: "2026-10-02 21:45:33 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+version: 14
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1270"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1270
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

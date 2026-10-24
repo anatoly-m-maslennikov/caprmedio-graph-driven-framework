@@ -1,19 +1,22 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Scope Unit Graph"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Scope Unit Graph'
   depends_on:
-    ["Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Project.Settings", "Entity/Carrier"]
-version: 19
-updated_at: "2026-10-19 15:55:29 +0400"
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Engineering/Carrier
+version: 23
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-333"
-content_role: "Delivery"
+atom_id: CA-D-333
+content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Eng Decision
 ---
 # Summary
 

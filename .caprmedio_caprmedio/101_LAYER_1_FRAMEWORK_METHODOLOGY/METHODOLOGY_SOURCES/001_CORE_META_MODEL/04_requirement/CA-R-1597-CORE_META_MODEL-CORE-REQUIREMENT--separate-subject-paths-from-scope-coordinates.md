@@ -1,25 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Subjects"
+  governs: Subject/Domain/Node/Continuant/Atom.Subjects
   depends_on:
-    ["Subject", "Subject Path", "Subject Target", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Target Scope Unit"]
-version: 8
-updated_at: "2026-10-21 01:47:52 +0400"
+  - Subject
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Target Scope Unit
+version: 11
+updated_at: 2026-10-24 01:18:03 +0400
 relations:
   relates_to:
-    - CA-R-1275
-    - CA-R-1201
-    - CA-R-1202
-    - CA-R-1595
-    - CA-M-273
-atom_id: "CA-R-1597"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1275
+  - CA-R-2100
+  - CA-R-1202
+  - CA-R-1595
+  - CA-M-273
+atom_id: CA-R-1597
+content_role: Requirement
+type: Rule
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
 ---
 # Summary
 

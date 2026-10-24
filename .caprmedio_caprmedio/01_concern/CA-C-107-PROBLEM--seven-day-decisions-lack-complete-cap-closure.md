@@ -11,11 +11,12 @@ subjects:
     occurrent:
       - Conversation Audit
 priority: high
-version: 3
-updated_at: 2026-08-30 17:21:33 +0400
+version: 4
+updated_at: 2026-10-23 03:17:34 +0400
 relations:
   concern_about:
     - CA-R-861
+atom_id: CA-C-107
 ---
 # Seven-day decisions lack complete CAP closure
 

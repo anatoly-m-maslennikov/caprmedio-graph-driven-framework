@@ -3,17 +3,27 @@ atom_id: CA-O-167
 content_role: Operations
 type: Action
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Install candidate Framework package and project Skill"
-  depends_on: [Action, Framework Package, Methodology, Skill, Artifact/Revision, Delivery, Journal]
-version: 5
-updated_at: "2026-10-14 19:37:26 +0400"
+  governs: Subject/Engineering/Methodology
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Framework Package
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Skill
+  - Artifact/Revision
+  - Delivery
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 8
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-O-164, CA-O-175, CA-R-1525, CA-R-1720]
+  relates_to:
+  - CA-O-164
+  - CA-O-175
+  - CA-R-1525
+  - CA-R-1720
+tier: 3
 ---
 # Summary
 

@@ -3,19 +3,19 @@ atom_id: CA-R-2002
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: 'Entity/Relation/Type: INSTANCE_OF'
+  governs: 'Subject/Graph/Relation/Type: INSTANCE_OF'
   depends_on:
-  - Entity
-  - Entity/Relation
-  - 'Entity/Node/Continuant/Projection/Type: Entities Graph'
+  - Subject/Domain/Node
+  - Subject/Graph/Relation
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Entities Graph'
 relations: {}
-version: 1
-updated_at: "2026-10-20 04:48:02 +0400"
+version: 6
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 1
+type: Definition
 ---
 # Summary
 

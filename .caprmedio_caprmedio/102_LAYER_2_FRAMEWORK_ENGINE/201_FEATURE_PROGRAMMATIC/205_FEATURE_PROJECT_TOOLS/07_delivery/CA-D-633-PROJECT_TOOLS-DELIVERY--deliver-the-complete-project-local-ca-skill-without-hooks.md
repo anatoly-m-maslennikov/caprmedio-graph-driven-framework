@@ -3,17 +3,22 @@ atom_id: CA-D-633
 content_role: Delivery
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-14 19:37:26 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/RELEASE_VERSION/Project Skill carrier"
-  depends_on: [Tool, Skill, Runtime, Project Configuration]
+  governs: Subject/Engineering/Release Version/Project-Local Skill Delivery
+  depends_on:
+  - Subject/Engineering/Release Version/Project-Local Skill Delivery
+  - Skill
+  - Subject/Engineering/Runtime
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
 relations:
-  delivery_for: [CA-M-332]
+  delivery_for:
+  - CA-M-332
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

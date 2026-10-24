@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom"
+  governs: Subject/Domain/Node/Continuant/Atom
   depends_on:
-    ["Entity/Node"]
-version: 27
-updated_at: "2026-10-19 16:13:07 +0400"
+  - Entity/Node
+version: 30
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-655"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-655
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 Define Atom Artifact Form

@@ -1,11 +1,14 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom"
+  governs: Subject/Domain/Node/Continuant/Atom
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/History/Revision", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator"]
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Entity/Node/Continuant/History/Revision
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 priority: medium
-version: 8
-updated_at: "2026-10-20 15:23:26 +0400"
+version: 11
+updated_at: 2026-10-23 03:20:06 +0400
 relations: {}
 atom_id: "CA-C-221"
 content_role: "Concern"

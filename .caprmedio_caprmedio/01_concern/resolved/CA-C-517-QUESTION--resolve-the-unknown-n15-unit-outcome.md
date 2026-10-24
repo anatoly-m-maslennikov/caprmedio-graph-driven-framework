@@ -7,11 +7,18 @@ local_tier: Standard
 global_tier: 2
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-07 00:30:45 +0000"
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Unknown N15 Unit outcome"
-  depends_on: [Operator, Workflow Run, Action Run, Evaluation, Journal, Docker Image, Implementation]
+  governs: Unknown N15 Unit outcome
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Action Run
+  - Evaluation
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Docker Image
+  - Implementation
 relations:
   concern_about: [CA-P-1117, CA-P-1713, CA-P-1716]
 ---

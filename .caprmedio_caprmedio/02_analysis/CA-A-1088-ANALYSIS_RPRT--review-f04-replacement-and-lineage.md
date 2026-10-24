@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F04 independent completed-family review"
-  depends_on: [Operations, Analysis, Evaluation]
-version: 1
-updated_at: "2026-10-04 14:21:14 +0000"
+  governs: F04 independent completed-family review
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Analysis
+  - Evaluation
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1373]
   relates_to: [CA-P-1349, CA-A-1063, CA-A-1067, CA-A-1060, CA-A-1121, CA-A-1129, CA-A-1130, CA-C-402, CA-P-1131, CA-P-1156]

@@ -3,18 +3,25 @@ atom_id: CA-M-383
 content_role: Method
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Project Configuration", "Property", "Carrier", "Workflow"]
-version: 3
-updated_at: "2026-10-13 20:15:34 +0400"
+  governs: Subject/Engineering/Tool
+  depends_on:
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  method_for: [CA-R-1936]
-  depends_on: [CA-M-110, CA-O-204]
+  method_for:
+  - CA-R-1936
+  depends_on:
+  - CA-M-415
+  - CA-O-204
+type: Eng Decision
+tier: 4
 ---
 # Summary
 
@@ -28,7 +35,7 @@ the private, effect-free construction of one proposed TOML document from supplie
 
 **to** construct the pure TOML materializer required by CA-R-1936 **and** CA-O-204, the Implementer **must** select TOMLKit's concrete-syntax representation for byte-preserving parse, edit **and** serialization, rather than construct a separate general TOML parser **or** normalize the complete document.
 
-this bounded library selection is an exception under CA-M-110. the standard-library default remains unchanged. the exact dependency pin has one canonical owner: the `connector-toml` dependency group **in** root `pyproject.toml`, materialized with `uv.lock` under CA-D-632. this Method does **not** create another version setting.
+this bounded library selection is an exception under CA-M-415. the standard-library default remains unchanged. the exact dependency pin has one canonical owner: the `connector-toml` dependency group **in** root `pyproject.toml`, materialized with `uv.lock` under CA-D-632. this Method does **not** create another version setting.
 
 - keep the existing pure delta semantics separate from concrete-syntax handling. use supplied private key bindings **only**; do **not** choose a configuration source, schema, permission **or** public value codec.
 - require an exact baseline byte round trip **before** applying a changed proposal. refuse a representation that the selected library normalizes **or** cannot preserve; do **not** hide drift with a whole-document rewrite.

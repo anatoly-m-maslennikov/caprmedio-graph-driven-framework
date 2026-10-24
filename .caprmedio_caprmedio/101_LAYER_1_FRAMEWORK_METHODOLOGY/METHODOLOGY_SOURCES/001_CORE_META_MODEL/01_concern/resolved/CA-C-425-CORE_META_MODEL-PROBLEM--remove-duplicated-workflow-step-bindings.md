@@ -9,10 +9,13 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Workflow/Step binding ownership"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action"]
-version: 3
-updated_at: "2026-10-15 18:41:00 +0000"
+  governs: Workflow/Step binding ownership
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+version: 5
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-O-010, CA-O-011, CA-O-015, CA-P-1465]
 ---

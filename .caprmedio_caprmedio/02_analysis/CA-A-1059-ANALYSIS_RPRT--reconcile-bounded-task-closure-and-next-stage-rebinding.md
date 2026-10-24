@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Bounded Task closure and next-stage rebinding reconciliation"
-  depends_on: [Operations, "Atom/Content Role: Plan", Implementation]
-version: 2
-updated_at: "2026-10-04 12:35:13 +0000"
+  governs: Bounded Task closure and next-stage rebinding reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - Implementation
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   relates_to: [CA-P-1341, CA-A-916, CA-O-017, CA-O-079, CA-P-1130]
 ---

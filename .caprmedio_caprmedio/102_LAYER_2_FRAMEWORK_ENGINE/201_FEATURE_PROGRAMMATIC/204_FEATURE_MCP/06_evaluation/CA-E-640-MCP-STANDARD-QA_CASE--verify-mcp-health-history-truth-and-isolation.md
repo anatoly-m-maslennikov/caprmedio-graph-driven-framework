@@ -1,20 +1,20 @@
 ---
 atom_id: CA-E-640
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-21 04:11:45 +0400"
+version: 5
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: 'Entity/Node/Continuant/Atom/Content Role: Evaluation'
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
   depends_on: []
 relations:
-  evaluation_for: [CA-R-2007]
+  evaluation_for:
+  - CA-R-2007
+tier: 5
 ---
 # Summary
 

@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+
+
 import argparse
 import hashlib
 import json
@@ -166,5 +168,16 @@ def cli(argv: Sequence[str] | None = None) -> int:
     return 0
 
 
+def _image_main():
+    return cli()
+
+
 if __name__ == "__main__":
-    raise SystemExit(cli())
+    # Direct script execution needs the shared process boundary available from the tools root.
+    import sys
+    from pathlib import Path
+    _TOOLS_ROOT = next(p for p in Path(__file__).resolve().parents if p.name in {"201_TOOLS", "TOOLS"})
+    if str(_TOOLS_ROOT) not in sys.path:
+        sys.path.insert(0, str(_TOOLS_ROOT))
+    from runtime_process_boundary import run_process
+    raise SystemExit(run_process(_image_main, operation="native_atom_revision"))

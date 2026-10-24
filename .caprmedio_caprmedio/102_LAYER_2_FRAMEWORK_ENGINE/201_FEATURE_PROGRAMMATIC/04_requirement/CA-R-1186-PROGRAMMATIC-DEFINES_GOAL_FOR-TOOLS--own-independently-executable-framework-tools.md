@@ -1,20 +1,19 @@
 ---
 subjects:
-  governs: TOOLS/Goal
+  governs: 'Subject/Domain/Node/Continuant/Scope Unit: TOOLS.Goal'
   depends_on:
-  - PROGRAMMATIC
-version: 11
-updated_at: "2026-10-18 05:15:32 +0400"
+  - Subject/Engineering/programmatic software
+version: 14
+updated_at: 2026-10-24 01:18:03 +0400
 relations: {}
 atom_id: CA-R-1186
 content_role: Requirement
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
 type: Goal
+tier: 3
 ---
 # Summary
 

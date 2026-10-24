@@ -3,17 +3,18 @@ atom_id: CA-D-558
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 00:30:00 +0400"
+version: 5
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/golden test delivery"
-  depends_on: [Tool, Evaluation, Implementation]
-relations:
-  delivery_for: [CA-R-1870]
+  governs: Subject/Engineering/Journal Event Query/Golden Test Delivery
+  depends_on:
+  - Subject/Engineering/Journal Event Query
+  - Evaluation
+relations: {}
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

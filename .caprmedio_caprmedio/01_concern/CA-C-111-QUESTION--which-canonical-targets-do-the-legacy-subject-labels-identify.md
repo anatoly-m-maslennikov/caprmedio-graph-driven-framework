@@ -2,20 +2,21 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Subjects"
+  governs: Subject/Domain/Node/Continuant/Atom.Subjects
   depends_on:
-    - "Subject Path"
-    - "Entity"
-    - "Action"
-    - "Process"
-    - "Term"
-    - "Atom/Claim"
-version: 3
-updated_at: "2026-09-17 23:41:59 +0000"
+  - Subject Path
+  - Entity
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Process
+  - Term
+  - Atom/Claim
+version: 5
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
 priority: medium
+atom_id: CA-C-111
 ---
 # Which canonical targets do the legacy Subject labels identify?
 

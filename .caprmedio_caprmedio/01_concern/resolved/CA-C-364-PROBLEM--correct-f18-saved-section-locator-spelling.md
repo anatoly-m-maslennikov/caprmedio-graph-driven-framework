@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "F18 exact saved-section coverage check"
-  depends_on: [Analysis, "Atom/Content Role: Plan"]
-version: 2
-updated_at: "2026-10-04 13:09:29 +0000"
+  governs: F18 exact saved-section coverage check
+  depends_on:
+  - Analysis
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 3
+updated_at: 2026-10-23 03:06:32 +0400
 relations:
   concern_about: [CA-P-1363, CA-A-1081]
 ---

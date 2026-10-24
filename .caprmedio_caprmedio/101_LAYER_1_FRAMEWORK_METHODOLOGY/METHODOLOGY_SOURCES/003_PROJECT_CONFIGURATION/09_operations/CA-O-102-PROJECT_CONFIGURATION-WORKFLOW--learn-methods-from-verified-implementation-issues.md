@@ -4,21 +4,25 @@ content_role: Operations
 type: Workflow
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Method Learning Workflow"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Method Learning Workflow'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Method", "Implementation Workflow"]
-version: 6
-updated_at: "2026-10-19 15:56:51 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Graph/Relation/Type: On Result'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+version: 10
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
   relates_to:
-    - CA-O-101
-    - CA-O-098
-    - CA-R-1525
-global_tier: 11
+  - CA-O-101
+  - CA-O-098
+  - CA-R-1525
+tier: 3
 ---
 # Summary
 

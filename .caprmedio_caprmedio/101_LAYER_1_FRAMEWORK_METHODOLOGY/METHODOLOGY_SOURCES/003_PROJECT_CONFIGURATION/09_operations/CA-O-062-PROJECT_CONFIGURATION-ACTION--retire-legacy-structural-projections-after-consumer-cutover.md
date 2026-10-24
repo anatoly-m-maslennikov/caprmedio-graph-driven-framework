@@ -1,24 +1,27 @@
 ---
 subjects:
-  governs: "Retire Legacy Structural Projections"
+  governs: Subject/Domain/Node/Continuant/Projection
   depends_on:
-    - "Action"
-    - "Projection"
-    - "Project Structure"
-    - "Project Scope Unit Graph Projection"
-    - "Artifact/Carrier"
-version: 6
-updated_at: "2026-09-17 15:21:19 +0000"
-relations: {"relates_to":["CA-D-453","CA-D-454","CA-R-1483"]}
-atom_id: "CA-O-062"
-content_role: "Operations"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Projection//PROJECT_SCOPE_UNIT_GRAPH
+  - Subject/Engineering/Carrier
+version: 9
+updated_at: 2026-10-24 00:51:05 +0400
+relations:
+  relates_to:
+  - CA-D-453
+  - CA-D-454
+  - CA-R-1483
+atom_id: CA-O-062
+content_role: Operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 ---
 # Retire legacy structural Projections after consumer cutover
 

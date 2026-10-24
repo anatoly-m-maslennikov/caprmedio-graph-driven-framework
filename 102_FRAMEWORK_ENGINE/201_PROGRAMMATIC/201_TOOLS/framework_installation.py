@@ -43,6 +43,7 @@ REQUIRED_FILES = (
     "atom_operations.py",
     "background_services.toml",
     "INSTALL_TOOLS/install_tools.py",
+    "INSTALL_TOOLS/codex_project_context_hook.py",
     "START_BACKGROUND_SERVICES/start_background_services.py",
     "COMMIT_TRIGGER/commit_trigger.py",
     "COMMIT_CONTEXT/commit_context.py",
@@ -136,6 +137,32 @@ def _source_files(source_root: Path) -> list[Path]:
     return sorted(paths, key=lambda item: item.relative_to(source_root).as_posix())
 
 
+def _distribution_sources(canonical: Path) -> dict[str, Path]:
+    docker = canonical.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/docker"
+    skill = canonical.parents[2] / "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca"
+    return {
+        "HOST_RUNTIME/shared_mcp_launcher.py": docker / "shared_mcp_launcher.py",
+        "HOST_RUNTIME/shared_mcp_launch_support.py": docker / "shared_mcp_launch_support.py",
+        "HOST_RUNTIME/shared-mcp.compose.yaml": docker / "shared-mcp.compose.yaml",
+        "SKILLS/ca/SKILL.md": skill / "SKILL.md",
+        "SKILLS/ca/agents/openai.yaml": skill / "agents/openai.yaml",
+    }
+
+
+def _distribution_inventory(canonical: Path) -> dict[str, Path]:
+    distribution = _distribution_sources(canonical)
+    present: dict[str, Path] = {}
+    for name, path in distribution.items():
+        if not path.exists() and not path.is_symlink():
+            continue
+        if not path.is_file() or path.is_symlink() or path.resolve() != path:
+            raise InstallationError("canonical-source-unsafe", "installer distribution asset is unsafe")
+        present[name] = path
+    if present and len(present) != len(distribution):
+        raise InstallationError("canonical-source-incomplete", "installer distribution assets are incomplete")
+    return present
+
+
 def source_inventory(repository: Path | str, *, source_root: Path | None = None) -> tuple[list[dict[str, Any]], str]:
     root = resolve_repository(repository)
     canonical = (source_root or (root / SOURCE_DIRECTORY)).resolve()
@@ -144,9 +171,10 @@ def source_inventory(repository: Path | str, *, source_root: Path | None = None)
     missing = [relative for relative in REQUIRED_FILES if relative not in available]
     if missing:
         raise InstallationError("canonical-source-incomplete", "canonical Tool source is missing: " + ", ".join(missing))
+    sources = {f"{TOOLS_DIRECTORY}/{path.relative_to(canonical).as_posix()}": path for path in files}
+    sources.update(_distribution_inventory(canonical))
     rows: list[dict[str, Any]] = []
-    for path in files:
-        relative = f"{TOOLS_DIRECTORY}/{path.relative_to(canonical).as_posix()}"
+    for relative, path in sources.items():
         rows.append(
             {
                 "path": relative,
@@ -163,6 +191,9 @@ def _inventory_source(canonical: Path, relative: Path) -> Path:
     """Map one verified inventory row back to its canonical source carrier."""
     if relative.parts[:1] == (TOOLS_DIRECTORY,):
         return canonical / relative.relative_to(TOOLS_DIRECTORY)
+    distribution = _distribution_sources(canonical)
+    if relative.as_posix() in distribution:
+        return distribution[relative.as_posix()]
     raise InstallationError("install-manifest-invalid", f"release inventory path is unsupported: {relative.as_posix()}")
 
 

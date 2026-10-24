@@ -2,18 +2,19 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "CAPRMEDIO Framework Instance/Carrier Root"
+  governs: CAPRMEDIO Framework Instance/Carrier Root
   depends_on:
-    - "Framework Instance Settings"
-    - "Project"
-    - "Directory Carrier"
-    - "Carrier/Canonical Address"
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/Carrier/Directory Carrier
+  - Carrier/Canonical Address
 priority: medium
-version: 1
-updated_at: "2026-09-17 13:42:35 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-137
 ---
 # Is the Framework root locator a derived Carrier value?
 

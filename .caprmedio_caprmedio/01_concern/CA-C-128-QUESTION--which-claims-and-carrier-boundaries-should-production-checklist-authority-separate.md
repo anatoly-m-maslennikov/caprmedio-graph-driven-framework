@@ -2,19 +2,20 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Content Role: Evaluation/Type: Evaluation Control"
+  governs: 'Atom/Content Role: Evaluation/Type: Evaluation Control'
   depends_on:
-    - "Production Evaluation Checklist"
-    - "Projection"
-    - "Artifact/Carrier"
-    - "Atom/Claim"
-    - "Atom/Content Role: Operations"
+  - Production Evaluation Checklist
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Engineering/Carrier
+  - Atom/Claim
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
 priority: medium
-version: 1
-updated_at: "2026-09-17 12:05:27 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-128
 ---
 # Which Claims and Carrier boundaries should production checklist authority separate?
 

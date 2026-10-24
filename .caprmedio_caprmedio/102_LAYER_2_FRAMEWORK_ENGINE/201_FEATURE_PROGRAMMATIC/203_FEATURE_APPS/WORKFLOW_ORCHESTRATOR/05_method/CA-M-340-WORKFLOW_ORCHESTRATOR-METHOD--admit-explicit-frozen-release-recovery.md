@@ -2,18 +2,32 @@
 atom_id: CA-M-340
 content_role: Method
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 16:25:00 +0000"
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Release Version recovery request"
-  depends_on: [Release Version, Workflow Run, Step Run, Action Run, Operator, Permission, Journal, Source, Queue, DBOS]
+  governs: Release Version recovery request
+  depends_on:
+  - Release Version
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Action Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Permission
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Queue
+  - DBOS
 relations:
-  method_for: [CA-R-1883]
-  relates_to: [CA-M-302, CA-D-521, CA-D-574, CA-O-164]
+  method_for:
+  - CA-R-1883
+  relates_to:
+  - CA-M-302
+  - CA-D-521
+  - CA-D-574
+  - CA-O-164
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

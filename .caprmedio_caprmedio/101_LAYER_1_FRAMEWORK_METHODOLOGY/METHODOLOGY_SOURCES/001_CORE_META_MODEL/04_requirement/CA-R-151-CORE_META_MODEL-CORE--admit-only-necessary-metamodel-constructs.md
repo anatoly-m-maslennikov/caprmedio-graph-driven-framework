@@ -1,21 +1,19 @@
 ---
 subjects:
-  governs: "artifact-model"
-  depends_on:
-    - "atom-boundary"
-version: 20
-updated_at: "2026-10-02 20:35:16 +0400"
+  governs: artifact-model
+version: 24
+updated_at: 2026-10-24 02:10:27 +0400
 relations:
   child_of:
-    - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary
-atom_id: "CA-R-151"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-M-005
+atom_id: CA-R-151
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

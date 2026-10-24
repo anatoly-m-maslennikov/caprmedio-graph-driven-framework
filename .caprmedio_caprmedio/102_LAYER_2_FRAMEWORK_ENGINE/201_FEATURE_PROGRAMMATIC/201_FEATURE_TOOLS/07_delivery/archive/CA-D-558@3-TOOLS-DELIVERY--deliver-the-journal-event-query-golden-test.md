@@ -1,0 +1,35 @@
+---
+atom_id: CA-D-558@3
+content_role: Delivery
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+local_tier: Standard
+global_tier: 11
+status: Archived
+author: Anatoly Maslennikov
+version: 3
+updated_at: 2026-10-23 23:09:56 +0400
+subjects:
+  governs: Subject/Engineering/Journal Event Query/Golden Test Delivery
+  depends_on:
+  - Subject/Engineering/Journal Event Query
+  - Evaluation
+  - Implementation
+relations: {}
+type: Eng Decision
+---
+# Summary
+
+Deliver the Journal Event query golden test
+
+## Scope
+
+The query golden-test location.
+
+## Claim
+
+The Journal query golden test **must** be delivered at `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py`.
+
+## Details
+
+The test is delivered by the implementation packet; this source packet does not create it.

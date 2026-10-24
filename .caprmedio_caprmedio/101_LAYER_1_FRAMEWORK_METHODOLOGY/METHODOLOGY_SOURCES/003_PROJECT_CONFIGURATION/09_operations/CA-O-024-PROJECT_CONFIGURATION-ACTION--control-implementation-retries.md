@@ -4,21 +4,29 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Implementation Retry Control"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Implementation Workflow", "Implementation Retry Limit", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Continuant/Actor/Type: Operator", "Atom/Content Role: Plan/Type: Plan", "Autonomous Confidence Threshold", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Implementation"]
-version: 15
-updated_at: "2026-10-19 15:56:43 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Autonomous Confidence Threshold
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Engineering/Operation-Local Failure Containment
+version: 19
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
   relates_to:
-    - CA-R-1559
-    - CA-R-1591
-    - CA-M-295
-global_tier: 11
+  - CA-R-1559
+  - CA-R-1591
+  - CA-M-295
+tier: 3
 ---
 # Summary
 

@@ -8,11 +8,14 @@ local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
-version: 3
-updated_at: "2026-10-15 18:40:54 +0000"
+version: 5
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Source Reconciliation/Step bindings"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action"]
+  governs: Source Reconciliation/Step bindings
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
   concern_about: [CA-O-010, CA-O-011, CA-P-1442]
 ---

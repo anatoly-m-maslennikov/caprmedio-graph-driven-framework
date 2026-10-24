@@ -1,29 +1,25 @@
 ---
 atom_id: CA-E-639
 content_role: Evaluation
-type: Evaluation Approach
+type: Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Core
-global_tier: 6
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-21 03:38:52 +0400"
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: 'Entity/Node/Continuant/Atom/Content Role: Evaluation'
-  depends_on:
-  - Entity/Node/Continuant/Implementation
-  - 'Entity/Node/Continuant/Atom/Content Role: Requirement'
-  - 'Entity/Node/Continuant/Atom/Content Role: Method'
-  - 'Entity/Node/Continuant/Atom/Content Role: Delivery'
-  - Entity/Carrier
+  governs: Subject/Engineering/Change Dependency Closure
+  depends_on: []
 relations:
+  evaluation_for:
+  - CA-M-395
   depends_on:
   - CA-E-637
-  - CA-M-384
-  - CA-M-387
-  - CA-M-390
+  - CA-M-402
+  - CA-M-403
+  - CA-M-405
+tier: 5
 ---
 # Summary
 

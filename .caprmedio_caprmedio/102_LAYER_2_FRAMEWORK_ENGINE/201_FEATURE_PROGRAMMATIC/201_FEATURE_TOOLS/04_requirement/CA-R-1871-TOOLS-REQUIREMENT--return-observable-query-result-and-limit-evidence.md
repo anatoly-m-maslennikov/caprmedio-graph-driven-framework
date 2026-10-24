@@ -3,17 +3,21 @@ atom_id: CA-R-1871
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 00:30:00 +0400"
+version: 3
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/result evidence"
-  depends_on: [Tool, Journal, Evaluation]
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
+  depends_on:
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Journal Event Query/Result Envelope
 relations:
-  relates_to: [CA-R-1865, CA-E-577]
+  relates_to:
+  - CA-R-1865
+  - CA-E-577
+type: Rule
+tier: 3
 ---
 # Summary
 

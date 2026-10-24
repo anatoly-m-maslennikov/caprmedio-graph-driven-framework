@@ -1,17 +1,24 @@
 ---
 subjects:
-  governs: "artifact-validation"
+  governs: artifact-validation
   depends_on:
-    - "Project Settings"
-    - "Framework Instance Settings"
-    - "Atom/Content Role: Operations"
-    - "Projection"
-    - "Journal"
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/History/Journal
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 10
-updated_at: "2026-09-17 19:56:38 +0000"
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
+atom_id: CA-R-1137
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Rule
+tier: 1
 ---
 # Validate project integrity
 

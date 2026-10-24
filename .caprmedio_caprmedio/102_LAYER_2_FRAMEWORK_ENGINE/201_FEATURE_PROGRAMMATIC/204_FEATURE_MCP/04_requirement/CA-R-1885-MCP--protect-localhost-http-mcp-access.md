@@ -2,17 +2,24 @@
 atom_id: CA-R-1885
 content_role: Requirement
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 04:37:30 +0400"
+version: 8
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "MCP/HTTP endpoint/Access boundary"
-  depends_on: [MCP, HTTP, Operator, Permission, Request, Tool]
+  governs: Subject/Engineering/MCP/HTTP endpoint/Access boundary
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Engineering/HTTP
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Permission
+  - Subject/Engineering/HTTP/Request
+  - Subject/Engineering/MCP.Localhost Access Boundary
 relations:
-  relates_to: [CA-R-1118]
+  relates_to:
+  - CA-R-1118
+tier: 3
+type: Rule
 ---
 # Summary
 

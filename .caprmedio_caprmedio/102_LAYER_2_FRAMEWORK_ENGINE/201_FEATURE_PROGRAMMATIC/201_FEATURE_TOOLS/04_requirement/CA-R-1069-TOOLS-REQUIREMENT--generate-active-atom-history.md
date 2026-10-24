@@ -1,12 +1,19 @@
 ---
 subjects:
-  governs: "projection-pipeline"
+  governs: projection-pipeline
   depends_on: []
 llm_session_ids:
-  - codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 10
-updated_at: 2026-08-30 16:44:07 +0400
+- codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
+atom_id: CA-R-1069
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Rule
+tier: 1
 ---
 # Generate active Atom history
 

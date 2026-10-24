@@ -1,0 +1,41 @@
+---
+atom_id: CA-P-2596
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 1
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+local_tier: Standard
+global_tier: 8
+author: Anatoly Maslennikov
+status: Active
+version: 2
+updated_at: "2026-10-22T15:50:25Z"
+subjects:
+  governs: Entity/Node/Continuant/Implementation
+  depends_on: []
+relations:
+  is_decomposition_of: [CA-P-2581]
+  depends_on: [CA-P-2579, CA-P-2595]
+  relates_to: [CA-R-1527, CA-R-1843, CA-R-1845, CA-M-328, CA-D-544, CA-O-016]
+---
+# Summary
+
+Persist the bound Integrated Step frontier
+
+## Objective
+
+Retain the exact Project, frozen Workflow/Step/Action, current source/candidate/packet digests, actual Run receipts and one-use continuation identity in the existing selected Run directory. Journal delivery is not a state/admission gate.
+
+## Details
+
+At most 15 minutes of own work per leaf; split before expanding. One Task per file. Review and update dependent Tasks after actual predecessor acceptance and before execution. Current source R1527@7 defines Integrated as the current participating session; a separate ephemeral CLI is not an Integrated implementation. Preserve existing native packet fields and current M/E/D guidance, explicit Project binding, source freshness, actual evidence and business-only Journal semantics. Use locked uv and configured Project Temporary State. Create a Concern for a real unresolved decision or blocker. No feature work before CA-P-2595 acceptance; no release, deployment, production MCP calls, full-suite run, uncertain replay or Git publication.
+
+### Definition of Done
+
+Retain exact changed paths/source bindings, focused functional and source-conformance evidence, observed limitations and the reviewed next dependent Task. Count fixture integrity, implementation, pending/current-session execution and runtime admission separately.
+
+### Reviewed parallel storage boundary — 22 October 2026
+
+Independent storage execution is Active after CA-P-2579 and CA-P-2595 acceptance. The store uses opaque bound-frontier data and does not import or weaken the Action validator. Implement CAS/one-use receipts, Project/Run isolation, bounded safe persistence, Project Temporary State atomic staging and concurrent/crash coverage. Coordinate a run-lock transaction so admit/resume/publish cannot deadlock on nested flock. Preserve consumed A receipts when B becomes pending; exact retry returns its retained receipt without advancing B. Use the existing selected Run directory owner. Journal completeness is not a state gate. Current Action result semantics and graph/MCP integration remain separately held.

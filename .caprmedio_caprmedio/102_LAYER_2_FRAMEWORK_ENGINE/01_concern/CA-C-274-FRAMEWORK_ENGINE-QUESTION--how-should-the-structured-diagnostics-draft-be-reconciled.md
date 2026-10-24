@@ -2,18 +2,19 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom"
+  governs: Subject/Domain/Node/Continuant/Atom
   depends_on:
-    - "Atom/Claim"
-    - "Artifact/Revision"
-    - "Project"
-    - "Operator"
+  - Atom/Claim
+  - Artifact/Revision
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 priority: medium
-version: 3
-updated_at: "2026-09-23 19:08:49 +0000"
+version: 5
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {"relates_to": ["CA-D-396", "CA-M-163", "CAPRMEDIO-GOV-REQU-315"]}
+atom_id: CA-C-274
 ---
 # Summary
 

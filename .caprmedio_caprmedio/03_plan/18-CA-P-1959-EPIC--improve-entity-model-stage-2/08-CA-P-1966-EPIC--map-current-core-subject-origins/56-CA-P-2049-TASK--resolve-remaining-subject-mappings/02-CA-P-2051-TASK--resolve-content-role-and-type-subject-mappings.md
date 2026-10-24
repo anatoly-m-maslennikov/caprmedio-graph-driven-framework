@@ -12,10 +12,10 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
 subjects:
-  governs: Entity
-  depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 03:20:22 +0400"
+  governs: Subject
+  depends_on: [Atom, Subject, Term, Property, Carrier, Scope Unit, Projection, Plan, Operator]
+version: 2
+updated_at: "2026-10-22 22:05:30 +0400"
 relations:
   is_decomposition_of: [CA-P-2049]
 ---
@@ -25,12 +25,12 @@ Resolve content role and type Subject mappings
 
 ## Objective
 
-Determine candidate targets for the 340 assigned unresolved Subject occurrences from current evidence.
+Refresh the content_roles_types Candidate #7 mapping lane from the live worklist and return complete, source-backed dispositions.
 
 ## Details
 
-Estimated own work: 15 minutes. Read the supplement contract and the exact content_roles ownership entry in current-subjects.research-ownership.json. Scope: 340 occurrences, 177 source files, 71 distinct old values. Pin and read the applicable definitions and every source span supporting a proposed mapping. Resolve repetitive fields using common confirmed rules plus source-specific meaning, not display-string availability. Preserve all qualifiers and source identities. Output .caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/content_roles.review.json. Full assigned coverage includes explicit unresolved rows; unresolved research must remain tracked. If all mapping work cannot fit 15 minutes, return verified partial results and exact remainder for decomposition; do not mark this Task Done or overrun. No Core, Plan, frozen report, Git, MCP/FPF or runtime writes.
+Read the fresh content_roles_types lane from .caprmedio_caprmedio/_projection/core-entity-review/presentation/candidate-7.remaining-subject-worklist.json. Keep Subject (what content concerns) separate from Content Role (what content does), and classify Types from source meaning rather than folder, Role or tier. Candidate #7's one-time classification-only exception retains an ID only when Summary and Substance are unchanged; otherwise preserve ordinary identity rules. Return complete supported/unchanged/held/unresolved rows without guessing. Apply no source, content, code, schema, MCP, test, Settings or runtime change.
 
 ### Definition of Done
 
-Not Done if assigned coverage or evidence is missing/stale, a meaning is guessed, unresolved work is hidden, Core or frozen evidence changes, an approval is inferred, tests fail, or own work exceeds 15 minutes without decomposition.
+Not Done if the fresh lane is absent/stale, assigned whole-owner or occurrence coverage is incomplete, a meaning is guessed, qualifiers or provenance are lost, unresolved rows are hidden, or any source effect or migration completion is claimed.

@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F09 Action/Step participation and thin-handoff reconciliation"
-  depends_on: [Operations, "Methodology Sources", Project]
-version: 1
-updated_at: "2026-10-04 13:18:01 +0000"
+  governs: F09 Action/Step participation and thin-handoff reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Methodology Sources
+  - Subject/Domain/Node/Continuant/Project
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1354]
   relates_to: [CA-P-1130, CA-A-1063, CA-A-1064, CA-R-1520, CA-C-368]

@@ -1,19 +1,26 @@
 ---
 subjects:
-  governs: "Atom Claim Authoring"
+  governs: Atom Claim Authoring
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "CCE", "Entity/Node/Continuant/Atom.Summary"]
-version: 29
-updated_at: "2026-10-19 22:01:58 +0400"
-relations: {"relates_to": ["CA-R-1624", "CA-O-103", "CA-D-479", "CA-R-1465"]}
-atom_id: "CA-M-111"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Graph/Rule/CCE
+  - Subject/Domain/Node/Continuant/Atom.Summary
+version: 34
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1624
+  - CA-O-103
+  - CA-D-479
+  - CA-R-1465
+atom_id: CA-M-111
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

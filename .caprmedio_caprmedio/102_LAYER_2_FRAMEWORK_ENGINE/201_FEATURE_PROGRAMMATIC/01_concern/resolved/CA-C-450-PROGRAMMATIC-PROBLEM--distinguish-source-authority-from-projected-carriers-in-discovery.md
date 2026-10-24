@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 8
 status: resolved
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-05 01:11:43 +0000"
+version: 6
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Discovery authority source selection"
-  depends_on: [Atom, Carrier, Projection, Tool, MCP]
+  governs: Subject/Engineering/Discovery/Authority Source Selection
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Engineering/Discovery/Authority Source Selection
+  - MCP
 relations:
   concern_about: [CA-P-1605, CA-P-1527]
 ---

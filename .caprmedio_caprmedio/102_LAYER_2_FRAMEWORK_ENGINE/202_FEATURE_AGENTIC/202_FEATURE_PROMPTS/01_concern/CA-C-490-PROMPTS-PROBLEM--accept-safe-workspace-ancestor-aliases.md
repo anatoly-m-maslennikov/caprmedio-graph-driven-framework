@@ -7,11 +7,15 @@ local_tier: Standard
 global_tier: 11
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 03:53:17 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Implementation Workflow/workspace admission"
-  depends_on: [Implementation, Workflow, Action, Carrier]
+  governs: Implementation Workflow/workspace admission
+  depends_on:
+  - Implementation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Carrier
 relations:
   concern_about: [CA-P-1764]
 ---

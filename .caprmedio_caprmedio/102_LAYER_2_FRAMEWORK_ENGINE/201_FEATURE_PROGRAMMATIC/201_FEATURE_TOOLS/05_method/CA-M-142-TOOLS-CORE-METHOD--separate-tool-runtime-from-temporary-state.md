@@ -2,19 +2,26 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "runtime"
+  governs: Subject/Engineering/Runtime
   depends_on: []
-version: 19
-updated_at: 2026-09-15 04:19:10 +0400
+version: 24
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a0263a-7510-7672-bce4-58830bc4d184
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a0263a-7510-7672-bce4-58830bc4d184
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   method_for:
-    - CA-R-1065
+  - CA-R-1065
   derived_from:
-    - CA-A-057
+  - CA-A-057
+atom_id: CA-M-142
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Policy
+tier: 2
 ---
 
 # Separate Tool runtime from temporary state

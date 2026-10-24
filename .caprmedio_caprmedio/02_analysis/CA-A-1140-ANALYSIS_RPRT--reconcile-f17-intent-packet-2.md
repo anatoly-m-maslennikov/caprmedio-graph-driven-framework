@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F17 second intent-packet reconciliation"
-  depends_on: [Operations, "Methodology Sources", "Atom/Claim"]
-version: 2
-updated_at: "2026-10-04 13:46:41 +0000"
+  governs: F17 second intent-packet reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Methodology Sources
+  - Atom/Claim
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1420]
   relates_to: [CA-P-1362, CA-A-1063, CA-A-1126, CA-C-389, CA-C-376]

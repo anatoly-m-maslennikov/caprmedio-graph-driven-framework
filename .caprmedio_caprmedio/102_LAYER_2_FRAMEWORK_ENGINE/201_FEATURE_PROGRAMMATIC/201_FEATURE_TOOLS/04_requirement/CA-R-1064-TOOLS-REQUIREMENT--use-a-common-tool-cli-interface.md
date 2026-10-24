@@ -1,12 +1,19 @@
 ---
 subjects:
-  governs: "feature-boundary"
+  governs: feature-boundary
   depends_on: []
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 12
-updated_at: 2026-08-30 16:44:07 +0400
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
+atom_id: CA-R-1064
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Rule
+tier: 1
 ---
 # Use a common Tool CLI interface
 

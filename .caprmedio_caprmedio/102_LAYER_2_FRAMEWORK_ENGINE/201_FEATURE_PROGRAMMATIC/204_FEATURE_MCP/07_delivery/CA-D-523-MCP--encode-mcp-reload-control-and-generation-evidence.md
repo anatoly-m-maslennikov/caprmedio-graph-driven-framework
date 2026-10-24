@@ -2,15 +2,20 @@
 atom_id: CA-D-523
 content_role: Delivery
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 00:48:12 +0400"
+version: 5
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "MCP/reload/Carrier"
-  depends_on: [MCP, Tool, Operator, Project, Implementation, Workflow, Atom]
+  governs: Subject/Engineering/MCP/Reload Control and Generation Evidence
+  depends_on:
+  - Subject/Engineering/MCP
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

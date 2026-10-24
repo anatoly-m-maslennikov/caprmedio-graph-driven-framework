@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: "CAPRMEDIO/Applicable Methodology/Projected Atom Carrier"
+  governs: Subject/Engineering/Carrier/File Carrier
   depends_on: []
-version: 15
-updated_at: "2026-10-05 09:36:24 +0000"
+version: 18
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-326"
-content_role: "Delivery"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-326
+content_role: Delivery
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

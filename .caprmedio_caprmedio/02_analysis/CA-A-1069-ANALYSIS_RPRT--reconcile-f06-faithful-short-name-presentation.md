@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Faithful presentation reconciliation"
-  depends_on: [Operations, Analysis, "Methodology Sources"]
-version: 1
-updated_at: "2026-10-04 13:46:04 +0000"
+  governs: Faithful presentation reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Analysis
+  - Methodology Sources
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1351]
   relates_to: [CA-A-1063, CA-A-1062, CA-A-1078, CA-C-354, CA-C-374, CA-C-379, CA-C-380]

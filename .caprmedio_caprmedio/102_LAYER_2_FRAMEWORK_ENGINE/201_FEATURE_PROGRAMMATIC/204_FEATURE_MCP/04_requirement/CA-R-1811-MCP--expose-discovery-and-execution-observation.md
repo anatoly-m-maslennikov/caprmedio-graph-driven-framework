@@ -2,25 +2,26 @@
 atom_id: CA-R-1811
 content_role: Requirement
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 14:55:01 +0000"
+version: 7
+updated_at: 2026-10-24 02:33:28 +0400
 subjects:
-  governs: "MCP"
+  governs: Subject/Engineering/MCP
   depends_on:
-    - "Tool"
-    - "Action"
-    - "Workflow"
-    - "Atom"
-    - "Scope Unit"
-    - "Implementation"
-    - "Workflow Run"
-    - "Journal"
+  - Subject/Engineering/MCP.Execution Observation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Engineering/MCP
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-R-1810]
+  relates_to:
+  - CA-R-1810
+tier: 3
+type: Rule
 ---
 # Summary
 

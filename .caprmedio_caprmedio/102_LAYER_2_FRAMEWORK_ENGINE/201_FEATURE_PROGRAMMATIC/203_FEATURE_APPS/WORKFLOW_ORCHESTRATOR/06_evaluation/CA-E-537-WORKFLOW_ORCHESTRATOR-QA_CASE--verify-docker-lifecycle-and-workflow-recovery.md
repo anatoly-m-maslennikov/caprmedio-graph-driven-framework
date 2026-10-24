@@ -1,19 +1,28 @@
 ---
 atom_id: CA-E-537
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 04:10:07 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Workflow Orchestrator/Docker runtime/lifecycle evaluation"
-  depends_on: [Workflow Run, Operator, Implementation, Atom, Journal, Action, Tool]
+  governs: Subject/Engineering/Runtime/Docker Lifecycle and Workflow Recovery
+  depends_on:
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Runtime/Docker Lifecycle and Workflow Recovery Evaluation
 relations:
-  evaluation_for: [CA-R-1818, CA-M-324, CA-D-525, CA-D-526]
+  evaluation_for:
+  - CA-R-1818
+  - CA-M-324
+  - CA-D-525
+  - CA-D-526
+tier: 4
 ---
 # Summary
 

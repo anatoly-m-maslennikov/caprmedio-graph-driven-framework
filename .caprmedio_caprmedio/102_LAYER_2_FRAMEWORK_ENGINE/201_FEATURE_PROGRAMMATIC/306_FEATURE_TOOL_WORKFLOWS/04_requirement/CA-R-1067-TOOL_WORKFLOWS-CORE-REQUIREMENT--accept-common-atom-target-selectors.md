@@ -1,17 +1,20 @@
 ---
 subjects:
-  governs: "feature-boundary"
+  governs: feature-boundary
   depends_on: []
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 15
-updated_at: "2026-10-12 23:58:28 +0400"
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+version: 20
+status: Active
+updated_at: 2026-10-24 03:08:30 +0400
 content_role: Requirement
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Core
-global_tier: 9
+atom_id: CA-R-1067
+tier: 1
+type: Rule
+author: Anatoly Maslennikov
 ---
 # Summary
 

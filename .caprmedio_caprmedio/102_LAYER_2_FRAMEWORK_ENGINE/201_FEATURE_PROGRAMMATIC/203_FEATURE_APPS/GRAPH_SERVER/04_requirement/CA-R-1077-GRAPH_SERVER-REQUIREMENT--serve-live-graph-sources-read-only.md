@@ -2,13 +2,20 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "artifact-query"
+  governs: artifact-query
   depends_on: []
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 17
-updated_at: 2026-09-23 04:20:00 +0400
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+version: 22
+updated_at: 2026-10-24 02:14:24 +0400
+atom_id: CA-R-1077
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: APPS
+type: Rule
+tier: 1
 ---
 # Serve live graph sources read-only
 

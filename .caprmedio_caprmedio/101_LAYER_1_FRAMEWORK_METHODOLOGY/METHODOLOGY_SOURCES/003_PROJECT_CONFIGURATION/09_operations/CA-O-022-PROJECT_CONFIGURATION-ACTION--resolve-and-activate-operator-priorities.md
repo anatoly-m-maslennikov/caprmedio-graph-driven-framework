@@ -1,22 +1,26 @@
 ---
-version: 11
-updated_at: "2026-10-19 15:56:43 +0400"
+version: 16
+updated_at: 2026-10-24 01:18:03 +0400
 relations:
   child_of:
-    - CA-R-1487
+  - CA-R-1487
 subjects:
-  governs: "Resolve Operator Priorities"
+  governs: Subject/Engineering/Resolve Operator Priorities
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project", "Scope", "CAPRMEDIO Framework Instance", "Project Priority Model Application"]
-atom_id: "CA-O-022"
-content_role: "Operations"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
+  - Scope
+  - CAPRMEDIO Framework Instance
+  - Subject/Domain/Node/Continuant/Selection//PROJECT_PRIORITY_MODEL
+atom_id: CA-O-022
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 ---
 # Summary
 

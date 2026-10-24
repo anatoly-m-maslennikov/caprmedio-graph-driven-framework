@@ -1,35 +1,35 @@
 ---
-atom_id: "CA-R-1801"
-content_role: "Requirement"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 1
-updated_at: "2026-10-03 06:25:11 +0400"
+atom_id: CA-R-1801
+content_role: Requirement
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "Prompt"
+  governs: Subject/Engineering/Prompt
   depends_on:
-    - "Atom"
-    - "Property"
-    - "Scope"
-    - "Atom/Claim"
-    - "Atom/Details"
-    - "Atom/Summary"
-    - "CCE"
-    - "Action"
-    - "Step"
-    - "Workflow"
-    - "Implementation"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Scope
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Atom/Details
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Graph/Rule/CCE
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Engineering/Prompt Construction/Action Instructions
 relations:
   relates_to:
-    - CA-E-520
-    - CA-O-104
-    - CA-O-105
-    - CA-O-106
-    - CA-O-111
+  - CA-E-520
+  - CA-O-104
+  - CA-O-105
+  - CA-O-106
+  - CA-O-111
+tier: 3
+type: Goal
 ---
 # Summary
 

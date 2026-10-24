@@ -1,23 +1,24 @@
 ---
 subjects:
-  governs: "Canonical Scope Signature Derivation Validation"
+  governs: Canonical Scope Signature Derivation Validation
   depends_on:
-    ["Scope Expression", "Entity/Node/Continuant/Projection/Type: Canonical Scope Signature", "Atom Carrier"]
-version: 13
-updated_at: "2026-10-19 15:54:59 +0400"
+  - Scope Expression
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Canonical Scope Signature'
+  - Subject/Engineering/Carrier/File Carrier
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1361
-    - CA-M-241
-atom_id: "CA-E-407"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-R-1361
+  - CA-M-241
+atom_id: CA-E-407
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 5
 ---
 # Summary
 

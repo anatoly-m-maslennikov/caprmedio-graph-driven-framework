@@ -1,19 +1,21 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.ID"
+  governs: Subject/Domain/Node/Continuant/Atom.ID
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Atom/Content Role"]
-version: 6
-updated_at: "2026-10-19 15:56:00 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+version: 11
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-508"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-508
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

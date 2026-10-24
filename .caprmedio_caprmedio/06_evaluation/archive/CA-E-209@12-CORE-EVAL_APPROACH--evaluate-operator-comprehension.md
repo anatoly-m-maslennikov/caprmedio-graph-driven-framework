@@ -1,0 +1,37 @@
+---
+version: 12
+updated_at: 2026-10-24 00:06:46 +0400
+relations:
+  child_of:
+  - CA-M-263
+  evaluation_for:
+  - CA-M-263
+subjects:
+  governs: Operator/comprehension
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-209@12
+status: Archived
+---
+# Evaluate operator comprehension
+
+## Claim checked
+
+the intended Operator can identify the represented meaning, available controls, **and** material consequences.
+
+## Applicable conditions
+
+apply **when** governed meaning is exposed **to** a Project Operator.
+
+## Acceptance
+
+pass **only** **when** the intended Operator can identify the represented meaning, the controls available **to** them, **and** the material consequences of using those controls.
+
+## Failure
+
+treat the representation as failed for that Operator **and** report **every** unidentified meaning, control, **or** material consequence.

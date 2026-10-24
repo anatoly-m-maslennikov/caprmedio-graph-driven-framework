@@ -2,14 +2,23 @@
 cce_version: cce_1
 cce_form: delivery
 subjects:
-  governs: "Tool/ATOM_ARCHIVE/Carrier"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Tool/ATOM_ARCHIVE"
-version: 6
-updated_at: "2026-09-17 02:57:30 +0000"
-relations: {"delivery_for":["CA-R-868"]}
+  - Subject/Engineering/Tool//ATOM_ARCHIVE
+version: 11
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  delivery_for:
+  - CA-R-868
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-D-419
+status: Active
+content_role: Delivery
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Decision
+tier: 1
 ---
 # Deliver ATOM_ARCHIVE Tool
 

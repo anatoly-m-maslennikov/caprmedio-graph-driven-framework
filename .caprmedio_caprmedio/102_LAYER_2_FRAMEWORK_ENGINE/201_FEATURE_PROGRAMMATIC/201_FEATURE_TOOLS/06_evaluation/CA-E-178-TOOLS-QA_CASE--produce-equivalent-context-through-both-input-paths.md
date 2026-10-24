@@ -1,14 +1,27 @@
 ---
 subjects:
-  governs: "Commit Context"
+  governs: Subject/Engineering/Tool//COMMIT_CONTEXT
   depends_on: []
-version: 15
-updated_at: "2026-09-17 03:09:42 +0000"
-relations: {"evaluation_for":["CA-M-087","CA-R-803","CA-R-804","CA-R-805","CA-R-802"]}
+version: 20
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-M-087
+  - CA-R-803
+  - CA-R-804
+  - CA-R-805
+  - CA-R-802
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 cce_version: cce_1
 cce_form: evaluation
+atom_id: CA-E-178
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
 ---
 # Produce equivalent context through both input paths
 

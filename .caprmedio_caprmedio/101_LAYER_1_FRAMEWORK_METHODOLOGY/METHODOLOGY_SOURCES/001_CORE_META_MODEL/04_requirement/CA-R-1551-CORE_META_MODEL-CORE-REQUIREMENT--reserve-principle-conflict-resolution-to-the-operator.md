@@ -1,21 +1,26 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Actor"
+  governs: Subject/Domain/Node/Continuant/Actor
   depends_on:
-    ["Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Atom.Local Tier: Principle", "AI Agent Delegation", "Autonomous Confidence Threshold"]
-version: 7
-updated_at: "2026-10-19 15:53:26 +0400"
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom.Tier: Principle'
+  - AI Agent Delegation
+  - Autonomous Confidence Threshold
+version: 11
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-R-1058
-atom_id: "CA-R-1551"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1058
+atom_id: CA-R-1551
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

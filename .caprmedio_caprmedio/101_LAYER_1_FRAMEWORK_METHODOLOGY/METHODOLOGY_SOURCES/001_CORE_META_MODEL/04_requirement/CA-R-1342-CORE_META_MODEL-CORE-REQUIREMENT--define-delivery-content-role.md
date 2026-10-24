@@ -1,22 +1,22 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Delivery"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
   depends_on:
-  - "Entity/Node/Continuant/Atom/Content Role"
-  - "Entity/Node/Continuant/Atom.Substance"
-  - Entity/Carrier
-  - Entity
-version: 16
-updated_at: "2026-10-19 15:52:51 +0400"
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node
+version: 22
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1342"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1342
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

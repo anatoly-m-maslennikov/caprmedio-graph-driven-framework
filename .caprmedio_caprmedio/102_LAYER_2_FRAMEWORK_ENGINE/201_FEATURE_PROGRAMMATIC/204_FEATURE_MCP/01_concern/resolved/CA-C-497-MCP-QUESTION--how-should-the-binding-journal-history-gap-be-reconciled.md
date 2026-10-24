@@ -7,11 +7,17 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-06 11:21:41 +0000"
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Release binding Journal history reconciliation"
-  depends_on: [Operator, Manifest, Journal, Git, Source Carrier, MCP]
+  governs: Release binding Journal history reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Manifest
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Git
+  - Subject/Engineering/Carrier/File Carrier
+  - MCP
 relations:
   concern_about: [CA-P-1780, CA-M-339, CA-D-576, CA-E-582]
 ---

@@ -4,17 +4,46 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Reconcile Navigation Numbers"
+  governs: Reconcile Navigation Numbers
   depends_on:
-    ["Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Scope Unit.Navigational Order Number", "Entity/Node/Continuant/Scope Unit.Local Order", "Entity/Node/Continuant/Scope Unit.Structural Level", "Scope Unit/Type", "Entity/Node/Continuant/Scope Unit.Label", "Entity/Carrier", "Entity/Carrier/Directory Carrier.Numeric Prefix", "Implementation Folder", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Project Structure Maintenance"]
-version: 7
-updated_at: "2026-10-19 15:56:48 +0400"
-relations: {"relates_to": ["CA-R-1483", "CA-R-1484", "CA-R-976", "CA-R-981", "CA-R-983", "CA-M-291", "CA-D-440", "CA-D-442", "CA-D-444", "CA-D-445", "CA-D-297", "CA-D-299", "CA-D-300", "CA-D-380", "CA-O-012", "CA-O-015"]}
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Scope Unit.Navigational Order Number
+  - Subject/Domain/Node/Continuant/Scope Unit.Local Order
+  - Subject/Domain/Node/Continuant/Scope Unit.Structural Level
+  - Subject/Domain/Node/Continuant/Scope Unit/Type
+  - Subject/Domain/Node/Continuant/Scope Unit.Label
+  - Subject/Engineering/Carrier
+  - Subject/Engineering/Carrier/Directory Carrier.Numeric Prefix
+  - Subject/Engineering/Implementation Folder
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+version: 12
+updated_at: 2026-10-24 01:18:03 +0400
+relations:
+  relates_to:
+  - CA-R-1483
+  - CA-R-1484
+  - CA-R-976
+  - CA-R-981
+  - CA-R-983
+  - CA-M-291
+  - CA-D-440
+  - CA-D-442
+  - CA-D-444
+  - CA-D-445
+  - CA-D-297
+  - CA-D-299
+  - CA-D-300
+  - CA-D-380
+  - CA-O-012
+  - CA-O-015
+tier: 3
 ---
 # Summary
 

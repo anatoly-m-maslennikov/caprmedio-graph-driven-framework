@@ -3,17 +3,31 @@ atom_id: CA-R-1835
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 19:23:34 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/Entities Graph"
-  depends_on: [Tool, Workflow, Action, Entity, Property, Projection, Project Structure, Relation Kind, Artifact, Journal]
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Entities Graph'
+  depends_on:
+  - Subject/Domain/Node
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Graph/Relation/Type
 relations:
-  relates_to: [CA-O-133, CA-O-134, CA-O-135, CA-R-1387, CA-M-259, CA-R-1438, CA-R-1456, CA-R-1483]
+  relates_to:
+  - CA-O-133
+  - CA-O-134
+  - CA-O-135
+  - CA-R-1387
+  - CA-M-259
+  - CA-R-1438
+  - CA-R-1456
+  - CA-R-1483
+type: Rule
+tier: 3
 ---
 # Summary
 

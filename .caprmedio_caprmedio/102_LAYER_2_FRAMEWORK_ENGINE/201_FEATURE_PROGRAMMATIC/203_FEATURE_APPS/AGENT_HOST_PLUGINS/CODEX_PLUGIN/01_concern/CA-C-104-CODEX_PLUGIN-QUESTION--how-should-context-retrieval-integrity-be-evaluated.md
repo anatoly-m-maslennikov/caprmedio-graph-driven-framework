@@ -5,8 +5,9 @@ subjects:
   governs:
     continuant:
       - retrieval-integrity
-version: 3
-updated_at: 2026-09-06 01:45:12 +0400
+version: 4
+updated_at: 2026-10-23 03:17:34 +0400
+atom_id: CA-C-104
 ---
 # How should context-retrieval integrity be evaluated?
 

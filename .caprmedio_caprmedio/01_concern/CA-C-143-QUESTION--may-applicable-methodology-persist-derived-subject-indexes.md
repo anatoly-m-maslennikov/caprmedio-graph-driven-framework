@@ -2,17 +2,18 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Applicable Methodology"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
   depends_on:
-    - "Projection"
-    - "Atom/Subjects"
-    - "Artifact/Carrier"
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - Subject/Engineering/Carrier
 priority: medium
-version: 1
-updated_at: "2026-09-17 14:22:29 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-143
 ---
 # May Applicable Methodology persist derived Subject indexes?
 

@@ -1,20 +1,25 @@
 ---
 subjects:
-  governs: "Obtain Source Correction Decision"
+  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Artifact", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record"]
-version: 10
-updated_at: "2026-10-19 15:56:27 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 17
+updated_at: 2026-10-24 01:18:03 +0400
 relations: {}
-atom_id: "CA-O-007"
-content_role: "Operations"
+atom_id: CA-O-007
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 ---
 # Summary
 
@@ -26,9 +31,9 @@ Obtain Source Correction Decision **means** the reusable Action that obtains the
 
 1. present the proposal, the conflict it addresses, **and** the selected source frontier **to** the Operator.
 2. request an explicit decision. distinguish approval, rejection, requested revision, **and** absence of a decision; confidence, inferred intent, **or** an LLM judgment is **not** approval.
-3. record the actual decision **in** the Journal with its proposal, conflict, exact source-frontier binding, **and** provenance. record a missing decision as missing, **not** as an approval **or** rejection.
-4. return the recorded decision for the applicable authorization checks. a changed proposal **or** source frontier requires the decision's applicability **to** be checked again **before** reliance.
+3. retain the actual decision with its proposal, conflict, exact source-frontier binding, **and** provenance in admitted execution evidence. attempt the Journal append as a business-provenance record; an append failure yields a `recording_error` diagnostic and does not change the decision **or** block authorization. record a missing decision as missing, **not** as an approval **or** rejection.
+4. return the actual decision and its independently verified execution evidence for the applicable authorization checks. a changed proposal **or** source frontier requires the decision's applicability **to** be checked again **before** reliance.
 
-this Action **must not** apply the correction, record approval the Operator did **not** give, **or** create a duplicate approval Atom **in** Project Configuration. the Journal records the decision; it does **not** independently redefine the governing source Claims.
+this Action **must not** apply the correction, record approval the Operator did **not** give, **or** create a duplicate approval Atom **in** Project Configuration. the Journal append is a business-provenance obligation; it does **not** independently redefine the governing source Claims **or** serve as proof, permission, completion, **or** recovery gate.
 
 ## Details

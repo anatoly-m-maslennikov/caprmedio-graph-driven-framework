@@ -3,17 +3,26 @@ atom_id: CA-D-528
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 23:03:24 +0400"
+version: 8
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "WORKFLOW_OPERATIONS/RUN_SUPPORT/journal carrier"
-  depends_on: [Journal, Workflow Run, Step Run, Action, Initiative, Implementation]
+  governs: Subject/Engineering/Carrier/Journal Run Evidence
+  depends_on:
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Initiative
+  - Subject/Engineering/Journal Operations
 relations:
-  delivery_for: [CA-R-1822, CA-R-1823, CA-R-1824]
+  delivery_for:
+  - CA-R-1822
+  - CA-R-1823
+  - CA-R-1824
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

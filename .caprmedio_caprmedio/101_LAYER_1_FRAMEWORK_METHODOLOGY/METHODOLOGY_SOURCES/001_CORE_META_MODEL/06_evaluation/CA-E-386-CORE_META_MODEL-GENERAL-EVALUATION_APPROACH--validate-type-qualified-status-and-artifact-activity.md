@@ -1,20 +1,23 @@
 ---
 subjects:
-  governs: "Type-Qualified Status Validation"
+  governs: Type-Qualified Status Validation
   depends_on:
-    ["Artifact.Status", "Artifact.Activity", "Atom/Content Role", "Type", "Entity/Node/Continuant/Atom/Content Role: Plan.Status"]
-version: 22
-updated_at: "2026-10-19 15:54:57 +0400"
+  - Artifact.Status
+  - Artifact.Activity
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Type
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Status'
+version: 26
+updated_at: 2026-10-24 00:51:05 +0400
 relations: {}
-atom_id: "CA-E-386"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 10
+atom_id: CA-E-386
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 2
 ---
 # Summary
 

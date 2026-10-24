@@ -1,19 +1,23 @@
 ---
 subjects:
-  governs: "Artifact.Activity"
+  governs: Artifact.Activity
   depends_on:
-    ["Artifact", "Artifact.Status", "Property", "Artifact.Activity: Active", "Artifact.Activity: Inactive"]
-version: 11
-updated_at: "2026-10-15 12:21:42 +0000"
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Artifact.Status
+  - Subject/Domain/Node/Continuant/Term//Property
+  - 'Artifact.Activity: Active'
+  - 'Artifact.Activity: Inactive'
+version: 15
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1394"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1394
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 Define Artifact Activity

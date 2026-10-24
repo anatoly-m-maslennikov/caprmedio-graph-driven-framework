@@ -1,27 +1,26 @@
 ---
 atom_id: CA-E-530
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: WATCH_EXECUTION
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 14:55:01 +0000"
+version: 3
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool/WATCH_EXECUTION"
+  governs: Subject/Engineering/Programmatic Action/Execution Notification Adapter
   depends_on:
-    - "Tool"
-    - "Action"
-    - "Workflow"
-    - "Atom"
-    - "Scope Unit"
-    - "Implementation"
-    - "Workflow Run"
-    - "Journal"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-R-1809, CA-D-517]
+  relates_to:
+  - CA-R-1809
+  - CA-D-517
+tier: 3
 ---
 # Summary
 

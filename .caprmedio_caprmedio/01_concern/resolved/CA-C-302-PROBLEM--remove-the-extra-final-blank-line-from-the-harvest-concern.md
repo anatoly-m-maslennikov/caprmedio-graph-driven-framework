@@ -8,11 +8,11 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Harvest Concern Carrier final newline"
+  governs: Harvest Concern Carrier final newline
   depends_on:
-    - "Project"
-version: 1
-updated_at: "2026-10-04 11:00:21 +0400"
+  - Subject/Domain/Node/Continuant/Project
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
     - CA-C-301

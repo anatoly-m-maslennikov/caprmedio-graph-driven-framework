@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "P1348 actual review timing"
-  depends_on: [Operations, "Atom/Content Role: Plan"]
-version: 1
-updated_at: "2026-10-04 13:29:38 +0000"
+  governs: P1348 actual review timing
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1348]
   relates_to: [CA-A-1066]

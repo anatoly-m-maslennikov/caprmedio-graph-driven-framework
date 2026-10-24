@@ -1,17 +1,24 @@
 ---
 subjects:
-  governs: "projection-pipeline"
+  governs: projection-pipeline
   depends_on: []
-version: 12
-updated_at: 2026-08-30 16:44:07 +0400
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   method_for:
-    - CA-R-1060
-    - CA-R-1061
-    - CA-R-1062
+  - CA-R-1060
+  - CA-R-1061
+  - CA-R-1062
+atom_id: CA-M-147
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Decision
+tier: 2
 ---
 # Generate current active Atom snapshot
 

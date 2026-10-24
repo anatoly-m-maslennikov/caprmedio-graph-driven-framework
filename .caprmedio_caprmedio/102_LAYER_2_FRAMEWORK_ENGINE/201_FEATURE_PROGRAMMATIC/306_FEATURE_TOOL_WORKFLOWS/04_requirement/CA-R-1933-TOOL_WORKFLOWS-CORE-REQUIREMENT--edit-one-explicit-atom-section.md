@@ -1,20 +1,24 @@
 ---
 atom_id: CA-R-1933
 content_role: Requirement
-type: Requirement
+type: Rule
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-12 23:58:28 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool"
-  depends_on: ["Atom", "Property", "Workflow"]
+  governs: Subject/Domain/Node/Continuant/Atom
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
 relations:
-  relates_to: [CA-R-866, CA-M-373, CA-O-030]
+  relates_to:
+  - CA-R-866
+  - CA-M-373
+  - CA-O-030
+tier: 1
 ---
 # Summary
 

@@ -1,0 +1,30 @@
+---
+subjects:
+  governs: Subject/Domain/Node/Continuant/Scope Unit.Name
+  depends_on:
+  - CCE Operator
+version: 15
+updated_at: 2026-10-23 03:14:50 +0400
+relations: {}
+atom_id: CA-R-1297@15
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+local_tier: Standard
+status: Archived
+author: Anatoly Maslennikov
+global_tier: 11
+---
+# Summary
+
+Prohibit CCE Operator Scope Unit Names
+
+## Scope
+
+Scope Unit Names.
+
+## Claim
+
+a Scope Unit Name **must not** equal the uppercase underscore-joined rendering of **any** word-form CCE Operator.
+
+## Details

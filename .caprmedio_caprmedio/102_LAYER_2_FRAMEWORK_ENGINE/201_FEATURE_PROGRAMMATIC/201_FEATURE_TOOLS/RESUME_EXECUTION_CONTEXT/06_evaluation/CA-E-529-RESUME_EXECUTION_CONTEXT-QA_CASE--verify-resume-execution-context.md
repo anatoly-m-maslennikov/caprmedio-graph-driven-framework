@@ -1,27 +1,26 @@
 ---
 atom_id: CA-E-529
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: RESUME_EXECUTION_CONTEXT
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 14:55:01 +0000"
+version: 3
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool/RESUME_EXECUTION_CONTEXT"
+  governs: Subject/Engineering/Programmatic Action/Execution Continuation Context Adapter
   depends_on:
-    - "Tool"
-    - "Action"
-    - "Workflow"
-    - "Atom"
-    - "Scope Unit"
-    - "Implementation"
-    - "Workflow Run"
-    - "Journal"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-R-1808, CA-D-516]
+  relates_to:
+  - CA-R-1808
+  - CA-D-516
+tier: 3
 ---
 # Summary
 

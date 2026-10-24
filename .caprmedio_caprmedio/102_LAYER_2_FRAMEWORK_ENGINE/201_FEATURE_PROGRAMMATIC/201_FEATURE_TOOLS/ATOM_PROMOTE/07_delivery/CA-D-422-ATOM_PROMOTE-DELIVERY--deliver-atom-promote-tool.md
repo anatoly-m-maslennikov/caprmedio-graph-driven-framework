@@ -2,17 +2,24 @@
 cce_version: cce_1
 cce_form: delivery
 subjects:
-  governs: "Tool/ATOM_PROMOTE/Carrier"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Tool/ATOM_PROMOTE"
-version: 6
-updated_at: "2026-09-17 23:09:21 +0000"
+  - Subject/Engineering/Tool//ATOM_PROMOTE
+version: 11
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   delivery_for:
-    - CA-R-869
-    - CA-O-066
+  - CA-R-869
+  - CA-O-066
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-D-422
+status: Active
+content_role: Delivery
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Decision
+tier: 1
 ---
 # Deliver ATOM_PROMOTE Tool
 

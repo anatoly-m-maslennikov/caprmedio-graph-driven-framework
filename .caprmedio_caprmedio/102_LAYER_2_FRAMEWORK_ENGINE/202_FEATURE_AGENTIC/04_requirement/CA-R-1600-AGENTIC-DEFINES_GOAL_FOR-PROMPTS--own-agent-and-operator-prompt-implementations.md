@@ -2,14 +2,21 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "PROMPTS/Goal"
+  governs: PROMPTS/Goal
   depends_on:
-    - "AGENTIC"
-version: 1
-updated_at: "2026-09-23 04:20:00 +0400"
+  - AGENTIC
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 relations: {}
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-1600
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: AGENTIC
+type: Goal
+tier: 1
 ---
 # Own Agent and Operator Prompt Implementations
 

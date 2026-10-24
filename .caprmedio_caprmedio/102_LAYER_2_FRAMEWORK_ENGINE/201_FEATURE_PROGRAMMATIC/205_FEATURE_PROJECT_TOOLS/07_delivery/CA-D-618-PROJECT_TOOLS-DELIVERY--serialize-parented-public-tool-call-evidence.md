@@ -1,19 +1,25 @@
 ---
-atom_id: "CA-D-618"
-content_role: "Delivery"
+atom_id: CA-D-618
+content_role: Delivery
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public release Tool-call Journal evidence"
-  depends_on: [Journal, Workflow, Step, Action, Tool Call]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
+  depends_on:
+  - Subject/Engineering/Carrier/Journal Serialization
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution
+version: 6
+updated_at: 2026-10-24 04:05:50 +0400
 relations:
-  delivery_for: [CA-R-1928]
+  delivery_for:
+  - CA-R-1928
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

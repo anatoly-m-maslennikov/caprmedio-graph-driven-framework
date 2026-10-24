@@ -1,20 +1,30 @@
 ---
 atom_id: CA-D-541
 content_role: Delivery
-type: Delivery
+type: Eng Decision
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 18:37:19 +0000"
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/Carrier"
-  depends_on: [Tool, Workflow, Action, Methodology Source, Extension, Project Configuration, Operator, Journal]
+  governs: Tool/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/Carrier
+  depends_on:
+  - Tool
+  - Workflow
+  - Action
+  - Methodology Source
+  - Extension
+  - Project Configuration
+  - Operator
+  - Journal
 relations:
-  delivery_for: [CA-R-1839, CA-R-1840, CA-R-1841]
+  delivery_for:
+  - CA-R-1839
+  - CA-R-1840
+  - CA-R-2118
+tier: 4
 ---
 # Summary
 
@@ -39,10 +49,10 @@ action_ids = ["CA-O-004", "CA-O-005", "CA-O-006", "CA-O-007", "CA-O-008", "CA-O-
 operations = ["dry_run", "apply", "recover_publication"]
 ```
 
-The strict request contains `operation`; `project_root`; expected Project Structure, Framework Settings, and Project Configuration revision/digest bindings; `projection_target`; and, for `apply` or `recover_publication`, the expected assessed frontier digest plus exact decision and prior-publication evidence references. The Tool resolves all source locations from governed Project Structure/Settings. `apply` refuses a request without a fresh publishable assessment; `recover_publication` accepts only a failed-publication receipt and never a source-change instruction.
+The strict request contains `operation`; `project_root`; expected Project Structure, Framework Settings, and Project Configuration revision/digest bindings; `projection_target`; and, for `apply` or `recover_publication`, the expected assessed frontier digest plus the exact current Operator decision, independently verified admitted Run/effect evidence, and prior-publication evidence references. Optional Journal references are observational and cannot authorize the operation. The Tool resolves all source locations from governed Project Structure/Settings. `apply` refuses a request without a fresh publishable assessment; `recover_publication` accepts only a failed-publication receipt and never a source-change instruction.
 
-Unknown fields, mixed operations, mutable source/output paths outside governed declarations, `edit_source`, raw source patch, arbitrary selected candidate, raw approval text, or a TOML-only approval are explicit errors. Canonical shared Run/Journal handles are references, not caller-authored event payloads.
+Unknown fields, mixed operations, mutable source/output paths outside governed declarations, `edit_source`, raw source patch, arbitrary selected candidate, raw approval text, or a TOML-only approval are explicit errors. Canonical shared Run/Journal handles are references, not caller-authored event payloads; a Journal append is a business-provenance attempt and not a permission or completion gate.
 
 ### Sources
 
-- CA-R-1839 through CA-R-1841; CA-O-011 v12; CA-P-1442 v1.
+- CA-R-1839, CA-R-1840, CA-R-2118; CA-O-011 v12; CA-P-1442 v1.

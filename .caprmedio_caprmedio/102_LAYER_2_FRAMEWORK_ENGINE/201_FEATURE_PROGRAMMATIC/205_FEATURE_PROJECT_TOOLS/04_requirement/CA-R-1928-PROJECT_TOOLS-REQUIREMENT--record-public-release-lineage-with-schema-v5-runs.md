@@ -1,18 +1,23 @@
 ---
-atom_id: "CA-R-1928"
-content_role: "Requirement"
+atom_id: CA-R-1928
+content_role: Requirement
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public release Journal lineage"
-  depends_on: [Journal, Workflow, Step, Action, Tool Call]
-version: 2
-updated_at: "2026-10-14 12:27:48 +0000"
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
+  depends_on:
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution
+version: 6
+updated_at: 2026-10-24 04:05:50 +0400
 relations: {}
+tier: 3
+type: Rule
 ---
 # Summary
 

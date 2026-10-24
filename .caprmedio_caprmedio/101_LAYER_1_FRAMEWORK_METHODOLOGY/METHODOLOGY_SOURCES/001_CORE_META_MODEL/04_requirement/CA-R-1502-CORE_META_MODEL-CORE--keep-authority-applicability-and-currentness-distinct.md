@@ -1,19 +1,34 @@
 ---
 subjects:
-  governs: "Artifact"
+  governs: Subject/Domain/Node/Continuant/Term//Artifact
   depends_on:
-    ["Artifact/Authority", "Artifact/Applicability", "Artifact/Currentness", "Artifact/Revision", "Entity/Node/Continuant/Projection", "Provenance", "Atom/Content Role: Implementation", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Property", "Atom/Claim", "Entity/Node/Continuant/Atom/Content Role: Requirement", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Entity/Node/Continuant/Atom/Content Role: Operations"]
-version: 7
-updated_at: "2026-10-19 15:53:16 +0400"
-relations: {child_of: [CA-M-001]}
-atom_id: "CA-R-1502"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - Artifact/Authority
+  - Artifact/Applicability
+  - Artifact/Currentness
+  - Artifact/Revision
+  - Subject/Domain/Node/Continuant/Projection
+  - Provenance
+  - 'Atom/Content Role: Implementation'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  child_of:
+  - CA-M-001
+atom_id: CA-R-1502
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Keep Authority, Applicability, and Currentness distinct
 

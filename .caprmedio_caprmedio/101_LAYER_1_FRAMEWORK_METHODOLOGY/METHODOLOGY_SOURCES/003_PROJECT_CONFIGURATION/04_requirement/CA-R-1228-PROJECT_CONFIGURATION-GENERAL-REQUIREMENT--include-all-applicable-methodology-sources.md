@@ -1,19 +1,23 @@
 ---
 subjects:
-  governs: "Applicable Methodology Source Set"
+  governs: Applicable Methodology Source Set
   depends_on:
-    ["Methodology Source", "Core Meta-Model", "Project Configuration", "Extension", "Entity/Node/Continuant/Project.Framework Settings"]
-version: 20
-updated_at: "2026-10-19 15:56:04 +0400"
+  - Methodology Source
+  - Core Meta-Model
+  - Project Configuration
+  - Subject/Domain/Node/Continuant/Selection//Extension Sources
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+version: 24
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1228"
-content_role: "Requirement"
+atom_id: CA-R-1228
+content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

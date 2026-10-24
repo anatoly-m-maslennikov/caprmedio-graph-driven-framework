@@ -10,11 +10,11 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: active
 subjects:
-  governs: "Citation harvest reading and orchestration recovery"
+  governs: Citation harvest reading and orchestration recovery
   depends_on:
-    - "Project"
-version: 2
-updated_at: "2026-10-04 10:48:00 +0000"
+  - Subject/Domain/Node/Continuant/Project
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
     - CA-P-1307

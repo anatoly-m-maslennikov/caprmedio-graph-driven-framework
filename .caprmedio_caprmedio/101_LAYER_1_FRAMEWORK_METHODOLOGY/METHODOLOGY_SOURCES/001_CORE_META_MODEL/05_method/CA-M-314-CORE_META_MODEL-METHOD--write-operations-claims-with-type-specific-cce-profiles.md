@@ -1,29 +1,34 @@
 ---
 subjects:
-  governs: "Operations Type-specific CCE Profiles"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Atom/Content Role: Operations/Type: Actor", "CCE Operator"]
-version: 7
-updated_at: "2026-10-19 15:54:53 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Actor'
+  - Subject/Engineering/CCE Operator
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-M-307
+  - CA-M-307
   relates_to:
-    - CA-R-1452
-    - CA-R-1530
-    - CA-R-1563
-    - CA-R-1565
-    - CA-R-1569
-    - CA-M-304
-    - CA-M-305
-atom_id: "CA-M-314"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-R-1452
+  - CA-R-1530
+  - CA-R-1563
+  - CA-R-1565
+  - CA-R-1569
+  - CA-M-304
+  - CA-M-305
+atom_id: CA-M-314
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 6
+type: Implementation Method
 ---
 # Summary
 

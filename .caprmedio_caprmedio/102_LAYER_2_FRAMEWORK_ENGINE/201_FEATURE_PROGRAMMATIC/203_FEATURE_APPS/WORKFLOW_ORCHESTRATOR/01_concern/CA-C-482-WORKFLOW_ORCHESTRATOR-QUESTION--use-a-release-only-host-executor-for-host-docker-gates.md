@@ -7,11 +7,18 @@ local_tier: Standard
 global_tier: 14
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 01:01:23 +0000"
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Release Version/Host Executor"
-  depends_on: [Release Version, Workflow Run, Operator, Queue, DBOS, Docker Image, Implementation]
+  governs: Release Version/Host Executor
+  depends_on:
+  - Release Version
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Queue
+  - DBOS
+  - Docker Image
+  - Implementation
 relations:
   concern_about: [CA-R-1891, CA-M-347, CA-D-583, CA-E-590]
 ---

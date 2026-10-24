@@ -4,17 +4,33 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Node/Continuant/Atom"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Revision/Type: Atom", "Status", "Entity/Carrier", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal"]
-version: 15
-updated_at: "2026-10-20T20:55:07.923Z"
+  governs: Subject/Domain/Node/Continuant/Atom
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Subject/Domain/Node/Continuant/Atom.Status
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 19
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-O-051, CA-O-067, CA-R-1432, CA-R-1464, CA-R-1521, CA-R-1788, CA-R-807, CA-D-303, CA-D-289]
+  relates_to:
+  - CA-O-051
+  - CA-O-067
+  - CA-R-1432
+  - CA-R-1464
+  - CA-R-1521
+  - CA-R-1788
+  - CA-R-807
+  - CA-D-303
+  - CA-D-289
+tier: 3
 ---
 # Summary
 

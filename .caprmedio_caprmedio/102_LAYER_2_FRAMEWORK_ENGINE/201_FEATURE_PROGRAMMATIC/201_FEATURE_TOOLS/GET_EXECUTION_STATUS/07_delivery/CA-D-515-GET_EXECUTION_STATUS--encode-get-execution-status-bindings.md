@@ -2,25 +2,27 @@
 atom_id: CA-D-515
 content_role: Delivery
 current_scope_unit: GET_EXECUTION_STATUS
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 14:55:01 +0000"
+version: 6
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Tool/GET_EXECUTION_STATUS/Carrier"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Tool"
-    - "Action"
-    - "Workflow"
-    - "Atom"
-    - "Scope Unit"
-    - "Implementation"
-    - "Workflow Run"
-    - "Journal"
+  - Subject/Engineering/Tool//GET_EXECUTION_STATUS
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Engineering/Programmatic Action/Execution Observation Adapter
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-O-115, CA-R-1807]
+  relates_to:
+  - CA-O-115
+  - CA-R-1807
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

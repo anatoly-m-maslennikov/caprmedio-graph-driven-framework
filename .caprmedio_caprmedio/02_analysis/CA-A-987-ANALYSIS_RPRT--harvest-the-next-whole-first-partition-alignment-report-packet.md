@@ -9,13 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Bounded first-partition alignment-report evidence"
+  governs: Bounded first-partition alignment-report evidence
   depends_on:
-    - "Project"
-    - "Operations"
-    - "Atom/Content Role: Plan"
-version: 1
-updated_at: "2026-10-04 12:12:15 +0400"
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   relates_to:
     - CA-P-1269

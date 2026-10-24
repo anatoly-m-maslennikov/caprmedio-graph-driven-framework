@@ -1,21 +1,27 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Framework Settings"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings
   depends_on:
-    ["Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project.Structure", "Default Settings", "Project Name", "Entity/Node/Continuant/Project.Settings.Atom Prefix", "Entity/Node/Continuant/Atom"]
-version: 24
-updated_at: "2026-10-19 15:53:58 +0400"
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Default Settings
+  - Subject/Domain/Node/Continuant/Project.Settings.Project Name
+  - Subject/Domain/Node/Continuant/Project.Settings.Atom Prefix
+  - Subject/Domain/Node/Continuant/Atom
+version: 29
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - "CA-R-1740"
-atom_id: "CA-R-1750"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1740
+atom_id: CA-R-1750
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

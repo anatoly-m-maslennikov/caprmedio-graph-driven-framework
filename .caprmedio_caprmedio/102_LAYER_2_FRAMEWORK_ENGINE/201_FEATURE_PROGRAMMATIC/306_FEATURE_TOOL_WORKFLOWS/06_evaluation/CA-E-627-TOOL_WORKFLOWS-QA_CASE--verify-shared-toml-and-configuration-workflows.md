@@ -1,21 +1,34 @@
 ---
 atom_id: CA-E-627
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Tool","Workflow","Project Configuration","Scope Unit"]
-version: 5
-updated_at: "2026-10-15 22:37:29 +0400"
+  governs: Subject/Engineering/Configuration/Shared TOML Workflow Evaluation
+  depends_on:
+  - Subject/Engineering/Configuration/Shared TOML Connector
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 7
+updated_at: 2026-10-24 00:38:25 +0400
 relations:
-  evaluation_for: ["CA-R-1935"]
-  relates_to: ["CA-M-375","CA-O-204","CA-O-205","CA-O-206","CA-O-218","CA-D-631","CA-O-219","CA-O-220","CA-E-634"]
+  evaluation_for:
+  - CA-R-1935
+  relates_to:
+  - CA-M-375
+  - CA-O-204
+  - CA-O-205
+  - CA-O-206
+  - CA-O-218
+  - CA-D-631
+  - CA-O-219
+  - CA-O-220
+  - CA-E-634
+tier: 3
 ---
 # Summary
 

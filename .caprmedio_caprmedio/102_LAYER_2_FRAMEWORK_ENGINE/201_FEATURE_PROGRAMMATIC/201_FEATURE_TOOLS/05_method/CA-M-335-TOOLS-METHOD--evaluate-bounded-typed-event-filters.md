@@ -3,17 +3,23 @@ atom_id: CA-M-335
 content_role: Method
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 00:30:00 +0400"
+version: 5
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/filter"
-  depends_on: [Event, Tool]
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
+  depends_on:
+  - Subject/Engineering/Journal Event Query/Selector Evaluation
+  - Subject/Engineering/Query Filter Contract
 relations:
-  method_for: [CA-R-1850, CA-R-1862, CA-R-1868, CA-R-1869]
+  method_for:
+  - CA-R-1850
+  - CA-R-1862
+  - CA-R-1868
+  - CA-R-1869
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

@@ -1,19 +1,28 @@
 ---
 atom_id: CA-E-532
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 02:57:00 +0400"
+version: 7
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Workflow Run/permissions"
-  depends_on: [Workflow, Action, Atom, Operator, Journal, Implementation, Tool]
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Workflow Orchestration/Authority and Recovery Evaluation
 relations:
-  relates_to: [CA-R-1522, CA-R-1523, CA-R-1524, CA-O-104]
+  relates_to:
+  - CA-R-1522
+  - CA-R-1523
+  - CA-R-1524
+  - CA-O-104
+tier: 3
 ---
 # Summary
 

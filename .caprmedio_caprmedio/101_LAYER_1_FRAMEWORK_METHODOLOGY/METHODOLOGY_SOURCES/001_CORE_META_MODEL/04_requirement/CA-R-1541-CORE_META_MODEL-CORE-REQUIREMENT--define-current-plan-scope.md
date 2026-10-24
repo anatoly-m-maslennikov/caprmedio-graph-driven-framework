@@ -1,19 +1,22 @@
 ---
 subjects:
-  governs: "Current Plan Scope"
+  governs: Subject/Domain/Node/Continuant/Selection//Current Plan Scope
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Plan.Status: Active"]
-version: 8
-updated_at: "2026-10-19 15:53:24 +0400"
-relations: {"relates_to": ["CA-D-483", "CA-R-1539"]}
-atom_id: "CA-R-1541"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Status: Active'
+version: 12
+updated_at: 2026-10-24 04:38:42 +0400
+relations:
+  relates_to:
+  - CA-D-483
+  - CA-R-1539
+atom_id: CA-R-1541
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

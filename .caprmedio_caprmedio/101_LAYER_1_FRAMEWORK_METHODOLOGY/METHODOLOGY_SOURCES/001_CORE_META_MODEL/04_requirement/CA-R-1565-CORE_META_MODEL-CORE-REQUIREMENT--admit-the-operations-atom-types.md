@@ -1,19 +1,28 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Operations/Type"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Atom/Content Role: Operations/Type: Actor"]
-version: 7
-updated_at: "2026-10-19 15:53:30 +0400"
-relations: {"relates_to": ["CA-R-1562", "CA-R-1563", "CA-R-1564", "CA-R-1569"]}
-atom_id: "CA-R-1565"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Actor'
+version: 11
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1562
+  - CA-R-1563
+  - CA-R-1564
+  - CA-R-1569
+atom_id: CA-R-1565
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

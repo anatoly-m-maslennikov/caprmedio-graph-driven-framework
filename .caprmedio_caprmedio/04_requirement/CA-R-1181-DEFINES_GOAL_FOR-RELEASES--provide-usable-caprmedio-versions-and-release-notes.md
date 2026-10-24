@@ -2,15 +2,22 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "RELEASES/Goal"
+  governs: RELEASES/Goal
   depends_on:
-    - "CAPRMEDIO"
-    - "Operator"
-version: 8
-updated_at: "2026-09-09 03:08:34 +0400"
+  - CAPRMEDIO
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations: {}
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-1181
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Goal
+tier: 0
 ---
 # Provide usable CAPRMEDIO versions and release notes
 

@@ -1,0 +1,37 @@
+---
+subjects:
+  governs: Work Journal/Event/Result
+  depends_on: []
+version: 17
+updated_at: 2026-10-24 01:18:03 +0400
+relations:
+  evaluation_for:
+  - CA-R-805
+  - CA-R-812
+  - CA-D-417
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-201@17
+status: Archived
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+---
+# Represent removal as a result tombstone
+
+## Claim checked
+
+a `REMOVE` action records one singular removed-state result while preserving independent real-change **and** Journal evidence.
+
+## Test case
+
+remove one governed subject with an accepted present result, validate the structured Journal event, apply the real-change gate, batch the Journal record later, **and** reconcile the transition.
+
+## Acceptance criteria
+
+the canonical Journal result has `state: removed`, the removed filename **and** revision, omits present-only path **and** digest fields, **and** refers **to** the immediate prior present result. the real-change commit **contains** **only** the removal target **and** its Initiative-based message. the later Journal-only batch **contains** **only** Journal carriers, **and** reconciliation binds both **without** a duplicate event.
+
+## Failure disposition
+
+reject the removal **if** the tombstone is absent **or** plural, retains present-only fields, lacks the immediate prior-result reference, **or** mixes Journal changes into the real-change commit.

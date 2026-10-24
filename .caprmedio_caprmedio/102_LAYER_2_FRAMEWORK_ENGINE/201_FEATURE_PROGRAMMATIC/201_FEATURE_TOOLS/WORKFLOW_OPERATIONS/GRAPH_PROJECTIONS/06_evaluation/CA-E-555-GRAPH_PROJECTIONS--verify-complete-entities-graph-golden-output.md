@@ -1,20 +1,28 @@
 ---
 atom_id: CA-E-555
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 19:23:34 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/Entities Graph golden case"
-  depends_on: [Tool, Entity, Property, Projection, Project Structure, Relation Kind]
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Entities Graph'
+  depends_on:
+  - Subject/Engineering/Graph Projection
+  - Subject/Domain/Node
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Relation Kind
 relations:
-  evaluation_for: [CA-R-1835, CA-R-1837, CA-R-1838]
+  evaluation_for:
+  - CA-R-1835
+  - CA-R-1837
+  - CA-R-1838
+tier: 4
 ---
 # Summary
 

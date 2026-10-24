@@ -1,22 +1,29 @@
 ---
 subjects:
-  governs: "routing"
+  governs: routing
   depends_on:
-    - "Tool"
-    - "Projection"
-    - "Artifact"
-version: 16
-updated_at: "2026-09-17 20:19:59 +0000"
+  - Subject/Engineering/Tool
+  - Subject/Domain/Node/Continuant/Projection
+  - Artifact
+version: 22
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   method_for:
-    - CA-R-1063
-    - CA-R-1064
-    - CA-R-1065
-    - CA-R-1066
-    - CA-R-1067
+  - CA-R-1063
+  - CA-R-1064
+  - CA-R-1065
+  - CA-R-1066
+  - CA-R-1067
+atom_id: CA-M-144
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Policy
+tier: 2
 ---
 # Route and invoke Tools through the common CLI
 

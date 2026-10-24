@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Framework Settings.Identifier"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings.Identifier
   depends_on:
-    ["Entity/Node/Continuant/Project.Framework Settings"]
-version: 16
-updated_at: "2026-10-19 15:55:32 +0400"
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+version: 19
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-R-1402
-atom_id: "CA-D-358"
-content_role: "Delivery"
+  - CA-R-1402
+atom_id: CA-D-358
+content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

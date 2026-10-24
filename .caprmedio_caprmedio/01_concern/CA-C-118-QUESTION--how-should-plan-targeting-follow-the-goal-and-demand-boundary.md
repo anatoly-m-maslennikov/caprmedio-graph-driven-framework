@@ -2,21 +2,22 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Relational Atom"
+  governs: Relational Atom
   depends_on:
-    - "Atom/Claim"
-    - "Scope Unit"
-    - "Atom Collection/Type: Epic"
-    - "Atom/Content Role: Plan/Type: Task"
-    - "Atom/Content Role: Plan/Type: Objective"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Atom/Content Role: Requirement/Type: Demand"
+  - Atom/Claim
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - 'Atom Collection/Type: Epic'
+  - 'Atom/Content Role: Plan/Type: Task'
+  - 'Atom/Content Role: Plan/Type: Objective'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Demand'
 priority: medium
-version: 1
-updated_at: "2026-09-17 02:47:51 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-118
 ---
 # How should Plan targeting follow the Goal and Demand boundary?
 

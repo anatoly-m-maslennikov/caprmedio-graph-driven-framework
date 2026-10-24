@@ -2,17 +2,26 @@
 atom_id: CA-M-325
 content_role: Method
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 04:10:07 +0400"
+version: 6
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Action/execution/Docker adapter"
-  depends_on: [AI Agent, Action, Atom, Workflow Run, Implementation, Operator, Carrier]
+  governs: Subject/Engineering/Runtime/Docker Runtime.Agent Action Adapter
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Engineering/Agent Execution/Project-Write Isolation
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Carrier
 relations:
-  relates_to: [CA-R-1819, CA-M-321]
+  relates_to:
+  - CA-R-1819
+  - CA-M-321
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

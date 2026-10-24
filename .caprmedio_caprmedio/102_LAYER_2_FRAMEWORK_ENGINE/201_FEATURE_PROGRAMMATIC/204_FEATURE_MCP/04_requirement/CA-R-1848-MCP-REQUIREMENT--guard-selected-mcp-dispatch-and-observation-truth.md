@@ -3,16 +3,23 @@ atom_id: CA-R-1848
 content_role: Requirement
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-15 01:59:30 +0000"
+version: 10
+updated_at: 2026-10-24 03:32:45 +0400
 subjects:
-  governs: "MCP/selected Workflow dispatch truth"
-  depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal]
+  governs: Subject/Engineering/MCP.selected Workflow dispatch truth
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Engineering/Tool
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution/Run
+  - Subject/Domain/Node/Continuant/History/Journal
 relations: {}
+type: Rule
+tier: 3
 ---
 # Summary
 
@@ -53,6 +60,35 @@ request, widen a selected set, infer authority from a prior request, or accept a
 captured source before dispatch refuses that operation rather than silently
 refreshing its target, intent or authorization evidence.
 
+The only additional connected-session admission is the current source-bound
+`run_implementation_workflow` binding to the Project Configuration Workflow
+CA-O-016 at observed Version 18, limited to its eight Integrated Steps and
+CA-O-231 entry after the same manifest/currentness/permission checks. Its
+pending response exposes the current Step prompt, complete bound inputs,
+expected result contract and opaque one-use continuation; the prompt is not
+completion. The controlling session may perform or delegate the Step, then
+submits through the same route with the closed `submit_result` packet:
+`operation=submit_result`, `run_id`, `action_run_id`, `continuation_id`, and
+`result={result, outputs, evidence, blockers}`. The server owns admission,
+validation and digest/policy binding: exact duplicates return the original
+response, while conflicting, stale or oversized submissions refuse without
+replay, and caller policy overrides are not accepted. Read-only `status`
+strips `capture.definitions`, exposes actual retained recording diagnostics,
+and never recovers or replays work. With no checkpoint, read-only observation returns `not_observed` with the requested Run ID only; it never fabricates an actual root/Run start, prompt or recovery. A known graph-blocked terminal must retain
+the exact public wrapper and canonical Run outcome: `disposition=terminal`,
+`status=interrupted_pending`, `outcome=interrupted_pending`,
+`graph_result.outcome=interrupted_pending`, and actual
+`run_disposition=interrupted`. An unknown root or child interruption without
+bound canonical graph proof remains `interrupted_pending` with no prompt;
+tampered or missing graph references refuse. O016 Version 17 remains the
+legacy projection and DBOS/queue dispatch path; Version 18 is the
+observed current admission, not a timeless `>=18` rule, and a future Version
+requires fresh current compatible admission. This source contract adds no
+projection compilation gate and does not make Journal completeness a
+permission condition. The existing Subject-only connected-process exception
+and all other legacy/Isolated routes retain their separate unchanged
+boundaries.
+
 For `find_and_fetch_journal_events`, capture the source Journal byte-prefix and
 bind CA-O-163's snapshot token before any Workflow/Action-start recording or
 Action dispatch. Only the sealed prefix can be queried; later Run/Event records
@@ -68,3 +104,4 @@ Observation results disclose only references and redacted safe material authoriz
 
 - Current CA-A-1142 selected registry and current CA-P-1618/CA-P-1535 query admission carriers.
 - CA-D-527 v3; CA-D-521 v7; CA-R-1720 v19; CA-R-1525 v7; CA-R-1728 v16; CA-D-523 v2; CA-R-1850 v2; CA-R-1866 v3; CA-R-1867 v1.
+- Current CA-O-016 Project Configuration Workflow (observed Version 18), CA-R-1527 Core Meta Model General, CA-R-1845 and CA-D-544 supply the Integrated prompt/continuation contract; CA-E-652 remains Workflow-level algorithm/evaluation authority, not an MCP admission gate.

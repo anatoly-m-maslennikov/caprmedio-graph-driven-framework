@@ -2,18 +2,19 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Revision"
+  governs: Atom/Revision
   depends_on:
-    - "Atom/Identifier"
-    - "Atom/Status"
-    - "Artifact/Carrier"
-    - "Journal"
+  - Atom/Identifier
+  - Atom/Status
+  - Subject/Engineering/Carrier
+  - Journal
 priority: medium
-version: 1
-updated_at: "2026-09-17 14:38:57 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-147
 ---
 # How should Draft Revisions retain lineage without an assigned ID?
 

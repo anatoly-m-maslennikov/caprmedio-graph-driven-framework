@@ -1,14 +1,26 @@
 ---
 subjects:
-  governs: "Artifact/Revision/Status"
+  governs: Artifact/Revision/Status
   depends_on: []
-version: 12
-updated_at: "2026-09-17 03:16:58 +0000"
-relations: {"evaluation_for":["CA-R-803","CA-R-804","CAPRMEDIO-GOV-REQU-767","CA-R-1491"]}
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-803
+  - CA-R-804
+  - CAPRMEDIO-GOV-REQU-767
+  - CA-R-1491
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 cce_version: cce_1
 cce_form: evaluation
+atom_id: CA-E-218
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 2
 ---
 # Resolve a lifecycle transition without activating inactive state
 

@@ -2,21 +2,35 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "Workflow Run"
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run
   depends_on:
-    - "Workflow"
-    - "Step Run"
-    - "Action"
-    - "Artifact/Revision"
-    - "Journal"
-    - "Journal/Record"
-    - "Projection"
-    - "Operator"
-version: 2
-updated_at: "2026-09-18 21:51:53 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Artifact/Revision
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {"relates_to": ["CA-R-1522", "CA-R-1520", "CA-R-1525", "CAPRMEDIO-META-REQU-158", "CA-R-1468", "CA-R-1470"]}
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations:
+  relates_to:
+  - CA-R-1522
+  - CA-R-1520
+  - CA-R-1525
+  - CAPRMEDIO-META-REQU-158
+  - CA-R-1468
+  - CA-R-1470
+atom_id: CA-R-1524
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+type: Rule
+tier: 1
 ---
 # Recover Workflow handoffs without repeating effects
 

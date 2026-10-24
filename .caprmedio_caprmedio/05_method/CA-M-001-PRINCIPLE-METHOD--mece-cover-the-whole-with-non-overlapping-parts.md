@@ -1,15 +1,22 @@
 ---
-cce_version: "cce_1"
-cce_form: "method"
-version: 10
-updated_at: "2026-09-15 21:31:49 +0000"
+cce_version: cce_1
+cce_form: method
+version: 17
+updated_at: 2026-10-24 03:45:03 +0400
 relations:
   child_of:
-    - "ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-caprmedio--create-and-evolve-a-working-caprmedio-framework"
+  - CA-R-2155
 subjects:
-  governs: "Project/decomposition"
+  governs: Project/decomposition
   depends_on:
-    - "Project"
+  - Subject/Domain/Node/Continuant/Project
+atom_id: CA-M-001
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Eng Policy
+tier: 0
 ---
 # MECE: Cover the whole with non-overlapping parts
 

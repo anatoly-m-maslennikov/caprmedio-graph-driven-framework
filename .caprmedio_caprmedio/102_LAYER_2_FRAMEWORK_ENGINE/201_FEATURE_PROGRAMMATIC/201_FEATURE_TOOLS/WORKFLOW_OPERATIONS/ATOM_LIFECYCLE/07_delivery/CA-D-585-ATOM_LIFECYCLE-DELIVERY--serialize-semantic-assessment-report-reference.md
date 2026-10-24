@@ -2,17 +2,17 @@
 atom_id: CA-D-585
 content_role: Delivery
 current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Semantic Assessment Report Reference"
-  depends_on: ["CA-R-1892", "CA-D-531", "CA-D-532"]
-version: 5
-updated_at: "2026-10-17 18:52:24 +0400"
+  governs: Subject/Engineering/Tool//ATOM_LIFECYCLE.Semantic Assessment Report Reference
+version: 10
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  delivery_for: [CA-R-1892]
+  delivery_for:
+  - CA-R-1892
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

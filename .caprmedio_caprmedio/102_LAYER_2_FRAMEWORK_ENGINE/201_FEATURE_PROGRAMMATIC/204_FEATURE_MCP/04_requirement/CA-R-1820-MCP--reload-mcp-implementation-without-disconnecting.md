@@ -3,22 +3,20 @@ atom_id: CA-R-1820
 content_role: Requirement
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: '2026-10-04T05:54:48.186357+04:00'
+version: 3
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: MCP/implementation
+  governs: Subject/Engineering/MCP/Implementation Reload
   depends_on:
-  - MCP
-  - Tool
-  - Operator
-  - Project
-  - Implementation
-  - Workflow
-  - Atom
+  - Subject/Engineering/MCP
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+type: Rule
+tier: 3
 ---
 # Summary
 

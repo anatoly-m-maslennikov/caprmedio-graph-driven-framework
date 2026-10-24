@@ -1,57 +1,50 @@
 ---
 subjects:
-  governs: "Release Readiness"
+  governs: Release Readiness
   depends_on:
-    - "Workflow/Relation Kind: On Result"
-    - "Step Run"
-    - "Workflow Run"
-    - "Step"
-    - "Workflow"
-    - "Action"
-    - "Operator"
-    - "Implementation Workflow"
-    - "Select Reconciliation Sources"
-    - "Assess Source Conflicts"
-    - "Propose Source Corrections"
-    - "Obtain Source Correction Decision"
-    - "Apply Approved Source Corrections"
-    - "Refresh Required Release Projections"
-    - "Implementation Evaluation"
-    - "Assess Release Readiness"
-    - "Implementation Retry Control"
-    - "Artifact/Revision"
-    - "Journal/Record"
-    - "Project Configuration"
-    - "Atom"
-    - "Projection"
-    - "Atom/Content Role: Evaluation"
-    - "Version"
-    - "Autonomous Confidence Threshold"
-version: 6
-updated_at: "2026-10-04 15:08:16 +0000"
+  - 'Subject/Graph/Relation/Type: On Result'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Implementation Evaluation
+  - Assess Release Readiness
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
+  - Artifact/Revision
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Version
+  - Autonomous Confidence Threshold
+version: 10
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
   relates_to:
-    - "CA-O-016"
-    - "CA-O-004"
-    - "CA-O-005"
-    - "CA-O-006"
-    - "CA-O-007"
-    - "CA-O-008"
-    - "CA-O-020"
-    - "CA-O-024"
-    - "CA-O-026"
-    - "CA-O-027"
-    - "CA-R-1692"
-    - "CA-R-1646"
-atom_id: "CA-O-025"
-content_role: "Operations"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Workflow"
-global_tier: 11
+  - CA-O-016
+  - CA-O-004
+  - CA-O-005
+  - CA-O-006
+  - CA-O-007
+  - CA-O-008
+  - CA-O-020
+  - CA-O-024
+  - CA-O-026
+  - CA-O-027
+  - CA-R-1692
+  - CA-R-1646
+atom_id: CA-O-025
+content_role: Operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+type: Workflow
+tier: 3
 ---
 # Summary
 

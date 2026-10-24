@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "P1401 current-source locator recovery"
-  depends_on: [Operations, "Methodology Sources"]
-version: 2
-updated_at: "2026-10-04 13:29:29 +0000"
+  governs: P1401 current-source locator recovery
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Methodology Sources
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1401]
   relates_to: [CA-A-1121]

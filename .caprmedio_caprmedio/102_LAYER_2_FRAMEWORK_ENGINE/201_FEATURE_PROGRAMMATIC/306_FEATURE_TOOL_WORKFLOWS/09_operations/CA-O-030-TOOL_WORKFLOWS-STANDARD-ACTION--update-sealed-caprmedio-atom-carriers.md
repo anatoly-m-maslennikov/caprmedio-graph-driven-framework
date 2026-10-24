@@ -4,24 +4,22 @@ content_role: Operations
 type: Action
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Update Sealed Atom Carriers"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Action"
-    - "Tool/ATOM_UPDATE"
-    - "Atom"
-    - "Atom/Revision"
-    - "Atom/Summary"
-    - "Atom/Revision/Updated At"
-    - "Artifact/Carrier"
-    - "Journal/Record"
-version: 25
-updated_at: "2026-10-20 21:39:01 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Tool//ATOM_UPDATE
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Atom/Revision/Updated At
+  - Subject/Engineering/Carrier
+version: 29
+updated_at: 2026-10-24 00:51:05 +0400
 relations: {}
+tier: 3
 ---
 # Summary
 

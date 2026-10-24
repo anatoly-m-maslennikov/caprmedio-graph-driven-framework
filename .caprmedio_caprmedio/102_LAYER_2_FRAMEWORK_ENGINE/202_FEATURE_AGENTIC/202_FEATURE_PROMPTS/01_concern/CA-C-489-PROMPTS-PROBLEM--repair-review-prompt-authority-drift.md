@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 11
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 03:53:17 +0000"
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Repair review prompt authority drift"
-  depends_on: [Tool, Implementation, Evaluation, Workflow Run, Journal]
+  governs: Subject/Engineering/Prompt/Authority Drift
+  depends_on:
+  - Subject/Engineering/Tool Discovery Binding/RMED Atoms Base Revise
+  - Subject/Engineering/Specification Review/Metadata and Sections
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
   concern_about: [CA-P-1762]
 ---

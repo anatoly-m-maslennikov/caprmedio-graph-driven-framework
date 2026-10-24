@@ -1,15 +1,22 @@
 ---
 subject_scopes:
-  - routing
-version: 11
-updated_at: "2026-09-17 18:05:03 +0000"
+- routing
+version: 14
+updated_at: 2026-10-24 04:49:41 +0400
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   child_of:
-    - CA-M-098
-    - CA-M-099
+  - CA-M-098
+  - CA-M-099
+content_role: Method
+status: Active
+current_scope_unit: FRAMEWORK_METHODOLOGY
+author: Anatoly Maslennikov
+atom_id: CA-M-141
+type: Implementation Method
+tier: 1
 ---
 # Select the least costly sufficient execution mechanism
 

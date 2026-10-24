@@ -1,26 +1,22 @@
 ---
 atom_id: CA-E-536
 content_role: Evaluation
-type: Evaluation Approach
+type: Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: General
-global_tier: 7
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-15 22:37:03 +0400"
+version: 10
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "canary-evaluation-admission"
-  depends_on:
-    - "programmatic software"
-    - "Evaluation"
-    - "Implementation"
+  governs: Subject/Engineering/Evaluation Technique Selection
+  depends_on: []
 relations:
   evaluation_for:
-    - CA-M-285
+  - CA-M-424
   derived_from:
-    - CA-A-053
+  - CA-A-053
+tier: 5
 ---
 # Summary
 
@@ -44,4 +40,4 @@ given a proposed change, canary cohort **or** shadow surface, workload, control,
 
 - [Google SRE Workbook — Canarying Releases](https://sre.google/workbook/canarying-releases/)
 - [Microsoft Azure Well-Architected Framework — Safe deployment practices](https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments)
-- [CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode](../05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md)
+- [CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode](../05_method/CA-M-424-PROGRAMMATIC-STANDARD-ENG_POLICY--select-software-evaluation-techniques-by-failure-mode.md)

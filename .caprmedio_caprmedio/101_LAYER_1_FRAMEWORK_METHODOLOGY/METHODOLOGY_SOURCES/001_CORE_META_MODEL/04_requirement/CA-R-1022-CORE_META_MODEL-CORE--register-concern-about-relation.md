@@ -1,20 +1,19 @@
 ---
 subjects:
-  governs: "Concern About Relation"
+  governs: 'Subject/Graph/Relation/Type: concern_about'
   depends_on:
-    - "atom-boundary"
-    - "relation-model"
-version: 17
-updated_at: "2026-10-20T12:49:16.615Z"
+  - Subject/Graph/Relation
+version: 21
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1022"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1022
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

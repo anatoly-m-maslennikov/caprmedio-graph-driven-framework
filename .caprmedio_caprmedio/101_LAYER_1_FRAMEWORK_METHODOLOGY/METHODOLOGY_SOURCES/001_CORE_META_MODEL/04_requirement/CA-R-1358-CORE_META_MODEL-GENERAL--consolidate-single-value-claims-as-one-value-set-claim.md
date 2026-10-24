@@ -1,22 +1,26 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Substance"
+  governs: Subject/Domain/Node/Continuant/Atom.Substance
   depends_on:
-    ["Atom Scope", "Entity/Node/Continuant/Atom.Substance", "Claim Value Set", "Property", "IS_ALLOWED_VALUE_OF"]
-version: 16
-updated_at: "2026-10-19 15:52:53 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Local Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Claim Value Set
+  - Subject/Domain/Node/Continuant/Term//Property
+  - IS_ALLOWED_VALUE_OF
+version: 21
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-918
-    - CA-R-1596
-atom_id: "CA-R-1358"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-R-918
+  - CA-R-1596
+atom_id: CA-R-1358
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

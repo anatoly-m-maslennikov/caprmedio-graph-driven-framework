@@ -1,23 +1,26 @@
 ---
 subjects:
-  governs: "Tool/ATOM_UPGRADE"
+  governs: Subject/Engineering/Tool//ATOM_UPGRADE
   depends_on:
-    - "Atom"
-    - "Atom/Local Tier"
-    - "Atom/Global Tier"
-    - "Scope Unit"
-    - "Artifact/Revision"
-version: 14
-updated_at: "2026-10-12 23:58:28 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Atom/Tier
+  - Atom/Global Tier
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Artifact/Revision
+version: 21
+status: Active
+updated_at: 2026-10-24 03:08:30 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 cce_version: cce_1
 cce_form: obligation
 content_role: Requirement
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
+atom_id: CA-R-870
+tier: 3
+type: Rule
+author: Anatoly Maslennikov
 ---
 # Summary
 

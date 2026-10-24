@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 79
-updated_at: "2026-10-21T19:05:01Z"
+version: 107
+updated_at: "2026-10-23T18:34:36+0400"
 ---
 # Summary
 
@@ -671,3 +671,288 @@ No full suite, new image, release, deployment, production endpoint test or push
 occurred. New source is not active in the installed MCP yet. P2552/C572 readiness,
 P2556/C573 dispatch, ownership cleanup and the native container failure matrix
 remain open, as does the Epic. Scope Unit operations stay in Stage 2.
+
+### Docker-image-wide error handling — Operator scope correction
+
+The Operator clarified that shared failure handling covers everything first-party
+shipped for execution in the Docker image: all Tools, all Workflow executors,
+service/process entrypoints, MCP, agent requests and supporting Apps. It is not
+limited to AtomSearch, current registered MCP calls or the running container.
+CA-M-400@2 makes this coverage explicit while retaining M396–399 classification,
+partial-result, business-Journal and cancellation boundaries. The preceding
+P2557 acceptance remains bounded to its recorded surfaces; it is not image-wide
+acceptance.
+
+CA-P-2562 owns the extension, with inventory P2563, Tool boundary P2564, Workflow
+boundary P2565, service/App boundary P2566 and dependent focused acceptance P2567.
+Derive coverage from the Dockerfile, executable modes and actual dispatch owners;
+reuse existing packaging inventories rather than adding a runtime registry.
+Preserve explicit mutation-target refusals and atomicity; invalid unrelated input
+must not disable healthy independent work. Actual business Workflow lifecycle
+recording remains with its executor, not the generic decorator. Third-party
+library internals are not rewritten. Each leaf has at most 15 minutes own work;
+split before expanding it. Independent read-only lanes are running; implementation
+waits for their bounded findings and exclusive scopes.
+
+Use only broken/related isolated functional checks. This increment authorizes no
+production test/restart, deployment, full-suite rerun or historical batch replay.
+An image/source coverage check is not proof of image build or production adoption.
+Known C573 selected-workflow dispatch remains unresolved; under the Operator's
+standing fallback these source/planning updates are manual with exact predecessors.
+
+### One host MCP for all Projects — accepted Operator direction
+
+The Operator selected one shared MCP for all Projects. Mount My_Repos through
+CAPRMEDIO host/container configuration outside every Project, not through a
+Project's settings. The client path is Codex session -> project-local ca Skill ->
+request carrying the explicit Project root -> shared MCP. Validate each supplied
+root against the configured host mount and its own Project declarations; derive
+the prefix from the selected Project rather than a caller-provided label. Keep
+request contexts independent during concurrent work; no process-global selected
+Project and no silent fallback. Project settings still own that Project's model,
+tools, methodology and delivery locations; host settings own the shared mount and
+service configuration. This decision does not itself deploy or replace production.
+
+CA-P-2576 owns this increment with children P2569–P2575: reconcile the prior
+implementation, align source contracts, implement host settings/launch material,
+implement request routing, update the thin ca client, verify two-Project routing,
+and independently review/handoff. Existing image-error Task P2562 remains Active
+until its real normal-import checks and review pass. A mechanical __main__ wiring
+error introduced empty callbacks across fifty changed Python files; C574 records
+our introduced damage, not an unrelated pre-existing defect. P2569 repairs only
+those tails while preserving the other workers' domain edits, then reruns affected
+checks without import stubs. No full suite, uncertain mutation replay or production
+replacement is included in this source increment.
+
+The new host Task was initially assigned CA-P-2568 concurrently with the
+Methodology chat's earlier Project-level relation-migration Epic. Preserve that
+Epic unchanged and assign only this new host Task CA-P-2576. Exact original
+planning bytes and child-relation predecessors are retained; C575 records the
+resolved collision. The two chats have been explicitly informed of write/identity
+ownership. No uncommitted work from the other chat is included in this increment.
+
+## Source checkpoint — 2026-10-21T20:45:37Z
+
+Shared-host source packet now includes Active R2008@1, M401@1, E641@2 and D640@1, with conflicting legacy MCP instance-binding wording reconciled and exact predecessors retained. P2576 owns source implementation and the remaining adoption handoff. Actual host settings are external to all Projects; the container was not built, started or replaced. Root verified the new full 23-Method projection against current bytes and used its refreshed guidance in the implementation review. Final root source portfolios passed 50 shared-runtime and 59 image/error-boundary checks; real native child MCPs were used behind one isolated ASGI endpoint.
+
+The newly proposed Project-prefix selector, Codex hook and universal harness are being compared before any further contract change. No alias registry or hook activation is implied. Continue with the source/provenance handoff and candidate-image/client adoption gates; retain C572/P2552 and C573/P2556 independently. The Methodology chat's unrelated Project Epic CA-P-2568 remains untouched.
+
+
+### Shared-context native implementation — 22 October 2026
+
+The Operator approved implementing the current O016@17 shared-context graph and validating it through isolated functional/native MCP tests, without release, deployment or production MCP replacement. CA-P-2577 owns this increment, with leaf Tasks CA-P-2578–CA-P-2584 for source/test preparation, strict current input validation, Action/review dispatch, continuation/retry integration, binding/fixture reconciliation, isolated functional acceptance and independent review. Each leaf is one file and at most 15 minutes own work; split before extending and review/update dependants after each observed result.
+
+Use the refreshed 39-Method and 62-Evaluation source frontier, full Method contents and source hashes; do not treat declared-reference coverage as conformance. Reconcile stale current implementation bindings (including CA-R-1843) without rewriting the old frozen oracle from live Atoms. All eight current Steps are explicitly Integrated; select the adapter using trusted Workflow/definition/entry binding because three Step IDs overlap the legacy graph. Retain substantive R/M/D-to-E coverage, preliminary review before final tests, final same-candidate review, affected-evidence invalidation, one existing retry count and truthful separate release continuation. Standalone O223 remains a separate read-only Workflow, not a new MCP route.
+
+Current discovery did not advertise create_atom. Under the Operator's standing fallback, these planning records are saved manually with the exact Epic predecessor preserved; no MCP Run, runtime activation, test success or release is fabricated. Runtime implementation and acceptance are pending. Source-size exceptions, if needed for bounded legacy integration, require explicit acceptance; new runtime logic must remain cohesive and small.
+
+The Operator subsequently refused the proposed integration-only source-size exception and selected refactoring the oversized legacy files first. P2585/P2586–P2590 own SelectedExecution decomposition; P2591/P2592/P2593 own route/request/manifest decomposition; P2594 owns Agent transport decomposition. P2595 verifies preserved behavior and source boundaries before native feature Tasks resume. Keep public interfaces and the existing frozen oracle stable; preserve unrelated dirty work. No size/complexity exception, release, deployment or production testing was accepted.
+
+CA-P-2578 preparation and CA-P-2594 Agent transport refactoring are now Done with actual focused checks and independent review; the refactor-first gate remains open. Source readback additionally confirmed that current R1527@7 requires an actual current-session Integrated prompt/result continuation, not a separate ephemeral CLI supplied with prior results. No public continuation seam exists in current native dispatch. CA-C-576 records that implementation gap; CA-P-2581 is decomposed into seven <=15-minute children CA-P-2596–CA-P-2602 for durable pending state, prompt return, submitted-result validation, no-replay resumption, public MCP continuation, isolated functional proof and independent review. Keep these Backlog until predecessor acceptance. Ordinary technical envelope details remain implementation choices within existing source authority; no release or deployment is admitted.
+
+### Refactor-first reviewed checkpoint — 22 October 2026
+
+CA-P-2591 and its children CA-P-2592/CA-P-2593 are Done: selected route/request/manifest responsibilities are bounded and independently reviewed. CA-P-2586 source/admission extraction and CA-P-2589 graph-loop extraction are also Done. CA-C-577 is Resolved for the latter's recovery, diagnostic, typed retention, cohesion and terminal-write findings; durable focused parity tests and independent review close those findings, not the complete executor gate.
+
+The current bounded 76-file extraction/test target set passes strict Mypy, real pinned Ruff format/lint/C901 and the <=200 physical-line / <=40 cohesive executable-statement check. Every one of the 39 Method projection source hashes was rechecked against current authority bytes. This checkpoint excludes the still-oversized public executor and unfinished production caller/test-seam integration; CA-P-2590 and CA-P-2595 remain unaccepted. The unchanged legacy Action-observation source is outside this changed-source refactor, not an accepted size exception.
+
+Final executor integration must preserve canonical lifecycle outputs and changed-effect filtering, the shared tracker's Subject-batch route, frozen manifest-reader test isolation and graph reconciliation's zero-write/readback boundary. Keep frozen source data and behavioral assertions intact while moving incidental test seams to canonical owners. Current native shared-context feature Tasks remain Backlog until the refactor gate passes. No full suite, release, deployment, production MCP traffic or Git publication occurred.
+
+### Refactor-first gate accepted — 22 October 2026
+
+CA-P-2585 and all five decomposition children are Done, as are the independently reviewed selected-route and Agent refactors. CA-P-2595 accepts the complete refactor-first gate. The executor/route/Agent entry files are 197/126/135 formatted physical lines rather than 2,856/1,081/425. All 83 admitted bounded files pass strict Mypy and pinned Ruff format/lint/C901, remain <=200 physical lines and have <=40 logical lines per executable unit (maximum 38); cohesive 26–40 units received separate review. No source-size or complexity exception was used.
+
+The full preserved executor baseline passed 23/23, Subject-batch execution 7/7, graph completion 12/12, lifecycle composition 7/7, container composition 5/5, MCP routes 21/21, the retained MCP error-consumer regression 1/1 and isolated queue repair 5/5. Dedicated graph recovery/revisit/diagnostic/write-order and zero-write reconciliation checks also pass. These portfolio counts are individual evidence, not an invented disjoint aggregate. Source and test-seam reviews returned PASS; frozen golden data, source/digest, replay, effect and terminal assertions were preserved.
+
+CA-C-577, CA-C-578 and CA-C-579 are Resolved after repairing graph extraction parity and public error/Run-ID compatibility. RUN_ID has one canonical definition. Unchanged oversized container source and unchanged legacy test complexity remain outside this increment; the MCP confirmation carrier received only its canonical import migration and was not silently admitted to strict formatting/typing. Exact Plan/Concern predecessors and the completed Plan container hierarchy are retained.
+
+CA-P-2577 remains Active. CA-P-2579 is reviewed as the next ready Backlog Task after preparation and refactor acceptance; current packet validation, shared-context Action dispatch, actual current-session Integrated continuation, native bindings and isolated current-graph acceptance are not yet implemented. CA-C-576 remains Active. The legacy CLI/Isolated path is not misrepresented as Integrated. No full suite, image build, runtime admission, commit, release, deployment or production service replacement occurred.
+
+### Operator priority — shared-context MCP implementation first
+
+The Operator now prioritizes CA-P-2577 before new Subjects-aware/task-specific projection implementation. Complete the actual interactive Integrated loop: MCP returns verified Tool outputs and the admitted current Action prompt, inputs and result contract to the participating session; that session performs or explicitly delegates the work; a later result submission is validated and recorded before the executor chooses the next Step. Returning instructions leaves the Step pending. Never silently invoke a separate CLI Agent as an Integrated fallback; preserve explicitly Isolated execution independently.
+
+CA-P-2579 is Active after its completed preparation/refactor dependencies. Then review CA-P-2580 and CA-P-2581, whose children CA-P-2596–CA-P-2602 own durable pending state, prompt return, result validation, no-replay resume, the public MCP surface, isolated functional proof and review. Reuse existing packet, Project, Run, Step/Action, source, candidate, permission and retry fields. Keep actual Tool results and partial failures visible, reject stale/conflicting/cross-Project submissions before effects, and preserve completed effects on resume. Review each dependent Task before execution; every leaf remains bounded to 15 minutes own work and is split when necessary.
+
+Fresh read-only MCP inspection resolves O016@17 but reports unresolved availability, null execution schemas and invalid selected-route binding evidence. ATOM_UPDATE advertises Subject preparation only, not this full Plan edit. These planning revisions use the Operator's standing manual fallback with byte-exact predecessors; no business Workflow Run or successful MCP effect is invented. Implementation acceptance uses frozen functional/native MCP worlds on isolated endpoints, never the production port. No full suite, commit, image build, release, deployment or production replacement is included.
+
+Projection naming was checked against Active CA-D-635@5 and CA-R-1943@5: `<PROJECT_PREFIX>-PROJ-<ID>-<CURRENT_SCOPE_NAME>--<PROJECTION_TYPE>--<NAMED_SELECTION>.md`. The Operator explicitly accepts using named selections for task-specific projections: include the persistent Task ID in the named selection rather than adding a new filename field. The same Type, named selection and source of truth retain their Projection ID across rebuilds; a different task-bound selection receives a different Projection identity. This decision does not allocate IDs, rebuild views, infer evaluation coverage from Subjects or replace source/tier/lifecycle checks. Defer task-specific projection implementation until the shared-context increment is accepted.
+
+### Shared-context validator accepted — 22 October 2026
+
+CA-P-2579 is Done after independent review and 15 focused frozen-fixture checks, pinned Ruff format/lint/C901 and strict Mypy. Its strict packet boundary now checks current source authority and complete externally trusted Method membership while preserving no-Plan intake, read-only review, valid exhausted-retry outcomes and field presence. Exact predecessor carriers are retained. CA-P-2580 has been reviewed against this actual API and remains the next ready Backlog leaf.
+
+CA-P-2577 and CA-C-576 remain Active: the Integrated prompt/result loop, durable continuation, public MCP submission/status and isolated current-graph acceptance are not yet implemented or admitted. Prepared Action/frontier contracts are deliberately outside ordinary test discovery until their production modules exist; no missing-module import is presented as a test failure or success. No full suite, commit, image build, release, deployment or production replacement occurred. Task-specific projections still use the accepted named-selection segment; their implementation stays behind the shared-context priority.
+
+### Interactive implementation increment and Method selection — 22 October 2026
+
+The Operator asks to implement the Integrated MCP loop. CA-P-2580 is Done after independent Action-surface PASS and 14 root-run focused tests. CA-P-2603 is Done after independent store review and 14 root-run frontier checks. CA-P-2596 is split into a zero-own-work container with separate <=15-minute checkpoint/save and restore/no-replay leaves CA-P-2604/2605; existing graph/transport prerequisites remain actual acceptance gates. The canonical evidence writer now stages through Project Temporary State, and the store/checkpoint share one bounded no-follow byte-reader owner. None of these bounded checks proves a complete real-session Workflow or release admission.
+
+The Operator resolves the Method-universe question with manually authored named selections. For an implementation target PROGRAMMATIC/TOOLS/TOOL1, the declared selection includes applicable PROGRAMMATIC policies, applicable TOOLS policies, all TOOL1 Methods, and applicable abstract Project-parent Methods. Do not limit the product to this repository's current 39-Method root bundle or authenticate completeness from the request packet's own subset. MCP independently resolves current admitted sources and compiles/validates the explicitly selected inventory. Existing scope ancestry and Method parent/child relations may assist selection/review; the Operator's suggestion does not introduce automatic transitive inheritance, a new relation type, a tier-equals-policy shortcut or new authority for Subjects/Projections. Check the existing source rules before choosing the named-selection definition carrier or a new inheritance mechanism.
+
+Current Step prompts/results, durable canonical Run checkpointing, strict bound submissions, no provider replay, unchanged finite retries, public MCP status/submit exposure and isolated frozen-fixture journey remain distinct responsibilities. No production traffic, full-suite rerun, commit, build, release or deployment is authorized or claimed in this increment. Preserve the explicitly Isolated legacy adapter and keep task-specific Projections in the accepted named-selection naming segment.
+
+### Parent-chain Method compilation decision — 22 October 2026
+
+The Operator confirms that a selected Method such as M3 must fetch its applicable active parent chain M2 and M1, then compile that chain into one paragraph without duplicating meaning. This supersedes the earlier manual-only inclusion discussion: the named selection may name target anchors; its compiled context must retain the explicitly resolved applicable source chain, not just leaf text. Applicable policies outside that chain remain separately selected; do not include unrelated sibling Tools or all physical ancestors by directory alone.
+
+Compilation is a non-authoritative view, not a merge, replacement or rewrite of the source Atoms. State each shared semantic rule once, preserve every distinct constraint, scope, condition, exception and admitted specialization, and expose unresolved conflicts instead of smoothing them into a new rule. Keep exact source IDs, revisions, paths and hashes with the compiled paragraph so its membership/currentness and any evidence invalidation remain independently verifiable. Retain complete source authority for server validation; the paragraph does not authenticate its own source completeness. This records the accepted behavior, not a new named-selection storage schema or an implemented semantic compiler.
+
+CA-P-2596 persistence is now Done with independently reviewed store/checkpoint surfaces and root focused verification; CA-P-2597 graph dispatch is Active against those accepted APIs. The public Integrated loop, named-selection compiler, current route admission and production runtime remain unfinished. Read-only MCP Tool discovery returned ATOM_UPDATE, but its exact Action context returned uncertain/Implementation call failed; no mutation or automatic replay was attempted. The standing manual fallback is used for these planning records. Preserve the Methodology chat's separately approved Subjects-only source edits and refresh affected source-bound Projections after its completed batch. No full suite, commit, build, release or deployment occurred.
+
+### Current source-trace and interactive continuation checkpoint — 22 October 2026
+
+CA-R-2117, CA-M-431 and CA-E-653 are now the direct active RMED authorities for implementation traceability. The implementation workflow may use one readable module/unit block with distinct citations for independent branches; optional projections remain views and never become authority. The source boundary excludes vendor, generated, frozen-fixture and legacy-history carriers unless explicitly admitted.
+
+The continuation order is source-first Project Configuration for O016, then native MCP interactive continuation. The participating session receives the admitted prompt, inputs and expected result, submits the validated result through MCP, and remains in control of the next step or explicit delegation. A hidden CLI callback is not an Integrated substitute. Docker-free isolated MCP tests are preparation evidence only; the complete real-Manifest journey and runtime admission remain separate.
+
+CA-P-2597 is Done only for bounded initial dispatch after seven focused reruns and an independent PASS. CA-P-2606 owns the source update, CA-P-2607 records the three completed RME source atoms, CA-P-2608 remains queued for direct-method runtime compatibility, and CA-P-2609 is Active for naked-harness verification. Existing CA-P-2598 through CA-P-2602 remain the continuation, public-route, journey and review queue; no duplicate decomposition is introduced.
+
+### Final bounded implementation checkpoint — 22 October 2026
+
+The shared-context native implementation lane has bounded acceptance evidence: CA-P-2581, CA-P-2598, CA-P-2599, CA-P-2600, CA-P-2601, CA-P-2602, CA-P-2608, CA-P-2609 and CA-P-2610 are Done; CA-C-581 is Resolved. Root recorded the real-SDK interactive MCP journey 4/4 in 31.770s against the current 41-Method fixture (pending 231→232→231, public status/privacy, next-call token, exact duplicate, conflict refusal, terminal blocked status, source drift, oversize and tamper), 52/52 integrated checks including 20 frontier response/concurrency/recovery checks, 28 validator checks, 4 packet checks, 8 route checks, 2 status checks, 30 legacy-orchestrator checks, independent guard/APP regressions, and the final Docker-free naked-stdio smoke with 23 valid tools and the exact preview path. These are bounded implementation and isolated-journey records, not full-suite, release, deployment or production-admission evidence.
+
+The installed source-bound binding remains O016@13 with CA-O-091 and the old Core Meta Model source path. CA-C-576 therefore remains Active. CA-P-2582 is now the next Active candidate binding/fixture reconciliation task; CA-P-2583 owns current-Workflow isolated verification and CA-P-2584 owns independent review/handoff. Current Project binding, runtime admission and handoff remain separate gates. Keep CA-P-2401 Active; no live binding mutation, full-suite rerun, release or deployment is claimed by this checkpoint.
+
+### Terminal-status correction checkpoint — 22 October 2026
+
+The prior bounded implementation evidence remains retained, but final public continuation closure is withdrawn pending a current status/recovery repair. CA-P-2581 and CA-P-2601 are Active again; CA-C-582 records the observed defect where an accepted terminal/interrupted_pending result and interrupted_pending graph result are exposed as blocked until explicit recovery; CA-P-2611 owns the bounded read-only verification without replay. CA-P-2582 is postponed to Backlog until that gate is resolved. CA-C-576 remains Active, and the installed O016@13 / CA-O-091 binding, current Project binding, runtime admission, handoff, full-suite validation, release and deployment remain separate. No final public-loop or production-admission claim is made.
+
+### Accepted terminal-status correction — 22 October 2026
+
+The read-only interrupted-status defect is resolved: CA-C-582 is Resolved, CA-P-2611 is Done, CA-P-2601 and CA-P-2581 are Done, and CA-P-2582 is reactivated with CA-P-2612 first and CA-P-2613 deferred. Root evidence is bounded to the focused current-workflow portfolio: 64/64 checks, six observation guards, seven checkpoint checks, strict SDK 4/4 in 30.110s, final naked stdio with 23 tools, and Ruff/mypy green. The installed O016@13/CA-O-091 binding, current Project binding, runtime admission, handoff, full-suite validation, release and deployment remain separate. Production is unchanged.
+
+### Source-contract checkpoint — 23 October 2026
+
+CA-P-2612 is Done with accepted exact pins CA-R-1847@16, CA-R-1848@9, CA-D-547@12, CA-E-567@7 and CA-E-568@8, plus focused parser/body and independent-review checks. CA-P-2582 remains Active; CA-P-2613 remains Backlog pending the Operator's choice between all 15 non-target route pins plus both query admissions and the focused hold. CA-C-576 remains Active because the raw Project manifest still fails the retired O091 unique-current check. No candidate emission, A1142 edit, live projection mutation, current binding admission, runtime admission, full-suite validation, release or deployment is claimed.
+
+### Full binding-review checkpoint — 23 October 2026
+
+The Operator authorized review of all 15 non-target route pins plus both query admissions before publication. CA-P-2613 is Active as a zero-own-work review container with six Active read-only leaves CA-P-2614–CA-P-2619; CA-P-2582 and CA-P-2577 remain Active. CA-P-2612's five-source contract is accepted. CA-C-576 remains Active because the raw Project manifest fails the retired O091 unique-current check. No candidate emission, A1142 edit, live binding/projection mutation, runtime admission, Scope Unit implementation, full-suite validation, release or deployment is claimed.
+
+### Semantic binding-review checkpoint — 23 October 2026
+
+The authorized all-route review is complete. CA-P-2614 through CA-P-2619 are
+Done as review-complete Tasks, with 8 PASS findings and 7 binding-closure HOLD
+findings. The review created exactly two Active Problems: CA-C-583 for
+Journal receipt/completion semantics against R1525@11, R1720@22 and D340@17,
+and CA-C-584 for the exact 15-operation MCP contract versus optional
+move_atom. CA-P-2613 remains Active; its conditional candidate-only leaves
+CA-P-2620 and CA-P-2621 are Backlog. No candidate, A1142, live binding,
+projection, runtime, Scope Unit, release or deployment change is claimed.
+
+### Repair planning checkpoint — 23 October 2026
+
+The semantic review now has a bounded repair queue under CA-P-2613. CA-P-2622
+is Active for the read-only CA-C-583 source-reconciliation proposal;
+CA-P-2623 is Active for compiler/refactor boundary preparation; CA-P-2624 is
+Backlog for the separate focused regression plan because the combined repair
+may exceed one 15-minute Task. CA-P-2625 is Active for the fresh public
+MCP/Project frontier inventory, and CA-P-2626 is Active for the read-only
+CA-C-584 reconciliation proposal. CA-P-2620 and CA-P-2621 remain Backlog and
+blocked on actual CA-C-583/CA-C-584 disposition. These are planning and
+read-only review records only: no source Atom, code, manifest, binding,
+projection, runtime, release or deployment change is claimed.
+
+### Current O016@20 compatibility checkpoint — 23 October 2026
+
+The fresh inventory reports current O016@20 with body bytes unchanged from the
+exact O016@18 archive. The Epic therefore adds two bounded lanes under
+CA-P-2613: CA-P-2627 is Active for candidate-only current-20
+compatibility/admission preparation, and CA-P-2628 is Active for focused
+isolated current-20 tests. They preserve exact legacy-17/direct-18 support and
+do not broaden the frontier to every version greater than 18. The public
+15-operation route and live 16-operation Project manifest remain unchanged;
+no binding, runtime, publication, release or deployment admission is claimed.
+
+### R1317 Journal boundary and compiler follow-up — 23 October 2026
+
+The Operator resolved CA-C-585: Journal recording is non-blocking for
+methodology approvals and recovery; actual OperatorDecision and independent
+Run/effect evidence remain required. The bounded generic-six source review is
+Done in CA-P-2622 with exact current hashes and an independent review at 99%
+or higher; it found no generic Journal gate, duplicate or graph-alias issue.
+
+The remaining source/compiler queue is explicit: CA-P-2629 is Active for
+R1317/O007/O155/O156 alignment, CA-P-2631 is Active for the seven current
+compiler/shared-run RMED contracts R1840/R1841/R1842/E561/E562/D541/D542, and
+CA-P-2630 is Backlog pending those reviews plus the open CA-C-586 decision on
+whether O011 reuses the interactive MCP loop for the actual OperatorDecision.
+CA-C-583 remains Active for this remaining methodology/Engine implementation
+gap. No source, code, binding, runtime, publication, release or deployment
+mutation is claimed by this checkpoint.
+
+### Source closure and focused test queue — 23 October 2026
+
+The current source-only review package is now closed for its bounded lanes:
+CA-P-2627 and CA-P-2628 are Done after independent Terra review found no
+findings, 34 focused checks passed, and Ruff and strict Mypy passed. CA-P-2629,
+CA-P-2631 and CA-P-2632 are Done for the reviewed methodology/Engine sources,
+including the identity-safe CA-R-1841@2 archive to CA-R-2118@1 successor and
+consumer rebind. CA-P-2630 remains Backlog because compiler implementation is
+held by the open CA-C-586 Operator choice; CA-C-583's final O029/O031
+helper-contract source reconciliation is complete, with the remaining
+compiler gap tracked separately. These results do not publish or
+admit a live binding.
+
+The measured cold-start mismatch is recorded as CA-C-587: the legacy fixture
+and discovery budget is 30 seconds, production Gateway readiness is 90
+seconds, and the disposable bounded harness is 120 seconds. CA-P-2633 is
+Active to refactor the canonical 304-line legacy stdio harness first;
+CA-P-2634 is Active to align the bounded test startup to 120 seconds without
+changing the production Gateway; CA-P-2635 is Done after review of the final
+O029@13/O031@9 successor pins. The separate sanitized ValueError/source-drift
+hypothesis remains unproven. No full suite, live MCP, release, deployment or
+runtime admission is claimed.
+
+### Final inventory and execution checkpoint — 23 October 2026
+
+The final current-source inventory passed 50/50 with stable reads at
+09:25:19Z and 09:25:22Z. The retained evidence artifacts and their verified
+SHA-256 values are recorded in the P2613 evidence report. CA-P-2627 and
+CA-P-2628 are Done for candidate code admission and focused verification:
+34 checks passed with independent Terra review, Ruff and strict Mypy, plus
+two separate Root registration checks passed in 6.649 seconds. These results
+are not live binding admission or publication.
+
+CA-P-2633 is Active execution: the worker refactored the legacy 305-line
+stdio test harness to 200 lines and added a 200-line support helper; focused
+checks are ongoing and independent review is pending. CA-P-2634 is Active
+execution: the worker aligned the bounded test startup/readiness boundary to
+120 seconds while leaving the production Gateway 90-second boundary unchanged;
+focused checks are ongoing and final acceptance follows CA-P-2633 review.
+CA-C-586 remains open. No live binding, runtime admission, release,
+deployment or full-suite claim follows from this checkpoint.
+
+### Bounded stdio harness closure — 23 October 2026
+
+CA-P-2633 is Done: the observed 305-line legacy stdio test harness was
+reduced to 200 lines and a 199-line support helper was added. Twelve focused
+stdio/telemetry checks passed in 117.937 seconds; the RMED ownership header
+was corrected and independent review returned PASS. CA-P-2634 is Done: the
+disposable startup/readiness boundary was aligned to 120 seconds while the
+production Gateway remained at 90 seconds. Five focused hot-reload
+readiness/telemetry checks passed in 20.556 seconds; Ruff, strict Mypy and
+AST-diff verification passed.
+
+CA-C-587 is Resolved only for this finite disposable test-harness readiness
+mismatch. The separate sanitized ValueError/source-drift hypothesis remains
+unproven, and CA-C-586 remains an open Operator question. No compiler
+behavior, live binding, runtime image, release, deployment or full-suite
+state changed.
+
+### Numeric-tier and parentage compatibility planning — 23 October 2026
+
+CA-P-2636 is a new direct child of this Epic at work sequence 97. It is
+Backlog/HOLD and planning-only. It will prepare, but not execute, a migration
+for the authorized-not-yet-adopted notice proposing numeric `tier` values and
+removal of authored Scope Unit `structural_level` and Atom `global_tier`.
+The currently admitted `local_tier`/`global_tier` schema remains unchanged.
+
+Execution is gated on exact adopted methodology/schema pins and clarified
+relation families/inverses. The future consumer boundary includes project
+structure declaration/normalization/tree validation/rendering, connector scope
+parsing/querying, Atom validation, lifecycle/replacement, filename/path,
+projection and test consumers. Scope Unit operations remain Stage 2 under
+CA-P-2480; no `contains` field or new relation semantics are adopted by this
+checkpoint. Identity, path, deletion and authority safeguards remain intact.

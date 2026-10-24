@@ -1,0 +1,38 @@
+---
+subjects:
+  governs: Subject/Domain/Node/Continuant/Atom.Subjects
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - 'Subject/Graph/Relation/Type: GOVERNS'
+  - 'Subject/Graph/Relation/Type: DEPENDS_ON'
+  - Subject Path
+  - Subject
+  - Relation Kind
+version: 16
+updated_at: 2026-10-22 16:26:09 +0000
+relations: {}
+atom_id: CA-D-269@16
+content_role: Delivery
+type: Policy
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+local_tier: Standard
+status: Archived
+author: Anatoly Maslennikov
+global_tier: 11
+---
+# Summary
+
+Serialize Atom Subjects in Frontmatter
+
+## Scope
+
+New **or** migrated Markdown Atom Carriers.
+
+## Claim
+
+a new **or** migrated Markdown Atom Carrier **may** omit `subjects` when it has no Subject Relations. **when** present, `subjects.governs` **may** contain one scalar Subject Path **and** `subjects.depends_on` an unordered collection of **`>=0`** unique scalar Subject Paths; an absent `governs` key **means** zero governed Subjects **and** an absent dependency collection **means** zero dependencies. the `governs` **or** `depends_on` key encodes the Subject Relation Kind; the source Atom is implicit **and** the scalar value encodes its target's Subject Path, **not** the Subject Relation itself. these values resolve their canonical targets under CA-R-1202-CORE_META_MODEL-CORE-REQUIREMENT--resolve-every-direct-subject-target-once **without** an intermediate Subject/Entity **or** Subject/Reference field **or** a repeated target-kind field.
+
+## Details
+
+an existing unmigrated Carrier **may** temporarily retain `subjects.<governs|depends_on>.<continuant|occurrent>` **only** **until** its explicitly assigned carrier-migration Task is executed. this compatibility is migration-limited, preserves the same direct relation facts **and** target identities, **and** does **not** establish a second canonical representation. legacy temporal-classification authority **and** bulk Carrier conversion require their separately assigned migration Tasks.

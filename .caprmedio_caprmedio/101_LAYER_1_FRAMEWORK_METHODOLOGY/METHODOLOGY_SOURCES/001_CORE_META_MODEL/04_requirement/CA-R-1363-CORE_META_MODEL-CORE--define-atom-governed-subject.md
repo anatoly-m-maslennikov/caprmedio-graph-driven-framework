@@ -1,24 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Governed Subject"
+  governs: Subject/Domain/Node/Continuant/Atom.Governed Subject
   depends_on:
-    ["Entity/Node/Continuant/Atom.Subjects", "GOVERNS", "Subject", "Relation Kind", "Subject Target", "Entity/Node/Continuant/Atom.Substance"]
-version: 16
-updated_at: "2026-10-21 01:47:52 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - 'Subject/Graph/Relation/Type: GOVERNS'
+  - Subject
+  - Subject/Graph/Relation/Type
+  - Subject/Domain/Node/Continuant/Atom.Substance
+version: 20
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-1269
-    - CA-R-1199
-    - CA-R-1201
-    - CA-R-1202
-atom_id: "CA-R-1363"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1269
+  - CA-R-1199
+  - CA-R-2100
+  - CA-R-1202
+atom_id: CA-R-1363
+content_role: Requirement
+type: Definition
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
 ---
 # Summary
 
@@ -30,6 +34,6 @@ an Atom's governed Subject relation.
 
 ## Claim
 
-an Atom Governed Subject **means** the Atom's **`=1`** Subject Relation whose Relation Kind is GOVERNS. its target is the canonical Subject Target governed by the Atom's Claim; the Relation **and** its target are distinct.
+an Atom Governed Subject **means** the Atom's optional **`0..1`** Subject Relation whose Relation Kind is GOVERNS. when present, its target is the canonical Subject Target governed by the Atom's Claim; the Relation **and** its target are distinct.
 
 ## Details

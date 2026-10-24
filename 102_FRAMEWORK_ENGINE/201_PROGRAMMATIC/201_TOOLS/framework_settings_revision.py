@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+
+
 import sys
 from pathlib import Path
 
@@ -19,5 +21,16 @@ def current_reference(root: Path) -> str:
     return native_current_reference(root, "framework-settings")
 
 
+def _image_main():
+    return cli(["framework-settings", *sys.argv[1:]])
+
+
 if __name__ == "__main__":
-    raise SystemExit(cli(["framework-settings", *sys.argv[1:]]))
+    # Direct script execution needs the shared process boundary available from the tools root.
+    import sys
+    from pathlib import Path
+    _TOOLS_ROOT = next(p for p in Path(__file__).resolve().parents if p.name in {"201_TOOLS", "TOOLS"})
+    if str(_TOOLS_ROOT) not in sys.path:
+        sys.path.insert(0, str(_TOOLS_ROOT))
+    from runtime_process_boundary import run_process
+    raise SystemExit(run_process(_image_main, operation="framework_settings_revision"))

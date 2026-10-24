@@ -1,20 +1,24 @@
 ---
 atom_id: CA-E-544
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-15 23:45:00 +0400"
+version: 8
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "WORKFLOW_OPERATIONS/RUN_SUPPORT/journal recovery"
-  depends_on: [Journal, Action, Workflow Run, Evaluation]
+  governs: Subject/Engineering/Journal Operations
+  depends_on:
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
 relations:
-  evaluation_for: [CA-R-1824]
+  evaluation_for:
+  - CA-R-1824
+tier: 4
 ---
 # Summary
 

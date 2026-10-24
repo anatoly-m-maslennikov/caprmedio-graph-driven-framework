@@ -3,29 +3,29 @@ atom_id: CA-D-492
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool/VALIDATE_ATOMS/Request"
+  governs: Subject/Engineering/Tool//VALIDATE_ATOMS.Request
   depends_on:
-    - "Tool/VALIDATE_ATOMS"
-    - "Action"
-    - "Project Structure"
-    - "Project/Operator Registry"
-    - "Global Tier"
-    - "Local Tier"
-    - "Scope Unit"
-    - "Artifact/Revision"
-version: 5
-updated_at: "2026-10-01 21:36:04 +0400"
+  - Subject/Engineering/Tool//VALIDATE_ATOMS
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Project.Operator Registry
+  - Global Tier
+  - Subject/Domain/Node/Continuant/Atom.Tier
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Artifact/Revision
+version: 10
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   delivery_for:
-    - CA-R-1622
-    - CA-R-1623
+  - CA-R-1622
+  - CA-R-1623
   relates_to:
-    - CA-O-087
+  - CA-O-087
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

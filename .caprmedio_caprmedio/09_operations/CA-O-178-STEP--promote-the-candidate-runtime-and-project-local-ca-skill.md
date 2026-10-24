@@ -3,18 +3,26 @@ atom_id: CA-O-178
 content_role: Operations
 type: Step
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Release Version/Step: install product and refresh Project MCP"
-  depends_on: [Workflow, Step, Action, Methodology, Implementation, Skill, Permission]
-version: 6
-updated_at: "2026-10-21T10:41:00Z"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Release Version/Step: install product and refresh Project MCP'
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Engineering/Release Version/Project-Local Skill Delivery
+  - Skill
+  - Permission
+version: 9
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  part_of: [CA-O-164]
-  invokes: [CA-O-169]
+  part_of:
+  - CA-O-164
+  invokes:
+  - CA-O-169
+tier: 3
 ---
 # Summary
 

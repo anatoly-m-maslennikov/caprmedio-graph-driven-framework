@@ -1,19 +1,22 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Structure"
+  governs: Subject/Domain/Node/Continuant/Project.Structure
   depends_on:
-    ["Artifact", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Scope Unit", "Single Source of Truth"]
-version: 7
-updated_at: "2026-10-19 15:53:13 +0400"
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Single Source of Truth
+version: 11
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1483"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1483
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

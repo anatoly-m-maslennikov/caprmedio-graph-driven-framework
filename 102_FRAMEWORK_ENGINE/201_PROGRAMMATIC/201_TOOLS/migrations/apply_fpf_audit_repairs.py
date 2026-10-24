@@ -7,6 +7,8 @@ wrappers whose structure is not the registered relation-kind map.
 """
 from __future__ import annotations
 
+
+
 import argparse
 import datetime as dt
 import json
@@ -952,7 +954,7 @@ def apply(*, updated_at: str | None = None, session_id: str | None = None) -> No
     print("applied FPF audit repairs")
 
 
-if __name__ == "__main__":
+def _image_main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--apply", action="store_true", help="write the bounded repair migration")
     parser.add_argument("--updated-at", help="operator-local revision timestamp (YYYY-MM-DD HH:MM:SS)")
@@ -962,3 +964,14 @@ if __name__ == "__main__":
         print("dry-run: pass --apply to write the bounded repair migration")
     else:
         apply(updated_at=args.updated_at, session_id=args.session_id)
+
+
+if __name__ == "__main__":
+    # Direct script execution needs the shared process boundary available from the tools root.
+    import sys
+    from pathlib import Path
+    _TOOLS_ROOT = next(p for p in Path(__file__).resolve().parents if p.name in {"201_TOOLS", "TOOLS"})
+    if str(_TOOLS_ROOT) not in sys.path:
+        sys.path.insert(0, str(_TOOLS_ROOT))
+    from runtime_process_boundary import run_process
+    raise SystemExit(run_process(_image_main, operation="migrations/apply_fpf_audit_repairs"))

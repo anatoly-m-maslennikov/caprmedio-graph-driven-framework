@@ -1,19 +1,27 @@
 ---
 atom_id: CA-E-599
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-09 00:25:33 +0400"
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "MCP/Project launcher/selection evaluation"
-  depends_on: [Project, Project Settings, Project Structure, MCP, Gateway, Registry, Query Source, Carrier]
+  governs: Subject/Engineering/MCP
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Engineering/MCP
+  - Gateway
+  - Registry
+  - Subject/Engineering/Carrier
 relations:
-  evaluation_for: [CA-R-1900, CA-M-355]
+  evaluation_for:
+  - CA-R-1900
+  - CA-M-355
+tier: 5
 ---
 # Summary
 

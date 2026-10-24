@@ -1,21 +1,19 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Scope Unit.Name"
-  depends_on:
-    - "Authority"
-version: 18
-updated_at: "2026-10-19 15:54:35 +0400"
+  governs: Subject/Domain/Node/Continuant/Scope Unit.Name
+version: 23
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-962
-atom_id: "CA-R-971"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-962
+atom_id: CA-R-971
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

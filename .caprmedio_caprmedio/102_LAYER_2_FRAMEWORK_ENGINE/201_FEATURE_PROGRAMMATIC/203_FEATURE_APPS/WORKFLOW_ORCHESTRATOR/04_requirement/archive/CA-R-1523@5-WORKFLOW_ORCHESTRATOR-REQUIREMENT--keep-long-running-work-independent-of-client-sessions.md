@@ -1,0 +1,38 @@
+---
+cce_version: cce_1
+cce_form: obligation
+subjects:
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Artifact
+  - Status
+  - Implementation
+version: 5
+updated_at: 2026-10-24 00:51:05 +0400
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations:
+  relates_to:
+  - CA-R-1522
+  - CA-R-1426
+  - CA-R-1524
+atom_id: CA-R-1523@5
+status: Archived
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+---
+# Keep long-running work independent of client sessions
+
+WORKFLOW_ORCHESTRATOR **must** keep accepted work independent of the lifetime of the client session that submitted it.
+
+- submission returns an identifier for accepted work **without** waiting for the Workflow **or** a long-running Action **to** finish.
+- the Operator **or** an authorized client can inspect progress, results, failures, **and** pending decisions; supply requested input; request cancellation; **and** reconnect **to** the same accepted work.
+- acceptance, a cancellation request, **and** actual completion are distinct outcomes. disconnecting a client **must not** silently cancel work **or** make unfinished work appear successful.
+- waiting for an Action **or** Operator input **must not** prevent the application from reporting state **or** accepting admitted control requests.
+- asynchronous submission does **not** itself authorize parallel Actions, concurrent mutation of an Artifact, **or** execution outside the applicable permissions.
+
+the result **must** disclose an unsupported control **or** execution capability rather than imply it was performed.

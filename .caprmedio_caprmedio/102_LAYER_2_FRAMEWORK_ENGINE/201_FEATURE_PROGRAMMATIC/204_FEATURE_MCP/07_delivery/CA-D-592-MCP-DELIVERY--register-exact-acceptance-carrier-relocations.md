@@ -2,17 +2,26 @@
 atom_id: CA-D-592
 content_role: Delivery
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-08 17:31:41 +0000"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "MCP/exact acceptance-carrier relocation admission"
-  depends_on: [MCP, Projection, Operator, Run, Journal, Source Carrier]
+  governs: Subject/Engineering/Carrier
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Engineering/Carrier/Journal Serialization
+  - Subject/Engineering/Carrier/File Carrier
 relations:
-  delivery_for: [CA-R-1899, CA-M-354, CA-E-598]
+  delivery_for:
+  - CA-R-1899
+  - CA-M-354
+  - CA-E-598
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

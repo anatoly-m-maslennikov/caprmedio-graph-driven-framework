@@ -1,21 +1,24 @@
 ---
-version: 8
-updated_at: "2026-10-19 15:53:14 +0400"
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-R-815
+  - CA-R-815
 subjects:
-  governs: "Project Priority Model Application"
+  governs: Subject/Domain/Node/Continuant/Selection//PROJECT_PRIORITY_MODEL
   depends_on:
-    ["Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project", "Scope", "CAPRMEDIO Framework Instance"]
-atom_id: "CA-R-1487"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
+  - Scope
+  - CAPRMEDIO Framework Instance
+atom_id: CA-R-1487
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Goal
 ---
 # Summary
 

@@ -8,11 +8,15 @@ local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
-version: 2
-updated_at: "2026-10-04 18:16:52 +0000"
+version: 3
+updated_at: 2026-10-23 03:06:32 +0400
 subjects:
-  governs: "Atom Creation/Identity Admission"
-  depends_on: [Atom, Artifact/Revision, Plan, Journal]
+  governs: Atom Creation/Identity Admission
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Artifact/Revision
+  - Plan
+  - Journal
 relations:
   concern_about: [CA-O-032, CA-R-865, CA-E-303]
 ---

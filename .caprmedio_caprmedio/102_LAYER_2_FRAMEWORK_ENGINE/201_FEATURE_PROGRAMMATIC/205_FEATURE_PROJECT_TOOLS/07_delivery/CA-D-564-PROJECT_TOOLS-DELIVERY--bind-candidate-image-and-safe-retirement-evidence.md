@@ -2,17 +2,23 @@
 atom_id: CA-D-564
 content_role: Delivery
 current_scope_unit: PROJECT_TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-21T10:41:00Z"
+version: 10
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/RELEASE_VERSION/Image carrier"
-  depends_on: [Tool, Image, Container, Runtime]
+  governs: Subject/Engineering/Release Version/Project-Owned Image Retention
+  depends_on:
+  - Subject/Engineering/Release Version/Project-Owned Image Retention
+  - Image
+  - Container
+  - Subject/Engineering/Runtime
 relations:
-  delivery_for: [CA-M-332, CA-E-573]
+  delivery_for:
+  - CA-M-332
+  - CA-E-573
+type: Eng Decision
+tier: 6
 ---
 # Summary
 

@@ -4,17 +4,26 @@ content_role: Operations
 type: Workflow
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Build Entities Graph"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Projection/Type: Entities Graph"]
-version: 6
-updated_at: "2026-10-19 15:57:02 +0400"
+  governs: Build Entities Graph
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Entities Graph'
+version: 10
+updated_at: 2026-10-24 00:38:25 +0400
 relations:
-  relates_to: [CA-O-135, CA-R-1508, CA-R-1519, CA-R-1525, CA-R-1438, CA-R-1728]
+  relates_to:
+  - CA-O-135
+  - CA-R-1508
+  - CA-R-1519
+  - CA-R-1525
+  - CA-R-1438
+  - CA-R-1728
+tier: 3
 ---
 # Summary
 
@@ -28,7 +37,7 @@ Build Entities Graph **means** the reusable Workflow whose entry **and** only no
 
 | Entry/node | Result condition | Terminal outcome |
 |---|---|---|
-| CA-O-135 | built **or** no_op, with the Action's required current-selection, fidelity, validity **and** recording conditions satisfied | complete, preserving built versus no_op **and** the exact Projection/result references |
+| CA-O-135 | built **or** no_op, with the Action's required current-selection, fidelity, validity **and** independent durable Run/effect evidence conditions satisfied | complete, preserving built versus no_op **and** the exact Projection/result references |
 | CA-O-135 | incomplete, conflicting, stale **or** blocked | stop with that limitation **and** its affected frontier; request the missing evidence **or** authorization |
 | CA-O-135 | reported built **or** no_op but **any** required completion condition is unmet **or** unsupported | blocked; retain the actual result **and** missing condition **without** accepting completion |
 | CA-O-135 | failed | failed with actual effects **and** recovery evidence |
@@ -36,7 +45,7 @@ Build Entities Graph **means** the reusable Workflow whose entry **and** only no
 
 there is no next-Step edge **or** automatic revisit. these are terminal outcomes, **not** extra nodes; no ON_RESULT Relation **to** an Action **or** terminal label is invented. a new attempt needs a separately admitted invocation; source discovery, a failed build **or** a no-op does **not** authorize a retry, source repair **or** automatic rebuild.
 
-the Workflow Run retains the exact Step/Action bindings **and** its start/terminal Journal evidence under CA-R-1525, CA-R-1720 **and** CA-R-1728. an absent Workflow recording receipt prevents a complete Run claim even **when** a Projection was produced; retain the actual result **and** recording blocker **without** replaying construction.
+the Workflow Run retains the exact Step/Action bindings **and** its independent start/terminal Run/effect evidence, with Journal references under CA-R-1525, CA-R-1720 **and** CA-R-1728. missing independent durable Run/effect evidence prevents a complete Run claim even **when** a Projection was produced; a Journal append failure alone retains the actual result and emits a `recording_error` diagnostic with pending evidence, **without** replaying construction.
 
 ## Details
 

@@ -7,11 +7,17 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 19:52:27 +0000"
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Release suite current control references"
-  depends_on: [Evaluation, Manifest, Project Settings, Operator, Source Carrier, Test Suite]
+  governs: Release suite current control references
+  depends_on:
+  - Evaluation
+  - Manifest
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Carrier/File Carrier
+  - Test Suite
 relations:
   concern_about: [CA-P-1717, CA-P-1727]
 ---

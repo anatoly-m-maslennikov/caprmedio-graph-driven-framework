@@ -3,21 +3,23 @@ atom_id: CA-D-425
 content_role: Delivery
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 cce_version: cce_1
 cce_form: delivery
 subjects:
-  governs: "Tool/ATOM_UPDATE/Carrier"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Tool/ATOM_UPDATE"
-version: 19
-updated_at: "2026-10-20 21:39:01 +0400"
-relations: {"delivery_for":["CA-R-866"]}
+  - Subject/Engineering/Tool//ATOM_UPDATE
+version: 23
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  delivery_for:
+  - CA-R-866
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

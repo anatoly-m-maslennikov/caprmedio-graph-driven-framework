@@ -3,17 +3,25 @@ atom_id: CA-M-371
 content_role: Method
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool/ATOM_UPDATE"
-  depends_on: [Atom, Subject, Artifact/Carrier, Atom/Revision]
-version: 14
-updated_at: "2026-10-15 11:27:33 +0000"
+  governs: Subject/Engineering/Tool//ATOM_UPDATE
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 19
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-R-866, CA-O-030, CA-E-304, CA-D-425]
+  relates_to:
+  - CA-R-866
+  - CA-O-030
+  - CA-E-304
+  - CA-D-425
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

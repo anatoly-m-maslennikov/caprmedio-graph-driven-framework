@@ -1,20 +1,38 @@
 ---
 subjects:
-  governs: "Entity/Carrier/File Carrier"
+  governs: Subject/Engineering/Carrier/File Carrier
   depends_on:
-    ["Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Property", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.Status", "Entity/Relation", "Entity/Carrier/File Carrier"]
-version: 11
-updated_at: "2026-10-19 15:55:15 +0400"
-relations: {"evaluation_for": ["CA-R-1598", "CA-R-1599", "CA-D-478", "CA-D-479", "CA-D-480", "CA-D-481", "CA-D-482", "CA-D-483", "CA-D-485", "CA-D-460", "CA-D-470"]}
-atom_id: "CA-E-506"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Atom.Author
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Property
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Atom.Status
+  - Subject/Graph/Relation
+  - Subject/Engineering/Carrier/File Carrier
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-1598
+  - CA-R-1599
+  - CA-D-478
+  - CA-D-479
+  - CA-D-480
+  - CA-D-481
+  - CA-D-482
+  - CA-D-483
+  - CA-D-485
+  - CA-D-460
+  - CA-D-470
+atom_id: CA-E-506
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 

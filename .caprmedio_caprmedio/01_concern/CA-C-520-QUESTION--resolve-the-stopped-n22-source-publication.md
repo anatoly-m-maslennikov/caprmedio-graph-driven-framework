@@ -7,11 +7,17 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-07 23:52:40 +0000"
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Release Version/Source publication recovery"
-  depends_on: [Workflow Run, Action Run, Methodology, Journal, Framework Package, Operator]
+  governs: Release Version/Source publication recovery
+  depends_on:
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Action Run
+  - Methodology
+  - Journal
+  - Framework Package
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
   concern_about: [CA-P-1620, CA-P-1823, CA-R-1878, CA-D-567]
 ---

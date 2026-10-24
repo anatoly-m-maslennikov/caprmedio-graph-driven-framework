@@ -1,19 +1,21 @@
 ---
 subjects:
-  governs: "Content Role Naming"
+  governs: Subject/Domain/Node/Continuant/Atom/Content Role
   depends_on:
-    ["Atom/Content Role", "Author", "Status"]
-version: 11
-updated_at: "2026-10-15 12:19:57 +0000"
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject/Domain/Node/Continuant/Atom.Status
+version: 16
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-M-287"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-M-287
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Framework Identity"
+  governs: CAPRMEDIO Framework Identity
   depends_on: []
-version: 15
-updated_at: "2026-10-18 07:50:20 +0400"
+version: 17
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-M-002
-atom_id: "CA-R-1778"
-content_role: "Requirement"
+  - CA-M-002
+atom_id: CA-R-1778
+content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

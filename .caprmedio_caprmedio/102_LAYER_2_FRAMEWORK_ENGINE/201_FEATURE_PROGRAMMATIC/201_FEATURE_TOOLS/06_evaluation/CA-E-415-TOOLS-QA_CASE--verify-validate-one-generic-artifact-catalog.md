@@ -2,17 +2,27 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Validate Artifact Catalog"
+  governs: Validate Artifact Catalog
   depends_on:
-    - "Action"
-    - "Artifact"
-    - "Artifact/Revision"
-    - "Projection"
-version: 7
-updated_at: "2026-09-17 22:44:34 +0000"
-relations: {"evaluation_for":["CA-R-1142","CA-O-034"]}
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Artifact
+  - Artifact/Revision
+  - Subject/Domain/Node/Continuant/Projection
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-1142
+  - CA-O-034
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-415
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 2
 ---
 # Verify validate one generic Artifact catalog
 

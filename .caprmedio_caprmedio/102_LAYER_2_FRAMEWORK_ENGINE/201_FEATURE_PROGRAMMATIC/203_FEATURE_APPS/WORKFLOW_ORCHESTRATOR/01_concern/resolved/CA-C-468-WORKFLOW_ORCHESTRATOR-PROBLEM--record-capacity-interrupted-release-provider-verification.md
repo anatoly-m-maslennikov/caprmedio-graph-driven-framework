@@ -7,11 +7,15 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 09:49:00 +0000"
+version: 5
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Release provider verification interruption"
-  depends_on: [AI Agent, Tool, Workflow, Evaluation]
+  governs: Subject/Engineering/Workflow Orchestration/Interrupted Provider Verification
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Subject/Engineering/Workflow Orchestration/Interrupted Provider Verification
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Evaluation
 relations:
   concern_about: [CA-P-1708, CA-P-1710]
 ---

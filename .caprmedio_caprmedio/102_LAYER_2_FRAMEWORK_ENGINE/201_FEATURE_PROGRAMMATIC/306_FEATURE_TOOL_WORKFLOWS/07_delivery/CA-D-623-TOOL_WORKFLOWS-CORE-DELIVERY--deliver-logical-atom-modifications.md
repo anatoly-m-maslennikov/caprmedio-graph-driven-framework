@@ -1,21 +1,28 @@
 ---
 atom_id: CA-D-623
 content_role: Delivery
-type: Delivery
+type: Eng Decision
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Core
-global_tier: 9
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Atom","Workflow"]
-version: 2
-updated_at: "2026-10-12 23:54:41 +0400"
+  governs: Subject/Engineering/Atom Editing/Logical Modification Interface
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  delivery_for: ["CA-R-1933","CA-R-1934","CA-R-866"]
-  relates_to: ["CA-M-373","CA-M-374","CA-O-202"]
+  delivery_for:
+  - CA-R-1933
+  - CA-R-1934
+  - CA-R-866
+  relates_to:
+  - CA-M-373
+  - CA-M-374
+  - CA-O-202
+tier: 4
 ---
 # Summary
 

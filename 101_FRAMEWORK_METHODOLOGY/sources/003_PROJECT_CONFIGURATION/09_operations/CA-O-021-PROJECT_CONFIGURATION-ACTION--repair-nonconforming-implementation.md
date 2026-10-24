@@ -11,8 +11,8 @@ subjects:
   governs: "Implementation Repair"
   depends_on:
     ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Implementation Failure Diagnosis", "Implementation Retry Control", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Spec", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Method", "Implementation", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom.Author", "Local Tier"]
-version: 13
-updated_at: "2026-10-19 15:56:42 +0400"
+version: 15
+updated_at: "2026-10-22T21:21:30+04:00"
 relations:
   relates_to:
     - CA-R-1559
@@ -29,12 +29,14 @@ Repair nonconforming Implementation
 
 Implementation Repair **means** the Agentic Action that repairs a diagnosed code defect within the admitted work boundary **and** retry allowance, preserving the issue **and** verification evidence.
 
-- inputs: the diagnosed implementation **or** test-implementation defect, failed candidate, governing R/E/D, active Method Projection, selected P/Plan item, verification commands, retained issue evidence, **and** an admitted fix-and-evaluate retry.
+- inputs: the diagnosed implementation **or** test-implementation defect, failed candidate, governing R/E/D, direct full `methods` rows, selected P/Plan item, verification commands, retained issue evidence, **and** an admitted fix-and-evaluate retry. An optional legacy `method_projection` may accompany those rows but is not required.
 - require evidence sufficient **to** explain the cause **and** correction. unresolved diagnosis, conflicting authority, unmet confidence, **or** missing permission returns `blocked`; retry allowance grants no extra authority.
 - reproduce the issue with an appropriate targeted test **before** the fix **when** possible. reuse an existing reproducer; add unit, integration, **or** another focused test according **to** governing Methods. distinguish the actual defect from a setup failure.
 - correct the code under existing authority **and** permissions. test code is Implementation too; do **not** weaken an Evaluation, expected output, Requirement, **or** Delivery obligation **to** obtain a pass.
 - return `repaired` with the changed candidate, failure evidence, diagnosis, actual correction, tests, expected outcomes, **and** replay commands for re-evaluation. passing targeted checks do **not** replace any other check retained **in** the admitted Evaluation portfolio.
 - do **not** create, update, **or** promote corrective M Atoms **in** this Action. retain evidence for the separate Method-learning Workflow; learning is **not** a condition for accepting a verified implementation fix.
 - return `authority_change_required` **if** a governing RMED change is necessary, for disposition under CA-R-1559 **before** changing that authority. authorized baseline changes require renewed preparation; do **not** reset retry accounting.
+
+- confirmed semantic-review findings may supply the defect evidence without fabricating a failing test. On every correction retain the changed candidate and invalidated affected review/check bindings; route back through preparation for preliminary review, required final checks, and final review. One shared finite retry/resource/confidence state survives all such revisits.
 
 ## Details

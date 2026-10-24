@@ -1,21 +1,27 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Canonical Signature"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Canonical Signature'
   depends_on:
-    ["Atom Claim Canonical Signature", "Entity/Carrier", "Entity/Node/Continuant/Atom.ID", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Atom Carrier", "CCE"]
-version: 15
-updated_at: "2026-10-19 15:55:31 +0400"
+  - Atom Claim Canonical Signature
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Engineering/Carrier/File Carrier
+  - Subject/Graph/Rule/CCE
+version: 22
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-D-266
-atom_id: "CA-D-346"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-D-266
+atom_id: CA-D-346
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 Deliver CCE Canonical Signatures as External Report Projections

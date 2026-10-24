@@ -1,21 +1,25 @@
 ---
 subjects:
-  governs: "Dependency Order Derivation"
+  governs: 'Subject/Graph/Relation/Type: depends_on'
   depends_on:
-    ["DEPENDS_ON", "DERIVED_FROM", "Atom Direct Relation", "Artifact", "Atom/Content Role: Plan/Type: Plan"]
-version: 12
-updated_at: "2026-10-15 12:19:48 +0000"
+  - 'Subject/Graph/Relation/Type: DEPENDS_ON'
+  - DERIVED_FROM
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-M-120
-atom_id: "CA-M-239"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-M-120
+atom_id: CA-M-239
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 4
+type: Implementation Method
 ---
 # Summary
 

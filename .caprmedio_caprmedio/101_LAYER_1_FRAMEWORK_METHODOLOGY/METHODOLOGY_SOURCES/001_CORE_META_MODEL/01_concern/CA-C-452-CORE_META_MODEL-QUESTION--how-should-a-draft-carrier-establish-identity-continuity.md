@@ -1,14 +1,13 @@
 ---
 subjects:
-  governs: "Atom/Revision/Status: Draft/Identity Continuity"
+  governs: "Subject/Domain/Node/Continuant/Atom.Status: Draft"
   depends_on:
-    ["Atom/Identity", "Atom/Revision/Identifier", "Atom/Revision/Status: Draft", "Entity/Continuant/Actor/Type: Operator"]
+    ["Subject/Domain/Node/Continuant/Atom.ID", "Subject/Domain/Node/Continuant/Atom.Status: Draft", "Subject/Domain/Node/Continuant/Actor/Type: Operator"]
 priority: high
-version: 4
-updated_at: "2026-10-15 18:40:20 +0000"
+version: 5
+updated_at: "2026-10-22 16:26:03 +0000"
 relations:
   relates_to:
-    - CA-D-288
     - CA-D-378
     - CA-D-446
     - CA-D-508
@@ -51,3 +50,7 @@ CA-D-446 preserves same-Atom semantics for an identified-to-Draft change while r
 ## Residual uncertainty
 
 The exact runtime serializer and validator implementation remain unimplemented. CA-D-568 fixes the validation rule, CA-D-570 fixes the carried Draft property, and CA-D-569 names optional corroborating request evidence; a Journal may record the decision but cannot establish identity continuity or freshness.
+
+## Current filename mapping
+
+Draft identity-marker filename serialization is governed by CA-D-650. This reference identifies the current mapping and does not revise the historical policy record above.

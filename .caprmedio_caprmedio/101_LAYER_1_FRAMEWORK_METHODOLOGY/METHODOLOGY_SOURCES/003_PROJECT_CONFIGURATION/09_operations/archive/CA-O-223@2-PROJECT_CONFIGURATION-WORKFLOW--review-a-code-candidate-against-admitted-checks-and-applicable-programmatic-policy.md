@@ -1,0 +1,85 @@
+---
+atom_id: CA-O-223@2
+content_role: "Operations"
+type: "Workflow"
+current_scope_unit: "PROJECT_CONFIGURATION"
+claim_target_scope_unit: "PROJECT_CONFIGURATION"
+local_tier: "Standard"
+author: "Anatoly Maslennikov"
+status: Archived
+version: 2
+updated_at: "2026-10-21T23:29:13+00:00"
+global_tier: 11
+subjects:
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
+  depends_on:
+    - "Entity/Node/Continuant/Atom/Content Role: Requirement"
+    - "Entity/Node/Continuant/Atom/Content Role: Method"
+    - "Entity/Node/Continuant/Atom/Content Role: Evaluation"
+    - "Entity/Node/Continuant/Atom/Content Role: Delivery"
+    - "Entity/Node/Continuant/Implementation"
+    - "Entity/Carrier"
+    - "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step"
+    - "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action"
+    - "Entity/Node/Occurrent/Execution/Workflow Run"
+relations:
+  relates_to:
+    - "CA-R-1515"
+    - "CA-O-016"
+    - "CA-O-020"
+    - "CA-O-089"
+    - "CA-O-104"
+    - "CA-M-424"
+    - "CA-M-405"
+    - "CA-M-411"
+    - "CA-M-395"
+    - "CA-M-396"
+    - "CA-M-397"
+    - "CA-M-398"
+    - "CA-M-399"
+    - "CA-M-400"
+    - "CA-E-389"
+    - "CA-E-539"
+    - "CA-E-540"
+    - "CA-D-251"
+    - "CA-D-638"
+---
+# Summary
+
+Review a code candidate against admitted checks and applicable PROGRAMMATIC policy
+
+## Operation
+
+Entry is CA-O-226. Every Step-to-Step transition below is an explicit ON_RESULT edge in this Workflow; terminal results are not additional Steps. No other entry or successor selection is admitted.
+
+Code Candidate Review Workflow means exactly four Steps: bind the candidate, run selected Evaluations, diagnose failed checks, and perform a read-only semantic review. It requires either an existing bounded Plan or an actually admitted in-session P/task containing its instruction, Definition of Done, and source context. It never creates a Plan Atom or fabricates an initiative identity. CA-O-020 and CA-O-089 retain their own selected P/Plan requirements.
+
+| From Step | Result condition | Next Step or terminal result |
+| --- | --- | --- |
+| CA-O-226 | bound | CA-O-227 |
+| CA-O-226 | blocked | unresolved |
+| CA-O-227 | passed | CA-O-229 |
+| CA-O-227 | failed | CA-O-228 |
+| CA-O-227 | blocked | unresolved |
+| CA-O-228 | expected_initial_failure | CA-O-229 |
+| CA-O-228 | implementation_defect | CA-O-229 |
+| CA-O-228 | test_implementation_defect | CA-O-229 |
+| CA-O-228 | authority_change_required | CA-O-229 |
+| CA-O-228 | environment_blocker | CA-O-229 |
+| CA-O-228 | unresolved | CA-O-229 |
+| CA-O-229 | passed | completed |
+| CA-O-229 | findings | completed |
+| CA-O-229 | partial | partial |
+| CA-O-229 | unresolved | unresolved |
+
+`completed` means all selected assessment work is complete: `passed` has no finding; `findings` has confirmed findings or an admitted expected-phase observation fully assessed and reported. `partial` means actual selected work remains unfinished. `unresolved` means a binding, evidence, authority, context, or permission is missing or blocked; completed findings and actual results remain retained. Unknown results and failed invocations are unresolved. No transition retries, replays, edits code, changes test expectations, or weakens an Evaluation.
+
+CA-O-089's six labels map as follows: `implementation_defect` and `test_implementation_defect` become completed `findings` only after semantic assessment; `authority_change_required`, `environment_blocker`, and `unresolved` become `unresolved` with failed checks and completed findings retained; `expected_initial_failure` is an expected-phase observation, not a production defect, and can be completed only as an admitted expected-phase finding when its criteria genuinely hold. It never erases the failed check or permits an accepted-candidate claim without those criteria.
+
+## Details
+
+Bind candidate digest, owned paths, Plan-or-ephemeral-P/task context, applicable R/D, complete current M projection, applicable E Atoms, Project Principles, permissions, allowed commands, source revisions/hashes, report location, and Run identity. CA-O-227 delegates unchanged to CA-O-020; CA-O-228 delegates unchanged to CA-O-089; CA-O-229 performs the separate semantic review and does not auto-fix. Binding/evaluation use Integrated context; diagnosis/semantic review use Isolated context only when admitted. Commands may write only explicitly admitted temporary fixtures with required permission. No Atom/source edit, replacement, promotion, release, MCP publication, or Journal-completeness gate is part of this Workflow.
+
+Bind the complete Method input universe, membership, full contents and source digests: applicable Project Principles and Methodology, PROGRAMMATIC policies, and target-child-scope Methods. A compact root projection alone does not replace those child sources or the full-content Method input.
+
+The executor owns actual Workflow, Step and Action lifecycle recording under applicable Run and Journal policy. These definitions do not invent a performed Run or business event. Recording failure remains distinct from actual review results and does not authorize automatic replay.

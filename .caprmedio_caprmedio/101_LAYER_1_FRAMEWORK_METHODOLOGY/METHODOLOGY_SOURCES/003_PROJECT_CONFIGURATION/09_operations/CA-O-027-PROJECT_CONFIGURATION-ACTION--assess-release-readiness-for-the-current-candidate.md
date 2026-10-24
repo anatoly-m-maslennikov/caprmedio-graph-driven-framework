@@ -1,34 +1,33 @@
 ---
 subjects:
-  governs: "Assess Release Readiness"
+  governs: Assess Release Readiness
   depends_on:
-    - "Action"
-    - "Release Readiness"
-    - "Artifact/Revision"
-    - "Atom/Content Role: Evaluation"
-    - "Implementation"
-    - "Projection"
-    - "Operator"
-    - "Journal/Record"
-    - "Version"
-    - "AI Agent"
-version: 5
-updated_at: "2026-10-04 15:08:16 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Release Readiness
+  - Artifact/Revision
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Engineering/Release Testing/Executor Admission
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Version
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+version: 9
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
   relates_to:
-    - "CA-O-025"
-    - "CA-R-1646"
-    - "CA-R-1692"
-    - "CA-R-1712"
-atom_id: "CA-O-027"
-content_role: "Operations"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+  - CA-O-025
+  - CA-R-1646
+  - CA-R-1692
+  - CA-R-1712
+atom_id: CA-O-027
+content_role: Operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 ---
 # Summary
 

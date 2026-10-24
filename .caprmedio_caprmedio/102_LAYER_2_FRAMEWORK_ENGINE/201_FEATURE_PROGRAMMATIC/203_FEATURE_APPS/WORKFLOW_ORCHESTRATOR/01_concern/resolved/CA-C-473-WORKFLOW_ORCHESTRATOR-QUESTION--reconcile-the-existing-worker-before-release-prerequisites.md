@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 14
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 18:22:01 +0000"
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Release prerequisite worker compatibility"
-  depends_on: [Operator, Runtime, Workflow Run, Implementation, Journal]
+  governs: Release prerequisite worker compatibility
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Runtime
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Implementation
+  - Journal
 relations:
   concern_about: [CA-P-1714, CA-P-1624]
 ---

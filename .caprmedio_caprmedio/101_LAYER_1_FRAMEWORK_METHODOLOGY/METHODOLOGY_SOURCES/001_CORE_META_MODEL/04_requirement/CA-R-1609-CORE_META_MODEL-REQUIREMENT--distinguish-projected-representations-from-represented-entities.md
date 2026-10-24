@@ -3,21 +3,24 @@ atom_id: CA-R-1609
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Node/Continuant/Projection"
+  governs: Subject/Domain/Node/Continuant/Projection
   depends_on:
-    ["Artifact", "Entity", "Entity/Node/Continuant/Scope Unit", "Single Source of Truth"]
-version: 6
-updated_at: "2026-10-19 15:53:42 +0400"
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Single Source of Truth
+version: 11
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - CA-R-1470
-    - CA-R-1568
-    - CA-R-1746
-global_tier: 11
+  - CA-R-1470
+  - CA-R-1568
+  - CA-R-1746
+tier: 3
+type: Rule
 ---
 # Summary
 

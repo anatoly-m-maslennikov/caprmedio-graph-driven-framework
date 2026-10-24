@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Generic completed-work handoff gap adjudication"
-  depends_on: [Operations, "Atom/Content Role: Plan", Operator]
-version: 2
-updated_at: "2026-10-04 12:50:18 +0000"
+  governs: Generic completed-work handoff gap adjudication
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   relates_to: [CA-P-1346, CA-A-1059, CA-A-916, CA-O-017, CA-O-079, CA-O-016, CA-O-090, CA-O-077, CA-R-1520, CA-R-1583, CA-R-1599, CA-P-1130]
 ---

@@ -1,29 +1,28 @@
 ---
-atom_id: "CA-R-1803"
-content_role: "Requirement"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 1
-updated_at: "2026-10-03 16:23:03 +0400"
+atom_id: CA-R-1803
+content_role: Requirement
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 7
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "Workflow Run"
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run
   depends_on:
-    - "Workflow"
-    - "Atom"
-    - "Evaluation/Report"
-    - "Journal"
-    - "Journal/Record"
-    - "Implementation"
-    - "Operator"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Engineering/Outcome Evidence
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
   relates_to:
-    - CA-O-104
-    - CA-R-1720
-    - CA-R-1802
+  - CA-O-104
+  - CA-R-1720
+  - CA-R-1802
+tier: 3
+type: Goal
 ---
 # Summary
 

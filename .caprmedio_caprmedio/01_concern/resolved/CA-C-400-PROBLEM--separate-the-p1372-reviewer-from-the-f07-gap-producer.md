@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "P1372 independent review assignment"
-  depends_on: [Analysis, "AI Agent", Operator]
-version: 2
-updated_at: "2026-10-04 14:20:39 +0000"
+  governs: P1372 independent review assignment
+  depends_on:
+  - Analysis
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 3
+updated_at: 2026-10-23 03:06:32 +0400
 relations:
   concern_about: [CA-P-1372]
   relates_to: [CA-A-1087, CA-A-1122, CA-A-1131, CA-C-377]

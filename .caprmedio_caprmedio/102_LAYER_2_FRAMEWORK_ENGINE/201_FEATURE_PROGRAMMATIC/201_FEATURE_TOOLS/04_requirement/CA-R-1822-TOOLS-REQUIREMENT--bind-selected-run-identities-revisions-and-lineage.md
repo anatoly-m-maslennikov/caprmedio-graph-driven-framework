@@ -3,17 +3,26 @@ atom_id: CA-R-1822
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 19:36:28 +0000"
+version: 5
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "WORKFLOW_OPERATIONS/RUN_SUPPORT/Run provenance"
-  depends_on: [Workflow, Step, Action, Initiative, Journal, Implementation]
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run.Provenance
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Initiative
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Execution Identity/Source Binding
 relations:
-  relates_to: [CA-R-1525, CA-R-1720, CA-R-1728]
+  relates_to:
+  - CA-R-1525
+  - CA-R-1720
+  - CA-R-1728
+tier: 3
+type: Rule
 ---
 # Summary
 

@@ -1,21 +1,34 @@
 ---
 atom_id: CA-E-304
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool/ATOM_UPDATE"
-  depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Atom/Revision/Updated At", "Update Sealed Atom Carriers", "Artifact/Carrier", "Journal/Record"]
-version: 30
-updated_at: "2026-10-20 21:39:01 +0400"
+  governs: Subject/Engineering/Tool//ATOM_UPDATE
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Atom/Revision/Updated At
+  - Subject/Engineering/Carrier
+version: 36
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: [CA-R-866, CA-O-030, CA-R-1464, CA-R-1415, CA-R-1371]
-  relates_to: [CA-O-067, CA-R-1432, CA-R-1788, CA-R-1662]
+  evaluation_for:
+  - CA-R-866
+  - CA-O-030
+  - CA-R-1464
+  - CA-R-1415
+  - CA-R-1371
+  relates_to:
+  - CA-O-067
+  - CA-R-1432
+  - CA-R-1788
+  - CA-R-1662
+tier: 4
 ---
 # Summary
 

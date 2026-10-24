@@ -2,17 +2,24 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Work Journal/Append"
+  governs: Work Journal/Append
   depends_on: []
-version: 17
-updated_at: 2026-09-12 04:15:38 +0400
+version: 22
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-087
-    - CA-R-805
-    - CA-R-812
+  - CA-M-087
+  - CA-R-805
+  - CA-R-812
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-193
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
 ---
 # Append all related Journal records independently of commit timing
 

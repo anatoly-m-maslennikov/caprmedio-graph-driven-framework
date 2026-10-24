@@ -1,19 +1,20 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Routing Tree"
+  governs: CAPRMEDIO Routing Tree
   depends_on: []
-version: 6
-updated_at: "2026-10-02 20:16:06 +0400"
-relations: {"evaluation_for":["CA-R-1640"]}
-atom_id: "CA-E-483"
-content_role: "Evaluation"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 10
+version: 8
+updated_at: 2026-10-24 00:38:25 +0400
+relations:
+  evaluation_for:
+  - CA-R-1640
+atom_id: CA-E-483
+content_role: Evaluation
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 2
 ---
 # Summary
 

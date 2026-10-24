@@ -1,6 +1,4 @@
 ---
-global_tier: 11
-local_tier: Standard
 claim_target_scope_unit: CONNECTOR_TOOLS
 current_scope_unit: CONNECTOR_TOOLS
 content_role: Evaluation
@@ -8,17 +6,23 @@ atom_id: CA-E-302
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Tool/ATOM_READ"
+  governs: Subject/Engineering/Tool//ATOM_READ
   depends_on:
-    - "Atom"
-    - "Artifact/Carrier"
-    - "Scope Unit"
-    - "Read Atom Carriers"
-version: 14
-updated_at: "2026-10-12 23:54:41 +0400"
-relations: {"evaluation_for":["CA-R-864","CA-O-047"]}
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 22
+status: Active
+updated_at: 2026-10-24 03:08:30 +0400
+relations:
+  evaluation_for:
+  - CA-R-864
+  - CA-O-047
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 4
+type: Eval Case
+author: Anatoly Maslennikov
 ---
 # Verify read selected caprmedio atom carriers
 

@@ -1,19 +1,28 @@
 ---
 subjects:
-  governs: "Subject Assignment"
+  governs: Subject/Domain/Node/Continuant/Atom.Subjects
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.Subjects", "Subject Path", "Author", "Subject", "Subject Target", "Entity/Node/Continuant/Term", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Evaluation For Relation", "Entity", "Dependent Entity"]
-version: 29
-updated_at: "2026-10-21 01:47:52 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject
+  - Subject/Domain/Node/Continuant/Term
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Graph/Relation/Type: evaluation_for'
+  - Subject/Domain/Node
+  - Subject/Domain/Node/Continuant/Term//Dependent Entity
+version: 35
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-M-125"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-M-125
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

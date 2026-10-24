@@ -1,22 +1,25 @@
 ---
-version: 10
-updated_at: "2026-10-19 15:55:07 +0400"
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-294
+  - CA-M-294
 subjects:
-  governs: "language"
+  governs: language
   depends_on:
-    ["Author", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Governed Term", "CCE Operator"]
-atom_id: "CA-E-472"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Engineering/CCE Operator
+atom_id: CA-E-472
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 4
 ---
 # Summary
 

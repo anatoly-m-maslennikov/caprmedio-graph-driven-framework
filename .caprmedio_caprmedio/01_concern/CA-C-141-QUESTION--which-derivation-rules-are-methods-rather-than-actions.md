@@ -2,20 +2,21 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Content Role"
+  governs: Subject/Domain/Node/Continuant/Atom/Content Role
   depends_on:
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Operations"
-    - "Action"
-    - "Process"
-    - "Projection"
-    - "Atom/Local Tier"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Process
+  - Subject/Domain/Node/Continuant/Projection
+  - Atom/Local Tier
 priority: medium
-version: 9
-updated_at: "2026-09-17 20:53:34 +0000"
+version: 11
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-141
 ---
 # Which derivation rules are Methods rather than Actions?
 

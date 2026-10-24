@@ -1,31 +1,38 @@
 ---
 subjects:
-  governs: "Subject Expression Evaluation"
+  governs: Subject
   depends_on:
-    ["General Term", "Governed Term", "Subject Expression", "Subject Target", "Dependent Entity", "Property", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "Entity/Node/Continuant/Term", "CCE Operator", "Entity/Node/Continuant/Scope Unit.Name", "Subject", "Subject Path"]
-version: 21
-updated_at: "2026-10-21 01:47:52 +0400"
+  - General Term
+  - Subject/Domain/Node/Continuant/Term
+  - Subject
+  - Subject/Domain/Node/Continuant/Term//Dependent Entity
+  - Subject/Domain/Node/Continuant/Term//Property
+  - IS_BORNE_BY
+  - IS_ALLOWED_VALUE_OF
+  - Subject/Engineering/CCE Operator
+  - Subject/Domain/Node/Continuant/Scope Unit.Name
+version: 27
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1194
-    - CA-R-1931
-    - CA-R-1245
-    - CA-R-1436
-    - CA-M-229
-    - CA-R-1324
-    - CA-R-1325
-    - CA-R-1321
-    - CA-R-1275
-    - CA-R-1297
-atom_id: "CA-E-383"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-R-1194
+  - CA-R-1931
+  - CA-R-1245
+  - CA-R-1436
+  - CA-M-229
+  - CA-R-1324
+  - CA-R-1325
+  - CA-R-1321
+  - CA-R-1275
+  - CA-R-1297
+atom_id: CA-E-383
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 4
 ---
 # Summary
 

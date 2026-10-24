@@ -1,19 +1,25 @@
 ---
-atom_id: "CA-O-158"
-content_role: "Operations"
+atom_id: CA-O-158
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Workflow"
-version: 7
-updated_at: "2026-10-19 15:57:08 +0400"
+status: Active
+author: Anatoly Maslennikov
+type: Workflow
+version: 12
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "Find and Fetch Artifacts"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Artifact", "Markdown", "Entity/Node/Continuant/History/Journal", "Tool"]
+  governs: Subject/Domain/Node/Continuant/Selection
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Markdown
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Workflow Orchestration/Artifact Query Connector Route
 relations: {}
+tier: 3
 ---
 # Summary
 

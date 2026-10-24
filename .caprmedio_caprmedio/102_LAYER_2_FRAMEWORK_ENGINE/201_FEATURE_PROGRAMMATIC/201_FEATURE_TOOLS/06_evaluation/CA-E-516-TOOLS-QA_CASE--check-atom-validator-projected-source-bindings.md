@@ -1,30 +1,29 @@
 ---
 atom_id: CA-E-516
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool/VALIDATE_ATOMS"
+  governs: Subject/Domain/Node/Continuant/Projection
   depends_on:
-    - "Tool"
-    - "Projection"
-    - "Applicable Methodology"
-    - "Atom/Revision"
-    - "Evaluation"
-version: 2
-updated_at: "2026-10-01 21:46:55 +0400"
+  - Subject/Engineering/Atom Validation
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Evaluation
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1622
+  - CA-R-1622
   relates_to:
-    - CA-D-305
-    - CA-E-379
-    - CA-O-087
+  - CA-D-305
+  - CA-E-379
+  - CA-O-087
+tier: 4
 ---
 # Summary
 

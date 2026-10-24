@@ -2,18 +2,25 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "app-service-interface"
+  governs: app-service-interface
   depends_on:
-    - "APPS"
-version: 8
-updated_at: 2026-08-27 14:52:39 +0400
+  - APPS
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
-    - CA-R-1187
+  - CA-R-1187
   derived_from:
-    - CA-A-057
+  - CA-A-057
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-222
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: APPS
+type: Eng Policy
+tier: 1
 ---
 # Bind an App interface to declared backend services
 

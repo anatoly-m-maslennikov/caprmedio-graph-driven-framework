@@ -2,21 +2,31 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Upgrade Selected Atom Authority"
+  governs: Upgrade Selected Atom Authority
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Atom/Local Tier"
-    - "Atom/Global Tier"
-    - "Scope Unit"
-    - "Artifact/Revision"
-    - "Artifact/Carrier"
-    - "Journal/Record"
-version: 12
-updated_at: "2026-09-17 23:13:13 +0000"
-relations: {"evaluation_for":["CA-R-870","CA-O-045"]}
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - Atom/Local Tier
+  - Atom/Global Tier
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Artifact/Revision
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-870
+  - CA-O-045
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-308
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 1
 ---
 # Verify upgrade selected active atom authority
 

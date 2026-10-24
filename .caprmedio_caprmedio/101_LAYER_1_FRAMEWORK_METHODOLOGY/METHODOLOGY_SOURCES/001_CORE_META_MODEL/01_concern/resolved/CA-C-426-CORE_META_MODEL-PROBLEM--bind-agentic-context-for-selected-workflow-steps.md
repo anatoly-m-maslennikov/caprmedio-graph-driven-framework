@@ -8,11 +8,16 @@ local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
-version: 3
-updated_at: "2026-10-15 18:41:01 +0000"
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Selected Workflow Step/Agentic invocation context binding"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Workflow Run", "Step Run", "Step/Agentic Execution Context"]
+  governs: Selected Workflow Step/Agentic invocation context binding
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Step/Agentic Execution Context
 relations:
   concern_about: [CA-O-139, CA-O-140, CA-O-141, CA-O-142, CA-O-143, CA-O-144, CA-O-146, CA-O-147, CA-O-148, CA-O-149, CA-O-150, CA-O-151, CA-O-152, CA-O-153, CA-O-154, CA-O-155, CA-O-156, CA-O-157, CA-P-1459, CA-P-1470]
 ---

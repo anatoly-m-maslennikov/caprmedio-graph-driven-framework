@@ -3,18 +3,26 @@ atom_id: CA-D-632
 content_role: Delivery
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Project Configuration", "Carrier", "Implementation", "Method", "Evaluation"]
-version: 3
-updated_at: "2026-10-13 20:15:34 +0400"
+  governs: Subject/Engineering/Pure TOML Materializer Dependency Boundary
+  depends_on:
+  - Subject/Domain/Node/Continuant/Governing Configuration
+  - Subject/Engineering/Carrier
+  - Subject/Engineering/Implementation
+  - Subject/Engineering/TOML Materialization
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  delivery_for: [CA-R-1936]
-  depends_on: [CA-M-383, CA-D-250, CA-E-635, CA-E-254]
+  delivery_for:
+  - CA-R-1936
+  depends_on:
+  - CA-M-383
+  - CA-D-250
+  - CA-E-254
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

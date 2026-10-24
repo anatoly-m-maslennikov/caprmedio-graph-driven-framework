@@ -2,23 +2,29 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Work Journal/Governed File Change Event"
+  governs: Work Journal/Governed File Change Event
   depends_on:
-    - "Journal"
-    - "Journal/Record"
-    - "Atom"
-    - "Artifact/Carrier"
-    - "Project"
-    - "Applicable Methodology"
-version: 6
-updated_at: "2026-09-16 21:24:29 +0000"
+  - Subject/Engineering/Carrier/Journal Serialization
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+version: 12
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1491
-    - CA-R-804
-
+  - CA-R-1491
+  - CA-R-804
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-232
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 2
 ---
 # Log a file change despite graph defects
 

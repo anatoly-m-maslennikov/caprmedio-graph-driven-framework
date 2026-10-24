@@ -1,0 +1,17 @@
+---
+subjects:
+  governs: plugin-architecture
+  depends_on: []
+version: 13
+updated_at: 2026-10-24 00:51:05 +0400
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-1073@13
+status: Archived
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: APPS
+---
+# Use the smallest sufficient Codex plugin composition
+
+`CODEX_PLUGIN` **must** contain **only** the Codex-host capabilities necessary **to** expose the current `GRAPH_UI` **and** route governed CAPRMEDIO work: skills for repeatable workflow guidance, a connection **to** the provider-neutral `MCP` unit **only** **when** Tool invocation is required, UI **only** **when** graph inspection **or** navigation materially benefits from it, **and** hooks **only** for Codex-specific lifecycle behavior. Every MCP-backed capability **must** remain usable **without** UI, **and** the plugin **must** reference rather than duplicate provider-neutral Skill, Tool, MCP, GRAPH_UI, **or** Methodology behavior.

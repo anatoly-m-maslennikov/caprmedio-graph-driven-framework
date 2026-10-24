@@ -2,17 +2,27 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Manage Installed Extensions"
+  governs: Manage Installed Extensions
   depends_on:
-    - "Action"
-    - "Extension"
-    - "Artifact/Carrier"
-    - "Artifact/Revision"
-version: 11
-updated_at: "2026-09-17 03:34:11 +0000"
-relations: {"evaluation_for":["CA-R-1152","CA-O-042"]}
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Extension
+  - Subject/Engineering/Carrier
+  - Artifact/Revision
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-1152
+  - CA-O-042
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-418
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 2
 ---
 # Verify manage installed Extensions
 

@@ -5,11 +5,12 @@ subjects:
       - programmatic-policy
     occurrent:
       - validation
-version: 3
-updated_at: 2026-09-06 01:45:12 +0400
+version: 4
+updated_at: 2026-10-23 03:17:34 +0400
 relations:
   derived_from:
     - CA-A-058
+atom_id: CA-A-059
 ---
 # Close deferred PROGRAMMATIC Requirement realization gaps
 

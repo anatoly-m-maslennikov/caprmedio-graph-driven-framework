@@ -1,20 +1,31 @@
 ---
 subjects:
-  governs: "Reconcile Atom Properties and Addresses"
+  governs: Reconcile Atom Properties and Addresses
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Property", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Node/Continuant/Atom.Summary", "Entity/Carrier", "Entity/Node/Continuant/Actor/Type: Operator"]
-version: 9
-updated_at: "2026-10-19 15:56:47 +0400"
-relations: {"relates_to": ["CA-R-1598", "CA-D-478", "CA-D-479", "CA-D-480", "CA-D-481", "CA-R-1464"]}
-atom_id: "CA-O-077"
-content_role: "Operations"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Property
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 13
+updated_at: 2026-10-24 00:51:05 +0400
+relations:
+  relates_to:
+  - CA-R-1598
+  - CA-D-478
+  - CA-D-479
+  - CA-D-480
+  - CA-D-481
+  - CA-R-1464
+atom_id: CA-O-077
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 ---
 # Summary
 

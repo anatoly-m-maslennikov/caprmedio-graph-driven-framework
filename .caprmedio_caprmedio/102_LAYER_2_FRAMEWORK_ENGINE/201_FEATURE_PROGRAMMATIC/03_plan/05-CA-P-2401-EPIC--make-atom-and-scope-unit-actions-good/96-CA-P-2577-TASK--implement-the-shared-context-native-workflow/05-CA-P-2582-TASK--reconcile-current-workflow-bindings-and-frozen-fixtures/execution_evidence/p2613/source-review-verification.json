@@ -1,0 +1,18 @@
+{
+  "recorded_at": "2026-10-22 20:45:12 UTC",
+  "scope": "Read-only review-source freshness and preserved-carrier verification; not semantic acceptance",
+  "snapshot": "current-source-pins.review.json",
+  "source_pins_revalidated": 50,
+  "changed_source_pins": [],
+  "unchanged_baselines_and_higher_authority": {
+    ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json": "f6577216b7ee914d9abf3939677df9208d9658a3e91fe74ad13b34c09539329c",
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_workflow_bindings.json": "d6dca70bbaa3530958d5950278104ed5628b7a282539675fecd9f9a58845b684",
+    ".caprmedio_caprmedio/02_analysis/CA-A-1142-ANALYSIS_RPRT--prepare-the-selected-source-to-rmed-handoff.md": "f165779ab67c049b90d813909d99eda245a89f280eef70445cd8dfdf9cb91eaa",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1525-CORE_META_MODEL-GENERAL-REQUIREMENT--bind-workflow-runs-to-exact-definition-revisions.md": "be06d6d61f38cc66215238e79524686f4abaf894ede476d726ebf0d9dc3367f3",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md": "16a6026fe762db788d086047dfaddf35f4981d073d2f4e6fc541d6f19a2eba52",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md": "9fef3ee41dabc5b79f3fc4ba03d6d29daf40905c931ab018abb6ac694acb18fe"
+  },
+  "runtime_admission": false,
+  "deployment": false,
+  "full_suite_run": false
+}

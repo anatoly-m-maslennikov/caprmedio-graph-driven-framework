@@ -1,21 +1,26 @@
 ---
 subjects:
-  governs: "Confidence Threshold.Source"
+  governs: Confidence Threshold.Source
   depends_on:
-    ["Confidence Threshold", "Entity/Node/Continuant/Actor/Type: Operator", "Atom/Content Role: Plan/Type: Plan", "Hub Atom", "Property", "Entity/Node/Continuant/Project.Framework Settings"]
-version: 12
-updated_at: "2026-10-19 15:53:02 +0400"
+  - Confidence Threshold
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Hub Atom
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+version: 17
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - "CA-R-1427"
-atom_id: "CA-R-1428"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-R-1427
+atom_id: CA-R-1428
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

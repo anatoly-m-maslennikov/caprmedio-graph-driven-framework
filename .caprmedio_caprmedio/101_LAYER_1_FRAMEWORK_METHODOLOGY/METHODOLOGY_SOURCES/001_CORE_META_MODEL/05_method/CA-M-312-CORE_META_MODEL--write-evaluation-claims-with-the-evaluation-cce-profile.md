@@ -1,25 +1,28 @@
 ---
 subjects:
-  governs: "Evaluation CCE Role Profile"
+  governs: Subject/Graph/Rule/CCE Role Profile
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Evaluation", "CCE Operator", "Condition Expression"]
-version: 8
-updated_at: "2026-10-19 15:54:52 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Engineering/CCE Operator
+  - Condition Expression
+  - Subject/Domain/Node/Continuant/Atom.Tier
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-M-307
+  - CA-M-307
   relates_to:
-    - CA-R-1341
-    - CA-M-122
-    - CA-M-264
-atom_id: "CA-M-312"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-R-1341
+  - CA-M-122
+  - CA-M-264
+atom_id: CA-M-312
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 6
+type: Eng Decision
 ---
 # Summary
 
@@ -45,4 +48,4 @@ Evaluation Claims with the Evaluation CCE Role Profile.
 classification follows the primary contribution. quality-assurance policies **and**
 test cases are Evaluation contributions; product outcome policy remains Requirement
 authority, **and** tool **or** technique selection remains Method authority.
-apply CA-R-794 for the Evaluation's Local Tier.
+apply CA-M-438 for the Evaluation's numeric Tier; do not infer that Tier from semantic role, Type, or a named tier category.

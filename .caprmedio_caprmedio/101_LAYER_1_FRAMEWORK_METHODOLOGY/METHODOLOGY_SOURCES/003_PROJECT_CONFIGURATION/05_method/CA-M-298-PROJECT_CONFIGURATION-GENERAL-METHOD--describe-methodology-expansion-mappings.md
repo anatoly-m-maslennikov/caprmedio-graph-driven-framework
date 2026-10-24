@@ -1,22 +1,26 @@
 ---
 subjects:
-  governs: "Methodology Source.Expansion Mapping"
+  governs: Methodology Source.Expansion Mapping
   depends_on:
-    - "Methodology Source"
-    - "Extension"
-    - "Project Configuration"
-    - "Core Meta-Model"
-version: 7
-updated_at: "2026-10-19 14:46:08 +0400"
-relations: {child_of: [CA-M-006], method_for: [CA-R-1375]}
-atom_id: "CA-M-298"
-content_role: "Method"
+  - Methodology Source
+  - Extension
+  - Project Configuration
+  - Core Meta-Model
+version: 9
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  child_of:
+  - CA-M-006
+  method_for:
+  - CA-R-1375
+atom_id: CA-M-298
+content_role: Method
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Implementation Method
 ---
 # Summary
 

@@ -1,0 +1,18 @@
+---
+subjects:
+  governs: "framework-engine-mcp"
+  depends_on: []
+version: 10
+updated_at: 2026-10-21 20:16:45 +0000
+llm_session_ids:
+  - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+---
+# Bind MCP operation to the current project frontier
+
+**every** MCP service instance **and** invocation **must** bind **to** exactly one resolved CAPRMEDIO project root, selected installed Tool release, current project-graph frontier, **and** generated MCP registry revision. Discovery **and** results **must** expose sufficient source **and** revision provenance **to** diagnose currentness; cross-project path escape, unresolved project identity, **and** invocation through a stale registry **must** fail explicitly.
+
+Scope check: a shared service may publish an initial union of validated
+per-Project frontiers, but every discovery result and invocation remains bound
+to exactly one Project identity and frontier. This is per-operation binding,
+not a global one-Project service restriction.

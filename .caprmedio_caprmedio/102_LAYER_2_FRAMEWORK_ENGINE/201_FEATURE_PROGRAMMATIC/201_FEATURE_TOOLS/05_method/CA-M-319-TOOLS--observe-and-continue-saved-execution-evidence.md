@@ -2,25 +2,25 @@
 atom_id: CA-M-319
 content_role: Method
 current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 14:55:01 +0000"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Execution observation"
+  governs: Subject/Domain/Node/Occurrent/Execution
   depends_on:
-    - "Tool"
-    - "Action"
-    - "Workflow"
-    - "Atom"
-    - "Scope Unit"
-    - "Implementation"
-    - "Workflow Run"
-    - "Journal"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
-  relates_to: [CA-R-1807, CA-R-1808, CA-R-1809]
+  relates_to:
+  - CA-R-1807
+  - CA-R-1808
+  - CA-R-1809
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

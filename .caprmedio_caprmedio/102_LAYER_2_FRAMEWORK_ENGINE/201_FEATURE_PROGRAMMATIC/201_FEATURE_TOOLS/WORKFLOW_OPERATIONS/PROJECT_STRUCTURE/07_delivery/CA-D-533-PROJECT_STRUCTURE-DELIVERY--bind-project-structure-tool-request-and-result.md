@@ -1,20 +1,24 @@
 ---
 atom_id: CA-D-533
 content_role: Delivery
-type: Delivery
+type: Eng Decision
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 23:02:03 +0400"
+version: 7
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "Tool/PROJECT_STRUCTURE request and result contract"
-  depends_on: [Tool, Scope Unit, Project Structure, Implementation]
+  governs: Subject/Engineering/Project Structure/Request and Result Interface
+  depends_on:
+  - Subject/Engineering/Project Structure
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Structure
 relations:
-  relates_to: [CA-R-1829, CA-R-1832]
+  relates_to:
+  - CA-R-1829
+  - CA-R-1832
+tier: 3
 ---
 # Summary
 

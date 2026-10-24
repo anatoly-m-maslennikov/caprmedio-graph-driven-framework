@@ -3,17 +3,24 @@ atom_id: CA-D-548
 content_role: Delivery
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 02:00:00 +0400"
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "MCP/selected Workflow compatibility"
-  depends_on: [MCP, Tool, Workflow, Run, Project]
+  governs: Subject/Engineering/MCP/Selected Workflow Compatibility
+  depends_on:
+  - Subject/Engineering/MCP
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/Agentic Instruction/Tool Call Execution Detail
 relations:
-  delivery_for: [CA-R-1847, CA-R-1848]
+  delivery_for:
+  - CA-R-1847
+  - CA-R-1848
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

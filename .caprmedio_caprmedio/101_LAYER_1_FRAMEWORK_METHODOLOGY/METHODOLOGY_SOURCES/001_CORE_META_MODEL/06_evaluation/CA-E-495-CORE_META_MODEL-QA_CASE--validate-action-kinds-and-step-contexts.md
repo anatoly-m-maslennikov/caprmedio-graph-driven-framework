@@ -1,20 +1,28 @@
 ---
 subjects:
-  governs: "Agentic Step Execution Context"
+  governs: Subject/Domain/Node/Occurrent/Execution/Step Run.Agentic Step Execution Context
   depends_on:
-    ["Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Continuant/Actor/Type: Operator"]
-version: 7
-updated_at: "2026-10-19 15:55:11 +0400"
-relations: {"evaluation_for": ["CA-R-1526", "CA-R-1527", "CA-R-1509"]}
-atom_id: "CA-E-495"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action/Execution Kind'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 12
+updated_at: 2026-10-24 01:50:12 +0400
+relations:
+  evaluation_for:
+  - CA-R-1526
+  - CA-R-1527
+  - CA-R-1509
+atom_id: CA-E-495
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 3
 ---
 # Summary
 

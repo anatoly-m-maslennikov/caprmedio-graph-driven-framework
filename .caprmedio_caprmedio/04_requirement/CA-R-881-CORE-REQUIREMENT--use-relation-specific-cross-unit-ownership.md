@@ -1,25 +1,32 @@
 ---
-version: 9
-updated_at: "2026-09-22 17:59:17 +0000"
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - "CA-R-1407"
-    - "CA-M-001"
-cce_version: "cce_1"
-cce_form: "obligation"
+  - CA-R-1407
+  - CA-M-001
+cce_version: cce_1
+cce_form: obligation
 subjects:
-  governs: "Project/cross-unit relation ownership"
+  governs: Project/cross-unit relation ownership
   depends_on:
-    - "Project"
-    - "Scope Unit"
-    - "Relational Atom"
-    - "Atom/Scope"
-    - "Atom/Claim"
-    - "Consumer"
-    - "Producer"
-    - "Atom/Content Role: Requirement/Type: Demand"
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Relational Atom
+  - Atom/Scope
+  - Atom/Claim
+  - Consumer
+  - Producer
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Demand'
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-881
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Rule
+tier: 1
 ---
 # Use relation-specific cross-unit ownership
 

@@ -7,11 +7,18 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 21:52:49 +0000"
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Release Workflow/Gate admission"
-  depends_on: [Workflow, Step, Action, Atom, Summary, Evaluation, Journal]
+  governs: Release Workflow/Gate admission
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - Summary
+  - Evaluation
+  - Journal
 relations:
   concern_about: [CA-P-1743, CA-O-164, CA-O-169]
 ---

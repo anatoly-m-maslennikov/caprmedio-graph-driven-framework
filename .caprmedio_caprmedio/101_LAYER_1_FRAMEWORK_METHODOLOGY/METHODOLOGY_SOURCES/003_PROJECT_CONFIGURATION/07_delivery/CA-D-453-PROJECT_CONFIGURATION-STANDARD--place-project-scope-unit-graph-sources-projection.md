@@ -1,20 +1,22 @@
 ---
 subjects:
-  governs: "Project Scope Unit Graph Projection"
+  governs: Subject/Domain/Node/Continuant/Projection//PROJECT_SCOPE_UNIT_GRAPH
   depends_on:
-    - "Project Structure"
-    - "Entity/Carrier"
-version: 6
-updated_at: "2026-10-19 15:56:22 +0400"
-relations: {"relates_to":["CA-O-062"]}
-atom_id: "CA-D-453"
-content_role: "Delivery"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Engineering/Carrier
+version: 10
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-O-062
+atom_id: CA-D-453
+content_role: Delivery
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

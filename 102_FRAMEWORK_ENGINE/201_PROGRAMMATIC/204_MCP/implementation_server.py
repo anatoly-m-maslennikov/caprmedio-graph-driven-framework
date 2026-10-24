@@ -1,7 +1,6 @@
 """Reloadable Project-local stdio implementation behind the stable gateway."""
 import argparse
 from contextlib import contextmanager
-from dataclasses import replace
 from pathlib import Path
 import sys
 import time
@@ -18,12 +17,10 @@ sys.path.insert(0, str(TOOLS_ROOT))
 sys.path.insert(0, str(TOOLS_ROOT / 'VALIDATE_ATOMS'))
 from capability_discovery.service import Service  # noqa: E402
 from operation_error_boundary import (  # noqa: E402
-    classify_failure,
-    emit_failure_diagnostic,
     operation_error_boundary,
 )
-from project_selection import active_selection  # noqa: E402
-from technical_diagnostics import make_technical_logger  # noqa: E402
+from runtime_failure_diagnostics import report_failure  # noqa: E402
+from runtime_process_boundary import run_process  # noqa: E402
 sys.path.insert(0, str(TOOLS_ROOT.parent / '203_APPS/WORKFLOW_ORCHESTRATOR'))
 from orchestrator import Request as OrchestratorRequest, run as orchestrate  # noqa: E402
 from selected_routes import register_selected_routes  # noqa: E402
@@ -56,22 +53,14 @@ def register_orchestrator(server, root):
     def workflow_orchestrator(request: OrchestratorRequest) -> dict[str, Any]:
         """Enqueue or inspect an independent Run; requires an explicitly initialized local worker."""
         def on_error(error: Exception) -> object:
-            failure = classify_failure(error)
-            logger = None
-            try:
-                selection = active_selection(root)
-                logger, _logger_error = make_technical_logger(selection.settings, Path(root))
-                if logger is not None:
-                    logger = replace(logger, component="MCP_ORCHESTRATOR")
-            except Exception:
-                pass
-            diagnostic_error = emit_failure_diagnostic(
-                logger, failure, operation="workflow_orchestrator",
-                correlation_id=getattr(request, "run_id", None),
+            failure, secondary = report_failure(
+                Path(root), error, component='MCP_ORCHESTRATOR',
+                operation='workflow_orchestrator',
+                correlation_id=getattr(request, 'run_id', None),
             )
-            message = f"{failure.code}: {failure.message}"
-            if diagnostic_error:
-                message += "; technical diagnostic unavailable"
+            message = f'{failure.code}: {failure.message}'
+            if secondary:
+                message += '; technical diagnostic unavailable'
             raise ToolError(message) from error
 
         @operation_error_boundary(on_error=on_error)
@@ -119,13 +108,24 @@ def create_server(root):
     return server
 
 
-if __name__ == '__main__':
+def _serve(args):
+    selection = startup_selection(args.project_root, args.control_root, args.instance_id, args.host_project_root)
+    with bind_selection(selection):
+        create_server(args.project_root).run(transport='stdio')
+
+
+def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project-root', required=True, type=Path)
     parser.add_argument('--control-root')
     parser.add_argument('--instance-id')
     parser.add_argument('--host-project-root')
-    args = parser.parse_args()
-    selection = startup_selection(args.project_root, args.control_root, args.instance_id, args.host_project_root)
-    with bind_selection(selection):
-        create_server(args.project_root).run(transport='stdio')
+    args = parser.parse_args(argv)
+    return run_process(
+        lambda: _serve(args), operation='mcp.implementation_startup',
+        root=args.project_root,
+    )
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

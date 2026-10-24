@@ -1,5 +1,6 @@
 """Explicit process generations and connected Subject publication; no automatic replay."""
 import asyncio
+from concurrent.futures import CancelledError as FutureCancelledError
 import fcntl
 import hashlib
 import json
@@ -27,6 +28,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / '201_TOOLS'))
 from project_selection import ProjectSelection, bind_selection, resolve_project, rebind_selection
 from project_settings_schema import mcp_tool_blacklist
 from health_observations import HealthObservations
+from operation_error_boundary import FailureRecord, operation_error_boundary
+from runtime_failure_diagnostics import report_failure
 
 
 def startup_selection(root, control_root=None, instance_id=None, host_root=None):
@@ -87,6 +90,21 @@ _PROCESS_QUERY_MAX_BYTES = 64 * 1024
 _PROCESS_QUERY_MAX_SECONDS = 2.0
 _GATEWAY_ENTRYPOINTS = frozenset(('server.py', 'http_server.py'))
 _INNER_CALL_ERROR = ContextVar('mcp_inner_call_error', default=None)
+
+
+def _failure_result(root, error, *, component, operation, outcome='failed'):
+    failure, secondary = report_failure(
+        root, error, component=component, operation=operation,
+    )
+    diagnostics = [f'{failure.code}: {failure.message}']
+    if secondary:
+        diagnostics.append('technical diagnostic unavailable')
+    return result({'outcome': outcome, 'diagnostics': diagnostics}, True)
+
+
+def _raise_if_future_cancelled(error):
+    if isinstance(error, FutureCancelledError):
+        raise error
 
 
 def _startup_telemetry_enabled() -> bool:
@@ -466,12 +484,14 @@ class Gateway:
                 try:
                     await context.session.send_tool_list_changed()
                     value['notification_status'] = 'sent'
-                except Exception:
+                except Exception as error:
+                    _raise_if_future_cancelled(error)
                     value['notification_status'] = 'failed'
         if old.in_flight == 0:
             try:
                 await old.close()
-            except Exception:
+            except Exception as error:
+                _raise_if_future_cancelled(error)
                 value['diagnostics'].append('Retired generation cleanup failed')
 
     @staticmethod
@@ -524,7 +544,15 @@ class Gateway:
                     if force or fingerprint != old.fingerprint:
                         await self.publish(old, fingerprint, context, value)
                 except Exception as error:
-                    value.update(outcome='failed', diagnostics=[f'{type(error).__name__}: candidate rejected'])
+                    _raise_if_future_cancelled(error)
+                    failure, secondary = report_failure(
+                        self.root, error, component='MCP_GATEWAY',
+                        operation='candidate_start', correlation_id=request_id,
+                    )
+                    diagnostics = [f'{failure.code}: {failure.message}']
+                    if secondary:
+                        diagnostics.append('technical diagnostic unavailable')
+                    value.update(outcome='failed', diagnostics=diagnostics)
                 self.receipts[request_id] = value
                 try:
                     self.persist(request_id, value)
@@ -546,25 +574,30 @@ class Gateway:
             request = ReloadRequest.model_validate(arguments['request'])
             value = await self.reload(request, context)
             return result(value, value.get('outcome') in ('failed', 'rejected'))
-        except ValueError as error:
-            return result({'outcome': 'rejected', 'diagnostics': [str(error)]}, True)
+        except (TypeError, ValueError) as error:
+            return _failure_result(
+                self.root, error, component='MCP_GATEWAY', operation='control',
+                outcome='rejected',
+            )
 
     async def call(self, context, params):
         token = _INNER_CALL_ERROR.set(None)
         response = None
         error = None
         try:
-            if params.name in self.tool_blacklist:
-                response = result({'outcome': 'rejected', 'diagnostics': ['Unknown Tool']}, True)
-            else:
+            async def guarded_call():
+                if params.name in self.tool_blacklist:
+                    return result({'outcome': 'rejected', 'diagnostics': ['Unknown Tool']}, True)
                 with bind_selection(self.selection) if self.selection is not None else nullcontext():
-                    response = await self._call(context, params)
+                    return await self._call(context, params)
+
+            guarded_call = operation_error_boundary(
+                on_error=lambda caught: self._public_call_failure(caught, params),
+            )(guarded_call)
+            response = await guarded_call()
             error = _INNER_CALL_ERROR.get()
             return response
         except asyncio.CancelledError as caught:
-            error = caught
-            raise
-        except Exception as caught:
             error = caught
             raise
         finally:
@@ -572,9 +605,21 @@ class Gateway:
                 self.health_observations.record(
                     params.name, getattr(params, 'arguments', None), response, error=error,
                 )
-            except Exception:
-                pass
+            except Exception as observer_error:
+                _raise_if_future_cancelled(observer_error)
+                report_failure(
+                    self.root,
+                    FailureRecord('WARNING', 'health_observation_failed',
+                                  'health observations unavailable'),
+                    component='MCP_GATEWAY', operation='health_observations',
+                )
             _INNER_CALL_ERROR.reset(token)
+
+    def _public_call_failure(self, error, params):
+        _INNER_CALL_ERROR.set(error)
+        return _failure_result(
+            self.root, error, component='MCP_GATEWAY', operation=params.name,
+        )
 
     def _retain_subject_stage(self, context, response):
         # The SDK makes a fresh Session proxy per request around this Connection.
@@ -635,7 +680,13 @@ class Gateway:
             frozen = runner.freeze({'operation': 'enqueue_selected',
                 'run_id': _QueueBackedSelectedSupport._workflow_run_id(request), 'execution': request})
         except (AttributeError, KeyError, TypeError, ValueError, RuntimeError, OSError) as error:
-            return _result('refused', diagnostic=str(error))
+            failure, secondary = report_failure(
+                self.root, error, component='MCP_GATEWAY', operation='subject_confirmation',
+            )
+            diagnostic = f'{failure.code}: {failure.message}'
+            if secondary:
+                diagnostic += '; technical diagnostic unavailable'
+            return _result('refused', diagnostic=diagnostic)
         return await confirm_subject_publication(context, runner, frozen,
             operator_name=operators[0].name, staged_manifest=retained[1], operator_registry=registry)
 
@@ -661,6 +712,18 @@ class Gateway:
         if staging:
             self._retain_subject_stage(context, response)
         return response
+
+    def _uncertain_call_result(self, error, params, generation):
+        _raise_if_future_cancelled(error)
+        _INNER_CALL_ERROR.set(error)
+        failure, secondary = report_failure(
+            self.root, error, component='MCP_GATEWAY', operation=params.name,
+        )
+        diagnostics = [f'Implementation call failed ({failure.code}); no automatic replay']
+        if secondary:
+            diagnostics.append('technical diagnostic unavailable')
+        return result({'outcome': 'uncertain', 'generation': generation.fingerprint,
+                       'diagnostics': diagnostics}, True)
 
     async def _call(self, context, params):
         if params.name == STATUS.name:
@@ -690,15 +753,14 @@ class Gateway:
                         context, request_id=marker['request_id'], force=True,
                     )
                     attach_receipt(response, receipt)
-                except Exception:
+                except Exception as error:
+                    _raise_if_future_cancelled(error)
                     attach_receipt(response, {'outcome': 'failed', 'diagnostic': 'activation refresh failed'})
             elif marker is not None:
                 attach_receipt(response, {**marker, 'outcome': 'recreation_required'})
             return response
         except Exception as error:
-            _INNER_CALL_ERROR.set(error)
-            return result({'outcome': 'uncertain', 'generation': generation.fingerprint,
-                           'diagnostics': ['Implementation call failed; no automatic replay']}, True)
+            return self._uncertain_call_result(error, params, generation)
         finally:
             generation.in_flight -= 1
             if generation is not self.active and generation.in_flight == 0:

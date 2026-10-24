@@ -1,27 +1,31 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Substance"
+  governs: Subject/Domain/Node/Continuant/Atom.Substance
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Node/Continuant/Atom.Summary", "Scope Expression", "Entity/Node/Continuant/Scope Unit"]
-version: 22
-updated_at: "2026-10-19 15:54:57 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Domain/Node/Continuant/Atom.Target Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Scope Expression
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 29
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1596
-    - CA-R-1270
-    - CA-R-1271
-    - CA-R-1624
-    - CA-R-1465
-    - CA-R-1273
-atom_id: "CA-E-384"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 10
+  - CA-R-1596
+  - CA-R-1270
+  - CA-R-1271
+  - CA-R-1624
+  - CA-R-1465
+  - CA-R-1273
+atom_id: CA-E-384
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 3
 ---
 # Summary
 

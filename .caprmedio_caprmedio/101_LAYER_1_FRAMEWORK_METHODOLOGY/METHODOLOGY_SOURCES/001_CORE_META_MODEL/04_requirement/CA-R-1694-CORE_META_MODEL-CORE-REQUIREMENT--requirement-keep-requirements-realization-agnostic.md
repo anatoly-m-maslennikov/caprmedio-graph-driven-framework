@@ -1,19 +1,24 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Atom/Content Role", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Implementation", "Entity/Node/Continuant/Atom/Content Role: Operations"]
-version: 24
-updated_at: "2026-10-19 15:53:51 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - Subject/Engineering/Implementation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+version: 30
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1694"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1694
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 
@@ -33,5 +38,7 @@ Requirement claims and their internal realization.
 - a candidate that combines this independently replaceable outcome with an independently replaceable construction, Carrier, **or** operational Claim requires separate Atoms under the one-Claim authority; a composite Claim is **not** split merely because it has multiple clauses.
 
 ## Details
+
+Functional and non-functional Requirements both specify outcomes. A performance target can have an Engineering Subject. Subject and Content Role are independent; architecture remains Method even when mandatory. The methodology's own model definitions and Graph Rules remain within Requirement authority.
 
 CA-R-1339 owns the Requirement Content Role definition. this Atom constrains realization prescription **without** duplicating the definitions of the other Content Roles.

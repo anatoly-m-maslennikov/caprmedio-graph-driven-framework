@@ -2,24 +2,25 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "engine-settings-reader"
+  governs: Subject/Engineering/Configuration Access
   depends_on:
-    - "programmatic software"
-version: 6
-updated_at: "2026-10-15 23:23:10 +0400"
+  - Subject/Engineering/Project Settings Snapshot
+version: 14
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-284
+  - CA-M-417
+  - CA-M-284
   derived_from:
-    - CA-A-053
+  - CA-A-053
 atom_id: CA-E-454
 content_role: Evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
+tier: 5
+type: Eval Case
 ---
 # Use one Settings Reader across Engine software
 
@@ -44,4 +45,4 @@ reject the bypassing consumer **until** it accepts the shared snapshot explicitl
 ## Sources
 
 - [Python documentation: `unittest.mock`](https://docs.python.org/3.14/library/unittest.mock.html)
-- [CA-M-284 — Read Engine settings through one shared boundary](../05_method/CA-M-284-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--read-engine-settings-through-one-shared-boundary.md)
+- [CA-M-284 — Read Engine settings through one shared boundary](../05_method/CA-M-284-PROGRAMMATIC-GENERAL-ENG_POLICY--read-engine-settings-through-one-shared-boundary.md)

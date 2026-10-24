@@ -97,7 +97,13 @@ class SelectedNativeProvidersTests(unittest.TestCase):
         engine = type("Engine", (), {"root": self.root})()
         backend.register_execution(dbos, engine, selected_providers=providers)
         session = Session()
-        with patch.object(SelectedExecution, "_shared_dispatch", lambda selected, saved: selected._execute_graph(saved, session)):
+
+        def execute_selected(_root, handlers, saved, **_kwargs):
+            from selected_graph_executor import execute_graph
+
+            return execute_graph(self.root, handlers, saved, session)
+
+        with patch("selected_dispatch_state.shared_dispatch", side_effect=execute_selected):
             result = dbos.workflows[backend.SELECTED_WORKFLOW](frozen["request"]["run_id"])
         return result, session
 

@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "artifact-operations"
+  governs: Subject/Engineering/Tool//MIGRATE_ATOM_IDENTITY
   depends_on: []
-version: 15
-updated_at: "2026-10-19 02:18:51 +0400"
+version: 18
+updated_at: 2026-10-24 01:37:42 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 content_role: Requirement
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 atom_id: CA-R-1048
 status: Active
 author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

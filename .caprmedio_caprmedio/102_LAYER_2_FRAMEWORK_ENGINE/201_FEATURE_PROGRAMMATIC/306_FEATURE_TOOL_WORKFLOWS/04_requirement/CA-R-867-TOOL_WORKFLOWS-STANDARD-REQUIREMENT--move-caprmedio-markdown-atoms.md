@@ -3,18 +3,19 @@ cce_version: cce_1
 cce_form: obligation
 atom_id: CA-R-867
 subjects:
-  governs: "artifact-operations"
+  governs: Subject/Engineering/Tool//ATOM_MOVE
   depends_on: []
-version: 16
-updated_at: "2026-10-18 06:15:23 +0400"
+version: 20
+updated_at: 2026-10-24 03:08:30 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 content_role: Requirement
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 status: Active
+tier: 3
+type: Rule
+author: Anatoly Maslennikov
 ---
 # Summary
 

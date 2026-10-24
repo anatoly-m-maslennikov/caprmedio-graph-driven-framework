@@ -1,19 +1,30 @@
 ---
 atom_id: CA-E-582
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-06 10:15:24 +0000"
+version: 10
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "MCP/additive Release manifest publication"
-  depends_on: [MCP, Projection, Manifest, Workflow, Step, Action, Operator, Run, Journal]
+  governs: Subject/Engineering/MCP/additive Release manifest publication
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Engineering/Manifest
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  evaluation_for: [CA-R-1882, CA-M-339, CA-D-576]
+  evaluation_for:
+  - CA-R-1882
+  - CA-M-339
+  - CA-D-576
+tier: 4
 ---
 # Summary
 

@@ -1,19 +1,20 @@
 ---
 subjects:
-  governs: "projection-pipeline"
+  governs: Subject/Domain/Node/Continuant/Projection
   depends_on: []
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 12
-updated_at: "2026-10-05 00:13:37 +0000"
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+version: 17
+updated_at: 2026-10-24 03:08:30 +0400
 atom_id: CA-R-1068
 content_role: Requirement
 status: Active
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
+tier: 3
+type: Rule
+author: Anatoly Maslennikov
 ---
 # Summary
 

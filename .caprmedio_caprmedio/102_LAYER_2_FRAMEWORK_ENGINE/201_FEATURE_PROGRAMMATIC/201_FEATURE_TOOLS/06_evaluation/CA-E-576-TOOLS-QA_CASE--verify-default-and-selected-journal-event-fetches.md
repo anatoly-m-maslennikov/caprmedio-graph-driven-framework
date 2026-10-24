@@ -1,20 +1,23 @@
 ---
 atom_id: CA-E-576
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 00:30:00 +0400"
+version: 4
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/result selection"
-  depends_on: [Tool, Event, Evaluation]
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
+  depends_on:
+  - Subject/Engineering/Journal Event Query
+  - Event
+  - Evaluation
 relations:
-  evaluation_for: [CA-R-1863]
+  evaluation_for:
+  - CA-R-1863
+tier: 4
 ---
 # Summary
 

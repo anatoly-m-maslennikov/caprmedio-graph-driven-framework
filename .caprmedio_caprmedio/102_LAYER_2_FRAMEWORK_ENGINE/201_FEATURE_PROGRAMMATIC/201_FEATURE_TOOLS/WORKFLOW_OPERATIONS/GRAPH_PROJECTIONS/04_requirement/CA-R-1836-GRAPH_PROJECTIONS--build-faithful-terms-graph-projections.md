@@ -3,17 +3,30 @@ atom_id: CA-R-1836
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 19:23:34 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/Terms Graph"
-  depends_on: [Tool, Workflow, Action, Term, Governed Term, Definition Atom, Projection, Relation Kind, Artifact, Journal]
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Terms Graph'
+  depends_on:
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Graph/Relation/Type
 relations:
-  relates_to: [CA-O-136, CA-O-137, CA-O-138, CA-R-1387, CA-M-259, CA-R-1335, CA-R-1454, CA-E-382]
+  relates_to:
+  - CA-O-136
+  - CA-O-137
+  - CA-O-138
+  - CA-R-1387
+  - CA-M-259
+  - CA-R-1335
+  - CA-R-1454
+  - CA-E-382
+type: Rule
+tier: 3
 ---
 # Summary
 

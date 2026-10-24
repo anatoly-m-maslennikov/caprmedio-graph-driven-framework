@@ -2,26 +2,33 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "provenance"
+  governs: provenance
   depends_on:
-    - "Journal"
-    - "Journal/Record"
-    - "Atom"
-    - "Artifact/Carrier"
-    - "Project"
-    - "Applicable Methodology"
-version: 24
-updated_at: "2026-10-14 18:37:38 +0400"
+  - Subject/Engineering/Journal Operations
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+version: 30
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   relates_to:
-    - CA-R-1491
+  - CA-R-1491
   method_for:
-    - CA-R-803
-    - CA-R-804
-    - CA-R-805
-    - CA-R-812
+  - CA-R-803
+  - CA-R-804
+  - CA-R-805
+  - CA-R-812
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-087
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Decision
+tier: 2
 ---
 # Process one project-path action
 

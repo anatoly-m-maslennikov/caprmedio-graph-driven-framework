@@ -1,20 +1,35 @@
 ---
 subjects:
-  governs: "CCE Claim and Projection Validation"
+  governs: Subject/Domain/Node/Continuant/Projection
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Translation", "Confidence Threshold", "Entity/Node/Continuant/Actor/Type: Operator", "Atom/Content Role: Plan/Type: Plan", "Hub Atom", "Entity/Node/Continuant/Project.Framework Settings"]
-version: 25
-updated_at: "2026-10-19 15:54:55 +0400"
-relations: {"evaluation_for":["CA-M-111","CA-M-115","CA-M-114","CA-M-271","CA-R-1591","CA-R-940","CA-R-941","CA-R-1273"]}
-atom_id: "CA-E-241"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Translation
+  - Confidence Threshold
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Hub Atom
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+version: 32
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-M-111
+  - CA-M-115
+  - CA-M-114
+  - CA-M-271
+  - CA-R-1591
+  - CA-R-940
+  - CA-R-941
+  - CA-R-1273
+atom_id: CA-E-241
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 

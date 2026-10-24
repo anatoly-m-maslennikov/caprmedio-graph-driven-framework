@@ -3,24 +3,22 @@ atom_id: CA-R-1623
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool/VALIDATE_ATOMS"
+  governs: Subject/Engineering/Atom Validation/Read-only Boundary
   depends_on:
-    - "Tool"
-    - "Atom"
-    - "Artifact/Revision"
-    - "Workflow Run"
-    - "Operator"
-    - "Journal"
-version: 2
-updated_at: "2026-10-01 21:44:50 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Occurrent/Execution
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 5
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-1622
+  - CA-R-1622
+type: Rule
+tier: 4
 ---
 # Summary
 

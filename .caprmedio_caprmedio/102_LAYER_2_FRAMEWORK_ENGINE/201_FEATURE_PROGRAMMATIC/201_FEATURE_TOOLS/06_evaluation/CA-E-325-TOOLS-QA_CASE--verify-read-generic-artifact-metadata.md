@@ -2,17 +2,24 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "artifact-operations"
+  governs: Subject/Engineering/Artifact Query
   depends_on:
-    - "Artifact"
-    - "Artifact/Carrier"
-version: 9
-updated_at: "2026-09-17 21:58:14 +0000"
+  - Artifact
+  - Subject/Engineering/Carrier
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-207
+  - CA-M-207
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-325
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
 ---
 # Verify read generic Artifact metadata
 

@@ -7,11 +7,17 @@ local_tier: Standard
 global_tier: 2
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-07 22:25:26 +0000"
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Tool/RELEASE_VERSION/Retained-package Image Restoration"
-  depends_on: [Operator, Framework Package, Docker Image, Carrier, Journal, Action]
+  governs: Tool/RELEASE_VERSION/Retained-package Image Restoration
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Framework Package
+  - Docker Image
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
   concern_about: [CA-P-1820, CA-R-1897, CA-M-353, CA-E-596, CA-D-591]
 ---

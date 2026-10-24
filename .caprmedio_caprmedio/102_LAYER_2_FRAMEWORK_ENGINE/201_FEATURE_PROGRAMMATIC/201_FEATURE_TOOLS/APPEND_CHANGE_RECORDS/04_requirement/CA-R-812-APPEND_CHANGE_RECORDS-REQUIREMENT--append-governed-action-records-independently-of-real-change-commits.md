@@ -1,22 +1,29 @@
 ---
 subjects:
-  governs: "provenance"
+  governs: provenance
   depends_on:
-    - "Journal"
-    - "Journal/Record"
-    - "Atom"
-    - "Artifact/Carrier"
-    - "Project"
-    - "Applicable Methodology"
+  - Subject/Engineering/Tool/Journal Append
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
 cce_version: cce_1
 cce_form: obligation
-version: 18
-updated_at: "2026-10-14 18:37:38 +0400"
+version: 24
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   relates_to:
-    - CA-R-1491
+  - CA-R-1491
+atom_id: CA-R-812
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Rule
+tier: 1
 ---
 # Append governed action records independently of real-change commits
 

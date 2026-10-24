@@ -1,21 +1,19 @@
 ---
 subjects:
-  governs: "relation-model"
-  depends_on:
-    - "atom-boundary"
-version: 17
-updated_at: "2026-10-02 21:01:00 +0400"
+  governs: Subject/Graph/Relation
+version: 22
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-913
-atom_id: "CA-R-915"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-913
+atom_id: CA-R-915
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 Prohibit order-derived dependencies

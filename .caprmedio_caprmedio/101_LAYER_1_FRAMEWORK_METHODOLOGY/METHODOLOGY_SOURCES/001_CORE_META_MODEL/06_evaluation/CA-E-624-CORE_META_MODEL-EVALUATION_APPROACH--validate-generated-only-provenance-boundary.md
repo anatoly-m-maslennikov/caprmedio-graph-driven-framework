@@ -1,23 +1,24 @@
 ---
 subjects:
-  governs: "Generated-Only Provenance Validation"
+  governs: Generated-Only Provenance Validation
   depends_on:
-    ["Entity/Node/Continuant/History/Journal.Record", "Implementation Relation", "Entity/Node/Continuant/Projection"]
-version: 21
-updated_at: "2026-10-19 15:55:19 +0400"
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/Projection
+version: 26
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-135
-    - CA-R-1746
-atom_id: "CA-E-624"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-M-135
+  - CA-R-1746
+atom_id: CA-E-624
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 4
 ---
 # Summary
 

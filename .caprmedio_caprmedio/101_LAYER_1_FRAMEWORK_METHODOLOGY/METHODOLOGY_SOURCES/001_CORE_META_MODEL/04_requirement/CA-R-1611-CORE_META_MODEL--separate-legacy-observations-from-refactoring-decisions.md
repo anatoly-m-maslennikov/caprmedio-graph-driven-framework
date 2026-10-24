@@ -3,21 +3,25 @@ atom_id: CA-R-1611
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Implementation"
+  governs: Subject/Engineering/Implementation Reconstructability
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Analysis", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Evidence", "Entity/Node/Continuant/Projection"]
-version: 7
-updated_at: "2026-10-19 15:53:44 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis'
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Evidence
+  - Subject/Domain/Node/Continuant/Projection
+version: 14
+updated_at: 2026-10-24 01:50:12 +0400
 relations:
   relates_to:
-    - CA-R-1470
-    - CA-R-1687
-    - CA-R-1746
-global_tier: 11
+  - CA-R-1470
+  - CA-R-1687
+  - CA-R-1746
+tier: 3
+type: Rule
 ---
 # Summary
 

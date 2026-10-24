@@ -1,22 +1,22 @@
 ---
 subjects:
-  governs: "Project Configuration/CAPRMEDIO-Specific Authority"
+  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-    - "Project Configuration"
-    - "Extension"
-    - "Operator"
-    - "Extension Packaging"
-version: 10
-updated_at: "2026-10-02 21:35:09 +0400"
+  - Project Configuration
+  - Subject/Engineering/Extension
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Extension Packaging
+version: 14
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1222"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-R-1222
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

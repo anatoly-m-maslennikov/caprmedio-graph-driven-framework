@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "P1327 whole-reading transport recovery"
-  depends_on: ["Project", "Operations"]
-version: 2
-updated_at: "2026-10-04 12:04:27 +0000"
+  governs: P1327 whole-reading transport recovery
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1327]
   relates_to: [CA-A-1045]

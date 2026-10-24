@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 12:08:00 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Sealed N9 Unit gate failure"
-  depends_on: [Implementation, Evaluation, Source Carrier, Workflow Run, Journal]
+  governs: Sealed N9 Unit gate failure
+  depends_on:
+  - Implementation
+  - Evaluation
+  - Subject/Engineering/Carrier/File Carrier
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
   concern_about: [CA-P-1117, CA-P-1782, CA-R-1887, CA-D-580]
 ---

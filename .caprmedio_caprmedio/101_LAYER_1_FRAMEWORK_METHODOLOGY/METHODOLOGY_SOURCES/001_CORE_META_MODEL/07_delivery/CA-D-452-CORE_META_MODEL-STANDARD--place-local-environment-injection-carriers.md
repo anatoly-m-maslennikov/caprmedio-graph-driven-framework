@@ -1,19 +1,20 @@
 ---
 subjects:
-  governs: "Entity/Carrier/File Carrier"
+  governs: Subject/Engineering/Carrier/File Carrier
   depends_on:
-    ["Entity/Node/Continuant/Project", "Entity/Carrier/Directory Carrier"]
-version: 8
-updated_at: "2026-10-19 15:55:50 +0400"
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/Carrier/Directory Carrier
+version: 11
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-452"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-452
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

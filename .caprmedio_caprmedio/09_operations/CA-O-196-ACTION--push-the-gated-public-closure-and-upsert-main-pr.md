@@ -1,18 +1,22 @@
 ---
-atom_id: "CA-O-196"
+atom_id: CA-O-196
 content_role: Operations
 type: Action
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-status: "Active"
-author: "Anatoly Maslennikov"
+status: Active
+author: Anatoly Maslennikov
 subjects:
-  governs: "Push gated public closure and upsert main Pull Request"
-  depends_on: [Git Commit, Personal Remote, Pull Request, Tool Call, Journal]
-version: 2
-updated_at: "2026-10-14 12:35:36 +0000"
+  governs: Subject/Engineering/Pull Request
+  depends_on:
+  - Git Commit
+  - Personal Remote
+  - Subject/Engineering/Pull Request
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 6
+updated_at: 2026-10-24 01:18:03 +0400
 relations: {}
+tier: 3
 ---
 # Summary
 

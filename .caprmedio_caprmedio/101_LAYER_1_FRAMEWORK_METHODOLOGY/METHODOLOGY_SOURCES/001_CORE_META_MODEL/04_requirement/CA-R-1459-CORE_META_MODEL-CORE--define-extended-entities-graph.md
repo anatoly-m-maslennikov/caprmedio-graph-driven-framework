@@ -1,19 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Extended Entities Graph"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Extended Entities Graph'
   depends_on:
-    ["Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Projection/Type: Entities Graph", "Entity", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Subjects", "Subject Path", "Subject Target", "GOVERNS", "DEPENDS_ON", "Entity/Relation", "Relation Kind"]
-version: 9
-updated_at: "2026-10-21 01:47:52 +0400"
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Entities Graph'
+  - Subject/Domain/Node
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - Subject
+  - 'Subject/Graph/Relation/Type: GOVERNS'
+  - 'Subject/Graph/Relation/Type: DEPENDS_ON'
+  - Subject/Graph/Relation
+  - Subject/Graph/Relation/Type
+version: 15
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1459"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1459
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

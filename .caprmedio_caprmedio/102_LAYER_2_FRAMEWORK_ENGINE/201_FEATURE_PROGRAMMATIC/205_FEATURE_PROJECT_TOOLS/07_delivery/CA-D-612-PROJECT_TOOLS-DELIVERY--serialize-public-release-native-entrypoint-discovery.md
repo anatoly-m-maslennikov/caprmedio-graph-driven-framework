@@ -1,18 +1,21 @@
 ---
-atom_id: "CA-D-612"
-content_role: "Delivery"
+atom_id: CA-D-612
+content_role: Delivery
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "PUBLIC_RELEASE native entrypoint discovery"
-  depends_on: [Tool, Package, Capability Discovery]
-version: 4
-updated_at: "2026-10-14 16:53:24 +0000"
+  governs: Subject/Engineering/Public Release/Native Entrypoint Discovery
+  depends_on:
+  - Subject/Engineering/Public Release/Native Entrypoint Discovery
+  - Package
+  - Capability Discovery
+version: 7
+updated_at: 2026-10-24 00:38:25 +0400
 relations: {}
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

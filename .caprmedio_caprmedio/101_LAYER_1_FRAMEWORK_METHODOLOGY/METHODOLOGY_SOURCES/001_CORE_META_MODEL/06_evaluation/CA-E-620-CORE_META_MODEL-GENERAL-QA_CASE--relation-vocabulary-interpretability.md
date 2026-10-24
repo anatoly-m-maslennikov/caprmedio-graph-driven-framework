@@ -1,19 +1,18 @@
 ---
 subjects:
-  governs: "evaluation"
+  governs: evaluation
   depends_on: []
-version: 21
-updated_at: "2026-10-11 17:56:31 +0400"
+version: 23
+updated_at: 2026-10-24 01:50:12 +0400
 relations: {}
-atom_id: "CA-E-620"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 10
+atom_id: CA-E-620
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 2
 ---
 # Summary
 

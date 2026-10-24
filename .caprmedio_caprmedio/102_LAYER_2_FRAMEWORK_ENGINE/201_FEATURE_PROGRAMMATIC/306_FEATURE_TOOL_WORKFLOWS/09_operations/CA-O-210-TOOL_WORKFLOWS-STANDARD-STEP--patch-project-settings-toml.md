@@ -4,17 +4,29 @@ content_role: Operations
 type: Step
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Step"
-  depends_on: ["Project Settings","Step Run","Workflow Run","Tool"]
-version: 3
-updated_at: "2026-10-13 02:45:51 +0400"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Engineering/Configuration/Project Settings TOML Patch Step
+version: 5
+updated_at: 2026-10-24 00:38:25 +0400
 relations:
-  relates_to: [CA-O-206, CA-O-220, CA-O-218, CA-D-631, CA-O-204, CA-R-1143, CA-E-459, CA-R-1509, CA-M-305]
+  relates_to:
+  - CA-O-206
+  - CA-O-220
+  - CA-O-218
+  - CA-D-631
+  - CA-O-204
+  - CA-R-1143
+  - CA-E-459
+  - CA-R-1509
+  - CA-M-305
+tier: 3
 ---
 # Summary
 

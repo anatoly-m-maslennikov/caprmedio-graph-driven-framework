@@ -2,16 +2,23 @@
 cce_version: cce_1
 cce_form: atomicity
 subjects:
-  governs: "Governed File Change Materialization"
+  governs: Governed File Change Materialization
   depends_on:
-    - "Journal/Record"
-    - "Git Commit"
-    - "Carrier"
-version: 8
-updated_at: "2026-09-15 21:31:49 +0000"
+  - Journal/Record
+  - Git Commit
+  - Carrier
+version: 11
+updated_at: 2026-10-24 02:14:24 +0400
 relations: {}
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+content_role: Delivery
+current_scope_unit: CORE_EXTENSIONS
+status: Active
+author: Anatoly Maslennikov
+atom_id: CA-D-335
+type: Eng Decision
+tier: 1
 ---
 # Mirror Governed File Changes in Journal and Git
 

@@ -1,0 +1,30 @@
+---
+subjects:
+  governs: Markdown Atom Carrier.Main Content
+  depends_on:
+  - Markdown Atom Carrier.YAML Frontmatter
+version: 10
+updated_at: 2026-10-15 12:18:16 +0000
+relations: {}
+atom_id: CA-D-357@10
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+local_tier: Standard
+status: Archived
+author: Anatoly Maslennikov
+global_tier: 11
+---
+# Summary
+
+Define Markdown Atom Main Content
+
+## Scope
+
+the Main Content of a Markdown Atom Carrier.
+
+## Claim
+
+the Main Content of a Markdown Atom Carrier **means** the content **after** its YAML Frontmatter.
+
+## Details

@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Summary"
+  governs: Subject/Domain/Node/Continuant/Atom.Summary
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance"]
-version: 16
-updated_at: "2026-10-19 15:53:02 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+version: 20
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1418"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-R-1418
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

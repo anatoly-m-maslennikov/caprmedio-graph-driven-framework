@@ -3,17 +3,29 @@ atom_id: CA-R-1827
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Sealed Target"
-  depends_on: ["Atom", "Artifact/Carrier", "Atom/Relation", "Authorization"]
-version: 1
-updated_at: "2026-10-04 18:30:23 +0000"
+  governs: Subject/Engineering/Tool//ATOM_LIFECYCLE.Sealed Target
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Atom/Relation
+  - Authorization
+version: 6
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  relates_to: [CA-O-127, CA-O-128, CA-O-129, CA-O-145, CA-O-067, CA-R-866, CA-R-868, CA-R-1041]
+  relates_to:
+  - CA-O-127
+  - CA-O-128
+  - CA-O-129
+  - CA-O-145
+  - CA-O-067
+  - CA-R-866
+  - CA-R-868
+  - CA-R-1041
+tier: 3
+type: Rule
 ---
 # Summary
 

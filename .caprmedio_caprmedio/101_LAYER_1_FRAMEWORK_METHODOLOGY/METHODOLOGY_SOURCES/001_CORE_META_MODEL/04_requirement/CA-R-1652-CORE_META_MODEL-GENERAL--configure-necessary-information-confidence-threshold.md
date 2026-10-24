@@ -1,23 +1,25 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Framework Settings.Confidence.Necessary Information Threshold"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings.Confidence.Necessary Information Threshold
   depends_on:
-    ["Confidence Threshold", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Actor/Type: Operator"]
-version: 25
-updated_at: "2026-10-19 15:53:48 +0400"
+  - Confidence Threshold
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 29
+updated_at: 2026-10-24 02:04:43 +0400
 relations:
   child_of:
-    - CAPRMEDIO-REQU-035-CORE-REQUIREMENT--identify-necessary-information-by-confidence
+  - CA-R-035
   relates_to:
-    - CA-M-279
-atom_id: "CA-R-1652"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-M-279
+atom_id: CA-R-1652
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

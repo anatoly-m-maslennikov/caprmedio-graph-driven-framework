@@ -10,12 +10,12 @@ author: Anatoly Maslennikov
 status: Resolved
 priority: high
 subjects:
-  governs: Entity/Node/Continuant/Atom
+  governs: Subject/Domain/Node/Continuant/Atom
   depends_on: []
 relations:
   concern_about: [CA-P-2439, CA-P-2437]
-version: 5
-updated_at: "2026-10-20T14:09:53.000Z"
+version: 6
+updated_at: 2026-10-23 03:06:32 +0400
 ---
 # Summary
 

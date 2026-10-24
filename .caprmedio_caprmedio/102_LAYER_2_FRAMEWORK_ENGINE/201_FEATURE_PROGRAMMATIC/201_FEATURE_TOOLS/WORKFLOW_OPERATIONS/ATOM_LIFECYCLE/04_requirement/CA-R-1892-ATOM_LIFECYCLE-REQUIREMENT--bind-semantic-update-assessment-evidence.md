@@ -2,17 +2,21 @@
 atom_id: CA-R-1892
 content_role: Requirement
 current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Semantic Update Assessment Evidence"
-  depends_on: ["CA-O-067", "CA-R-1432", "CA-R-1464", "Analysis Report"]
-version: 4
-updated_at: "2026-10-17 18:51:53 +0400"
+  governs: Subject/Engineering/Tool//ATOM_LIFECYCLE.Semantic Update Assessment Evidence
+  depends_on:
+  - Analysis Report
+version: 8
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  relates_to: [CA-R-1825, CA-R-1826, CA-R-1827]
+  relates_to:
+  - CA-R-1825
+  - CA-R-1826
+  - CA-R-1827
+tier: 3
+type: Rule
 ---
 # Summary
 

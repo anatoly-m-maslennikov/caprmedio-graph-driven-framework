@@ -4,17 +4,28 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Terms Graph Construction Step"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Agentic Step Execution Context", "Entity/Node/Continuant/Projection/Type: Terms Graph"]
-version: 5
-updated_at: "2026-10-19 15:57:05 +0400"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Terms Graph Construction Step'
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Terms Graph'
+version: 9
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-O-136, CA-O-137, CA-R-1509, CA-R-1525, CA-R-1526, CA-R-1527]
+  relates_to:
+  - CA-O-136
+  - CA-O-137
+  - CA-R-1509
+  - CA-R-1525
+  - CA-R-1526
+  - CA-R-1527
+tier: 3
 ---
 # Summary
 

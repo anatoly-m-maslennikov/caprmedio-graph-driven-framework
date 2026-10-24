@@ -3,16 +3,24 @@ atom_id: CA-R-1873
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Implementation"
-  depends_on: ["Implementation", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/History/Journal", "Entity/Carrier"]
-version: 5
-updated_at: "2026-10-19 15:54:07 +0400"
-relations: {relates_to: [CA-R-1470, CA-R-1746, CA-R-1343]}
+  governs: Subject/Engineering/Implementation
+  depends_on:
+  - Subject/Engineering/Implementation
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Carrier
+version: 9
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1470
+  - CA-R-1746
+  - CA-R-1343
+tier: 1
+type: Rule
 ---
 # Summary
 

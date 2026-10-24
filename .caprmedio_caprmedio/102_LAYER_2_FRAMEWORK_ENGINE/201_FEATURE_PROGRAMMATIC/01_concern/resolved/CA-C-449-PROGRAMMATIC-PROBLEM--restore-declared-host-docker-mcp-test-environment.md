@@ -7,11 +7,15 @@ local_tier: Standard
 global_tier: 8
 status: resolved
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-06 00:19:31 +0000"
+version: 8
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Host Docker MCP test environment"
-  depends_on: [Implementation, Evaluation, Workflow, MCP]
+  governs: Host Docker MCP test environment
+  depends_on:
+  - Implementation
+  - Evaluation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - MCP
 relations:
   concern_about: [CA-P-1600, CA-P-1601, CA-P-1602, CA-P-1603, CA-P-1604, CA-P-1528, CA-P-1519, CA-P-1708, CA-P-1710, CA-P-1712]
 ---

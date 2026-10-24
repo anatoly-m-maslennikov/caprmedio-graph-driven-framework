@@ -1,29 +1,31 @@
 ---
 subjects:
-  governs: "Tool"
+  governs: Subject/Engineering/Tool
   depends_on:
-    - "Action"
-    - "Workflow"
-    - "Step"
-    - "Methodology"
-    - "Methodology Source"
-    - "Scope Unit"
-    - "Atom/Content Role: Operations"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Implementation"
-version: 6
-updated_at: "2026-10-02 20:16:06 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Engineering/Methodology
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Atom/Content Role: Implementation'
+version: 12
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: [CA-R-1515, CA-R-1516, CA-R-1517, CA-R-1518]
-atom_id: "CA-E-488"
-content_role: "Evaluation"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  evaluation_for:
+  - CA-R-1515
+  - CA-R-1516
+  - CA-R-1517
+  - CA-R-1518
+atom_id: CA-E-488
+content_role: Evaluation
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 

@@ -8,11 +8,16 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 16:22:29 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Selected Workflow source and entrypoint mapping"
-  depends_on: [Operations, Implementation, Analysis, Journal, Projection]
+  governs: Selected Workflow source and entrypoint mapping
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Implementation
+  - Analysis
+  - Journal
+  - Subject/Domain/Node/Continuant/Projection
 relations:
   analysis_for: [CA-P-1435]
   relates_to: [CA-P-1117, CA-P-1119, CA-P-1132, CA-P-1157, CA-C-412]

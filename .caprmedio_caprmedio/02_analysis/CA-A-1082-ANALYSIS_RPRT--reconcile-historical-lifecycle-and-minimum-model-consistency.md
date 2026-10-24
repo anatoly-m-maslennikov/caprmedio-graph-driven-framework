@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F19 historical lifecycle and minimum-model reconciliation"
-  depends_on: [Operations, "Atom/Content Role: Plan"]
-version: 1
-updated_at: "2026-10-04 13:10:45 +0000"
+  governs: F19 historical lifecycle and minimum-model reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1364]
   relates_to: [CA-A-1063, CA-A-1019, CA-A-1023, CA-A-1028, CA-O-079, CA-O-051, CA-O-058, CA-C-365]

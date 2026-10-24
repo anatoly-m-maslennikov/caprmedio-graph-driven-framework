@@ -1,19 +1,28 @@
 ---
 subjects:
-  governs: "General Artifact Graph"
+  governs: General Artifact Graph
   depends_on:
-    ["Artifact", "Structural Entity", "Entity/Node/Continuant/Scope Unit", "Container Atom", "Entity/Carrier", "CAPRMEDIO Graph", "Structural Entity Direct Containment", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/Projection"]
-version: 11
-updated_at: "2026-10-19 15:53:00 +0400"
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Structural Entity
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Container Atom
+  - Subject/Engineering/Carrier
+  - CAPRMEDIO Graph
+  - Structural Entity Direct Containment
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Projection
+version: 16
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1409"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1409
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

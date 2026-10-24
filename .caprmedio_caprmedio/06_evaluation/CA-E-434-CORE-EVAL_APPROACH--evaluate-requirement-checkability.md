@@ -1,17 +1,28 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-version: 7
-updated_at: "2026-09-17 16:55:18 +0000"
-relations: {"child_of":["CA-E-001"],"relates_to":["CAPRMEDIO-META-REQU-124"]}
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  child_of:
+  - CA-E-001
+  relates_to:
+  - CAPRMEDIO-META-REQU-124
 subjects:
-  governs: "Atom/Content Role: Requirement/checkability"
+  governs: 'Atom/Content Role: Requirement/checkability'
   depends_on:
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Evaluation"
-    - "Atom"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Domain/Node/Continuant/Atom
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-434
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Policy
+tier: 1
 ---
 # Evaluate Requirement checkability
 

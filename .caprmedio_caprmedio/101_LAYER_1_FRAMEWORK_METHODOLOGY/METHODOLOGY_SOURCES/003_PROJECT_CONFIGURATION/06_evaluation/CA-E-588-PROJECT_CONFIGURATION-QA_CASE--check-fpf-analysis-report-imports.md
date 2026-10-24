@@ -1,22 +1,22 @@
 ---
-atom_id: "CA-E-588"
-content_role: "Evaluation"
-type: "QA Case"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+atom_id: CA-E-588
+content_role: Evaluation
+type: Eval Case
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Atom/Content Role: Analysis/Type: FPF Analysis Report"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis/Type: FPF Analysis Report'
   depends_on:
-    - "Artifact/Revision"
-    - "Entity/Carrier"
-version: 2
-updated_at: "2026-10-19 15:56:18 +0400"
+  - Artifact/Revision
+  - Subject/Engineering/Carrier
+version: 6
+updated_at: 2026-10-24 01:50:12 +0400
 relations:
-  evaluation_for: ["CA-R-1889"]
+  evaluation_for:
+  - CA-R-1889
+tier: 3
 ---
 # Summary
 

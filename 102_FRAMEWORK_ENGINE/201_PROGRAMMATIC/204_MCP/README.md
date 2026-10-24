@@ -31,6 +31,28 @@ Settings must register the shared Journal. An explicitly started, password-free
 localhost HTTP transport is available only through the isolated Docker runtime;
 it is documented in the [Docker runtime README](../203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md).
 
+## Codex Project-folder hook (shared MCP only)
+
+[`INSTALL_TOOLS/install.py runtime --harness=codex`](../201_TOOLS/INSTALL_TOOLS/README.md)
+installs the thin `PreToolUse` command hook once per host. Its canonical source
+is `201_TOOLS/INSTALL_TOOLS/codex_project_context_hook.py`. The hook matches
+`^mcp__caprmedio__` and uses its isolated host Python environment with `-B`. It reads Codex's
+JSON event and returns `updatedInput` with outer `project_root` set to the full
+session `cwd`; all native arguments remain unchanged. It does not discover a
+root, walk parents or derive context from the Skill's installation folder.
+
+Invalid context or a conflicting explicit root denies only the affected call
+and emits a sanitized WARNING on stderr. Unrelated tools/events are unchanged.
+The shared server still owns Project admission and containment validation.
+See the [Codex hook protocol](https://learn.chatgpt.com/docs/hooks).
+
+Review/trust the hook in Codex before use, and activate it only with the shared
+MCP contract that accepts outer `project_root`. The legacy one-Project server
+does not accept this field. Installing this hook is not a shared-runtime
+deployment or evidence of live activation. The configured Python environment
+must remain available to every session using this host-side hook. The separate
+`install.py project` command configures only a Project and its thin Skill.
+
 ## Same-port health page
 
 The existing loopback HTTP listener serves `GET /health` on the same configured

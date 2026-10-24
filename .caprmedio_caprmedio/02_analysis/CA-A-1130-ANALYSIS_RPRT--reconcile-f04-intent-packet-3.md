@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F04 final inventory-freeze intent"
-  depends_on: [Operations, "Methodology Sources"]
-version: 1
-updated_at: "2026-10-04 13:52:34 +0000"
+  governs: F04 final inventory-freeze intent
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Methodology Sources
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1410]
   relates_to: [CA-P-1349, CA-A-1063, CA-A-1044, CA-A-1121, CA-A-1129, CA-O-105, CA-O-087, CA-O-051, CA-O-058, CA-O-067]

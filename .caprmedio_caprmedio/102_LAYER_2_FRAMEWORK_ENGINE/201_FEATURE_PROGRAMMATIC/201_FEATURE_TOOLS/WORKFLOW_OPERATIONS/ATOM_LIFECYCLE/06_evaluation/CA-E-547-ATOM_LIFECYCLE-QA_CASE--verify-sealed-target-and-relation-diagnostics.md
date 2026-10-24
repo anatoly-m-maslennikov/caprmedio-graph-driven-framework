@@ -1,20 +1,23 @@
 ---
 atom_id: CA-E-547
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Sealed Target"
-  depends_on: ["Atom", "Atom/Relation", "Authorization"]
-version: 1
-updated_at: "2026-10-04 18:30:23 +0000"
+  governs: Subject/Engineering/Tool//ATOM_LIFECYCLE.Sealed Target
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Atom/Relation
+  - Authorization
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: [CA-R-1827]
+  evaluation_for:
+  - CA-R-1827
+tier: 4
 ---
 # Summary
 

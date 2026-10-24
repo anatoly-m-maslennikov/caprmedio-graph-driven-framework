@@ -3,17 +3,31 @@ atom_id: CA-R-1838
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 19:23:34 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/Boundary"
-  depends_on: [Tool, Workflow, Action, Projection, Artifact, Journal, Workflow Run, Step Run]
+  governs: Subject/Domain/Node/Continuant/Projection
+  depends_on:
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Occurrent/Execution
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Continuant/History/Journal.Record
 relations:
-  relates_to: [CA-R-1835, CA-R-1836, CA-R-1837, CA-O-133, CA-O-136, CA-R-1720, CA-R-1728]
+  relates_to:
+  - CA-R-1835
+  - CA-R-1836
+  - CA-R-1837
+  - CA-O-133
+  - CA-O-136
+  - CA-R-1720
+  - CA-R-1728
+type: Rule
+tier: 3
 ---
 # Summary
 

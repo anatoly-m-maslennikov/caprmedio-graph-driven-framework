@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Author"
+  governs: Subject/Domain/Node/Continuant/Atom.Author
   depends_on:
-    ["Entity/Node/Continuant/Actor/Type: Operator"]
-version: 18
-updated_at: "2026-10-19 15:52:35 +0400"
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 22
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-1078
-atom_id: "CA-R-1080"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-R-1078
+atom_id: CA-R-1080
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

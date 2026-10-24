@@ -1,19 +1,20 @@
 ---
 subjects:
-  governs: "Artifact.Activity: Inactive"
+  governs: 'Artifact.Activity: Inactive'
   depends_on:
-    ["Artifact.Activity", "Artifact.Status"]
-version: 11
-updated_at: "2026-10-15 12:21:43 +0000"
+  - Artifact.Activity
+  - Artifact.Status
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1396"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1396
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

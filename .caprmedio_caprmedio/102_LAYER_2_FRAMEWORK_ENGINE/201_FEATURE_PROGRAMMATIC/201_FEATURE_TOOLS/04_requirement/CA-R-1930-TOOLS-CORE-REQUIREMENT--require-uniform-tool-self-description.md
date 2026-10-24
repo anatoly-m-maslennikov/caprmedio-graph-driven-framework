@@ -2,15 +2,21 @@
 atom_id: CA-R-1930
 content_role: Requirement
 current_scope_unit: TOOLS
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-11 01:19:56 +0400"
+version: 7
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "TOOLS/uniform self-description"
-  depends_on: [Tool, Action, Model, Implementation, Admission, Operator]
+  governs: Subject/Engineering/Tool.Self Description
+  depends_on:
+  - Subject/Engineering/Tool.Self Description
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Model
+  - Subject/Engineering/Tool Discovery Binding
+  - Subject/Engineering/Admission
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+tier: 1
+type: Rule
 ---
 # Summary
 

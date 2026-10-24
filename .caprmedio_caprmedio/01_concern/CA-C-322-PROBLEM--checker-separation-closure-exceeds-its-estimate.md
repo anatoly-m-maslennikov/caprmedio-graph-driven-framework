@@ -10,11 +10,11 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: active
 subjects:
-  governs: "Checker separation closure timing"
+  governs: Checker separation closure timing
   depends_on:
-    - "Project"
-version: 5
-updated_at: "2026-10-04 10:10:47 +0000"
+  - Subject/Domain/Node/Continuant/Project
+version: 6
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
     - CA-P-1303

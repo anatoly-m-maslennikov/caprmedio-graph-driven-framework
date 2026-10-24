@@ -1,20 +1,24 @@
 ---
 atom_id: CA-E-546
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Summary Handoff"
-  depends_on: ["Atom", "Atom/Summary", "Atom/Revision"]
-version: 4
-updated_at: "2026-10-12 23:54:41 +0400"
+  governs: Subject/Engineering/Tool//ATOM_LIFECYCLE.Summary Handoff
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 8
+updated_at: 2026-10-24 01:50:12 +0400
 relations:
-  evaluation_for: [CA-R-1825, CA-R-1826]
+  evaluation_for:
+  - CA-R-1825
+  - CA-R-1826
+tier: 3
 ---
 # Summary
 

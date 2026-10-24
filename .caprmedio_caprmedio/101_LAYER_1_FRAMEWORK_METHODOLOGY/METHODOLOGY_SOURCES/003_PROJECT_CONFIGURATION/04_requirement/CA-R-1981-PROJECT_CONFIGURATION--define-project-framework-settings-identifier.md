@@ -3,17 +3,17 @@ atom_id: CA-R-1981
 content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Continuant/Project.Framework Settings.Identifier"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings.Identifier
 relations:
   child_of:
   - CA-R-1176
-version: 3
-updated_at: "2026-10-19 15:56:12 +0400"
+version: 6
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 3
+type: Rule
 ---
 # Summary
 

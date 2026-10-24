@@ -2,25 +2,32 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Claim Value Set Consolidation Candidate Detection Evaluation"
+  governs: Claim Value Set Consolidation Candidate Detection Evaluation
   depends_on:
-    - "Claim Value Set Consolidation Candidate Evaluation"
-    - "Tool/DETECT_CLAIM_VALUE_SET_CANDIDATES"
-    - "Atom/Claim"
-    - "Atom/Current Scope/Owner"
-    - "Atom/Current Scope/Governed Subject Set"
-    - "Atom/Claim Scope"
-    - "Claim Value Set"
-    - "Property"
-    - "Entity Graph Projection"
-    - "IS_ALLOWED_VALUE_OF"
-version: 6
-updated_at: 2026-09-02 01:12:00 +0400
+  - Claim Value Set Consolidation Candidate Evaluation
+  - Subject/Engineering/Tool//DETECT_CLAIM_VALUE_SET_CANDIDATES
+  - Atom/Claim
+  - Atom/Current Scope/Owner
+  - Atom/Current Scope/Governed Subject Set
+  - Atom/Claim Scope
+  - Claim Value Set
+  - Property
+  - Entity Graph Projection
+  - IS_ALLOWED_VALUE_OF
+version: 11
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-238
+  - CA-M-238
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-406
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 2
 ---
 # Report Only Exact Consolidation Candidates
 

@@ -7,11 +7,17 @@ local_tier: Standard
 global_tier: 11
 status: active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 20:40:22 +0000"
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Release suite/E2E execution environment"
-  depends_on: [Evaluation, Test Suite, Implementation, Docker Image, Workflow, Action]
+  governs: Release suite/E2E execution environment
+  depends_on:
+  - Evaluation
+  - Test Suite
+  - Implementation
+  - Docker Image
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
   concern_about: [CA-P-1717, CA-P-1721]
 ---

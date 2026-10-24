@@ -4,23 +4,29 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Implementation Failure Diagnosis"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Failure Diagnosis'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Implementation", "Entity/Node/Continuant/Atom/Content Role: Method", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Spec"]
-version: 7
-updated_at: "2026-10-19 15:56:50 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Engineering/Runtime Failure Classification
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Spec
+version: 12
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
   relates_to:
-    - CA-O-020
-    - CA-O-021
-    - CA-O-024
-    - CA-R-1559
-    - CA-R-1591
-global_tier: 11
+  - CA-O-020
+  - CA-O-021
+  - CA-O-024
+  - CA-R-1559
+  - CA-R-1591
+tier: 3
 ---
 # Summary
 
@@ -36,5 +42,7 @@ Implementation Failure Diagnosis **means** the Agentic Action that explains fail
 - return `implementation_defect` for incorrect production code **or** `test_implementation_defect` for incorrect executable test code, with evidence, affected work, **and** proposed correction. **every** admitted repair still passes through retry control.
 - return `authority_change_required` for incorrect, missing, **or** conflicting governing expected behavior; return `environment_blocker` for unavailable execution prerequisites outside the admitted correction; return `unresolved` **when** evidence **or** confidence is insufficient.
 - do **not** modify code, governing Atoms, Status, **or** test expectations. report failures honestly; do **not** relabel an unexplained failure as expected merely **to** proceed.
+
+- accept actual confirmed code-review findings as diagnosis input as well as failed checks; inspect their evidence and classify under the same existing results. Do not fabricate test failures or classify unfinished review as a defect. Preliminary pending checks cannot be an accepted-candidate claim.
 
 ## Details

@@ -1,33 +1,40 @@
 ---
-cce_version: "cce_1"
-cce_form: "evaluation"
-version: 7
-updated_at: "2026-09-15 17:55:09 +0400"
+cce_version: cce_1
+cce_form: evaluation
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - "CA-E-001"
+  - CA-E-001
   evaluation_for:
-    - "CA-O-016"
-    - "CA-O-017"
-    - "CA-O-018"
-    - "CA-O-019"
-    - "CA-O-020"
-    - "CA-O-021"
-    - "CA-M-239"
+  - CA-O-016
+  - CA-O-017
+  - CA-O-018
+  - CA-O-019
+  - CA-O-020
+  - CA-O-021
+  - CA-M-239
 subjects:
-  governs: "Project/Implementation/execution"
+  governs: Subject/Domain/Node/Occurrent/Execution
   depends_on:
-    - "Spec"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Implementation"
-    - "Project Atom ID"
-    - "Project"
-    - "Dependency Order Derivation"
+  - Spec
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - 'Atom/Content Role: Implementation'
+  - Project Atom ID
+  - Subject/Domain/Node/Continuant/Project
+  - Dependency Order Derivation
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-439
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Policy
+tier: 1
 ---
 # Evaluate the Evaluation-first implementation loop
 

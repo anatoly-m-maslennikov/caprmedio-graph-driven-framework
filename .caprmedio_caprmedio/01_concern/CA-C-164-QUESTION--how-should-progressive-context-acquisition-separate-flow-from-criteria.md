@@ -2,19 +2,20 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Project/information necessity assessment"
+  governs: Project/information necessity assessment
   depends_on:
-    - "Atom/Content Role"
-    - "Process"
-    - "Action"
-    - "Confidence Threshold"
-    - "Atom/Claim"
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Process
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Confidence Threshold
+  - Atom/Claim
 priority: medium
-version: 1
-updated_at: "2026-09-17 16:59:22 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-164
 ---
 # How should progressive context acquisition separate flow from criteria?
 

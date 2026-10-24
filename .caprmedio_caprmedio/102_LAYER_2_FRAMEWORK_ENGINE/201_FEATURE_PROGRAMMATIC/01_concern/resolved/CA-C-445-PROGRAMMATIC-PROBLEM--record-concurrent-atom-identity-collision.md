@@ -9,10 +9,14 @@ global_tier: 8
 status: resolved
 author: Anatoly Maslennikov
 subjects:
-  governs: "Concurrent Atom Identity Collision"
-  depends_on: [Implementation, Projection, Journal, Carrier]
-version: 2
-updated_at: "2026-10-05 00:22:30 +0000"
+  governs: Concurrent Atom Identity Collision
+  depends_on:
+  - Implementation
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Engineering/Carrier/Journal Serialization
+  - Subject/Engineering/Carrier
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations: {concern_about: [CA-M-276, CA-E-448, CA-D-378]}
 ---
 # Summary

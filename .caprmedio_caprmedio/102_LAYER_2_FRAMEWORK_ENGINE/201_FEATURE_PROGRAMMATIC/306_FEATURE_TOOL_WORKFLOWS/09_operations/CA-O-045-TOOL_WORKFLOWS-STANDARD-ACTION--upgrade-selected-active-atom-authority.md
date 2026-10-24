@@ -4,28 +4,27 @@ content_role: Operations
 type: Action
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: "Upgrade Selected Atom Authority"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Atom/Local Tier"
-    - "Atom/Global Tier"
-    - "Scope Unit"
-    - "Artifact/Revision"
-    - "Artifact/Carrier"
-    - "Journal/Record"
-version: 5
-updated_at: "2026-10-12 23:49:24 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Atom/Tier
+  - Atom/Global Tier
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Artifact/Revision
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 10
+updated_at: 2026-10-24 01:18:03 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+tier: 3
 ---
 # Upgrade selected active Atom authority
 

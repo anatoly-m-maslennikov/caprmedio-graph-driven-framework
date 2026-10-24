@@ -1,27 +1,26 @@
 ---
 atom_id: CA-E-389
 content_role: Evaluation
-type: Evaluation Approach
+type: Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: General
-global_tier: 7
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "software-evaluation-portfolio-admission"
+  governs: Subject/Engineering/Evaluation Technique Selection
   depends_on:
-    - "programmatic software"
-    - "Spec"
-    - "Evaluation"
-    - "Implementation"
-version: 12
-updated_at: "2026-10-15 22:37:03 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+version: 20
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-285
+  - CA-M-424
   derived_from:
-    - CA-A-053
+  - CA-A-053
+tier: 5
 ---
 # Summary
 
@@ -61,4 +60,4 @@ given the applicable Spec, declared failure predicates, proposed Evaluation port
 - [Spadini et al. — Mock objects for testing Java systems](https://link.springer.com/article/10.1007/s10664-018-9663-0)
 - [Google Testing Blog — How Much Testing is Enough?](https://testing.googleblog.com/2021/06/how-much-testing-is-enough.html)
 - [Productive Coverage: Improving the Actionability of Code Coverage](https://research.google/pubs/productive-coverage-improving-the-actionability-of-code-coverage/)
-- [CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode](../05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md)
+- [CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode](../05_method/CA-M-424-PROGRAMMATIC-STANDARD-ENG_POLICY--select-software-evaluation-techniques-by-failure-mode.md)

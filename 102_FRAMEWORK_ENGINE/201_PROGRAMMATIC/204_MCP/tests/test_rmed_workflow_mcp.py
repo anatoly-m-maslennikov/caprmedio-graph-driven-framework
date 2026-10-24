@@ -1,19 +1,17 @@
-"""Real stdio protocol with mock Atoms; no live review or Agent dispatch."""
+# implementation of:
+# Method: CA-M-395, CA-M-431
+# Evaluation: CA-E-567
 from contextlib import asynccontextmanager, redirect_stderr
 import io
 import os
 from pathlib import Path
-import re
-import shutil
-import subprocess
 import sys
 import tempfile
 import unittest
+from typing import Any
 from unittest.mock import patch
-
-from mcp import Client, StdioServerParameters
+from mcp import Client
 from mcp.client.stdio import stdio_client
-
 ROOT = Path(__file__).resolve().parents[4]
 SERVER = ROOT / '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py'
 MCP = SERVER.parent
@@ -22,104 +20,26 @@ WORKFLOW_TESTS = MCP.parent / '203_APPS/WORKFLOW_ORCHESTRATOR/tests'
 sys.path.insert(0, str(MCP))
 sys.path.insert(0, str(MCP_TESTS))
 sys.path.insert(0, str(WORKFLOW_TESTS))
-
 from selected_routes import QUERY_ROUTE_NAMES, SELECTED_ROUTE_NAMES  # noqa: E402
 from test_selected_routes_mcp import copy_complete_selected_guard_fixture  # noqa: E402
-from frozen_selected_workflows import (  # noqa: E402
+from frozen_selected_workflows import (  # type: ignore[import-not-found]  # noqa: E402
     frozen_behavior_bindings,
     frozen_selected_root_paths,
     frozen_source_bytes,
     write_frozen_source,
 )
-
-
-# CA-D-548's eight stable helpers plus its gateway controls remain required.
-D548_REQUIRED_TOOLS = frozenset({
-    'rmed_atoms_base_revise', 'discover_tools', 'discover_operations',
-    'get_execution_context', 'get_execution_status',
-    'resume_execution_context', 'watch_execution', 'workflow_orchestrator',
-    'reload_mcp_implementation', 'get_mcp_reload_status',
-})
-
-# CA-D-547 v5 is the reviewed admission boundary.  This independently fixed
-# tuple prevents the registration registry from making its own test pass.
-D547_ADMITTED_SELECTED_ROUTES = (
-    'create_atom', 'update_atom', 'replace_atom', 'change_atom_status',
-    'create_scope_unit', 'rename_scope_unit', 'move_scope_unit', 'remove_scope_unit',
-    'run_implementation_workflow', 'revert_changes', 'build_entities_graph',
-    'build_terms_graph', 'build_applicable_methodology',
-    'find_and_fetch_artifacts', 'find_and_fetch_journal_events',
+from rmed_workflow_mcp_support import (  # noqa: E402
+    D547_ADMITTED_SELECTED_ROUTES,
+    D547_DIRECT_RELEASE_TOOLS,
+    D547_SELECTED_CONTROL_TOOLS,
+    D548_REQUIRED_TOOLS,
+    HELPER_DECLARATION_IDS,
+    InstalledLayoutImport,  # noqa: F401
+    _forward_startup_telemetry,
+    bounded_server_client,
 )
-D547_SELECTED_CONTROL_TOOLS = frozenset({
-    'get_selected_workflow_run', 'get_selected_action_run',
-})
-D547_DIRECT_RELEASE_TOOLS = frozenset({'release_version', 'public.release'})
-
-HELPER_DECLARATION_IDS = (
-    'CA-D-512', 'CA-D-513', 'CA-D-514', 'CA-D-515', 'CA-D-516', 'CA-D-517',
-    'CA-D-518', 'CA-D-551', 'CA-D-557',
-)
-
-# The stable gateway first boots an isolated implementation generation.  The
-# source tree is intentionally cold in sealed Unit runs, so allow that bounded
-# startup before the MCP client's first protocol probe expires.
-GATEWAY_STARTUP_TIMEOUT_SECONDS = 30
-_STARTUP_TELEMETRY_LINE = re.compile(
-    r'^caprmedio_mcp_startup phase=(?:initial_fingerprint|reload_fingerprint|fingerprint_verify|'
-    r'child_handshake|list_tools|generation_ready|schema_validation|implementation_import|'
-    r'selected_registration|catalog|catalog_registration) '
-    r'outcome=(?:completed|failed) elapsed_ms=[0-9]+$')
-
-
-def _forward_startup_telemetry(stderr):
-    """Expose only accepted opt-in timing records after a successful client run."""
-    if os.environ.get('CAPRMEDIO_STARTUP_TELEMETRY') != '1':
-        return
-    stderr.seek(0)
-    for line in stderr.read().splitlines():
-        if _STARTUP_TELEMETRY_LINE.fullmatch(line):
-            print(line, file=sys.stderr, flush=True)
-
-
-class InstalledLayoutImport(unittest.TestCase):
-    def test_startup_telemetry_forwarding_is_opt_in_and_filters_untrusted_stderr(self):
-        valid = 'caprmedio_mcp_startup phase=list_tools outcome=completed elapsed_ms=17'
-        captured = io.StringIO(f'{valid}\n/secret/path --project-root source-content\n')
-        forwarded = io.StringIO()
-        with patch.dict(os.environ, {'CAPRMEDIO_STARTUP_TELEMETRY': '1'}), redirect_stderr(forwarded):
-            _forward_startup_telemetry(captured)
-        self.assertEqual(forwarded.getvalue(), valid + '\n')
-
-        captured = io.StringIO(valid + '\n')
-        forwarded = io.StringIO()
-        with patch.dict(os.environ, {}, clear=False), redirect_stderr(forwarded):
-            os.environ.pop('CAPRMEDIO_STARTUP_TELEMETRY', None)
-            _forward_startup_telemetry(captured)
-        self.assertEqual(forwarded.getvalue(), '')
-
-    def test_implementation_imports_from_framework_engine_layout(self):
-        """The release copies the Engine without the source-tree numeric prefix."""
-        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as temporary:
-            installed = Path(temporary) / 'opt/caprmedio-framework/FRAMEWORK_ENGINE'
-            shutil.copytree(ROOT / '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC',
-                            installed / '201_PROGRAMMATIC',
-                            ignore=shutil.ignore_patterns('__pycache__', '.caprmedio_tmp'))
-            shutil.copytree(ROOT / '102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW',
-                            installed / '202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW',
-                            ignore=shutil.ignore_patterns('__pycache__', '.mypy_cache'))
-            implementation = installed / '201_PROGRAMMATIC/204_MCP/implementation_server.py'
-            result = subprocess.run([sys.executable, '-B', '-c',
-                                     'import runpy, sys; sys.path.insert(0, ' +
-                                     repr(str(implementation.parent)) +
-                                     '); runpy.run_path(' + repr(str(implementation)) + ')'],
-                                    capture_output=True, text=True)
-            self.assertEqual(0, result.returncode, result.stderr)
-
-
 class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
-    def setUp(self):
-        # The sealed Unit mounts the repository read-only; the runner supplies
-        # a writable per-module TMPDIR for disposable protocol fixtures.
+    def setUp(self) -> None:
         self.temp = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name).resolve()
@@ -136,7 +56,7 @@ class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
         (self.root / 'atom.md').write_text('mock original atom')
         (self.root / 'rules.md').write_text('mock applicable criteria')
 
-    def _copy_declared_selected_manifest(self):
+    def _copy_declared_selected_manifest(self) -> None:
         """Copy admitted route pins and the actual helper registration sources."""
         settings = self.root / '.caprmedio_caprmedio/caprmedio_project_settings.toml'
         fixture_settings = settings.read_bytes()
@@ -153,42 +73,18 @@ class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(frozen_source_bytes(supplemental['source_path'], supplemental['sha256']))
         self.assertFalse((self.root / supplemental['source_path']).exists())
 
-    def _server_parameters(self):
-        telemetry = ({'CAPRMEDIO_STARTUP_TELEMETRY': '1'}
-                     if os.environ.get('CAPRMEDIO_STARTUP_TELEMETRY') == '1' else None)
-        return StdioServerParameters(command=sys.executable,
-            args=[str(SERVER), '--project-root', str(self.root)], env=telemetry)
-
     @asynccontextmanager
-    async def _server_client(self, *, cache=None):
-        """Attach bounded server stderr to an otherwise opaque startup failure."""
-        with tempfile.TemporaryFile(mode='w+', encoding='utf-8') as stderr:
-            try:
-                # ClientSession.send_discover deliberately uses its own ten-second
-                # probe constant, rather than Client.read_timeout_seconds.  The
-                # gateway's initial child-generation preparation is separately
-                # bounded at ninety seconds, so give this cold-start-only probe
-                # the existing bounded test startup allowance.
-                with (patch.dict(os.environ, {'CAPRMEDIO_STARTUP_TELEMETRY': '1'}),
-                      patch('mcp.client.session.DISCOVER_TIMEOUT_SECONDS',
-                            GATEWAY_STARTUP_TIMEOUT_SECONDS)):
-                    async with Client(stdio_client(self._server_parameters(), errlog=stderr), cache=cache,
-                                      read_timeout_seconds=GATEWAY_STARTUP_TIMEOUT_SECONDS) as client:
-                        yield client
-            except BaseException as error:
-                # The complete suite must retain safe phase evidence on a
-                # startup failure, even when ordinary successful runs are quiet.
-                with patch.dict(os.environ, {'CAPRMEDIO_STARTUP_TELEMETRY': '1'}):
-                    _forward_startup_telemetry(stderr)
-                stderr.seek(0)
-                detail = stderr.read()[-4096:]
-                if detail:
-                    raise AssertionError(f'MCP stdio startup failed; stderr follows:\n{detail}') from error
-                raise
-            else:
-                _forward_startup_telemetry(stderr)
+    async def _server_client(self, *, cache: Any | None = None) -> Any:
+        async with bounded_server_client(
+            self.root,
+            cache=cache,
+            stdio_client_factory=stdio_client,
+            client_factory=Client,
+            telemetry_forwarder=_forward_startup_telemetry,
+        ) as client:
+            yield client
 
-    async def test_real_server_discovery_marks_registered_query_bindings_mcp_available(self):
+    async def test_real_server_discovery_marks_registered_query_bindings_mcp_available(self) -> None:
         async with self._server_client(cache=None) as client:
             registered = {tool.name: tool for tool in (await client.list_tools()).tools}
             self.assertTrue(set(QUERY_ROUTE_NAMES) <= set(registered))
@@ -200,10 +96,10 @@ class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(set(QUERY_ROUTE_NAMES), {row['mcp_name'] for row in matches})
             self.assertTrue(all(row['availability'] == 'mcp' for row in matches))
 
-    async def test_startup_failure_retains_safe_timing_without_global_opt_in(self):
+    async def test_startup_failure_retains_safe_timing_without_global_opt_in(self) -> None:
         valid = 'caprmedio_mcp_startup phase=child_handshake outcome=failed elapsed_ms=20000'
 
-        def captured_transport(parameters, *, errlog):
+        def captured_transport(parameters: Any, *, errlog: Any) -> object:
             self.assertEqual(parameters.env['CAPRMEDIO_STARTUP_TELEMETRY'], '1')
             errlog.write(valid + '\nUNTRUSTED_DIAGNOSTIC_CONTENT\n')
             errlog.flush()
@@ -211,15 +107,15 @@ class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
 
         forwarded = io.StringIO()
         with (patch.dict(os.environ, {}, clear=False), redirect_stderr(forwarded),
-              patch(__name__ + '.stdio_client', captured_transport),
-              patch(__name__ + '.Client', side_effect=RuntimeError('mock readiness failure'))):
+              patch.object(sys.modules[__name__], 'stdio_client', captured_transport),
+              patch.object(sys.modules[__name__], 'Client', side_effect=RuntimeError('mock readiness failure'))):
             os.environ.pop('CAPRMEDIO_STARTUP_TELEMETRY', None)
             with self.assertRaises(AssertionError):
                 async with self._server_client():
                     self.fail('failed startup cannot yield a client')
         self.assertEqual(forwarded.getvalue(), valid + '\n')
 
-    async def test_stdio_gather_check_fix_report(self):
+    async def test_stdio_gather_check_fix_report(self) -> None:
         async with self._server_client() as client:
             tools = await client.list_tools()
             actual_tool_names = {tool.name for tool in tools.tools}
@@ -242,7 +138,7 @@ class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
             self.assertFalse(discovered.is_error)
             self.assertEqual(discovered.structured_content['matches'], [])
 
-            async def call(**request):
+            async def call(**request: Any) -> Any:
                 result = await client.call_tool('rmed_atoms_base_revise', {'request': request})
                 self.assertFalse(result.is_error, str(result))
                 return result.structured_content
@@ -293,13 +189,12 @@ class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
                 'run_id': 'mcp-mock', 'cursor': watched.structured_content['cursor']}})
             self.assertEqual(replay.structured_content['notifications'], [])
 
-    async def test_protocol_rejects_unknown_fields_and_path_escape(self):
+    async def test_protocol_rejects_unknown_fields_and_path_escape(self) -> None:
         async with self._server_client() as client:
             for request in ({'operation': 'describe', 'surprise': True},
                             {'operation': 'status', 'run_id': '../escape'}):
                 result = await client.call_tool('rmed_atoms_base_revise', {'request': request})
                 self.assertTrue(result.is_error)
-
 
 if __name__ == '__main__':
     unittest.main()

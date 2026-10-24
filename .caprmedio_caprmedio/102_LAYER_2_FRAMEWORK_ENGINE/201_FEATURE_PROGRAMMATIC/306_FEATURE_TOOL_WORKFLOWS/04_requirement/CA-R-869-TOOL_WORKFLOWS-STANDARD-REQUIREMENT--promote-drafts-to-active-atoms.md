@@ -1,24 +1,23 @@
 ---
 subjects:
-  governs: "Tool/ATOM_PROMOTE"
+  governs: Subject/Engineering/Tool//ATOM_PROMOTE
   depends_on:
-    - "Atom"
-    - "Atom/Identifier"
-    - "Atom/Revision"
-    - "Artifact/Carrier"
-    - "Journal/Record"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Engineering/Carrier
 atom_id: CA-R-869
 author: Anatoly Maslennikov
 status: Active
-version: 13
-updated_at: "2026-10-20 21:39:01 +0400"
+version: 19
+updated_at: 2026-10-24 02:33:28 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 content_role: Requirement
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
+tier: 3
+type: Rule
 ---
 # Summary
 

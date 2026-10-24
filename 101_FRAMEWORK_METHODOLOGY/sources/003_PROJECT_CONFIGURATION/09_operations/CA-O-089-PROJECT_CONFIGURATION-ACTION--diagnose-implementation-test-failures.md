@@ -11,8 +11,8 @@ subjects:
   governs: "Implementation Failure Diagnosis"
   depends_on:
     ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Implementation", "Entity/Node/Continuant/Atom/Content Role: Method", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Spec"]
-version: 7
-updated_at: "2026-10-19 15:56:50 +0400"
+version: 8
+updated_at: "2026-10-21T23:46:56+00:00"
 relations:
   relates_to:
     - CA-O-020
@@ -36,5 +36,7 @@ Implementation Failure Diagnosis **means** the Agentic Action that explains fail
 - return `implementation_defect` for incorrect production code **or** `test_implementation_defect` for incorrect executable test code, with evidence, affected work, **and** proposed correction. **every** admitted repair still passes through retry control.
 - return `authority_change_required` for incorrect, missing, **or** conflicting governing expected behavior; return `environment_blocker` for unavailable execution prerequisites outside the admitted correction; return `unresolved` **when** evidence **or** confidence is insufficient.
 - do **not** modify code, governing Atoms, Status, **or** test expectations. report failures honestly; do **not** relabel an unexplained failure as expected merely **to** proceed.
+
+- accept actual confirmed code-review findings as diagnosis input as well as failed checks; inspect their evidence and classify under the same existing results. Do not fabricate test failures or classify unfinished review as a defect. Preliminary pending checks cannot be an accepted-candidate claim.
 
 ## Details

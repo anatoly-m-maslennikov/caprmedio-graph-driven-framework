@@ -1,20 +1,27 @@
 ---
 atom_id: CA-E-552
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 23:02:03 +0400"
+version: 6
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Tool/PROJECT_STRUCTURE partial and recovery cases"
-  depends_on: [Tool, Scope Unit, Project Structure, Carrier, Journal]
+  governs: Subject/Domain/Node/Continuant/Scope Unit
+  depends_on:
+  - Subject/Engineering/Project Structure
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-R-1662, CA-R-1831, CA-R-1832]
+  relates_to:
+  - CA-R-1662
+  - CA-R-1831
+  - CA-R-1832
+tier: 3
 ---
 # Summary
 

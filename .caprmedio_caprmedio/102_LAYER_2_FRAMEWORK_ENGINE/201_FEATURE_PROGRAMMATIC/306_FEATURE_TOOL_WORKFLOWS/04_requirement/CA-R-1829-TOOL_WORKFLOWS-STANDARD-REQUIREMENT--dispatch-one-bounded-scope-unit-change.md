@@ -1,20 +1,35 @@
 ---
 atom_id: CA-R-1829
 content_role: Requirement
-type: Requirement
+type: Rule
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-12 23:58:28 +0400"
+version: 6
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool/PROJECT_STRUCTURE structural request dispatch"
-  depends_on: [Tool, Workflow, Action, Scope Unit, Project Structure, Workflow Run, Journal]
+  governs: Subject/Engineering/Project Structure/Bounded Change Dispatch
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-O-015, CA-O-012, CA-O-013, CA-O-014, CA-O-139, CA-O-140, CA-O-141, CA-O-142, CA-O-143, CA-O-144]
+  relates_to:
+  - CA-O-015
+  - CA-O-012
+  - CA-O-013
+  - CA-O-014
+  - CA-O-139
+  - CA-O-140
+  - CA-O-141
+  - CA-O-142
+  - CA-O-143
+  - CA-O-144
+tier: 3
 ---
 # Summary
 

@@ -1,20 +1,24 @@
 ---
 atom_id: CA-E-548
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow Operations/Atom Lifecycle/Result Recovery"
-  depends_on: ["Atom", "Atom/Revision", "Artifact/Carrier", "Journal/Record"]
-version: 3
-updated_at: "2026-10-15 23:57:03 +0400"
+  governs: Subject/Engineering/Tool//ATOM_LIFECYCLE.Result Recovery
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Engineering/Carrier
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: [CA-R-1826, CA-R-1828]
+  evaluation_for:
+  - CA-R-1826
+  - CA-R-1828
+tier: 4
 ---
 # Summary
 

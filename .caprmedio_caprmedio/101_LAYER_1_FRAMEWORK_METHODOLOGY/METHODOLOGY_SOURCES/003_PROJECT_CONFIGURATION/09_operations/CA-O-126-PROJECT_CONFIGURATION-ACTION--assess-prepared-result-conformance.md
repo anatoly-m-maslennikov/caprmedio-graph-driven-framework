@@ -4,17 +4,27 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-19 15:56:59 +0400"
+version: 10
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "Assess Prepared Result Conformance"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Artifact", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent"]
+  governs: Assess Prepared Result Conformance
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
 relations:
-  relates_to: [CA-O-005, CA-O-104, CA-O-106, CA-O-111, CA-O-118]
+  relates_to:
+  - CA-O-005
+  - CA-O-104
+  - CA-O-106
+  - CA-O-111
+  - CA-O-118
+tier: 3
 ---
 # Summary
 

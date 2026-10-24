@@ -1,0 +1,31 @@
+---
+subjects:
+  governs: Subject/Domain/Node/Continuant/Scope Unit.Navigational Order Number
+  depends_on:
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Structure
+version: 12
+updated_at: 2026-10-24 00:38:25 +0400
+relations: {}
+atom_id: CA-D-380@12
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 3
+---
+# Summary
+
+Serialize Navigational Order Numbers
+
+## Scope
+
+Carrier renderings of a Navigational Order Number.
+
+## Claim
+
+**every** Carrier rendering of a Navigational Order Number **must** use decimal digits. the default directory-name rendering of a non-Project Scope Unit **must** use **`>=2`** digits; a typed TOML integer stores the numeric value **without** leading-zero padding.
+
+## Details

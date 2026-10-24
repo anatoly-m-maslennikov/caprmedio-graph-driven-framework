@@ -3,17 +3,21 @@ atom_id: CA-R-1865
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/diagnostics"
-  depends_on: [Journal, Event, Tool]
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
+  depends_on:
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Journal Event Query/Diagnostics and Coverage
 relations:
-  relates_to: [CA-O-162, CA-E-577]
+  relates_to:
+  - CA-O-162
+  - CA-E-577
+type: Rule
+tier: 3
 ---
 # Summary
 

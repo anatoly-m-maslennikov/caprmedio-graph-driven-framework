@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: programmatic-mutation
+  governs: Subject/Engineering/programmatic-mutation
   depends_on: []
-version: 11
-updated_at: "2026-10-18 03:44:50 +0400"
+version: 14
+updated_at: 2026-10-24 01:37:42 +0400
 atom_id: CA-R-1094
 content_role: Requirement
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
 relations: {}
+tier: 3
+type: Rule
 ---
 # Summary
 

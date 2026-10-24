@@ -1,22 +1,24 @@
 ---
-version: 22
-updated_at: "2026-10-19 15:54:04 +0400"
+version: 26
+updated_at: 2026-10-24 01:50:12 +0400
 relations:
   child_of:
-    - "CA-M-001"
-    - "CA-R-1407"
+  - CA-M-001
+  - CA-R-1407
 subjects:
-  governs: "Entity/Node/Continuant/Project.Graph Dimensions"
+  governs: Subject/Domain/Node/Continuant/Project.Graph Dimensions
   depends_on:
-    ["Subject", "CAPRMEDIO Framework Instance", "Entity/Node/Continuant/Project"]
-atom_id: "CA-R-1776"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - Subject
+  - CAPRMEDIO Framework Instance
+  - Subject/Domain/Node/Continuant/Project
+atom_id: CA-R-1776
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

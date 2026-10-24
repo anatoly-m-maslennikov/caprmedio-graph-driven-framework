@@ -2,15 +2,22 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "app-service-interface"
+  governs: app-service-interface
   depends_on: []
-version: 6
-updated_at: "2026-09-17 02:10:33 +0000"
+version: 11
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-222
+  - CA-M-222
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-350
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: APPS
+type: Eval Case
+tier: 2
 ---
 # Reject interface bypass of governed Doers
 

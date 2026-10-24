@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier.YAML Frontmatter.Scalar"
+  governs: Subject/Engineering/Carrier/File Carrier.YAML Frontmatter.Scalar
   depends_on:
-    ["Markdown Atom Carrier.Main Content"]
-version: 13
-updated_at: "2026-10-15 12:17:57 +0000"
+  - Subject/Engineering/Carrier/File Carrier.Main Content
+version: 16
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-277"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-277
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

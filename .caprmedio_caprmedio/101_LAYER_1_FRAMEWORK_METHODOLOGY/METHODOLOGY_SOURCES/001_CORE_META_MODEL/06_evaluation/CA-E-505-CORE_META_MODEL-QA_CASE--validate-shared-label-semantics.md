@@ -1,20 +1,32 @@
 ---
 subjects:
-  governs: "Label"
+  governs: Label
   depends_on:
-    ["Entity/Node/Continuant/Scope Unit.Label", "Scope Unit/Type", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Plan Blocking Relations", "Atom/Content Role: Plan/Type: Plan", "Entity", "Property", "Entity/Node/Continuant/Actor/Type: Operator"]
-version: 7
-updated_at: "2026-10-19 15:55:14 +0400"
-relations: {"evaluation_for": ["CA-R-1594", "CA-R-972", "CA-R-1576", "CA-R-1577", "CA-R-982"]}
-atom_id: "CA-E-505"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Scope Unit.Label
+  - Subject/Domain/Node/Continuant/Scope Unit/Type
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Label'
+  - 'Subject/Graph/Relation/Type: BLOCKS'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Subject/Domain/Node
+  - Subject/Domain/Node/Continuant/Term//Property
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 13
+updated_at: 2026-10-24 01:50:12 +0400
+relations:
+  evaluation_for:
+  - CA-R-1594
+  - CA-R-972
+  - CA-R-1576
+  - CA-R-1577
+  - CA-R-982
+atom_id: CA-E-505
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 3
 ---
 # Summary
 

@@ -1,16 +1,23 @@
 ---
 subjects:
-  governs: "plugin-packaging"
+  governs: plugin-packaging
   depends_on: []
-version: 10
-updated_at: 2026-08-30 16:44:07 +0400
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
-    - CA-R-1074
+  - CA-R-1074
   derived_from:
-    - CA-A-057
+  - CA-A-057
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-151
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: APPS
+type: Eng Decision
+tier: 2
 ---
 # Package the Codex plugin
 

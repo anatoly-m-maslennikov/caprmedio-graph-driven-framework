@@ -1,34 +1,43 @@
 ---
 subjects:
-  governs: "Project Structure Maintenance"
+  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-    ["Relation/Type: On Result", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Project.Structure", "Select Reconciliation Sources", "Prepare Structural Change", "Assess Source Conflicts", "Authorize Structural Change", "Apply Structural Change"]
-version: 12
-updated_at: "2026-10-19 15:56:37 +0400"
+  - 'Subject/Graph/Relation/Type: On Result'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Prepare Structural Change
+  - Authorize Structural Change
+  - Apply Structural Change
+version: 16
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
   relates_to:
-    - "CA-R-1483"
-    - "CA-M-291"
-    - "CA-O-004"
-    - "CA-O-005"
-    - "CA-O-012"
-    - "CA-O-013"
-    - "CA-O-014"
-    - "CA-O-139"
-    - "CA-O-140"
-    - "CA-O-141"
-    - "CA-O-142"
-    - "CA-O-143"
-    - "CA-O-144"
-atom_id: "CA-O-015"
-content_role: "Operations"
+  - CA-R-1483
+  - CA-M-291
+  - CA-O-004
+  - CA-O-005
+  - CA-O-012
+  - CA-O-013
+  - CA-O-014
+  - CA-O-139
+  - CA-O-140
+  - CA-O-141
+  - CA-O-142
+  - CA-O-143
+  - CA-O-144
+atom_id: CA-O-015
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Workflow"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Workflow
+tier: 3
 ---
 # Summary
 

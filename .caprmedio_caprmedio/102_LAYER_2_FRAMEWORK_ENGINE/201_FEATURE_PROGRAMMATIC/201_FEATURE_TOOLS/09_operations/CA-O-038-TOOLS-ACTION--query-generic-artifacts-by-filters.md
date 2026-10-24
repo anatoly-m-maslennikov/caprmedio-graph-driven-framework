@@ -2,18 +2,25 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: "Query Generic Artifacts"
+  governs: Query Generic Artifacts
   depends_on:
-    - "Action"
-    - "Artifact"
-    - "Artifact/Carrier"
-    - "Artifact/Revision"
-    - "Relation"
-version: 2
-updated_at: "2026-09-17 03:31:42 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Artifact
+  - Subject/Engineering/Carrier
+  - Artifact/Revision
+  - Subject/Graph/Relation
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-O-038
+status: Active
+content_role: Operations
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Action
+tier: 1
 ---
 # Query generic Artifacts by filters
 

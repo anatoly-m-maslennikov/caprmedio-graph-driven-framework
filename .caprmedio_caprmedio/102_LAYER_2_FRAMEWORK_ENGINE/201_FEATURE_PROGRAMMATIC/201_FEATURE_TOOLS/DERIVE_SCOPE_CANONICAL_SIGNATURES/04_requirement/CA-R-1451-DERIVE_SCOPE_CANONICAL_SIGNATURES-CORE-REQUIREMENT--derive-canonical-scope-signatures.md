@@ -2,15 +2,22 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "Tool/DERIVE_SCOPE_CANONICAL_SIGNATURES"
+  governs: Subject/Engineering/Tool//DERIVE_SCOPE_CANONICAL_SIGNATURES
   depends_on:
-    - "Scope Expression/Canonical Scope Signature"
-    - "Atom/Carrier"
-version: 6
-updated_at: 2026-09-12 04:14:47 +0400
+  - Scope Expression/Canonical Scope Signature
+  - Atom/Carrier
+version: 11
+updated_at: 2026-10-24 02:14:24 +0400
 relations: {}
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-1451
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Rule
+tier: 1
 ---
 # Derive Canonical Scope Signatures
 

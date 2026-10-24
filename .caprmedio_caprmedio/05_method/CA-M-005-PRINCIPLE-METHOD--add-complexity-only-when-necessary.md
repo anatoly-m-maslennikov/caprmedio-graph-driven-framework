@@ -1,15 +1,22 @@
 ---
-cce_version: "cce_1"
-cce_form: "method"
+cce_version: cce_1
+cce_form: method
 subjects:
-  governs: "Project/mechanism"
+  governs: Project/mechanism
   depends_on:
-    - "Project"
-version: 8
-updated_at: "2026-09-15 21:31:49 +0000"
+  - Subject/Domain/Node/Continuant/Project
+version: 15
+updated_at: 2026-10-24 03:45:03 +0400
 relations:
   child_of:
-    - "ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-caprmedio--create-and-evolve-a-working-caprmedio-framework"
+  - CA-R-2155
+atom_id: CA-M-005
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Eng Policy
+tier: 0
 ---
 # Add complexity only when necessary
 

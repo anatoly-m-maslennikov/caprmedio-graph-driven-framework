@@ -3,26 +3,26 @@ atom_id: CA-R-1622
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool/VALIDATE_ATOMS"
+  governs: Subject/Engineering/Tool//VALIDATE_ATOMS
   depends_on:
-    - "Tool"
-    - "Action"
-    - "Check Atoms"
-    - "Atom"
-    - "Implementation"
-version: 4
-updated_at: "2026-10-01 21:44:50 +0400"
+  - Subject/Engineering/Tool//VALIDATE_ATOMS
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Check Atoms
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Atom Validation/Source-bound Check Adapters
+version: 10
+updated_at: 2026-10-24 01:50:12 +0400
 relations:
   relates_to:
-    - CA-O-087
-    - CA-R-1516
-    - CA-R-1517
-    - CA-R-1519
+  - CA-O-087
+  - CA-R-1516
+  - CA-R-1517
+  - CA-R-1519
+tier: 3
+type: Rule
 ---
 # Summary
 

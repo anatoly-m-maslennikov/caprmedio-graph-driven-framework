@@ -2,19 +2,29 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "Apply Generic Artifact Migration"
+  governs: Apply Generic Artifact Migration
   depends_on:
-    - "Action"
-    - "Artifact"
-    - "Artifact/Carrier"
-    - "Artifact/Revision"
-    - "Relation"
-    - "Journal/Record"
-version: 9
-updated_at: "2026-09-17 03:35:21 +0000"
-relations: {"evaluation_for":["CA-R-1139","CA-O-043"]}
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Artifact
+  - Subject/Engineering/Carrier
+  - Artifact/Revision
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-1139
+  - CA-O-043
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-413
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 2
 ---
 # Verify apply one generic Artifact migration
 

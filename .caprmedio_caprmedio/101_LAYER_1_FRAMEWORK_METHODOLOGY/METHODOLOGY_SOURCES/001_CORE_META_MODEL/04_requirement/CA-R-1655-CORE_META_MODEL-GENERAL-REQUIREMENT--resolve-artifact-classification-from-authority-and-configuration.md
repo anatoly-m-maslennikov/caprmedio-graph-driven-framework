@@ -1,19 +1,29 @@
 ---
 subjects:
-  governs: "Artifact Classification Resolution"
+  governs: Artifact Classification Resolution
   depends_on:
-    ["Artifact", "Entity/Node/Continuant/Atom", "Atom/Content Role", "Type", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Project Configuration", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Projection/Type: Scope Unit Graph", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/Projection", "Authority Mode"]
-version: 27
-updated_at: "2026-10-19 15:53:48 +0400"
+  - Artifact
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Projection/Type
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Scope Unit Graph'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Project.Framework Settings.Authority Modes
+version: 33
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1655"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-R-1655
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Resolve Artifact Classification from Authority and Configuration
 

@@ -2,21 +2,28 @@
 cce_version: cce_1
 cce_form: serialization
 subjects:
-  governs: "Evidence/Git reference"
+  governs: Evidence/Git reference
   depends_on:
-    - "Carrier"
-    - "Artifact/Revision"
-    - "Journal/Record"
-    - "Projection"
-    - "Extension"
-version: 1
-updated_at: "2026-09-16 17:31:26 +0000"
+  - Carrier
+  - Artifact/Revision
+  - Journal/Record
+  - Projection
+  - Extension
+version: 4
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   relates_to:
-    - "CA-D-329"
-    - "CAPRMEDIO-GOV-REQU-353"
+  - CA-D-329
+  - CAPRMEDIO-GOV-REQU-353
+content_role: Delivery
+current_scope_unit: CORE_EXTENSIONS
+status: Active
+author: Anatoly Maslennikov
+atom_id: CA-D-448
+type: Eng Decision
+tier: 1
 ---
 # Encode exact Git references in release evidence
 

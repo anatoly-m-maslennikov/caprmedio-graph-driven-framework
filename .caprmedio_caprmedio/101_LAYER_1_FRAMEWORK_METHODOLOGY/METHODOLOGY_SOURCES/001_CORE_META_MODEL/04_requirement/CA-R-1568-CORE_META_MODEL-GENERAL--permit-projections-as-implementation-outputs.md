@@ -1,19 +1,26 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection"
+  governs: Subject/Domain/Node/Continuant/Projection
   depends_on:
-    ["Implementation", "Spec Content Roles", "Artifact", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Projection.Authority"]
-version: 9
-updated_at: "2026-10-19 15:53:32 +0400"
-relations: {"relates_to": ["CA-R-1548", "CA-R-1571", "CA-R-1703"]}
-atom_id: "CA-R-1568"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - Subject/Engineering/Implementation
+  - Subject/Domain/Node/Continuant/Selection
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Projection.Authority
+version: 15
+updated_at: 2026-10-24 01:31:19 +0400
+relations:
+  relates_to:
+  - CA-R-1548
+  - CA-R-1703
+atom_id: CA-R-1568
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 
@@ -28,7 +35,6 @@ non-authoritative view Projections delivered as Implementation outputs.
 a view Projection **may** be delivered as an Implementation output of its governing RMED **without** becoming an Atom **or** another source of truth for the facts it represents.
 
 - its output contribution is I; its Artifact kind remains Projection **and** its content remains derived from its declared sources.
-- its Standard output classification does **not** change the Content Roles, Local Tiers, identities, **or** authority of source Atoms represented inside it.
 
 ## Details
 

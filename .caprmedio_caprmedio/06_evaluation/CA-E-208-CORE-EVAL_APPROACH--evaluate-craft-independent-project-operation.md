@@ -1,20 +1,27 @@
 ---
-version: 9
-updated_at: 2026-09-06 01:45:12 +0400
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-819
+  - CA-R-819
   evaluation_for:
-    - CA-R-819
+  - CA-R-819
 subjects:
-  governs: "Project/lifecycle"
+  governs: Project/lifecycle
   depends_on:
-    - "Operator"
-    - "Project"
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-208
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Policy
+tier: 1
 ---
 # Evaluate craft-independent project operation
 

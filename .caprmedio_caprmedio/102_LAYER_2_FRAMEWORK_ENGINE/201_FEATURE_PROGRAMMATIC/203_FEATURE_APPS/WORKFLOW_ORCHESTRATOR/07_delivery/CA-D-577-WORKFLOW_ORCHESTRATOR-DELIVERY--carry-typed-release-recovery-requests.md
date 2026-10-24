@@ -2,18 +2,32 @@
 atom_id: CA-D-577
 content_role: Delivery
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 18:00:00 +0400"
+version: 9
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "Release Version recovery request/Carrier"
-  depends_on: [Carrier, Release Version, Workflow Run, Operator, Permission, Journal, Queue, DBOS, Implementation]
+  governs: Subject/Engineering/Carrier/File Carrier
+  depends_on:
+  - Subject/Engineering/Carrier
+  - Subject/Engineering/Release Version
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Permission
+  - Subject/Engineering/Carrier/Journal Serialization
+  - Subject/Engineering/Queue
+  - Subject/Engineering/DBOS
+  - Subject/Engineering/Release Version/Failure and Effect Recovery
 relations:
-  delivery_for: [CA-R-1883, CA-M-340, CA-O-164]
-  relates_to: [CA-D-521, CA-D-574]
+  delivery_for:
+  - CA-R-1883
+  - CA-M-340
+  - CA-O-164
+  relates_to:
+  - CA-D-521
+  - CA-D-574
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

@@ -1,21 +1,26 @@
 ---
 subjects:
-  governs: "Claim Value Set Authoring"
+  governs: Claim Value Set Authoring
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Author", "Claim Value Set", "Property", "Subject Expression", "IS_ALLOWED_VALUE_OF"]
-version: 13
-updated_at: "2026-10-19 15:54:43 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Actor
+  - Claim Value Set
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject
+  - IS_ALLOWED_VALUE_OF
+version: 19
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-M-115
-atom_id: "CA-M-237"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-M-115
+atom_id: CA-M-237
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 4
+type: Implementation Method
 ---
 # Summary
 

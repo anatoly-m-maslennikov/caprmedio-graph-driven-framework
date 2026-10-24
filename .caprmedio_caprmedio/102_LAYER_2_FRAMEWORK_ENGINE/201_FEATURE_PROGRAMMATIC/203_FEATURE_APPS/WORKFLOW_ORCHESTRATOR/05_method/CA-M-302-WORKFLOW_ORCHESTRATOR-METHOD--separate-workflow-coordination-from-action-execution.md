@@ -2,20 +2,34 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "Workflow Run"
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run
   depends_on:
-    - "Workflow"
-    - "Action"
-    - "Tool"
-    - "Operator"
-    - "Journal"
-    - "Projection"
-    - "Implementation"
-version: 1
-updated_at: "2026-09-18 21:23:47 +0000"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Tool//WORKFLOW_ORCHESTRATOR
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Projection
+  - Implementation
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {"method_for": ["CA-R-1522", "CA-R-1523", "CA-R-1524"], "relates_to": ["CA-M-158", "CA-M-222"]}
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations:
+  method_for:
+  - CA-R-1522
+  - CA-R-1523
+  - CA-R-1524
+  relates_to:
+  - CA-M-158
+  - CA-M-222
+atom_id: CA-M-302
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+type: Eng Decision
+tier: 4
 ---
 # Separate Workflow coordination from Action execution
 

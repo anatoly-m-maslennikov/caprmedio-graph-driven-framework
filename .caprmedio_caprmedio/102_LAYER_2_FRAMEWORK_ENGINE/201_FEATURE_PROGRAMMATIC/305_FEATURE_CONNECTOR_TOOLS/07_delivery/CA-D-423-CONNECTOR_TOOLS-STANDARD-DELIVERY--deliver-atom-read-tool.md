@@ -1,6 +1,4 @@
 ---
-global_tier: 11
-local_tier: Standard
 claim_target_scope_unit: CONNECTOR_TOOLS
 current_scope_unit: CONNECTOR_TOOLS
 content_role: Delivery
@@ -8,14 +6,20 @@ atom_id: CA-D-423
 cce_version: cce_1
 cce_form: delivery
 subjects:
-  governs: "Tool/ATOM_READ/Carrier"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Tool/ATOM_READ"
-version: 8
-updated_at: "2026-10-12 23:54:41 +0400"
-relations: {"delivery_for":["CA-R-864"]}
+  - Subject/Engineering/Tool//ATOM_READ
+version: 14
+status: Active
+updated_at: 2026-10-24 03:08:30 +0400
+relations:
+  delivery_for:
+  - CA-R-864
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+type: Eng Decision
+tier: 4
+author: Anatoly Maslennikov
 ---
 # Deliver ATOM_READ Tool
 

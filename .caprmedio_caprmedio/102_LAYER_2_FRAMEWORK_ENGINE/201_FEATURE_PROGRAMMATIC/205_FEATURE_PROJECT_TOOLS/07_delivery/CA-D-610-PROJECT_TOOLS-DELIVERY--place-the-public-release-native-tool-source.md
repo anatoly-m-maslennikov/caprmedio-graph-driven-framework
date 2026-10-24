@@ -1,19 +1,23 @@
 ---
-atom_id: "CA-D-610"
-content_role: "Delivery"
+atom_id: CA-D-610
+content_role: Delivery
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "PUBLIC_RELEASE native Tool source"
-  depends_on: [Tool, Framework Engine, Carrier]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
+  governs: Subject/Engineering/Carrier
+  depends_on:
+  - Subject/Engineering/Tool//PUBLIC_RELEASE
+  - Framework Engine
+  - Subject/Engineering/Carrier
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  delivery_for: [CA-R-1920]
+  delivery_for:
+  - CA-R-1920
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

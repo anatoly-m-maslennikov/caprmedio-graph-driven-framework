@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Substance"
+  governs: Subject/Domain/Node/Continuant/Atom.Substance
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance"]
-version: 20
-updated_at: "2026-10-19 15:54:31 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+version: 24
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-918
-atom_id: "CA-R-940"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-918
+atom_id: CA-R-940
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 Keep every Atom Claim human-readable

@@ -3,17 +3,19 @@ atom_id: CA-O-222
 content_role: Operations
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 type: Action
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-14 18:37:38 +0400"
+version: 5
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "Append Change Records"
-  depends_on: [Journal, Journal/Record, Operator]
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Append Change Records'
+  depends_on:
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations: {}
+tier: 3
 ---
 # Summary
 

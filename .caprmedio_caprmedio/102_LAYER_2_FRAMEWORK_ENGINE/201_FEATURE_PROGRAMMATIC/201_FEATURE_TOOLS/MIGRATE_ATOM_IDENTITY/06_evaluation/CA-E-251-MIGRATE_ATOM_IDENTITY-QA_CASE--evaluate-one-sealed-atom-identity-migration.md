@@ -1,15 +1,22 @@
 ---
 subjects:
-  governs: "artifact-operations"
+  governs: Subject/Engineering/Tool//MIGRATE_ATOM_IDENTITY
   depends_on: []
-version: 11
-updated_at: "2026-10-13 00:04:48 +0400"
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1048
-    - CA-R-1093
+  - CA-R-1048
+  - CA-R-1093
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-251
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 1
 ---
 # Evaluate one sealed Atom identity migration
 

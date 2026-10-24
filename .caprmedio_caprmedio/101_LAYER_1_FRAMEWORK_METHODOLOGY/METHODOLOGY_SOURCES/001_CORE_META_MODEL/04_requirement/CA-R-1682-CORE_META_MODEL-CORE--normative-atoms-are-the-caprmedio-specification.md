@@ -1,21 +1,25 @@
 ---
 subjects:
-  governs: "authority"
+  governs: Subject/Graph/Rule
   depends_on:
-    ["Spec Content Roles", "Change Content Roles", "Entity", "Implementation", "Entity/Node/Continuant/History/Journal.Record"]
-version: 26
-updated_at: "2026-10-19 15:53:50 +0400"
+  - Subject/Domain/Node/Continuant/Selection
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node
+  - Subject/Engineering/Implementation
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 31
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-M-001
-atom_id: "CA-R-1682"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-M-001
+atom_id: CA-R-1682
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

@@ -2,20 +2,21 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Project/Implementation/refactoring verification"
+  governs: Project/Implementation/refactoring verification
   depends_on:
-    - "Process"
-    - "Action"
-    - "Implementation Process"
-    - "Spec"
-    - "Atom/Content Role: Evaluation"
-    - "Operator"
+  - Process
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Implementation Process
+  - Spec
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 priority: medium
-version: 1
-updated_at: "2026-09-17 14:56:53 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-151
 ---
 # Which Actions compose refactoring verification?
 

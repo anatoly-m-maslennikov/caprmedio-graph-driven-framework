@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: PROGRAMMATIC/temporary execution state
+  governs: Subject/Domain/Node/Continuant/Project.Settings.Temporary State
   depends_on:
-  - Temporary State
-  - Project Settings
-version: 10
-updated_at: "2026-10-18 03:45:09 +0400"
+  - Subject/Engineering/Temporary State
+  - Subject/Domain/Node/Continuant/Project.Settings
+version: 15
+updated_at: 2026-10-24 04:05:50 +0400
 relations: {}
 atom_id: CA-R-1473
 content_role: Requirement
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Core
-global_tier: 6
 status: Active
 author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

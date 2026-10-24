@@ -3,17 +3,22 @@ atom_id: CA-R-1624
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Core
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Details"
+  governs: Subject/Domain/Node/Continuant/Atom.Details
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Markdown Atom Carrier.Main Content"]
-relations: {"relates_to": ["CA-R-1269", "CA-R-1586"]}
-version: 5
-updated_at: "2026-10-19 15:53:44 +0400"
-global_tier: 9
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Engineering/Carrier/File Carrier.Main Content
+relations:
+  relates_to:
+  - CA-R-1269
+  - CA-R-1586
+version: 10
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 1
+type: Definition
 ---
 # Summary
 

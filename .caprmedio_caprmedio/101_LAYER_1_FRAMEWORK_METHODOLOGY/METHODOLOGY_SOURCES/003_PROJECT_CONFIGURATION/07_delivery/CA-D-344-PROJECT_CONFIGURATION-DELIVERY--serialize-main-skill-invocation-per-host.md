@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Main Skill/Host Invocation"
+  governs: CAPRMEDIO Main Skill/Host Invocation
   depends_on:
-    - "CAPRMEDIO Main Skill"
-version: 9
-updated_at: "2026-10-01 21:24:59 +0400"
+  - CAPRMEDIO Main Skill
+version: 11
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-344"
-content_role: "Delivery"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-344
+content_role: Delivery
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

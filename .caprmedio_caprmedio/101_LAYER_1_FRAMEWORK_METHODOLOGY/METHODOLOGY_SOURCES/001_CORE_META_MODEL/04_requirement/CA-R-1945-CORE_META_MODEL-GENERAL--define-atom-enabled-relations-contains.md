@@ -3,17 +3,17 @@ atom_id: CA-R-1945
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: General
-global_tier: 10
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Enabled Relations.Contains"
+  governs: Subject/Domain/Node/Continuant/Atom.Enabled Relations.Contains
 relations:
   child_of:
   - CA-R-1174
-version: 4
-updated_at: "2026-10-20 00:11:28 +0400"
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 2
+type: Definition
 ---
 # Summary
 

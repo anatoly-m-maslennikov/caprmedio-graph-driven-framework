@@ -1,21 +1,20 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Evaluation"
-  depends_on:
-    []
-version: 18
-updated_at: "2026-10-19 15:53:56 +0400"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  depends_on: []
+version: 22
+updated_at: 2026-10-24 02:04:43 +0400
 relations:
   child_of:
-    - CAPRMEDIO-REQU-637-REQUIREMENT--establish-recurrence-protection
-atom_id: "CA-R-1741"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-637
+atom_id: CA-R-1741
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

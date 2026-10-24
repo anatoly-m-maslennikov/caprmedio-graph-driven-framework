@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Final selected-source third-partition validation evidence"
-  depends_on: [Project, Operations, "Atom/Content Role: Plan"]
-version: 1
-updated_at: "2026-10-04 11:27:22 +0000"
+  governs: Final selected-source third-partition validation evidence
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analyses: [CA-P-1311]
 ---

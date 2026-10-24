@@ -3,17 +3,27 @@ atom_id: CA-D-540
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 19:23:34 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/Delivery boundary"
-  depends_on: [Tool, Workflow, Action, Projection, Journal, Implementation]
+  governs: Subject/Engineering/Tool//GENERATE_ENTITY_GRAPH.Delivery Boundary
+  depends_on:
+  - Subject/Engineering/Tool//GENERATE_ENTITY_GRAPH.Delivery Boundary
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Graph Projection
 relations:
-  delivery_for: [CA-E-555, CA-E-556, CA-E-557, CA-E-558]
+  delivery_for:
+  - CA-E-555
+  - CA-E-556
+  - CA-E-557
+  - CA-E-558
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

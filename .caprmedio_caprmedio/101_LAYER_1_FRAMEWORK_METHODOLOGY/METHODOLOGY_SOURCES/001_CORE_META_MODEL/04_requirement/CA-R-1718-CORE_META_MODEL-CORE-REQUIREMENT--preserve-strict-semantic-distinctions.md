@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: "semantics"
+  governs: Subject/Domain/Node/Continuant/Atom/Content Role
   depends_on: []
-version: 23
-updated_at: "2026-10-03 02:35:05 +0400"
+version: 26
+updated_at: 2026-10-24 05:02:21 +0400
 relations:
   child_of:
-    - "CA-M-001"
-    - "CA-M-006"
-atom_id: "CA-R-1718"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-M-001
+  - CA-M-006
+atom_id: CA-R-1718
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

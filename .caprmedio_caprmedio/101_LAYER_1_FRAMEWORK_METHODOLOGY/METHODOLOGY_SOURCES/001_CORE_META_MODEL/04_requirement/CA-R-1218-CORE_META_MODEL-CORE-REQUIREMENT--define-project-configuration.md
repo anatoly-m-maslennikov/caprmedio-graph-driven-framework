@@ -1,19 +1,23 @@
 ---
 subjects:
-  governs: "Project Configuration"
+  governs: Project Configuration
   depends_on:
-    ["Entity/Node/Continuant/Project", "Extension", "Methodology Source", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Project.Settings"]
-version: 16
-updated_at: "2026-10-19 15:52:38 +0400"
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Selection//Extension Sources
+  - Methodology Source
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Project.Settings
+version: 20
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1218"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1218
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

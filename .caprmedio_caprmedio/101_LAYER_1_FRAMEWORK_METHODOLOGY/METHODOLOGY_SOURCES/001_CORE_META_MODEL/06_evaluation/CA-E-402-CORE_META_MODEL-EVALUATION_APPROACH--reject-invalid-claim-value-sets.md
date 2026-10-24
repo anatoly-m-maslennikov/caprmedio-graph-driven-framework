@@ -1,23 +1,26 @@
 ---
 subjects:
-  governs: "Claim Value Set Validation"
+  governs: Claim Value Set Validation
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Claim Value Set", "Property", "Subject Expression", "IS_ALLOWED_VALUE_OF"]
-version: 13
-updated_at: "2026-10-19 15:54:58 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Claim Value Set
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject
+  - IS_ALLOWED_VALUE_OF
+version: 19
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1359
-    - CA-M-237
-atom_id: "CA-E-402"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-R-1359
+  - CA-M-237
+atom_id: CA-E-402
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 5
 ---
 # Summary
 

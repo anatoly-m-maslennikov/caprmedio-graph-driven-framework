@@ -2,16 +2,23 @@
 cce_version: cce_1
 cce_form: serialization
 subjects:
-  governs: "Governed Change/Git Commit Message"
+  governs: Governed Change/Git Commit Message
   depends_on:
-    - "Journal"
-    - "Action"
-    - "Atom/Content Role: Plan"
-version: 9
-updated_at: "2026-09-14 06:21:07 +0400"
+  - Journal
+  - Action
+  - 'Atom/Content Role: Plan'
+version: 12
+updated_at: 2026-10-24 02:14:24 +0400
 relations: {}
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+content_role: Delivery
+current_scope_unit: CORE_EXTENSIONS
+status: Active
+author: Anatoly Maslennikov
+atom_id: CA-D-334
+type: Eng Decision
+tier: 1
 ---
 # Serialize Governed Change Commit Messages
 

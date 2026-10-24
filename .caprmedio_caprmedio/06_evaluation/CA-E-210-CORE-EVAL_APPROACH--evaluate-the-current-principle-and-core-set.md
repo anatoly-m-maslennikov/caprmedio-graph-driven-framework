@@ -1,29 +1,42 @@
 ---
-version: 14
-updated_at: "2026-09-17 16:46:28 +0000"
-relations: {"child_of":["CA-M-001","CA-M-002","CA-E-001"],"relates_to":["CA-E-482"]}
-cce_version: "cce_1"
-cce_form: "evaluation"
+version: 20
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  child_of:
+  - CA-M-001
+  - CA-M-002
+  - CA-E-001
+  relates_to:
+  - CA-E-482
+cce_version: cce_1
+cce_form: evaluation
 subjects:
-  governs: "Project/Principle and Core alignment"
+  governs: Project/Principle and Core alignment
   depends_on:
-    - "Project"
-    - "Atom/Local Tier"
-    - "Atom/Content Role"
-    - "Operator"
-    - "Atom/Claim"
-    - "Atom/Local Tier: Principle"
-    - "Atom/Local Tier: Core"
-    - "Atom/Content Role: Evaluation"
-    - "Atom"
-    - "Atom/Content Role: Plan"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Operations"
-    - "Actor"
+  - Subject/Domain/Node/Continuant/Project
+  - Atom/Local Tier
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Atom/Claim
+  - 'Atom/Local Tier: Principle'
+  - 'Atom/Local Tier: Core'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Subject/Domain/Node/Continuant/Actor
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-210
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Policy
+tier: 1
 ---
 # Evaluate the current Principle and Core set
 

@@ -1,24 +1,24 @@
 ---
 subjects:
-  governs: "Extension"
+  governs: Subject/Domain/Node/Continuant/Scope Unit
   depends_on:
-    - "Methodology Source"
-    - "Core Meta-Model"
-    - "Project Configuration"
-version: 19
-updated_at: "2026-10-03 02:39:08 +0400"
+  - Subject/Domain/Node/Continuant/Scope Unit//METHODOLOGY_SOURCES
+  - Subject/Domain/Node/Continuant/Scope Unit//CORE_META_MODEL
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+version: 24
+updated_at: 2026-10-24 04:38:42 +0400
 relations:
   child_of:
-    - CA-R-831-CORE-REQUIREMENT--add-reusable-capabilities-through-extensions
-    - CAPRMEDIO-REQU-686-CORE-REQUIREMENT--separate-core-extension-and-project-configuration-authority
-atom_id: "CA-R-1722"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-831-CORE-REQUIREMENT--add-reusable-capabilities-through-extensions
+  - CA-R-686
+atom_id: CA-R-1722
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

@@ -8,10 +8,14 @@ global_tier: 13
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Native Revert evidence currentness defect"
-  depends_on: [Operator, Action, Journal, Implementation]
-version: 2
-updated_at: "2026-10-04 23:55:12 +0000"
+  governs: Native Revert evidence currentness defect
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Implementation
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1566, CA-P-1513, CA-P-1568]
 ---

@@ -1,19 +1,24 @@
 ---
-atom_id: "CA-D-617"
-content_role: "Delivery"
+atom_id: CA-D-617
+content_role: Delivery
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public release Pull Request identity"
-  depends_on: [Pull Request, Git Branch, Tool Call]
-version: 2
-updated_at: "2026-10-12 00:41:30 +0000"
+  governs: Subject/Engineering/Public Release/Pull Request Identity
+  depends_on:
+  - Subject/Engineering/Public Release/Pull Request Identity
+  - Git Branch
+  - Subject/Domain/Node/Occurrent/Execution
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  delivery_for: [CA-R-1926, CA-R-1927]
+  delivery_for:
+  - CA-R-1926
+  - CA-R-1927
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

@@ -1,0 +1,45 @@
+---
+cce_version: cce_1
+cce_form: evaluation
+subjects:
+  governs: effect-recovery
+  depends_on:
+  - programmatic software
+version: 7
+updated_at: 2026-10-23 03:17:34 +0400
+relations:
+  evaluation_for:
+  - CA-M-161
+  derived_from:
+  - CA-A-053
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-393@7
+status: Archived
+---
+# Evaluate interruption and recovery boundaries
+
+## Claim checked
+
+a bounded file **or** subprocess effect preserves its declared authoritative state,
+recovery limit, **and** diagnostic evidence **after** interruption.
+
+## Test case
+
+Interrupt one file replacement **after** temporary output is complete but **before**
+the final replacement boundary.
+
+## Acceptance criteria
+
+pass **only** **when** authoritative state is identified, retry behavior is explicit,
+**and** no unexplained partial carrier, lock, process, **or** background task remains.
+
+## Failure disposition
+
+reject the effect boundary **until** recovery is deterministic **or** its weaker limit
+is explicitly accepted.
+
+## Sources
+
+- [Python documentation: `tempfile`](https://docs.python.org/3.14/library/tempfile.html)
+- [CA-M-161 — Bound file and subprocess effects](../05_method/CA-M-161-PROGRAMMATIC-CORE-METHOD--bound-file-and-subprocess-effects.md)

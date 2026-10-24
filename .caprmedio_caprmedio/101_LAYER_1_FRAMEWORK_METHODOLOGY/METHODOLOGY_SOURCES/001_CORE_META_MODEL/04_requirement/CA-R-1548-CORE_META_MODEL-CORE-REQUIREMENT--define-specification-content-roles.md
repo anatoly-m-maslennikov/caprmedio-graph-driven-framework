@@ -1,19 +1,30 @@
 ---
 subjects:
-  governs: "Spec Content Roles"
+  governs: Subject/Domain/Node/Continuant/Selection
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Requirement", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Change Content Roles", "Implementation", "Entity"]
-version: 7
-updated_at: "2026-10-19 15:53:25 +0400"
-relations: {"relates_to": ["CA-R-1339", "CA-R-1340", "CA-R-1341", "CA-R-1342"]}
-atom_id: "CA-R-1548"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Implementation
+  - Subject/Engineering/Carrier
+version: 13
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1339
+  - CA-R-1340
+  - CA-R-1341
+  - CA-R-1342
+atom_id: CA-R-1548
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 
@@ -29,9 +40,9 @@ Specification Content Roles (Spec, RMED) **means** the set (Requirement, Method,
 
 ## Details
 
-- Requirement establishes model definitions **and** required properties **or** boundaries.
-- Method establishes construction **and** authorship conventions.
+- Requirement establishes required outcomes and runtime behavior, including functional and non-functional requirements, and the methodology's own model definitions and constraints.
+- Method establishes how those outcomes are achieved, including architecture, coding policies, engineering decisions, construction and authorship conventions.
 - Evaluation establishes correctness checks.
 - Delivery establishes Carrier contents, representation, **and** placement.
 
-the methodology's own model **and** specification content are also within this specification domain; RMED is **not** limited **to** native Implementation.
+The methodology's own model and specification content are also within this specification domain; RMED is not limited to native Implementation. Subject and Content Role are independent: any RMED Role can govern a Domain, Engineering or global Graph Subject.

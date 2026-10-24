@@ -3,17 +3,27 @@ atom_id: CA-R-1834
 content_role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-14 20:05:43 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/REVERT_CHANGES"
-  depends_on: [Tool, Workflow, Action, Operator, Artifact, Journal, Workflow Run, Step Run]
+  governs: Subject/Engineering/Change Reversal/Guarded Execution
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Occurrent/Execution
 relations:
-  relates_to: [CA-R-1833, CA-O-130, CA-O-131, CA-O-132, CA-R-1525, CA-R-1720]
+  relates_to:
+  - CA-R-1833
+  - CA-O-130
+  - CA-O-131
+  - CA-O-132
+  - CA-R-1525
+  - CA-R-1720
+type: Rule
+tier: 3
 ---
 # Summary
 

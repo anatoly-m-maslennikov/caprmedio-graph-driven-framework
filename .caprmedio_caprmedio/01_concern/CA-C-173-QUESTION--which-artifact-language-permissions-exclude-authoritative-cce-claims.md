@@ -2,18 +2,19 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Claim"
+  governs: Atom/Claim
   depends_on:
-    - "CCE"
-    - "Operator"
-    - "Artifact"
-    - "Projection"
+  - CCE
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Artifact
+  - Subject/Domain/Node/Continuant/Projection
 priority: medium
-version: 1
-updated_at: "2026-09-17 18:10:40 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-173
 ---
 # Which Artifact language permissions exclude authoritative CCE Claims?
 

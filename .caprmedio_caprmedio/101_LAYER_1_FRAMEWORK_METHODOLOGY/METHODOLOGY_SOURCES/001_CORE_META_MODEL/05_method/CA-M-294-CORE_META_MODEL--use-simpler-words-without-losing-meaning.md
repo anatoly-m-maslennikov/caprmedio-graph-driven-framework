@@ -1,28 +1,33 @@
 ---
-version: 7
-updated_at: "2026-10-19 15:54:47 +0400"
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-R-940
-    - CA-R-941
+  - CA-R-940
+  - CA-R-941
   method_for:
-    - CA-R-940
-    - CA-R-941
+  - CA-R-940
+  - CA-R-941
   relates_to:
-    - CA-M-229
-    - CA-R-1273
+  - CA-M-229
+  - CA-R-1273
 subjects:
-  governs: "language"
+  governs: language
   depends_on:
-    ["Author", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "CCE", "Governed Term", "CCE Operator"]
-atom_id: "CA-M-294"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Graph/Rule/CCE
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Engineering/CCE Operator
+atom_id: CA-M-294
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

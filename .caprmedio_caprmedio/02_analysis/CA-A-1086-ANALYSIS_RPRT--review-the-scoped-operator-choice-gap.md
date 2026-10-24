@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Scoped Operator-choice gap acceptance"
-  depends_on: [Operations, Operator, Journal]
-version: 1
-updated_at: "2026-10-04 13:59:14 +0000"
+  governs: Scoped Operator-choice gap acceptance
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Journal
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1371]
   relates_to: [CA-A-1120, CA-A-1127, CA-A-1128, CA-P-1347, CA-P-1130]

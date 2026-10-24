@@ -1,19 +1,23 @@
 ---
 subjects:
-  governs: "Graph of Graphs"
+  governs: Graph of Graphs
   depends_on:
-    ["CAPRMEDIO Graph", "Entity/Node/Continuant/Projection", "Entity/Relation", "Relation Kind", "Single Source of Truth"]
-version: 9
-updated_at: "2026-10-19 15:52:59 +0400"
+  - CAPRMEDIO Graph
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Graph/Relation
+  - Subject/Graph/Relation/Type
+  - Single Source of Truth
+version: 14
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1408"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1408
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

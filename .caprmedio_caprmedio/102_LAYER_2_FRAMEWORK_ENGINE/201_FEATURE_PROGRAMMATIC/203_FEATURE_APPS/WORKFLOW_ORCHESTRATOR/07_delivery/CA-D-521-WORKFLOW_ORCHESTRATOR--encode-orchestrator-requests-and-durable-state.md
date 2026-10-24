@@ -2,17 +2,28 @@
 atom_id: CA-D-521
 content_role: Delivery
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 8
-updated_at: "2026-10-15 01:59:30 +0000"
+version: 13
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Workflow Run/Carrier"
-  depends_on: [Workflow, Action, Atom, Operator, Journal, Implementation, Tool]
+  governs: Subject/Engineering/Carrier
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Workflow Orchestration/DBOS Queue and Worker Coordination
+  - Subject/Engineering/Tool//WORKFLOW_ORCHESTRATOR
 relations:
-  relates_to: [CA-R-1522, CA-R-1523, CA-R-1524, CA-O-104]
+  relates_to:
+  - CA-R-1522
+  - CA-R-1523
+  - CA-R-1524
+  - CA-O-104
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

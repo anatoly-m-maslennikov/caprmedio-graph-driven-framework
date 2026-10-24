@@ -1,24 +1,24 @@
 ---
 subjects:
-  governs: "Artifact/Type"
+  governs: Artifact/Type
   depends_on:
-    - "Artifact"
-    - "Default Settings"
-    - "Type"
-    - "IS_ALLOWED_VALUE_OF"
-version: 11
-updated_at: "2026-10-02 22:41:14 +0400"
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Default Settings
+  - Subject/Domain/Node/Continuant/Projection/Type
+  - IS_ALLOWED_VALUE_OF
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - "CA-R-1765"
-atom_id: "CA-R-1405"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1765
+atom_id: CA-R-1405
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

@@ -1,0 +1,39 @@
+---
+atom_id: CA-P-2604
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 2
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+local_tier: Standard
+global_tier: 8
+author: Anatoly Maslennikov
+status: Active
+version: 1
+updated_at: "2026-10-22T16:08:22Z"
+subjects:
+  governs: Entity/Node/Continuant/Implementation
+  depends_on: []
+relations:
+  is_decomposition_of: [CA-P-2596]
+  depends_on: [CA-P-2603]
+  relates_to: [CA-R-1527, CA-M-405, CA-M-422, CA-M-430, CA-O-016]
+---
+# Summary
+
+Checkpoint canonical Run-session mutations
+
+## Objective
+
+Retain canonical actual Run identities, effects, terminal receipts and recording diagnostics after each session mutation without a Journal completeness requirement.
+
+## Details
+
+At most 15 minutes of own work; split before expanding. One Task per file. Review/update the next dependent Task after actual acceptance. Reuse current PROGRAMMATIC M/E/D, locked uv and canonical source/state owners. Preserve unrelated edits, exact predecessors and business-only Journal semantics. No production MCP traffic, full-suite run, release/deployment, uncertain replay or commit.
+
+Own new selected_integrated_session checkpoint/save modules and focused disposable tests only. Constructor is effect-free; explicit save and lifecycle-compatible hooks persist strict frozen-request/Project/Run-bound state atomically. Keep restore/no-replay acceptance in the next leaf.
+
+### Definition of Done
+
+Retain exact bounded paths and focused functional/type/lint evidence; distinguish storage acceptance from graph/MCP execution and runtime admission.

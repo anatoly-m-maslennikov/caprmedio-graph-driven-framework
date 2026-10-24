@@ -2,18 +2,25 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "runtime"
+  governs: Subject/Engineering/Runtime
   depends_on: []
-version: 11
-updated_at: 2026-09-15 03:15:32 +0400
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a0263a-7510-7672-bce4-58830bc4d184
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a0263a-7510-7672-bce4-58830bc4d184
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   evaluation_for:
-    - CA-M-142
+  - CA-M-142
   derived_from:
-    - CA-A-057
+  - CA-A-057
+atom_id: CA-E-293
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
 ---
 # Keep one Tool runtime and temporary state separate
 

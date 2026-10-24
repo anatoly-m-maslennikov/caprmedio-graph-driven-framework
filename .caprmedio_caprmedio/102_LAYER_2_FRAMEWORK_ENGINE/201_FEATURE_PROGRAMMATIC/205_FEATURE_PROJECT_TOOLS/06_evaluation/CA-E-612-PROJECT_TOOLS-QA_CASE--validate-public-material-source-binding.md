@@ -1,20 +1,23 @@
 ---
-atom_id: "CA-E-612"
-content_role: "Evaluation"
-type: "QA Case"
+atom_id: CA-E-612
+content_role: Evaluation
+type: Eval Case
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public release material source proof"
-  depends_on: [README, Pull Request, Version History, Source Proof]
-version: 3
-updated_at: "2026-10-14 12:27:48 +0000"
+  governs: Subject/Engineering/Release Version/Source Binding
+  depends_on:
+  - README
+  - Subject/Engineering/Pull Request
+  - Subject/Engineering/Release/Version History
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  evaluation_for: [CA-M-366]
+  evaluation_for:
+  - CA-M-366
+tier: 5
 ---
 # Summary
 

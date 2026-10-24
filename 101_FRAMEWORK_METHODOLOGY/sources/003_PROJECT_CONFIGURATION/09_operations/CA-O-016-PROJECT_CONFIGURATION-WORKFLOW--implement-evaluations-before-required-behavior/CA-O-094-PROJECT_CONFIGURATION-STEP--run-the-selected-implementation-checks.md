@@ -11,8 +11,8 @@ subjects:
   governs: "Implementation Evaluation Step"
   depends_on:
     ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Node/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run"]
-version: 9
-updated_at: "2026-10-19 15:56:39 +0400"
+version: 10
+updated_at: "2026-10-22T21:21:30+04:00"
 relations:
   relates_to:
     - CA-O-020
@@ -28,7 +28,7 @@ Run the selected implementation checks
 
 Implementation Evaluation Step **means** the Workflow node invoking **=1** Action, CA-O-020, **in** Integrated context under CA-R-1527.
 
-- bind inputs from the selected P/Plan, exact current candidate **and** phase, prepared tests **and** commands, governing Method Projection **and** R/E/D, relevant complete test inputs, **and** retained issue **and** regression evidence from prior Step results.
+- bind inputs from the selected P/Plan, exact current candidate **and** phase, prepared tests **and** commands, direct full `methods` rows **and** R/E/D, relevant complete test inputs, **and** retained issue **and** regression evidence from prior Step results. An optional legacy `method_projection` may accompany those rows but is not required.
 - use the host's native session/subagent, file, **and** command capabilities; this binding has no MCP prerequisite. missing required context **or** capability returns a blocked invocation, **not** silent execution **in** another context.
 - retain exact Action/Step Revisions, source bindings, actual effects, **and** returned results. pass the Action's result **to** the Workflow **without** independently copying its behavior.
 

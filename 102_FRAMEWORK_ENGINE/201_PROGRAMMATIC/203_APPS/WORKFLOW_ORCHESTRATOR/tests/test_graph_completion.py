@@ -27,6 +27,10 @@ from graph_completion import (  # noqa: E402
 )
 from selected_execution import SelectedExecution, SelectedExecutionError, canonical_json  # noqa: E402
 import backend  # noqa: E402
+import selected_dispatch  # noqa: E402
+import selected_freeze_state  # noqa: E402
+import selected_graph_readback  # noqa: E402
+import selected_graph_reconciliation  # noqa: E402
 
 
 class GraphCompletionTests(unittest.TestCase):
@@ -291,17 +295,19 @@ class GraphCompletionRetainedRunTests(unittest.TestCase):
         )
         execute = MagicMock(side_effect=AssertionError("reconciliation must not rerun the graph builder"))
         no_append = MagicMock(side_effect=AssertionError("result observation must not append a Journal row"))
-        with patch.object(self.runner, "_revalidate", return_value=graph), \
-             patch.object(self.runner, "_shared_tracker", return_value=tracker), \
-             patch.object(self.runner, "run_directory", return_value=self.folder), \
-             patch.object(self.runner, "load", return_value=deepcopy(frozen)), \
-             patch.object(self.runner, "_safe_path", side_effect=lambda ref: self.root / ref), \
-             patch.object(self.runner, "_read", side_effect=lambda path: values[path]), \
-             patch.object(self.runner, "_write", side_effect=lambda path, value: writes.__setitem__(path, value)), \
-             patch.object(self.runner, "_execute_graph", execute), \
-             patch("selected_run_recovery.read_selected_run_evidence", return_value={"events": [{"event": {"event_id": "action-terminal"}}]}), \
-             patch("workflow_run_support._validate_common", return_value=execution), \
-             patch("workflow_run_support._proposal", return_value={"fixture": "proposal"}), \
+        with patch.object(selected_freeze_state, "revalidate", return_value=graph), \
+             patch.object(selected_freeze_state, "load", return_value=deepcopy(frozen)), \
+             patch.object(selected_graph_reconciliation, "shared_tracker", return_value=tracker), \
+             patch.object(selected_graph_reconciliation, "run_directory", return_value=self.folder), \
+             patch.object(selected_graph_reconciliation, "bounded_read", side_effect=lambda path: values[path]), \
+             patch.object(selected_graph_reconciliation, "_validate_common", return_value=execution), \
+             patch.object(selected_graph_reconciliation, "_proposal", return_value={"fixture": "proposal"}), \
+             patch.object(selected_graph_reconciliation, "read_selected_run_evidence", return_value={"events": [{"event": {"event_id": "action-terminal"}}]}), \
+             patch.object(selected_graph_reconciliation.LazyRunTracker, "_session_result", return_value={"disposition": "terminal", "outcome": "completed"}), \
+             patch.object(selected_graph_readback, "bounded_read", side_effect=lambda path: values[path]), \
+             patch.object(selected_graph_readback, "safe_path", side_effect=lambda root, ref: root / ref), \
+             patch.object(selected_graph_reconciliation, "atomic_write", side_effect=lambda path, value: writes.__setitem__(path, value)), \
+             patch("selected_graph_executor.execute_graph", execute), \
              patch("workflow_run_support.RunExecutionSession.restore", return_value=session), \
              patch("work_journal.append_sealed_events", no_append):
             result = self.runner.reconcile_graph_recording(frozen)
@@ -342,20 +348,20 @@ class GraphCompletionRetainedRunTests(unittest.TestCase):
         no_redispatch = MagicMock(side_effect=AssertionError("dispatch must not replay graph construction"))
         no_builder = MagicMock(side_effect=AssertionError("dispatch must not invoke the graph builder"))
         no_write = MagicMock(side_effect=AssertionError("reconciliation dispatch must not add a file write"))
-        with patch.object(self.runner, "run_directory", return_value=self.folder), \
-             patch.object(self.runner, "_read", return_value=retained), \
-             patch.object(self.runner, "load", return_value=deepcopy(frozen)), \
-             patch.object(self.runner, "reconcile_graph_recording", return_value=recovered) as reconcile, \
-             patch.object(self.runner, "_shared_dispatch", no_redispatch), \
-             patch.object(self.runner, "_execute_graph", no_builder), \
-             patch.object(self.runner, "_write", no_write):
+        self.accepted_path.write_bytes(canonical_json(retained))
+        with patch.object(selected_dispatch, "run_directory", return_value=self.folder), \
+             patch.object(selected_dispatch.selected_freeze_state, "load", return_value=deepcopy(frozen)), \
+             patch("selected_graph_reconciliation.reconcile_graph_recording", return_value=recovered) as reconcile, \
+             patch.object(selected_dispatch, "dispatch_admitted_with_failure_boundary", no_redispatch), \
+             patch("selected_graph_executor.execute_graph", no_builder), \
+             patch.object(selected_dispatch, "atomic_write", no_write):
             self.assertIs(recovered, self.runner.dispatch(frozen))
             changed = deepcopy(frozen)
             changed["request"]["execution"]["request_id"] = "changed-fixture-request"
             with self.assertRaises(SelectedExecutionError):
                 self.runner.dispatch(changed)
 
-        reconcile.assert_called_once_with(frozen)
+        reconcile.assert_called_once_with(self.root, self.runner.handlers, frozen)
         no_redispatch.assert_not_called()
         no_builder.assert_not_called()
         no_write.assert_not_called()

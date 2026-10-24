@@ -1,22 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Implementation Overview"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Implementation Overview'
   depends_on:
-    ["Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Artifact", "Implementation Binding", "Entity/Node/Continuant/History/Journal", "Implementation", "Verification"]
-version: 30
-updated_at: "2026-10-19 15:53:46 +0400"
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Engineering/Implementation Binding
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Implementation
+  - Verification
+version: 36
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - CA-R-1634
-    - CA-R-1695
-atom_id: "CA-R-1638"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1634
+  - CA-R-1695
+atom_id: CA-R-1638
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

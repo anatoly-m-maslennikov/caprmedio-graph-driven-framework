@@ -2,25 +2,32 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "Project/information"
+  governs: Project/information
   depends_on:
-    - "Project"
-    - "Artifact"
-    - "Atom"
-    - "Journal"
-    - "Projection"
-    - "Applicable Methodology"
-    - "Operator"
-version: 2
-updated_at: "2026-09-16 20:25:40 +0000"
+  - Subject/Domain/Node/Continuant/Project
+  - Artifact
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   child_of:
-    - "CA-R-1490"
+  - CA-R-1490
   relates_to:
-    - "CA-M-003"
-    - "CA-E-002"
+  - CA-M-003
+  - CA-E-002
+atom_id: CA-M-296
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Implementation Method
+tier: 1
 ---
 # Do not rely on memory files
 

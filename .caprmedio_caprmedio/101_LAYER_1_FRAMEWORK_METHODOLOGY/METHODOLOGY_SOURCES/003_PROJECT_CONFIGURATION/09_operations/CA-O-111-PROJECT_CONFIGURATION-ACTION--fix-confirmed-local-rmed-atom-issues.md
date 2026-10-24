@@ -4,17 +4,28 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 10
-updated_at: "2026-10-19 15:56:57 +0400"
+version: 14
+updated_at: 2026-10-24 00:51:05 +0400
 subjects:
-  governs: "Repair RMED Review Batch"
+  governs: Repair RMED Review Batch
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Entity/Node/Continuant/History/Journal"]
-relations: {"relates_to":["CA-D-496","CA-E-520","CA-O-028","CA-O-067","CA-R-1464"]}
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Autonomous Confidence Threshold
+  - Subject/Domain/Node/Continuant/History/Journal
+relations:
+  relates_to:
+  - CA-D-496
+  - CA-E-520
+  - CA-O-028
+  - CA-O-067
+  - CA-R-1464
+tier: 3
 ---
 # Summary
 

@@ -2,14 +2,21 @@
 cce_version: cce_1
 cce_form: delivery
 subjects:
-  governs: "Applicable Methodology Retrieval Tool/Carrier"
+  governs: Applicable Methodology Retrieval Tool/Carrier
   depends_on:
-    - "Applicable Methodology Retrieval Tool"
-version: 6
-updated_at: 2026-09-06 01:45:12 +0400
+  - Applicable Methodology Retrieval Tool
+version: 11
+updated_at: 2026-10-24 02:14:24 +0400
 relations: {}
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-D-255
+status: Active
+content_role: Delivery
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Decision
+tier: 1
 ---
 # Bind Retrieval Authority and Delivery Places
 

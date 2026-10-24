@@ -1,19 +1,23 @@
 ---
-atom_id: "CA-M-366"
-content_role: "Method"
+atom_id: CA-M-366
+content_role: Method
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public release documentation preparation"
-  depends_on: [README, Pull Request, Version History, Source Proof]
-version: 4
-updated_at: "2026-10-14 12:27:48 +0000"
+  governs: Public release documentation preparation
+  depends_on:
+  - README
+  - Subject/Engineering/Pull Request
+  - Subject/Engineering/Release/Version History
+version: 10
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  method_for: [CA-R-1923]
+  method_for:
+  - CA-R-1923
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

@@ -1,19 +1,26 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Plan.Status: Done"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Status: Done'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Carrier/File Carrier"]
-version: 10
-updated_at: "2026-10-19 15:53:36 +0400"
-relations: {"relates_to": ["CA-R-1575", "CA-R-1579", "CA-R-1599", "CA-R-1539"]}
-atom_id: "CA-R-1583"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Definition of Done'
+  - Subject/Engineering/Carrier/File Carrier
+version: 15
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1575
+  - CA-R-1579
+  - CA-R-1599
+  - CA-R-1539
+atom_id: CA-R-1583
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

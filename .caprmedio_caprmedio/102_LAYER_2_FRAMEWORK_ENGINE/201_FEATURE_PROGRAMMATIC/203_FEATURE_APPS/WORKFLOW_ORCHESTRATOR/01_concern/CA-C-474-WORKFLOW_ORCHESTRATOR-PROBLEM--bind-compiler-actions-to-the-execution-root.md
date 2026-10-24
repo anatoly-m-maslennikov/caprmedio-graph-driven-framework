@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 14
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 18:22:01 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Compiler Action execution-root binding"
-  depends_on: [Runtime, Workflow Run, Action, Project, Journal]
+  governs: Compiler Action execution-root binding
+  depends_on:
+  - Subject/Engineering/Runtime
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Project
+  - Journal
 relations:
   concern_about: [CA-P-1714, CA-P-1624]
 ---

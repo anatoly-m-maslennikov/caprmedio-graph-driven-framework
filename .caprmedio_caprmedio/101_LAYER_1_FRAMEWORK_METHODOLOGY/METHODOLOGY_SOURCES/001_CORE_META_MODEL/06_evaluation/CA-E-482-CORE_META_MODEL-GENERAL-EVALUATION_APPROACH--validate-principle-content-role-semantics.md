@@ -1,30 +1,41 @@
 ---
 subjects:
-  governs: "Atom/Content Role"
+  governs: Subject/Domain/Node/Continuant/Atom/Content Role
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Local Tier: Principle", "Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom/Content Role: Requirement", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Entity/Node/Continuant/Atom/Content Role: Operations", "Implementation", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Actor", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Artifact Carrier"]
-version: 14
-updated_at: "2026-10-19 15:55:09 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Tier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Implementation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Subject/Domain/Node/Continuant/Actor
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Engineering/Carrier
+version: 21
+updated_at: 2026-10-24 01:02:18 +0400
 relations:
   evaluation_for:
-    - CA-R-1531
-    - CA-R-1338
-    - CA-R-1339
-    - CA-R-1340
-    - CA-R-1341
-    - CA-R-1342
-    - CA-R-1530
-    - CA-R-1566
-    - CA-R-1018
-atom_id: "CA-E-482"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 10
+  - CA-R-1531
+  - CA-R-1338
+  - CA-R-1339
+  - CA-R-1340
+  - CA-R-1341
+  - CA-R-1342
+  - CA-R-1530
+  - CA-R-1018
+atom_id: CA-E-482
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 2
 ---
 # Summary
 
@@ -38,7 +49,7 @@ a Principle's Content Role classification.
 
 a Principle's Content Role classification **must** fail this Evaluation **if** its complete Claim's primary contribution does **not** match the applicable Content Role definition.
 
-CAPO **and** I content **must not** acquire Principle through this classification: CA-R-1566 fixes those Atoms at Standard. a Principle governing Actors, Plans, **or** Workflows remains specification **and** **must** be classified by its own RMED contribution.
+CAPO **and** I content **must not** acquire Principle through this classification merely from a role or type label. A Principle is numeric Tier `0` only when its complete Claim satisfies the Project Principle definition and its Project ownership is established; a Principle governing Actors, Plans, **or** Workflows remains specification **and** **must** be classified by its own RMED contribution. This Evaluation imposes no Content-Role or Type-to-Tier restriction.
 
 ## Details
 

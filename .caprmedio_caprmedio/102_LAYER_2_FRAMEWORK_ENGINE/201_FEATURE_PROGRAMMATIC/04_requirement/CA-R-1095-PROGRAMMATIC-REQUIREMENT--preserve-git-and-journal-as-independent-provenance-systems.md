@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: provenance
+  governs: Subject/Engineering/provenance
   depends_on: []
-version: 12
-updated_at: "2026-10-21T17:26:17Z"
+version: 16
+updated_at: 2026-10-24 04:47:50 +0400
 atom_id: CA-R-1095
 content_role: Requirement
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
 relations: {}
+tier: 3
+type: Rule
 ---
 # Summary
 

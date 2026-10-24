@@ -1,20 +1,24 @@
 ---
 atom_id: CA-E-577
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 8
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/diagnostics"
-  depends_on: [Tool, Journal, Evaluation]
+  governs: Subject/Engineering/Tool/FIND_AND_FETCH_JOURNAL_EVENTS/diagnostics
+  depends_on:
+  - Subject/Engineering/Tool//FIND_AND_FETCH_JOURNAL_EVENTS
+  - Subject/Engineering/Journal Event Query
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
 relations:
-  evaluation_for: [CA-R-1865, CA-R-1871]
+  evaluation_for:
+  - CA-R-1865
+  - CA-R-1871
+tier: 4
 ---
 # Summary
 

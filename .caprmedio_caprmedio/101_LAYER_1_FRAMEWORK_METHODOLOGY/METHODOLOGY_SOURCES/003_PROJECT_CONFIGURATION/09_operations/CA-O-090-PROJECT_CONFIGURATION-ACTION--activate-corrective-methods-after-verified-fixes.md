@@ -4,24 +4,33 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Corrective Method Acceptance"
+  governs: Subject/Engineering/Corrective Method Acceptance
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Implementation", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.Author", "Local Tier", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Spec"]
-version: 8
-updated_at: "2026-10-19 15:56:50 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Engineering/Source Check Adoption
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Atom.Author
+  - Subject/Domain/Node/Continuant/Atom.Tier
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Autonomous Confidence Threshold
+  - Spec
+version: 14
+updated_at: 2026-10-24 01:18:03 +0400
 relations:
   relates_to:
-    - CA-O-021
-    - CA-O-020
-    - CA-R-1559
-    - CA-R-1591
-    - CA-M-002
-    - CA-M-262
-global_tier: 11
+  - CA-O-021
+  - CA-O-020
+  - CA-R-1559
+  - CA-R-1591
+  - CA-M-002
+  - CA-M-262
+tier: 3
 ---
 # Summary
 
@@ -37,6 +46,6 @@ Corrective Method Acceptance **means** the Agentic Action that promotes a verifi
 - reuse existing equivalent authority rather than activate a duplicate; retain the recorded Draft's disposition. any supersession **or** governing-authority edit follows its own permission **and** history rules.
 - resolve the effective confidence threshold **and** permissions, including CA-R-1559 for governing-Atom changes. obtain required Operator approval; authorship **or** a passing test never grants permission. an unresolved gate returns `blocked` with the Draft unchanged.
 - **only** after verification **and** admission, promote the new Method under the current Atom identity, Status, Carrier, **and** history rules, preserving its Summary. return `accepted` with actual activated identities/Revisions **and** the governing-baseline change; return `already_covered` for a nonduplicating disposition; return `blocked` for incomplete verification **or** admission.
-- return the accepted Method identities **and** baseline change **to** the separate learning Run. refresh affected Method Projections **and** require current-baseline review **before** later work relies on them; do **not** reopen a completed implementation Run merely **to** make learning part of its completion **or** claim its old evidence proves the changed authority.
+- return the accepted Method identities **and** baseline change **to** the separate learning Run. refresh affected direct Method source bindings **and** require current-baseline review **before** later work relies on them; regenerate an optional derived projection only for a consumer that uses it. do **not** reopen a completed implementation Run merely **to** make learning part of its completion **or** claim its old evidence proves the changed authority.
 
 ## Details

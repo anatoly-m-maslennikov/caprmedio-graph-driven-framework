@@ -1,21 +1,23 @@
 ---
-version: 18
-updated_at: "2026-10-19 15:54:04 +0400"
+version: 23
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - CA-M-001
+  - CA-M-001
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
   depends_on:
-    ["Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom", "Owned Atoms", "Targeting Atoms"]
-atom_id: "CA-R-1775"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom
+  - Owned Atoms
+atom_id: CA-R-1775
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Direct Route Skill Addition"
+  governs: CAPRMEDIO Direct Route Skill Addition
   depends_on:
-    - "Operator"
-    - "CAPRMEDIO Direct Route Skill"
-version: 4
-updated_at: "2026-10-03 00:22:56 +0400"
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - CAPRMEDIO Direct Route Skill
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1560"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+atom_id: CA-R-1560
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

@@ -1,21 +1,25 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
   depends_on:
-    ["Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Scope Unit.Parent", "Entity/Node/Continuant/Scope Unit.Children"]
-version: 23
-updated_at: "2026-10-19 15:54:29 +0400"
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Scope Unit.Parent
+  - Subject/Domain/Node/Continuant/Scope Unit.Children
+version: 29
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-925
-atom_id: "CA-R-926"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-925
+atom_id: CA-R-926
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 5
+type: Rule
 ---
 # Summary
 Let Direct Parents Define Non-Project Goals

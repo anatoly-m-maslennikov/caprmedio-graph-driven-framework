@@ -1,14 +1,17 @@
 """DBOS is the durable scheduler; existing Run evidence remains the observed history."""
 from collections.abc import Mapping
+from concurrent.futures import CancelledError as FutureCancelledError
 import json
 from pathlib import Path
 import signal
+import sys
 import threading
 
 from contracts import Enqueue, EnqueueSelected, Status
 from agent import CodexAgent
-from engine import Coordinator, execute_phase, runtime_fingerprint
+from engine import Coordinator, Interrupted, execute_phase, runtime_fingerprint
 from runtime_config import control_directory, docker_runtime, implementation_mock_runtime
+from runtime_failure_diagnostics import report_failure
 from remote_agent import RemoteAgent
 from selected_execution import SelectedExecution, canonical_json
 from selected_native_providers import SelectedNativeProviders
@@ -463,6 +466,7 @@ def register_execution(DBOS, engine, *, selected_providers=None):
 
 
 def execute_plan(engine, run_id, gather, check, fix, finish, coverage):
+    finishing = False
     try:
         gathered = gather(run_id)
         if gathered['outcome'] != 'running':
@@ -471,50 +475,95 @@ def execute_plan(engine, run_id, gather, check, fix, finish, coverage):
         coverage(run_id, 'gather')
         execute_phase(run_id, 'check', len(request.selection), check, coverage)
         execute_phase(run_id, 'fix', len(request.selection), fix, coverage)
+        finishing = True
         return finish(run_id, 'completed', None)
-    except (ValueError, RuntimeError, OSError) as error:
+    except FutureCancelledError:
+        raise
+    except Exception as error:
+        failure, _secondary = report_failure(
+            engine.root,
+            error,
+            component='WORKFLOW_ORCHESTRATOR',
+            operation='execute_plan',
+            correlation_id=run_id,
+        )
+        reason = str(error) if isinstance(error, Interrupted) else failure.message
+        interrupted = {'workflow_run_id': run_id, 'outcome': 'interrupted', 'reason': reason}
+        if finishing:
+            return interrupted
         try:
-            return finish(run_id, 'interrupted', str(error))
+            return finish(run_id, 'interrupted', reason)
         except FileNotFoundError:
-            engine.save(engine.run_directory(run_id) / 'blocked.json', {'reason': str(error)})
-            return {'workflow_run_id': run_id, 'outcome': 'interrupted', 'reason': str(error)}
+            try:
+                engine.save(engine.run_directory(run_id) / 'blocked.json', {'reason': reason})
+            except Exception:
+                pass
+            return interrupted
+        except Exception:
+            return interrupted
 
 
-def worker(root, *, agent=None, ready_file=None, implementation_agent=None):
+def worker(root, *, agent=None, ready_file=None, implementation_agent=None,
+           _process_boundary=False):
     """Explicitly started foreground process; no implicit daemon or hook installation."""
-    from dbos import DBOS
-    root = Path(root).resolve(strict=True)
-    if implementation_agent is None and implementation_mock_runtime():
-        from implementation_mock_agent import ImplementationMockAgent
-        implementation_agent = ImplementationMockAgent(root)
-    _, url = database(root)
-    default_agent = RemoteAgent() if docker_runtime() else CodexAgent()
-    engine = Coordinator(root, agent or default_agent)
-    stop = threading.Event()
-    scheduler = _scheduler_identity()
-    DBOS(config={'name': scheduler['application'], 'system_database_url': url,
-                 'run_admin_server': False, 'enable_otlp': False,
-                 'application_version': scheduler['app_version'], 'max_executor_threads': 2})
-    register_execution(DBOS, engine, selected_providers=SelectedNativeProviders(
-        root, implementation_agent=implementation_agent))
-
-    previous = {number: signal.getsignal(number) for number in (signal.SIGINT, signal.SIGTERM)}
-    for number in previous:
-        signal.signal(number, lambda *_: stop.set())
+    diagnostic_root = None
+    dbos = None
+    dbos_initialized = False
+    previous = {}
     try:
-        DBOS.launch()
-        DBOS.register_queue(scheduler['queue'], global_concurrency=1, worker_concurrency=1,
+        from dbos import DBOS
+
+        diagnostic_root = Path(root).resolve(strict=True)
+        if implementation_agent is None and implementation_mock_runtime():
+            from implementation_mock_agent import ImplementationMockAgent
+            implementation_agent = ImplementationMockAgent(diagnostic_root)
+        _, url = database(diagnostic_root)
+        default_agent = RemoteAgent() if docker_runtime() else CodexAgent()
+        engine = Coordinator(diagnostic_root, agent or default_agent)
+        stop = threading.Event()
+        scheduler = _scheduler_identity()
+        DBOS(config={'name': scheduler['application'], 'system_database_url': url,
+                     'run_admin_server': False, 'enable_otlp': False,
+                     'application_version': scheduler['app_version'],
+                     'max_executor_threads': 2})
+        dbos = DBOS
+        dbos_initialized = True
+        register_execution(dbos, engine, selected_providers=SelectedNativeProviders(
+            diagnostic_root, implementation_agent=implementation_agent))
+
+        previous = {number: signal.getsignal(number) for number in (signal.SIGINT, signal.SIGTERM)}
+        for number in previous:
+            signal.signal(number, lambda *_: stop.set())
+        dbos.launch()
+        dbos.register_queue(scheduler['queue'], global_concurrency=1, worker_concurrency=1,
                             polling_interval_sec=0.2)
         if ready_file:
             identity = {'state': 'ready',
                 'pid': __import__('os').getpid(),
                 'application_version': scheduler['app_version'],
-                'runtime_fingerprint': runtime_fingerprint(root)}
+                'runtime_fingerprint': runtime_fingerprint(diagnostic_root)}
             engine.save(Path(ready_file), identity)
         stop.wait()
+    except FutureCancelledError:
+        raise
+    except Exception as error:
+        if _process_boundary:
+            raise
+        failure, secondary = report_failure(
+            diagnostic_root,
+            error,
+            component='WORKFLOW_ORCHESTRATOR',
+            operation='worker.startup',
+        )
+        message = f'{failure.code}: {failure.message}'
+        if secondary:
+            message += '; technical diagnostic unavailable'
+        print(message, file=sys.stderr, flush=True)
+        return 1
     finally:
         try:
-            DBOS.destroy()
+            if dbos_initialized:
+                dbos.destroy()
         finally:
             for number, handler in previous.items():
                 signal.signal(number, handler)

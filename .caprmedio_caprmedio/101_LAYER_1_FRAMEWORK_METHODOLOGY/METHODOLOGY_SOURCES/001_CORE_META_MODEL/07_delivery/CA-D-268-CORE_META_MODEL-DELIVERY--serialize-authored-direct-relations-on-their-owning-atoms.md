@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "Entity/Relation"
+  governs: Subject/Graph/Relation
   depends_on:
-    ["Entity/Relation.Source Reference"]
-version: 18
-updated_at: "2026-10-20 00:10:33 +0400"
+  - Subject/Graph/Relation.Source Reference
+version: 21
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-268"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-268
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

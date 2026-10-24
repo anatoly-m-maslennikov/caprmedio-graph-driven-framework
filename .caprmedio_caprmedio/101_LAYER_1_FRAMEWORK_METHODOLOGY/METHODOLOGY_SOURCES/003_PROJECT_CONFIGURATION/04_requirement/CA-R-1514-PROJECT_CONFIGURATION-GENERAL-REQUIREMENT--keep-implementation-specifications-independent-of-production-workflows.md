@@ -1,28 +1,35 @@
 ---
 subjects:
-  governs: "Spec"
+  governs: Spec
   depends_on:
-    - "Project"
-    - "Project Configuration"
-    - "Core Meta-Model"
-    - "Atom/Content Role"
-    - "Atom/Content Role: Operations"
-    - "Atom/Content Role: Implementation"
-    - "Action"
-    - "Workflow"
-    - "Tool"
-version: 6
-updated_at: "2026-10-02 23:58:08 +0400"
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Domain/Node/Continuant/Scope Unit//CORE_META_MODEL
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Atom/Content Role: Implementation'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Engineering/Tool
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  relates_to: [CA-M-002, CA-M-261, CA-R-1516, CA-R-1517, CA-R-1518, CA-R-1519, CA-R-1548]
-atom_id: "CA-R-1514"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  relates_to:
+  - CA-M-002
+  - CA-M-261
+  - CA-R-1516
+  - CA-R-1517
+  - CA-R-1518
+  - CA-R-1519
+  - CA-R-1548
+atom_id: CA-R-1514
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

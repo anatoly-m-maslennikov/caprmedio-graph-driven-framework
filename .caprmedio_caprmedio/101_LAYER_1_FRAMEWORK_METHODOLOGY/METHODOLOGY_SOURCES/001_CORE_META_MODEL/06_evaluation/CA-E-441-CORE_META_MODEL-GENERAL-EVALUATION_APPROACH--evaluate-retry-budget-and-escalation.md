@@ -1,20 +1,31 @@
 ---
-version: 15
-updated_at: "2026-10-15 18:49:16 +0000"
-relations: {"child_of":["CA-E-001"],"evaluation_for":["CA-O-024","CA-O-016","CA-R-1559","CA-M-295"]}
+version: 21
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  child_of:
+  - CA-E-001
+  evaluation_for:
+  - CA-O-024
+  - CA-O-016
+  - CA-R-1559
+  - CA-M-295
 subjects:
-  governs: "Implementation Retry Control"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
   depends_on:
-    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Plan.Autonomous Confidence Threshold", "Entity/Continuant/Object/Project", "Implementation Retry Limit"]
-atom_id: "CA-E-441"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 10
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Engineering/Operation-Local Failure Containment
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+atom_id: CA-E-441
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 6
 ---
 # Summary
 

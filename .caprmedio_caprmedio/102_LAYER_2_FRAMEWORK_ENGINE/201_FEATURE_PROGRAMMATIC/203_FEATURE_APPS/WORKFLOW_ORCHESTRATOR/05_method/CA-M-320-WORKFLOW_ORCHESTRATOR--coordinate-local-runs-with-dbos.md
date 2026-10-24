@@ -2,17 +2,27 @@
 atom_id: CA-M-320
 content_role: Method
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 20:12:24 +0400"
+version: 7
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "Workflow Run/coordination"
-  depends_on: [Workflow, Action, Atom, Operator, Journal, Implementation, Tool]
+  governs: Subject/Engineering/Workflow Orchestration/DBOS Queue and Worker Coordination
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Engineering/Journal Operations
+  - Subject/Engineering/Workflow Orchestration/DBOS Queue and Worker Coordination
 relations:
-  relates_to: [CA-R-1522, CA-R-1523, CA-R-1524, CA-O-104]
+  relates_to:
+  - CA-R-1522
+  - CA-R-1523
+  - CA-R-1524
+  - CA-O-104
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

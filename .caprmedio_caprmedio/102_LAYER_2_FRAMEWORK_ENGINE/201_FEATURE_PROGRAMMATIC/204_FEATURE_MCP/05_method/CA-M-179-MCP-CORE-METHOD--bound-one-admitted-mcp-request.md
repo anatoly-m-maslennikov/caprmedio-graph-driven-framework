@@ -2,17 +2,24 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: "framework-engine-mcp"
+  governs: framework-engine-mcp
   depends_on: []
-version: 7
-updated_at: 2026-09-01 01:55:00 +0400
+version: 12
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
-    - CA-R-1117
+  - CA-R-1117
   derived_from:
-    - CA-A-057
+  - CA-A-057
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-179
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: MCP
+type: Eng Decision
+tier: 2
 ---
 # Bound one admitted MCP request
 

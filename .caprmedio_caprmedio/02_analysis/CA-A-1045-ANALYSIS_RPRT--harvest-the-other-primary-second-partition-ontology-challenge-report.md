@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Other primary second-partition ontology challenge evidence"
-  depends_on: ["Project", "Operations"]
-version: 1
-updated_at: "2026-10-04 12:04:27 +0000"
+  governs: Other primary second-partition ontology challenge evidence
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   relates_to: [CA-P-1327, CA-P-1127, CA-P-1337, CA-A-1040, CA-A-905, CA-A-910, CA-C-348]
 ---

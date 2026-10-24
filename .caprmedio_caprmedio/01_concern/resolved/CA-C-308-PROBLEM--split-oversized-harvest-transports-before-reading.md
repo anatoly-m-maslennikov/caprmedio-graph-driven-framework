@@ -8,11 +8,11 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Harvest transport integrity"
+  governs: Harvest transport integrity
   depends_on:
-    - "Project"
-version: 3
-updated_at: "2026-10-04 13:46:35 +0400"
+  - Subject/Domain/Node/Continuant/Project
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concerns:
     - CA-P-1271

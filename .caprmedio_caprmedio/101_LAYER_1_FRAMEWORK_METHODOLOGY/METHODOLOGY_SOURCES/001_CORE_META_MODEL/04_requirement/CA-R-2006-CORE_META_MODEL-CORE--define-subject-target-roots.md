@@ -1,20 +1,17 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Subjects"
-  depends_on:
-    - "Entity"
-    - "Method"
-atom_id: "CA-R-2006"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-version: 1
-updated_at: "2026-10-21 01:47:52 +0400"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  governs: Subject
+atom_id: CA-R-2006
+content_role: Requirement
+type: Rule
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
+author: Anatoly Maslennikov
 relations: {}
+tier: 1
 ---
 # Summary
 
@@ -22,15 +19,14 @@ Define Subject Target Roots
 
 ## Scope
 
-the first named component of a canonical Subject Target path.
+canonical Subject paths in this model.
 
 ## Claim
 
-a canonical Subject Target path **must** begin with exactly one registered root:
-`Entity` for what a Claim governs or `Method` for how a Method Claim guides work.
+A canonical Subject path **must** start at `Subject`. `Domain` and `Engineering` are the current product-topic branches. `Graph` is a global topic namespace with `Relation` and `Rule` topics that apply within and across branches.
 
 ## Details
 
-the roots are namespaces, not a hierarchy between Entity and Method. a Scope
-Unit path, carrier path, owner path, or implementation-language folder does not
-qualify a Subject Target unless it is explicitly part of the canonical target.
+Domain names what the project means and offers. Engineering names how it is structured, built, stored and operated. Graph names connections and their constraints. these branches do not assign a Content Role and do not replace the kinds described by the graph.
+
+the model can expand. UX and Design are not admitted targets for this migration. a Scope Unit path is not automatically a Subject path.

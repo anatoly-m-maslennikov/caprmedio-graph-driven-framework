@@ -1,20 +1,24 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Selection"
+  governs: Subject/Domain/Node/Continuant/Selection
   depends_on:
-    ["Entity/Node/Continuant/Project", "Entity/Relation"]
-version: 10
-updated_at: "2026-10-19 15:55:08 +0400"
-relations: {"evaluation_for":["CA-R-833","CA-R-808","CA-R-879"]}
-atom_id: "CA-E-481"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 10
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Graph/Relation
+version: 14
+updated_at: 2026-10-24 00:38:25 +0400
+relations:
+  evaluation_for:
+  - CA-R-833
+  - CA-R-808
+  - CA-R-879
+atom_id: CA-E-481
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 2
 ---
 # Summary
 

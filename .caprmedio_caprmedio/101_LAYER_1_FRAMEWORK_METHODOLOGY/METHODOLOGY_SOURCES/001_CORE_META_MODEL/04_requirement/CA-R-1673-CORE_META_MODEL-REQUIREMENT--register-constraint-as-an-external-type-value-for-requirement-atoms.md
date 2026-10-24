@@ -1,19 +1,24 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Constraint"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Constraint'
   depends_on: []
-version: 25
-updated_at: "2026-10-20 16:26:14 +0400"
+version: 28
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  {"child_of": ["CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type"], "relates_to": ["CA-D-393"], "depends_on": ["CA-R-1690"]}
-atom_id: "CA-R-1673"
-content_role: "Requirement"
+  child_of:
+  - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type
+  relates_to:
+  - CA-D-393
+  depends_on:
+  - CA-R-1690
+atom_id: CA-R-1673
+content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

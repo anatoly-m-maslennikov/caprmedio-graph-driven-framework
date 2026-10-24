@@ -1,22 +1,21 @@
 ---
 subjects:
-  governs: "relation-model"
+  governs: Subject/Graph/Relation
   depends_on:
-    - "artifact-model"
-    - "atom-boundary"
-version: 20
-updated_at: "2026-10-02 20:35:16 +0400"
+  - artifact-model
+version: 25
+updated_at: 2026-10-24 01:50:12 +0400
 relations:
   child_of:
-    - "CA-R-1407"
-atom_id: "CA-R-118"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-1407
+atom_id: CA-R-118
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

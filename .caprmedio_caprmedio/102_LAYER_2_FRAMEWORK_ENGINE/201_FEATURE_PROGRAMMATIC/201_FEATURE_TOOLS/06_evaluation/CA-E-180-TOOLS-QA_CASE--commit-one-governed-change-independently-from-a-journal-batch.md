@@ -1,17 +1,24 @@
 ---
 subjects:
-  governs: "Governed Change/Git Commit Creation"
+  governs: Governed Change/Git Commit Creation
   depends_on: []
-version: 19
-updated_at: "2026-09-12 04:12:43 +0400"
+version: 24
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-087
-    - CA-R-805
-    - CA-R-812
-    - CA-D-417
+  - CA-M-087
+  - CA-R-805
+  - CA-R-812
+  - CA-D-417
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-180
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
 ---
 # Commit one governed change independently from a Journal batch
 

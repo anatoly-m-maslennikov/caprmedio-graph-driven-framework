@@ -4,30 +4,47 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Check Atoms"
+  governs: Check Atoms
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Property", "Markdown Atom Carrier.YAML Frontmatter", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/History/Revision/Type: Atom", "Owned Atoms", "Subtree-owned Atoms", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Structure", "Global Tier", "Local Tier", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Entity/Node/Continuant/Projection", "Entity/Relation", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal"]
-version: 10
-updated_at: "2026-10-19 15:56:50 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Property
+  - Subject/Engineering/Carrier/File Carrier.YAML Frontmatter
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Owned Atoms
+  - Subtree-owned Atoms
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Global Tier
+  - Subject/Domain/Node/Continuant/Atom.Tier
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Graph/Relation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 15
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
   relates_to:
-    - CA-R-1598
-    - CA-R-942
-    - CA-R-1447
-    - CA-D-305
-    - CA-D-478
-    - CA-D-479
-    - CA-D-480
-    - CA-D-481
-    - CA-D-482
-    - CA-D-483
-    - CA-E-379
-    - CA-E-506
-global_tier: 11
+  - CA-R-1598
+  - CA-R-942
+  - CA-R-1447
+  - CA-D-305
+  - CA-D-478
+  - CA-D-479
+  - CA-D-480
+  - CA-D-481
+  - CA-D-482
+  - CA-D-483
+  - CA-E-379
+  - CA-E-506
+tier: 3
 ---
 # Summary
 

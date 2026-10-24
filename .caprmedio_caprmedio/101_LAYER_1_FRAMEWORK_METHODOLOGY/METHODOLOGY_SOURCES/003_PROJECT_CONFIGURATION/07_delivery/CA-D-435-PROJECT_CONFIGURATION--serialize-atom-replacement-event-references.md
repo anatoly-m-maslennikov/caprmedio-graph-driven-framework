@@ -1,22 +1,21 @@
 ---
 subjects:
-  governs: "Work Journal/Event/Carrier Serialization"
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
   depends_on:
-    - "Work Journal/Event"
-    - "Atom/Identifier"
-    - "Atom/Revision"
-    - "Entity/Carrier"
-version: 11
-updated_at: "2026-10-19 15:56:22 +0400"
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Engineering/Carrier
+version: 15
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-435"
-content_role: "Delivery"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-435
+content_role: Delivery
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

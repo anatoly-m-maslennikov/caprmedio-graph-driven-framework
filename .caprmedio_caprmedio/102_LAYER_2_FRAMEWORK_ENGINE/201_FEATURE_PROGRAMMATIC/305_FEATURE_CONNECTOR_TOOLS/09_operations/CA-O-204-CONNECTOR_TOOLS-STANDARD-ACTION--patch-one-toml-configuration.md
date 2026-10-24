@@ -4,17 +4,26 @@ content_role: Operations
 type: Action
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Tool","Project Configuration","Property","Action"]
-version: 3
-updated_at: "2026-10-13 02:45:51 +0400"
+  governs: Subject/Engineering/TOML Configuration Modify Operation
+  depends_on:
+  - Subject/Domain/Node/Continuant/Governing Configuration
+  - Subject/Engineering/TOML Configuration Field
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+version: 5
+updated_at: 2026-10-24 00:38:25 +0400
 relations:
-  relates_to: [CA-R-1936, CA-M-376, CA-D-625, CA-O-205, CA-O-206, CA-O-218, CA-D-631]
+  relates_to:
+  - CA-R-1936
+  - CA-M-376
+  - CA-D-625
+  - CA-O-205
+  - CA-O-206
+  - CA-O-218
+  - CA-D-631
+tier: 3
 ---
 # Summary
 

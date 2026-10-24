@@ -27,6 +27,8 @@ from selected_execution import (  # noqa: E402
     manifest_relative_path,
     make_revert_action_handler,
 )
+from selected_evidence_io import safe_path  # noqa: E402
+import selected_graph_validation  # noqa: E402
 from selected_routes import SELECTED_ROUTE_NAMES  # noqa: E402
 from test_selected_routes_mcp import copy_complete_selected_guard_fixture  # noqa: E402
 
@@ -56,22 +58,29 @@ class SelectedExecutionTests(unittest.TestCase):
         self._write_definitions()
         self._write_manifest()
         if getattr(self, "isolate_registry_admission", True):
-            actual_loader = SelectedExecution._load_manifest
+            actual_loader = selected_graph_validation.load_manifest
 
-            def unit_manifest_loader(queue, execution):
-                if queue.root != self.root.resolve():
-                    return actual_loader(queue, execution)
+            def unit_manifest_loader(root, execution):
+                root = Path(root).resolve()
+                if root != self.root.resolve():
+                    return actual_loader(root, execution)
                 reference = execution["definition_manifest"]["manifest_ref"]
-                path = queue._safe_path(reference)
-                if path.relative_to(queue.root).as_posix() != manifest_relative_path(queue.root):
+                path = safe_path(root, reference)
+                if path.relative_to(root).as_posix() != manifest_relative_path(root):
                     raise SelectedExecutionError("selected definition manifest location is not admitted")
                 manifest = json.loads(path.read_text())
-                observed = digest(queue._manifest_without_digest(manifest))
+                unsigned = dict(manifest)
+                unsigned.pop("canonical_manifest_sha256", None)
+                observed = digest(unsigned)
                 if manifest.get("canonical_manifest_sha256") != observed or execution["definition_manifest"]["manifest_digest"] != observed:
                     raise SelectedExecutionError("selected definition manifest digest is stale or invalid")
                 return manifest, reference, observed
 
-            isolation = patch.object(SelectedExecution, "_load_manifest", autospec=True, side_effect=unit_manifest_loader)
+            isolation = patch.object(
+                selected_graph_validation,
+                "load_manifest",
+                side_effect=unit_manifest_loader,
+            )
             isolation.start()
             self.addCleanup(isolation.stop)
 

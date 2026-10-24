@@ -2,19 +2,20 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Demand"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Demand'
   depends_on:
-    - "Consumer"
-    - "Producer"
-    - "Scope Unit"
-    - "Atom/Claim"
-    - "Atom/Claim/Scope Unit"
+  - Consumer
+  - Producer
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Atom/Claim
+  - Atom/Claim/Scope Unit
 priority: medium
-version: 1
-updated_at: "2026-09-17 16:59:23 +0000"
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-166
 ---
 # How should the legacy MCP-to-SKILLS interface contract be represented?
 

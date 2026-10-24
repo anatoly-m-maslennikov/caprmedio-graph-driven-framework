@@ -17,7 +17,6 @@ from project_settings_schema import _string
 
 
 _FIELD_LIMIT = 512
-_PATH_LIMIT = 512
 _RECORD_LIMIT = 4_096
 _SEVERITIES = frozenset({"ERROR", "WARNING", "INFO", "DEBUG"})
 _SECRET = re.compile(
@@ -53,9 +52,8 @@ def _runtime_version() -> str | None:
         version = document.get("framework", {}).get("version")
         if type(version) is str and version:
             return _sanitize(version)
-    except (OSError, UnicodeError, tomllib.TOMLDecodeError, AttributeError):
+    except OSError, UnicodeError, tomllib.TOMLDecodeError, AttributeError:
         return None
-    return None
 
 
 def _runtime_environment() -> str:
@@ -65,12 +63,8 @@ def _runtime_environment() -> str:
     return "docker" if Path("/.dockerenv").is_file() else "host"
 
 
-def _json_line(record: Mapping[str, str]) -> str:
-    return json.dumps(record, ensure_ascii=False, separators=(",", ":"))
-
-
 def _render(record: dict[str, str]) -> str:
-    line = _json_line(record)
+    line = json.dumps(record, ensure_ascii=False, separators=(",", ":"))
     if len((line + "\n").encode("utf-8")) > _RECORD_LIMIT:
         raise ValueError("technical diagnostic record exceeds bounded output size")
     return line
@@ -80,48 +74,78 @@ def _render(record: dict[str, str]) -> str:
 class TechnicalDiagnosticLogger:
     """Emit one bounded diagnostic record without touching Project state."""
 
-    project_prefix: str
-    root: Path
+    project_prefix: str | None
+    root: Path | None
     version: str
     stream: TextIO
     environment: str
     component: str = "ATOM_SEARCH"
 
-    def _record(self, *, code: str, relative_path: str, reason: str,
-                correlation_id: str | None, severity: str = "WARNING",
-                event: str = "atom_schema_invalid", operation: str = "atom_search",
-                outcome: str = "skipped", exception_class: str | None = None) -> dict[str, str]:
+    def _record(
+        self,
+        *,
+        code: str,
+        relative_path: str,
+        reason: str,
+        correlation_id: str | None,
+        severity: str = "WARNING",
+        event: str = "atom_schema_invalid",
+        operation: str = "atom_search",
+        outcome: str = "skipped",
+        exception_class: str | None = None,
+    ) -> dict[str, str]:
         record: dict[str, str] = {
-            "timestamp": datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z"),
+            "timestamp": datetime.now(timezone.utc)
+            .isoformat(timespec="milliseconds")
+            .replace("+00:00", "Z"),
             "severity": _sanitize(severity, limit=32),
             "event": _sanitize(event, limit=128),
             "component": _sanitize(self.component, limit=128),
             "environment": _sanitize(self.environment, limit=128),
             "version": _sanitize(self.version, limit=128),
-            "project_prefix": self.project_prefix,
             "operation": _sanitize(operation, limit=128),
             "outcome": _sanitize(outcome, limit=64),
             "code": _sanitize(code, limit=128),
-            "relative_path": _sanitize(relative_path, limit=_PATH_LIMIT, root=self.root),
+            "relative_path": _sanitize(relative_path, limit=_FIELD_LIMIT, root=self.root),
             "reason": _sanitize(reason, limit=_FIELD_LIMIT, root=self.root),
         }
+        if self.project_prefix is None:
+            record["project_binding"] = "unbound"
+        else:
+            record["project_prefix"] = self.project_prefix
         if correlation_id is not None:
             record["correlation_id"] = _sanitize(correlation_id, limit=128)
         if exception_class is not None:
             record["exception_class"] = _sanitize(exception_class, limit=128)
         return record
 
-    def emit(self, *, code: str, relative_path: str, reason: str,
-             correlation_id: str | None = None, severity: str = "WARNING",
-             event: str = "atom_schema_invalid", operation: str = "atom_search",
-             outcome: str = "skipped", exception_class: str | None = None) -> str | None:
+    def emit(
+        self,
+        *,
+        code: str,
+        relative_path: str,
+        reason: str,
+        correlation_id: str | None = None,
+        severity: str = "WARNING",
+        event: str = "atom_schema_invalid",
+        operation: str = "atom_search",
+        outcome: str = "skipped",
+        exception_class: str | None = None,
+    ) -> str | None:
         if severity not in _SEVERITIES:
             return "invalid diagnostic severity"
         try:
-            record = self._record(code=code, relative_path=relative_path, reason=reason,
-                                  correlation_id=correlation_id, severity=severity,
-                                  event=event, operation=operation, outcome=outcome,
-                                  exception_class=exception_class)
+            record = self._record(
+                code=code,
+                relative_path=relative_path,
+                reason=reason,
+                correlation_id=correlation_id,
+                severity=severity,
+                event=event,
+                operation=operation,
+                outcome=outcome,
+                exception_class=exception_class,
+            )
             self.stream.write(_render(record) + "\n")
             self.stream.flush()
         except Exception as error:
@@ -129,9 +153,13 @@ class TechnicalDiagnosticLogger:
         return None
 
 
-def make_technical_logger(settings: Mapping[str, object], root: Path, *,
-                          stream: TextIO | None = None,
-                          environment: str | None = None) -> tuple[TechnicalDiagnosticLogger | None, str | None]:
+def make_technical_logger(
+    settings: Mapping[str, object],
+    root: Path,
+    *,
+    stream: TextIO | None = None,
+    environment: str | None = None,
+) -> tuple[TechnicalDiagnosticLogger | None, str | None]:
     """Build a logger from the already validated, bound Project Settings view."""
 
     try:
@@ -142,10 +170,31 @@ def make_technical_logger(settings: Mapping[str, object], root: Path, *,
     if version is None:
         return None, "framework version is unavailable"
     return TechnicalDiagnosticLogger(
-        prefix, root, version,
+        prefix,
+        root,
+        version,
         stream if stream is not None else sys.stderr,
         environment or _runtime_environment(),
     ), None
 
 
-__all__ = ["TechnicalDiagnosticLogger", "make_technical_logger"]
+def make_unbound_technical_logger(
+    component: str = "RUNTIME",
+    stream: TextIO | None = None,
+    environment: str | None = None,
+) -> tuple[TechnicalDiagnosticLogger | None, str | None]:
+    """Build a safe diagnostic logger without inventing Project identity."""
+    version = _runtime_version()
+    if version is None:
+        return None, "framework version is unavailable"
+    return TechnicalDiagnosticLogger(
+        None,
+        None,
+        version,
+        stream if stream is not None else sys.stderr,
+        environment or _runtime_environment(),
+        component,
+    ), None
+
+
+__all__ = ["TechnicalDiagnosticLogger", "make_technical_logger", "make_unbound_technical_logger"]

@@ -3,25 +3,25 @@ atom_id: CA-O-114
 content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 14:55:01 +0000"
+version: 7
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "Execution context retrieval"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   depends_on:
-    - "Tool"
-    - "Action"
-    - "Workflow"
-    - "Atom"
-    - "Scope Unit"
-    - "Implementation"
-    - "Workflow Run"
-    - "Journal"
+  - Subject/Engineering/Programmatic Action/Execution Context Retrieval Adapter
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
-  relates_to: [CA-R-1806, CA-D-514]
+  relates_to:
+  - CA-R-1806
+  - CA-D-514
+tier: 3
 ---
 # Summary
 

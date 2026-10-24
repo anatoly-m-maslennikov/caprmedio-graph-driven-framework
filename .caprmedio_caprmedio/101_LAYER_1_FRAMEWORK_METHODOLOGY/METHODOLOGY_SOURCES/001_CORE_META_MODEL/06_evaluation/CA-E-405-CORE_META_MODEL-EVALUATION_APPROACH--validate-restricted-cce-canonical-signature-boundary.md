@@ -1,23 +1,24 @@
 ---
 subjects:
-  governs: "Canonical Signature Derivation Validation"
+  governs: Canonical Signature Derivation Validation
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Atom Claim Canonical Signature", "CCE Operator"]
-version: 13
-updated_at: "2026-10-19 15:54:59 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Atom Claim Canonical Signature
+  - Subject/Engineering/CCE Operator
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1360
-    - CA-M-240
-atom_id: "CA-E-405"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-R-1360
+  - CA-M-240
+atom_id: CA-E-405
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 5
 ---
 # Summary
 

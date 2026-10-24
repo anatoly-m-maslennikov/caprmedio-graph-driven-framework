@@ -1,23 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Framework Settings.Authority Modes"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings.Authority Modes
   depends_on:
-    ["Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Project.Structure", "Authority Mode", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom"]
-version: 11
-updated_at: "2026-10-19 15:53:03 +0400"
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Project.Framework Settings.Authority Modes
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom
+version: 17
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - "CA-R-1402"
+  - CA-R-1402
   relates_to:
-    - "CA-M-279"
-atom_id: "CA-R-1430"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-M-279
+atom_id: CA-R-1430
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 

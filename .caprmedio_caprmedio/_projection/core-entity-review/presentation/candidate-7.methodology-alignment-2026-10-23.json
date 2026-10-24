@@ -1,0 +1,319 @@
+{
+  "kind": "authored_methodology_change_record",
+  "date": "2026-10-23",
+  "complete": false,
+  "authority_root": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES",
+  "authorization": "Operator requested Candidate7 application; existing direct-file authorization retained for same methodology Epic",
+  "changes": [
+    {
+      "action": "same_id_update",
+      "atom_id": "CA-R-1339",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+      "from_version": 18,
+      "to_version": 19,
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1339@18-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md"
+    },
+    {
+      "action": "same_id_update",
+      "atom_id": "CA-R-1340",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+      "from_version": 18,
+      "to_version": 19,
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1340@18-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md"
+    },
+    {
+      "action": "same_id_update",
+      "atom_id": "CA-R-1548",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md",
+      "from_version": 8,
+      "to_version": 9,
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1548@8-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md"
+    },
+    {
+      "action": "same_id_update",
+      "atom_id": "CA-R-1694",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+      "from_version": 26,
+      "to_version": 27,
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1694@26-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md"
+    },
+    {
+      "action": "same_id_update",
+      "atom_id": "CA-R-2004",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2004-CORE_META_MODEL-CORE--define-subject-target.md",
+      "from_version": 2,
+      "to_version": 3,
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2004@2-CORE_META_MODEL-CORE--define-subject-target.md"
+    },
+    {
+      "action": "same_id_update",
+      "atom_id": "CA-R-2006",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2006-CORE_META_MODEL-CORE--define-subject-target-roots.md",
+      "from_version": 2,
+      "to_version": 3,
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2006@2-CORE_META_MODEL-CORE--define-subject-target-roots.md"
+    },
+    {
+      "action": "same_id_update",
+      "atom_id": "CA-R-1665",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1665-PROJECT_CONFIGURATION-REQUIREMENT--register-type-values-for-delivery-atoms.md",
+      "from_version": 24,
+      "to_version": 25,
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/archive/CA-R-1665@24-PROJECT_CONFIGURATION-REQUIREMENT--register-type-values-for-delivery-atoms.md"
+    },
+    {
+      "action": "successor_replacement",
+      "retired_id": "CA-R-2111",
+      "successor_id": "CA-R-2119",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2119-CORE_META_MODEL-CORE--define-method-eng-policy-type.md",
+      "from_version": 1,
+      "to_version": 1,
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2111@1-CORE_META_MODEL-CORE--define-method-policy-type.md",
+      "removed_current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2111-CORE_META_MODEL-CORE--define-method-policy-type.md"
+    },
+    {
+      "action": "successor_replacement",
+      "retired_id": "CA-R-2112",
+      "successor_id": "CA-R-2120",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2120-CORE_META_MODEL-CORE--define-method-eng-decision-type.md",
+      "from_version": 1,
+      "to_version": 1,
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2112@1-CORE_META_MODEL-CORE--define-method-engineering-decision-type.md",
+      "removed_current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2112-CORE_META_MODEL-CORE--define-method-engineering-decision-type.md"
+    },
+    {
+      "action": "successor_replacement",
+      "retired_id": "CA-R-2113",
+      "successor_id": "CA-R-2121",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2121-CORE_META_MODEL-CORE--define-delivery-eng-policy-type.md",
+      "from_version": 1,
+      "to_version": 1,
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2113@1-CORE_META_MODEL-CORE--define-delivery-policy-type.md",
+      "removed_current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2113-CORE_META_MODEL-CORE--define-delivery-policy-type.md"
+    },
+    {
+      "action": "successor_replacement",
+      "retired_id": "CA-R-2114",
+      "successor_id": "CA-R-2122",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2122-CORE_META_MODEL-CORE--define-delivery-eng-decision-type.md",
+      "from_version": 1,
+      "to_version": 1,
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2114@1-CORE_META_MODEL-CORE--define-delivery-engineering-decision-type.md",
+      "removed_current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2114-CORE_META_MODEL-CORE--define-delivery-engineering-decision-type.md"
+    },
+    {
+      "action": "creation",
+      "atom_id": "CA-R-2123",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-2123-PROJECT_CONFIGURATION-CORE--limit-programmatic-method-and-delivery-types.md",
+      "to_version": 1
+    }
+  ],
+  "observed_carriers": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+      "sha256": "9c12fee2cbff28137995fde6d6e3998b9f0ee512bb7504ccc428dcadac9286ad",
+      "atom_id": "CA-R-1339",
+      "version": 19,
+      "status": "Active",
+      "updated_at": "2026-10-23 22:33:09 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1339@18-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+      "sha256": "493cd1c67ae008d4f8c9e5815e9c897eb78659674daa39cc21088865f5d1c156",
+      "atom_id": "CA-R-1339@18",
+      "version": 18,
+      "status": "Archived",
+      "updated_at": "2026-10-23 03:20:06 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+      "sha256": "6cb1ba279852dea1749eec63aba86d3d5a6b136d885de31fbb2ef88d08011ecf",
+      "atom_id": "CA-R-1340",
+      "version": 19,
+      "status": "Active",
+      "updated_at": "2026-10-23 22:33:09 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1340@18-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+      "sha256": "83a7b8b2ad1bc248ce0fe3b0c3a2d8f8b9d19a4348f74514533ff23b3b36697b",
+      "atom_id": "CA-R-1340@18",
+      "version": 18,
+      "status": "Archived",
+      "updated_at": "2026-10-23 03:20:06 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md",
+      "sha256": "64d5eaf04e894435ff74d60dafdfd60074400361a7efe74355103db0a9300fd8",
+      "atom_id": "CA-R-1548",
+      "version": 9,
+      "status": "Active",
+      "updated_at": "2026-10-23 22:33:09 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1548@8-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md",
+      "sha256": "2396db66bbcf63556b679ebcb81dd62c54abda1b1a593a9e8a4c332aa81df9cb",
+      "atom_id": "CA-R-1548@8",
+      "version": 8,
+      "status": "Archived",
+      "updated_at": "2026-10-23 03:06:32 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+      "sha256": "d9056ba625b14ca34b1189c496bbcb8a128d94dae22c03e5e88a4c6af3270a65",
+      "atom_id": "CA-R-1694",
+      "version": 27,
+      "status": "Active",
+      "updated_at": "2026-10-23 22:33:09 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1694@26-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+      "sha256": "5e4b0e1aae285f0667261737ced8b0227f555f6f204db7c06cf38d1ac036b7c9",
+      "atom_id": "CA-R-1694@26",
+      "version": 26,
+      "status": "Archived",
+      "updated_at": "2026-10-23 03:20:06 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2004-CORE_META_MODEL-CORE--define-subject-target.md",
+      "sha256": "e831bb12ea5f68dd7eda8b8a17bbe121791901ec06eb1e2c419cb0f63b619a0a",
+      "atom_id": "CA-R-2004",
+      "version": 3,
+      "status": "Active",
+      "updated_at": "2026-10-23 22:33:09 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2004@2-CORE_META_MODEL-CORE--define-subject-target.md",
+      "sha256": "1227b32ad9ded97fec93cd3690b617777c62e1572d38dd522305380a76131926",
+      "atom_id": "CA-R-2004@2",
+      "version": 2,
+      "status": "Archived",
+      "updated_at": "2026-10-22 16:26:09 +0000"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2006-CORE_META_MODEL-CORE--define-subject-target-roots.md",
+      "sha256": "a7bcfa0b09f5116ee4ff4fe4e91d97a07240621d8973f7136b4f5a9793a57b81",
+      "atom_id": "CA-R-2006",
+      "version": 3,
+      "status": "Active",
+      "updated_at": "2026-10-23 22:33:09 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2006@2-CORE_META_MODEL-CORE--define-subject-target-roots.md",
+      "sha256": "f4897d7257c4e10a51320830f21ca8fbab63f3d4072e1eb98b172bc378bea6ca",
+      "atom_id": "CA-R-2006@2",
+      "version": 2,
+      "status": "Archived",
+      "updated_at": "2026-10-22 16:26:09 +0000"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2119-CORE_META_MODEL-CORE--define-method-eng-policy-type.md",
+      "sha256": "e7089c54d8fe1ed91d85044c29bf0e7a42c3c7a770d1c86ecb80761ce816141e",
+      "atom_id": "CA-R-2119",
+      "version": 1,
+      "status": "Active",
+      "updated_at": "2026-10-23 22:36:33 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2111@1-CORE_META_MODEL-CORE--define-method-policy-type.md",
+      "sha256": "d24aee9f292e4dd8b004322b712d5e7bae9c87d17a3e16f3ee250004738daa25",
+      "atom_id": "CA-R-2111@1",
+      "version": 1,
+      "status": "Archived",
+      "updated_at": "2026-10-22 16:15:10 +0000"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2120-CORE_META_MODEL-CORE--define-method-eng-decision-type.md",
+      "sha256": "b1d7d82cecf94d7c0178d2da92c7df55217c8387f47f2d4658169543b314bd08",
+      "atom_id": "CA-R-2120",
+      "version": 1,
+      "status": "Active",
+      "updated_at": "2026-10-23 22:36:33 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2112@1-CORE_META_MODEL-CORE--define-method-engineering-decision-type.md",
+      "sha256": "8e1d425c71168db5ea739815c4ac772e0605f17b541c18078aafe032571308de",
+      "atom_id": "CA-R-2112@1",
+      "version": 1,
+      "status": "Archived",
+      "updated_at": "2026-10-22 16:15:10 +0000"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2121-CORE_META_MODEL-CORE--define-delivery-eng-policy-type.md",
+      "sha256": "8d1e334b6c7102ef48965a079db99059501b23ba701edfe59be75d7ce0a28095",
+      "atom_id": "CA-R-2121",
+      "version": 1,
+      "status": "Active",
+      "updated_at": "2026-10-23 22:36:33 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2113@1-CORE_META_MODEL-CORE--define-delivery-policy-type.md",
+      "sha256": "feaebdbc74051a00375d4599569c30211e6f12442cf9c60c711337780bb07f56",
+      "atom_id": "CA-R-2113@1",
+      "version": 1,
+      "status": "Archived",
+      "updated_at": "2026-10-22 16:15:10 +0000"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2122-CORE_META_MODEL-CORE--define-delivery-eng-decision-type.md",
+      "sha256": "1a4a544e9ac840e248b84e7edd02eb2cac1de6d46bf0201e7e38559009783c24",
+      "atom_id": "CA-R-2122",
+      "version": 1,
+      "status": "Active",
+      "updated_at": "2026-10-23 22:36:33 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2114@1-CORE_META_MODEL-CORE--define-delivery-engineering-decision-type.md",
+      "sha256": "dea4b5cd3b2fcb1be2ff0ad2aa077470e5e664f6b0317c03e42ce09b97838d9c",
+      "atom_id": "CA-R-2114@1",
+      "version": 1,
+      "status": "Archived",
+      "updated_at": "2026-10-22 16:15:10 +0000"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1665-PROJECT_CONFIGURATION-REQUIREMENT--register-type-values-for-delivery-atoms.md",
+      "sha256": "00791f1c6150b1ad67cc52fbbab90442fda8a4d6be079f23c04b6bb7b50f4f49",
+      "atom_id": "CA-R-1665",
+      "version": 25,
+      "status": "Active",
+      "updated_at": "2026-10-23 22:36:33 +0400"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/archive/CA-R-1665@24-PROJECT_CONFIGURATION-REQUIREMENT--register-type-values-for-delivery-atoms.md",
+      "sha256": "cee373e2dc7e1cb76653f1e987839e5a557c7110b930d3ad0b32db4fb9a7e696",
+      "atom_id": "CA-R-1665@24",
+      "version": 24,
+      "status": "Archived",
+      "updated_at": "2026-10-22 16:34:15 +0000"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-2123-PROJECT_CONFIGURATION-CORE--limit-programmatic-method-and-delivery-types.md",
+      "sha256": "53f4716608a60ba6856c021b2be142461999092d85bc8a1094919ddcc3faf491",
+      "atom_id": "CA-R-2123",
+      "version": 1,
+      "status": "Active",
+      "updated_at": "2026-10-23 22:36:33 +0400"
+    }
+  ],
+  "verification": {
+    "exact_content_readback": "passed",
+    "yaml_and_identity_checks": "passed",
+    "independent_role_batch_review": "passed",
+    "independent_type_batch_review": "passed"
+  },
+  "exclusions": {
+    "tools_code_runtime": "unchanged by this increment",
+    "journal_append": "not performed",
+    "graph_rebuild": "not performed",
+    "commit_release": "not performed",
+    "full_consumer_classification": "not completed",
+    "numeric_tier_and_structural_level_data": "not migrated"
+  },
+  "holds": [
+    "CA-E-567",
+    "CA-R-1847",
+    "CA-R-1848",
+    "CA-D-547",
+    "CA-E-568",
+    "CA-A-1142"
+  ]
+}

@@ -1,6 +1,7 @@
 """Constrained executor using existing Workflow prompts, report admission and Journal."""
 import hashlib
 import json
+from concurrent.futures import CancelledError as FutureCancelledError
 from pathlib import Path
 import re
 import sys
@@ -9,6 +10,7 @@ import tomllib
 from contracts import AgentOutput, Enqueue
 
 TOOLS = Path(__file__).resolve().parents[2] / '201_TOOLS'
+sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(TOOLS / 'RMED_ATOMS_BASE_REVISE'))
 sys.path.insert(0, str(TOOLS / 'VALIDATE_ATOMS'))
 from rmed_atoms_base_revise import run as coordinate, validate_report, PROMPTS  # noqa: E402
@@ -17,6 +19,7 @@ from workflow_progress import report_progress  # noqa: E402
 from validate_atoms_workers.parsing import parse_carrier, CarrierError  # noqa: E402
 from coverage import assess  # noqa: E402
 from replacement import Replacement  # noqa: E402
+from runtime_failure_diagnostics import report_failure  # noqa: E402
 from runtime_config import control_directory  # noqa: E402
 
 
@@ -29,8 +32,13 @@ def execute_phase(run_id, phase, count, action, coverage):
     try:
         for ordinal in range(count):
             action(run_id, ordinal)
+    except FutureCancelledError:
+        raise
     except (ValueError, RuntimeError, OSError) as error:
-        coverage(run_id, phase, str(error))
+        try:
+            coverage(run_id, phase, str(error))
+        except Interrupted:
+            raise
         raise
     coverage(run_id, phase)
 
@@ -48,6 +56,13 @@ def runtime_fingerprint(root=None):
     project_root = Path(root).resolve(strict=True) if root is not None else app.parents[3]
     paths = [app / name for name in ('contracts.py', 'engine.py', 'agent.py', 'backend.py',
         'coverage.py', 'replacement.py', 'remote_agent.py', 'runtime_config.py')]
+    paths.append(app / 'orchestrator.py')
+    paths.extend(TOOLS / name for name in (
+        'operation_error_boundary.py', 'runtime_failure_diagnostics.py',
+        'runtime_process_boundary.py', 'technical_diagnostics.py',
+        'project_selection.py', 'project_settings_schema.py',
+        'VALIDATE_ATOMS/validate_atoms_workers/read_io.py',
+        'VALIDATE_ATOMS/validate_atoms_workers/settings.py'))
     paths.extend(app / 'docker' / name for name in (
         'agent_service.py', 'entrypoint.py', 'Dockerfile', 'compose.yaml',
         'auth.compose.yaml', 'mock.compose.yaml'))
@@ -308,6 +323,7 @@ class Coordinator:
         return gate
 
     def execute(self, run_id):
+        finishing = False
         try:
             self.gather(run_id)
             state = self.store.load(run_id)
@@ -316,10 +332,29 @@ class Coordinator:
             self.coverage_gate(run_id, 'gather')
             execute_phase(run_id, 'check', len(state['selection']), self.check, self.coverage_gate)
             execute_phase(run_id, 'fix', len(state['selection']), self.fix, self.coverage_gate)
+            finishing = True
             return self.finish(run_id)
-        except (ValueError, RuntimeError, OSError) as error:
+        except FutureCancelledError:
+            raise
+        except Exception as error:
+            failure, _secondary = report_failure(
+                self.root,
+                error,
+                component='WORKFLOW_ORCHESTRATOR',
+                operation='coordinator.execute',
+                correlation_id=run_id,
+            )
+            reason = str(error) if isinstance(error, Interrupted) else failure.message
+            interrupted = {'workflow_run_id': run_id, 'outcome': 'interrupted', 'reason': reason}
+            if finishing:
+                return interrupted
             try:
-                return self.finish(run_id, 'interrupted', str(error))
+                return self.finish(run_id, 'interrupted', reason)
             except FileNotFoundError:
-                self.save(self.run_directory(run_id) / 'blocked.json', {'reason': str(error)})
-                return {'workflow_run_id': run_id, 'outcome': 'interrupted', 'reason': str(error)}
+                try:
+                    self.save(self.run_directory(run_id) / 'blocked.json', {'reason': reason})
+                except Exception:
+                    pass
+                return interrupted
+            except Exception:
+                return interrupted

@@ -2,16 +2,23 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "Project/information"
+  governs: Project/information
   depends_on:
-    - "Project"
-    - "CAPRMEDIO Framework Instance"
-    - "Atom/Content Role: Implementation"
-version: 1
-updated_at: "2026-09-16 20:25:40 +0000"
+  - Subject/Domain/Node/Continuant/Project
+  - CAPRMEDIO Framework Instance
+  - 'Atom/Content Role: Implementation'
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-R-1490
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Goal
+tier: 0
 ---
 # Preserve valuable information
 

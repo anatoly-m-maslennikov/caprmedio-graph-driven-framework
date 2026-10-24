@@ -7,11 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 07:34:12 +0000"
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Release suite before runtime staging"
-  depends_on: [Tool, Workflow, Step, Runtime, Manifest, Evaluation]
+  governs: Subject/Engineering/Release Testing/Phase Ordering
+  depends_on:
+  - Subject/Engineering/Release Packaging/Staging
 relations:
   concern_about: [CA-P-1701, CA-P-1702, CA-O-174, CA-O-175, CA-E-572]
 ---

@@ -1,22 +1,26 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Scope Unit Graph"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Scope Unit Graph'
   depends_on:
-    ["Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/History/Journal"]
-version: 26
-updated_at: "2026-10-19 15:53:56 +0400"
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 31
+updated_at: 2026-10-24 02:04:43 +0400
 relations:
   child_of:
-    - CA-R-1052
-    - CAPRMEDIO-REQU-007-CORE-REQUIREMENT--full-minimal-traceability
-atom_id: "CA-R-1740"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-R-1052
+  - CA-R-007
+atom_id: CA-R-1740
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

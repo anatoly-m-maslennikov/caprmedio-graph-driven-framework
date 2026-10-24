@@ -1,19 +1,23 @@
 ---
 subjects:
-  governs: "Subject Expression Writing"
+  governs: Subject
   depends_on:
-    ["Subject Path", "Subject Target", "Entity/Relation", "Entity/Node/Continuant/Term", "Subject", "GOVERNS", "DEPENDS_ON"]
-version: 20
-updated_at: "2026-10-21 01:47:52 +0400"
+  - Subject
+  - Subject/Graph/Relation
+  - Subject/Domain/Node/Continuant/Term
+  - 'Subject/Graph/Relation/Type: GOVERNS'
+  - 'Subject/Graph/Relation/Type: DEPENDS_ON'
+version: 25
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-M-228"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-M-228
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

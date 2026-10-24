@@ -4,17 +4,16 @@ content_role: Requirement
 type: Goal
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: MCP/Goal
   depends_on:
-    - PROGRAMMATIC
-version: 11
-updated_at: "2026-10-18 05:16:14 +0400"
+  - Subject/Engineering/programmatic software
+version: 13
+updated_at: 2026-10-24 01:18:03 +0400
 relations: {}
+tier: 3
 ---
 # Summary
 

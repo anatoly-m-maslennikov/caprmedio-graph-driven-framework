@@ -1,20 +1,26 @@
 ---
 atom_id: CA-R-1935
 content_role: Requirement
-type: Requirement
+type: Rule
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-12 23:58:28 +0400"
+version: 4
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool"
-  depends_on: ["Workflow", "Property", "Scope Unit"]
+  governs: Subject/Engineering/Configuration/TOML Connector Workflow Boundary
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Scope Unit
 relations:
-  relates_to: [CA-R-1829, CA-M-375, CA-O-204, CA-O-205, CA-O-206]
+  relates_to:
+  - CA-R-1829
+  - CA-M-375
+  - CA-O-204
+  - CA-O-205
+  - CA-O-206
+tier: 1
 ---
 # Summary
 

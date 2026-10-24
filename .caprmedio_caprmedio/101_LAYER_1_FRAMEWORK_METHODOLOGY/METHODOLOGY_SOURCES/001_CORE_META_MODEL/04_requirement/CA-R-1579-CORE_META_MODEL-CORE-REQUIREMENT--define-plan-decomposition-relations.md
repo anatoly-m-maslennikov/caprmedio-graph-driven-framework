@@ -1,19 +1,29 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Plan Graph", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Relation Kind", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Substance"]
-version: 8
-updated_at: "2026-10-19 15:53:35 +0400"
-relations: {"relates_to": ["CA-D-481", "CA-R-1574", "CA-R-1583"]}
-atom_id: "CA-R-1579"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Plan Graph
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Label'
+  - Subject/Graph/Relation/Type
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Status'
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Substance
+version: 15
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-D-481
+  - CA-R-1574
+  - CA-R-1583
+atom_id: CA-R-1579
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

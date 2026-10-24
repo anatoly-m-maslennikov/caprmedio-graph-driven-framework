@@ -1,19 +1,21 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Framework Settings"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings
   depends_on:
-    ["Entity/Node/Continuant/Governing Configuration", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator"]
-version: 15
-updated_at: "2026-10-19 15:52:59 +0400"
+  - Subject/Domain/Node/Continuant/Governing Configuration
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 19
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1402"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1402
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

@@ -1,20 +1,45 @@
 ---
 atom_id: CA-E-520
 content_role: Evaluation
-type: Evaluation Approach
+type: Policy
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: "2026-10-20 03:03:30 +0400"
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Entity/Node/Continuant/Atom"
+  governs: Subject/Domain/Node/Continuant/Atom
   depends_on:
-    ["Entity/Node/Continuant/Atom.Subjects", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Node/Continuant/Atom.Details", "Entity/Node/Continuant/Atom.Summary", "Atom/Content Role", "Property", "Entity", "CCE", "Entity/Node/Continuant/Atom.Local Tier: Principle", "Entity/Node/Continuant/Actor/Type: Operator", "CAPRMEDIO Framework Instance", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
-relations: {"evaluation_for":["CA-D-269","CA-D-478","CA-D-479","CA-D-495","CA-M-113","CA-M-125","CA-R-1269","CA-R-1270","CA-R-1271","CA-R-1273","CA-R-1465","CA-R-1624","CA-R-1799"]}
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Target Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Details
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Domain/Node
+  - Subject/Graph/Rule/CCE
+  - 'Subject/Domain/Node/Continuant/Atom.Tier: Principle'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - CAPRMEDIO Framework Instance
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+relations:
+  evaluation_for:
+  - CA-D-269
+  - CA-D-478
+  - CA-D-479
+  - CA-D-495
+  - CA-M-113
+  - CA-M-125
+  - CA-R-1269
+  - CA-R-1270
+  - CA-R-1271
+  - CA-R-1273
+  - CA-R-1465
+  - CA-R-1624
+  - CA-R-1799
+tier: 5
 ---
 # Summary
 

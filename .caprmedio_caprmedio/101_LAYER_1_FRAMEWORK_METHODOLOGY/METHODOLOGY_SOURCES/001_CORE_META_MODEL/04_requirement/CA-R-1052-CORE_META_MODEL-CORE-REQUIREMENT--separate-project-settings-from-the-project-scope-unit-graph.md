@@ -1,21 +1,24 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Settings"
+  governs: Subject/Domain/Node/Continuant/Project.Settings
   depends_on:
-    ["Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Projection/Type: Scope Unit Graph", "Entity/Node/Continuant/Projection"]
-version: 26
-updated_at: "2026-10-19 15:52:35 +0400"
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Scope Unit Graph'
+  - Subject/Domain/Node/Continuant/Projection
+version: 32
+updated_at: 2026-10-24 02:10:27 +0400
 relations:
   child_of:
-    - CA-R-832-CORE-REQUIREMENT--select-optional-capabilities-through-configuration
-atom_id: "CA-R-1052"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-832
+atom_id: CA-R-1052
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

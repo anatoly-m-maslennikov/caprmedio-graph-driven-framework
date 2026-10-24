@@ -3,17 +3,27 @@ atom_id: CA-O-169
 content_role: Operations
 type: Action
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Install selected Framework Methodology and refresh Project MCP"
-  depends_on: [Action, Version, Methodology, Implementation, Skill, Test, Permission, Journal]
-version: 11
-updated_at: "2026-10-21T16:23:32Z"
+  governs: Subject/Engineering/Methodology
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Version
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Engineering/Release Version/Installed Delivery Verification
+  - Skill
+  - Test
+  - Permission
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 14
+updated_at: 2026-10-24 00:51:05 +0400
 relations:
-  relates_to: [CA-O-164, CA-O-178, CA-R-1525]
+  relates_to:
+  - CA-O-164
+  - CA-O-178
+  - CA-R-1525
+tier: 3
 ---
 # Summary
 

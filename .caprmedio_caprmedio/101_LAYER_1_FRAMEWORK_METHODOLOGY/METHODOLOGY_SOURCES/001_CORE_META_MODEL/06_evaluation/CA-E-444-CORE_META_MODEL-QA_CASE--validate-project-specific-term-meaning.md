@@ -1,25 +1,38 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Catalog"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Catalog'
   depends_on:
-    ["Entity/Node/Continuant/Term", "Entity/Node/Continuant/Project", "Definition Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom", "Subject", "Subject Target", "Subject Path", "Entity/Node/Continuant/Projection/Type: Terms Graph", "Entity/Node/Continuant/Atom/Content Role: Concern", "General Term", "Artifact", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Actor", "Entity/Node/Continuant/Projection", "Entity/Relation", "Relation Kind"]
-version: 16
-updated_at: "2026-10-21 01:47:52 +0400"
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Domain/Node/Continuant/Project
+  - Definition Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Terms Graph'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Concern'
+  - General Term
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Graph/Relation
+  - Subject/Graph/Relation/Type
+version: 24
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1318
-    - CA-R-1319
-    - CA-R-1320
-    - CA-M-125
-atom_id: "CA-E-444"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - CA-R-1318
+  - CA-R-1319
+  - CA-R-1320
+  - CA-M-125
+atom_id: CA-E-444
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 

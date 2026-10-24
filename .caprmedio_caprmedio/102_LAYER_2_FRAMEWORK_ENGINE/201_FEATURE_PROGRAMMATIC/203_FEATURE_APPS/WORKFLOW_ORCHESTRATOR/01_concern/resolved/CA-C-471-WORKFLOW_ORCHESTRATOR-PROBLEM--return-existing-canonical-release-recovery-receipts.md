@@ -7,11 +7,16 @@ local_tier: Standard
 global_tier: 14
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 15:39:55 +0000"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Release recovery result"
-  depends_on: [Run, Journal, Workflow, Action, Implementation]
+  governs: Release recovery result
+  depends_on:
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Implementation
 relations:
   concern_about: [CA-P-1716, CA-D-577, CA-E-583]
 ---

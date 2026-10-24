@@ -2,15 +2,22 @@
 atom_id: CA-M-322
 content_role: Method
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-03 20:41:31 +0400"
+version: 7
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "MCP/implementation"
-  depends_on: [MCP, Tool, Operator, Project, Implementation, Workflow, Atom]
+  governs: Subject/Engineering/MCP/implementation
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Engineering/MCP.Hot Reload
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/MCP/Implementation Reload
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Atom
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

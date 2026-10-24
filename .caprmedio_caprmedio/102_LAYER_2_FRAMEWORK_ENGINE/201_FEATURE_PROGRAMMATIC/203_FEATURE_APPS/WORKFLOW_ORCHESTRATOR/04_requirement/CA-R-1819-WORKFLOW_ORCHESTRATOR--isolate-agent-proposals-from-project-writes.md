@@ -2,17 +2,25 @@
 atom_id: CA-R-1819
 content_role: Requirement
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 04:10:07 +0400"
+version: 6
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "Action/execution/isolation"
-  depends_on: [AI Agent, Atom, Operator, Implementation, Workflow Run, Tool, Carrier]
+  governs: Subject/Engineering/Agent Execution/Project-Write Isolation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Engineering/Agent Execution/Project-Write Isolation
+  - Subject/Engineering/Carrier
 relations:
-  relates_to: [CA-R-1814, CA-R-846]
+  relates_to:
+  - CA-R-1814
+  - CA-R-846
+type: Rule
+tier: 3
 ---
 # Summary
 

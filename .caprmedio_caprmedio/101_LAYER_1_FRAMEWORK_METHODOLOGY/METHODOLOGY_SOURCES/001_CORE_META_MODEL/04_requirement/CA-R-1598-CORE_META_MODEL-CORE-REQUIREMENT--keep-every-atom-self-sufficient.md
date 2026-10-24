@@ -1,19 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom"
+  governs: Subject/Domain/Node/Continuant/Atom
   depends_on:
-    ["Entity/Node/Continuant/Atom.Property", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom", "Markdown Atom Carrier", "Entity/Relation", "Single Source of Truth"]
-version: 7
-updated_at: "2026-10-19 15:53:41 +0400"
-relations: {"relates_to": ["CA-R-117", "CA-R-118", "CA-R-1470"]}
-atom_id: "CA-R-1598"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - Subject/Domain/Node/Continuant/Atom.Property
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier/File Carrier
+  - Subject/Graph/Relation
+  - Single Source of Truth
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-117
+  - CA-R-118
+  - CA-R-1470
+atom_id: CA-R-1598
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

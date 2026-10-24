@@ -8,11 +8,17 @@ local_tier: Standard
 global_tier: 11
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 16:34:05 +0400"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "First Framework runtime and project-local ca Skill absence"
-  depends_on: [Runtime, Framework Package, Skill, Docker Image, Journal, Action]
+  governs: First Framework runtime and project-local ca Skill absence
+  depends_on:
+  - Subject/Engineering/Runtime
+  - Framework Package
+  - Skill
+  - Docker Image
+  - Journal
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
   concern_about: [CA-P-1620, CA-P-1624, CA-P-1714]
 ---

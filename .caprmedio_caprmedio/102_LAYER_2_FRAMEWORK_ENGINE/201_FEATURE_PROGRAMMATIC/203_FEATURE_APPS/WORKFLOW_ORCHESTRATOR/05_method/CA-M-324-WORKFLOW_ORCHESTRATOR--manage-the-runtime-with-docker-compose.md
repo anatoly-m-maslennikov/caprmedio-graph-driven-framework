@@ -2,17 +2,28 @@
 atom_id: CA-M-324
 content_role: Method
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 04:10:07 +0400"
+version: 7
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "Workflow Orchestrator/Docker runtime/method"
-  depends_on: [Implementation, Operator, Workflow Run, AI Agent, Action, Atom, Carrier, Journal, Tool]
+  governs: Subject/Engineering/Runtime/Docker Compose Lifecycle
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Engineering/Journal Operations
+  - Subject/Engineering/Runtime/Docker Compose Lifecycle
 relations:
-  relates_to: [CA-R-1818, CA-R-1819, CA-M-320]
+  relates_to:
+  - CA-R-1818
+  - CA-R-1819
+  - CA-M-320
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

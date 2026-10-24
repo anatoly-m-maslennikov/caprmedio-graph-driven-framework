@@ -7,11 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 22:18:24 +0000"
+version: 3
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Tool/RELEASE_VERSION/Candidate E2E context"
-  depends_on: [Tool, Release Version, Candidate Manifest, Docker Image, Test Suite, JUnit Report]
+  governs: Subject/Engineering/Test Isolation/Execution Context
+  depends_on:
+  - Subject/Engineering/Filesystem Containment/Scratch Roots
 relations:
   concern_about: [CA-P-1751, CA-P-1745]
 ---

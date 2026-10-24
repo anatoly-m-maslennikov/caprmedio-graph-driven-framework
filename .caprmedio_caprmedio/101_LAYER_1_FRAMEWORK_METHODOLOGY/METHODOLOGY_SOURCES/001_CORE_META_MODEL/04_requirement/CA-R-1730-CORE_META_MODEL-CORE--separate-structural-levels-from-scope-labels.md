@@ -1,35 +1,40 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Scope Unit"
+  governs: Subject/Domain/Node/Continuant/Scope Unit
   depends_on:
-    ["Entity/Node/Continuant/Scope Unit.Structural Level", "Entity/Node/Continuant/Scope Unit.Parent", "Entity/Node/Continuant/Scope Unit.Children", "Entity/Node/Continuant/Scope Unit.Label", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project.Structure"]
-version: 24
-updated_at: "2026-10-19 15:53:54 +0400"
+  - Subject/Domain/Node/Continuant/Scope Unit.Path
+  - Subject/Domain/Node/Continuant/Scope Unit.Parent
+  - Subject/Domain/Node/Continuant/Scope Unit.Children
+  - Subject/Domain/Node/Continuant/Scope Unit.Label
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project.Structure
+version: 30
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CAPRMEDIO-REQU-031-CORE-REQUIREMENT--model-project-structure-as-numbered-levels
-    - CA-R-1776
-atom_id: "CA-R-1730"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-031
+  - CA-R-1776
+atom_id: CA-R-1730
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
 ---
 # Summary
 
-Separate structural levels from scope labels
+Separate scope ancestry from scope labels
 
 ## Scope
 
-Structural Levels **and** Scope Unit Labels.
+Scope Unit ancestry **and** Scope Unit Labels.
 
 ## Claim
 
-Structural Level **must** follow declared Scope Unit parentage; a retained level number **must not** independently override that parentage under CA-R-1485.
+Scope Unit ancestry **must** follow declared Scope Unit parentage. CAPRMEDIO **must not** author or persist a Structural Level property; an optional derived depth or path rendering **must not** independently override that parentage under CA-R-1485.
 
-the Operator **may** choose **any** suitable Scope Unit Label, including `Layer`, `Feature`, `group`, `supergroup`, **or** `sub-feature`, **without** changing the unit's Structural Level, authority, precedence, **or** Relation semantics. Labels **and** readability fields do **not** replace the active authority for those distinctions.
+the Operator **may** choose **any** suitable Scope Unit Label, including `Layer`, `Feature`, `group`, `supergroup`, **or** `sub-feature`, **without** changing the unit's ancestry, authority, precedence, **or** Relation semantics. Labels **and** readability fields do **not** replace the active authority for those distinctions.
 
 ## Details

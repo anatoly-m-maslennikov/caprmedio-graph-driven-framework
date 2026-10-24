@@ -1,13 +1,20 @@
 ---
 subjects:
-  governs: "framework-engine-mcp"
+  governs: framework-engine-mcp
   depends_on: []
 cce_version: cce_1
 cce_form: obligation
-version: 11
-updated_at: "2026-10-12 23:13:45 +0400"
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-1105
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: MCP
+type: Rule
+tier: 1
 ---
 # Summary
 

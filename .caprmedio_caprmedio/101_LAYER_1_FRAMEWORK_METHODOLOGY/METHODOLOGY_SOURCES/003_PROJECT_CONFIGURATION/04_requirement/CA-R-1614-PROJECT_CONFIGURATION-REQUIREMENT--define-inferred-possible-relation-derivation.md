@@ -3,25 +3,25 @@ atom_id: CA-R-1614
 content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Inferred-possible Relation Derivation"
+  governs: 'Subject/Graph/Relation/Type: Inferred-possible Relation Derivation'
   depends_on:
-    - "Evidence"
-    - "Realization Graph"
-    - "Entity/Relation"
-    - "Relation Derivation Class"
-version: 5
-updated_at: "2026-10-19 15:56:06 +0400"
+  - Evidence
+  - Realization Graph
+  - Subject/Graph/Relation
+  - 'Subject/Graph/Relation/Type: Relation Derivation Class'
+version: 9
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   relates_to:
-    - CA-R-1616
-    - CA-R-1617
-    - CA-R-1687
-    - CA-R-1746
-global_tier: 11
+  - CA-R-1616
+  - CA-R-1617
+  - CA-R-1687
+  - CA-R-1746
+tier: 3
+type: Definition
 ---
 # Summary
 

@@ -8,11 +8,14 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Journal snapshot continuation integrity"
-  depends_on: [Journal, Event, Pagination]
+  governs: Journal snapshot continuation integrity
+  depends_on:
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Event
+  - Pagination
 relations:
   relates_to: [CA-R-1866, CA-M-334, CA-M-336, CA-E-577]
 ---

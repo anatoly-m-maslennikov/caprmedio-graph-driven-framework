@@ -1,20 +1,24 @@
 ---
-atom_id: "CA-O-189"
+atom_id: CA-O-189
 content_role: Operations
 type: Step
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-status: "Active"
-author: "Anatoly Maslennikov"
+status: Active
+author: Anatoly Maslennikov
 subjects:
-  governs: "Public release/Step: discover matching main PR"
-  depends_on: [Pull Request, Personal Remote, Journal]
-version: 1
-updated_at: "2026-10-10 19:05:19 +0400"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Public release/Step: discover matching main PR'
+  depends_on:
+  - Subject/Engineering/Pull Request
+  - Subject/Engineering/Personal Remote
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 5
+updated_at: 2026-10-24 04:03:11 +0400
 relations:
-  part_of: [CA-O-188]
-  invokes: [CA-O-190]
+  part_of:
+  - CA-O-188
+  invokes:
+  - CA-O-190
+tier: 3
 ---
 # Summary
 

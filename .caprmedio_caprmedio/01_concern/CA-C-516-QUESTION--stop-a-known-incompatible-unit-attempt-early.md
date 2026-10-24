@@ -7,11 +7,17 @@ local_tier: Standard
 global_tier: 2
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-06 20:51:00 +0000"
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Early interruption of a known-incompatible Unit attempt"
-  depends_on: [Operator, Workflow, Action, Evaluation, Journal, Docker Image]
+  governs: Early interruption of a known-incompatible Unit attempt
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Evaluation
+  - Journal
+  - Docker Image
 relations:
   concern_about: [CA-P-1117, CA-P-1809, CA-P-1815]
 ---

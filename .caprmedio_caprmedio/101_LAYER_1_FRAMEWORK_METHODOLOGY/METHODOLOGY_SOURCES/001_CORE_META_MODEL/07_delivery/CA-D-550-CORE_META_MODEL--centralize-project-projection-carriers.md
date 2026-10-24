@@ -3,16 +3,25 @@ atom_id: CA-D-550
 content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Projection Carrier Root"
-  depends_on: ["Entity/Node/Continuant/Project", "Entity/Node/Continuant/Projection", "Entity/Carrier", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/Atom", "Methodology Source", "Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project.Structure"]
-version: 7
-updated_at: "2026-10-19 15:56:01 +0400"
+  governs: Subject/Engineering/Carrier/Directory Carrier
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Structure
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

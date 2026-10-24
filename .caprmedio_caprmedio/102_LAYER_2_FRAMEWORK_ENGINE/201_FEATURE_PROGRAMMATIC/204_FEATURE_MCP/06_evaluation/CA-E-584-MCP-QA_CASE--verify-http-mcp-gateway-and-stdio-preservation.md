@@ -1,19 +1,27 @@
 ---
 atom_id: CA-E-584
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: MCP
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 17:12:15 +0000"
+version: 6
+updated_at: 2026-10-24 04:47:50 +0400
 subjects:
-  governs: "MCP/HTTP endpoint/Functional evaluation"
-  depends_on: [MCP, HTTP, Gateway, Tool, Generation, Session, Implementation]
+  governs: Subject/Engineering/MCP/HTTP endpoint/Functional evaluation
+  depends_on:
+  - Subject/Engineering/MCP
+  - Subject/Engineering/HTTP
+  - Subject/Engineering/Gateway
+  - Subject/Engineering/MCP.HTTP Gateway Evaluation
+  - Subject/Engineering/Generation
+  - Subject/Domain/Node/Occurrent/Session
+  - Subject/Engineering/MCP/HTTP Access Boundary Evaluation
 relations:
-  evaluation_for: [CA-R-1884, CA-M-341]
+  evaluation_for:
+  - CA-R-1884
+  - CA-M-341
+tier: 5
 ---
 # Summary
 

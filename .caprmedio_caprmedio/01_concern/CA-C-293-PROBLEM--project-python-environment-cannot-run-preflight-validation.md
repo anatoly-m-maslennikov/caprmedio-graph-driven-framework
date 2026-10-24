@@ -9,18 +9,18 @@ global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Project/verification environment"
+  governs: Project/verification environment
   depends_on:
-    - "Project"
-    - "Implementation"
-    - "Atom/Content Role: Plan"
+  - Subject/Domain/Node/Continuant/Project
+  - Implementation
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
 relations:
   concern_about:
     - CA-P-1150
     - CA-P-1175
     - CA-P-1176
-version: 3
-updated_at: "2026-10-04 07:08:00 +0400"
+version: 5
+updated_at: 2026-10-23 03:14:50 +0400
 ---
 # Summary
 

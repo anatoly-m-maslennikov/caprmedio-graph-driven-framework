@@ -1,19 +1,27 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier.Main Content"
+  governs: Subject/Engineering/Carrier/File Carrier.Main Content
   depends_on:
-    ["Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.Substance", "Atom/Content Role", "Entity/Node/Continuant/Atom.Details", "Property", "Markdown Atom Carrier"]
-version: 11
-updated_at: "2026-10-20 03:01:57 +0400"
-relations: {"relates_to": ["CA-D-356", "CA-D-478"]}
-atom_id: "CA-D-479"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Atom.Details
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Engineering/Carrier/File Carrier
+version: 15
+updated_at: 2026-10-24 01:50:12 +0400
+relations:
+  relates_to:
+  - CA-D-356
+  - CA-D-478
+atom_id: CA-D-479
+content_role: Delivery
+type: Eng Decision
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
 ---
 # Summary
 
@@ -42,5 +50,6 @@ a Markdown Atom's Main Content **must** carry its body Properties under the foll
 - heading markers inside fenced code examples are content, **not** Property boundaries.
 - do **not** infer a missing, renamed, duplicated, **or** ambiguously nested Property heading from prose, synonyms, **or** position alone.
 - a Details section **may** be empty **when** no supporting content **or** required nested Property applies. this does **not** waive the Plan Definition of Done.
+- Draft Atoms may omit required body Properties while incomplete; their Atom ID remains mandatory under CA-D-276 and CA-R-2102. Report missing Properties, and require the full role-specific layout before promotion to Current. This does not create another body layout or relax the formal Graph Rule exception above.
 
 ## Details

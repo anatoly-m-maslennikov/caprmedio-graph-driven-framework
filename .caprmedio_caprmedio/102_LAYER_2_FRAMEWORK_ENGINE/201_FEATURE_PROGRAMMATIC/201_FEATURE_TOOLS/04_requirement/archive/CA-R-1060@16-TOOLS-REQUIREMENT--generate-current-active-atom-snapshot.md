@@ -1,0 +1,20 @@
+---
+subjects:
+  governs: projection-pipeline
+  depends_on: []
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+version: 16
+updated_at: 2026-10-24 01:28:26 +0400
+atom_id: CA-R-1060@16
+status: Archived
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Rule
+---
+# Generate current active Atom snapshot
+
+the framework **must** provide one deterministic Tool that generates the project-wide `biz_atoms_current_snapshot.md` Projection with the total number of active Atoms **and** separate counts for **every** canonical Type, structural level, **and** structural unit at one declared current source frontier.

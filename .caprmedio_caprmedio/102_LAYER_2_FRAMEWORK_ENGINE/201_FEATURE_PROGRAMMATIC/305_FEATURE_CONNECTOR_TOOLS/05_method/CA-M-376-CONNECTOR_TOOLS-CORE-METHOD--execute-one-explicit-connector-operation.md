@@ -1,20 +1,26 @@
 ---
 atom_id: CA-M-376
 content_role: Method
-type: Method
+type: Eng Decision
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-14 10:04:27 +0400"
+version: 5
+updated_at: 2026-10-24 00:38:25 +0400
 subjects:
-  governs: "Tool"
-  depends_on: ["Workflow", "Atom", "Scope Unit", "Property"]
+  governs: Subject/Engineering/Connector Operation Dispatch
+  depends_on:
+  - Subject/Domain/Node/Continuant/Workflow
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
 relations:
-  relates_to: [CA-R-1936, CA-D-625, CA-E-628, CA-R-1093]
+  relates_to:
+  - CA-R-1936
+  - CA-D-625
+  - CA-E-628
+  - CA-R-1093
+tier: 1
 ---
 # Summary
 

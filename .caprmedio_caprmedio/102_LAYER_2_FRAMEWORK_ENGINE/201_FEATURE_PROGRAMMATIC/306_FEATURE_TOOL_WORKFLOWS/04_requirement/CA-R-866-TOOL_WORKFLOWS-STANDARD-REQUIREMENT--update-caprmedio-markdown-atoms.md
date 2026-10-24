@@ -3,17 +3,31 @@ atom_id: CA-R-866
 content_role: Requirement
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool/ATOM_UPDATE"
-  depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Artifact/Carrier", "Atom Change Classification", "Atom/Revision/Updated At"]
-version: 31
-updated_at: "2026-10-20 21:39:01 +0400"
+  governs: Subject/Engineering/Tool//ATOM_UPDATE
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Engineering/Carrier
+  - Atom Change Classification
+  - Atom/Revision/Updated At
+version: 37
+updated_at: 2026-10-24 02:33:28 +0400
 relations:
-  relates_to: [CA-O-030, CA-E-304, CA-O-067, CA-R-1432, CA-R-1788, CA-R-1464, CA-R-1415, CA-R-1371]
+  relates_to:
+  - CA-O-030
+  - CA-E-304
+  - CA-O-067
+  - CA-R-1432
+  - CA-R-1788
+  - CA-R-1464
+  - CA-R-1415
+  - CA-R-1371
+tier: 3
+type: Rule
 ---
 # Summary
 

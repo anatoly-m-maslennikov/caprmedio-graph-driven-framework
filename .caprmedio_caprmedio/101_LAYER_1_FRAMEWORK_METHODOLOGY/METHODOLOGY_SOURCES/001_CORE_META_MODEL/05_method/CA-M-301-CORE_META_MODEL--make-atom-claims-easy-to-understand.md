@@ -1,26 +1,33 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Substance"
+  governs: Subject/Domain/Node/Continuant/Atom.Substance
   depends_on:
-    ["Entity/Node/Continuant/Term", "Relation/Type: On Result", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom", "Author", "CCE", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
-version: 9
-updated_at: "2026-10-19 15:54:49 +0400"
+  - Subject/Domain/Node/Continuant/Term
+  - 'Subject/Graph/Relation/Type: On Result'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject/Graph/Rule/CCE
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-M-113
+  - CA-M-113
   relates_to:
-    - CA-M-229
-    - CA-M-294
-    - CA-R-1270
-    - CA-R-1508
-atom_id: "CA-M-301"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-M-229
+  - CA-M-294
+  - CA-R-1270
+  - CA-R-1508
+atom_id: CA-M-301
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 5
+type: Implementation Method
 ---
 # Summary
 

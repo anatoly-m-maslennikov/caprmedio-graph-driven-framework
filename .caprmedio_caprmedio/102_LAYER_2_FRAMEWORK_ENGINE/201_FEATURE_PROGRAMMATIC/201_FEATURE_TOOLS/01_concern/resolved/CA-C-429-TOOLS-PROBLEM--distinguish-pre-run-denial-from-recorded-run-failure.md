@@ -8,11 +8,15 @@ local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
-version: 2
-updated_at: "2026-10-04 18:16:52 +0000"
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Atom Replacement/Admission Evaluation"
-  depends_on: [Atom, Artifact/Revision, Plan, Journal]
+  governs: Atom Replacement/Admission Evaluation
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Artifact/Revision
+  - Plan
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
   concern_about: [CA-E-247, CA-O-031]
 ---

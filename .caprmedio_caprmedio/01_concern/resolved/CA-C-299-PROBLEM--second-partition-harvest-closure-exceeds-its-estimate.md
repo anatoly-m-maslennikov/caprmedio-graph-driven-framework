@@ -8,12 +8,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Second-partition harvest closure timing"
+  governs: Second-partition harvest closure timing
   depends_on:
-    - "Operations"
-    - "Atom/Content Role: Plan"
-version: 2
-updated_at: "2026-10-04 09:25:27 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
     - CA-P-1210

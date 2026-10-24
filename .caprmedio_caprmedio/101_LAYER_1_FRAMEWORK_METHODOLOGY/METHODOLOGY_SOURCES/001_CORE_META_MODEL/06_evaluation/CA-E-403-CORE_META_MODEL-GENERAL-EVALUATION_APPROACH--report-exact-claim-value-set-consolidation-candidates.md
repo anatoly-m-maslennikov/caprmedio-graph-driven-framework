@@ -1,23 +1,27 @@
 ---
 subjects:
-  governs: "Claim Value Set Consolidation Candidate Evaluation"
+  governs: Claim Value Set Consolidation Candidate Evaluation
   depends_on:
-    ["Entity/Node/Continuant/Atom.Substance", "Atom Scope", "Entity/Node/Continuant/Atom.Governed Subject", "Claim Value Set", "Property", "IS_ALLOWED_VALUE_OF"]
-version: 15
-updated_at: "2026-10-19 15:54:58 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Local Scope Unit
+  - Subject/Domain/Node/Continuant/Atom.Governed Subject
+  - Claim Value Set
+  - Subject/Domain/Node/Continuant/Term//Property
+  - IS_ALLOWED_VALUE_OF
+version: 20
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1358
-    - CA-R-1359
-atom_id: "CA-E-403"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 10
+  - CA-R-1358
+  - CA-R-1359
+atom_id: CA-E-403
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 4
 ---
 # Summary
 

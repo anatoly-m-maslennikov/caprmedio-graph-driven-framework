@@ -1,17 +1,24 @@
 ---
-version: 7
-updated_at: 2026-09-06 01:45:12 +0400
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-E-002
+  - CA-E-002
 subjects:
-  governs: "Project/conclusion"
+  governs: Project/conclusion
   depends_on:
-    - "Project"
+  - Subject/Domain/Node/Continuant/Project
 cce_version: cce_1
 cce_form: permission
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-206
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Policy
+tier: 2
 ---
 # Require usable inputs for reliance
 

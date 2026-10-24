@@ -3,20 +3,20 @@ atom_id: CA-R-1989
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Status"
+  governs: Subject/Domain/Node/Continuant/Atom.Status
   depends_on:
-  - "Entity/Node/Continuant/Atom"
-  - "Entity/Node/Continuant/Atom/Content Role"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom/Content Role
 relations:
   child_of:
   - CA-R-1174
-version: 4
-updated_at: "2026-10-20 17:08:53 +0400"
+version: 7
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 1
+type: Definition
 ---
 # Summary
 

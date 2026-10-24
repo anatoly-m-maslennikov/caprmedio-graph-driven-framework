@@ -8,6 +8,7 @@ boundary, so the coordinator never becomes an O127 Run itself.
 from __future__ import annotations
 
 from collections.abc import Mapping
+from concurrent.futures import CancelledError as FutureCancelledError
 from copy import deepcopy
 import hashlib
 import json
@@ -21,6 +22,32 @@ if TYPE_CHECKING:
 
 class ContainerLifecycleCompositionError(RuntimeError):
     """A sealed container cannot be safely composed into member Runs."""
+
+
+def _report_failure(root: Path, error: Exception, *, operation: str, correlation_id: str) -> tuple[dict[str, Any], str | None]:
+    import sys
+
+    tools_root = str(Path(__file__).resolve().parents[2] / "201_TOOLS")
+    if tools_root not in sys.path:
+        sys.path.insert(0, tools_root)
+    from runtime_failure_diagnostics import report_failure
+
+    failure, secondary = report_failure(
+        root,
+        error,
+        component="WORKFLOW_ORCHESTRATOR",
+        operation=operation,
+        correlation_id=correlation_id,
+    )
+    failure_payload = {
+        "severity": getattr(failure, "severity", "WARNING"),
+        "code": getattr(failure, "code", "internal_failure"),
+        "message": getattr(failure, "message", "operation failure"),
+    }
+    diagnostic = secondary or getattr(failure, "diagnostic_error", None)
+    if diagnostic:
+        failure_payload["diagnostic_error"] = diagnostic
+    return failure_payload, secondary
 
 
 def _canonical(value: object) -> bytes:
@@ -242,8 +269,8 @@ def _terminal(result: object, run_id: str) -> tuple[str, list[str], bool, str | 
 
 def _aggregate(coordinator_id: str, member_rows: list[dict[str, Any]], completed: list[str],
                failed: Mapping[str, Any] | None, untouched: list[str], effects: list[str],
-               outcome: str, disposition: str) -> dict[str, Any]:
-    return {
+               outcome: str, disposition: str, diagnostics: list[Mapping[str, Any]] | None = None) -> dict[str, Any]:
+    result = {
         "schema": "container-lifecycle/v1",
         "coordinator_id": coordinator_id,
         "parent_requested_run_id": member_rows[-1].get("requested_run_id") if member_rows else None,
@@ -257,6 +284,9 @@ def _aggregate(coordinator_id: str, member_rows: list[dict[str, Any]], completed
         "outcome": outcome,
         "disposition": disposition,
     }
+    if diagnostics:
+        result["diagnostics"] = [dict(item) for item in diagnostics]
+    return result
 
 
 def _prepare_member(selected: Any, graph: Mapping[str, Any], execution: dict[str, Any]) -> dict[str, Any]:
@@ -309,7 +339,7 @@ def _actual_workflow_id(selected: Any, execution: Mapping[str, Any], requested_i
     return next(iter(matches)) if len(matches) == 1 else None
 
 
-def _dispatch_member(selected: Any, frozen: Mapping[str, Any], execution: Mapping[str, Any], run_id: str) -> tuple[str, list[str], bool, str | None]:
+def _dispatch_member(selected: Any, frozen: Mapping[str, Any], execution: Mapping[str, Any], run_id: str) -> tuple[str, list[str], bool, str | None, Mapping[str, Any] | None]:
     workflow = next((item for item in execution.get("requested_runs", [])
                      if isinstance(item, Mapping) and item.get("kind") == "workflow"), None)
     if (not isinstance(workflow, Mapping) or workflow.get("requested_run_id") != run_id
@@ -317,14 +347,17 @@ def _dispatch_member(selected: Any, frozen: Mapping[str, Any], execution: Mappin
         raise ContainerLifecycleCompositionError("member Workflow binding is missing")
     result = selected.dispatch(frozen)
     if not isinstance(result, Mapping):
-        return "interrupted_pending", [], False, None
+        return "interrupted_pending", [], False, None, None
+    diagnostic = result.get("failure")
+    diagnostic = dict(diagnostic) if isinstance(diagnostic, Mapping) else None
     actual_id = _actual_workflow_id(selected, execution, run_id, result)
     if actual_id is None:
-        return "interrupted_pending", [], False, None
+        return "interrupted_pending", [], False, None, diagnostic
     try:
-        return _terminal(result, actual_id)
+        outcome, effects, terminal, actual = _terminal(result, actual_id)
+        return outcome, effects, terminal, actual, diagnostic
     except ContainerLifecycleCompositionError:
-        return "interrupted_pending", [], False, None
+        return "interrupted_pending", [], False, None, diagnostic
 
 
 def _root_frozen_digest(selected: Any, root_dir: Path, frozen: Mapping[str, Any]) -> str:
@@ -396,13 +429,26 @@ def _member_step(selected: Any, graph: Mapping[str, Any], row: Mapping[str, Any]
         execution = _member_execution(root_execution, row, run_id, graph)
         member_frozen = _prepare_member(selected, graph, execution)
         member["request_digest"] = _verify_member_request(selected, member_frozen)
+    except FutureCancelledError:
+        raise
     except Exception as error:
+        diagnostic, secondary = _report_failure(
+            selected.root,
+            error,
+            operation="container_lifecycle.member_preflight",
+            correlation_id=run_id,
+        )
+        if secondary:
+            diagnostic["diagnostic_error"] = secondary
         failed = {"atom_id": member["atom_id"], "requested_run_id": run_id, "reason": type(error).__name__}
+        failed["failure"] = diagnostic
         member["outcome"] = "blocked"
+        member["failure"] = dict(diagnostic)
         aggregate = _aggregate(coordinator_id=coordinator_id, member_rows=member_rows, completed=completed,
                                failed=failed, untouched=[item["requested_run_id"] for item in member_rows[index + 1:]],
                                effects=effects, outcome="partial" if effects else "blocked",
-                               disposition="terminal" if effects else "blocked")
+                               disposition="terminal" if effects else "blocked",
+                               diagnostics=[diagnostic])
         selected._write(accepted_path, {"result": aggregate})
         return aggregate, []
     progress = _aggregate(coordinator_id, member_rows, completed, None,
@@ -411,10 +457,14 @@ def _member_step(selected: Any, graph: Mapping[str, Any], row: Mapping[str, Any]
     selected._write(progress_path, {"state": "dispatching", "root_frozen_digest": root_digest,
                                     "member_request_digest": member["request_digest"],
                                     "aggregate": progress, "current": run_id})
-    outcome, member_effects, terminal, actual_run_id = _dispatch_member(selected, member_frozen, execution, run_id)
+    outcome, member_effects, terminal, actual_run_id, diagnostic = _dispatch_member(
+        selected, member_frozen, execution, run_id,
+    )
     member["outcome"] = outcome
     member["effect_refs"] = member_effects
     member["actual_run_id"] = actual_run_id
+    if diagnostic is not None:
+        member["failure"] = dict(diagnostic)
     if outcome in {"completed", "no_op"}:
         return None, member_effects
     aggregate_outcome = outcome
@@ -428,7 +478,8 @@ def _member_step(selected: Any, graph: Mapping[str, Any], row: Mapping[str, Any]
               "actual_run_id": member.get("actual_run_id"), "outcome": outcome}
     aggregate = _aggregate(coordinator_id, member_rows, completed, failed,
                            [item["requested_run_id"] for item in member_rows[index + 1:]],
-                           [*effects, *member_effects], aggregate_outcome, aggregate_disposition)
+                           [*effects, *member_effects], aggregate_outcome, aggregate_disposition,
+                           diagnostics=[diagnostic] if diagnostic is not None else None)
     selected._write(accepted_path, {"result": aggregate})
     return aggregate, []
 
@@ -455,6 +506,27 @@ def _admit_composition_root(selected: Any, frozen: Mapping[str, Any], execution:
     return graph, _rows(fresh_seal), admission
 
 
+def _admit_composition_root_with_diagnostics(
+    selected: Any,
+    frozen: Mapping[str, Any],
+    execution: Mapping[str, Any],
+    root_seal: Mapping[str, Any],
+    coordinator_id: str,
+) -> tuple[Mapping[str, Any], list[dict[str, Any]], Mapping[str, Any]]:
+    try:
+        return _admit_composition_root(selected, frozen, execution, root_seal)
+    except FutureCancelledError:
+        raise
+    except Exception as error:
+        _report_failure(
+            selected.root,
+            error,
+            operation="container_lifecycle.preflight",
+            correlation_id=coordinator_id,
+        )
+        raise
+
+
 def coordinate_container_lifecycle(selected: "SelectedExecution", frozen: Mapping[str, Any]) -> dict[str, Any]:
     """Freeze and dispatch a sealed descendant-first lifecycle composition inline."""
     coordinator_id, root_execution, root_seal = _context(frozen)
@@ -474,7 +546,9 @@ def coordinate_container_lifecycle(selected: "SelectedExecution", frozen: Mappin
         if retained.get("state") == "dispatching":
             _verify_retained_member(selected, retained)
             return retained["aggregate"]
-    graph, rows, root_admission = _admit_composition_root(selected, frozen, root_execution, root_seal)
+    graph, rows, root_admission = _admit_composition_root_with_diagnostics(
+        selected, frozen, root_execution, root_seal, coordinator_id,
+    )
     member_rows: list[dict[str, Any]] = []
     for index, row in enumerate(rows):
         target = row["target"]

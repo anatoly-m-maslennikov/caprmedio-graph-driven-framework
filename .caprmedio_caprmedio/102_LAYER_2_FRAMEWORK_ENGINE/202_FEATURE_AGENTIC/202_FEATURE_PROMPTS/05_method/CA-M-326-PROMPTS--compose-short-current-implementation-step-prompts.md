@@ -1,20 +1,24 @@
 ---
-atom_id: "CA-M-326"
-content_role: "Method"
-type: "Method"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 2
-updated_at: "2026-10-05 03:37:42 +0400"
+atom_id: CA-M-326
+content_role: Method
+type: Implementation Method
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 7
+updated_at: 2026-10-24 04:05:50 +0400
 subjects:
-  governs: "Implementation step prompt construction"
-  depends_on: ["Prompt", "Step", "Action"]
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow.Step Prompt Construction'
+  depends_on:
+  - Subject/Engineering/Prompt
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
-  relates_to: [CA-R-1843, CA-R-1845]
+  relates_to:
+  - CA-R-1843
+  - CA-R-1845
+tier: 3
 ---
 # Summary
 

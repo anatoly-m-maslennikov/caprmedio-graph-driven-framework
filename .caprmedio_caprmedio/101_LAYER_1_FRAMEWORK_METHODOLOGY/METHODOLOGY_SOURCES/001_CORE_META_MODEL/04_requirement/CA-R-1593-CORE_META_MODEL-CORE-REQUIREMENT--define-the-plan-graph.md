@@ -1,19 +1,27 @@
 ---
 subjects:
-  governs: "Plan Graph"
+  governs: Plan Graph
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Projection", "Relation Kind", "Entity/Carrier"]
-version: 7
-updated_at: "2026-10-19 15:53:39 +0400"
-relations: {"relates_to": ["CA-R-1574", "CA-R-1579", "CA-R-1580", "CA-R-806"]}
-atom_id: "CA-R-1593"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Graph/Relation/Type
+  - Subject/Engineering/Carrier
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1574
+  - CA-R-1579
+  - CA-R-1580
+  - CA-R-806
+atom_id: CA-R-1593
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
 ---
 # Summary
 

@@ -9,12 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "First-partition filename-migration and alignment-audit evidence"
+  governs: First-partition filename-migration and alignment-audit evidence
   depends_on:
-    - "Project"
-    - "Operations"
-version: 2
-updated_at: "2026-10-04 13:28:14 +0400"
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1293]
   relates_to: [CA-P-1297, CA-P-1126, CA-A-1008, CA-C-315]

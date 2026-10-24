@@ -11,12 +11,14 @@ import copy
 import datetime as dt
 import uuid
 from collections.abc import Callable, Iterable, Mapping
+from concurrent.futures import CancelledError as FutureCancelledError
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import work_journal
+from runtime_failure_diagnostics import report_failure
 
 
 SHA256 = "0123456789abcdef"
@@ -880,6 +882,31 @@ class RunExecutionSession:
 class LazyRunTracker(RunTracker):
     """The P1510 tracker: admission is eager; Run creation is deliberately lazy."""
 
+    def _execute_with_failure_boundary(
+        self,
+        parsed: Mapping[str, Any],
+        session: RunExecutionSession,
+        request_id: str,
+    ) -> tuple[str, Any, str | None] | None:
+        try:
+            self.executor(parsed, session)
+        except FutureCancelledError:
+            raise
+        except Exception as error:
+            try:
+                session.interrupt_open_runs()
+            except OSError:
+                pass
+            failure, secondary = report_failure(
+                self.root,
+                error,
+                component="WORKFLOW_ORCHESTRATOR",
+                operation="run_selected_operation",
+                correlation_id=request_id,
+            )
+            return type(error).__name__, failure, secondary
+        return None
+
     def run_selected_operation(self, request: Mapping[str, Any]) -> dict[str, Any]:
         parsed = _validate_common(request)
         fingerprint = _common_bytes(parsed)
@@ -923,20 +950,32 @@ class LazyRunTracker(RunTracker):
                 "dispatch_state": dispatch["state"],
             }
         session = RunExecutionSession(self, parsed)
-        try:
-            self.executor(parsed, session)
-        except Exception as error:
-            try:
-                session.interrupt_open_runs()
-            except OSError:
-                pass
-            return self._session_result(parsed, proposal, session, execution_error=type(error).__name__)
+        execution_failure = self._execute_with_failure_boundary(parsed, session, request_id)
+        if execution_failure is not None:
+            execution_error, failure, secondary = execution_failure
+            return self._session_result(
+                parsed,
+                proposal,
+                session,
+                execution_error=execution_error,
+                failure=failure,
+                diagnostic_error=secondary,
+            )
         if not session.actual:
             return {**self._nonstart(parsed, observation, "declined", "executor-start-required"), "executor_result": "no actual Run was started"}
         session.interrupt_open_runs()
         return self._session_result(parsed, proposal, session)
 
-    def _session_result(self, request: Mapping[str, Any], proposal: Mapping[str, Any], session: RunExecutionSession, *, execution_error: str | None = None) -> dict[str, Any]:
+    def _session_result(
+        self,
+        request: Mapping[str, Any],
+        proposal: Mapping[str, Any],
+        session: RunExecutionSession,
+        *,
+        execution_error: str | None = None,
+        failure: Any | None = None,
+        diagnostic_error: str | None = None,
+    ) -> dict[str, Any]:
         terminal = list(session.terminal.values())
         interrupted = list(session.interrupted.values())
         # ``terminal_runs`` is the established public run-result field.  Keep
@@ -945,6 +984,8 @@ class LazyRunTracker(RunTracker):
         reported_runs = [*terminal, *interrupted]
         if interrupted:
             disposition = "started"
+        elif failure is not None and not terminal:
+            disposition = "failed"
         else:
             disposition = "terminal"
         result: dict[str, Any] = {
@@ -961,6 +1002,18 @@ class LazyRunTracker(RunTracker):
             result["retry_disposition"] = "inspect-or-recover-only"
         if execution_error is not None:
             result["execution_error"] = execution_error
+        if failure is not None:
+            result["outcome"] = "interrupted_pending" if interrupted else (
+                "partial" if any(item.get("outcome") == "partial" for item in terminal) else "failed"
+            )
+            result["failure"] = {
+                "severity": getattr(failure, "severity", "WARNING"),
+                "code": getattr(failure, "code", "internal_failure"),
+                "message": getattr(failure, "message", "operation failure"),
+            }
+            diagnostic = diagnostic_error or getattr(failure, "diagnostic_error", None)
+            if diagnostic:
+                result["failure"]["diagnostic_error"] = diagnostic
         return result
 
     @staticmethod

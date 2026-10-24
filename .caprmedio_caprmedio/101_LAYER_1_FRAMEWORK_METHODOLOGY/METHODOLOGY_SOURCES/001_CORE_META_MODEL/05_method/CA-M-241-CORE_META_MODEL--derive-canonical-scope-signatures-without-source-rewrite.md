@@ -1,21 +1,23 @@
 ---
 subjects:
-  governs: "Canonical Scope Signature Derivation"
+  governs: Canonical Scope Signature Derivation
   depends_on:
-    ["Scope Expression", "Entity/Node/Continuant/Projection/Type: Canonical Scope Signature", "Atom Carrier"]
-version: 12
-updated_at: "2026-10-19 15:54:44 +0400"
+  - Scope Expression
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Canonical Scope Signature'
+  - Subject/Engineering/Carrier/File Carrier
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-M-121
-atom_id: "CA-M-241"
-content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-M-121
+atom_id: CA-M-241
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 4
+type: Implementation Method
 ---
 # Summary
 

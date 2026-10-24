@@ -1,23 +1,28 @@
 ---
 subjects:
-  governs: "Implementation Binding"
+  governs: Subject/Engineering/Implementation Binding
   depends_on:
-    ["Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom", "Implementation", "Entity/Node/Continuant/Projection", "Verification"]
-version: 22
-updated_at: "2026-10-19 15:53:51 +0400"
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Source Unit Responsibility
+  - Subject/Domain/Node/Continuant/Projection
+  - Verification
+version: 28
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
   child_of:
-    - "CA-R-1682"
-    - "CA-R-1697"
-    - CA-R-1720
-atom_id: "CA-R-1695"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-R-1682
+  - CA-R-1697
+  - CA-R-1720
+atom_id: CA-R-1695
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

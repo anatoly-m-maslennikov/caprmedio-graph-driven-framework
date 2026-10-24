@@ -1,18 +1,18 @@
 ---
-atom_id: "CA-R-1783"
-content_role: "Requirement"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
+atom_id: CA-R-1783
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
 subjects:
-  governs: "Logging Policy"
+  governs: Logging Policy
   depends_on: []
-version: 1
-updated_at: "2026-09-28 15:12:22 +0400"
+version: 3
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
+tier: 3
+type: Rule
 ---
 # Summary
 

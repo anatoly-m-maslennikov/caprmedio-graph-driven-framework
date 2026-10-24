@@ -1,25 +1,31 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Updated At"
+  governs: Subject/Domain/Node/Continuant/Atom.Updated At
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Carrier", "Entity/Node/Continuant/Atom.Version Number", "Entity/Node/Continuant/Atom.Status", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.ID", "Entity"]
-version: 7
-updated_at: "2026-10-19 15:55:17 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Version Number
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Atom.Status
+  - Subject/Domain/Node/Continuant/Atom.Summary
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-D-270
-    - CA-R-1432
-    - CA-R-1788
-    - CA-O-051
-atom_id: "CA-E-521"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - CA-D-270
+  - CA-R-1432
+  - CA-R-1788
+  - CA-O-051
+atom_id: CA-E-521
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 

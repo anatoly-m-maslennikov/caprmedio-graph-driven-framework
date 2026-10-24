@@ -1,19 +1,29 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode: verbose"
+  governs: 'Subject/Domain/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode: verbose'
   depends_on:
-    ["Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode", "Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Effects", "Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information", "Artifact", "Skill"]
-version: 13
-updated_at: "2026-10-19 15:56:14 +0400"
-relations: {"relates_to":["CA-R-1628","CA-R-1439","CA-R-1440","CA-O-052","CA-R-1750"]}
-atom_id: "CA-M-278"
-content_role: "Method"
+  - Subject/Domain/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode
+  - Subject/Domain/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Effects
+  - Subject/Domain/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Skill
+version: 17
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1628
+  - CA-R-1439
+  - CA-R-1440
+  - CA-O-052
+  - CA-R-1750
+atom_id: CA-M-278
+content_role: Method
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Implementation Method
 ---
 # Summary
 

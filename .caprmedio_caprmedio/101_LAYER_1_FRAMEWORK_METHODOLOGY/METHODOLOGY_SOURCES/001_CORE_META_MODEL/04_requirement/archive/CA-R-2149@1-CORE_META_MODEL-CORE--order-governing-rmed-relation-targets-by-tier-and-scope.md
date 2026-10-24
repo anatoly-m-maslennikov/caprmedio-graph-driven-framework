@@ -1,0 +1,34 @@
+---
+subjects:
+  governs: Subject/Graph/Rule
+  depends_on:
+  - Subject/Graph/Rule.Type
+  - Subject/Graph/Rule.Applies To
+  - Subject/Graph/Rule.Condition
+  - Subject/Domain/Node/Continuant/Selection//Stored Governing RMED Relation Occurrences
+  - Subject/Domain/Node/Continuant/Atom.Tier
+  - Subject/Domain/Node/Continuant/Scope Unit
+relations: {}
+atom_id: "CA-R-2149@1"
+content_role: "Requirement"
+type: "Rule"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+tier: 1
+status: "Archived"
+author: "Anatoly Maslennikov"
+version: 1
+updated_at: 2026-10-23 23:13:47 +0400
+---
+# Summary
+
+Constrain Governing RMED Relation Targets by Numeric Tier and Scope Ancestry
+
+```yaml
+graph_rule_type: endpoint_constraint
+applies_to:
+  relation_selection: "Subject/Domain/Node/Continuant/Selection//Stored Governing RMED Relation Occurrences"
+condition:
+  ordering: same_scope_lower_target_tier_or_strict_ancestor
+```
+

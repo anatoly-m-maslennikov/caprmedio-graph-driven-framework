@@ -2,21 +2,22 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Process"
+  governs: Process
   depends_on:
-    - "Action"
-    - "Core Meta-Model"
-    - "Atom"
-    - "Artifact/Revision"
-    - "Projection"
-    - "Operator"
-    - "AI Agent"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Core Meta-Model
+  - Subject/Domain/Node/Continuant/Atom
+  - Artifact/Revision
+  - Subject/Domain/Node/Continuant/Projection
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
 priority: medium
-version: 2
-updated_at: "2026-09-21 00:39:50 +0000"
+version: 4
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-133
 ---
 # Which Action bindings preserve the Core amendment flow?
 

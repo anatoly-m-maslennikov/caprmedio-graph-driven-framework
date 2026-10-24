@@ -3,17 +3,19 @@ atom_id: CA-D-555
 content_role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 00:30:00 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "FIND_AND_FETCH_JOURNAL_EVENTS/delivery placement"
-  depends_on: [Tool, Journal, Implementation]
+  governs: Subject/Engineering/Journal Event Query/Delivery Placement
+  depends_on:
+  - Subject/Engineering/Journal Event Query
 relations:
-  delivery_for: [CA-R-1861, CA-R-1870]
+  delivery_for:
+  - CA-R-1861
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

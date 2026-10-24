@@ -1,25 +1,32 @@
 ---
 subjects:
-  governs: "Tool/common CLI interface"
+  governs: Subject/Engineering/Tool.Common CLI Interface
   depends_on:
-    - "Tool"
-    - "Artifact/Carrier"
-    - "Projection"
-    - "Atom/Content Role"
-    - "Atom/Type"
-version: 17
-updated_at: "2026-10-13 00:04:48 +0400"
+  - Subject/Engineering/Tool.Common CLI Interface
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Atom/Type
+version: 23
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   evaluation_for:
-    - CA-R-1063
-    - CA-R-1064
-    - CA-R-1065
-    - CA-R-1066
-    - CA-R-1067
-    - CA-M-144
+  - CA-R-1063
+  - CA-R-1064
+  - CA-R-1065
+  - CA-R-1066
+  - CA-R-1067
+  - CA-M-144
+atom_id: CA-E-065
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
 ---
 # Common Tool interface conformance
 

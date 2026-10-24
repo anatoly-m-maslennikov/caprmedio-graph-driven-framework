@@ -1,21 +1,28 @@
 ---
-version: 7
-updated_at: 2026-09-06 01:45:12 +0400
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-004
+  - CA-R-004
   evaluation_for:
-    - CA-R-004
+  - CA-R-004
 subjects:
-  governs: "CAPRMEDIO Framework Instance/control"
+  governs: CAPRMEDIO Framework Instance/control
   depends_on:
-    - "Operator"
-    - "Project"
-    - "CAPRMEDIO Framework Instance"
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Project
+  - CAPRMEDIO Framework Instance
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-228
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Policy
+tier: 2
 ---
 # Evaluate Operator control over the CAPRMEDIO instance
 

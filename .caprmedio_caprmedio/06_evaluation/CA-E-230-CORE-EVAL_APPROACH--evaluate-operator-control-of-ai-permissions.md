@@ -1,23 +1,30 @@
 ---
-version: 7
-updated_at: 2026-09-06 01:45:12 +0400
+version: 13
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-846
+  - CA-R-846
   evaluation_for:
-    - CA-R-846
+  - CA-R-846
 subjects:
-  governs: "AI Agent/authorization"
+  governs: AI Agent/authorization
   depends_on:
-    - "Operator"
-    - "AI Agent Delegation"
-    - "AI Agent"
-    - "Carrier"
-    - "Atom/Content Role: Implementation"
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - AI Agent Delegation
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Subject/Engineering/Carrier
+  - 'Atom/Content Role: Implementation'
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-230
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Eval Case
+tier: 1
 ---
 # Evaluate Operator control of AI permissions
 

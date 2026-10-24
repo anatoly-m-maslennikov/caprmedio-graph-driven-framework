@@ -2,25 +2,36 @@
 atom_id: CA-R-1522
 content_role: Requirement
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Workflow Run"
+  governs: Subject/Domain/Node/Occurrent/Execution/Workflow Run
   depends_on:
-    - "Workflow"
-    - "Step Run"
-    - "Action"
-    - "Action/Execution Kind"
-    - "Step/Agentic Execution Context"
-    - "Tool"
-    - "Applicable Methodology"
-    - "Operator"
-    - "Atom/Content Role: Implementation"
-version: 4
-updated_at: "2026-10-03 19:26:44 +0400"
-relations: {"relates_to": ["CA-R-1187", "CA-R-1178", "CA-R-1426", "CA-R-1519", "CA-R-1520", "CA-R-1516", "CA-R-1526", "CA-R-1527", "CA-R-1528", "CA-R-1529"]}
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action.Execution Kind'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  - Subject/Engineering/Workflow Orchestration/Action Realization
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Atom/Content Role: Implementation'
+version: 9
+updated_at: 2026-10-24 01:18:03 +0400
+relations:
+  relates_to:
+  - CA-R-1187
+  - CA-R-1178
+  - CA-R-1426
+  - CA-R-1519
+  - CA-R-1520
+  - CA-R-1516
+  - CA-R-1526
+  - CA-R-1527
+  - CA-R-1528
+  - CA-R-1529
+type: Rule
+tier: 3
 ---
 # Provide Workflow orchestration from methodology
 

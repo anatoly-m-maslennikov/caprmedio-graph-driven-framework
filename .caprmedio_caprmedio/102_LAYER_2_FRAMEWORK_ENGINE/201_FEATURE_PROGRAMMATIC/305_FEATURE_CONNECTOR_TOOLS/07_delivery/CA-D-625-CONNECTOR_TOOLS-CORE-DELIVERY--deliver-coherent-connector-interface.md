@@ -1,21 +1,32 @@
 ---
 atom_id: CA-D-625
 content_role: Delivery
-type: Delivery
+type: Eng Decision
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Core
-global_tier: 9
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Atom","Scope Unit","Workflow","Project Configuration"]
-version: 3
-updated_at: "2026-10-14 10:04:27 +0400"
+  governs: Subject/Engineering/Connector Interface Contract
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Workflow
+  - Subject/Domain/Node/Continuant/Governing Configuration
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  delivery_for: ["CA-R-1936"]
-  relates_to: ["CA-M-376","CA-D-527","CA-O-046","CA-O-047","CA-O-204","CA-O-218","CA-D-631"]
+  delivery_for:
+  - CA-R-1936
+  relates_to:
+  - CA-M-376
+  - CA-D-527
+  - CA-O-046
+  - CA-O-047
+  - CA-O-204
+  - CA-O-218
+  - CA-D-631
+tier: 2
 ---
 # Summary
 

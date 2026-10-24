@@ -7,11 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 05:49:29 +0000"
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Which evidence proves declared full-suite coverage"
-  depends_on: [Tool, Manifest, Evaluation, Runtime]
+  governs: Subject/Engineering/Test Coverage/Evidence
+  depends_on:
+  - Subject/Engineering/Test Results/JUnit Reports
 relations:
   concern_about: [CA-P-1688]
 ---

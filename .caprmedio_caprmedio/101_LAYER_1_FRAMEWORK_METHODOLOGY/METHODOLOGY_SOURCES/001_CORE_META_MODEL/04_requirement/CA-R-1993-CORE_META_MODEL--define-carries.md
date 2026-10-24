@@ -3,21 +3,21 @@ atom_id: CA-R-1993
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Core
-global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Relation/Type: CARRIES"
+  governs: 'Subject/Graph/Relation/Type: CARRIES'
   depends_on:
-  - Entity/Carrier
-  - Entity
-  - "Entity/Relation"
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node
+  - Subject/Graph/Relation
 relations:
   child_of:
   - CA-R-1174
-version: 3
-updated_at: "2026-10-19 15:54:18 +0400"
+version: 8
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 1
+type: Definition
 ---
 # Summary
 

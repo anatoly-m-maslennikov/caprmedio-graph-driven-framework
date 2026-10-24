@@ -1,0 +1,110 @@
+---
+atom_id: CA-M-414@4
+content_role: Method
+type: Implementation Method
+current_scope_unit: PROGRAMMATIC
+local_tier: Standard
+global_tier: 8
+status: Archived
+subjects:
+  governs: Subject/Engineering/Operational Diagnostics
+  depends_on:
+  - Subject/Engineering/Outcome Evidence
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
+cce_version: cce_1
+cce_form: method
+relations:
+  derived_from:
+  - CA-A-053
+  child_of:
+  - CA-M-415
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+---
+# Summary
+
+Emit structured operational diagnostics
+
+emit structured operational diagnostics for PROGRAMMATIC work under the active
+Logging Policy **in** `CAPRMEDIO-GOV-REQU-315`, including its ERROR, WARNING, INFO,
+**and** DEBUG meanings. this Method applies that authority **to** PROGRAMMATIC
+diagnosis; it does **not** own the level vocabulary, level meanings, **or** Journal
+meaning.
+
+## Details
+
+Candidate source: [CA-M-163@15](archive/CA-M-163-PROGRAMMATIC-CORE-METHOD--emit-structured-operational-diagnostics@15.md)
+
+## Applicable when
+
+apply **when** a Tool, App backend service, **or** MCP component reports normal
+operation, degraded operation, failure, recovery, **or** diagnostic detail.
+
+## Procedure
+
+1. select ERROR, WARNING, INFO, **or** DEBUG according **to** the active Logging Policy;
+   do **not** introduce a fifth shared severity.
+   Apply CA-M-396 and CA-M-397 to failure classification: invalid input or Project
+   artifacts produce WARNING diagnostics and an explicit request-output error;
+   ERROR is reserved for a genuine blocking failure of the runtime itself.
+   A refused request or failed business Workflow is not by itself an ERROR-level
+   runtime failure. Preserve partial results under CA-M-398, use the shared
+   boundary under CA-M-400, and leave business lifecycle recording with CA-M-399.
+2. emit records through one project-owned logging abstraction **and** schema.
+   include timestamp, level, component, operation, outcome, **and** the canonical
+   action **or** event identity **when** one exists.
+3. include actionable, contextual, sanitized fields **and** keep DEBUG bounded **to**
+   diagnosable need.
+4. materialize sink **and** runtime settings **in** configuration **or** Implementation,
+   govern carrier placement **and** encoding through Delivery, **and** preserve actual
+   execution evidence through Journal Records **and** diagnostic evidence through
+   the applicable production-log Carriers. For the selected Docker runtime, write
+   structured technical diagnostics to **stderr** for Docker's local logging driver;
+   every record carries the validated Project prefix from the existing bound Project
+   selection and canonical prefix-field validation, never a guessed path, container,
+   process, or caller identity. This uses the selected immutable settings view; it
+   adds no settings carrier and makes no claim of full SettingsReader conformance.
+   Configure bounded local rotation as `max-size=10m` and `max-file=3`, with Docker
+   logging `mode=non-blocking` and `max-buffer-size=1m`; when that buffer is full,
+   new technical messages may be dropped so logging cannot stall primary work.
+   Docker logs are removed with the container. Do not create a separate local log
+   directory or place technical diagnostics in the business Journal. Operations
+   defines the reusable behavior; it does **not** make emitted records O Atoms.
+5. declare retention, loss, **and** back-pressure behavior at those bounded
+   materialization **and** operational boundaries.
+6. make logging failure observable **without** silently breaking primary work.
+
+### Technical warnings are not business Journal records
+
+When a bounded scan isolates a schema-invalid Atom and continues with a warning,
+emit the warning through the selected Docker `stderr` diagnostic stream with the
+validated Project prefix, repository-relative path, and reason, and preserve the
+incomplete result (`complete: false`) in the operation response. Do not append that
+technical warning as a business Journal event, fabricate a Run to carry it, or
+rewrite historical Journal records. Docker local rotation is bounded to
+`max-size=10m` and `max-file=3`; non-blocking buffering is bounded to 1 MiB and
+may drop new technical messages when full; a logging failure remains observable
+without breaking the primary scan.
+
+## Outcome
+
+Operators can diagnose component behavior **without** exposing secrets, confusing
+operational diagnostics with governed Journal history, **or** relying on an
+undeclared sink behavior.
+
+## Failure or stop
+
+stop emission **or** release of the affected diagnostic path **when** required context
+cannot be sanitized, a logging failure is hidden, **or** the component would use
+the Journal as a substitute logging sink.
+
+## Sources
+
+- [Python Logging HOWTO](https://docs.python.org/3.14/howto/logging.html)
+- [Python Logging Cookbook](https://docs.python.org/3.14/howto/logging-cookbook.html)
+- [OpenTelemetry: logs](https://opentelemetry.io/docs/concepts/signals/logs/)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

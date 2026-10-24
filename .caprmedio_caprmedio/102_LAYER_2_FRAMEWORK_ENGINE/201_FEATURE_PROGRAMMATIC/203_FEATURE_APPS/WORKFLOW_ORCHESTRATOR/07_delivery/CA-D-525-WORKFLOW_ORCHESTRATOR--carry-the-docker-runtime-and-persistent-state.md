@@ -2,17 +2,29 @@
 atom_id: CA-D-525
 content_role: Delivery
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 05:44:53 +0400"
+version: 8
+updated_at: 2026-10-24 01:18:03 +0400
 subjects:
-  governs: "Workflow Orchestrator/Docker runtime/Carrier"
-  depends_on: [Carrier, Implementation, Workflow Run, Atom, Journal, Operator, Action, AI Agent, Tool]
+  governs: Subject/Engineering/Runtime/Docker Persistent-State Carrier
+  depends_on:
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Journal Operations
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Subject/Engineering/Runtime/Docker Persistent-State Carrier
 relations:
-  relates_to: [CA-D-521, CA-D-522, CA-R-1818, CA-R-1819]
+  relates_to:
+  - CA-D-521
+  - CA-D-522
+  - CA-R-1818
+  - CA-R-1819
+type: Eng Decision
+tier: 3
 ---
 # Summary
 

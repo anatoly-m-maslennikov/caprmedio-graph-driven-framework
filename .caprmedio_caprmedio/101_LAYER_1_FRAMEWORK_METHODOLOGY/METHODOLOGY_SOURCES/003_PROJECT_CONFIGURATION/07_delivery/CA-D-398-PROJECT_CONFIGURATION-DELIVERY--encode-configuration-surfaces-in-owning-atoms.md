@@ -1,23 +1,25 @@
 ---
 subjects:
-  governs: "Atom/Revision/Frontmatter"
+  governs: Subject/Domain/Node/Continuant/Atom.Frontmatter
   depends_on:
-    - "Atom/Claim"
-    - "Project Structure"
-    - "Project Settings"
-    - "Framework Instance Settings"
-version: 10
-updated_at: "2026-10-01 21:24:33 +0400"
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+version: 15
+updated_at: 2026-10-24 01:37:42 +0400
 relations:
-  {"depends_on": ["CA-D-311", "CA-R-1750"]}
-atom_id: "CA-D-398"
-content_role: "Delivery"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  depends_on:
+  - CA-D-311
+  - CA-R-1750
+atom_id: CA-D-398
+content_role: Delivery
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

@@ -3,17 +3,17 @@ atom_id: CA-R-1952
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Carrier/Directory Carrier.Name
+  governs: Subject/Engineering/Carrier/Directory Carrier.Name
 relations:
   child_of:
   - CA-R-1174
-version: 1
-updated_at: "2026-10-17 17:33:52 +0400"
+version: 4
+updated_at: 2026-10-24 01:37:42 +0400
+tier: 3
+type: Definition
 ---
 # Summary
 

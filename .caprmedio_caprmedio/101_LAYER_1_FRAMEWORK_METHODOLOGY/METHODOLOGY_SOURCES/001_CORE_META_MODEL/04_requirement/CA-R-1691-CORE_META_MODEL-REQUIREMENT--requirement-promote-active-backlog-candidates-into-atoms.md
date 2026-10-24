@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: "development-flow"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   depends_on: []
-version: 21
-updated_at: "2026-10-03 02:10:09 +0400"
+version: 24
+updated_at: 2026-10-24 04:38:42 +0400
 relations:
   child_of:
-    - "CA-R-1682"
-    - "CA-R-1702"
-atom_id: "CA-R-1691"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+  - CA-R-1682
+  - CA-R-1702
+atom_id: CA-R-1691
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

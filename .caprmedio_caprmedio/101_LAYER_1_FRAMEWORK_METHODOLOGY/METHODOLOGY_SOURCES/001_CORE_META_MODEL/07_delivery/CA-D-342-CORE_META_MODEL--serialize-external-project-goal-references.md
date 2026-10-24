@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "External Project Goal Reference"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Project Goal'
   depends_on:
-    ["External Project Goal File Carrier.Filename"]
-version: 16
-updated_at: "2026-10-15 12:18:14 +0000"
+  - Subject/Engineering/Carrier/File Carrier.Filename
+version: 20
+updated_at: 2026-10-24 03:45:03 +0400
 relations: {}
-atom_id: "CA-D-342"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+atom_id: CA-D-342
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 
@@ -21,10 +21,12 @@ Serialize External Project Goal References
 
 ## Scope
 
-references to external Project Goal Atoms without Atom IDs.
+references to Current and historical external Project Goal Atoms.
 
 ## Claim
 
-**every** Reference **to** an external Project Goal Atom **without** an Atom ID **must** use its complete current Carrier filename stem.
+**every** Reference **to** a Current external Project Goal Atom **must** use its canonical Current Atom ID, not its current Carrier filename stem.
+
+A Reference **to** an Archived external Project Goal Atom **must** use its canonical Atom ID qualified once with its unchanged numeric Version when historical identity is required. A Current Project Goal reference **must not** omit the canonical ID or fall back to a filename stem; this Delivery creates no ID-less Current exception.
 
 ## Details

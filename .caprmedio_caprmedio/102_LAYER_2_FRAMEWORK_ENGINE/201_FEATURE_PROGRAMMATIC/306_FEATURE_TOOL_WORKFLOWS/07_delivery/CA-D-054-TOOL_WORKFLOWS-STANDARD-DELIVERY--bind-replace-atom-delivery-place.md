@@ -1,20 +1,22 @@
 ---
-global_tier: 11
-local_tier: Standard
 claim_target_scope_unit: TOOL_WORKFLOWS
 current_scope_unit: TOOL_WORKFLOWS
 content_role: Delivery
 atom_id: CA-D-054
 subjects:
-  governs: "scope-topology"
+  governs: Subject/Engineering/Carrier
   depends_on: []
-version: 8
-updated_at: "2026-10-12 23:54:41 +0400"
+version: 13
+status: Active
+updated_at: 2026-10-24 03:08:30 +0400
 relations:
   delivery_for:
-    - CA-R-862
+  - CA-R-862
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+type: Eng Decision
+tier: 3
+author: Anatoly Maslennikov
 ---
 # Summary
 

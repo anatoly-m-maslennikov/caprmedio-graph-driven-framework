@@ -1,24 +1,38 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Entities Graph"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Entities Graph'
   depends_on:
-    ["Entity", "Subject Path", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Subjects", "Entity/Node/Continuant/Atom", "Entity/Relation", "Relation Kind", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Term", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/History/Journal", "Entity/Carrier"]
-version: 15
-updated_at: "2026-10-20 04:50:57 +0400"
+  - Subject/Domain/Node
+  - Subject
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Subject/Domain/Node/Continuant/Atom.Subjects
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Graph/Relation
+  - Subject/Graph/Relation/Type
+  - IS_BORNE_BY
+  - IS_ALLOWED_VALUE_OF
+  - BEARS
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Carrier
+version: 23
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-1438
-    - CA-R-1248
-    - CA-R-1406
-    - CA-R-1437
-atom_id: "CA-R-1456"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 10
+  - CA-R-1438
+  - CA-R-1248
+  - CA-R-1406
+  - CA-R-1437
+atom_id: CA-R-1456
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

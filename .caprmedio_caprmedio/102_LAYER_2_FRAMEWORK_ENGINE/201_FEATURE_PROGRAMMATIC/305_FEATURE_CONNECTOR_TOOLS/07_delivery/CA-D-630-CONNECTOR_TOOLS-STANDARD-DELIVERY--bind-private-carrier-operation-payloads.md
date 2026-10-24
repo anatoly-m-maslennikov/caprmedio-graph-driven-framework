@@ -1,21 +1,27 @@
 ---
 atom_id: CA-D-630
 content_role: Delivery
-type: Delivery
+type: Eng Decision
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Artifact/Carrier","Action","Workflow","Atom","Operator"]
-version: 5
-updated_at: "2026-10-14 23:49:48 +0400"
+  governs: Subject/Engineering/Private Carrier Operation Payload Contract
+  depends_on:
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Workflow
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Actor
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+version: 9
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  delivery_for: [CA-R-1941]
-  depends_on: [CA-D-625]
+  delivery_for:
+  - CA-R-1941
+  depends_on:
+  - CA-D-625
+tier: 4
 ---
 # Summary
 

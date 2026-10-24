@@ -3,17 +3,17 @@ atom_id: CA-R-1968
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Node/Occurrent/Event"
+  governs: Subject/Domain/Node/Occurrent/Event
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-19 15:54:13 +0400"
+version: 5
+updated_at: 2026-10-24 04:03:11 +0400
+tier: 3
+type: Definition
 ---
 # Summary
 

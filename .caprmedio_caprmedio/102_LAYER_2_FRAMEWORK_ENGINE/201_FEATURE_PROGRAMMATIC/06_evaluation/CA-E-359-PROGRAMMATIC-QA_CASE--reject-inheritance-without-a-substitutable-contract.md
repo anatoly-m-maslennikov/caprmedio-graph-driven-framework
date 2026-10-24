@@ -2,26 +2,25 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "subtype-contract"
-  depends_on:
-    - "programmatic software"
-version: 8
-updated_at: "2026-10-04 04:23:28 +0400"
+  governs: Subject/Engineering/State Ownership
+  depends_on: []
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-158
+  - CA-M-408
   derived_from:
-    - CA-A-053
+  - CA-A-053
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-359
 content_role: Evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
+tier: 5
+type: Eval Case
 ---
 # Reject inheritance without a substitutable contract
 
@@ -47,4 +46,4 @@ inheritance is removed.
 
 ## Sources
 
-- [CA-M-158 — Allocate owned state and lifecycle to objects](../05_method/CA-M-158-PROGRAMMATIC-CORE-METHOD--allocate-owned-state-and-lifecycle-to-objects.md)
+- [CA-M-408 — Allocate owned state and lifecycle to objects](../05_method/CA-M-408-PROGRAMMATIC-STANDARD-ENG_POLICY--allocate-owned-state-and-lifecycle-to-objects.md)

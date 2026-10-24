@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F07 first saved-intent packet reconciliation"
-  depends_on: [Operations, Evaluation, Journal]
-version: 1
-updated_at: "2026-10-04 13:34:15 +0000"
+  governs: F07 first saved-intent packet reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Evaluation
+  - Journal
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1402]
   relates_to: [CA-A-1063, CA-P-1352, CA-P-1130, CA-C-377]

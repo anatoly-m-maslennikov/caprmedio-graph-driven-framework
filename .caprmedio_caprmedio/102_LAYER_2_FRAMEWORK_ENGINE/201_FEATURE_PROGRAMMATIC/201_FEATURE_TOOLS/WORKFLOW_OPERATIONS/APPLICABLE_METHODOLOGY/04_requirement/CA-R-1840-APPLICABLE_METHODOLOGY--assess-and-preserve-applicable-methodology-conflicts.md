@@ -1,20 +1,33 @@
 ---
 atom_id: CA-R-1840
 content_role: Requirement
-type: Requirement
+type: Rule
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 23:13:12 +0400"
+version: 6
+updated_at: 2026-10-24 01:50:12 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY"
-  depends_on: [Tool, Workflow, Step, Action, Methodology Source, Atom, Atom Revision, Operator, Journal, Projection]
+  governs: Tool/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY
+  depends_on:
+  - Tool
+  - Workflow
+  - Step
+  - Action
+  - Methodology Source
+  - Atom
+  - Atom Revision
+  - Operator
+  - Journal
+  - Projection
 relations:
-  relates_to: [CA-R-1839, CA-O-011, CA-O-153, CA-O-005]
+  relates_to:
+  - CA-R-1839
+  - CA-O-011
+  - CA-O-153
+  - CA-O-005
+tier: 3
 ---
 # Summary
 
@@ -32,7 +45,7 @@ The deterministic CA-O-153 assessment boundary after one complete selected sourc
 
 Assessment consumes one CA-R-1839 frontier and produces a digest-bound report of complete boundary, identity, definition, replacement, incompatibility, priority, output-path, stale/currentness, and coverage findings. Every finding retains all involved source references and exactly one deterministic proposed selection or correction proposal; a proposal is neither a selected result nor authority to change a source.
 
-An exact current Operator decision may select an already-existing candidate only when its Journal provenance covers the conflict, proposed selection, and frontier digest. A conflict requiring a source correction produces a separately authorized correction proposal instead. Source ordering, revision freshness alone, configuration precedence, an LLM inference, or a TOML record without the exact canonical Journal decision must not resolve a conflict. Before a selected decision can support publication, the Tool reselects and reassesses the then-current frontier under CA-R-1841.
+An exact current Operator decision may select an already-existing candidate only when the conflict, proposed selection, and frontier digest are covered by that actual decision together with independently verified admitted Run and effect evidence. A Journal reference may accompany those inputs as observational provenance, but Journal presence or digest is not permission, proof, completion, or recovery authority. A conflict requiring a source correction produces a separately authorized correction proposal instead. Source ordering, revision freshness alone, configuration precedence, an LLM inference, or a TOML or Journal record alone must not resolve a conflict. Before a selected decision can support publication, the Tool reselects and reassesses the then-current frontier under CA-R-2118.
 
 The result is `{ outcome: "assessed", source_frontier_digest, conflicts, proposals, decision_statuses, evidence_refs }`; an unresolved, unsupported, stale, or incomplete finding sets `publishable: false`. Assessment performs no source mutation, no projection mutation, and no invented Journal event.
 

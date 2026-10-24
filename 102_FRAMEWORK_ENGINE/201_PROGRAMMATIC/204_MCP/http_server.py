@@ -1,6 +1,6 @@
 """Loopback-only Streamable HTTP transport for the MCP gateway."""
 import argparse
-import asyncio
+from concurrent.futures import CancelledError as FutureCancelledError
 from contextlib import asynccontextmanager
 from contextlib import nullcontext
 from pathlib import Path
@@ -13,6 +13,9 @@ from starlette.routing import Route
 from health_page import render_health_page
 from hot_reload import Gateway, startup_selection, bind_selection
 from mcp.server.transport_security import TransportSecuritySettings
+from operation_error_boundary import FailureRecord
+from runtime_failure_diagnostics import report_failure
+from runtime_process_boundary import run_process
 
 PATH = "/mcp"
 PORT = 8092
@@ -47,12 +50,21 @@ class LoopbackGuard:
         valid_origin = origin is None or re.fullmatch(
             r"http://(?:127\.0\.0\.1|localhost|\[::1\])(?::\d+)?", origin)
         if not valid_host:
+            self._warning('http_host_rejected', 'host_admission')
             await Response(status_code=421)(scope, receive, send)
             return
         if not valid_origin:
+            self._warning('http_origin_rejected', 'origin_admission')
             await Response(status_code=403)(scope, receive, send)
             return
         await self.app(scope, receive, send)
+
+    def _warning(self, code, operation):
+        root = getattr(getattr(self, 'gateway', None), 'root', None)
+        report_failure(
+            root, FailureRecord('WARNING', code, 'request refused'),
+            component='MCP_HTTP', operation=operation,
+        )
 
 
 def _accepts_html(value):
@@ -100,18 +112,33 @@ def _gateway_ready(gateway):
 async def health(request, gateway):
     ready = _gateway_ready(gateway)
     status_code = 200 if ready else 503
-    if not _accepts_html(request.headers.get("accept")):
-        return JSONResponse({"ready": ready}, status_code=status_code)
+    health_warning = None
+    snapshot = {}
     observer = getattr(gateway, "health_observations", None)
-    try:
-        snapshot = observer.snapshot() if observer is not None else {}
-    except Exception:
-        snapshot = {}
-    return HTMLResponse(
-        render_health_page(snapshot, ready=ready, gateway=gateway),
-        status_code=status_code,
-        headers={"Cache-Control": "no-store"},
-    )
+    if observer is not None:
+        try:
+            snapshot = observer.snapshot()
+        except FutureCancelledError:
+            raise
+        except Exception as error:
+            report_failure(
+                getattr(gateway, 'root', None), error, component='MCP_HTTP',
+                operation='health_observations',
+            )
+            health_warning = 'health observations unavailable'
+    if not _accepts_html(request.headers.get("accept")):
+        payload = {"ready": ready}
+        if health_warning is not None:
+            payload['health_warning'] = health_warning
+        return JSONResponse(payload, status_code=status_code)
+    page = render_health_page(snapshot, ready=ready, gateway=gateway)
+    headers = {"Cache-Control": "no-store"}
+    if health_warning is not None:
+        page = page.replace(
+            '</body>', '<p role="status">Health warning: health observations unavailable.</p></body>',
+        )
+        headers['X-Health-Warning'] = health_warning
+    return HTMLResponse(page, status_code=status_code, headers=headers)
 
 
 def create_app(root, implementation=None, *, selection=None):
@@ -145,15 +172,7 @@ def create_app(root, implementation=None, *, selection=None):
     return guarded
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--project-root", required=True, type=Path)
-    parser.add_argument("--control-root")
-    parser.add_argument("--instance-id")
-    parser.add_argument("--host-project-root")
-    parser.add_argument("--host", default="0.0.0.0")
-    parser.add_argument("--port", default=PORT, type=int)
-    args = parser.parse_args()
+def _serve(args):
     if args.host != "0.0.0.0" or args.port != PORT:
         raise ValueError("HTTP MCP requires the container bind 0.0.0.0:8092")
     import uvicorn
@@ -161,5 +180,19 @@ def main():
     uvicorn.run(create_app(args.project_root, selection=selection), host=args.host, port=args.port, log_level="warning")
 
 
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--project-root", required=True, type=Path)
+    parser.add_argument("--control-root")
+    parser.add_argument("--instance-id")
+    parser.add_argument("--host-project-root")
+    parser.add_argument("--host", default="0.0.0.0")
+    parser.add_argument("--port", default=PORT, type=int)
+    args = parser.parse_args(argv)
+    return run_process(
+        lambda: _serve(args), operation='mcp.http_startup', root=args.project_root,
+    )
+
+
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

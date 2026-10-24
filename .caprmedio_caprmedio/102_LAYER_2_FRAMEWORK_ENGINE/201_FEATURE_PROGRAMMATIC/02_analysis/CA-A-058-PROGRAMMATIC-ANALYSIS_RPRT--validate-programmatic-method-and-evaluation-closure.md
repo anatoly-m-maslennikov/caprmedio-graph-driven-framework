@@ -5,8 +5,8 @@ subjects:
       - programmatic-policy
     occurrent:
       - validation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-10-23 03:17:34 +0400
 relations:
   derived_from:
     - CA-A-052
@@ -14,6 +14,7 @@ relations:
     - CA-A-055
     - CA-A-056
     - CA-A-057
+atom_id: CA-A-058
 ---
 # Validate PROGRAMMATIC Method and Evaluation closure
 

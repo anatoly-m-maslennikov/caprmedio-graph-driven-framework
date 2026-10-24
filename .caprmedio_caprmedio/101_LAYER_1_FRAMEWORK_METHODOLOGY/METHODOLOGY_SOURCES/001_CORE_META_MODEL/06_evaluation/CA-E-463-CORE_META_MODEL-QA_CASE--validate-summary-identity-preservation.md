@@ -1,24 +1,25 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Summary"
+  governs: Subject/Domain/Node/Continuant/Atom.Summary
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.ID", "Entity/Node/Continuant/Atom.Substance"]
-version: 10
-updated_at: "2026-10-19 15:55:05 +0400"
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.ID
+  - Subject/Domain/Node/Continuant/Atom.Substance
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1464
-    - CA-R-1465
-    - CA-R-1273
-atom_id: "CA-E-463"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - CA-R-1464
+  - CA-R-1465
+  - CA-R-1273
+atom_id: CA-E-463
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 

@@ -1,20 +1,27 @@
 ---
 subjects:
-  governs: "Governed Change/Git Commit Message"
+  governs: Governed Change/Git Commit Message
   depends_on:
-    - "Initiative"
-    - "Governed Change/Commit Action"
-    - "Work Journal/Journal Batch"
-version: 14
-updated_at: "2026-09-12 04:12:43 +0400"
+  - Initiative
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Work Journal/Journal Batch
+version: 19
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-D-334
-    - CA-R-805
-    - CA-R-812
-    - CA-D-417
+  - CA-D-334
+  - CA-R-805
+  - CA-R-812
+  - CA-D-417
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-192
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 2
 ---
 # Derive Governed Commit Messages from Sealed Actions
 

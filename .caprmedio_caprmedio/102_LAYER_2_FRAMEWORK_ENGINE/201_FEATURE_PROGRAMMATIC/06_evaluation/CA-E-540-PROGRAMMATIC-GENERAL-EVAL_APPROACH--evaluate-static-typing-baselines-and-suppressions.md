@@ -1,25 +1,22 @@
 ---
 atom_id: CA-E-540
 content_role: Evaluation
-type: Evaluation Approach
+type: Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: General
-global_tier: 7
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 04:32:41 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "python-static-typing-admission"
+  governs: Subject/Engineering/Source Check Adoption
   depends_on:
-    - "programmatic software"
-    - "Evaluation"
-    - "Implementation"
+  - Subject/Engineering/Python Type Checks
 relations:
   evaluation_for:
-    - CA-M-164
-    - CA-M-283
+  - CA-M-420
+  - CA-M-427
+tier: 5
 ---
 # Summary
 
@@ -46,5 +43,5 @@ static typing evidence remains distinct from runtime-validation **and** behavior
 evidence. unmodified legacy targets outside the admitted surface do **not** become
 an unrelated whole-project blocker.
 
-CA-M-283 owns Mypy selection **and** its implementation convention; CA-M-164 owns
+CA-M-427 owns Mypy selection **and** its implementation convention; CA-M-420 owns
 bounded capability adoption. this Evaluation owns their typing acceptance policy.

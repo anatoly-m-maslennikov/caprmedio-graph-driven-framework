@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "P1318 bounded preparation reading recovery"
-  depends_on: [Project, Operations, "Atom/Content Role: Plan"]
-version: 2
-updated_at: "2026-10-04 11:38:47 +0000"
+  governs: P1318 bounded preparation reading recovery
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1318]
   relates_to: [CA-A-1036]

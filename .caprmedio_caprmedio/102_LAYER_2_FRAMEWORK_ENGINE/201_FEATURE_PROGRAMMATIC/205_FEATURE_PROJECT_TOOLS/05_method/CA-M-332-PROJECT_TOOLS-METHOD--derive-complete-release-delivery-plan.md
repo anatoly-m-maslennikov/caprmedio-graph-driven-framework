@@ -2,17 +2,24 @@
 atom_id: CA-M-332
 content_role: Method
 current_scope_unit: PROJECT_TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 10
-updated_at: "2026-10-21T16:26:28Z"
+version: 15
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/RELEASE_VERSION/Direct delivery"
-  depends_on: [Tool, Methodology, Runtime, Skill, Image]
+  governs: Subject/Engineering/Tool//RELEASE_VERSION.Direct Delivery
+  depends_on:
+  - Subject/Engineering/Tool//RELEASE_VERSION
+  - Subject/Domain/Node/Continuant/Selection//Methodology Sources
+  - Subject/Engineering/Runtime
+  - Skill
+  - Image
 relations:
-  method_for: [CA-R-1877, CA-R-1878]
+  method_for:
+  - CA-R-1877
+  - CA-R-1878
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

@@ -1,20 +1,24 @@
 ---
-atom_id: "CA-E-564"
-content_role: "Evaluation"
-type: "QA Case"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 2
-updated_at: "2026-10-05 03:37:42 +0400"
+atom_id: CA-E-564
+content_role: Evaluation
+type: Eval Case
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 6
+updated_at: 2026-10-24 01:50:12 +0400
 subjects:
-  governs: "Implementation prompt source currentness"
-  depends_on: ["Prompt", "Workflow", "Step", "Action"]
+  governs: Implementation prompt source currentness
+  depends_on:
+  - Subject/Engineering/Prompt
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
-  relates_to: [CA-R-1843]
+  relates_to:
+  - CA-R-1843
+tier: 3
 ---
 # Summary
 

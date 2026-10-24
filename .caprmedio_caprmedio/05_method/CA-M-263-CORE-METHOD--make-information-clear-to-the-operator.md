@@ -1,16 +1,25 @@
 ---
-cce_version: "cce_1"
-cce_form: "method"
+cce_version: cce_1
+cce_form: method
 subjects:
-  governs: "Operator/communication"
+  governs: Operator/communication
   depends_on:
-    - "Operator"
-    - "CAPRMEDIO Framework Instance"
-version: 4
-updated_at: "2026-09-17 02:13:04 +0000"
-relations: {"child_of":["CA-R-1420"]}
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - CAPRMEDIO Framework Instance
+version: 10
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  child_of:
+  - CA-R-1420
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-263
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Implementation Method
+tier: 1
 ---
 # Make information clear to the Operator
 

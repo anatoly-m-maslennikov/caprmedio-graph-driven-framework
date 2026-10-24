@@ -1,32 +1,35 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Settings"
+  governs: Subject/Domain/Node/Continuant/Project.Settings
   depends_on:
-    ["Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project.Settings.Revision Binding", "Entity/Node/Continuant/Project.Settings.Project Name", "Entity/Node/Continuant/Project.Settings.Atom Prefix", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Scope Unit"]
-version: 24
-updated_at: "2026-10-19 15:55:03 +0400"
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Settings.Project Name
+  - Subject/Domain/Node/Continuant/Project.Settings.Atom Prefix
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 29
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-R-1738
-    - CA-R-1750
-    - CA-R-1429
-    - CA-D-318
-    - CA-D-362
-    - CA-D-363
-    - CA-D-364
-    - CA-D-365
-    - CA-D-366
-    - CA-D-375
-    - CA-D-376
-atom_id: "CA-E-459"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - CA-R-1738
+  - CA-R-1750
+  - CA-R-1429
+  - CA-D-318
+  - CA-D-362
+  - CA-D-363
+  - CA-D-364
+  - CA-D-365
+  - CA-D-366
+  - CA-D-375
+  - CA-D-376
+atom_id: CA-E-459
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 8
 ---
 # Summary
 

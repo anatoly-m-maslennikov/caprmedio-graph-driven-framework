@@ -2,18 +2,30 @@
 atom_id: CA-D-594
 content_role: Delivery
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-21T08:58:22Z"
+version: 12
+updated_at: 2026-10-24 04:05:50 +0400
 subjects:
-  governs: "Workflow Orchestrator/Project MCP runtime admission Carrier"
-  depends_on: [Project, MCP, Docker Runtime, Image, Gateway, Carrier, Project Settings]
+  governs: Subject/Engineering/Carrier
+  depends_on:
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/MCP
+  - Subject/Engineering/Runtime/Docker Runtime
+  - Subject/Engineering/Image
+  - Subject/Engineering/Gateway
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Project.Settings
 relations:
-  delivery_for: [CA-R-1901, CA-M-356]
-  relates_to: [CA-D-525, CA-D-526, CA-D-578]
+  delivery_for:
+  - CA-R-1901
+  - CA-M-356
+  relates_to:
+  - CA-D-525
+  - CA-D-526
+  - CA-D-578
+type: Eng Decision
+tier: 5
 ---
 # Summary
 

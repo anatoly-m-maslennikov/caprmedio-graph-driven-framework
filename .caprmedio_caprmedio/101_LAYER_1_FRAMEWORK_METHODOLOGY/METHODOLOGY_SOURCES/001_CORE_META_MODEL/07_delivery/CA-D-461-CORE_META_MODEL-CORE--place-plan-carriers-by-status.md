@@ -1,19 +1,24 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Plan.Status"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Status'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Node/Continuant/Atom/Content Role: Plan"]
-version: 16
-updated_at: "2026-10-20T20:50:42.245Z"
-relations: {"relates_to": ["CA-R-1539", "CA-D-483", "CA-R-1541"]}
-atom_id: "CA-D-461"
-content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Status'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 20
+updated_at: 2026-10-24 01:37:42 +0400
+relations:
+  relates_to:
+  - CA-R-1539
+  - CA-D-483
+  - CA-R-1541
+atom_id: CA-D-461
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Eng Decision
 ---
 # Summary
 

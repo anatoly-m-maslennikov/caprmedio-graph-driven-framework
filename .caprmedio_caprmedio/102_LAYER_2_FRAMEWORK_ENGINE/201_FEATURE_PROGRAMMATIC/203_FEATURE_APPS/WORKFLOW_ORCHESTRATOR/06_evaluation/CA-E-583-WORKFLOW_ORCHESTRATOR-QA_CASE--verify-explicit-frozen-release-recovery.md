@@ -1,20 +1,35 @@
 ---
 atom_id: CA-E-583
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 16:25:00 +0000"
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Release Version recovery request/evaluation"
-  depends_on: [Release Version, Workflow Run, Step Run, Action Run, Operator, Permission, Journal, Source, Queue, DBOS, Implementation]
+  governs: Release Version recovery request/evaluation
+  depends_on:
+  - Release Version
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Action Run
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Permission
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Queue
+  - DBOS
+  - Subject/Engineering/Release Version/Failure and Effect Recovery
 relations:
-  evaluation_for: [CA-R-1883, CA-M-340, CA-D-577]
-  relates_to: [CA-E-493, CA-D-574, CA-O-164]
+  evaluation_for:
+  - CA-R-1883
+  - CA-M-340
+  - CA-D-577
+  relates_to:
+  - CA-E-493
+  - CA-D-574
+  - CA-O-164
+tier: 6
 ---
 # Summary
 

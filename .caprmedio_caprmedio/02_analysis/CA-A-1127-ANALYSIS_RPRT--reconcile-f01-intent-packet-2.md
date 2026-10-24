@@ -9,10 +9,13 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "F01 second authority and scoped-permission intent packet"
-  depends_on: [Operations, "Methodology Sources", Project]
-version: 2
-updated_at: "2026-10-04 13:47:14 +0000"
+  governs: F01 second authority and scoped-permission intent packet
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Methodology Sources
+  - Subject/Domain/Node/Continuant/Project
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1407]
   relates_to: [CA-P-1347, CA-P-1130, CA-A-1063, CA-A-1120]

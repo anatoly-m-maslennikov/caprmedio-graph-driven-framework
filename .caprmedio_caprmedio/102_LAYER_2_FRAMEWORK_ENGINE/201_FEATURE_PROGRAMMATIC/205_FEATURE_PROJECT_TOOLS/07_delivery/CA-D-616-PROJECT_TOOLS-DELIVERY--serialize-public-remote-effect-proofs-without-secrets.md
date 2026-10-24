@@ -1,19 +1,25 @@
 ---
-atom_id: "CA-D-616"
-content_role: "Delivery"
+atom_id: CA-D-616
+content_role: Delivery
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Public remote effect proof"
-  depends_on: [Personal Remote, Git Commit, Tool Call, Journal]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
+  governs: Public remote effect proof
+  depends_on:
+  - Personal Remote
+  - Git Commit
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  delivery_for: [CA-R-1921, CA-R-1925]
+  delivery_for:
+  - CA-R-1921
+  - CA-R-1925
+type: Eng Decision
+tier: 4
 ---
 # Summary
 

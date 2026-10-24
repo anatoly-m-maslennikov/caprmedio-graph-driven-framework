@@ -1,0 +1,41 @@
+---
+atom_id: CA-M-328@2
+content_role: Method
+type: Method
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+local_tier: Standard
+global_tier: 11
+status: Archived
+author: Anatoly Maslennikov
+version: 2
+updated_at: '2026-10-21T23:57:54+00:00'
+subjects:
+  governs: Implementation prompt failure handling
+  depends_on:
+  - Prompt
+  - Evaluation
+  - Retry
+  - Evidence
+relations:
+  relates_to:
+  - CA-R-1846
+  - CA-O-234
+  - CA-O-096
+  - CA-O-099
+---
+# Summary
+
+Diagnose, admit, and repair implementation failures
+
+## Scope
+
+the diagnosed repair path after a selected Implementation Workflow check does not pass.
+
+## Claim
+
+**to** handle a failure, retain the actual failing evidence, diagnose its category, admit retry only through current permission/confidence/retry guards, repair the admitted defect, and return for renewed preparation or checking.
+
+## Details
+
+Changed failures, stale evidence, unavailable authority, or non-progressing work block. Repair preserves issue evidence and does not create or promote an M atom.

@@ -1,20 +1,29 @@
 ---
 subjects:
-  governs: "Source Reconciliation"
+  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-    ["Relation/Type: On Result", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Select Reconciliation Sources", "Assess Source Conflicts", "Propose Source Corrections", "Obtain Source Correction Decision", "Apply Approved Source Corrections", "Publish Reconciled Projection", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Autonomous Confidence Threshold", "Entity/Node/Continuant/Projection/Type: Reconciled Projection"]
-version: 13
-updated_at: "2026-10-19 15:56:28 +0400"
+  - 'Subject/Graph/Relation/Type: On Result'
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Autonomous Confidence Threshold
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Reconciled Projection'
+version: 17
+updated_at: 2026-10-24 00:51:05 +0400
 relations: {}
-atom_id: "CA-O-010"
-content_role: "Operations"
+atom_id: CA-O-010
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Workflow"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Workflow
+tier: 3
 ---
 # Summary
 

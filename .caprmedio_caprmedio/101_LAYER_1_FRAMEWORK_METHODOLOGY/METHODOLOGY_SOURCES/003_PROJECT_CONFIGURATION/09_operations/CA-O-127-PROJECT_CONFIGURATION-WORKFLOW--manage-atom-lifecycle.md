@@ -4,17 +4,29 @@ content_role: Operations
 type: Workflow
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Relation/Type: On Result", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal"]
-version: 15
-updated_at: "2026-10-20T20:55:07.920Z"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - 'Subject/Graph/Relation/Type: On Result'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 18
+updated_at: 2026-10-24 00:38:25 +0400
 relations:
-  relates_to: [CA-O-129, CA-O-145, CA-M-303, CA-R-1508, CA-R-1513, CA-R-1520, CA-R-1525, CA-R-1720]
+  relates_to:
+  - CA-O-129
+  - CA-O-145
+  - CA-M-303
+  - CA-R-1508
+  - CA-R-1513
+  - CA-R-1520
+  - CA-R-1525
+  - CA-R-1720
+tier: 3
 ---
 # Summary
 

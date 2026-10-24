@@ -1,19 +1,25 @@
 ---
 atom_id: CA-E-573
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: PROJECT_TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-21T16:26:28Z"
+version: 8
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/RELEASE_VERSION/Installed-delivery QA"
-  depends_on: [Tool, Runtime, Skill, Image]
+  governs: Subject/Engineering/Release Version/Installed Delivery Verification
+  depends_on:
+  - Subject/Engineering/Release Version/Installed Delivery Verification
+  - Subject/Engineering/Runtime
+  - Skill
+  - Image
 relations:
-  evaluation_for: [CA-R-1877, CA-R-1878, CA-M-332]
+  evaluation_for:
+  - CA-R-1877
+  - CA-R-1878
+  - CA-M-332
+tier: 5
 ---
 # Summary
 

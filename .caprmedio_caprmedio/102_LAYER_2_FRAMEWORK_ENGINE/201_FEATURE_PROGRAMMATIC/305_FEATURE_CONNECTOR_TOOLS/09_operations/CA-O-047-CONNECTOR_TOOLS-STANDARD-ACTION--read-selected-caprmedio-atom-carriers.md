@@ -4,26 +4,28 @@ content_role: Operations
 type: Action
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: "Read Atom Carriers"
+  governs: Subject/Engineering/Carrier
   depends_on:
-    - "Action"
-    - "Tool/ATOM_READ"
-    - "Atom"
-    - "Artifact/Carrier"
-    - "Scope Unit"
-version: 4
-updated_at: "2026-10-12 23:49:24 +0400"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Engineering/Tool//ATOM_READ
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier
+  - Subject/Domain/Node/Continuant/Scope Unit
+version: 8
+updated_at: 2026-10-24 00:51:05 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
-  relates_to: [CA-R-1936, CA-M-376, CA-D-625]
+  relates_to:
+  - CA-R-1936
+  - CA-M-376
+  - CA-D-625
+tier: 3
 ---
 # Read selected CAPRMEDIO Atom carriers
 

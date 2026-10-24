@@ -1,19 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   depends_on:
-    ["Entity/Node/Continuant/Actor", "Tool", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/History/Journal.Record", "Entity/Carrier", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom.Substance"]
-version: 13
-updated_at: "2026-10-19 15:53:08 +0400"
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject/Engineering/Action Execution/Tool Call Boundary
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action/Execution Kind'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/Atom.Substance
+version: 19
+updated_at: 2026-10-24 00:51:05 +0400
 relations: {}
-atom_id: "CA-R-1452"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1452
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Definition
+tier: 1
 ---
 # Summary
 

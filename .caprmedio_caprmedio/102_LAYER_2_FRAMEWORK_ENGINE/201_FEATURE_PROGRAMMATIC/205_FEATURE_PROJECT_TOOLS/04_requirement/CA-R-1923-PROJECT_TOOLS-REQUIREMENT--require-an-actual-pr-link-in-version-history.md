@@ -1,18 +1,21 @@
 ---
-atom_id: "CA-R-1923"
-content_role: "Requirement"
+atom_id: CA-R-1923
+content_role: Requirement
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
-local_tier: "Standard"
-global_tier: 11
-author: "Anatoly Maslennikov"
-status: "Active"
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs: "Version History public release entry"
-  depends_on: [Version History, Pull Request, Version]
-version: 2
-updated_at: "2026-10-14 12:27:48 +0000"
+  governs: Subject/Engineering/Release/Version History
+  depends_on:
+  - Subject/Engineering/Release/Version History
+  - Subject/Engineering/Pull Request
+  - Subject/Engineering/Release Version
+version: 7
+updated_at: 2026-10-24 04:47:50 +0400
 relations: {}
+tier: 3
+type: Rule
 ---
 # Summary
 

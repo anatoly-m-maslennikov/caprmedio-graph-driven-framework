@@ -1,22 +1,19 @@
 ---
 subjects:
-  governs: "relation-model"
-  depends_on:
-    - "authority"
-    - "atom-boundary"
-version: 15
-updated_at: "2026-10-02 21:01:00 +0400"
+  governs: Subject/Graph/Relation
+version: 20
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-933
-atom_id: "CA-R-934"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+  - CA-R-933
+atom_id: CA-R-934
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 6
+type: Rule
 ---
 # Summary
 Preserve Producer authority outside demanded result

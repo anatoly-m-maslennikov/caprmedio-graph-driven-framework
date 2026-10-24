@@ -8,6 +8,8 @@ workers.  Journal and Git handoff remain deliberately outside this Doer.
 
 from __future__ import annotations
 
+
+
 import hashlib
 import sys
 from collections.abc import Mapping
@@ -103,7 +105,17 @@ def _relation_changes(request: Request) -> dict[str, list[dict[str, str]]]:
     return {"rewritten": sorted(rewrites, key=lambda item: (item["relation"], item["from"])), "removed": sorted(removals, key=lambda item: (item["relation"], item["target"]))}
 
 
-if __name__ == "__main__":
+def _image_main():
     from migrate_atom_identity_workers.runtime import cli
+    return cli()
 
-    raise SystemExit(cli())
+
+if __name__ == "__main__":
+    # Direct script execution needs the shared process boundary available from the tools root.
+    import sys
+    from pathlib import Path
+    _TOOLS_ROOT = next(p for p in Path(__file__).resolve().parents if p.name in {"201_TOOLS", "TOOLS"})
+    if str(_TOOLS_ROOT) not in sys.path:
+        sys.path.insert(0, str(_TOOLS_ROOT))
+    from runtime_process_boundary import run_process
+    raise SystemExit(run_process(_image_main, operation="MIGRATE_ATOM_IDENTITY/migrate_atom_identity"))

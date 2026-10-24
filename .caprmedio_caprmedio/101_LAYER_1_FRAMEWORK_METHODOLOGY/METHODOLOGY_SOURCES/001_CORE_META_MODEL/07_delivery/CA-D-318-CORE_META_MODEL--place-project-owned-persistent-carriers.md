@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: "Entity/Carrier/Directory Carrier"
+  governs: Subject/Engineering/Carrier/Directory Carrier
   depends_on: []
-version: 14
-updated_at: "2026-10-18 07:36:52 +0400"
+version: 17
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-318"
-content_role: "Delivery"
+atom_id: CA-D-318
+content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

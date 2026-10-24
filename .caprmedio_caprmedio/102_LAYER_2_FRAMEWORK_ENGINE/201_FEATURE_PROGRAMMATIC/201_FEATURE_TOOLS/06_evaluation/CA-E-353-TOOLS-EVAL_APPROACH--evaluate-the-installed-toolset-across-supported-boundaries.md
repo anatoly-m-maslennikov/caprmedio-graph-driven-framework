@@ -2,16 +2,23 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "installed-toolset"
+  governs: Subject/Engineering/Tool.Installed Toolset
   depends_on: []
-version: 11
-updated_at: 2026-09-15 03:37:14
+version: 16
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-103
-    - CA-M-221
+  - CA-M-103
+  - CA-M-221
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-353
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
 ---
 # Evaluate the installed Toolset across supported boundaries
 

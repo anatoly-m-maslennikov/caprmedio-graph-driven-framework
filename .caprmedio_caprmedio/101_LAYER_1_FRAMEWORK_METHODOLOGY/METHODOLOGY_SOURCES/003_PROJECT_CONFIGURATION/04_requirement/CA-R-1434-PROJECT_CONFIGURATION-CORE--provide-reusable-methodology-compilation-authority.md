@@ -1,19 +1,25 @@
 ---
 subjects:
-  governs: "Core Meta-Model"
+  governs: Core Meta-Model
   depends_on:
-    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set", "Extension", "Project Configuration", "Methodology Source.Expansion Boundary", "Atom/Content Role", "Entity/Node/Continuant/Project"]
-version: 12
-updated_at: "2026-10-19 15:56:06 +0400"
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
+  - Applicable Methodology Source Set
+  - Subject/Domain/Node/Continuant/Selection//Extension Sources
+  - Project Configuration
+  - Methodology Source.Expansion Boundary
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Domain/Node/Continuant/Project
+version: 17
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1434"
-content_role: "Requirement"
+atom_id: CA-R-1434
+content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Goal
 ---
 # Summary
 

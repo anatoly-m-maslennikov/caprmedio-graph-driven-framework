@@ -1,20 +1,28 @@
 ---
 atom_id: CA-E-636
 content_role: Evaluation
-type: QA Case
+type: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-14 20:12:21 +0400"
+version: 7
+updated_at: 2026-10-24 02:14:24 +0400
 subjects:
-  governs: "Tool/WORKFLOW_OPERATIONS/REVERT_CHANGES"
-  depends_on: [Tool, Workflow, Action, Operator, Artifact, Journal, Workflow Run, Step Run]
+  governs: Subject/Engineering/Revert Changes/Failure and Logging Diagnostics Evaluation
+  depends_on:
+  - Subject/Engineering/Revert Changes
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Term//Artifact
+  - Subject/Engineering/Runtime/Journal Logging
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Subject/Domain/Node/Occurrent/Execution/Step Run
 relations:
-  evaluation_for: [CA-R-1834]
+  evaluation_for:
+  - CA-R-1834
+tier: 4
 ---
 # Summary
 

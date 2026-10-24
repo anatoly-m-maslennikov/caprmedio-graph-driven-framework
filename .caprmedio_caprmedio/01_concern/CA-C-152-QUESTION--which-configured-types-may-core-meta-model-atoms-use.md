@@ -2,18 +2,19 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Type"
+  governs: Type
   depends_on:
-    - "Core Meta-Model"
-    - "Project Configuration"
-    - "Atom/Content Role"
-    - "Artifact/Carrier"
+  - Core Meta-Model
+  - Project Configuration
+  - Subject/Domain/Node/Continuant/Atom/Content Role
+  - Subject/Engineering/Carrier
 priority: medium
-version: 2
-updated_at: "2026-09-17 16:59:23 +0000"
+version: 4
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-152
 ---
 # Which configured Types may Core Meta-Model Atoms use?
 

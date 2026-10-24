@@ -1,19 +1,21 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology.Member"
+  governs: 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology.Member'
   depends_on:
-    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology.Member", "Entity/Node/Continuant/Atom", "Entity/Carrier/File Carrier"]
-version: 16
-updated_at: "2026-10-19 15:56:19 +0400"
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology.Member'
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Engineering/Carrier/File Carrier
+version: 21
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-D-305"
-content_role: "Delivery"
+atom_id: CA-D-305
+content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Eng Decision
 ---
 # Summary
 

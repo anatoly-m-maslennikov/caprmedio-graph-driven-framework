@@ -3,19 +3,22 @@ atom_id: CA-D-494
 content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
-version: 7
-updated_at: "2026-10-19 15:55:59 +0400"
+version: 10
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "Entity/Node/Continuant/Project.Operator Registry"
+  governs: Subject/Domain/Node/Continuant/Project.Operator Registry
   depends_on:
-    ["Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/History/Journal"]
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Atom.Author
+  - Subject/Domain/Node/Continuant/History/Journal
 relations:
   relates_to:
-    - CA-D-274
+  - CA-D-274
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

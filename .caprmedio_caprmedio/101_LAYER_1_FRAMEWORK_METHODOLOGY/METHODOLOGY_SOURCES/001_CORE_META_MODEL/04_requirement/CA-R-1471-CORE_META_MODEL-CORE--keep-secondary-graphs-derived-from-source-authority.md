@@ -1,19 +1,25 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Graph"
+  governs: CAPRMEDIO Graph
   depends_on:
-    ["Single Source of Truth", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Structural Entity", "Entity/Node/Continuant/History/Journal", "Entity/Relation"]
-version: 8
-updated_at: "2026-10-19 15:53:12 +0400"
+  - Single Source of Truth
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Atom.Substance
+  - Structural Entity
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Graph/Relation
+version: 14
+updated_at: 2026-10-24 01:50:12 +0400
 relations: {}
-atom_id: "CA-R-1471"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1471
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

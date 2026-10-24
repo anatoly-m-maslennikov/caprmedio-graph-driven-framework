@@ -2,16 +2,27 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "artifact-validation"
+  governs: artifact-validation
   depends_on:
-    - "Property"
-    - "Artifact/Property/Default"
-    - "Markdown Atom Carrier/YAML Frontmatter/Default"
-version: 1
-updated_at: "2026-09-22 23:02:20 +0000"
+  - Property
+  - Artifact/Property/Default
+  - Markdown Atom Carrier/YAML Frontmatter/Default
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {"evaluation_for": ["CA-D-478", "CA-D-485", "CA-R-1136"]}
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations:
+  evaluation_for:
+  - CA-D-478
+  - CA-D-485
+  - CA-R-1136
+atom_id: CA-E-509
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 2
 ---
 # Summary
 

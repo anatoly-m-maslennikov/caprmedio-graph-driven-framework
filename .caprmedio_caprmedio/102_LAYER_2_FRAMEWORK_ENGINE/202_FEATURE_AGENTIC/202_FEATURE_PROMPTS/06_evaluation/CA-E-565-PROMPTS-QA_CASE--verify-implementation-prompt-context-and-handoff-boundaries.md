@@ -1,20 +1,24 @@
 ---
-atom_id: "CA-E-565"
-content_role: "Evaluation"
-type: "QA Case"
-current_scope_unit: "PROMPTS"
-claim_target_scope_unit: "PROMPTS"
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-version: 1
-updated_at: "2026-10-04 18:26:33 +0000"
+atom_id: CA-E-565
+content_role: Evaluation
+type: Eval Case
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+status: Active
+author: Anatoly Maslennikov
+version: 5
+updated_at: 2026-10-24 01:50:12 +0400
 subjects:
-  governs: "Implementation prompt context and handoff"
-  depends_on: ["Prompt", "Agent", "Step", "Workflow Run"]
+  governs: Subject/Domain/Node/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  depends_on:
+  - Prompt
+  - Agent
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
 relations:
-  relates_to: [CA-R-1845]
+  relates_to:
+  - CA-R-1845
+tier: 3
 ---
 # Summary
 

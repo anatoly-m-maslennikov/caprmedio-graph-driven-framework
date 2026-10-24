@@ -1,27 +1,32 @@
 ---
-version: 16
-updated_at: "2026-10-19 15:54:54 +0400"
+version: 22
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   child_of:
-    - CA-R-815
+  - CA-R-815
   evaluation_for:
-    - CA-R-1487
-    - CA-M-297
-    - CA-O-022
-    - CA-O-023
+  - CA-R-1487
+  - CA-M-297
+  - CA-O-022
+  - CA-O-023
 subjects:
-  governs: "Project Priority Model Application"
+  governs: Subject/Domain/Node/Continuant/Selection//PROJECT_PRIORITY_MODEL
   depends_on:
-    ["Entity/Node/Continuant/Actor/Type: Operator", "Scope", "Entity/Node/Continuant/Project", "CAPRMEDIO Framework Instance", "Resolve Operator Priorities", "Select Priority-Governed Alternative", "Project Lexicographic Selection"]
-atom_id: "CA-E-207"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Scope
+  - Subject/Domain/Node/Continuant/Project
+  - CAPRMEDIO Framework Instance
+  - Subject/Engineering/Resolve Operator Priorities
+  - Subject/Domain/Node/Continuant/Selection
+  - Subject/Domain/Node/Continuant/Selection//PROJECT_LEXICOGRAPHIC
+atom_id: CA-E-207
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 5
 ---
 # Summary
 

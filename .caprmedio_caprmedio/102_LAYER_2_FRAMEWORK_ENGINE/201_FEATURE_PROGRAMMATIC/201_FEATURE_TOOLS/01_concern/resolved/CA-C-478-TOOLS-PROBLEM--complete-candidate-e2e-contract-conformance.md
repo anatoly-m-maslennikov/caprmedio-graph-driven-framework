@@ -7,11 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-05 23:35:01 +0000"
+version: 4
+updated_at: 2026-10-23 01:47:30 +0400
 subjects:
-  governs: "Tool/RELEASE_VERSION/Candidate E2E contract conformance"
-  depends_on: [Tool, Release Version, Candidate Manifest, Docker Image, Test Suite, JUnit Report, Journal]
+  governs: Subject/Engineering/Integration Testing/Release Conformance
+  depends_on:
+  - Subject/Engineering/Test Results/Retained Evidence
 relations:
   concern_about: [CA-P-1744, CA-P-1745, CA-P-1750, CA-P-1751, CA-P-1752, CA-P-1753, CA-P-1754]
 ---

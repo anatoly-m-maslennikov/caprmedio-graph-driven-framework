@@ -1,25 +1,28 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project.Structure"
+  governs: Subject/Domain/Node/Continuant/Project.Structure
   depends_on:
-    ["Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Carrier"]
-version: 12
-updated_at: "2026-10-19 15:55:06 +0400"
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - Subject/Domain/Node/Continuant/Project.Settings
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Engineering/Carrier
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - "CA-R-1483"
-    - "CA-R-1484"
-    - "CA-R-1485"
-    - "CA-M-291"
-atom_id: "CA-E-469"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "General"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Evaluation Approach"
-global_tier: 10
+  - CA-R-1483
+  - CA-R-1484
+  - CA-R-1485
+  - CA-R-2133
+  - CA-M-291
+atom_id: CA-E-469
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Policy
+tier: 3
 ---
 # Summary
 
@@ -38,7 +41,7 @@ the Evaluation **must** reject Project Structure **if**
 - a parent is unresolved **or** self-referential,
 - parentage **contains** a cycle,
 - a parent refers **to** another Project,
-- a retained Structural Level disagrees with parent depth,
+  - a retained ancestry/path representation disagrees with the declared parent chain,
 - **or** a declaration assigns an invalid Type, Label, order, navigation value, Authority Mode, **or** Carrier binding.
 
 - Ordered siblings **must not** share structural Local Order; Navigational Order Number duplicates alone **must not** fail validation.

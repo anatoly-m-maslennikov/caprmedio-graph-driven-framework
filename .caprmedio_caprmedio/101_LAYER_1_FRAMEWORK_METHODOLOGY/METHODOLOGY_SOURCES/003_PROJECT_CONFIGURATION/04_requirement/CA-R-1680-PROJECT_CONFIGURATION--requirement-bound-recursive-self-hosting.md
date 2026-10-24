@@ -1,22 +1,22 @@
 ---
 subjects:
-  governs: "framework-boundary"
+  governs: framework-boundary
   depends_on: []
-version: 20
-updated_at: "2026-10-18 07:50:01 +0400"
+version: 23
+updated_at: 2026-10-24 02:04:43 +0400
 relations:
   child_of:
-    - CAPRMEDIO-REQU-014-REQUIREMENT--support-repository-relative-work-areas
-    - "CA-R-1681"
-    - "CA-R-1696"
-atom_id: "CA-R-1680"
-content_role: "Requirement"
+  - CA-R-014
+  - CA-R-1681
+  - CA-R-1696
+atom_id: CA-R-1680
+content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
 ---
 # Summary
 

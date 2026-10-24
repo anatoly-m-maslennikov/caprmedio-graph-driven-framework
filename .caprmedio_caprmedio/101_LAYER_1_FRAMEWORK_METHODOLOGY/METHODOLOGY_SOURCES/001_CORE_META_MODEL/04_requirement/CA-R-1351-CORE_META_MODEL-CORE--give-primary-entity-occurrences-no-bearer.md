@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: "IS_BORNE_BY"
+  governs: IS_BORNE_BY
   depends_on:
-    - "Primary Entity"
-    - "Subject"
-version: 10
-updated_at: "2026-10-02 22:23:29 +0400"
+  - Primary Entity
+  - Subject
+version: 12
+updated_at: 2026-10-24 01:37:42 +0400
 relations: {}
-atom_id: "CA-R-1351"
-content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Core"
-status: "Active"
-author: "Anatoly Maslennikov"
-global_tier: 9
+atom_id: CA-R-1351
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
 ---
 # Summary
 

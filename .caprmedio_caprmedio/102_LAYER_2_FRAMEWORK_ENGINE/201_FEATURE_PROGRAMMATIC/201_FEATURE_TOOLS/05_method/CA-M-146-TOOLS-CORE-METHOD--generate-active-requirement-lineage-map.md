@@ -1,17 +1,24 @@
 ---
 subjects:
-  governs: "projection-pipeline"
+  governs: projection-pipeline
   depends_on: []
-version: 16
-updated_at: "2026-09-17 20:20:04 +0000"
+version: 21
+updated_at: 2026-10-24 02:14:24 +0400
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   method_for:
-    - CA-R-1061
-    - CA-R-1062
-    - CA-R-1068
+  - CA-R-1061
+  - CA-R-1062
+  - CA-R-1068
+atom_id: CA-M-146
+status: Active
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Decision
+tier: 4
 ---
 # Generate active Requirement Lineage Map
 

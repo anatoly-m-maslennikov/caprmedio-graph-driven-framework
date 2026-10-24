@@ -2,18 +2,19 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: "Atom/Content Role: Evaluation"
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
   depends_on:
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Delivery"
-    - "Action"
-    - "Journal/Record"
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Continuant/History/Journal.Record
 priority: medium
-version: 2
-updated_at: "2026-09-17 19:34:24 +0000"
+version: 4
+updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
+atom_id: CA-C-186
 ---
 # How should software Evaluation selection separate technique, gates, and evidence?
 

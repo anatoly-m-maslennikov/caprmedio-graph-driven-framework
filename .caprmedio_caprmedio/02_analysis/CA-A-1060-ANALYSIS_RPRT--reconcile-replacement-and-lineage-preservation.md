@@ -9,10 +9,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Replacement and lineage preservation reconciliation"
-  depends_on: [Operations, "Atom/Content Role: Plan"]
-version: 1
-updated_at: "2026-10-04 12:38:08 +0000"
+  governs: Replacement and lineage preservation reconciliation
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   analysis_for: [CA-P-1342]
   relates_to: [CA-A-924, CA-A-1031, CA-O-051, CA-O-058, CA-O-067, CA-C-352]

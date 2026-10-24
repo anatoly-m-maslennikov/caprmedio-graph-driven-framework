@@ -10,12 +10,12 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Third-partition worker report and iteration evidence"
+  governs: Third-partition worker report and iteration evidence
   depends_on:
-    - "Project"
-    - "Operations"
-version: 2
-updated_at: "2026-10-04 12:05:00 +0000"
+  - Subject/Domain/Node/Continuant/Project
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 relations:
   is_result_of:
     - CA-P-1328

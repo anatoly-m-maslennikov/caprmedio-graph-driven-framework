@@ -3,17 +3,20 @@ atom_id: CA-D-497
 content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-19 15:56:24 +0400"
+version: 11
+updated_at: 2026-10-24 01:37:42 +0400
 subjects:
-  governs: "Entity/Node/Continuant/Project.Framework Settings"
+  governs: Subject/Domain/Node/Continuant/Project.Framework Settings
   depends_on:
-    ["Entity/Node/Occurrent/Execution/Workflow Run", "Default Settings", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom"]
+  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
+  - Default Settings
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Atom
 relations: {}
+tier: 3
+type: Eng Decision
 ---
 # Summary
 

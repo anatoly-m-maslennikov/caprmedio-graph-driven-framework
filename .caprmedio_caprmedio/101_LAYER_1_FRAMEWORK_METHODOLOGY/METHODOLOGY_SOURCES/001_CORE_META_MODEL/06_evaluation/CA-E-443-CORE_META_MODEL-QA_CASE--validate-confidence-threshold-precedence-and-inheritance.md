@@ -1,20 +1,38 @@
 ---
 subjects:
-  governs: "Confidence Threshold.Resolution Validation"
+  governs: Confidence Threshold.Resolution Validation
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Confidence Threshold", "Autonomous Confidence Threshold", "Entity/Node/Continuant/Actor/Type: Operator", "Hub Atom", "Entity/Node/Continuant/Project.Framework Settings", "Property", "Entity/Node/Continuant/Atom/Content Role: Concern", "Entity/Carrier"]
-version: 13
-updated_at: "2026-10-19 15:55:00 +0400"
-relations: {"evaluation_for":["CA-R-1587","CA-R-1044","CA-R-1045","CA-R-1427","CA-R-1428","CA-M-271","CA-R-1591","CA-D-472","CA-D-485","CA-R-1713"]}
-atom_id: "CA-E-443"
-content_role: "Evaluation"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "QA Case"
-global_tier: 11
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Confidence Threshold
+  - Autonomous Confidence Threshold
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Hub Atom
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Term//Property
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Concern'
+  - Subject/Engineering/Carrier
+version: 19
+updated_at: 2026-10-24 02:14:24 +0400
+relations:
+  evaluation_for:
+  - CA-R-1587
+  - CA-R-1044
+  - CA-R-1045
+  - CA-R-1427
+  - CA-R-1428
+  - CA-M-271
+  - CA-R-1591
+  - CA-D-472
+  - CA-D-485
+  - CA-R-1713
+atom_id: CA-E-443
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
 ---
 # Summary
 

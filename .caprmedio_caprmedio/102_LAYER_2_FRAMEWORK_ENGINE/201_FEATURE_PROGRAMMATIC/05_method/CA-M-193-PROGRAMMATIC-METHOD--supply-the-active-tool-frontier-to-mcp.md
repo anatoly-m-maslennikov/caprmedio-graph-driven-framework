@@ -1,11 +1,9 @@
 ---
 subjects:
-  governs: framework-engine-mcp
-  depends_on:
-  - Projection
-  - programmatic software
-version: 12
-updated_at: "2026-10-18 03:52:06 +0400"
+  governs: Subject/Engineering/Callable Frontier Publication
+  depends_on: []
+version: 18
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   method_for:
   - CA-R-1096
@@ -15,10 +13,10 @@ atom_id: CA-M-193
 content_role: Method
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
+type: Eng Decision
+tier: 4
 ---
 # Summary
 
@@ -26,9 +24,17 @@ Supply the active Tool frontier to MCP
 
 ## Scope
 
+The source-bound active callable Tool and Workflow frontier for a Project, and
+the initial union of those validated per-Project frontiers in the shared MCP
+runtime.
+
 ## Claim
 
-Direct read and query Tools delegate to their canonical providers without a mandatory Workflow Orchestrator wrapper. Internal CONNECTORS/adapters and PROJECT_TOOLS are not members of this MCP callable frontier.
+Direct read and query Tools delegate to their canonical providers without a
+mandatory Workflow Orchestrator wrapper. Internal CONNECTORS/adapters and
+PROJECT_TOOLS are not members of this MCP callable frontier. A shared runtime
+may publish the union of valid native Project frontiers, but every invocation
+still uses one validated Project binding and no Tool meaning changes.
 
 ## Details
 
@@ -49,6 +55,15 @@ apply **when** MCP builds **or** refreshes the callable frontier supplied by TOO
    meaning, inputs, outcomes, **or** mechanics.
 6. replace the exposed frontier **only** **after** the complete candidate projection
    validates; preserve the preceding valid frontier **when** refresh fails.
+7. For a shared runtime, eagerly validate the bounded candidate Project
+   frontiers and publish their initial union. Admit a same-name Tool across
+   Projects only when its input and output schemas are identical; quarantine
+   and diagnose the affected Project Tool on a conflict.
+8. Add the outer `project_root` only at the native input schema root while
+   preserving `$defs`, then pass the native request and result contract
+   unchanged to the bound Project provider. An inactive or disabled Project
+   Tool refuses the call. A new Tool name requires explicit shared restart and
+   client reconnect; do not assume `tools/list_changed`.
 
 ### Outcome
 

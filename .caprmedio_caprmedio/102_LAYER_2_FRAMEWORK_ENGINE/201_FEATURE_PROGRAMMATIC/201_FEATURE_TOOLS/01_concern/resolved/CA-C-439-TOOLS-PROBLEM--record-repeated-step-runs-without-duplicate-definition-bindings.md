@@ -8,11 +8,16 @@ local_tier: Standard
 global_tier: 11
 status: resolved
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 22:18:37 +0000"
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 subjects:
-  governs: "Repeated Step Run definition binding recording"
-  depends_on: [Workflow, Step, Action, Run, Journal]
+  governs: Repeated Step Run definition binding recording
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node/Occurrent/Execution
+  - Journal
 relations:
   concern_about: [CA-P-1540, CA-P-1541, CA-P-1517]
 ---

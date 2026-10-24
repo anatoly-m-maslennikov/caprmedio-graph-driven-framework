@@ -2,26 +2,25 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: "python-technical-configuration"
-  depends_on:
-    - "programmatic software"
-version: 10
-updated_at: "2026-10-15 23:23:10 +0400"
+  governs: Subject/Engineering/Technical Configuration Boundary
+  depends_on: []
+version: 17
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
   evaluation_for:
-    - CA-M-281
+  - CA-M-412
   derived_from:
-    - CA-A-053
+  - CA-A-053
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-452
 content_role: Evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 status: Active
 author: Anatoly Maslennikov
+tier: 5
+type: Eval Case
 ---
 # Verify one Python technical configuration boundary
 
@@ -38,7 +37,7 @@ selections for the interpreter **and** one admitted development tool.
 ## Acceptance criteria
 
 pass **only** **when** **all** consumers resolve the current interpreter boundary
-selected by CA-M-281 **and** the same admitted development-tool profile,
+selected by CA-M-412 **and** the same admitted development-tool profile,
 **and** no CAPRMEDIO runtime setting is duplicated **in** `pyproject.toml`.
 
 ## Failure disposition
@@ -49,4 +48,4 @@ materialized once.
 ## Sources
 
 - [PyPA: `pyproject.toml` specification](https://packaging.python.org/en/latest/specifications/pyproject-toml/)
-- [CA-M-281 — Declare one Python and software configuration boundary](../05_method/CA-M-281-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--declare-one-python-and-software-configuration-boundary.md)
+- [CA-M-412 — Declare one Python and software configuration boundary](../05_method/CA-M-412-PROGRAMMATIC-STANDARD-ENG_POLICY--declare-one-python-and-software-configuration-boundary.md)

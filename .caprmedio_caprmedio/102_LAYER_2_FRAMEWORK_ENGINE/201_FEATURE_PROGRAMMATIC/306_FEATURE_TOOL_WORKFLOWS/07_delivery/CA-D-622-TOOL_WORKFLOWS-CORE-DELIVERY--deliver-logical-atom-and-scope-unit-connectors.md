@@ -1,21 +1,35 @@
 ---
 atom_id: CA-D-622
 content_role: Delivery
-type: Delivery
+type: Eng Decision
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
-local_tier: Core
-global_tier: 9
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Tool"
-  depends_on: ["Atom","Scope Unit","Workflow"]
-version: 2
-updated_at: "2026-10-12 23:54:41 +0400"
+  governs: Subject/Engineering/Connector/Logical Atom and Scope Unit Interface
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Scope Unit
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+version: 6
+updated_at: 2026-10-24 02:14:24 +0400
 relations:
-  delivery_for: ["CA-R-1093","CA-R-1067","CA-R-863","CA-R-864","CA-R-865","CA-R-866","CA-R-868","CA-R-1829"]
-  relates_to: ["CA-M-372","CA-O-201","CA-O-202","CA-O-203"]
+  delivery_for:
+  - CA-R-1093
+  - CA-R-1067
+  - CA-R-863
+  - CA-R-864
+  - CA-R-865
+  - CA-R-866
+  - CA-R-868
+  - CA-R-1829
+  relates_to:
+  - CA-M-372
+  - CA-O-201
+  - CA-O-202
+  - CA-O-203
+tier: 4
 ---
 # Summary
 
