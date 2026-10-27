@@ -1,0 +1,78 @@
+---
+atom_id: CA-P-1965@13
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 7
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+status: Archived
+subjects:
+  governs: Entity
+  depends_on:
+  - Atom
+  - Subject
+  - Term
+  - Property
+  - Carrier
+  - Revision
+  - Scope Unit
+  - Projection
+  - Plan
+  - Tool
+  - Journal
+  - Operator
+version: 13
+updated_at: 2026-10-24 06:04:16 +0400
+relations:
+  is_decomposition_of:
+  - CA-P-1959
+  blocks:
+  - CA-P-1967
+  - CA-P-1968
+  - CA-P-1975
+tier: 3
+---
+# Summary
+
+Support the approved Subject grammar in Tools
+
+## Objective
+
+Make lookup, preview, parsing and validation agree on the approved proposed grammar before source cutover.
+
+## Details
+
+Own implementation work: none. Assignee: AI Agent. Required prerequisites: CA-P-1964, CA-P-2059, CA-P-2061 and CA-P-2062. Add bounded, disjoint implementation children after the aligned Tool contracts are accepted; each child has at most 15 minutes of own work. CA-P-2062 owns the required ten-source Tool-RMEDO alignment and independent contract gate before code.
+
+Use its recorded decision and exact grammar candidate. Update the existing parser/validator/preview implementation with explicitly selected old and proposed profiles; never silently reinterpret old sources. The proposed profile supports / broader-to-narrower, . bearer qualification and : allowed value with the approved direction and character rules.
+
+Follow the current contract from CA-P-2062, including the latest removal of @ as a carrier/display operator. D atoms own carrier/storage rules. A negative @ Subject-token test does not register a fourth operator. Preserve the separate historical archive filename convention.
+
+If the Operator refuses or defers the new-grammar exception, this Task is not ready; record the blocked cutover, do not fabricate approval. Include the graph producer in the profile contract. CA-P-1975 must verify the final changed implementation; the earlier CA-P-1963 receipt cannot accept later code.
+
+Exercise mixed operators, malformed paths, reserved-character escaping, collisions and old-profile compatibility. Derive typed relations, not edges inferred from Source Atom metadata. Keep entity and Term namespaces separate.
+
+This Task changes implementation and isolated fixtures only. It does not adopt governing grammar Atoms, activate a runtime, publish graphs or migrate sources. Include exact implementation pins in the subsequent preview. Split larger work before execution.
+
+Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
+
+### Decomposing Plans
+
+- [CA-P-2067 — Implement shared Subject notation](../07-CA-P-1965@13-TASK--support-the-approved-subject-grammar-in-tools/done/01-CA-P-2067-TASK--implement-shared-subject-notation.md)
+- [CA-P-2068 — Implement profile-aware Subject lookup](../07-CA-P-1965@13-TASK--support-the-approved-subject-grammar-in-tools/done/02-CA-P-2068-TASK--implement-profile-aware-subject-lookup.md)
+- [CA-P-2069 — Implement profile-aware Subject preview](../07-CA-P-1965@13-TASK--support-the-approved-subject-grammar-in-tools/done/03-CA-P-2069-TASK--implement-profile-aware-subject-preview.md)
+- [CA-P-2070 — Implement profile-aware graph parsing](../07-CA-P-1965@13-TASK--support-the-approved-subject-grammar-in-tools/done/04-CA-P-2070-TASK--implement-profile-aware-graph-parsing.md)
+- [CA-P-2071 — Wire Subject profile requests](../07-CA-P-1965@13-TASK--support-the-approved-subject-grammar-in-tools/done/05-CA-P-2071-TASK--wire-subject-profile-requests.md)
+
+The source gate is independently accepted and committed as c6b4525d7. The settled shared API and exclusive scopes are in `grammar-tools.implementation-lanes.md`; final independent code verification remains CA-P-1975.
+
+### Completion
+
+All five code children are Done. Exact implementations, focused checks and independent reviews are pinned in Stage 2 receipts for CA-P-2067–2071. Search/Update regression checks passed; the wider graph suite still has the recorded pre-existing protected-registry authority-path failure. No full graph pass, source migration, native admission or runtime activation is claimed. CA-P-1975 now owns final whole-code readiness verification.
+
+### Definition of Done
+
+The Plan is **not** Done if parser, validator and preview disagree, old Subjects are silently reinterpreted, approved syntax has no tests, or authority/runtime/source changes are implied; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

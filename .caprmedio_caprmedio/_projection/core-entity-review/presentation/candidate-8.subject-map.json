@@ -1,0 +1,298 @@
+{
+  "candidate": 8,
+  "status": "Applied reviewed Engine Governs Drafts and Core notation; Depends On deferred",
+  "decisions": [
+    {
+      "id": "C8-Q1",
+      "status": "Operator direction recorded; exact aspect targets remain proposed",
+      "topic": "Tool-specific Subject naming",
+      "operator_input": "A specific Tool is a Scope Unit; Subjects should not duplicate Scope Units. Tool//NAME is acceptable, but narrower Subjects are preferred.",
+      "resolved_direction": "Use reusable governed-aspect topics independent of the implementing Tool/Scope Unit. Named Tool instances are available but are not the default mapping."
+    },
+    {
+      "id": "C8-Q2",
+      "status": "Operator approved; recorded, not implemented",
+      "topic": "Adapters, Single Action Tools and Batch Tools",
+      "adapters_connectors": "Technical create, write/update, move and rename operate at the carrier/connector level.",
+      "single_action_tools": [
+        "Select: find and fetch requested fields with one parameter set, regardless of result count.",
+        "Create Atom: domain creation under applicable schemas.",
+        "Update Atom: one Atom's complete Draft-edit-archive-promote lifecycle, including property/content changes.",
+        "Archive Atom: domain archival operation."
+      ],
+      "batch_tools": "Compose Single Actions. Find & Replace selects matching Atoms and invokes Update Atom for each target.",
+      "atom_update": {
+        "flow": [
+          "Copy Current into the next-version Draft",
+          "Edit Draft",
+          "Archive Current",
+          "Promote Draft"
+        ],
+        "summary_unchanged": "Keep Atom ID and advance Version.",
+        "summary_changed": "Allocate a new Atom ID in Draft, archive the old Atom, then promote the new Atom.",
+        "other_existing_identity_rules": "Content Role identity rules remain unchanged.",
+        "editable_aspects": [
+          "Type",
+          "Local Scope Unit",
+          "Target Scope Unit",
+          "Status",
+          "Subjects",
+          "Relations",
+          "Tier",
+          "Label",
+          "content"
+        ]
+      },
+      "schemas": "Schemas are not Atoms. Atom Create/Update reads and applies property/filename rules per Content Role and Type without implicitly modifying those schemas.",
+      "batch_limit": "An Atom-count limit may bound execution batches; no numeric value has been selected.",
+      "supersedes": "Earlier proposal that multi-Atom Find & Replace itself is one Single Action.",
+      "not_included": "No source Atom, tool implementation, schema or Subject branch is changed by recording this decision."
+    },
+    {
+      "id": "C8-Q3",
+      "status": "Operator approved; Core grammar applied; parser implementation unchanged",
+      "topic": "Whole-to-part Subject notation",
+      "operator": ">",
+      "meaning": "whole > part displays CONTAINS; the part IS_CONTAINED_BY the whole.",
+      "direct_stored_relation": "IS_CONTAINED_BY",
+      "derived_inverse_relation": "CONTAINS",
+      "example": "…/Workflow//Subject Migration > Step//Update Atoms > Step//Create Draft",
+      "substeps": "The same containment relation and notation apply to Steps and Substeps.",
+      "not_execution_order": true,
+      "unchanged_operators": {
+        "/": "broader to narrower kind",
+        ".": "bearer to dependent property",
+        ":": "allowed value",
+        "//": "named instance"
+      },
+      "supersedes": "Slash, dotted and repeated-// proposals for representing Workflow/Step containment.",
+      "mapping_boundary": "Use only evidenced containment. Do not duplicate calling Workflow memberships onto a reusable Tool's definition automatically.",
+      "source_migration_applied": true,
+      "parser_implementation_changed": false,
+      "source_selectors": "Full canonical Subject selectors on both sides; compact kind labels are presentation only."
+    },
+    {
+      "id": "C8-Q4",
+      "status": "Operator direction recorded",
+      "topic": "Thin mapping and Draft-first preparation",
+      "format": [
+        "Atom ID",
+        "old Governs → new Governs",
+        "Status"
+      ],
+      "order": [
+        "subjects.governs",
+        "subjects.depends_on"
+      ],
+      "needed_definitions": "Create new or updated Atom Drafts directly when required; leave Current unchanged.",
+      "bulky_mapping_reports": "Retired from the main Candidate; prior working evidence remains in disposable scratch.",
+      "depends_on_stage": "Deferred until the Governs pass is complete.",
+      "statuses_when_needed": [
+        "Candidate",
+        "Confirmed",
+        "Planned",
+        "Drafted",
+        "Applied",
+        "Blocked",
+        "No Change"
+      ],
+      "drafted_is_not_confirmation": true
+    },
+    {
+      "id": "C8-Q5",
+      "status": "Operator approved; reviewed Governs grouping applied to Current Atoms",
+      "topic": "Engineering Aspect families",
+      "families": [
+        "Architecture",
+        "Authoring",
+        "Verification",
+        "Data Handling",
+        "Execution Control",
+        "Storage",
+        "Delivery"
+      ],
+      "architecture": [
+        "Component Structure",
+        "Communication"
+      ],
+      "authoring": [
+        "Code Authoring/Python Code",
+        "Prompt Authoring"
+      ],
+      "verification": [
+        "Static Analysis",
+        "Dynamic Testing",
+        "Coverage",
+        "Test Design",
+        "Test Data"
+      ],
+      "independence": "Subject, Content Role, Type and Local Scope Unit stay independent; applicable authoring rules are reused, not duplicated under tests.",
+      "python_checks": "Only Python-specific verification belongs to its technical topics; application behavior retains the actual Domain Subject.",
+      "validation": "Data format/schema/type/value checks differ from Domain Atom constraints and implementation Verification.",
+      "physical_storage": "Corpus content is Test Data; disk placement is Storage."
+    }
+  ],
+  "mapping": {
+    "scope": "Current Engine RMEDO",
+    "governs": "candidate-8.governs.md",
+    "columns": [
+      "Atom ID",
+      "old Governs → new Governs",
+      "Status"
+    ],
+    "depends_on": "Deferred; source Depends On unchanged during promotion.",
+    "reviewed": 1027,
+    "changed": 787,
+    "unchanged": 240,
+    "statuses": {
+      "Applied": 811
+    },
+    "drafted_is_not_confirmation": true,
+    "drafted_rows": 811,
+    "applied_rows": 811,
+    "prior_no_change_drafts_promoted": 24
+  },
+  "core_subject_cleanup": {
+    "status": "Applied",
+    "map": "candidate-8.core-subjects.md",
+    "updated_current_atoms": 4,
+    "fixed_occurrences": 6,
+    "current_core_rmedo_checked": 800,
+    "unrooted_occurrences": 0,
+    "content_changed": false,
+    "predecessors_archived": true,
+    "projection_rebuilt": "CA-PROJ-006",
+    "terms_graph_implementation": "Deferred"
+  },
+  "source_migration_scope": "Engine",
+  "source_migration_applied": true,
+  "parser_implementation_changed": false,
+  "branch_creation": true,
+  "drafts": [],
+  "engine_governs_drafts": {
+    "new": 614,
+    "refined_existing": 7,
+    "current_bodies_changed": 0,
+    "depends_on_changed": 0
+  },
+  "engineering_aspect_drafts": {
+    "engineering_atoms_reviewed": 712,
+    "drafts_refined": 512,
+    "drafts_created": 190,
+    "draft_rows": 811,
+    "statuses": {
+      "Drafted": 787,
+      "No Change": 24
+    },
+    "current_sources_unchanged": 1027,
+    "bodies_changed": 0,
+    "depends_on_changed": 0,
+    "unrelated_drafts_unchanged": 50,
+    "updated_at": "2026-10-26 00:09:34 +0400"
+  },
+  "promotion": {
+    "updated_at": "2026-10-26 00:46:35 +0400",
+    "promoted": 812,
+    "engine": 811,
+    "core_grammar": 1,
+    "predecessors_archived": 812,
+    "included_no_change_drafts": 24,
+    "unrelated_drafts_unchanged": 78,
+    "grammar_current": "CA-R-1931@10",
+    "body_changes": "Only approved CA-R-1931 notation paragraph; all Engine bodies unchanged."
+  },
+  "rebuilt_projections": [
+    {
+      "projection_id": "CA-PROJ-006",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-006-CORE_META_MODEL--Subject-Graph--Current-Core-RMEDO.md",
+      "source_count": 800,
+      "unmapped_occurrences": 0,
+      "view_stats": {
+        "primary_subjects": 154,
+        "property_sections": 153,
+        "instance_count": 20,
+        "relation_type_count": 22,
+        "graph_rule_count": 2,
+        "graph_rule_yaml_gaps": [],
+        "actual_atom_relation_tuples_included": false
+      },
+      "shared_property_origin_groups": 138
+    },
+    {
+      "projection_id": "CA-PROJ-007",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-007-FRAMEWORK_METHODOLOGY--Subject-Graph--Current-Project-Methodology-RMEDO.md",
+      "source_count": 411,
+      "unmapped_occurrences": 12,
+      "view_stats": {
+        "primary_subjects": 146,
+        "property_sections": 43,
+        "instance_count": 98,
+        "relation_type_count": 9,
+        "graph_rule_count": 0,
+        "graph_rule_yaml_gaps": [],
+        "actual_atom_relation_tuples_included": false
+      },
+      "shared_property_origin_groups": 4
+    },
+    {
+      "projection_id": "CA-PROJ-008",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-008-FRAMEWORK_ENGINE--Subject-Graph--Current-Engine-RMEDO.md",
+      "source_count": 1027,
+      "unmapped_occurrences": 57,
+      "view_stats": {
+        "primary_subjects": 262,
+        "property_sections": 34,
+        "instance_count": 58,
+        "relation_type_count": 4,
+        "graph_rule_count": 0,
+        "graph_rule_yaml_gaps": [],
+        "actual_atom_relation_tuples_included": false
+      },
+      "shared_property_origin_groups": 0
+    },
+    {
+      "projection_id": "CA-PROJ-009",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-009-CAPRMEDIO--Subject-Graph--Current-RMEDO.md",
+      "source_count": 2238,
+      "unmapped_occurrences": 69,
+      "view_stats": {
+        "primary_subjects": 367,
+        "property_sections": 366,
+        "instance_count": 155,
+        "relation_type_count": 26,
+        "graph_rule_count": 2,
+        "graph_rule_yaml_gaps": [],
+        "actual_atom_relation_tuples_included": false
+      },
+      "shared_property_origin_groups": 148
+    }
+  ],
+  "projection_layout_followup": {
+    "status": "Applied",
+    "documentation_atoms_updated": 9,
+    "projection_rule_atoms_updated": [
+      "CA-R-2150@4",
+      "CA-M-232@24",
+      "CA-D-653@6"
+    ],
+    "documentation_topics": [
+      "Traceability"
+    ],
+    "unrepresented_proposed_topics": [
+      "Information Structure",
+      "Clarity",
+      "Terminology",
+      "Navigation",
+      "Examples"
+    ],
+    "sections": [
+      "Primary subjects without instances",
+      "Properties including marked inheritance",
+      "Named instances and Relation Type / Graph Rule declarations"
+    ],
+    "source_of_inheritance": "Selected broader-kind Subject paths; origins retained; no silent override.",
+    "runtime_or_tool_code_changed": false,
+    "documentation_governs_updated": 4,
+    "documentation_depends_on_updated": 5
+  }
+}

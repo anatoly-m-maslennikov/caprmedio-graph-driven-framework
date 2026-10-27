@@ -6,23 +6,29 @@ author: Operator
 assignee: AI Agent
 autonomous_confidence_threshold: 99
 subjects:
-  governs: "Relation Kind"
+  governs: Subject/Graph Relation/Type
   depends_on:
-    - "Projection"
-    - "Journal"
-    - "Entity"
-    - "Artifact"
-    - "Scope Unit"
-    - "Atom"
-    - "CAPRMEDIO Graph"
-    - "Operator"
-    - "AI Agent"
-    - "Autonomous Confidence Threshold"
-version: 1
-updated_at: "2026-09-13 05:38:50 +0400"
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Term//Artifact
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Relation
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   depends_on:
-    - CA-P-1088
+  - CA-P-1088
+status: Active
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Reconcile Projection and Journal graph participation
 

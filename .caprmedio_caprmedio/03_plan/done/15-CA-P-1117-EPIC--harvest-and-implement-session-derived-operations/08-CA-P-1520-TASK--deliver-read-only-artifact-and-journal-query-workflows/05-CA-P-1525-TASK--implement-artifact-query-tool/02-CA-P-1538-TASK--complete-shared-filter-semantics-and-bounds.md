@@ -6,19 +6,23 @@ label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
 subjects:
-  governs: "Complete shared filter semantics and bounds"
-  depends_on: [Implementation, Tool, Evaluation]
-version: 1
-updated_at: "2026-10-04 21:37:54 +0000"
+  governs: Subject/Graph Node/Engineering/Query Filter Contract
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Evaluation
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1525]
-  blocks: [CA-P-1525]
+  is_decomposition_of:
+  - CA-P-1525
+  blocks:
+  - CA-P-1525
+tier: 3
 ---
 # Summary
 

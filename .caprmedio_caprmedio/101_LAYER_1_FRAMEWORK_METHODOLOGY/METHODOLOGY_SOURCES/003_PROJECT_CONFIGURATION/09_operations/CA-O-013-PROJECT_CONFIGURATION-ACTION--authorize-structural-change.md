@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Authorize Structural Change
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Authorize Structural Change'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Project.Structure
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
-  - Autonomous Confidence Threshold
-version: 11
-updated_at: 2026-10-24 00:38:25 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
+version: 15
+updated_at: 2026-10-27 06:04:45 +0400
 relations: {}
 atom_id: CA-O-013
 content_role: Operations

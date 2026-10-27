@@ -6,19 +6,26 @@ label: Task
 work_sequence_number: 20
 current_scope_unit: caprmedio
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-version: 3
-updated_at: "2026-10-04 17:12:34 +0000"
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Entities Graph construction"
-  depends_on: [Workflow, Step, Action, Plan]
+  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph'
+  depends_on:
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
 relations:
-  is_decomposition_of: [CA-P-1132]
-  blocks: [CA-P-1132, CA-P-1158, CA-P-1160]
+  is_decomposition_of:
+  - CA-P-1132
+  blocks:
+  - CA-P-1132
+  - CA-P-1158
+  - CA-P-1160
+tier: 3
 ---
 # Summary
 

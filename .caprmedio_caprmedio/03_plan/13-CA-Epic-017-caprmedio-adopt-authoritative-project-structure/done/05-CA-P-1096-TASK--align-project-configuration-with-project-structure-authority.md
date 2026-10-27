@@ -6,18 +6,23 @@ author: Operator
 assignee: AI Agent
 autonomous_confidence_threshold: 99
 subjects:
-  governs: "Scope Unit"
+  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
   depends_on:
-    - "Artifact"
-    - "Atom"
-    - "Operator"
-    - "AI Agent"
-    - "Autonomous Confidence Threshold"
-version: 2
-updated_at: "2026-09-15 00:19:55 +0000"
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   depends_on:
-    - CA-P-1095
+  - CA-P-1095
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Align Project Configuration with Project Structure authority
 
@@ -37,4 +42,4 @@ review the affected active sources individually. retain genuine project-specific
 
 execute **only** after the direct prerequisite is Done **when** one is declared. **if** confidence is below the effective Autonomous Confidence Threshold, check Project Principles first **and** ask the Operator **if** uncertainty remains. preserve unrelated working-tree changes **and** historical records. creating this Task authorizes no execution by itself.
 
-completion evidence: CAPRMEDIO-GOV-EVAL-006 **and** CA-D-398 now use direct authoritative structure **and** distinct Settings ownership. CA-D-332/343 retain legacy file locations **only** as migration evidence **without** requiring generated structural output. CA-D-322/323/325 are exact concrete-binding retirement candidates for CA-P-1101; they remain the sole existing binding sources until validated manifest activation. CA-D-327 remains a valid general root-placement constraint. 4 source changes **and** exact prior revisions were verified; Settings files **and** other Project Configuration expansions were preserved.
+completion evidence: CA-E-006 **and** CA-D-398 now use direct authoritative structure **and** distinct Settings ownership. CA-D-332/343 retain legacy file locations **only** as migration evidence **without** requiring generated structural output. CA-D-322/323/325 are exact concrete-binding retirement candidates for CA-P-1101; they remain the sole existing binding sources until validated manifest activation. CA-D-327 remains a valid general root-placement constraint. 4 source changes **and** exact prior revisions were verified; Settings files **and** other Project Configuration expansions were preserved.

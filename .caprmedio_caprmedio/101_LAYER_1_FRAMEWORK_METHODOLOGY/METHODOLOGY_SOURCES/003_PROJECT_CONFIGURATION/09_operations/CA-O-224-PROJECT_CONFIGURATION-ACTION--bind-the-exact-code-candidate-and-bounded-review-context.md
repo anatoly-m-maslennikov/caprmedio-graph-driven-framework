@@ -6,26 +6,19 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
-version: 8
-updated_at: 2026-10-24 04:08:11 +0400
+version: 11
+updated_at: 2026-10-27 06:04:45 +0400
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
-  - Subject/Engineering/Implementation Binding
-  - Subject/Engineering/Carrier
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-relations:
-  relates_to:
-  - CA-R-1515
-  - CA-M-404
-  - CA-M-417
-  - CA-M-395
-  - CA-M-401
-  - CA-D-638
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - Subject/Graph Node/Engineering/Data Handling/Source Selection
+  - Subject/Graph Node/Carrier
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+relations: {}
 tier: 3
 ---
 # Summary

@@ -6,8 +6,6 @@ label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 99
@@ -15,22 +13,25 @@ status: Active
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "Atom/Property/Carrier"
+  governs: Subject/Graph Node/Engineering/Continuant/Carrier
   depends_on:
-    - "Atom"
-    - "Atom/Revision"
-    - "Atom/Frontmatter"
-    - "Relation"
-    - "Tool"
-    - "Evaluation"
-    - "Project"
-version: 1
-updated_at: "2026-09-23 22:29:51 +0000"
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Domain/Continuant/History
+  - Subject/Graph Node/Engineering/Continuant/Carrier/File Carrier.YAML Frontmatter
+  - Subject/Graph Relation
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Validation
+  - Subject/Graph Node/Domain/Continuant/Project
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   is_decomposition_of:
-    - CA-P-1105
+  - CA-P-1105
   blocks:
-    - CA-P-1108
+  - CA-P-1108
+tier: 3
 ---
 # Summary
 

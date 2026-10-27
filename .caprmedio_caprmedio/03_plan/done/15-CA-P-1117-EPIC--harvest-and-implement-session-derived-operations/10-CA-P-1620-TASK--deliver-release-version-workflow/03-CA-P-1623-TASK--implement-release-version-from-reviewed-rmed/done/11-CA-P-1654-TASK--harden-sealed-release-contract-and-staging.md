@@ -5,20 +5,27 @@ type: Plan
 label: Task
 work_sequence_number: 11
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Harden sealed release contract and staging"
-  depends_on: [Atom, Status, Carrier, Tool, Methodology, Evaluation]
-version: 1
-updated_at: "2026-10-05 04:08:40 +0000"
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Methodology
+  - Subject/Graph Node/Engineering/Evaluation
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1623]
-  blocks: [CA-P-1650, CA-P-1643]
+  is_decomposition_of:
+  - CA-P-1623
+  blocks:
+  - CA-P-1650
+  - CA-P-1643
+tier: 3
 ---
 # Summary
 

@@ -2,15 +2,14 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: Enforce Commit Automation Envelope
+  governs: Subject/Graph Node/Engineering/Execution Control
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Commit Automation/Autonomy Envelope
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Subject/Domain/Node/Continuant/Actor
-  - Subject/Domain/Node/Continuant/History/Journal.Record
-version: 9
-updated_at: 2026-10-24 02:14:24 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/Actor
+  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
+version: 14
+updated_at: 2026-10-27 06:04:45 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}

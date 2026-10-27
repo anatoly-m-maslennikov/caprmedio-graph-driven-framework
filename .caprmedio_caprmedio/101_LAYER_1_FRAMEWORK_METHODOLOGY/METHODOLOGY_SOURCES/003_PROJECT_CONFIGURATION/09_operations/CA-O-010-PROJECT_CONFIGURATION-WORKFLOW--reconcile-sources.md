@@ -1,20 +1,19 @@
 ---
 subjects:
-  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  governs: Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-  - 'Subject/Graph/Relation/Type: On Result'
-  - Subject/Domain/Node/Occurrent/Execution/Step Run
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
-  - Autonomous Confidence Threshold
-  - 'Subject/Domain/Node/Continuant/Projection/Type: Reconciled Projection'
-version: 17
-updated_at: 2026-10-24 00:51:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Reconciled Projection'
+version: 21
+updated_at: 2026-10-27 06:04:45 +0400
 relations: {}
 atom_id: CA-O-010
 content_role: Operations
@@ -48,7 +47,7 @@ the entry Step is CA-O-146. interpret Step bindings **and** run boundaries under
 
 ### Transitions
 
-the transitions below use the Workflow-scoped ON_RESULT Relation under CA-R-1513 **when** the destination is a Step. a terminal outcome ends the Workflow Run; it is **not** another Step **or** Action.
+the transitions below are declared in this Workflow's Step structure; result-based routing belongs to the applicable Conditional Step definition **when** the destination is a Step. a terminal outcome ends the Workflow Run; it is **not** another Step **or** Action.
 
 | Step | Result condition | Next Step **or** outcome |
 |---|---|---|

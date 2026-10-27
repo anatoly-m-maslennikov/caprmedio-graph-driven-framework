@@ -6,20 +6,29 @@ label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Independently review universal Atom status contract"
-  depends_on: [Atom, Content Role, Status, Carrier, Workflow, Action, Tool, Journal]
-version: 1
-updated_at: "2026-10-05 02:24:39 +0000"
+  governs: Subject/Graph Node/Domain/Continuant/Atom.Status
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
+  - Subject/Graph Node/Domain/Continuant/Atom.Status
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1612]
-  blocks: [CA-P-1615]
+  is_decomposition_of:
+  - CA-P-1612
+  blocks:
+  - CA-P-1615
+tier: 3
 ---
 # Summary
 

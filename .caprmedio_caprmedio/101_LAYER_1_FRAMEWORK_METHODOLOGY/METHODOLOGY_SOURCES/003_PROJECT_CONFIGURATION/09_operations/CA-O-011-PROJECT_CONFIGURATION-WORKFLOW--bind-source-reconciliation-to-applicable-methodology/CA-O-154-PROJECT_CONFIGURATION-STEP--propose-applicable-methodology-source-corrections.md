@@ -6,27 +6,23 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-24 01:28:26 +0400
+version: 18
+updated_at: 2026-10-26 05:59:45 +0400
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Applicable Methodology Compilation Propose Step'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step//Applicable Methodology Compilation Propose Step'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
-  - Propose Source Corrections
-  - Methodology Source
-  - Subject/Domain/Node/Continuant/Atom.Substance
-  - Subject/Domain/Node/Continuant/Selection//Extension Sources
-  - Project Configuration
-  - Core Meta-Model
-  - Methodology Source.Expansion Boundary
-relations:
-  relates_to:
-  - CA-O-011
-  - CA-O-006
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Selection//Extension Sources
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//CORE_META_MODEL
+  - Subject/Graph Node/Domain/Continuant/Scope Unit.Expansion Boundary
+relations: {}
 tier: 3
 ---
 # Summary

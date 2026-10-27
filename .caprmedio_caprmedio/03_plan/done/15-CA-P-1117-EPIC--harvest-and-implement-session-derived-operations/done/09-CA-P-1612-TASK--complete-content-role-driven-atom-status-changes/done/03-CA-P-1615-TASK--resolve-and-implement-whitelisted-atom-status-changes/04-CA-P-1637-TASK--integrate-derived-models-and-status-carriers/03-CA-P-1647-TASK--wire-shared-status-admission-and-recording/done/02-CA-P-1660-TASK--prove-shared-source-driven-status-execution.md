@@ -5,20 +5,29 @@ type: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Prove shared source-driven status execution"
-  depends_on: [Atom, Status, Carrier, Tool, Manifest, Methodology, Evaluation, Journal]
-version: 1
-updated_at: "2026-10-05 03:49:00 +0000"
+  governs: Subject/Graph Node/Engineering/Implementation Evaluation
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Status
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Manifest
+  - Subject/Graph Node/Engineering/Methodology
+  - Subject/Graph Node/Engineering/Implementation Evaluation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1647]
-  blocks: [CA-P-1638]
+  is_decomposition_of:
+  - CA-P-1647
+  blocks:
+  - CA-P-1638
+tier: 3
 ---
 # Summary
 

@@ -6,19 +6,33 @@ label: Task
 work_sequence_number: 18
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Done
-version: 2
-updated_at: "2026-10-23T13:18:33+0400"
+version: 5
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: Entity/Node/Continuant/Implementation
+  governs: Subject/Graph Node/Engineering/Journal Operations
   depends_on: []
 relations:
-  is_decomposition_of: [CA-P-2613]
-  depends_on: [CA-C-585, CA-C-583, CA-P-2629]
-  relates_to: [CA-R-1840, CA-R-1841, CA-R-1842, CA-E-561, CA-E-562, CA-D-541, CA-D-542, CA-R-1317, CA-O-007, CA-O-155, CA-O-156]
+  is_decomposition_of:
+  - CA-P-2613
+  depends_on:
+  - CA-C-585
+  - CA-C-583
+  - CA-P-2629
+  relates_to:
+  - CA-R-1840
+  - CA-R-1841
+  - CA-R-1842
+  - CA-E-561
+  - CA-E-562
+  - CA-D-541
+  - CA-D-542
+  - CA-R-1317
+  - CA-O-007
+  - CA-O-155
+  - CA-O-156
+tier: 3
 ---
 # Summary
 

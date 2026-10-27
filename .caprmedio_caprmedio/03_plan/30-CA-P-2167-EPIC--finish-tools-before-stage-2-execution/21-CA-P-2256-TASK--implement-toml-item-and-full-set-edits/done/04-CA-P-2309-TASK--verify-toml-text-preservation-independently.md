@@ -6,18 +6,23 @@ label: Task
 work_sequence_number: 4
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: Tool
-  depends_on: [Configuration, Method, Evaluation, Delivery, Plan]
-version: 3
-updated_at: "2026-10-13 20:40:12 +0400"
+  governs: Subject/Graph Node/Engineering/Continuant/Tool
+  depends_on:
+  - Subject/Graph Node/Engineering/Configuration/Shared TOML Connector
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - Subject/Graph Node/Engineering/Implementation Evaluation
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-2256]
+  is_decomposition_of:
+  - CA-P-2256
+tier: 3
 ---
 # Summary
 

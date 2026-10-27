@@ -6,8 +6,6 @@ label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 99
@@ -15,24 +13,24 @@ status: Active
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "Atom/Claim"
+  governs: Subject/Graph Node/Domain/Continuant/Atom.Content
   depends_on:
-    - "Atom"
-    - "Atom/Summary"
-    - "Atom/Property"
-    - "CCE"
-    - "Content Role"
-    - "Relation"
-    - "Operator"
-    - "AI Agent"
-    - "Evaluation"
-version: 1
-updated_at: "2026-09-23 22:29:51 +0000"
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Summary
+  - Subject/Graph Rule/CCE
+  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
+  - Subject/Graph Relation
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - Subject/Graph Node/Engineering/Evaluation
+version: 11
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   is_decomposition_of:
-    - CA-P-1105
+  - CA-P-1105
   blocks:
-    - CA-P-1109
+  - CA-P-1109
+tier: 3
 ---
 # Summary
 

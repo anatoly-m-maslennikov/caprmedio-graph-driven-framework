@@ -7,32 +7,17 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Graph/Relation/Type: On Result'
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - Subject/Domain/Node/Occurrent/Execution/Step Run
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
-version: 22
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-R-1509
-  - CA-R-1519
-  - CA-R-1525
-  - CA-R-1570
-  - CA-O-231
-  - CA-O-232
-  - CA-O-233
-  - CA-O-094
-  - CA-O-234
-  - CA-O-096
-  - CA-O-099
-  - CA-O-230
-  - CA-O-098
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
+version: 25
+updated_at: 2026-10-26 17:20:40 +0400
+relations: {}
 tier: 3
 ---
 # Summary
@@ -49,7 +34,7 @@ An Agentic Step exposes its current prompt, inputs, **and** result contract whil
 
 - entry: CA-O-231.
 - nodes: CA-O-231, CA-O-232, CA-O-233, CA-O-094, CA-O-234, CA-O-096, CA-O-099, CA-O-230.
-- transitions between Steps use Workflow-scoped `ON_RESULT`; `completed` **and** `blocked` are terminal results, **not** Steps.
+- transitions between Steps are declared in the Workflow's Step structure; result-based routing belongs to the applicable Conditional Step definition; `completed` **and** `blocked` are terminal results, **not** Steps.
 
 | From Step | Result condition | Next Step **or** terminal result |
 |---|---|---|
@@ -97,6 +82,6 @@ Preparation selects tests before behavior, then preliminary code review before f
 
 ### Separate release continuation
 
-After completed, return a release handoff only when release is in the admitted request: selected Project and release Workflow identity/revision or applicable selection rule, candidate and changed paths, Plan and R/M/E/D source bindings, current final review/check evidence, actual effects, required inputs, and unresolved limitations. Start release as a separately admitted Workflow Run under CA-R-1520 and CA-R-1525; do not use cross-Workflow ON_RESULT or treat this definition as release permission or execution. Resolve the actual release contract and current inputs at that admission.
+After completed, return a release handoff only when release is in the admitted request: selected Project and release Workflow identity/revision or applicable selection rule, candidate and changed paths, Plan and R/M/E/D source bindings, current final review/check evidence, actual effects, required inputs, and unresolved limitations. Start release as a separately admitted Workflow Run under CA-R-1520 and CA-R-1525; do not use cross-Workflow Step routing or treat this definition as release permission or execution. Resolve the actual release contract and current inputs at that admission.
 
 ## Details

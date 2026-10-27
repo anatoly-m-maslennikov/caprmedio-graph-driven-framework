@@ -1,25 +1,22 @@
 ---
 subjects:
-  governs: Assess Release Readiness
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Assess Release Readiness'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Release Readiness
-  - Artifact/Revision
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Engineering/Release Testing/Executor Admission
-  - Subject/Domain/Node/Continuant/Projection
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Subject/Domain/Node/Continuant/History/Journal.Record
-  - Version
-  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
-version: 9
-updated_at: 2026-10-24 00:51:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Release Readiness'
+  - Subject/Graph Node/Engineering/Traceability
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Graph Node/Engineering/Verification
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  - Subject/Graph Node/Domain/Continuant/History/Release.ID
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+version: 15
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
-  relates_to:
-  - CA-O-025
+  depends_on:
   - CA-R-1646
-  - CA-R-1692
-  - CA-R-1712
 atom_id: CA-O-027
 content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION

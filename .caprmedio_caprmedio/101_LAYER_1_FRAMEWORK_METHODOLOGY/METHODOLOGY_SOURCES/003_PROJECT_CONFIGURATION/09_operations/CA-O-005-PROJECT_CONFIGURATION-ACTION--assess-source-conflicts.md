@@ -1,16 +1,14 @@
 ---
 subjects:
-  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  governs: Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Atom.Substance
-  - Entity/Node/Continuant/Atom.Global Tier
-  - Subject/Domain/Node/Continuant/Atom.Updated At
-  - 'Subject/Domain/Node/Continuant/Atom.Tier: Principle'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-version: 17
-updated_at: 2026-10-24 00:51:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Atom.Updated At
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+version: 20
+updated_at: 2026-10-25 17:32:27 +0400
 relations: {}
 atom_id: CA-O-005
 content_role: Operations

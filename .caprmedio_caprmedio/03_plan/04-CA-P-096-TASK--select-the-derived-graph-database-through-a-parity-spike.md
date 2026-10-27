@@ -2,20 +2,25 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - Parity Evaluation
+  governs: Subject/Graph Node/Engineering/Implementation Evaluation
   depends_on:
-    continuant:
-      - Derived Graph Database
-      - Graph App
-version: 3
-updated_at: 2026-09-06 01:45:12 +0400
+  - Subject/Graph Node/Engineering/Continuant/Carrier/Database Carrier
+  - Subject/Graph Node/Engineering/Implementation
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 98
 relations:
   derived_from:
-    - CA-A-042
-    - CA-A-062
+  - CA-A-042
+  - CA-A-062
+status: Active
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
+atom_id: CA-P-096
 ---
 # Select the derived Graph database through a parity spike
 

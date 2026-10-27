@@ -6,19 +6,29 @@ label: Task
 work_sequence_number: 14
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Done
-version: 3
-updated_at: "2026-10-23T13:29:12+0400"
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: Entity/Node/Continuant/Implementation
+  governs: Subject/Graph Node/Engineering/Workflow Orchestration/Action Realization
   depends_on: []
 relations:
-  is_decomposition_of: [CA-P-2613]
-  depends_on: [CA-P-2612, CA-P-2625]
-  relates_to: [CA-O-016, CA-R-1847, CA-R-1848, CA-D-547, CA-E-567, CA-E-568, CA-C-584, CA-C-576]
+  is_decomposition_of:
+  - CA-P-2613
+  depends_on:
+  - CA-P-2612
+  - CA-P-2625
+  relates_to:
+  - CA-O-016
+  - CA-R-1847
+  - CA-R-1848
+  - CA-D-547
+  - CA-E-567
+  - CA-E-568
+  - CA-C-584
+  - CA-C-576
+tier: 3
 ---
 # Summary
 

@@ -6,8 +6,6 @@ label: Task
 work_sequence_number: 6
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 99
@@ -15,21 +13,20 @@ status: Active
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "Projection"
+  governs: Subject/Graph Node/Domain/Continuant/Projection
   depends_on:
-    - "Atom"
-    - "Entity"
-    - "Term"
-    - "Graph"
-    - "Relation"
-    - "Evaluation"
-    - "Applicable Methodology"
-    - "Single Source of Truth"
-version: 2
-updated_at: "2026-09-23 23:28:07 +0000"
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Term
+  - Subject/Graph Relation
+  - Subject/Graph Node/Engineering/Evaluation
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   is_decomposition_of:
-    - CA-P-1105
+  - CA-P-1105
+tier: 3
 ---
 # Summary
 

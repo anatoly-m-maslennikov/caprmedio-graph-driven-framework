@@ -6,25 +6,31 @@ author: Operator
 assignee: AI Agent
 autonomous_confidence_threshold: 99
 subjects:
-  governs: "Term"
+  governs: Subject/Graph Node/Domain/Continuant/Term
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Scope Unit"
-    - "CAPRMEDIO Graph"
-    - "Projection"
-    - "Entity"
-    - "Relation"
-    - "Operator"
-    - "AI Agent"
-    - "Atom/Content Role: Plan/Type: Task"
-    - "Autonomous Confidence Threshold"
-version: 3
-updated_at: "2026-09-13 03:43:10 +0400"
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Catalog'
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject
+  - Subject/Graph Relation
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+version: 11
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   depends_on:
-    - CA-P-1079
+  - CA-P-1079
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Define general vocabulary and unresolved Term indexes
 

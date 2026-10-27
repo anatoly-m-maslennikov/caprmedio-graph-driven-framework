@@ -6,19 +6,25 @@ label: Task
 work_sequence_number: 7
 current_scope_unit: caprmedio
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Selected capability RMED independent review"
-  depends_on: [Implementation, Evaluation, Workflow]
-version: 3
-updated_at: "2026-10-04 19:29:30 +0000"
+  governs: Subject/Graph Node/Engineering/Evaluation
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Graph Node/Engineering/Workflow
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1134]
-  blocks: [CA-P-1122, CA-P-1162, CA-P-1163]
+  is_decomposition_of:
+  - CA-P-1134
+  blocks:
+  - CA-P-1122
+  - CA-P-1162
+  - CA-P-1163
+tier: 3
 ---
 # Summary
 

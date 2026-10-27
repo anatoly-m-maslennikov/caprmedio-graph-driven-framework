@@ -6,19 +6,39 @@ label: Task
 work_sequence_number: 21
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: Projection
-  depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 4
-updated_at: "2026-10-10 02:24:11 +0400"
+  governs: Subject/Graph Node/Domain/Continuant/Projection
+  depends_on:
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Term
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Term//Property
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1872]
-  blocks: [CA-P-1906, CA-P-1913, CA-P-1914, CA-P-1915, CA-P-1916, CA-P-1917, CA-P-1918, CA-P-1919, CA-P-1920, CA-P-1921, CA-P-1923, CA-P-1924, CA-P-1925, CA-P-1926]
+  is_decomposition_of:
+  - CA-P-1872
+  blocks:
+  - CA-P-1906
+  - CA-P-1913
+  - CA-P-1914
+  - CA-P-1915
+  - CA-P-1916
+  - CA-P-1917
+  - CA-P-1918
+  - CA-P-1919
+  - CA-P-1920
+  - CA-P-1921
+  - CA-P-1923
+  - CA-P-1924
+  - CA-P-1925
+  - CA-P-1926
+tier: 3
 ---
 # Summary
 

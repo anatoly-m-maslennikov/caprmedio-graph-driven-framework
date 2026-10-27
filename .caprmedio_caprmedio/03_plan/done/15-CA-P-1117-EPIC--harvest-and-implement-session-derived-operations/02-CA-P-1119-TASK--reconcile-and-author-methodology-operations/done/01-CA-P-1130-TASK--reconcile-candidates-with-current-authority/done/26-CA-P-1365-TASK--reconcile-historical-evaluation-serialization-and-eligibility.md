@@ -6,19 +6,25 @@ label: Task
 work_sequence_number: 26
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Historical Evaluation serialization and eligibility reconciliation"
-  depends_on: [Operations, Evaluation, "Atom/Revision", "Atom/Claim/Target Scope Unit"]
-version: 2
-updated_at: "2026-10-04 13:13:45 +0000"
+  governs: Subject/Graph Node/Domain/Continuant/History
+  depends_on:
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/History
+  - Subject/Graph Node/Domain/Continuant/Atom.Target Scope Unit
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1130]
-  blocks: [CA-P-1131, CA-P-1156]
+  is_decomposition_of:
+  - CA-P-1130
+  blocks:
+  - CA-P-1131
+  - CA-P-1156
+tier: 3
 ---
 # Summary
 

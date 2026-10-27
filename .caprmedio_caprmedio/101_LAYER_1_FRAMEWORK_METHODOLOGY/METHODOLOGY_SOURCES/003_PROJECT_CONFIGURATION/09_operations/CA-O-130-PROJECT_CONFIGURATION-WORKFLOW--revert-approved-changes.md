@@ -7,22 +7,17 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Revert Changes Workflow'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Revert Changes Workflow'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - Subject/Domain/Node/Occurrent/Execution/Step Run
-  - Subject/Domain/Node/Continuant/History/Journal
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-version: 11
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-O-132
-  - CA-R-1525
-  - CA-R-1720
-  - CA-R-1643
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+version: 14
+updated_at: 2026-10-26 17:20:40 +0400
+relations: {}
 tier: 3
 ---
 # Summary
@@ -33,7 +28,7 @@ Revert approved changes
 
 Revert Changes **means** the reusable Workflow graph whose entry **and** only node is CA-O-132.
 
-The graph has no next-Step ON_RESULT edges **and** no retry loop. the node's result selects one terminal outcome:
+The graph has no next-Step route **and** no retry loop. the node's result selects one terminal outcome:
 
 | From Step | Result condition | Terminal outcome |
 | --- | --- | --- |

@@ -1,0 +1,58 @@
+---
+atom_id: CA-P-1983@6
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 2
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+status: Archived
+subjects:
+  governs: Subject/Engineering/Tool
+  depends_on:
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject
+  - Requirement
+  - Method
+  - Subject/Engineering/Evaluation
+  - Delivery
+  - Subject/Engineering/Operations
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+version: 6
+updated_at: 2026-10-24 08:22:45 +0400
+relations:
+  is_decomposition_of:
+  - CA-P-1980
+  blocks:
+  - CA-P-1984
+  - CA-P-1985
+  - CA-P-1986
+  - CA-P-1987
+tier: 3
+---
+# Summary
+
+Normalize legacy Subject Tool definitions
+
+## Objective
+
+Restore current carrier metadata and Summary form for the seven pinned legacy Tool definitions, without changing their existing substantive claims.
+
+## Details
+
+Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisites: CA-P-1982.
+
+Exclusive files: Search CA-R-863, CA-E-301, CA-D-038, CA-D-424, CA-O-046; Update CA-D-041 and CA-D-425. Use one small ad-hoc script with exact before hashes from the CA-P-1979 report. Preserve IDs, filenames, titles as Summary, Subjects, relations and original body text. Set declared TOOLS ownership, current role, Active Status, standard tiers and author; increment each Version by one with actual Project-time updated_at. Do not infer separate Tool Scope Units. Default to preview; check every pin before an explicitly authorized authoring repair. Git retains prior contents. Output: corrected carrier metadata, script and before/after receipt. No generic reusable repair API.
+
+Use the shared minimum contract in the CA-P-1979 review. A worker owns only the listed files; root owns integration, commits and Task completion. Recheck source pins after normalization. No unrelated changes, Core entity-model edits, source migration, runtime activation or release work. Ask for a concrete unresolved decision below 90% confidence. Decompose before exceeding 15 minutes.
+
+### Local execution receipt
+
+The one-off script previewed then repaired exactly seven source-pinned Tool carriers. Receipt: `.caprmedio_caprmedio/_projection/core-entity-review/stage2/tool-normalization.receipt.json`. Independent comparison against Git proved preserved titles, all original substantive body text, Subjects, relations and other retained fields; each Version advanced exactly one, actual updated_at and declared TOOLS ownership were recorded, and all after hashes matched. No Core file or reusable Tool code changed. Script refuses stale pins, so this completed one-time repair cannot be rerun against its revised sources. Contract edits and full current-body validation remain in the following Tasks.
+
+### Definition of Done
+
+The Plan is **not** Done if its stated output or exact before/after evidence is missing; a file outside its exclusive scope changes; preserved claims or identity are lost; the cross-role contract conflicts; checks fail; a prerequisite is incomplete; or own work exceeds 15 minutes without decomposition.

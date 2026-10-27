@@ -5,20 +5,29 @@ type: Plan
 label: Task
 work_sequence_number: 38
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 2
-updated_at: "2026-10-07 00:30:45 +0000"
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "record the approved unknown N15 Release effect"
-  depends_on: [Implementation, Evaluation, Workflow Run, Journal]
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Domain/Continuant/History/Journal
 relations:
-  is_decomposition_of: [CA-P-1117]
-  relates_to: [CA-R-1895, CA-M-351, CA-E-594, CA-D-589, CA-C-517]
+  is_decomposition_of:
+  - CA-P-1117
+  relates_to:
+  - CA-R-1895
+  - CA-M-351
+  - CA-E-594
+  - CA-D-589
+  - CA-C-517
+tier: 3
 ---
 # Summary
 

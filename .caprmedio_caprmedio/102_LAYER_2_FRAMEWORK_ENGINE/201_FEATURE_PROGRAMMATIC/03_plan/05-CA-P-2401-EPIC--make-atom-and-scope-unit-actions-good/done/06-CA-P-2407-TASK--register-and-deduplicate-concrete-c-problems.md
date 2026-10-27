@@ -6,17 +6,24 @@ label: Task
 work_sequence_number: 6
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Done
 subjects:
-  governs: Tool
-  depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
+  governs: Subject/Graph Node/Engineering/Continuant/Tool
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Term//Property
+  - Subject/Graph Relation
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Subject/Graph Node/Engineering/Workflow
 relations:
-  is_decomposition_of: [CA-P-2401]
-version: 3
-updated_at: "2026-10-20 15:30:14 +0400"
+  is_decomposition_of:
+  - CA-P-2401
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 ---
 # Summary
 

@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: Subject/Engineering/Migrate Atom CCE Representation
+  governs: Subject/Graph Node/Engineering/Data Handling/Data Transformation
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Atom.Substance
-  - Subject/Domain/Node/Continuant/Atom.Summary
-  - Subject/Domain/Node/Continuant/Projection
-  - Subject/Graph/Rule/CCE
-  - Confidence Threshold
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
-version: 15
-updated_at: 2026-10-24 01:18:03 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Atom.Summary
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Rule/CCE
+  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+version: 19
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
   child_of:
   - CA-M-115

@@ -5,20 +5,26 @@ type: Plan
 label: Task
 work_sequence_number: 17
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 2
-updated_at: "2026-10-06 04:12:31 +0000"
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Protect graph Projection secrets and Run evidence"
-  depends_on: [Implementation, Workflow, Action, Evaluation, Journal]
+  governs: Subject/Graph Node/Engineering/Graph Projection
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
 relations:
-  is_decomposition_of: [CA-P-1117]
-  blocks: [CA-P-1655]
+  is_decomposition_of:
+  - CA-P-1117
+  blocks:
+  - CA-P-1655
+tier: 3
 ---
 # Summary
 

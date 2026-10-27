@@ -5,20 +5,28 @@ type: Plan
 label: Task
 work_sequence_number: 7
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Bind concrete sealed Release manifest"
-  depends_on: [Atom, Status, Carrier, Tool, Manifest, Methodology, Evaluation, Journal]
-version: 1
-updated_at: "2026-10-05 03:19:26 +0000"
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Manifest
+  - Subject/Graph Node/Engineering/Methodology
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1623]
-  blocks: [CA-P-1649]
+  is_decomposition_of:
+  - CA-P-1623
+  blocks:
+  - CA-P-1649
+tier: 3
 ---
 # Summary
 

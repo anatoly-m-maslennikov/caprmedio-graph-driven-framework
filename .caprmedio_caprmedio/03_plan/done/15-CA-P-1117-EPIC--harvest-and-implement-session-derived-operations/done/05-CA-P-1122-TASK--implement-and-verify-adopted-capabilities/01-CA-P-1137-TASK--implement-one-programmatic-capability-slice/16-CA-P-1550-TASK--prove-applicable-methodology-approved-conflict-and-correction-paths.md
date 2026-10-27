@@ -6,19 +6,26 @@ label: Task
 work_sequence_number: 16
 current_scope_unit: caprmedio
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Prove Applicable Methodology approved conflict and correction paths"
-  depends_on: [Implementation, Projection, Journal, Evaluation]
-version: 2
-updated_at: "2026-10-04 22:41:20 +0000"
+  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology.Conflict'
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Engineering/Implementation Evaluation
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1137]
-  blocks: [CA-P-1515, CA-P-1519, CA-P-1123]
+  is_decomposition_of:
+  - CA-P-1137
+  blocks:
+  - CA-P-1515
+  - CA-P-1519
+  - CA-P-1123
+tier: 3
 ---
 # Summary
 

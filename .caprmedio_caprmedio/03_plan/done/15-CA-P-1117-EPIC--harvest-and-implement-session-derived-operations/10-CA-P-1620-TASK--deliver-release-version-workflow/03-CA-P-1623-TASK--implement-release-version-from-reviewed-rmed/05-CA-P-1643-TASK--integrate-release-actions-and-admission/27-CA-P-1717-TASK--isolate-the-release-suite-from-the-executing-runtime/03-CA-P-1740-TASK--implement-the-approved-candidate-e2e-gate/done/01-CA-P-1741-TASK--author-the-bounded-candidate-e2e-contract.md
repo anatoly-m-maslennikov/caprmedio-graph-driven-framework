@@ -5,20 +5,32 @@ type: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 2
-updated_at: "2026-10-05 21:37:41 +0000"
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Candidate E2E Release gate/Author the bounded Candidate E2E contract"
-  depends_on: [Implementation, Evaluation, Workflow, Action, Docker Image, Test Suite, Journal]
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Image
+  - Subject/Graph Node/Engineering/Release Testing/Executor Admission
+  - Subject/Graph Node/Domain/Continuant/History/Journal
 relations:
-  is_decomposition_of: [CA-P-1740]
-  blocks: [CA-P-1742, CA-P-1743, CA-P-1744, CA-P-1745, CA-P-1746]
+  is_decomposition_of:
+  - CA-P-1740
+  blocks:
+  - CA-P-1742
+  - CA-P-1743
+  - CA-P-1744
+  - CA-P-1745
+  - CA-P-1746
+tier: 3
 ---
 # Summary
 

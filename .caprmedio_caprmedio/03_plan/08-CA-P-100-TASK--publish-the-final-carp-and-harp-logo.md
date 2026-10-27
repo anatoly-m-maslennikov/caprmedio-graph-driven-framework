@@ -2,19 +2,23 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - CAPRMEDIO Logo Publication
+  governs: 'Subject/Graph Node/Product: CAPRMEDIO Framework'
   depends_on:
-    continuant:
-      - CAPRMEDIO Logo
-      - Visual Identity
-version: 3
-updated_at: 2026-09-06 01:45:12 +0400
+  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 98
 relations:
   derived_from:
-    - CA-A-062
+  - CA-A-062
+status: Active
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
+atom_id: CA-P-100
 ---
 # Publish the final carp-and-harp logo
 

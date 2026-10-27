@@ -6,27 +6,21 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
-version: 7
-updated_at: 2026-10-24 01:18:03 +0400
+version: 10
+updated_at: 2026-10-27 06:04:45 +0400
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
-  - Subject/Engineering/Implementation Binding
-  - Subject/Engineering/Carrier
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Occurrent/Execution/Step Run
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-relations:
-  relates_to:
-  - CA-O-223
-  - CA-O-224
-  - CA-R-1515
-  - CA-M-404
-  - CA-M-395
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - Subject/Graph Node/Engineering/Data Handling/Source Selection
+  - Subject/Graph Node/Carrier
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+relations: {}
 tier: 3
 ---
 # Summary

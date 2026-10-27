@@ -1,0 +1,69 @@
+---
+subjects:
+  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Release Readiness'
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Assess Release Readiness'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Domain/Node/Continuant/Projection
+  - Subject/Domain/Node/Continuant/History/Journal.Record
+  - Artifact/Revision
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/Release Version
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+version: 17
+updated_at: 2026-10-24 23:12:36 +0400
+relations:
+  evaluation_for:
+  - CA-O-025
+  - CA-O-026
+  - CA-O-027
+  - CA-R-1692
+  - CA-R-1646
+atom_id: CA-E-474@17
+content_role: Evaluation
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Archived
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 4
+---
+# Summary
+
+Validate configurable release readiness
+
+## Scope
+
+configurable release readiness.
+
+## Claim
+
+## Cases
+
+1. use a Project with no selected release-readiness Workflow; execute its admitted implementation mode under CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior.
+2. select CA-O-025 for a candidate with complete passing current evidence **and** required approvals; contrast it with failed, blocked, missing, **or** stale required checks.
+3. provide one required stale Projection **and** one enabled but unrequired Projection. repeat with already-current required output, a source conflict, failed refresh, **and** a changed source Revision.
+4. change a material candidate input **after** Evaluation. separately change an unrelated Artifact **without** changing the evaluated dependency set **or** an additional invalidation condition.
+5. approve a source correction, **then** complete it. separately omit approval **or** exhaust the accepted revisit allowance.
+6. complete readiness **without** executing the configured release event; compare with a successful authorized release recorded **in** the shared Journal.
+7. use a non-Git candidate binding satisfying the selected gates. inspect the selected Workflow's Step bindings **and** its dependency on the existing Core implementation flow.
+
+## Acceptance
+
+- case 1 requires no universal development **or** release-readiness setting.
+- readiness succeeds **only** for the exact candidate with complete passing current checks **and** satisfied approvals.
+- refresh is limited **to** the selected required set **and** existing Projection contracts; source conflicts are **not** repaired **in** generated copies.
+- changed material inputs block reuse of affected evidence; unrelated changes alone do **not** invalidate it. historical evidence is unchanged.
+- approved source changes require affected implementation work under CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior **before** another authorized readiness attempt. absent approval **or** exhausted allowance blocks continuation; no silent budget reset occurs.
+- readiness alone does **not** freeze a Version. successful release produces a factual Journal Record, **not** a new Operations Atom.
+- Workflow nodes are Steps, **every** Step references **`=1`** Action with its parameters **and** inputs, the implementation loop is **not** duplicated, **and** non-Git Projects require no Git mechanics.
+
+## Failure disposition
+
+report the failing source Revision, case, expected result, **and** observed result. do **not** execute release side effects **or** change source authority **to** make a fixture pass.
+
+## Details

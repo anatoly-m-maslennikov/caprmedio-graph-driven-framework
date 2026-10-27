@@ -6,18 +6,23 @@ label: Task
 work_sequence_number: 1
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Active
-version: 1
-updated_at: "2026-10-21T19:13:23Z"
+version: 4
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: Entity/Node/Continuant/Implementation
+  governs: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Workflow Execution
   depends_on: []
 relations:
-  is_decomposition_of: [CA-P-2562]
-  relates_to: [CA-M-396, CA-M-397, CA-M-398, CA-M-399, CA-M-400]
+  is_decomposition_of:
+  - CA-P-2562
+  relates_to:
+  - CA-M-396
+  - CA-M-397
+  - CA-M-398
+  - CA-M-399
+  - CA-M-400
+tier: 3
 ---
 # Summary
 

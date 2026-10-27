@@ -1,23 +1,15 @@
 ---
 subjects:
-  governs: Reconcile Atom Properties and Addresses
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Reconcile Atom Properties and Addresses'
   depends_on:
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Atom.Property
-  - Subject/Domain/Node/Continuant/Atom.Version Number
-  - Subject/Domain/Node/Continuant/Atom.Summary
-  - Subject/Engineering/Carrier
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-version: 13
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-R-1598
-  - CA-D-478
-  - CA-D-479
-  - CA-D-480
-  - CA-D-481
-  - CA-R-1464
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
+  - Subject/Graph Node/Domain/Continuant/Atom.Summary
+  - Subject/Graph Node/Carrier
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+version: 18
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 atom_id: CA-O-077
 content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION

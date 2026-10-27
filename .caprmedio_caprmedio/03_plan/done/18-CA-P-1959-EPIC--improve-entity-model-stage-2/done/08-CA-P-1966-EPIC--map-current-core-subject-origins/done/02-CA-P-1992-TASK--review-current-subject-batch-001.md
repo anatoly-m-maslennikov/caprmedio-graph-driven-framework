@@ -1,0 +1,54 @@
+---
+atom_id: CA-P-1992
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 2
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+status: Done
+subjects:
+  governs: Subject
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
+relations:
+  is_decomposition_of:
+  - CA-P-1966
+  depends_on:
+  - CA-P-1972
+  - CA-P-1988
+  - CA-P-1989
+  - CA-P-1990
+  blocks:
+  - CA-P-2043
+tier: 3
+---
+# Summary
+
+Review current Subject batch 001
+
+## Objective
+
+Account for every assigned current Subject occurrence with live meaning evidence and no guessed replacement.
+
+## Details
+
+Estimated own work: 15 minutes. Required prerequisites: CA-P-1972, CA-P-1988, CA-P-1989, CA-P-1990 Done. Read and pin `.caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md` SHA-256 `5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf` and `.caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md` SHA-256 `b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b`. Input: `.caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-001.json`, SHA-256 `84355ad3a75e6f070b2580993580070f4ef7a43d49eb18f2b657a16baa6ee194`; inventory SHA-256 `e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a`. This batch owns 20 sources and 63 occurrences exclusively.
+
+Recheck each source pin, then read its current Main Content. Compare the frozen candidate/review as separate evidence; do not refresh captured files or infer meaning from a label alone. Return one row per occurrence under the review-output contract: unchanged, proposed or unresolved; exact old value, nullable proposed value, confidence, current evidence spans/hashes, preserved distinctions and any concrete question. Below 90%, leave the replacement null. Report quarantined sources and unresolved findings. No deletion, source write, grammar adoption, native admission or schema/key rename.
+
+Own only `stage2/reviews/current-subjects.batch-001.review.json` and an optional same-batch support helper. Root owns integration and Git. Preserve others' edits. If work exceeds 15 minutes, create bounded decomposition before continuing. Creating this Plan does not start or complete review.
+
+Completion: independent structural checks passed for 20 current sources and 63 exact occurrences. A follow-up check of the current governing definition CA-R-1363 establishes Governed Subject as a GOVERNS Relation with a distinct Entity target, not an admitted Atom dependent Property. The earlier field proposal is withdrawn. Artifact remains the one unchanged decision, checked against CA-R-1026; no proposed replacement remains. The 62 unresolved rows remain explicit research in this report and required ledger integration. All rows remain non-executable; no original Atom changed. Evidence: stage2/task-1992.receipt.json. Prior review and receipt revisions remain in Git. Review completion is not mapping completion or migration approval.
+
+### Definition of Done
+
+Not Done if a pin is stale, coverage overlaps or omits an assigned occurrence/source finding, a proposal lacks current meaning evidence, uncertainty is hidden, Core or captured files change, or own work exceeds 15 minutes without decomposition. A completed proposal is not migration approval.

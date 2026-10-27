@@ -6,18 +6,21 @@ label: Task
 work_sequence_number: 5
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: Tool
-  depends_on: [Configuration, Journal, Projection]
-version: 2
-updated_at: "2026-10-13 21:34:03 +0400"
+  governs: Subject/Graph Node/Domain/Continuant/Project.Settings
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Project.Settings
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Domain/Continuant/Projection
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-2295]
+  is_decomposition_of:
+  - CA-P-2295
+tier: 3
 ---
 # Summary
 

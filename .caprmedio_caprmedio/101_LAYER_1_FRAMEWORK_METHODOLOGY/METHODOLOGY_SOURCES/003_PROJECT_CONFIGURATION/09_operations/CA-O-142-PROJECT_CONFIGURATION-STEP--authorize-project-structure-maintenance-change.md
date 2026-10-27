@@ -7,25 +7,17 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Project Structure Maintenance Authorization Step
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step//Project Structure Maintenance Authorization Step'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - Subject/Domain/Node/Occurrent/Execution/Step Run
-  - Subject/Domain/Node/Occurrent/Execution/Step Run.Agentic Step Execution Context
-version: 10
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-O-015
-  - CA-O-013
-  - CA-O-141
-  - CA-R-1509
-  - CA-R-1510
-  - CA-R-1511
-  - CA-R-1527
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
+  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run.Agentic Step Execution Context
+version: 13
+updated_at: 2026-10-26 05:59:45 +0400
+relations: {}
 tier: 3
 ---
 # Summary

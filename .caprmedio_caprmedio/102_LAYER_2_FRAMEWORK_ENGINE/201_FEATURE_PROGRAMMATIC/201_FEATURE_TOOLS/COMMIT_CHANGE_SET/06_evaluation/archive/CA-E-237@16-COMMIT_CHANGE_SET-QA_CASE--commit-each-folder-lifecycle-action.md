@@ -1,0 +1,32 @@
+---
+subjects:
+  governs: feature-boundary
+  depends_on: []
+version: 16
+updated_at: 2026-10-24 10:48:25 +0400
+relations:
+  evaluation_for:
+  - CA-R-805
+  - CA-M-087
+  derived_from:
+  - CA-A-057
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-237@16
+status: Archived
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
+---
+# Commit each folder lifecycle action
+
+## Test case
+
+Given a non-empty Git-trackable folder, **when** it is added, structurally moved, updated across multiple contained files, **and** removed **in** successive operations, **then** **every** operation produces exactly one folder-subject commit **and** one completed Journal event, uses `ADD`, `MOVE`, `UPDATE`, **and** `REMOVE` respectively, **and** advances the logger-owned folder revision **only** while a present result exists.
+
+## Sources
+
+- [CA-R-805 — Serialize repository Git mutations through one logical gate](../04_requirement/CA-R-805-COMMIT_CHANGE_SET-REQUIREMENT--serialize-admitted-local-commits-through-one-logical-gate.md)
+- [CA-M-087 — Process one project-path action](../../05_method/CA-M-087-TOOLS-IMPL_METHOD--process-one-project-path-action.md)

@@ -5,20 +5,25 @@ type: Plan
 label: Task
 work_sequence_number: 21
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 2
-updated_at: "2026-10-06 04:12:31 +0000"
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Implementation workspace canonicalization"
-  depends_on: [Implementation, Workflow, Action, Carrier]
+  governs: Subject/Graph Node/Engineering/Implementation
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Continuant/Carrier
 relations:
-  is_decomposition_of: [CA-P-1117]
-  blocks: [CA-P-1655]
+  is_decomposition_of:
+  - CA-P-1117
+  blocks:
+  - CA-P-1655
+tier: 3
 ---
 # Summary
 

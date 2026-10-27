@@ -5,19 +5,23 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Methodology Finalization Frontier
-    occurrent:
-      - Methodology Finalization Frontier Freeze
+  governs: Subject/Graph Node/Domain/Continuant/Selection//Methodology Finalization Frontier
   depends_on:
-    continuant:
-      - Methodology Source
-      - Applicable Methodology
-version: 1
-updated_at: 2026-09-03 21:28:22 +0400
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Domain/Continuant/Project.Settings
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+version: 5
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Freeze Methodology Finalization Frontier
 

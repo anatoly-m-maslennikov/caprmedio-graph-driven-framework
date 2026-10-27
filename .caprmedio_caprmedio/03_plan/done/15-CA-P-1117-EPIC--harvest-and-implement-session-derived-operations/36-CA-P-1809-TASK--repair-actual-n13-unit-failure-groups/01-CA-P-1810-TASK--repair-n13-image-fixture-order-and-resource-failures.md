@@ -5,20 +5,26 @@ type: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Active
-version: 1
-updated_at: "2026-10-06 23:10:43 +0000"
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Repair N13 image fixture order and resource failures"
-  depends_on: [Implementation, Evaluation, Source Carrier, Workflow, Action, Journal]
+  governs: Subject/Graph Node/Engineering/Release Testing/Executor Admission
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Evaluation Implementation
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Domain/Continuant/History/Journal
 relations:
-  is_decomposition_of: [CA-P-1809]
-  relates_to: [CA-C-514]
+  is_decomposition_of:
+  - CA-P-1809
+  relates_to:
+  - CA-C-514
+tier: 3
 ---
 # Summary
 

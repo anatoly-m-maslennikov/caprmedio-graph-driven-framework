@@ -6,24 +6,21 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-version: 11
-updated_at: 2026-10-24 00:51:05 +0400
+version: 14
+updated_at: 2026-10-26 05:59:45 +0400
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Applicable Methodology Compilation Assess Step'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step//Applicable Methodology Compilation Assess Step'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
-  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/Domain/Node/Continuant/Scope Unit.Expansion Boundary
-  - Core Meta-Model
-  - Subject/Domain/Node/Continuant/Atom
-relations:
-  relates_to:
-  - CA-O-011
-  - CA-O-005
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Graph Node/Domain/Continuant/Scope Unit.Expansion Boundary
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//CORE_META_MODEL
+  - Subject/Graph Node/Domain/Continuant/Atom
+relations: {}
 tier: 3
 ---
 # Summary

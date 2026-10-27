@@ -1,44 +1,285 @@
 # Candidate #7 — Subject model
 
-Status: approved for full application; the initial source increment and the bounded R/M, Subject and Eng-Type definition alignment are applied and checked. Full migration is not complete.
+## Latest applied structure — Engine first task P2638 Done
+
+The Operator's later root and runtime decisions supersede the older root
+outlines below. Current source paths use Subject/Graph Node, Subject/Graph
+Relation and Subject/Graph Rule. Under Graph Node, Domain and Engineering each
+have Continuant and Occurrent. Domain retains modeled Action/Step/Workflow Runs;
+Engineering carries technical sessions and actual runtimes. Carriers and
+technical components use Engineering/Continuant; abstract Engineering topics
+remain direct where no temporal classification was justified. Documentation,
+Product and UX are also Graph Node branches. UX concerns interfaces/appearance,
+not backend execution.
+
+First Engine task P2638 is Done3; parent Epic P2637 is Active5. Source readback
+checks3,961 Current PRMEDO heads:3,886 updated with normal predecessors and75
+unchanged. Three defining R bodies and the two progress Plan bodies changed;
+R2149's operative Subject reference follows the same rename. C603 is Resolved2.
+Existing Drafts and Archives, Scope Units, configs, code and runtime were not
+migrated. The164 noncanonical source literals retain their prior dispositions.
+
+Projection IDs006–008 now describe the actual updated source frontier, with
+800/411/1027 sources. Independent shape966.review verifies all2,238 RMEDO source
+hashes, the three roots and the temporal placements. Remaining Engine work has
+not started. Earlier Methodology checkpoints and worklist pins are historical,
+not evidence of the new prefix frontier.
+
+## Earlier Methodology completion record
+
+Status: retained Methodology Epic complete. Engine, Tools, general Content and explicit deferrals remain separate. This is a derived record, not governing authority.
+
+## Current verified checkpoint — retained Methodology Epic complete
+
+Epic P1959 v175, application P1968 v14 and verification P1969 v19 are Done.
+Their carriers are under `03_plan/done/`. Closure960 verifies all3,960 Current
+source files, four normal predecessors and335 relocated contained files;
+259 unchanged Current children keep their exact bytes. Existing terminal
+statuses and historical files are preserved. No Engine or native Extension
+source was changed by closure.
+
+Inventory961 contains3,960 Current PRMEDO sources,1,722 Plans and18,677 Subject
+occurrences. The strict approved scope is2,645 Project-local/Methodology
+sources. Header/filename audit954, Type/Tier audit955 and property audit964
+pass, with zero live pin drift. Governing-config audit951 requires no value
+change. Definition/retirement audit950 finds no additional required source
+change for this bounded pass.
+
+The remaining strict-scope Subject review has18 rows across11 owners:13
+non-root literals and5 canonical legacy flags, all covered by the existing
+Terms Graph, instance-name, conflict-workflow or mixed Engine/Terms holds
+(audit949). Native Core Extensions are outside this Goal: their21 Current
+sources, including8 non-root Goal rows, remain unchanged. Excluded Engine
+has1,294 Current PRMEDO sources and143 non-root Subject rows. None of these
+excluded or deferred rows is claimed semantically migrated.
+
+Numeric947 checks2,200 actual registered relation occurrences. The only
+additional boundary is exact same-Project Configuration→Core. No admitted
+cycle, Tier violation or non-Current Methodology target remains. R029/R030's
+two ancestry conflicts are explicitly not passing: the Operator approved
+reusable definitions in Core, project application in Configuration and
+coordinated connected Engine Evaluation repair in later P2637. Decision952
+records that disposition; the source cutover is not applied in this Epic.
+
+Views936 are verified again by962 against inventory961: Core800, project
+Methodology411, Engine1,027. The project view includes21 native Extension
+context sources; graph selection is not migration admission. All three
+views remain unchanged because closure changes only Plans. These are
+mechanical Subject projections, not a Terms Graph or semantic completion.
+
+General content remains P1970 (Active21), Engine migration P2637 (Backlog2),
+and Tools P2167 (independent). P1970 records the bounded content-review
+handoff from audit950. There is no new redesign or reopened deferral.
+No code, runtime, MCP, test suite, release or Git action is part of closure.
+This completes the retained Methodology Epic, not the global Engine/content
+migration. Older checkpoints below are historical and do not reopen it.
+
+## Historical pre-closure checkpoint
+
+Scope: Core Meta-Model, Project Configuration and project-own/local Methodology
+Atoms. No Engine/code/runtime, MCP, test-suite, Journal or Git operation. Terms
+Graph, instance names, conflict workflows and explicitly deferred extension Goals
+remain deferred. General Content is P1970; Engine migration P2637; Tools P2167.
+
+The Operator rejected the Project-level Evaluation → Configuration exception.
+Ancestry is unchanged; the sole extra arm is exact same-Project Config → Core.
+
+Applied since checkpoint894: two redundant links removed (903); five consumers
+rebound to exact Current R1800, fifteen stale authority edges removed and R1736
+branding rehomed (912); eighteen reviewed successor revisions with predecessors
+(931). Those eighteen remove ten dead/non-governing edges, move seven concrete
+Evaluations and two Settings rules into Configuration, and refresh two exact
+Core aliases. Their applicability and coverage remain. Reviews919/932/933 pass.
+The earlier Goal/Subject/obsolete-rule/dependency-definition work remains applied.
+
+Inventory942:3,960 unique Current PRMEDO sources;1,722 Plans;18,677 Subject
+occurrences. Remaining non-root rows:21 Methodology across13 owners,143 excluded
+Engine across119 owners. Five Methodology legacy flags make26 review rows across
+14 owners. Explicit deferrals are not semantic completion.
+
+Numeric947 checks the actual2,200 registered relation occurrences. The old raw
+2,391 total double-counts diagnostic rows. Methodology has1,018 admitted relations,
+including52 exact Config→Core prerequisites, no admitted graph cycle, no Tier
+violation and no non-Current target. Two genuine ancestry conflicts remain:
+R029→CoreR1430 and R030→CoreR833. R030 is not moved: that would create three Engine
+Evaluation failures. The Operator has now approved reusable authority in Core,
+project application in Project Configuration, and the connected Engine Evaluation
+repairs in later Epic P2637. Decision952 records the coordinated follow-up: R029/R030
+remain unchanged until that cutover is ready. This is an explicit later disposition,
+not a passing ancestry result, isolated source move or permission to duplicate Core.
+
+Views936/verification943 pass: Core800, project Methodology411, Engine1,027. The
+Engine view is byte-identical. These are mechanical Subject views, not a Terms
+Graph or semantic admission. Plans are a separately inventoried frontier.
+
+Property944 checks2,666 Methodology sources and excludes1,294 Engine sources, with
+no pin drift. Its only findings are the three already deferred extension Goals
+R1469/R1474/R1482. D393's unchanged default-Type body is later Content work.
+
+Epic P1959 is Active174; P1968 application and P1969 verification remain Active.
+The eleven mapping-research Plans are Done. The latest authority decision is recorded; four completion audits remain before closure. The source frontier above is inventory942 plus the two Plan revisions in decision952, not an applied R029/R030 cutover.
+
+Latest Operator clarification, 2026-10-25: only Terms Graph work is frozen.
+Other Methodology RMED, including ordinary Term, Atom-property and authoring
+rules, must migrate. Earlier blanket Terms-related whole-Atom exclusions are
+superseded; a scratch hold list is not authority to retain them. Preserve the
+separate Engine, instance-name and conflict-workflow boundaries. Subjects
+remain first and general Content remains last; this does not start a Terms
+Graph or authorize Engine/code implementation.
 Updated: 2026-10-24. Tool Scope declarations, bounded contract-owner moves, integer Tier increments and the Project Goal exception are applied and independently checked. Remaining Subject, Type and relation exceptions are recorded in the completion-progress document; full migration is still incomplete.
 
-Application scope: the Operator approved Subjects, their defining rules, global property rules and Atom IDs together. UX and Design remain pending. This approval is not a migration receipt; record actual source and runtime effects separately.
+Earlier verified checkpoint760/inventory761/worklist764: 3,961 Current PRMEDO
+sources and18,683 Subject references;172 non-root references remain, split into
+29 Methodology across19 owners and143 excluded Engine across119 owners.
+Views762/verification763 cover2,239 Current RMEDO sources:806 Core,406 project
+methodology and1,027 Engine, retaining Projection IDs006–008. All bindings and
+layout checks pass. P1959 is v165, Active, not complete.
 
-Latest execution boundary: migrate Current R/M/E/D/O Atoms and Governing Configurations. C/A/P, existing Draft Atoms and existing Archived Atoms are outside this pass. The model may still define their formats and meanings; those definitions do not authorize edits to their instances. The Operator explicitly included Governing Configuration data, including Project Structure; preserve unrelated configuration values. Do not treat excluded instances as completion blockers.
-The Operator confirmed that updating a Current RMEDO Atom still creates its usual new predecessor archive. This does not authorize changes to any existing Archive or Draft.
+Increment745–759 applies20 same-ID source updates, new E658 and three
+retirements (R1343/E498/R1266). Seven explicit Goal targets are repaired;
+five owner moves and three numeric Tier changes fix26 governing links without
+new violations. Claims/Subjects/relations of the metadata subset are unchanged.
+All21 new proposals and20 predecessors remain recoverable; three retirees are
+Archived. Native Implementation and relation-type bearer semantics remain.
+Property audit765 passes other checked metadata, with11 ordinary Goal target
+gaps and3 explicitly deferred extension Goals.58 Methodology non-ancestor
+links remain unresolved. No Terms Graph or Engine/code migration occurred.
+
+Earlier source checkpoint731 and inventory732/worklist735: 3,963 Current
+PRMEDO sources, 18,690 Subject occurrences and 179 non-root occurrences.
+Of those, 36 Methodology references across 24 owners remain in this pass;
+143 Engine references across 119 owners stay outside it. Twelve additional
+canonical-looking legacy flags remain disclosed. Views733/verification734
+cover 2,241 Current RMEDO sources: Core805, project methodology409 and
+Engine1,027. Source/configuration bindings and readable layout pass.
+
+The bounded defining-rule increment updates D466, R1283 and D378; creates
+E657 as E386's new-Summary successor; and archives R1307, R1394, R1395,
+R1396, R1311 and old E386. All predecessors and consumed proposals remain
+recoverable. Qualified Status semantics survive; Implementation remains a
+native Framework part, not an Atom Content Role. The four rule Drafts were
+created and promoted separately from the Subject-only counts below. No
+Engine source, Scope Unit, Tier, general Content or implementation change.
+P1959 is v164, Active. Remaining obsolete-source and property work is not done.
+
+Earlier verified observation711/worklist714 covers 3,968 Current PRMEDO sources,
+including 1,722 Plans, and 18,709 Subject occurrences. There are 197 non-root
+occurrences: 54 Methodology references across 31 owners and 143 excluded
+Engine references across 119 owners; 12 canonical-looking legacy flags remain.
+The [current worklist](candidate-7.current-prmedo-subject-worklist.md) preserves
+the exact occurrences. Its review groups are not new Operator deferrals.
+Batches491–709 record 569 Subject-only source revision events and 627
+corrections, not distinct-owner or completed-Task counts. There are 594 new
+migration Drafts: 569 promoted, one excluded recoverably, and 24 live. Another
+48 owned proposals were refined and two matching proposals reused, not newly
+created. Round715 verifies all 102 source revisions across 78 Current owners
+in the narrowed-freeze round656–709: 127 corrections, predecessor archives,
+recoverable consumed proposals, unchanged bodies and non-target metadata.
+Its 16 exact preservation pins include Engine/conflict exclusions; they are
+not a complete Terms Graph selector or a permanent protection property.
+Views712/verification713 retain IDs006–008 and cover 2,246 Current RMEDO
+sources (Core810, project methodology409, Engine1,027), with 181 unmapped
+occurrences disclosed. Source/configuration pins and readable layout pass;
+this is not semantic completion or a Terms Graph. At that checkpoint P1959
+was v163, Active. Obsolete-source closure and property fixes remain real
+later stages; this is not a requirement for an exact-Subject definition registry.
+Engine source migration and general Content stay separate.
+
+Latest scoped deferral: conflict-workflow O updates are deferred. [A1217](../../../02_analysis/done/CA-A-1217-ANALYSIS_RPRT--report-deferred-workflow-conflict-resolution-issues.md) records automatic Tier/Updated At precedence, decision-step bypasses and related Evaluation issues. This report does not apply a new conflict policy or authorize Core conflict-rule changes. Continue unrelated migration work.
+
+Earlier inventory332 covered the same3,968 sources and exposed1,830 non-root occurrences. R918's universal Claim rule is retired; R2160 replaces R2159's Substance Scope definition with Content Scope under a new Summary/identity. Filename318 completes the old285 consumer closure; Content329 and Plans331 applied300 checked Current updates. Those results and views333 remain historical checkpoints, not the current remaining-item count.
+
+Historical Terms override, superseded by the 2026-10-25 clarification above: Terms326 stays unapplied, but only Terms Graph work is frozen. Ordinary Term, Atom-property and authoring rules remain in Methodology migration. Mechanical Subject views may display Term Subjects without claiming a Terms Graph or semantic completion. Do not preserve the old blanket whole-owner exclusions as current authority.
+
+Latest Operator override: instance naming in Subjects is deferred and outside this migration. This supersedes the earlier approval to use Operation Summaries as instance names. Leave existing instance names unchanged; do not choose a naming/escaping solution or make this deferred work a completion gate. Preserve prior applied mappings and disclose ambiguous existing notation in mechanical views.
+
+Latest interaction override: continue the approved Epic without interruptions. The Operator has re-authorized parallel subagents with appropriate models and effort, superseding the earlier no-new-subagents restriction. Root integrates source and planning writes; workers have bounded, disjoint proposal/check scopes. Ask one question at a time only when a real uncertainty remains after the checks below. The first answer was clarified: the framework is the product of the project, not the project itself. Its Subject is `Subject/Product: CAPRMEDIO Framework`. Do not apply the superseded Project fallback to framework requirements and principles. Existing reviewed but unapplied packets remain proposals.
+
+Application scope: the Operator approved Subjects, their defining rules, global property rules and Atom IDs together. Product, Domain, Engineering, UX, Design and Documentation are current, expandable topic branches; Graph remains shared. This approval is not a migration receipt; record actual source and runtime effects separately.
+
+Latest working approach: create proposed revisions as Drafts, then refine them
+in iterations. A new migration Draft may coexist with its unchanged Current
+original. Use the admitted `@<next-version>-draft` marker and owning role's
+`draft/` folder. Draft creation is not application or completion. Keep concrete
+open choices in the review packet; do not present them as settled rules.
+This authorizes new proposals, not migration of existing Drafts or release of
+the Operator's previously deferred sources.
+
+Latest execution order, 2026-10-25: migrate Subjects → add missing Atoms →
+archive obsolete Atoms → fix properties → update Content last. Finish
+Methodology in the current Epic CA-P-1959. Migrate all Engine RMED Atoms later
+in the separate Backlog Epic CA-P-2637, including PROGRAMMATIC, APPS, TOOLS and
+other Engine descendants. Review the Engine Subject system and Scope Units
+before its migration. No code/runtime implementation is included. Preserve
+earlier applied work and proposals; do not replay or undo them. Earlier
+combined-pass completion gates are superseded; Engine does not block closing
+the Methodology Epic.
+
+Latest clarification: revising the Subject system and Scope Unit structure is
+for the Engine Epic only. Continue Methodology under its approved model; do
+not start another Methodology structure redesign before finishing migration.
+
+Latest execution boundary, 2026-10-24: migrate Current P/R/M/E/D/O Atoms and Governing Configurations. The Operator explicitly re-added P migration after the earlier RMEDO-only boundary. Existing C/A, Draft Atoms and Archived Atoms remain outside instance migration. New bounded C/Question Atoms are authorized for small migration uncertainties; this is not general Concern migration. The model may still define excluded forms without authorizing edits to their instances. Preserve unrelated configuration values. Do not treat excluded instances as completion blockers.
+Updating a Current in-scope Atom still creates its usual new predecessor archive. This does not authorize changes to any existing Archive or Draft.
+
+Current completion policy, restated in the Operator's latest goal: complete the Epic without interruptions and without PROGRAMMATIC implementation. When confidence is below95%, recheck this candidate, the application plan, this chat's human inputs from the latest two days and active principles; latest human wording wins. If still uncertain, ask the Operator rather than silently choosing a mapping. Preserve existing explicit deferrals and continue independent work. This replaces the earlier small-uncertainty best-choice policy; it is not a new global AI confidence setting, a waiver for introducing new Domain concepts or permission to claim unfinished work complete.
 
 This candidate records the latest Operator decisions. It follows [Candidate #6](operator.model.candidate-6.plan.md). It replaces the single Entity-root proposal and the later separate Entity/Method Subject roots. Earlier decisions remain where this candidate does not change them. Earlier migration records remain history, not evidence that Candidate #7 is applied.
 
 ## One root: Subject
 
+Latest Operator clarification, 2026-10-25: “Spec” means Active RMED Atoms in
+a specified Scope Unit. Select them directly by Status, Content Role and Scope
+Unit. No named Selection, extra identity or definition Atom is needed. This
+does not mean a judgment that the specification is sufficient. Existing
+Selection Subject mappings stay generic; ordinary Content changes remain last.
+
 An Atom has content about something →
 that something is its Subject →
-the current topic branches are Domain and Engineering →
+the topic branches are Product, Domain, Engineering, UX, Design and Documentation →
 Graph supplies the global Relation and Rule subjects.
 
 ```text
 Subject
+	Product
 	Domain
 	Engineering
+	UX
+	Design
+	Documentation
 	Graph
 		Relation
 		Rule
 ```
 
-This is the current reading outline. Canonical Subjects use full paths from `Subject`, as defined below. The outline alone is not a complete source-by-source migration map. UX and Design are pending and are not part of the current migration. Documentation has not been adopted as another current branch. The previously agreed Graph branch remains global; it is not a third product-topic branch.
+This is the current reading outline. Canonical Subjects use full paths from `Subject`, as defined below. The outline alone is not a complete source-by-source migration map. The latest Operator list admits Product, UX, Design and Documentation alongside Domain and Engineering. Graph remains global across all branches.
 
-These branches are expandable. Domain and Engineering are not an exhaustive two-way split. Do not make an Engineering topic into an independent object merely to give an Atom a Subject.
+Latest Operator clarification: the agent-facing MCP interface is UX—discovery,
+operation names, inputs, outputs, errors and feedback. Its server, transport,
+queue and adapters remain Engineering. Classify the governed aspect, not every
+MCP Atom together. Subjects and Content Roles remain independent.
+
+These branches are expandable, not a fixed exhaustive list. Do not make a topic into an independently carried object merely to give an Atom a Subject. Content Role and Local Scope Unit remain independent of Subject.
+
+Subjects do not carry Atom or Artifact IDs. Typed Relations carry those links.
+This also excludes IDs embedded in selectors, not just bare ID strings.
+`Atom.ID` and `Projection.ID` remain valid property topics; they are not
+particular ID values. Named-instance Subjects use names, not IDs.
+Do not guess a new relation type when correcting a legacy ID-valued Subject.
 
 ## What the branches mean
 
 | Branch | About | Examples |
 | --- | --- | --- |
-| Domain | What the project means and offers | Atoms, Scope Units, public API behavior, user-visible results |
+| Product | What the project produces and what that product must provide | `Subject/Product: CAPRMEDIO Framework` |
+| Domain | Concepts and things the product works with | Atoms, Scope Units and their meanings |
 | Engineering | How it is structured, built, stored and operated | Carriers, orchestrator/worker architecture, state ownership, function purity, diagnostics |
+| UX | User experience | Journeys and interaction |
+| Design | Design topics | Visual and UI design |
+| Documentation | Documentation topics | Guides and reference material |
 | Graph | Connections and constraints across the model | Relation definitions and Graph Rules |
 
-Pending examples: UX would cover journeys and interaction; Design would cover visual/UI design. They do not supply migration targets now.
+The project produces the framework. Requirements and principles about that product can govern `Subject/Product: CAPRMEDIO Framework` while belonging to the Project's Scope Unit. Requirements about the project itself can still govern Project. Review the actual content; do not rename every Project Subject automatically or invent a property such as Framework.Traceability merely to repeat an outcome. Use the Operator's `:` spelling for the product, not `/Framework` or an inferred `//` instance.
 
 An API contract and the workers implementing it concern the same feature, but different Subjects. A Carrier remains an Engineering Subject even when a user can inspect it. Visibility alone does not decide the branch.
 
@@ -88,6 +329,42 @@ Subject still names the topic. Eng Policy and Eng Decision are Types, not new Su
 
 Operations selects and uses the applicable RMED in a sequence of actions. A compiled M/E guidance document is a derived Projection, not another authoritative Subject root.
 
+### Content, not Substance
+
+YAML carries structured properties and formal rules. Markdown carries Content:
+natural-language material whose meaning generally needs interpretation. Tools
+can extract its sections and check structure without thereby checking meaning.
+
+Remove the generic Atom.Substance property. Under the applicable Role/Type,
+use Content.Claim for R/M/E/D, Content.Operation for O, Content.Concern for C
+and Content.Objective for P. Analysis has both Content.Question and
+Content.Analysis; the Type defines the exact section requirements. Do not keep
+Substance as a duplicate field or an additional abstract parent.
+
+Rename Substance Scope to Content Scope, represented logically by Content.Scope.
+It is the common applicability boundary, not another Local or Target Scope Unit.
+Preserve the already-agreed omission conditions; the rename does not change
+their meaning. A formal Graph Rule still uses operative YAML rather than Claim.
+
+Remove Atom.Entity. Preserve any useful topic from it in Subjects and any useful
+applicability boundary in Content Scope. Do not blindly replace it with the
+Subject root or discard valuable meaning. Concrete properties such as Atom.Status
+remain valid; this does not remove the domain model's entities.
+
+### Methodology and Engine
+
+Most methodology RMED describes the model and its invariants: what must hold,
+how to author valid content, how to check it, and how to represent it.
+An invariant constrains valid states; it does not prevent values from changing.
+Methodology Operations defines actions and workflows over that model.
+RMED for implementing those Operations belongs in Engine, not in the abstract
+methodology merely because it implements a methodology workflow.
+
+The Operator confirmed methodology-first question resolution. Set Engine-only
+questions, including C601/E172, aside for now. Resolve methodology questions
+first, one at a time, with no new subagents. This changes question order; it
+does not silently cancel the Engine methodology work retained in the Epic.
+
 ## Keep the structural distinctions
 
 Subject branches organize topics. They do not replace object kinds or their relations.
@@ -124,7 +401,7 @@ Use the full path from `Subject`. No separate namespace delimiter or abbreviated
 | `/` | Broader to narrower Subject, including kinds and classifiers |
 | `.` | Bearer to dependent property |
 | `:` | Property to allowed value, not assignment; also retained in qualified classifiers |
-| `//` | Kind to a named instance |
+| `//` | Primary entity kind to a named instance, not a property instance |
 
 Examples:
 
@@ -140,6 +417,21 @@ Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Imp
 ```
 
 Full paths may use all four operators. The conditions under which `//` is mandatory are deferred; its availability does not force every named topic into an instance path.
+
+The named instance can still have properties. For example,
+`Selection//Projection and Journal Authority Sources.updated_at` selects a
+Selection instance, then addresses its updated_at property. The restriction is
+on instantiating a property, not on reading a property after an instance.
+When a defined subset is itself the topic, use its meaningful named Selection;
+generic Selection remains appropriate for rules about selections themselves.
+Using selected inputs alone does not make Selection the governed topic.
+
+Names of named primary-entity instances must be unique within the same entity
+kind in the project/source view. Different owning Scope Units do not permit
+two Workflows with the same name or silently disambiguate their Subjects.
+A Scope Unit named Release and a Workflow named Release may coexist: they
+are different kinds. Do not impose cross-kind uniqueness or infer a cross-kind
+renaming migration.
 
 Inheritance remains: broader-kind properties and rules apply to narrower kinds; allowed values may be extended where permitted. A topic's place in the Subject tree does not by itself make the topic an independently represented object.
 
@@ -159,9 +451,9 @@ Atom ID is mandatory in every group. This supersedes both the old no-ID Draft ru
 - Creating a new Draft immediately reserves an unused base Atom number: `CA-R-123@1-draft` reserves `CA-R-123`, and promotion keeps that base. An edit Draft reuses the existing Atom's base number, such as `CA-R-123@4-draft` for its proposed next Version. Do not renumber a Draft on promotion merely to keep numbering dense.
 - Draft, Current and Archived are three separate status groups. Current excludes Draft and Archived; it includes Active, Done, Canceled, Backlog and other admitted current Status values. Current source Atom IDs remain unique across that group. Archived versions share the base identity but use distinct version-qualified Atom IDs and filenames.
 - When archiving, set Status to Archived, qualify the Atom ID and filename with the archived Version in every occurrence within that carrier, and move it to the correct archive folder. For example, Version 3 of CA-R-123 becomes CA-R-123@3 in both its carried ID and filename. Keep all Version occurrences consistent with that archived Version; archiving does not increment it. Leave Updated At and all other content unchanged. This replaces the exact-old-bytes archive requirement, not the version-qualified Archived ID rule. Keep Versions and history, not a separate Revision entity.
-- Changing the Summary creates a new Atom identity; preserve the previous Atom in history.
+- For an existing Atom, changing Summary or Content Role creates a new Atom identity; preserve the previous Atom in history. A Content Role change always creates a new Atom, even when Summary stays unchanged. Changes to Claim, other Content, Type or other properties alone retain the base Atom ID when Summary and Content Role stay unchanged.
 
-For this one-time Candidate #7 migration, adding or correcting Type keeps the Atom ID when Summary and Substance stay unchanged. This is an approved migration exception to R1766's ordinary Type-change replacement rule, not a general removal of that rule. Real updates still advance Version and Updated At and preserve history.
+This supersedes R1766's Type-change replacement rule and the earlier migration-only classification exception. Every real update still advances Version and Updated At and preserves history. Draft/Archived version qualifiers do not create a different base identity. Batch300 aligns R1432 and archives R1766 and the obsolete project exception R2103; verification301 passes. This bounded source alignment does not prove every consumer or the full migration complete.
 
 ### Relation targets
 
@@ -236,7 +528,6 @@ Draft Atoms may be incomplete while being prepared. Their Atom ID remains mandat
 | `tier` | Integer within the Local Scope Unit's admitted range below |
 | `label` | Exactly one effective Label: explicit Label, otherwise the Type name |
 | `content.summary` | Non-empty text |
-| `content.substance` | Content; subject to the Graph Rule exception below |
 
 ### One numeric Tier
 
@@ -270,6 +561,12 @@ An admitted Atom Type can be used at any Tier admitted for its Local Scope Unit;
 do not infer Type-to-Tier restrictions. Role/Type-specific content and Relation
 Type endpoint rules remain independent. The explicit Project Goal case above
 still applies.
+
+The one-way, same-Project Project Configuration → Core Meta-Model prerequisite
+declared by R1218 is an explicit additional endpoint-ordering arm under R2149
+and D637. Other same-Scope lower-target-Tier and strict-ancestor rules remain.
+No reverse, Project-root, Extension, descendant or transitive permission is
+inferred. Project-local Atoms are in migration scope, not exempt from ordering.
 
 This candidate defines methodology, not implementation-schema support.
 Applied Current-carrier changes are recorded in the completion progress;
@@ -307,8 +604,8 @@ These names replace `Policy` and `Engineering Decision` for Method and Delivery 
 
 Do not impose a Type-to-Tier restriction from this distinction. Do not extend
 these Type assignments to other Content Roles without their own definition.
-Type-classification-only changes in this migration retain IDs under the
-exception above.
+Type changes retain IDs when Summary and Content Role are unchanged, under the identity rule
+above; this is not limited to this migration.
 
 ### Evaluation Types
 
@@ -326,7 +623,7 @@ An Eval Case specifies what to check, not how the check is implemented. Its impl
 | `target_scope_unit` | Scope Unit reference |
 | `relations` | Collection of typed direct links |
 | `subjects` | Collection of GOVERNS and DEPENDS_ON links |
-| `content.substance_scope` | Content describing exact applicability |
+| `content.scope` | Content Scope: exact applicability |
 | `content.details` | Supporting content |
 | `content.semantics` | Meaning-specific content |
 
@@ -346,7 +643,12 @@ as methodology authority.
 
 ### Specialized content
 
-These are global base rules, refined where a Role or Type needs a different structure. An R/Type: Graph Rule Atom uses one operative YAML block instead of `content.substance`; it has no Substance section. Its Summary remains required. Semantics and Details remain optional. Do not add empty Substance just to satisfy the base rule.
+These are global base rules, refined by the Role/Type's content structure.
+Required role-specific sections replace the former universal content.substance
+requirement. Analysis may require both Question and Analysis, as defined by its
+Type. An R/Type: Graph Rule Atom uses operative YAML, not a Claim section. Its
+Summary remains required; Semantics and Details remain optional. Do not create
+empty Substance or Claim merely to satisfy an inapplicable base requirement.
 
 The table names logical properties, not their final YAML keys or Markdown headings. Their carrier mapping belongs in D. Inheritance and the specialized exceptions must be explicit when the formal rules are authored.
 

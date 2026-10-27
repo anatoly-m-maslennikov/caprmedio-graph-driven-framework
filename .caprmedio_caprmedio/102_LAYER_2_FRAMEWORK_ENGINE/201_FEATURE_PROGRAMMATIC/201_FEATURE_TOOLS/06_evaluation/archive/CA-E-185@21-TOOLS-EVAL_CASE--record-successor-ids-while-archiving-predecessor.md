@@ -1,0 +1,42 @@
+---
+subjects:
+  governs: Work Journal/Replacement Transition Event
+version: 21
+updated_at: 2026-10-24 11:58:20 +0400
+relations:
+  evaluation_for:
+  - CA-D-335
+  - CA-M-087
+  - CA-R-805
+  - CA-R-807
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-185@21
+status: Archived
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
+---
+# Record successor IDs while archiving predecessor
+
+## Claim checked
+
+archiving a replaced predecessor records the explicit predecessor **and** already-active successor Atom IDs **only** **in** the authoritative Journal Event under CA-R-807. the Git Commit boundary follows CA-D-335.
+
+## Test case
+
+prepare an active predecessor at Version 4 **and** **`>=1`** distinct active successors at Version 1. include **`=1`** successor **and** **`>=2`** successors **in** separate fixtures. archive the predecessor under its unchanged Atom ID **and** Version, using the required @4.md archive suffix. seal the explicit predecessor ID **and** complete successor ID set **in** that Journal Event. exercise an individual approved change set **and** a larger approved atomic change set containing this archive effect.
+
+## Acceptance criteria
+
+- the predecessor's archived content **and** Version remain unchanged, **and** it has no active Carrier.
+- its individual Journal Event records the Carrier transition **and** the complete explicit replacement IDs; current Atom Carriers contain no replacement history.
+- **every** successor was active **before** predecessor archival; empty, duplicate, inactive, **or** self successor sets fail.
+- the Git Commit **contains** **all** **and** **only** its approved atomic change set. predecessor **and** successor changes **may** share that Commit while retaining their individual Journal Events.
+- no formal replacement relation **or** authoritative inverse history is invented.
+
+## Failure disposition
+
+reject missing **or** invalid replacement IDs, premature archival, lost historical content, a changed predecessor Version, an invalid archive filename, replacement history **in** an active Carrier, **or** an unapproved Commit boundary.

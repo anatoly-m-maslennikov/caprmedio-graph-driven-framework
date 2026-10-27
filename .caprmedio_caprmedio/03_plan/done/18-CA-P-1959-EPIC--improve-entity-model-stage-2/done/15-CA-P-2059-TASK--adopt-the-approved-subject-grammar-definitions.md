@@ -1,0 +1,51 @@
+---
+atom_id: CA-P-2059
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 15
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+status: Done
+subjects:
+  governs: Subject
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
+relations:
+  is_decomposition_of:
+  - CA-P-1959
+tier: 3
+---
+# Summary
+
+Adopt the approved Subject grammar definitions
+
+## Objective
+
+Make the five approved grammar definitions authoritative without migrating other Subjects or content.
+
+## Details
+
+Estimated own work: 15 minutes. Actual Operator approval is recorded by CA-P-1977 in grammar-decision.operator-answer.json (396dd826016ff7f021960f74345298bdb583124374249ce07c5cdb3edf1fc0eb), tied to the unchanged five-change packet. Recheck exact five source pins, prepare a minimal ad-hoc patch, and independently verify before Root authoring.
+
+Replace CA-R-1204 with fresh CA-R-1931 v1 after rechecking global ID uniqueness; preserve CA-R-1204 in role-local archived history. Increment CA-R-1321 12→13, CA-R-1324 10→11, CA-M-228 14→15 and CA-E-383 13→14; preserve exact prior revisions under native role-local archive paths. Only approved grammar bodies, Version/Updated At and CA-E-383 evaluation_for predecessor/successor binding may change. Retain existing summaries/scopes except the approved new-ID replacement. Subjects stay unchanged, not migrated. Record actual creation/update/replacement in the Journal, with archive predecessor and already Active successor IDs; do not put replacement history in active Atom relations.
+
+Use local ad-hoc preparation and normal file authoring, not unsupported MCP or a bypass of standalone Tool apply. Do not fabricate a Tool/Workflow Run or execution receipt. Source grammar changes deliberately make five old live pins historical: preserve baseline evidence and record exact before/after delta; do not overwrite frozen reviews or pretend stale pins are current. Ordinary content and the separately approved live Subject migration remain later work.
+
+### Definition of Done
+
+Not Done if required checks fail or are missing, source/evidence pins are stale, scope expands beyond the approved changes, unresolved work is hidden, actual effects are overstated, or own work exceeds 15 minutes without decomposition.
+
+### Completion
+
+Exactly the five approved grammar definitions are authoritative: CA-R-1931@1 replaces CA-R-1204@14; CA-R-1321@13, CA-R-1324@11, CA-M-228@15 and CA-E-383@14 are current. Five exact prior revisions are preserved in role-local archive paths. Subjects and scopes are unchanged. All 12,101 other Core files have the same manifest digest. Independent pre-effect scope review and seven focused tests passed; actual current/history bytes and fifteen schema-v3 Journal events passed Root verification. The old preflight now rejects the occupied successor ID, as expected.
+
+Receipt and exact before/after pins: `_projection/core-entity-review/stage2/grammar-adoption.result.json`. No live Subject migration, parser implementation, selector grammar, native slash Relation, MCP or FPF execution is claimed. The old five live pins are historical; refresh current source bindings before later migration.

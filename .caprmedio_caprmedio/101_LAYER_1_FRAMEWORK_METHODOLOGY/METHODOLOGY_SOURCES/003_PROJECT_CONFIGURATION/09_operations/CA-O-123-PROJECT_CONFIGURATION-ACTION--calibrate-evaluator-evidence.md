@@ -7,25 +7,17 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Evaluator Evidence Calibration
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Evaluator Evidence Calibration'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Term//Artifact
-  - Subject/Engineering/Outcome Evidence
-version: 10
-updated_at: 2026-10-24 01:18:03 +0400
-relations:
-  relates_to:
-  - CA-O-018
-  - CA-O-020
-  - CA-O-104
-  - CA-O-105
-  - CA-O-106
-  - CA-O-111
-  - CA-O-118
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Term//Artifact
+  - Subject/Graph Node/Domain/Continuant/History
+version: 14
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 tier: 3
 ---
 # Summary

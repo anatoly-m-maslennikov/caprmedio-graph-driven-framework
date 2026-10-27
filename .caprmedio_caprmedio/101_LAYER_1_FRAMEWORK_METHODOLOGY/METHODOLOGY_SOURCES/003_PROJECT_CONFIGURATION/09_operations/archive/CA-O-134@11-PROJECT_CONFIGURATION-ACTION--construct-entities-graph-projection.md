@@ -1,0 +1,73 @@
+---
+atom_id: CA-O-134@11
+content_role: Operations
+type: Action
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
+status: Archived
+subjects:
+  governs: Subject/Domain/Node/Continuant/Projection
+  depends_on:
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Domain/Node
+  - Subject/Domain/Node/Continuant/Term//Property
+  - 'Subject/Domain/Node/Continuant/Projection/Type: Entities Graph'
+  - Subject/Domain/Node/Continuant/Project.Structure
+  - Relation Kind
+  - Artifact/Revision
+  - Subject/Domain/Node/Continuant/History/Journal
+version: 11
+updated_at: 2026-10-24 00:51:05 +0400
+relations:
+  relates_to:
+  - CA-R-1438
+  - CA-R-1456
+  - CA-R-1746
+  - CA-R-1471
+  - CA-R-1246
+  - CA-R-806
+  - CA-R-1472
+  - CA-R-1437
+  - CA-R-1483
+  - CA-D-440
+  - CA-E-449
+  - CA-R-1720
+  - CA-R-1728
+tier: 3
+---
+# Summary
+
+Construct Entities Graph Projection
+
+## Operation
+
+Construct Entities Graph Projection **means** the Action that constructs **or** confirms the requested derived Entities Graph from its bound current authoritative Entity declarations, Properties **and** admitted source facts. one selected graph construction is the responsibility; source correction, graph-model admission **and** unrelated graph generation are separate responsibilities.
+
+### Inputs and admission
+
+require an admitted request, explicit source selection **and** any narrower display selection, the exact current source set **and** governing source/Relation Kind authority, representation configuration, target Projection/output destination, any existing Projection with source evidence, admitted realization/permissions **and** actual Run/effect evidence context. the source set identifies all required source kinds **and** their coverage, including the authoritative Project Structure under CA-R-1483/CA-D-440 **when** declared Scope Unit facts are selected. upstream Projections need their own identity/Revision **and** ultimate source traceability, **not** independent authority. an explicitly empty evidenced selection differs from an absent **or** unreadable selection.
+
+### Behavior
+
+any consumed derived fact context binds the exact selected source contributions, governing authority **and** actual admission checks. recognized candidates **or** matching digests alone do **not** admit native facts. missing source forms, unsupported semantic checks **or** unknown coverage remain unresolved, **not** evidenced empty data. caller-authored admission flags **or** receipts cannot replace actual admission **or** independent Run/effect evidence.
+
+1. resolve the actual request, source/display boundaries, admitted execution kind **and** capabilities **before** effects. retain source identities, Revisions **and** exact source locations **without** silently substituting current files for the admitted frontier. do **not** infer Scope Units from folders **or** convert native declarations into invented Atoms.
+2. construct all **and** only selected native Entity identities, their selected authoritative Property facts **and** admitted Relations under CA-R-1438/CA-R-1456 **and** the actual governing source declarations. retain actual Property bearers, occurrences, values **and** source contribution evidence; generic Atom/Carrier metadata does **not** transfer to its GOVERNS target. Subject GOVERNS/DEPENDS_ON incidence is **not** a native Entity Relation. declared Project Structure facts retain their non-Atom source identity/Revision; observed materialization remains separately traced, never declaration authority. preserve existing canonical/bearer-qualified identities; multiple views **or** governing Claims do **not** create duplicate identities.
+3. resolve each Relation's graph-qualified metadata under CA-R-1246/CA-R-806. preserve admitted direction, qualified endpoints, context **and** cardinality; use CA-R-1472 for external references, keeping them distinguishable from native members. source **and** admitted derived Relation traceability follows CA-R-1437. no foreign-kind edge, fabricated Property value **or** inferred identity fills a gap.
+4. retain exact source Claim/Artifact Revision evidence for admission **and** represented facts under CA-R-1746/CA-R-1471, including any upstream chain. apply the applicable CA-E-449 checks to the requested scope **and** preserve separate fidelity, graph-validity **and** coverage outcomes. missing, conflicting, inaccessible, unsupported **or** stale regions remain explicitly identified; an unperformed **or** unresolved check is **not** a pass.
+5. confirm source/definition/permission currentness **before** publishing. publish **only** to the authorized derived-output destination. return no_op **only** **when** an existing Projection demonstrably matches the exact current selection/configuration **and** satisfies all required checks; a missing capability **or** stale prior output is **not** no_op. an explicitly authorized limited diagnostic output retains its actual incomplete/invalid state; do **not** replace an accepted complete target with an unapproved partial result.
+6. retain actual output effects **and** independent start/terminal Action/Run evidence, plus parent Workflow/Step references **when** applicable, in the one Journal under CA-R-1720/CA-R-1728. a Journal append is a provenance obligation, not a construction gate; append failure retains the actual result/effects and emits a `recording_error` diagnostic with pending evidence. only missing or uncertain independent Run/effect evidence yields `recording_blocked`; recover the append separately **without** blind construction replay. do **not** expose secrets **or** invent a no-op Artifact change.
+
+the pure builder does **not** write Journal events; the shared executor appends actual start/terminal events **without** changing prior Journal history. a start context **or** published output alone is **not** terminal completion. missing independent terminal Run/effect evidence preserves actual output/effects **and** the pending event reference, **not** a completed Run; a Journal append failure alone is a `recording_error` diagnostic, and a later append may preserve the supplied event observation **without** construction replay. publish **only** to an explicit authorized **or** current unambiguous registered derived destination; a root folder **or** conventional name is **not** registration. non-persisting Tool description is **not** a completed graph Action with a missing required target.
+
+### Results and effects
+
+- built: exact produced Projection Revision, selection/configuration/source evidence **and** actual effects/independent Run/effect evidence, **only** **when** all required checks pass, requested coverage is complete **and** all currentness/permission/evidence conditions are satisfied. a failed check returns conflicting **or** failed as evidenced; missing independent evidence returns incomplete **or** blocked, even **when** output was produced. a Journal append failure alone leaves the actual outcome intact and is reported as `recording_error`.
+- no_op: the proven unchanged current Projection **and** the same all-passed, complete-coverage/currentness/permission/independent-evidence boundary as built, with no fabricated mutation. a Journal append failure alone is reported as `recording_error` and does not change the no_op outcome.
+- incomplete, conflicting, stale **or** blocked: affected source regions/checks, actual limited output/effects **if** any, **and** the missing evidence/permission; no complete Projection **or** complete Run claim.
+- failed **or** canceled: actual outcome, partial effects, retained prior/result evidence **and** the authorized recovery boundary; no automatic repair **or** retry.
+
+## Details
+
+only the requested derived output **and** its truthful execution evidence are effects. no governing source, Project Structure, Entity identity **or** Relation authority is changed. current R/M/E/D remain the graph/model/representation authority; this Action does **not** duplicate their definitions **or** mandate a particular generator, parser, language, database **or** build schedule.

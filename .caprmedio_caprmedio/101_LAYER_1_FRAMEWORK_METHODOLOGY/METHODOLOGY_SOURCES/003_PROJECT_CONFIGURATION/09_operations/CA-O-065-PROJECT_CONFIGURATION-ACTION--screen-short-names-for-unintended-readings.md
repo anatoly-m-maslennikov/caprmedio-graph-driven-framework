@@ -1,17 +1,15 @@
 ---
 subjects:
-  governs: Screen Short Names
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Screen Short Names'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Subject/Domain/Node/Continuant/Project
-version: 11
-updated_at: 2026-10-24 00:38:25 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/Project
+version: 14
+updated_at: 2026-10-26 05:59:45 +0400
 relations:
   child_of:
   - CA-M-005
-  relates_to:
-  - CA-R-1057
 atom_id: CA-O-065
 content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION

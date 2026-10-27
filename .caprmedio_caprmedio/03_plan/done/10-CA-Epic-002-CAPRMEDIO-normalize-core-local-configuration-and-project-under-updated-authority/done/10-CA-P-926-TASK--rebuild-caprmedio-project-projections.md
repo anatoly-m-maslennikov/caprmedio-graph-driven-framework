@@ -5,18 +5,20 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - caprmedio Project Projection Frontier
-    occurrent:
-      - caprmedio Project Projection Rebuild
+  governs: Subject/Graph Node/Domain/Continuant/Projection
   depends_on:
-    occurrent:
-      - CA-P-925
-version: 3
-updated_at: 2026-08-30 17:44:53 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Domain/Continuant/Projection
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Rebuild caprmedio Project Projections
 

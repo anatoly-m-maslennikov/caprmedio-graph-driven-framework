@@ -5,18 +5,18 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Methodology Source Conflict Repair
-    occurrent:
-      - Approved Methodology Source Conflict Repair
-  depends_on:
-    occurrent:
-      - CA-P-922
-version: 2
-updated_at: 2026-08-30 16:32:06 +0400
+  governs: Subject/Graph Node/Domain/Continuant/Atom
+  depends_on: []
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Apply Approved Methodology Source Repairs
 

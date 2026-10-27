@@ -5,20 +5,30 @@ type: Plan
 label: Task
 work_sequence_number: 5
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 3
-updated_at: "2026-10-06 00:18:42 +0000"
+version: 13
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Initialize first Framework runtime and project-local ca Skill"
-  depends_on: [Action, Tool, Framework Package, Runtime, Methodology, Skill, Docker Image, Journal, Evaluation]
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Initialize first Framework runtime and project-local ca Skill'
+  depends_on:
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Release Version/Runtime Package Carrier
+  - Subject/Graph Node/Engineering/Occurrent/Runtime
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Engineering/CAPRMEDIO Main Skill
+  - Subject/Graph Node/Engineering/Image
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Engineering/Evaluation
 relations:
-  is_decomposition_of: [CA-P-1620]
-  blocks: [CA-P-1624]
+  is_decomposition_of:
+  - CA-P-1620
+  blocks:
+  - CA-P-1624
+tier: 3
 ---
 # Summary
 

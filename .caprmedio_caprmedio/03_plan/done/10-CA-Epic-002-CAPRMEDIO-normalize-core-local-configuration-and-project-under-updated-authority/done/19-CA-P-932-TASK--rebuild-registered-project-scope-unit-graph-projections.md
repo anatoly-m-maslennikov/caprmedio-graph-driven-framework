@@ -5,18 +5,21 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Project Scope Unit Graph Projections
-    occurrent:
-      - Project Scope Unit Graph Projection Rebuild
+  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Scope Unit Graph'
   depends_on:
-    occurrent:
-      - CA-P-935
-version: 4
-updated_at: 2026-08-31 22:02:59 +0400
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Scope Unit Graph'
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Rebuild Registered Project Scope Unit Graph Projections
 

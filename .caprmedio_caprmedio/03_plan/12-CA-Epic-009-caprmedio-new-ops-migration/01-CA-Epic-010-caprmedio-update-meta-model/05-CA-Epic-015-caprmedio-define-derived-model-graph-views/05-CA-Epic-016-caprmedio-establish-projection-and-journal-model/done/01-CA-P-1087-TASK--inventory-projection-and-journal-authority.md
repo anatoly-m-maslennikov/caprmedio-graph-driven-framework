@@ -6,24 +6,29 @@ author: Operator
 assignee: AI Agent
 autonomous_confidence_threshold: 99
 subjects:
-  governs: "Artifact"
+  governs: Subject/Graph Node/Domain/Continuant/Selection//Projection and Journal Authority Sources
   depends_on:
-    - "Projection"
-    - "Journal"
-    - "Scope Unit"
-    - "Entity"
-    - "Atom"
-    - "Atom/Subjects"
-    - "Relation Kind"
-    - "CAPRMEDIO Graph"
-    - "Operator"
-    - "AI Agent"
-    - "Autonomous Confidence Threshold"
-version: 2
-updated_at: "2026-09-13 05:52:34 +0400"
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
+  - Subject/Graph Relation/Type
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+version: 11
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   depends_on:
-    - CA-P-1081
+  - CA-P-1081
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Inventory Projection and Journal authority
 

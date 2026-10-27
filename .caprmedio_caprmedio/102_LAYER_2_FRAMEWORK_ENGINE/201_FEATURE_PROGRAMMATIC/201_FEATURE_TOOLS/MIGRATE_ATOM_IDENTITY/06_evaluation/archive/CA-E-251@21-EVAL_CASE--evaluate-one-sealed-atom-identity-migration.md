@@ -1,0 +1,31 @@
+---
+subjects:
+  governs: Subject/Graph Node/Engineering/Continuant/Tool//MIGRATE_ATOM_IDENTITY
+  depends_on: []
+version: 21
+updated_at: 2026-10-25 17:32:27 +0400
+relations:
+  evaluation_for:
+  - CA-R-1048
+  - CA-R-1093
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-251@21
+status: Archived
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 1
+---
+# Evaluate one sealed Atom identity migration
+
+## Test case
+
+Given identityless legacy, existing-ID correction, duplicate-ID repair, **and** same-path relation/frontmatter-update temporary active Atom carriers with complete sealed requests, evaluate `MIGRATE_ATOM_IDENTITY` dry run twice per request. Both receipts **must** be byte-identical, name the expected source **and** result digests, list **only** declared changes, omit derived `atom_id` **and** `tier`, **and** report no Journal **or** Git effect.
+
+Verify direct `--apply` is rejected **without** authorized project-local MCP delegation. Verify an authorized MCP delegation applies **only** the sealed migration, returns the deterministic receipt, **and** receives durable `COMMIT_TRIGGER` intake acknowledgement **without** a Journal append, staged file, **or** Git commit. Failure cases for source digest, version, duplicate target, occupied destination, old identity, **and** relation target leave **every** carrier unchanged.
+
+## Sources
+
+- [CA-R-1048 — Migrate one sealed Atom identity](../../../306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-1048-TOOL_WORKFLOWS-RULE--migrate-one-sealed-atom-identity.md)

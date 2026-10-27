@@ -1,20 +1,18 @@
 ---
 subjects:
-  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  governs: Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Atom.Version Number
-  - Subject/Domain/Node/Continuant/Atom.Substance
-  - Entity/Node/Continuant/Atom.Global Tier
-  - Subject/Domain/Node/Continuant/Atom.Updated At
-  - 'Subject/Domain/Node/Continuant/Atom.Tier: Principle'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Graph/Relation
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Autonomous Confidence Threshold
-version: 15
-updated_at: 2026-10-24 00:51:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Atom.Updated At
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Relation
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
+version: 20
+updated_at: 2026-10-27 06:04:45 +0400
 relations: {}
 atom_id: CA-O-006
 content_role: Operations

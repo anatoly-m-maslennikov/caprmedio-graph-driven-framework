@@ -6,17 +6,19 @@ label: Task
 work_sequence_number: 1
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Backlog
 subjects:
-  governs: Scope Unit
-  depends_on: [Scope Unit, Project Structure, Directory Carrier]
+  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Directory Carrier
 relations:
-  is_decomposition_of: [CA-P-2480]
-version: 2
-updated_at: "2026-10-20T19:48:06.006Z"
+  is_decomposition_of:
+  - CA-P-2480
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 ---
 # Summary
 

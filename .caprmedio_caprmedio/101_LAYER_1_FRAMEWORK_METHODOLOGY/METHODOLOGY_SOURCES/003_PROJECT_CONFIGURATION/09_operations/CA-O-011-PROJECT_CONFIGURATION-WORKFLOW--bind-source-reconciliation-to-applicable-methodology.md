@@ -1,28 +1,25 @@
 ---
 subjects:
-  governs: Applicable Methodology Compilation
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
   depends_on:
-  - 'Relation/Type: On Result'
-  - Subject/Domain/Node/Occurrent/Execution/Step Run
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Source Reconciliation
-  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
-  - Methodology Source
-  - Subject/Domain/Node/Continuant/Scope Unit
-  - Subject/Domain/Node/Continuant/Project.Framework Settings
-  - Subject/Domain/Node/Continuant/Selection//Extension Sources
-  - Project Configuration
-  - Methodology Source.Expansion Boundary
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Atom.Substance
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Applicable Methodology Source Frontier Digest
-  - Subject/Domain/Node/Continuant/History/Journal.Record
-version: 21
-updated_at: 2026-10-24 01:28:26 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Source Reconciliation'
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  - Subject/Graph Node/Domain/Continuant/Selection//Extension Sources
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  - Subject/Graph Node/Domain/Continuant/Scope Unit.Expansion Boundary
+version: 29
+updated_at: 2026-10-27 06:04:45 +0400
 relations: {}
 atom_id: CA-O-011
 content_role: Operations
@@ -56,7 +53,7 @@ the entry Step is CA-O-152. interpret Step bindings **and** run boundaries under
 
 ### Transitions
 
-the transitions below use the Workflow-scoped ON_RESULT Relation under CA-R-1513 **when** the destination is a Step. a terminal outcome ends the Workflow Run; it is **not** another Step **or** Action.
+the transitions below are declared in this Workflow's Step structure; result-based routing belongs to the applicable Conditional Step definition **when** the destination is a Step. a terminal outcome ends the Workflow Run; it is **not** another Step **or** Action.
 
 | Step | Result condition | Next Step **or** outcome |
 |---|---|---|

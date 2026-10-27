@@ -6,27 +6,26 @@ label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Next bounded first-partition session harvest"
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis'
   depends_on:
-    - "Project"
-    - "Operations"
-    - "Atom/Content Role: Plan"
-version: 2
-updated_at: "2026-10-04 07:55:13 +0400"
+  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/Graph Node/Engineering/Operations
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   is_decomposition_of:
-    - CA-P-1126
+  - CA-P-1126
   blocks:
-    - CA-P-1194
-    - CA-P-1119
-    - CA-P-1130
-    - CA-P-1155
+  - CA-P-1194
+  - CA-P-1119
+  - CA-P-1130
+  - CA-P-1155
+tier: 3
 ---
 # Summary
 

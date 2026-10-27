@@ -5,20 +5,27 @@ type: Plan
 label: Task
 work_sequence_number: 37
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 1
-updated_at: "2026-10-06 23:37:18 +0000"
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "bound Unit execution after Release host loss"
-  depends_on: [Implementation, Evaluation, Workflow Run, Journal]
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Implementation Evaluation
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Domain/Continuant/History/Journal
 relations:
-  is_decomposition_of: [CA-P-1117]
-  relates_to: [CA-M-343, CA-E-586, CA-D-579]
+  is_decomposition_of:
+  - CA-P-1117
+  relates_to:
+  - CA-M-343
+  - CA-E-586
+  - CA-D-579
+tier: 3
 ---
 # Summary
 

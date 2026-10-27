@@ -5,18 +5,19 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - CA Main Skill Installation
-    occurrent:
-      - CA Main Skill Vertical Slice Installation
+  governs: Subject/Graph Node/Engineering/Skill
   depends_on:
-    occurrent:
-      - CA-P-940
-version: 2
-updated_at: 2026-09-07 19:43:08 +0000
+  - Subject/Graph Node/Engineering/Release Version/Project-Local Skill Delivery
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Active
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Install CA Main Skill Vertical Slice
 

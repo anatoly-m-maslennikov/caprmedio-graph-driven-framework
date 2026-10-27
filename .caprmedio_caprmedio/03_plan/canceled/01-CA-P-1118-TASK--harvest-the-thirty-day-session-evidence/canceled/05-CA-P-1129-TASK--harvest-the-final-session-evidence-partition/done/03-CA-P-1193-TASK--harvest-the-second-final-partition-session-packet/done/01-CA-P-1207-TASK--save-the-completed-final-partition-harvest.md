@@ -6,23 +6,22 @@ label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Final-partition harvest persistence"
+  governs: Subject/Graph Node/Domain/Continuant/History
   depends_on:
-    - "Project"
-    - "Operations"
-version: 1
-updated_at: "2026-10-04 08:27:15 +0400"
+  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/Graph Node/Engineering/Operations
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   is_decomposition_of:
-    - CA-P-1193
+  - CA-P-1193
   blocks:
-    - CA-P-1203
+  - CA-P-1203
+tier: 3
 ---
 # Summary
 

@@ -6,19 +6,21 @@ label: Task
 work_sequence_number: 1
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Done
-version: 2
-updated_at: "2026-10-22T10:22:32Z"
+version: 5
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: Entity/Node/Continuant/Implementation
+  governs: Subject/Graph Node/Engineering/MCP.selected Workflow route contract
   depends_on: []
 relations:
-  is_decomposition_of: [CA-P-2591]
+  is_decomposition_of:
+  - CA-P-2591
   depends_on: []
-  relates_to: [CA-P-2577, CA-E-539]
+  relates_to:
+  - CA-P-2577
+  - CA-E-539
+tier: 3
 ---
 # Summary
 

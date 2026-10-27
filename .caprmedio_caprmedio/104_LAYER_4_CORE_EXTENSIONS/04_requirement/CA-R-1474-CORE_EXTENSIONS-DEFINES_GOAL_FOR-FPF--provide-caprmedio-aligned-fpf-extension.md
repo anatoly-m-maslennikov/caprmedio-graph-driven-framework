@@ -2,16 +2,16 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: FPF
+  governs: Subject/Graph Node/Product/Extension//FPF
   depends_on:
-  - Extension
-  - Applicable Methodology
-  - Project Configuration
-  - Tool
-  - MCP
-  - Skill
-version: 6
-updated_at: 2026-10-24 02:14:24 +0400
+  - Subject/Graph Node/Product/Extension
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Graph Node/Implementation/Code/Tool
+  - Subject/Graph Node/Engineering/Architecture/Communication
+  - Subject/Graph Node/Engineering/Delivery
+version: 13
+updated_at: 2026-10-27 06:04:45 +0400
 relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

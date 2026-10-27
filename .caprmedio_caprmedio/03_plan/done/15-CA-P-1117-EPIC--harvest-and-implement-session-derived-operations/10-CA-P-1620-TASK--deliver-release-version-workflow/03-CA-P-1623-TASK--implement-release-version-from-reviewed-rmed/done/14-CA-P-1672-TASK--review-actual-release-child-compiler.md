@@ -5,20 +5,27 @@ type: Plan
 label: Task
 work_sequence_number: 14
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Review actual Release child compiler"
-  depends_on: [Atom, Workflow, Action, Tool, Manifest, Evaluation, Journal]
-version: 1
-updated_at: "2026-10-05 04:42:52 +0000"
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Implementation Evaluation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1623]
-  blocks: [CA-P-1643]
+  is_decomposition_of:
+  - CA-P-1623
+  blocks:
+  - CA-P-1643
+tier: 3
 ---
 # Summary
 

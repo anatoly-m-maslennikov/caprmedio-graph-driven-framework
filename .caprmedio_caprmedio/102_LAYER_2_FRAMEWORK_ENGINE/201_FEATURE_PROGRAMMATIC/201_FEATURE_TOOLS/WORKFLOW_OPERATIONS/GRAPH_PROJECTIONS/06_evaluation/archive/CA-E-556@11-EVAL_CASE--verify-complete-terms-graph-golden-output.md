@@ -1,0 +1,42 @@
+---
+atom_id: CA-E-556@11
+content_role: Evaluation
+type: Eval Case
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+status: Archived
+author: Anatoly Maslennikov
+version: 11
+updated_at: 2026-10-25 17:32:27 +0400
+subjects:
+  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Terms Graph'
+  depends_on:
+  - Subject/Graph Node/Engineering/Graph Projection
+  - Subject/Graph Node/Domain/Continuant/Term
+  - Definition Atom
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Relation/Type
+relations:
+  evaluation_for:
+  - CA-R-1836
+  - CA-R-1837
+  - CA-R-1838
+tier: 4
+---
+# Summary
+
+Verify complete Terms Graph golden output
+
+## Scope
+
+Functional complete-case proof for the Terms Graph builder.
+
+## Claim
+
+The golden case **must** prove exact governed-Term and admitted-Relation representation, deterministic ancestor/dependency sets, separated namespace, and a truthful `built` result.
+
+## Details
+
+Use a selected readable fixture with governed Definitions, admitted Terms-graph Relations, direct parents/dependencies, and non-cyclic transitive ancestor/dependency closures. Assert all and only selected Terms and internal Relations, defining Claim/Atom path/revision/digest evidence, separate `terms_graph` namespace, stable direct and transitive sets, non-authoritative status, valid complete coverage, and shared receipt references. Generate twice from identical bytes/settings and compare canonical semantic output byte-for-byte; assert no source or Journal mutation. This carrier specifies functional proof, not a runtime pass.
+
+The fixture proves that repeated reusable Term names across qualified Entity paths remain the same governed Term rather than becoming qualified Terms or hierarchy aliases. It admits `NARROWER_THAN` only with source-pinned Relation Kind, direction, endpoint context, and definition implication; it never substitutes `SUBKIND_OF`. Builder-only proof remains source/Journal non-mutating, while any shared executor proof verifies append-only actual Run recording without rewriting earlier Journal evidence.

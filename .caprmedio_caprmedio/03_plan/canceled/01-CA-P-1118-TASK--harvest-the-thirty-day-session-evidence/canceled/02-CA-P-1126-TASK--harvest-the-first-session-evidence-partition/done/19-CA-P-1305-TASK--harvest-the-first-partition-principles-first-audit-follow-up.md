@@ -6,19 +6,26 @@ label: Task
 work_sequence_number: 19
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "First-partition Principles-first audit follow-up harvest"
-  depends_on: [Project, Operations, "Atom/Content Role: Plan"]
-version: 3
-updated_at: "2026-10-04 10:40:32 +0000"
+  governs: Subject/Graph Node/Domain/Continuant/History
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/Graph Node/Engineering/Operations
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1126]
-  blocks: [CA-P-1310, CA-P-1119, CA-P-1130, CA-P-1155]
+  is_decomposition_of:
+  - CA-P-1126
+  blocks:
+  - CA-P-1310
+  - CA-P-1119
+  - CA-P-1130
+  - CA-P-1155
+tier: 3
 ---
 # Summary
 

@@ -5,18 +5,20 @@ cce_form: obligation
 author: Operator
 assignee: Operator
 subjects:
-  governs:
-    continuant:
-      - Methodology Conflict Disposition
-    occurrent:
-      - Methodology Conflict Approval
+  governs: Subject/Graph Node/Domain/Continuant/Selection//CA-P-921 Reported Conflicts
   depends_on:
-    occurrent:
-      - CA-P-921
-version: 2
-updated_at: 2026-08-30 16:32:06 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology.Conflict'
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Approve Exact Methodology Conflict Dispositions
 

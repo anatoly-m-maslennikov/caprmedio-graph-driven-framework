@@ -5,21 +5,34 @@ type: Plan
 label: Task
 work_sequence_number: 29
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 2
-updated_at: "2026-10-06 11:21:41 +0000"
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Guarded Release binding refresh delivery"
-  depends_on: [Manifest, Delivery, Evaluation, Journal, Operator, MCP]
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Engineering/Manifest
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Engineering/MCP
 relations:
-  is_decomposition_of: [CA-P-1117]
-  relates_to: [CA-C-496, CA-R-1882, CA-M-339, CA-E-582, CA-D-576]
-  blocks: [CA-P-1717, CA-P-1721]
+  is_decomposition_of:
+  - CA-P-1117
+  relates_to:
+  - CA-C-496
+  - CA-R-1882
+  - CA-M-339
+  - CA-E-582
+  - CA-D-576
+  blocks:
+  - CA-P-1717
+  - CA-P-1721
+tier: 3
 ---
 # Summary
 

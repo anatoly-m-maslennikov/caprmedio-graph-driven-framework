@@ -5,20 +5,29 @@ type: Plan
 label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Repair full Framework staging handoff"
-  depends_on: [Atom, Status, Carrier, Tool, Manifest, Methodology, Evaluation, Journal]
-version: 1
-updated_at: "2026-10-05 03:59:46 +0000"
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Manifest
+  - Subject/Graph Node/Engineering/Methodology
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1654]
-  blocks: [CA-P-1650, CA-P-1643]
+  is_decomposition_of:
+  - CA-P-1654
+  blocks:
+  - CA-P-1650
+  - CA-P-1643
+tier: 3
 ---
 # Summary
 

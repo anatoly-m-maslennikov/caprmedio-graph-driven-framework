@@ -6,26 +6,32 @@ author: Operator
 assignee: AI Agent
 autonomous_confidence_threshold: 99
 subjects:
-  governs: "Entities Graph"
+  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph'
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Scope Unit"
-    - "CAPRMEDIO Graph"
-    - "Projection"
-    - "Term"
-    - "Entity"
-    - "Relation"
-    - "Operator"
-    - "AI Agent"
-    - "Atom/Content Role: Plan/Type: Task"
-    - "Autonomous Confidence Threshold"
-version: 3
-updated_at: "2026-09-13 03:57:33 +0400"
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph'
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Domain/Continuant/Term
+  - Subject
+  - Subject/Graph Relation
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+version: 12
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   depends_on:
-    - CA-P-1080
+  - CA-P-1080
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Reconcile Entities Graph authority
 

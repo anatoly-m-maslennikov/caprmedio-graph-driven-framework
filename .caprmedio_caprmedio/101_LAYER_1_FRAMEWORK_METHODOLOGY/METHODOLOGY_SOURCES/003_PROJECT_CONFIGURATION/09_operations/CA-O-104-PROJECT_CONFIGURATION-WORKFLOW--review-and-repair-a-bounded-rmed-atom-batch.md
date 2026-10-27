@@ -6,28 +6,22 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-version: 17
-updated_at: 2026-10-24 00:51:05 +0400
+version: 24
+updated_at: 2026-10-27 06:04:45 +0400
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//RMED Atom Review Workflow'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//RMED Atom Review Workflow'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - 'Subject/Graph/Relation/Type: On Result'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/History/Journal
-  - Subject/Domain/Node/Continuant/History/Journal.Record
-  - Evaluation Report
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  - Subject/Graph Node/Domain/Continuant/History
 relations:
-  relates_to:
-  - CA-D-340
-  - CA-O-108
-  - CA-O-109
-  - CA-O-110
+  depends_on:
   - CA-R-1643
-  - CA-R-1720
 tier: 3
 ---
 # Summary
@@ -82,7 +76,7 @@ completion requires **all** **`=6`** initial checks **to** conclude **and** **al
 ### Run evidence
 
 - at the start of an Operator-authorized Run, bind its Workflow name, Run ID, full report location, **and** shared Project Journal. retain the same Run ID through **all** Steps **and** context handoffs.
-- record the Run's start, Step outcomes, handoffs, **and** terminal outcome **in** the shared Journal using the admitted Event Types under CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events **and** the registered Event Carrier. include the Run ID **and** full report reference **in** the recorded context. this is the existing Project Journal, **not** a new per-Workflow Journal.
+- record the Run's start, Step outcomes, handoffs, **and** terminal outcome **in** the shared Journal using the admitted Event Types under CA-R-1643-CORE_META_MODEL-RULE--register-type-values-for-work-journal-events **and** the registered Event Carrier. include the Run ID **and** full report reference **in** the recorded context. this is the existing Project Journal, **not** a new per-Workflow Journal.
 - assemble the full report from the original selection **and** saved per-Atom evidence **after** gathering, **after** received check **or** fix results, **and** at handoff **or** termination. include clean, fixed, blocked, **and** pending Atoms; retain initial findings separately from their dispositions. an empty selection **or** early blocker still has a Run report.
 - record Completed **only** for a completed selection, Interrupted for a Run awaiting Operator input, **and** Failed for an execution failure. context continuation **in** another subagent retains the current Run rather than inventing a completed Run.
 - retain actual report-write **or** Journal-append failures as evidence-recording blockers. distinguish them from the saved Atom outcomes, report the incomplete Run record, **and** preserve applied edits **without** replaying them. an unconfirmed Journal append is **not** a recorded Event.

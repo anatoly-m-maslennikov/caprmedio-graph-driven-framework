@@ -1,0 +1,26 @@
+---
+subject_scopes:
+- session-access
+version: 18
+updated_at: 2026-10-26 00:46:35 +0400
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations:
+  child_of:
+  - CA-R-1058
+  - CA-R-1423
+  - CAPRMEDIO-REQU-702--define-framework-engine-layer-scope
+author: Anatoly Maslennikov
+content_role: Requirement
+current_scope_unit: SKILLS
+status: Archived
+atom_id: CA-R-580@18
+type: Rule
+tier: 1
+subjects:
+  governs: Subject/Graph Node/Engineering/Aspect/Execution Control
+---
+# Require per-run approval for raw session access
+
+CAPRMEDIO **must** read raw session transcripts for a review run **only** **after** the operator explicitly approves that run **and** its bounded session scope.

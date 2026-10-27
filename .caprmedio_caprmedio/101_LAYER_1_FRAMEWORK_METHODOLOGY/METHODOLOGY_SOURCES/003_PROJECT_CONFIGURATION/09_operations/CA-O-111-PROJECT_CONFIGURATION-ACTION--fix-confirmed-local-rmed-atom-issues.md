@@ -6,25 +6,19 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-version: 14
-updated_at: 2026-10-24 00:51:05 +0400
+version: 19
+updated_at: 2026-10-27 06:04:45 +0400
 subjects:
-  governs: Repair RMED Review Batch
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Repair RMED Review Batch'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Atom.Version Number
-  - Subject/Domain/Node/Continuant/Atom.Summary
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Autonomous Confidence Threshold
-  - Subject/Domain/Node/Continuant/History/Journal
-relations:
-  relates_to:
-  - CA-D-496
-  - CA-E-520
-  - CA-O-028
-  - CA-O-067
-  - CA-R-1464
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
+  - Subject/Graph Node/Domain/Continuant/Atom.Summary
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+relations: {}
 tier: 3
 ---
 # Summary

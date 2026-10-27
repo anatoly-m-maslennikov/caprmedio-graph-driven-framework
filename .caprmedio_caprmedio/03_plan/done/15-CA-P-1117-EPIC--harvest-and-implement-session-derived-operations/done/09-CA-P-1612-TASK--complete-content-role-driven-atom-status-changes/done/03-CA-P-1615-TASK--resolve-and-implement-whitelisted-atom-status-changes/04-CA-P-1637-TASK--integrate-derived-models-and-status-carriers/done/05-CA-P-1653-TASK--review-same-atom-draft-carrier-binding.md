@@ -5,20 +5,28 @@ type: Plan
 label: Task
 work_sequence_number: 5
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Review same Atom Draft carrier binding"
-  depends_on: [Atom, Status, Carrier, Tool, Methodology, Evaluation]
-version: 1
-updated_at: "2026-10-05 03:19:26 +0000"
+  governs: Subject/Graph Node/Engineering/Continuant/Carrier
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Status
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Methodology
+  - Subject/Graph Node/Engineering/Evaluation
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1637]
-  blocks: [CA-P-1645, CA-P-1646]
+  is_decomposition_of:
+  - CA-P-1637
+  blocks:
+  - CA-P-1645
+  - CA-P-1646
+tier: 3
 ---
 # Summary
 

@@ -6,19 +6,24 @@ label: Task
 work_sequence_number: 23
 current_scope_unit: caprmedio
 claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Admit fifteen routes in existing orchestrator Delivery contract"
-  depends_on: [Workflow, Implementation, MCP, Journal]
-version: 3
-updated_at: "2026-10-04 22:41:20 +0000"
+  governs: Subject/Graph Node/Engineering/Workflow
+  depends_on:
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/MCP
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1520]
-  blocks: [CA-P-1552]
+  is_decomposition_of:
+  - CA-P-1520
+  blocks:
+  - CA-P-1552
+tier: 3
 ---
 # Summary
 

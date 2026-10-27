@@ -5,20 +5,26 @@ type: Plan
 label: Task
 work_sequence_number: 8
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 1
-updated_at: "2026-10-06 18:56:40 +0000"
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Historical Release Run observation"
-  depends_on: [Workflow Run, Action Run, Journal, Source Carrier]
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Domain/Occurrent/Execution/Action Run
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Engineering/Execution Identity/Source Binding
 relations:
-  is_decomposition_of: [CA-P-1794]
-  relates_to: [CA-C-513, CA-R-1807]
+  is_decomposition_of:
+  - CA-P-1794
+  relates_to:
+  - CA-C-513
+  - CA-R-1807
+tier: 3
 ---
 # Summary
 

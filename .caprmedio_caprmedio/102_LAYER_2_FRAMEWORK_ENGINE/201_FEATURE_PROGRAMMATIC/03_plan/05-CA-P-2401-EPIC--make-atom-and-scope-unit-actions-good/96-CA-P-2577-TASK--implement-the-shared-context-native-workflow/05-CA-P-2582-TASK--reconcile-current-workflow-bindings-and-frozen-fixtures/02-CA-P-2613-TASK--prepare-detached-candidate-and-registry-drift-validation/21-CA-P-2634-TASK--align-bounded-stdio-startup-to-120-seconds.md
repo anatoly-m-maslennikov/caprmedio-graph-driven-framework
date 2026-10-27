@@ -6,19 +6,22 @@ label: Task
 work_sequence_number: 21
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Done
-version: 3
-updated_at: "2026-10-23T13:38:14+0400"
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: Entity/Node/Continuant/Implementation
+  governs: Subject/Graph Node/Engineering/MCP
   depends_on: []
 relations:
-  is_decomposition_of: [CA-P-2613]
-  depends_on: [CA-P-2633]
-  relates_to: [CA-C-587, CA-M-410, CA-P-2633]
+  is_decomposition_of:
+  - CA-P-2613
+  depends_on:
+  - CA-P-2633
+  relates_to:
+  - CA-C-587
+  - CA-M-410
+tier: 3
 ---
 # Summary
 

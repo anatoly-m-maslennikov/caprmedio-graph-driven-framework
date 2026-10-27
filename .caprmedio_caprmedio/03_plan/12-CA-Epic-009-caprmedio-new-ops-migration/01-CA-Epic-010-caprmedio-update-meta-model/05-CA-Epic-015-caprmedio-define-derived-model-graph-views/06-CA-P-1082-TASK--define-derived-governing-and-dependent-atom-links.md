@@ -6,25 +6,31 @@ author: Operator
 assignee: AI Agent
 autonomous_confidence_threshold: 99
 subjects:
-  governs: "Atom/Subjects"
+  governs: Subject/Graph Node/Domain/Continuant/Atom.Subjects
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Scope Unit"
-    - "CAPRMEDIO Graph"
-    - "Projection"
-    - "Term"
-    - "Entity"
-    - "Relation"
-    - "Operator"
-    - "AI Agent"
-    - "Atom/Content Role: Plan/Type: Task"
-    - "Autonomous Confidence Threshold"
-version: 4
-updated_at: "2026-09-13 05:38:50 +0400"
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Atom Subjects Graph'
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Domain/Continuant/Term
+  - Subject
+  - Subject/Graph Relation
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+version: 12
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   depends_on:
-    - CA-P-1091
+  - CA-P-1091
+status: Active
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Define derived governing and dependent Atom links
 

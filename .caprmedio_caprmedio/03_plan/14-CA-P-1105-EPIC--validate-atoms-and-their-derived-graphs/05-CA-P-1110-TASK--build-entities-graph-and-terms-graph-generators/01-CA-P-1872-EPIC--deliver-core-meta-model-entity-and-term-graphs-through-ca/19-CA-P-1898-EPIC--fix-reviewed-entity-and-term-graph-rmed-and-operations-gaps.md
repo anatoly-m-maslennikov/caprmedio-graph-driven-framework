@@ -6,29 +6,28 @@ label: Epic
 work_sequence_number: 19
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Projection
+  governs: Subject/Graph Node/Domain/Continuant/Projection
   depends_on:
-    - Requirement
-    - Method
-    - Evaluation
-    - Delivery
-    - Workflow
-    - Action
-    - Entity
-    - Term
-    - Plan
-version: 2
-updated_at: "2026-10-09 19:23:34 +0400"
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Term
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   is_decomposition_of:
-    - CA-P-1872
+  - CA-P-1872
   blocks:
-    - CA-P-1899
+  - CA-P-1899
+tier: 3
 ---
 # Summary
 

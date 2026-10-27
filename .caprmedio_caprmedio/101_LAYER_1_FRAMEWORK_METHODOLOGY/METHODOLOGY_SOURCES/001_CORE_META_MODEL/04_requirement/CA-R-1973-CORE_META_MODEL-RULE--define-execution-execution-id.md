@@ -1,0 +1,34 @@
+---
+atom_id: CA-R-1973
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+subjects:
+  governs: Subject/Graph Node/Domain/Occurrent/Execution.Execution ID
+relations:
+  child_of:
+  - CA-R-1174
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
+type: Rule
+---
+# Summary
+
+Define Execution.Execution ID
+
+## Scope
+
+The identifier of an Execution.
+
+## Claim
+
+Execution ID identifies an Execution.
+
+## Details
+
+The Operator identified executions by Execution ID. The accepted candidate includes this property under Execution. This draft adds no identifier format or uniqueness domain.
+
+ No active Execution ID definition was found in the reviewed sources.

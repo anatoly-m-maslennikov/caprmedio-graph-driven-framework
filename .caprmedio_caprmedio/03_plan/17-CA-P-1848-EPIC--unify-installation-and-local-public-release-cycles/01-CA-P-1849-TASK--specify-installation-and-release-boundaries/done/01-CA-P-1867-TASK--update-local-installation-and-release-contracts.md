@@ -6,18 +6,36 @@ label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Done
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-12 00:24:01 +0000"
+version: 15
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: CAPRMEDIO Framework Instance
-  depends_on: [Project, Plan, AI Agent, Operator, Framework Package, Methodology Source, Applicable Methodology, Project Structure, Requirement, Method, Evaluation, Delivery, Workflow, Step, Action, Tool, Journal, Version]
+  governs: Subject/Graph Node/Engineering/Release Version
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Project
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Engineering/Framework Package
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - Subject/Graph Node/Engineering/Evaluation
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - Subject/Graph Node/Engineering/Workflow
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Domain/Continuant/History/Journal
 relations:
-  is_decomposition_of: [CA-P-1849]
-  blocks: [CA-P-1870]
+  is_decomposition_of:
+  - CA-P-1849
+  blocks:
+  - CA-P-1870
+tier: 3
 ---
 # Summary
 

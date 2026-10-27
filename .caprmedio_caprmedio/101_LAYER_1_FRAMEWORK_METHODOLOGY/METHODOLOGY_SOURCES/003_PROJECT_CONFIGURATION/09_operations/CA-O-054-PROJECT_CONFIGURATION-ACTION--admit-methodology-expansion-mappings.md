@@ -1,22 +1,17 @@
 ---
 subjects:
-  governs: Admit Methodology Expansion Mapping
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Admit Methodology Expansion Mapping'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Methodology Source.Expansion Mapping
-  - Methodology Source
-  - Extension
-  - Project Configuration
-  - Core Meta-Model
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-version: 12
-updated_at: 2026-10-24 00:38:25 +0400
-relations:
-  relates_to:
-  - CA-M-298
-  - CA-E-249
-  - CA-R-1375
-  - CA-R-1207
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Scope Unit.Expansion Boundary
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Product/Extension
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//CORE_META_MODEL
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+version: 19
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 atom_id: CA-O-054
 content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION

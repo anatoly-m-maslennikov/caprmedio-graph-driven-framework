@@ -6,29 +6,31 @@ author: Operator
 assignee: AI Agent
 autonomous_confidence_threshold: 99
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Ops"
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
   depends_on:
-    continuant:
-      - "Atom"
-      - "Atom/Claim"
-      - "Atom/Content Role"
-      - "Atom/Subjects"
-      - "Scope Unit"
-      - "Atom/Local Tier"
-      - "Atom/Global Tier"
-      - "Relation"
-      - "Actor"
-      - "Operator"
-      - "AI Agent"
-      - "Atom/Content Role: Plan/Type: Task"
-      - "Autonomous Confidence Threshold"
-version: 2
-updated_at: "2026-09-13 01:09:00 +0400"
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
+  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Atom.Tier
+  - Subject/Graph Relation
+  - Subject/Graph Node/Domain/Continuant/Actor
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   depends_on:
-    - CA-P-977
+  - CA-P-977
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Define atomic Actions
 

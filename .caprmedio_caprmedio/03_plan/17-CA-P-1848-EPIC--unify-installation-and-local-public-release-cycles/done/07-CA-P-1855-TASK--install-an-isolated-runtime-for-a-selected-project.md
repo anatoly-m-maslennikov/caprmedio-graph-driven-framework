@@ -6,31 +6,30 @@ label: Task
 work_sequence_number: 7
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Done
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-12 00:24:01 +0000"
+version: 12
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "CAPRMEDIO Framework Instance"
+  governs: Subject/Graph Node/Engineering/Release Version/Runtime Package Carrier
   depends_on:
-    - "Project"
-    - "Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Framework Package"
-    - "Project Settings"
-    - "Tool"
-    - "Workflow Run"
-    - "Journal"
-    - "Carrier"
+  - Subject/Graph Node/Domain/Continuant/Project
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  - Subject/Graph Node/Engineering/Release Version/Runtime Package Carrier
+  - Subject/Graph Node/Domain/Continuant/Project.Settings
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Engineering/Continuant/Carrier
 relations:
   is_decomposition_of:
-    - CA-P-1848
+  - CA-P-1848
   blocks:
-    - CA-P-1856
+  - CA-P-1856
+tier: 3
 ---
 # Summary
 

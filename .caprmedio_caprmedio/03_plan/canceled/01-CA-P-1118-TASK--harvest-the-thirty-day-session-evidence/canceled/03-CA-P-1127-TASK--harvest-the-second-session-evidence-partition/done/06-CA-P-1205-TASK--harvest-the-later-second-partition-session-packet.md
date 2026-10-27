@@ -6,26 +6,25 @@ label: Task
 work_sequence_number: 6
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Second-partition primary session evidence remainder packet"
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis'
   depends_on:
-    - "Project"
-    - "Operations"
-version: 2
-updated_at: "2026-10-04 08:52:07 +0400"
+  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/Graph Node/Engineering/Operations
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   is_decomposition_of:
-    - CA-P-1127
+  - CA-P-1127
   blocks:
-    - CA-P-1210
-    - CA-P-1119
-    - CA-P-1130
-    - CA-P-1155
+  - CA-P-1210
+  - CA-P-1119
+  - CA-P-1130
+  - CA-P-1155
+tier: 3
 ---
 # Summary
 

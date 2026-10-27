@@ -5,18 +5,20 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Project Configuration/Revision Binding
-    occurrent:
-      - Project Configuration Revision Binding Authority Repair
+  governs: Subject/Graph Node/Engineering/Continuant/Carrier
   depends_on:
-    occurrent:
-      - CA-P-926
-version: 2
-updated_at: 2026-08-30 19:32:24 +0400
+  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/Graph Node/Domain/Continuant/Governing Configuration
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Repair Project Configuration Revision Binding Authority
 

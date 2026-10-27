@@ -6,19 +6,26 @@ label: Task
 work_sequence_number: 19
 current_scope_unit: caprmedio
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-version: 2
-updated_at: "2026-10-04 17:26:49 +0000"
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Atom lifecycle"
-  depends_on: [Workflow, Step, Action, Plan]
+  governs: Subject/Graph Node/Engineering/Atom Lifecycle
+  depends_on:
+  - Subject/Graph Node/Engineering/Workflow
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Graph Node/Engineering/Action
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
 relations:
-  is_decomposition_of: [CA-P-1132]
-  blocks: [CA-P-1132, CA-P-1158, CA-P-1160]
+  is_decomposition_of:
+  - CA-P-1132
+  blocks:
+  - CA-P-1132
+  - CA-P-1158
+  - CA-P-1160
+tier: 3
 ---
 # Summary
 

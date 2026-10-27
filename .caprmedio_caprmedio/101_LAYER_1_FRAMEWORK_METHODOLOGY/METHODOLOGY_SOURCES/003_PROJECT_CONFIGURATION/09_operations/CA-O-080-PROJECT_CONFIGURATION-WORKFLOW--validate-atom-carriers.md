@@ -7,20 +7,14 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Engineering/Carrier
+  governs: Subject/Graph Node/Carrier
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Graph/Relation/Type: On Result'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Check Atoms Step'
-version: 12
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-O-088
-  - CA-R-1513
-  - CA-R-1519
-  - CA-R-1570
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step//Check Atoms Step'
+version: 16
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 tier: 3
 ---
 # Summary

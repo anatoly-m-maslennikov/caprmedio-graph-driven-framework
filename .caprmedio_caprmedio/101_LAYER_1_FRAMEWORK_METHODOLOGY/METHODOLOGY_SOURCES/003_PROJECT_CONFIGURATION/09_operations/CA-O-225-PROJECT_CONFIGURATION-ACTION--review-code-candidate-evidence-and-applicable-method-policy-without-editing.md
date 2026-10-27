@@ -6,45 +6,19 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
-version: 8
-updated_at: 2026-10-24 01:18:03 +0400
+version: 11
+updated_at: 2026-10-27 06:04:45 +0400
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
-  - Subject/Engineering/Implementation Evaluation
-  - Subject/Engineering/Carrier
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-relations:
-  relates_to:
-  - CA-E-642
-  - CA-M-402
-  - CA-M-403
-  - CA-M-405
-  - CA-M-411
-  - CA-M-396
-  - CA-M-397
-  - CA-M-398
-  - CA-M-399
-  - CA-M-400
-  - CA-E-389
-  - CA-E-539
-  - CA-E-540
-  - CA-E-253
-  - CA-E-264
-  - CA-E-265
-  - CA-E-266
-  - CA-E-267
-  - CA-E-363
-  - CA-E-364
-  - CA-E-365
-  - CA-E-366
-  - CA-E-385
-  - CA-E-453
-  - CA-D-638
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - Subject/Graph Node/Engineering/Verification/Static Analysis
+  - Subject/Graph Node/Carrier
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+relations: {}
 tier: 3
 ---
 # Summary

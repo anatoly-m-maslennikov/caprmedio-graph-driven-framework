@@ -6,17 +6,17 @@ label: Task
 work_sequence_number: 89
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Entity/Node/Continuant/Implementation
+  governs: Subject/Graph Node/Engineering/Release Version
   depends_on: []
 relations:
-  is_decomposition_of: [CA-P-2401]
-version: 13
-updated_at: "2026-10-21T17:01:24Z"
+  is_decomposition_of:
+  - CA-P-2401
+version: 16
+updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 ---
 # Summary
 

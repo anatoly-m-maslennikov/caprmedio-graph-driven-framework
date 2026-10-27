@@ -6,24 +6,16 @@ current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Aggregate the full Release Gate
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Aggregate the full Release Gate'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Test
-  - Docker Image
-  - Framework Package
-  - Subject/Domain/Node/Continuant/History/Journal
-version: 5
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-O-164
-  - CA-O-185
-  - CA-O-186
-  - CA-O-182
-  - CA-O-184
-  - CA-R-1525
-  - CA-R-1720
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Engineering/Verification
+  - Subject/Graph Node/Carrier/Docker Image
+  - Subject/Graph Node/Carrier
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 12
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 tier: 3
 ---
 # Summary

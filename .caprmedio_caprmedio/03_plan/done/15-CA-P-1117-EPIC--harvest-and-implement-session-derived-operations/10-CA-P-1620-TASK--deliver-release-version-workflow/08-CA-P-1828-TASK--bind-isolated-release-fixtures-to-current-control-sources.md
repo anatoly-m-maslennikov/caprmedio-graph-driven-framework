@@ -5,20 +5,26 @@ type: Plan
 label: Task
 work_sequence_number: 8
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
-version: 1
-updated_at: "2026-10-07 23:52:40 +0000"
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Bind isolated Release fixtures to current control sources"
-  depends_on: [Tool, Evaluation, Carrier, Manifest, Framework Package]
+  governs: Subject/Graph Node/Engineering/Evaluation Implementation
+  depends_on:
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Evaluation Implementation
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Manifest
+  - Subject/Graph Node/Engineering/Framework Package
 relations:
-  is_decomposition_of: [CA-P-1620]
-  blocks: [CA-P-1823]
+  is_decomposition_of:
+  - CA-P-1620
+  blocks:
+  - CA-P-1823
+tier: 3
 ---
 # Summary
 

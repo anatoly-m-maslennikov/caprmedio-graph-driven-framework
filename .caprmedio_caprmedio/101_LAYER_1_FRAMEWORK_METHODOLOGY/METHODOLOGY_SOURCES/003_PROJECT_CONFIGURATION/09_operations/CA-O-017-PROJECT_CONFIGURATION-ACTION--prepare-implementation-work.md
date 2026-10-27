@@ -7,37 +7,28 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Engineering/Implementation Preparation
+  governs: Subject/Graph Node/Engineering/Data Handling/Source Selection
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Spec
-  - Subject/Domain/Node/Continuant/Atom
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan.Definition of Done'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Dependency Order Derivation
-  - Subject/Domain/Node/Continuant/Scope Unit
-version: 17
-updated_at: 2026-10-24 01:18:03 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Selection
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Definition of Done'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Relation/Type: depends_on'
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+version: 22
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
-  relates_to:
-  - CA-R-2117
-  - CA-M-431
-  - CA-E-653
+  depends_on:
   - CA-M-239
-  - CA-M-266
   - CA-M-306
-  - CA-R-1589
   - CA-R-1592
-  - CA-R-1599
-  - CA-R-1591
-  - CA-D-481
-  - CA-R-1525
 tier: 3
 ---
 # Summary
@@ -61,9 +52,9 @@ Implementation Preparation **means** the Agentic Action that resolves an impleme
 
 ### Plan preparation and selection
 
-- reuse the supplied Plan **and** existing suitable decomposition. **when** no Plan was supplied, create the admitted P/Plan for the bounded request **before** code work starts. Tasks **and** subtasks are P/Plan Atoms with their own Claims, Assignees, **and** Definitions of Done, **not** Workflow Steps **or** an ephemeral checklist.
-- **when** practical, decompose work into independently verifiable P Atoms with an ETA **<15** minutes for one assigned AI Agent. record the estimate **and** its assumptions **in** Plan Details; it is an estimate, **not** an automatic time limit. **if** safe decomposition cannot meet the applicable leaf-work bound, return the specific blocker rather than inventing small estimates **or** weakening the Definition of Done.
-- store `IS_DECOMPOSITION_OF` **only** on the child Plan **and** actual start prerequisites through `BLOCKS`, following CA-M-306 **and** CA-D-481. preserve an acyclic combined completion graph under CA-R-1592. navigation order is **not** a dependency.
+- reuse the supplied Plan **and** existing suitable Plan containment. **when** no Plan was supplied, create the admitted P/Plan for the bounded request **before** code work starts. Tasks **and** subtasks are P/Plan Atoms with their own Claims, Assignees, **and** Definitions of Done, **not** Workflow Steps **or** an ephemeral checklist.
+- **when** practical, organize work as independently verifiable P Atoms with an ETA **<15** minutes for one assigned AI Agent. record the estimate **and** its assumptions **in** Plan Details; it is an estimate, **not** an automatic time limit. **if** safe Plan organization cannot meet the applicable leaf-work bound, return the specific blocker rather than inventing small estimates **or** weakening the Definition of Done.
+- **when** a Plan is contained by another Plan, declare `IS_CONTAINED_BY` on the child and derive `CONTAINS`; express actual start prerequisites through `BLOCKS`. Plan containment does **not** create execution or completion prerequisites. preserve an acyclic `BLOCKS` graph under CA-R-1592. navigation order is **not** a dependency.
 - select **=1** ready bounded Plan item and the context explicitly bound by the invoking Step for test, implementation, diagnosis, and repair work. Integrated Steps retain the participating session; Isolated Steps require their admitted complete handoff. provide source-bound inputs, owned files/work boundary, expected outputs, verification, relevant prior results, **and** effective confidence/retry gates; preserve unrelated work.
 - derive prerequisite-first work order under CA-M-239. prepare tests **before** the behavior they check wherever actual prerequisites permit; execute the prepared baseline tests **before** implementing that behavior **when** runnable. minimum execution prerequisites are explicit, **not** permission **to** implement the entire feature first. use Atom ID **only** **to** break remaining ties between ready work items.
 - unchanged implementation mode, governing RMED, **and** complete execution inputs **must** yield the same applicable work **and** prerequisite-respecting order. retained results determine residual work, **not** a different normative interpretation.
@@ -73,7 +64,7 @@ Implementation Preparation **means** the Agentic Action that resolves an impleme
 
 - return `evaluation_ready`, `requirement_ready`, `evaluation_runnable`, or `review_ready` with the selected Plan, exact work, prerequisites, assigned context, current baseline, gathered R/D targets, direct RMED source-row bindings, **and** separate Evaluation authority.
 - select test preparation first, then its runnable baseline, then ready behavior implementation. After implementation or repair, select review_ready with explicit preliminary phase; after preliminary_clear, select evaluation_runnable for final checks; after current final checks pass, select review_ready with explicit final phase. Retain actual phase evidence, not a resettable completion flag; missing prerequisites block rather than skip a phase.
-- return `complete` only with current final review and complete final checks bound to the same candidate, test definitions, source authority, selected portfolio, and relevant inputs, and **only** after **all** selected implementation Plan work, required child Plans, Definitions of Done, **and** applicable Evaluations are satisfied, with no failed, blocked, stale, **or** unevaluated implementation obligations. return retained issue/diagnosis/fix evidence for separate Method learning; creating **or** accepting a Method is **not** a completion condition **or** a next Step **in** this Run.
+- return `complete` only with current final review and complete final checks bound to the same candidate, test definitions, source authority, selected portfolio, and relevant inputs, and **only** after **all** selected implementation Plan work, required contained Plans, Definitions of Done, **and** applicable Evaluations are satisfied, with no failed, blocked, stale, **or** unevaluated implementation obligations. return retained issue/diagnosis/fix evidence for separate Method learning; creating **or** accepting a Method is **not** a completion condition **or** a next Step **in** this Run.
 - return `blocked` for unmet authority, capability, confidence, permission, prerequisite, **or** Plan admission, including nonempty residual work with no ready next item.
 - current execution uses the host's native subagent, file, **and** command capabilities. MCP **or** a running Workflow server is **not** required. missing capability blocks only work requiring it; never substitute another context silently. Step bindings own the Integrated/Isolated choice; do **not** introduce a Workflow-wide context Property.
 

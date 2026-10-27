@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  governs: Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Project
-  - Subject/Domain/Node/Continuant/Project.Settings
-  - Subject/Domain/Node/Continuant/Project.Framework Settings
-  - Default Settings
-  - Subject/Domain/Node/Continuant/Project.Structure
-  - Subject/Domain/Node/Continuant/Projection
-  - Subject/Engineering/Carrier
-version: 12
-updated_at: 2026-10-24 00:51:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/Graph Node/Domain/Continuant/Project.Settings
+  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  - Subject/Graph Node/Domain/Continuant/Governing Configuration
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Carrier
+version: 16
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
   child_of:
   - CA-R-1052
-  relates_to:
+  depends_on:
   - CA-M-279
 atom_id: CA-O-052
 content_role: Operations

@@ -7,29 +7,25 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Approved Change Reversal
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Approved Change Reversal'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Term//Artifact
-  - Artifact/Revision
-  - Subject/Domain/Node/Continuant/History/Journal
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - Subject/Domain/Node/Occurrent/Execution/Step Run
-version: 11
-updated_at: 2026-10-24 01:18:03 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Term//Artifact
+  - Subject/Graph Node/Engineering/Traceability
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
+version: 16
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
-  relates_to:
+  depends_on:
   - CA-R-1432
   - CA-R-1464
-  - CA-R-1521
-  - CA-R-807
-  - CA-R-1720
   - CA-R-1525
   - CA-D-308
   - CA-D-340
-  - CA-O-051
 tier: 3
 ---
 # Summary

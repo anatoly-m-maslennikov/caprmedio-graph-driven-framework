@@ -1,0 +1,53 @@
+---
+subjects:
+  governs: Subject/Graph Node/Engineering/Delivery/Git Commits
+  depends_on:
+  - Subject/Graph Node/Engineering/Execution Control/Effect Authorization
+  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  - Subject/Graph Node/Carrier
+  - Subject/Graph Node/Domain/Continuant/Project
+version: 23
+updated_at: 2026-10-27 06:04:45 +0400
+relations:
+  evaluation_for:
+  - CA-M-087
+  - CA-R-805
+  - CA-R-812
+  - CA-R-802
+  - CA-R-1385
+  - CA-R-1491
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+cce_version: cce_1
+cce_form: evaluation
+atom_id: CA-E-203
+status: Active
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
+---
+# Reject an unrelated staged change after Journal append
+
+## Claim checked
+
+the Git Doer rejects an unrelated staged change outside its sealed selected target set, even **when** its historical Journal observation was already appended.
+
+## Test case
+
+1. prepare **`=1`** admitted sealed `UPDATE` action with its Initiative, exact targets, expected Git base, subject frontier, **and** outbox identity. append its intact historical Journal observation **and** retain the exact accepted record as evidence.
+2. stage a separate repository File outside the selected target set **after** the Journal append. capture the new state **before** the Git Doer is invoked.
+3. submit the selected outbox item **to** COMMIT_CHANGE_SET under its current independently admitted envelope **and** Git-gate lease. the prior append is the setup of this case, **not** an admission prerequisite, receipt authorization, **or** permission **to** omit Git revalidation.
+
+## Acceptance criteria
+
+- the Doer returns a deterministic unrelated-staged-change diagnostic **before** staging its own targets **or** creating a Commit.
+- preserve the complete index, unrelated staged File bytes, **and** accepted Journal records. do **not** erase, duplicate, reseal, **or** rebind the historical observation **to** the later Project state.
+- preserve the failed item's stable identity, actual lease/fencing outcome, blocking reason, **and** durable outbox state for admitted reconciliation. do **not** silently refresh the sealed action, discard pending work, **or** report success.
+- retry requires resolution of the failed precondition **and** current authority under CA-R-1385; a stale **or** expired lease grants no Git effect. an uncertain earlier effect requires reconciliation **before** replay under CA-R-805.
+- **every** later Git action still passes through the same gate **and** its own current admission checks. this blocked item does **not** establish a new universal FIFO rule **or** block independent non-Git intake, context, **or** Journal work under CA-R-802.
+
+## Failure disposition
+
+reject the Doer **if** it stages **or** commits the rejected target state, absorbs **or** overwrites unrelated changes, loses **or** alters accepted history, invents a fresh successful action from stale input, **or** bypasses the common Git gate **or** unresolved applicable guards.

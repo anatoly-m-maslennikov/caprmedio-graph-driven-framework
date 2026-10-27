@@ -6,29 +6,36 @@ author: Operator
 assignee: AI Agent
 autonomous_confidence_threshold: 99
 subjects:
-  governs: "Projection"
+  governs: Subject/Graph Node/Domain/Continuant/Projection
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Entity"
-    - "Term"
-    - "Relation"
-    - "CAPRMEDIO Graph"
-    - "Entities Graph"
-    - "Terms Graph"
-    - "Projection/Type: Atom Subjects Graph"
-    - "Artifact/Revision"
-    - "Scope Unit"
-    - "Journal"
-    - "Operator"
-    - "AI Agent"
-    - "Autonomous Confidence Threshold"
-version: 13
-updated_at: "2026-09-14 04:00:22 +0400"
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Term
+  - Subject/Graph Relation
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph'
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Terms Graph'
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Atom Subjects Graph'
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Domain/Continuant/History
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+version: 24
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   depends_on:
-    - CA-P-1087
+  - CA-P-1087
+status: Active
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Separate source authority from derived Projections
 

@@ -1,0 +1,38 @@
+---
+cce_version: cce_1
+cce_form: evaluation
+subjects:
+  governs: Subject/Graph Node/Engineering/Aspect/Execution Control
+  depends_on: []
+version: 16
+updated_at: 2026-10-26 00:46:35 +0400
+relations:
+  evaluation_for:
+  - CA-M-182
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-339@16
+status: Archived
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
+---
+# Resume one queued plan after Scheduler restart
+
+## Claim checked
+
+a durable manager-defined plan survives Scheduler **and** service termination.
+
+## Test case
+
+persist one plan with a completed step **and** one newly ready step, terminate the Scheduler **and** manager, restart from the selected installed release, **and** dispatch once.
+
+## Acceptance criteria
+
+the completed step is **not** replayed, exactly the persisted ready step is claimed, its identities **and** digests are preserved, **and** no new transition is inferred.
+
+## Failure disposition
+
+reject recovery **if** work is lost, duplicated, reordered, **or** reconstructed from process memory.

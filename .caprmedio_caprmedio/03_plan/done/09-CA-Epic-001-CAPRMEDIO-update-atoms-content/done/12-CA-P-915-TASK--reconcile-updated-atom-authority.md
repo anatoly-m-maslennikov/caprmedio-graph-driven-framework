@@ -5,18 +5,19 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Updated Atom Authority Frontier
-    occurrent:
-      - Updated Atom Authority Reconciliation
+  governs: Subject/Graph Node/Domain/Continuant/Atom
   depends_on:
-    occurrent:
-      - CA-P-913
-version: 1
-updated_at: 2026-08-28 21:11:50 +0400
+  - Subject/Graph Node/Engineering/Manifest
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Reconcile Updated Atom Authority
 

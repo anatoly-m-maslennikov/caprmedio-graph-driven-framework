@@ -7,24 +7,20 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Atom Content Authoring
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Atom Content Authoring'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Atom.Substance
-  - Subject/Domain/Node/Continuant/Atom.Details
-  - Subject/Domain/Node/Continuant/Atom.Summary
-  - Subject/Domain/Node/Continuant/Atom/Content Role
-  - Author
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Atom.Details
+  - Subject/Graph Node/Domain/Continuant/Atom.Summary
+  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
 relations:
-  relates_to:
-  - CA-M-111
+  depends_on:
   - CA-D-479
-  - CA-R-1465
   - CA-R-1464
-  - CA-E-384
-version: 10
-updated_at: 2026-10-24 00:51:05 +0400
+version: 15
+updated_at: 2026-10-26 05:59:45 +0400
 tier: 3
 ---
 # Summary

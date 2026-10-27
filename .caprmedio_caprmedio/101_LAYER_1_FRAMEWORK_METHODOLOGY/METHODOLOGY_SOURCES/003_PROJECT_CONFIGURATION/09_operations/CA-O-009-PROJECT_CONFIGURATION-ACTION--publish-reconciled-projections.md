@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  governs: Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Domain/Node/Continuant/Projection/Type: Reconciled Projection'
-  - Subject/Domain/Node/Continuant/Term//Artifact
-  - Subject/Domain/Node/Continuant/Atom.Substance
-  - Subject/Engineering/Carrier
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
-version: 15
-updated_at: 2026-10-24 01:18:03 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Reconciled Projection'
+  - Subject/Graph Node/Domain/Continuant/Term//Artifact
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Carrier
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+version: 18
+updated_at: 2026-10-27 06:04:45 +0400
 relations: {}
 atom_id: CA-O-009
 content_role: Operations

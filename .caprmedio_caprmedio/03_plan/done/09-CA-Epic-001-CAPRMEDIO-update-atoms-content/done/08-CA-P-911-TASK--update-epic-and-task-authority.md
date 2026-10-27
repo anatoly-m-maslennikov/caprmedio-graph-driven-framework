@@ -5,18 +5,18 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Epic and Task Authority
-    occurrent:
-      - Plan Structure Authority Update
-  depends_on:
-    occurrent:
-      - CA-P-910
-version: 1
-updated_at: 2026-08-28 21:11:50 +0400
+  governs: Subject/Graph Rule
+  depends_on: []
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Update Epic and Task Authority
 

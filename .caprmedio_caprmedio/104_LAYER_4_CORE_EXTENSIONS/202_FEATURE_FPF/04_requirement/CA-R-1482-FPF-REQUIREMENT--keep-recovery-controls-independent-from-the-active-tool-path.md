@@ -2,14 +2,12 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: FPF
+  governs: Subject/Graph Node/Product/Extension//FPF
   depends_on:
-  - Hook
-  - Tool
-  - MCP
-  - Background Service
-version: 6
-updated_at: 2026-10-24 02:14:24 +0400
+  - Subject/Graph Node/Implementation/Code/Tool
+  - Subject/Graph Node/Runtime
+version: 11
+updated_at: 2026-10-27 06:04:45 +0400
 relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

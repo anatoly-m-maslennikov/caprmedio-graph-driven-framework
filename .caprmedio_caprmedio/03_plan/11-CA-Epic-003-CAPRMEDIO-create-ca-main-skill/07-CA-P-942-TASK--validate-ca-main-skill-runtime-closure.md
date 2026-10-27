@@ -5,18 +5,21 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - CA Main Skill Runtime Closure
-    occurrent:
-      - CA Main Skill Runtime Closure Validation
+  governs: Subject/Graph Node/Engineering/Skill
   depends_on:
-    occurrent:
-      - CA-P-941
-version: 2
-updated_at: 2026-09-07 19:43:08 +0000
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Implementation Evaluation
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Active
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Validate CA Main Skill Runtime Closure
 

@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: Assess Lineage Impact
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Assess Lineage Impact'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Atom.Version Number
-  - Subject/Graph/Relation
-  - Lineage Impact Analysis
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
-version: 14
-updated_at: 2026-10-24 00:51:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
+  - Subject/Graph Relation
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+version: 17
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   child_of:
   - CA-E-002

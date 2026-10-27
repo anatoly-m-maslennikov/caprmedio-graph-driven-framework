@@ -5,20 +5,22 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Resolved Methodology Source Frontier
-    occurrent:
-      - Methodology Conflict and Gap Resolution
+  governs: Subject/Graph Node/Domain/Continuant/Selection//CA-P-948 Findings
   depends_on:
-    occurrent:
-      - CA-P-949
-version: 1
-updated_at: 2026-09-03 21:28:22 +0400
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Methodology
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations:
   depends_on:
-    - CA-P-949
+  - CA-P-949
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Resolve All Methodology Conflicts and Gaps
 

@@ -6,8 +6,6 @@ label: Epic
 work_sequence_number: 14
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 99
@@ -15,20 +13,20 @@ status: Active
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: "Atom"
+  governs: Subject/Graph Node/Domain/Continuant/Atom
   depends_on:
-    - "Atom/Property"
-    - "Atom/Claim"
-    - "CCE"
-    - "Entity"
-    - "Term"
-    - "Projection"
-    - "Single Source of Truth"
-    - "Operator"
-    - "Autonomous Confidence Threshold"
-version: 2
-updated_at: "2026-09-23 23:28:07 +0000"
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Rule/CCE
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Term
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Engineering/Statement Authority
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Engineering/Autonomous Confidence Threshold
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 relations: {}
+tier: 3
 ---
 # Summary
 

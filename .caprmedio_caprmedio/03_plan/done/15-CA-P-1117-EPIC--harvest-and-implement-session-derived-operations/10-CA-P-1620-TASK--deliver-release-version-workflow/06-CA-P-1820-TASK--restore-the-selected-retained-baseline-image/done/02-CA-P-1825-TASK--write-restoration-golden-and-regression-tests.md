@@ -5,20 +5,29 @@ type: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 2
-updated_at: "2026-10-07 21:47:06 +0000"
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Write restoration golden and regression tests"
-  depends_on: [Action, Tool, Framework Package, Docker Image, Journal, Operator]
+  governs: Subject/Graph Node/Engineering/Evaluation Implementation
+  depends_on:
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Framework Package
+  - Subject/Graph Node/Engineering/Image
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
 relations:
-  is_decomposition_of: [CA-P-1820]
-  blocks: [CA-P-1822, CA-P-1823, CA-P-1824]
+  is_decomposition_of:
+  - CA-P-1820
+  blocks:
+  - CA-P-1822
+  - CA-P-1823
+  - CA-P-1824
+tier: 3
 ---
 # Summary
 

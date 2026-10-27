@@ -5,20 +5,26 @@ type: Plan
 label: Task
 work_sequence_number: 7
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Done
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
-version: 2
-updated_at: "2026-10-07 23:52:40 +0000"
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Remove the source-publication cleanup prerequisite"
-  depends_on: [Tool, Methodology, Carrier, Journal, Framework Package]
+  governs: Subject/Graph Node/Engineering/Release Version/Authoritative Source Preservation
+  depends_on:
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Engineering/Framework Package
 relations:
-  is_decomposition_of: [CA-P-1620]
-  blocks: [CA-P-1623]
+  is_decomposition_of:
+  - CA-P-1620
+  blocks:
+  - CA-P-1623
+tier: 3
 ---
 # Summary
 

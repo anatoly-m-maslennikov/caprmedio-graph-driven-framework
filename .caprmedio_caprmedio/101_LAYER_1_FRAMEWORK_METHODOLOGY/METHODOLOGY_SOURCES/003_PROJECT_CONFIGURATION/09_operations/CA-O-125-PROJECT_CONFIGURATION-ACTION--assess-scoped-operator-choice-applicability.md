@@ -7,26 +7,17 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Engineering/Scoped Operator-choice Applicability
+  governs: Subject/Graph Node/Engineering/Data Handling/Source Selection
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Term//Artifact
-  - Subject/Domain/Node/Continuant/History/Journal
-version: 9
-updated_at: 2026-10-24 01:18:03 +0400
-relations:
-  relates_to:
-  - CA-O-007
-  - CA-O-008
-  - CA-O-013
-  - CA-O-022
-  - CA-O-023
-  - CA-O-065
-  - CA-O-078
-  - CA-O-118
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Term//Artifact
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 12
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 tier: 3
 ---
 # Summary

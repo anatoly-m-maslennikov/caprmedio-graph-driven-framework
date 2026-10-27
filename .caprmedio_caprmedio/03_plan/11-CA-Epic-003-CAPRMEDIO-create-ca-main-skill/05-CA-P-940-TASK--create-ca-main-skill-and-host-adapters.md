@@ -5,17 +5,23 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - CAPRMEDIO Main Skill
-    occurrent:
-      - CA Main Skill and Host Adapter Creation
-version: 3
-updated_at: 2026-09-07 19:43:08 +0000
+  governs: Subject/Graph Node/Engineering/Skill
+  depends_on:
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Continuant/Tool
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations:
   depends_on:
-    - CA-P-943
+  - CA-P-943
+status: Active
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Create CA Main Skill and Host Adapters
 

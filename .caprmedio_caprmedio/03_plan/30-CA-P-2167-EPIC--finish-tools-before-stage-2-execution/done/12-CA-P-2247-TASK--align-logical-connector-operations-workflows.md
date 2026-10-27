@@ -6,18 +6,36 @@ label: Task
 work_sequence_number: 12
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: Tool
-  depends_on: [Atom, Subject, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 4
-updated_at: "2026-10-23 23:03:23 +0400"
+  governs: Subject/Graph Node/Engineering/Continuant/Tool
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Graph Node/Domain/Continuant/Governing Configuration
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Subject/Graph Node/Domain/Continuant/Project.Settings
+  - Subject/Graph Node/Engineering/TOML Configuration Modify Operation
+  - Subject/Graph Node/Engineering/Configuration/Project Structure Workflow Realization
+  - Subject/Graph Node/Engineering/Configuration/Project Settings Workflow Realization
+  - Subject/Graph Node/Engineering/Configuration/Project Structure TOML Patch Step
+  - Subject/Graph Node/Engineering/Configuration/Project Settings TOML Patch Step
+  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
+  - Subject/Graph Node/Domain/Continuant/Atom.Updated At
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+version: 12
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-2167]
+  is_decomposition_of:
+  - CA-P-2167
+tier: 3
 ---
 # Summary
 

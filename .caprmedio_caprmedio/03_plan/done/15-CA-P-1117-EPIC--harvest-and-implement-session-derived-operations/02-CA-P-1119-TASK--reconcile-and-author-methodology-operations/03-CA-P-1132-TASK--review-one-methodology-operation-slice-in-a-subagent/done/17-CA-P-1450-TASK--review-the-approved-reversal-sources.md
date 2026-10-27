@@ -6,19 +6,25 @@ label: Task
 work_sequence_number: 17
 current_scope_unit: caprmedio
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-version: 1
-updated_at: "2026-10-04 17:03:59 +0000"
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Approved Change Reversal"
-  depends_on: [Operations, Implementation, Plan]
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Approved Change Reversal'
+  depends_on:
+  - Subject/Graph Node/Engineering/Operations
+  - Subject/Graph Node/Engineering/Implementation
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
 relations:
-  is_decomposition_of: [CA-P-1132]
-  blocks: [CA-P-1132, CA-P-1158, CA-P-1160]
+  is_decomposition_of:
+  - CA-P-1132
+  blocks:
+  - CA-P-1132
+  - CA-P-1158
+  - CA-P-1160
+tier: 3
 ---
 # Summary
 

@@ -5,20 +5,34 @@ type: Plan
 label: Task
 work_sequence_number: 34
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Active
-version: 1
-updated_at: "2026-10-06 18:42:00 +0000"
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Final implementation review repair"
-  depends_on: [Implementation, Evaluation, Workflow Run, Journal, Action]
+  governs: Subject/Graph Node/Engineering/Implementation
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Engineering/Action
 relations:
-  is_decomposition_of: [CA-P-1117]
-  relates_to: [CA-P-1655, CA-P-1795, CA-P-1796, CA-P-1797, CA-P-1798, CA-P-1799, CA-P-1800, CA-P-1807, CA-P-1808]
+  is_decomposition_of:
+  - CA-P-1117
+  relates_to:
+  - CA-P-1655
+  - CA-P-1795
+  - CA-P-1796
+  - CA-P-1797
+  - CA-P-1798
+  - CA-P-1799
+  - CA-P-1800
+  - CA-P-1807
+  - CA-P-1808
+tier: 3
 ---
 # Summary
 

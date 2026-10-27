@@ -6,16 +6,15 @@ label: Epic
 work_sequence_number: 20
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Entity/Relation
+  governs: Subject/Graph Relation
   depends_on: []
-version: 1
-updated_at: "2026-10-21T23:52:19+04:00"
+version: 4
+updated_at: 2026-10-25 17:32:27 +0400
 relations: {}
+tier: 3
 ---
 # Summary
 

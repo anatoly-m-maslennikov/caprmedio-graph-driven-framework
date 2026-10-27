@@ -7,43 +7,30 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Check Atoms
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Check Atoms'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Atom.Property
-  - Subject/Engineering/Carrier/File Carrier.YAML Frontmatter
-  - Subject/Domain/Node/Continuant/Atom.Substance
-  - Subject/Domain/Node/Continuant/Atom.Summary
-  - Subject/Domain/Node/Continuant/Atom.Version Number
-  - Owned Atoms
-  - Subtree-owned Atoms
-  - Subject/Domain/Node/Continuant/Scope Unit
-  - Subject/Domain/Node/Continuant/Project.Structure
-  - Global Tier
-  - Subject/Domain/Node/Continuant/Atom.Tier
-  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
-  - Subject/Domain/Node/Continuant/Projection
-  - Subject/Graph/Relation
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Subject/Domain/Node/Continuant/History/Journal
-version: 15
-updated_at: 2026-10-24 00:51:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Carrier/File.YAML Frontmatter
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Atom.Summary
+  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Subject/Graph Node/Domain/Continuant/Atom.Tier
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Relation
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Domain/Continuant/Selection
+version: 24
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
-  relates_to:
-  - CA-R-1598
-  - CA-R-942
-  - CA-R-1447
+  depends_on:
   - CA-D-305
-  - CA-D-478
-  - CA-D-479
-  - CA-D-480
-  - CA-D-481
-  - CA-D-482
-  - CA-D-483
   - CA-E-379
-  - CA-E-506
 tier: 3
 ---
 # Summary

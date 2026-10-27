@@ -6,17 +6,21 @@ label: Task
 work_sequence_number: 1
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Tool
-  depends_on: [Atom, Scope Unit, Project Structure, Tool, Workflow]
+  governs: Subject/Graph Node/Engineering/Continuant/Tool//PROJECT_MCP_RUNTIME_ADMISSION
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Subject/Graph Node/Engineering/Workflow
 relations:
-  is_decomposition_of: [CA-P-2408]
-version: 2
-updated_at: "2026-10-20 14:40:53 +0400"
+  is_decomposition_of:
+  - CA-P-2408
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 ---
 # Summary
 

@@ -6,21 +6,18 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-24 00:38:25 +0400
+version: 15
+updated_at: 2026-10-26 05:59:45 +0400
 subjects:
-  governs: Select RMED Review Batch
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Select RMED Review Batch'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Scope Unit
-  - Subject/Domain/Node/Continuant/Project.Framework Settings
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
-relations:
-  relates_to:
-  - CA-D-496
-  - CA-D-497
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+relations: {}
 tier: 3
 ---
 # Summary

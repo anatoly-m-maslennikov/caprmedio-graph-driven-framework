@@ -5,18 +5,20 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Applicable Methodology Conflict Report
-    occurrent:
-      - Applicable Methodology Conflict Detection
+  governs: Subject/Graph Node/Domain/Continuant/Projection
   depends_on:
-    occurrent:
-      - CA-P-920
-version: 1
-updated_at: 2026-08-29 05:10:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology.Conflict'
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Produce Complete Methodology Conflict Report
 

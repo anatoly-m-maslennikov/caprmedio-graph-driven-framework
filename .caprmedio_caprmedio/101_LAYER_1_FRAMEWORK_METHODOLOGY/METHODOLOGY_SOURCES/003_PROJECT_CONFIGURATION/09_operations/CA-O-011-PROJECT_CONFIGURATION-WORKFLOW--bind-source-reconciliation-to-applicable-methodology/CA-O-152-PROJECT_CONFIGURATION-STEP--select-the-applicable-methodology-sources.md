@@ -6,27 +6,24 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-version: 11
-updated_at: 2026-10-24 01:28:26 +0400
+version: 16
+updated_at: 2026-10-26 05:59:45 +0400
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step//Applicable Methodology Compilation Select Step'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step//Applicable Methodology Compilation Select Step'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
-  - Select Reconciliation Sources
-  - Methodology Source
-  - Subject/Domain/Node/Continuant/Scope Unit
-  - Subject/Domain/Node/Continuant/Project.Framework Settings
-  - Subject/Domain/Node/Continuant/Selection//Extension Sources
-  - Project Configuration
-  - Subject/Domain/Node/Continuant/Atom
-relations:
-  relates_to:
-  - CA-O-011
-  - CA-O-004
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Domain/Continuant/Selection
+  - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  - Subject/Graph Node/Domain/Continuant/Selection//Extension Sources
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Graph Node/Domain/Continuant/Atom
+relations: {}
 tier: 3
 ---
 # Summary

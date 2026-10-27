@@ -1,0 +1,34 @@
+---
+atom_id: CA-R-1956@5
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+subjects:
+  governs: Subject/Engineering/Carrier/Directory Carrier
+relations:
+  child_of:
+  - CA-R-1174
+version: 5
+updated_at: 2026-10-24 11:58:20 +0400
+tier: 3
+type: Definition
+---
+# Summary
+
+Define Entity/Carrier/Directory Carrier
+
+## Scope
+
+Directories that represent a carried Continuant.
+
+## Claim
+
+A Directory Carrier **means** a Carrier that uses a directory to represent its carried Continuant. Merely containing files does **not** make a directory a Directory Carrier.
+
+## Details
+
+CA-D-259 classifies Directory Carrier as narrower than Carrier. CA-D-451 distinguishes carrying directories from administrative placement; CA-D-464 permits a directory to represent an Atom. Their old Structural Entity and Revision wording remains for content migration.
+
+Active CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.

@@ -6,28 +6,33 @@ author: Operator
 assignee: AI Agent
 autonomous_confidence_threshold: 99
 subjects:
-  governs: "Projection/Type: Extended Entities Graph"
+  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Extended Entities Graph'
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Scope Unit"
-    - "CAPRMEDIO Graph"
-    - "Projection"
-    - "Projection/Type: Atom Subjects Graph"
-    - "Projection/Type: Entities Graph"
-    - "Term"
-    - "Entity"
-    - "Relation"
-    - "Operator"
-    - "AI Agent"
-    - "Atom/Content Role: Plan/Type: Task"
-    - "Autonomous Confidence Threshold"
-version: 4
-updated_at: "2026-09-13 14:31:04 +0400"
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Atom Subjects Graph'
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph'
+  - Subject/Graph Node/Domain/Continuant/Term
+  - Subject/Graph Relation
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+version: 12
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   depends_on:
-    - CA-P-1082
+  - CA-P-1082
+status: Active
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Define composed Atom and Entity navigation
 

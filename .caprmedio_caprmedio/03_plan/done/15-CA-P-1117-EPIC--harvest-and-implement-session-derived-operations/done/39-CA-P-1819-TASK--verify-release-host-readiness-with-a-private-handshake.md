@@ -5,20 +5,28 @@ type: Plan
 label: Task
 work_sequence_number: 39
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 3
-updated_at: "2026-10-07 12:27:46 +0000"
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "verify Release host readiness with a private handshake"
-  depends_on: [Workflow Run, Implementation, Evaluation, Operator]
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Implementation Evaluation
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
 relations:
-  is_decomposition_of: [CA-P-1117]
-  relates_to: [CA-R-1891, CA-M-347, CA-E-590, CA-D-583]
+  is_decomposition_of:
+  - CA-P-1117
+  relates_to:
+  - CA-R-1891
+  - CA-M-347
+  - CA-E-590
+  - CA-D-583
+tier: 3
 ---
 # Summary
 

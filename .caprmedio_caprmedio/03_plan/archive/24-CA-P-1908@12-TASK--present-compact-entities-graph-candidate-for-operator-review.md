@@ -1,0 +1,88 @@
+---
+atom_id: CA-P-1908@12
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 24
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+status: Archived
+subjects:
+  governs: Subject/Domain/Node/Continuant/Projection
+  depends_on:
+  - Subject
+  - Subject/Domain/Node/Continuant/Term
+  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Domain/Node/Continuant/Term//Property
+  - Subject/Engineering/Carrier
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
+version: 12
+updated_at: 2026-10-24 08:22:45 +0400
+relations:
+  is_decomposition_of:
+  - CA-P-1872
+  blocks:
+  - CA-P-1909
+tier: 3
+---
+# Summary
+
+Present compact Entities Graph candidate for Operator review
+
+## Objective
+
+Give the Operator the new marked Entities Graph candidate in a compact, indented representation using the latest agreed notation.
+
+## Details
+
+Review context: the Operator chose **Finish against the captured snapshot only**. Use the original CA-P-1905 source pins and immutable Git commit `a971d0e00c33c779f485fc8cad63194894d440fb`; read `nodes/snapshot.context.md` and `nodes/support/snapshot_sources.py`. CA-D-494 revision 2 remains the review input; live revision 3 is outside this snapshot. Preserve originals and label receipts as captured-snapshot checks, not current-Core checks. Any currentness or source-pin requirement below means exact validity against this selected captured snapshot. Do not silently rebind or overwrite live Core.
+
+Child work only; no separately executable own work. The initial producer checkpoint was not accepted or persisted. Finish the remaining presentation and its independent verification in two bounded direct Tasks before handoff.
+
+Required start prerequisite: CA-P-1907. Inputs: the pinned current-graph review, grouped/inherited candidate structure, complete occurrence-to-proposed-relation ledger and complete disposition ledger from CA-P-1905 through CA-P-1907.
+
+Use these operators in the candidate display:
+- `/`: broader to narrower; its canonical NARROWER_THAN direction is narrower to broader.
+- `.`: bearer to dependent qualification, including Properties; canonical IS_BORNE_BY points dependent to bearer.
+- `:`: Property to allowed value, never assignment; canonical IS_ALLOWED_VALUE_OF points value to Property.
+- `@`: carried Entity to Carrier, using IS_CARRIED_BY; CARRIES is the opposite direction of the same binding.
+
+Use graph concept names such as Version Number, Updated At and Status, not YAML keys such as version_number, updated_at and status. Preserve qualified identities, distinguish generic type constraints from actual instance bindings, and keep Entity/Term graph ownership explicit even in a combined compact display.
+
+Present a plain two-space-indented view without tree connector glyphs, plus compact relation statements where a tree cannot show a cross-link. Show Continuant/Occurrent grouping, inherited shared rules, subtype differences, justified independent roots and visible DROP, CONSOLIDATE and GENERALIZE CANDIDATE marks. Include the Revision and Applicable Methodology proposals from CA-P-1907 with reasons and retained constraints. Marking is not deletion or acceptance of the proposal.
+
+Present both CA-P-1906 views: separate R/M/E/D trees and an Entity-centered view with optional applicable M/E/D links. Distinguish presentation nesting from native Entity relations. Reuse shared source identities and Claims; do not fabricate mandatory M/E/D slots or copy a shared Claim into new authority. Keep R Entity-model notation separate from proposed Method/Evaluation links and D Carrier constraints. No new native graph kind is admitted by displaying these views.
+
+Give a before/candidate comparison, root counts, traceable dispositions and unresolved questions. Preserve the step-1 baseline. A candidate is a proposal, not admitted native facts, Operator acceptance, a source migration or a completed MCP Run.
+
+Output: the accessible candidate graph and review package, handed to the Operator for a decision before any Atom Subject changes. Hand off the full occurrence-to-proposed-relation ledger, node-disposition ledger, exact source pins and canonical hash of the candidate together, so that the decision is reproducible. Preserve every unresolved/not-native reason, check performed and required Operator question; those rows must not acquire an invented native proposal during presentation. Map and evidence every newly authored synthesized candidate Relation separately; do not give it a fake original source occurrence. The @ display operator is not automatically admitted into Subject-path serialization.
+
+Exclusive scope: derived candidate outputs and their handoff evidence only. Do not implement a new graph frontend, modify Core Atoms or Subjects, overwrite the baseline, delete marked entities, rename YAML keys, activate a runtime, push or create a PR.
+
+Inherit CA-P-1872's explicit 90% confidence threshold and local-without-MCP authorization. Ask the Operator before deciding below that threshold; do not disguise uncertainty as an accepted fact. Execution is bounded by the direct Tasks below. Candidate delivery is not acceptance.
+
+### Bounded direct Tasks
+
+- [CA-P-1957](24-CA-P-1908@12-TASK--present-compact-entities-graph-candidate-for-operator-review/done/01-CA-P-1957-TASK--finish-the-captured-entity-graph-candidate-presentation.md): Finish the captured Entity graph candidate presentation; 15 minutes. Done with exact rendered hashes; accepted inputs remain fixed. Explicitly BLOCKS CA-P-1958.
+- [CA-P-1958](24-CA-P-1908@12-TASK--present-compact-entities-graph-candidate-for-operator-review/done/02-CA-P-1958-TASK--verify-the-captured-entity-graph-candidate-presentation.md): Verify the captured Entity graph candidate presentation; 15 minutes. Done after independent presentation-only acceptance. No source or candidate edits by this verifier.
+
+Both direct Tasks are Done. This decomposition does not accept the candidate or open the Subject migration gate.
+
+### Completion and Operator handoff
+
+The [indented candidate](../../../../../_projection/core-entity-review/presentation/candidate.entities.indented.txt), [short review](../../../../../_projection/core-entity-review/presentation/candidate.review.md) and [independent acceptance](../../../../../_projection/core-entity-review/presentation/presentation.acceptance.md) are accessible for Operator review. The complete marked relation/disposition ledgers, exact source pins, RMED pointers and manifest are linked from the review. The app preview request is queued; accessibility does not depend on opening that tab.
+
+- Inventory SHA-256: `f32588f6f9bc97e2180578c051bfbc73f39a7e80b7273bdf6702f9309778ed56`.
+- Review SHA-256: `8b0d9c9ff3f940f3bfb4456aabda7b808060424a9910a194ff85a50073bcf975`.
+- Manifest SHA-256: `fb9deec859a5f828e648d94da9d7888c50175872a70b9711e6a9f6a734ec81ce`.
+- Canonical marked candidate JSON SHA-256: `0b26e7571ab4897f85e2b521255feb9f83e33c4f48ce86f02fd0a8f80c9303b1`.
+- Independent acceptance SHA-256: `9d5c9d634f72f4fb5abd0fcc3273a755578302ea1ff689cdd3a0a41983c98905`.
+
+The captured snapshot stays `a971d0e00c33c779f485fc8cad63194894d440fb`, including CA-D-494 revision 2. All 706 identities are preserved: 584 retain decisions, five proposals and 117 open questions. Seventeen Continuant, three Occurrent and four broad anchors are display-only; 682 identities remain explicitly unclassified. Legacy unresolved relations are visibly marked. Omitted Substance Scope means full governed Subject AND full owning Scope Unit.
+
+This Task delivers the candidate, not its acceptance or a new ontology. CA-P-1909 remains deferred until an explicit candidate-bound Operator decision. Core, Subjects and Step 1 are unchanged by this work; separate sealed migration authorization is still required.
+
+### Definition of Done
+
+the Plan is **not** Done **if** ((the stated output, complete source traceability, source pins, canonical candidate hash, complete occurrence-to-proposed-relation ledger, node-disposition ledger **or** required handoff is missing) **or** (a handed-off relation cannot be traced either to its complete ledger row or to separate evidence as a newly authored candidate Relation) **or** (an unresolved **or** not-native row loses its reason, checks performed **or** required question **or** acquires an invented native proposal) **or** (a required start prerequisite is **not** Done) **or** (the stated acceptance conditions are failed, stale **or** unverified) **or** (uncertainty below the inherited confidence threshold is silently resolved **or** not put to the Operator) **or** (work exceeds the admitted boundary **or** any source, Subject, history **or** marked Entity was changed **or** deleted without separate authorization) **or** (any direct decomposing Plan is **not** Done)).

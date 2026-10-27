@@ -1,0 +1,49 @@
+---
+atom_id: CA-P-1716@8
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 1
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
+status: Archived
+version: 8
+updated_at: 2026-10-24 22:06:39 +0400
+subjects:
+  governs: Subject/Engineering/Release
+  depends_on:
+  - Subject/Engineering/Workflow
+  - Subject/Engineering/Action
+  - Subject/Engineering/Implementation
+  - Subject/Engineering/Evaluation
+  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Engineering/Permission
+relations:
+  is_decomposition_of:
+  - CA-P-1713
+  blocks:
+  - CA-P-1624
+tier: 3
+---
+# Summary
+
+Connect explicit Release recovery to queue and MCP
+
+## Objective
+
+Deliver the typed public and durable-queue path to the existing frozen Release recovery implementation.
+
+## Details
+
+1. review CA-R-1883, CA-M-340, CA-E-583 and CA-D-577 before implementation.
+2. admit only the existing frozen Release Run through the closed recovery request. Ordinary enqueue and redispatch never become recovery.
+3. preserve the canonical Run identity and exact sealed request, source, approval, permission, checkpoint and Journal bindings. Scheduler transport identity is not a second canonical Run.
+4. recover exact pending recording through the shared writer; leave uncertain/in-progress effects blocked and never replay them.
+5. test request rejection before queue admission, source/permission staleness, exact worker delegation and truthful observation without inventing starts or terminal evidence.
+6. the bounded implementation/review estimate is <=15 minutes; decompose further if actual remaining work exceeds that bound.
+
+## Definition of Done
+
+Reviewed source, strict CLI/MCP/queue boundaries and focused tests connect an explicit admitted recovery request to the existing private recovery method. Normal selected execution remains unchanged. Live queue/MCP recovery and canonical Journal proof are required separately before full Release closure.

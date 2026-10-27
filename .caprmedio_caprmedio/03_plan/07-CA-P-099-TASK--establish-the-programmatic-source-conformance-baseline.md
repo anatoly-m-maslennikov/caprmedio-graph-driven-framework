@@ -2,21 +2,26 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - Conformance Ratchet
+  governs: Subject/Graph Node/Engineering/Implementation Evaluation
   depends_on:
-    continuant:
-      - Programmatic Source
-      - Source Architecture
-      - Project Settings
-version: 3
-updated_at: 2026-09-06 01:45:12 +0400
+  - Subject/Graph Node/Engineering/programmatic software
+  - Subject/Graph Node/Engineering/Continuant/Tool.Source Architecture
+  - Subject/Graph Node/Domain/Continuant/Project.Settings
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 98
 relations:
   derived_from:
-    - CA-A-053
-    - CA-A-062
+  - CA-A-053
+  - CA-A-062
+status: Active
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
+atom_id: CA-P-099
 ---
 # Establish the PROGRAMMATIC source conformance baseline
 

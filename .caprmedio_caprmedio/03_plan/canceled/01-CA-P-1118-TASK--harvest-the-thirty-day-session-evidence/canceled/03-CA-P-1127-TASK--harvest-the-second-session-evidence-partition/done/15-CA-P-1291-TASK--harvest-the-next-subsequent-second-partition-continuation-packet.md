@@ -6,28 +6,27 @@ label: Task
 work_sequence_number: 15
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Next subsequent second-partition continuation evidence packet"
+  governs: Subject/Graph Node/Domain/Continuant/History
   depends_on:
-    - "Project"
-    - "Operations"
-version: 4
-updated_at: "2026-10-04 12:36:07 +0400"
+  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/Graph Node/Engineering/Operations
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   is_decomposition_of:
-    - CA-P-1127
+  - CA-P-1127
   has_concern:
-    - CA-C-314
+  - CA-C-314
   blocks:
-    - CA-P-1294
-    - CA-P-1119
-    - CA-P-1130
-    - CA-P-1155
+  - CA-P-1294
+  - CA-P-1119
+  - CA-P-1130
+  - CA-P-1155
+tier: 3
 ---
 # Summary
 

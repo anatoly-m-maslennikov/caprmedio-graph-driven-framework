@@ -6,42 +6,39 @@ label: Epic
 work_sequence_number: 17
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Done
 author: Anatoly Maslennikov
-version: 12
-updated_at: "2026-10-12 00:40:01 +0000"
+version: 25
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "CAPRMEDIO Framework Instance"
+  governs: Subject/Graph Node/Engineering/Release Version
   depends_on:
-    - "Project"
-    - "Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Framework Package"
-    - "Methodology Source"
-    - "Applicable Methodology"
-    - "Project Structure"
-    - "Requirement"
-    - "Method"
-    - "Delivery"
-    - "Workflow"
-    - "Action"
-    - "Journal"
-    - "Workflow Run"
-    - "Carrier"
-    - "Scope Unit"
-    - "Atom"
-    - "Projection"
-    - "Status"
-    - "Content Role"
-    - "Project Settings"
-    - "Evaluation"
-    - "Tool"
-    - "Version"
+  - Subject/Graph Node/Domain/Continuant/Project
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  - Subject/Graph Node/Engineering/Release Version/Runtime Package Carrier
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Domain/Continuant/Atom.Status
+  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
+  - Subject/Graph Node/Domain/Continuant/Project.Settings
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Engineering/Continuant/Tool
 relations: {}
+tier: 3
 ---
 # Summary
 

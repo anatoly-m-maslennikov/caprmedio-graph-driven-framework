@@ -5,18 +5,19 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Project Scope Unit Graph Generator
-    occurrent:
-      - Project Scope Unit Graph Generator Migration
+  governs: Subject/Graph Node/Engineering/Continuant/Tool//GENERATE_PROJECT_GRAPH_STATE
   depends_on:
-    occurrent:
-      - CA-P-930
-version: 3
-updated_at: 2026-08-30 20:24:09 +0400
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Migrate Project Scope Unit Graph Generator
 

@@ -2,22 +2,25 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - Graph App Vertical Slice Implementation
+  governs: Subject/Graph Node/Engineering/Implementation
   depends_on:
-    continuant:
-      - Graph App
-      - Derived Project Read Model
-      - Graph Projection
-    occurrent:
-      - Source Reconciliation
-version: 3
-updated_at: 2026-09-06 01:45:12 +0400
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Engineering/Graph Projection
+  - Subject/Graph Node/Engineering/Operations
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 98
 relations:
   derived_from:
-    - CA-A-062
+  - CA-A-062
+status: Active
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
+atom_id: CA-P-097
 ---
 # Implement the first Graph App vertical slice
 

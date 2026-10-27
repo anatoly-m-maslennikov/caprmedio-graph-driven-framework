@@ -1,0 +1,77 @@
+---
+atom_id: CA-M-407@8
+content_role: Method
+type: Eng Policy
+current_scope_unit: PROGRAMMATIC
+status: Archived
+subjects:
+  governs: Subject/Graph Node/Engineering/Function Purity
+  depends_on:
+  - Subject/Graph Node/Engineering/Business Logic Authority
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
+cce_version: cce_1
+cce_form: method
+relations:
+  derived_from:
+  - CA-A-053
+  child_of:
+  - CA-M-415
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 4
+author: Anatoly Maslennikov
+---
+# Summary
+
+Allocate deterministic transformations to functions
+
+use a side-effect-free function as the default unit of PROGRAMMATIC behavior.
+implement one deterministic transformation as a function **when** its result
+follows **only** from its declared inputs **and** the responsibility needs no identity
+across calls.
+
+## Details
+
+Candidate source: [CA-M-157@12](archive/CA-M-157-PROGRAMMATIC-CORE-METHOD--allocate-deterministic-transformations-to-functions@12.md)
+
+## Applicable when
+
+apply **when** Tools, App backend services, **or** MCP components parse, classify,
+validate, plan, project, format, **or** **otherwise** transform explicit input into a
+result.
+
+## Procedure
+
+- use a function **unless** the responsibility **must** own mutable state, an
+   invariant across calls, a resource, a lifecycle, **or** a replaceable adapter.
+- give the function a specific, intention-revealing verb phrase that states
+   its one responsibility; prefer clarity over brevity **and** split a function
+   whose accurate name requires multiple responsibilities.
+- state the function's input, result, **and** failure values explicitly.
+- do **not** mutate inputs **or** shared state, perform I/O **or** logging export, **or** read
+   the filesystem, process, clock, environment, network, persistence, **or**
+   randomness.
+- pass **every** required observation **and** setting as explicit input rather than
+   obtaining them implicitly.
+- group related functions **in** a specifically named module; do **not** create a
+   class **only** **to** provide a namespace.
+
+## Outcome
+
+behavior is locally readable, reproducible from declared input, **and** free of
+observable side effects. it can be reused, checked, **or** extended **without**
+constructing component lifecycle state.
+
+## Failure or stop
+
+stop treating the unit as a deterministic transformation **when** it applies an
+external effect. a bounded one-shot effect **may** remain a function under
+CA-M-425; allocate an object **only** **when** identity across calls **or** owned state,
+invariant, resource, lifecycle, **or** adapter behavior is required.
+
+## Sources
+
+- [Python Functional Programming HOWTO](https://docs.python.org/3.14/howto/functional.html)
+- [PEP 8 — Style Guide for Python Code](https://peps.python.org/pep-0008/)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

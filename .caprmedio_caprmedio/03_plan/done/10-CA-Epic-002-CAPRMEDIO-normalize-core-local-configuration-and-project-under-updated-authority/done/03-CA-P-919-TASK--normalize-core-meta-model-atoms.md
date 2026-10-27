@@ -5,18 +5,19 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Core Meta-Model Atom Frontier
-    occurrent:
-      - Core Meta-Model Atom Normalization
+  governs: Subject/Graph Node/Domain/Continuant/Atom
   depends_on:
-    occurrent:
-      - CA-P-918
-version: 1
-updated_at: 2026-08-29 05:10:05 +0400
+  - Subject/Graph Node/Engineering/Methodology
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Normalize Core Meta-Model Atoms
 

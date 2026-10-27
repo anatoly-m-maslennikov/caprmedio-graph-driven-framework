@@ -5,20 +5,30 @@ type: Plan
 label: Task
 work_sequence_number: 4
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Active
 subjects:
-  governs: "Verify actual release package and project Skill"
-  depends_on: [Workflow, Action, Tool, Methodology, Implementation, Projection, Skill, Journal]
-version: 1
-updated_at: "2026-10-05 01:43:00 +0000"
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Engineering/CAPRMEDIO Main Skill
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1620]
-  blocks: [CA-P-1123, CA-P-1124]
+  is_decomposition_of:
+  - CA-P-1620
+  blocks:
+  - CA-P-1123
+  - CA-P-1124
+tier: 3
 ---
 # Summary
 

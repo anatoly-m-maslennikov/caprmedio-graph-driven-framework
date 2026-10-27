@@ -6,19 +6,24 @@ label: Task
 work_sequence_number: 28
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Independent review of calibration and legacy preparation gaps"
-  depends_on: [Operations, Evaluation, Implementation]
-version: 2
-updated_at: "2026-10-04 13:43:22 +0000"
+  governs: Subject/Graph Node/Engineering/Evaluation
+  depends_on:
+  - Subject/Graph Node/Engineering/Operations
+  - Subject/Graph Node/Engineering/Evaluation Technique Selection
+  - Subject/Graph Node/Engineering/Implementation
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1130]
-  blocks: [CA-P-1131, CA-P-1156]
+  is_decomposition_of:
+  - CA-P-1130
+  blocks:
+  - CA-P-1131
+  - CA-P-1156
+tier: 3
 ---
 # Summary
 

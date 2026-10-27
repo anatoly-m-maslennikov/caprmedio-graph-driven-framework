@@ -1,35 +1,24 @@
 ---
 subjects:
-  governs: RMEDO Conflict Resolution
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//RMEDO Conflict Resolution'
   depends_on:
-  - 'Subject/Graph/Relation/Type: On Result'
-  - Subject/Domain/Node/Occurrent/Execution/Step Run
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Atom.Substance
-  - Entity/Node/Continuant/Atom.Global Tier
-  - Subject/Domain/Node/Continuant/Atom.Updated At
-  - 'Subject/Domain/Node/Continuant/Atom.Tier: Principle'
-  - Subject/Graph/Relation
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
-  - Autonomous Confidence Threshold
-  - Subject/Domain/Node/Continuant/History/Journal
-version: 17
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-O-004
-  - CA-O-005
-  - CA-O-006
-  - CA-O-007
-  - CA-O-008
-  - CA-R-1551
-  - CA-R-807
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Atom.Updated At
+  - Subject/Graph Relation
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 25
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 atom_id: CA-O-028
 content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
@@ -63,7 +52,7 @@ the entry Step is select. interpret Step bindings **and** run boundaries under C
 
 ### Transitions
 
-the transitions below use the Workflow-scoped ON_RESULT Relation under CA-R-1513 **when** the destination is a Step. a terminal outcome ends the Workflow Run; it is **not** another Step **or** Action.
+the transitions below are declared in this Workflow's Step structure; result-based routing belongs to the applicable Conditional Step definition **when** the destination is a Step. a terminal outcome ends the Workflow Run; it is **not** another Step **or** Action.
 
 | Step **and** Action reference | Result condition | Next Step **or** outcome |
 |---|---|---|

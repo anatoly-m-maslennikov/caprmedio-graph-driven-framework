@@ -6,19 +6,25 @@ label: Task
 work_sequence_number: 34
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "F08 completed-family independent review"
-  depends_on: [Operations, Analysis, Evaluation]
-version: 1
-updated_at: "2026-10-04 14:31:02 +0000"
+  governs: Subject/Graph Node/Engineering/Evaluation
+  depends_on:
+  - Subject/Graph Node/Engineering/Operations
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis'
+  - Subject/Graph Node/Engineering/Evaluation
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1130]
-  blocks: [CA-P-1353, CA-P-1131, CA-P-1156]
+  is_decomposition_of:
+  - CA-P-1130
+  blocks:
+  - CA-P-1353
+  - CA-P-1131
+  - CA-P-1156
+tier: 3
 ---
 # Summary
 

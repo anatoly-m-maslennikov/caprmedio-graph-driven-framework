@@ -5,21 +5,32 @@ type: Plan
 label: Task
 work_sequence_number: 30
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 2
-updated_at: "2026-10-06 11:21:41 +0000"
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Git-backed Release binding baseline reconciliation"
-  depends_on: [Manifest, Git, Journal, Operator, MCP, Evaluation]
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Engineering/Manifest
+  - Subject/Graph Node/Engineering/Git
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Engineering/Evaluation
 relations:
-  is_decomposition_of: [CA-P-1117]
-  relates_to: [CA-C-497, CA-R-1893, CA-M-349, CA-E-592, CA-D-587]
-  blocks: [CA-P-1780]
+  is_decomposition_of:
+  - CA-P-1117
+  relates_to:
+  - CA-C-497
+  - CA-R-1893
+  - CA-M-349
+  - CA-E-592
+  - CA-D-587
+  blocks:
+  - CA-P-1780
+tier: 3
 ---
 # Summary
 

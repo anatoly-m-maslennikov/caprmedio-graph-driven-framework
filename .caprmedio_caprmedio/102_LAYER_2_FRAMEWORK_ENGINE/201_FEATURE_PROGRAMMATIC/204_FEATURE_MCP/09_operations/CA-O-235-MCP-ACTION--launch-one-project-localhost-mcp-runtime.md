@@ -7,17 +7,16 @@ claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Launch Project localhost MCP runtime
+  governs: Subject/Graph Node/Engineering/Execution Control
   depends_on:
-  - Action
-  - Project
-  - MCP
-  - Gateway
-  - Docker Runtime
-  - Image
-  - Carrier
-version: 2
-updated_at: 2026-10-24 02:14:24 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/Graph Node/Runtime/Container Run
+  - Subject/Graph Node/Engineering/Architecture/Component Structure
+  - Subject/Graph Node/Carrier/Docker Image
+  - Subject/Graph Node/Carrier
+version: 10
+updated_at: 2026-10-27 06:04:45 +0400
 relations: {}
 tier: 1
 ---

@@ -6,16 +6,27 @@ label: Epic
 work_sequence_number: 19
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Entity
-  depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 13
-updated_at: "2026-10-14 03:10:47 +0400"
+  governs: Subject
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Term
+  - Subject/Graph Node/Domain/Continuant/Term//Property
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+version: 22
+updated_at: 2026-10-25 17:32:27 +0400
 relations: {}
+tier: 3
 ---
 # Summary
 
@@ -26,6 +37,66 @@ Align Atom content after Subject migration
 Align Summary, Substance, Substance Scope and Details with the verified Subject model, only after Step 1.
 
 ## Details
+
+### Known content follow-ups from Methodology verification
+
+Source audit950 records E383/E444's old Method-root fixtures, R1947's stale
+later-status-alignment note, and D393's unresolved default external-Type branch.
+Review their exact meanings in this existing Content Epic; do not restore R2005,
+invent a Domain entity, alter historical fixtures blindly, or reopen the frozen
+Terms Graph. This handoff does not rewrite any RMED body or expand P1959.
+
+### Latest Epic boundary — 2026-10-25
+
+Finish Methodology first in CA-P-1959 and its retained work. All Engine RMED
+migration belongs to the separate Backlog Epic CA-P-2637, including PROGRAMMATIC,
+APPS, TOOLS and other Engine descendants. Do not execute that migration here.
+The later Engine Epic starts with Subject-system and Scope Unit review.
+
+No code/runtime implementation is included in either migration. Preserve
+Engine work already applied or proposed; do not undo it or promote more Engine
+proposals ahead of the Methodology gate. Earlier combined-pass wording and
+all-pass completion gates below are superseded by this boundary.
+
+Methodology keeps the approved order: Subjects → missing Atoms → archive
+obsolete Atoms → properties → Content. General Content work stays under
+CA-P-1970. Terms, instance naming, conflict-workflow updates and protected
+owners retain their explicit deferrals.
+
+
+### Latest Operator order — 2026-10-25
+
+Run these stages in order:
+
+1. Migrate Subjects.
+2. Add missing Atoms.
+3. Archive obsolete Atoms.
+4. Fix properties.
+5. Update Atom content last, under CA-P-1970.
+
+Complete the Methodology pass first. Then repeat the sequence for PROGRAMMATIC
+RMED Atoms only. No PROGRAMMATIC code or runtime implementation is authorized.
+Do not interleave new PROGRAMMATIC corrections ahead of Methodology's pass.
+Preserve work already applied or staged; this order is not a rollback.
+
+Create new proposed revisions as Drafts and refine them in iterations. Keep
+Current originals unchanged until a proposal is ready and applied. Preserve
+existing Drafts, Archives, protected owners and explicit deferrals. Stage a
+concrete uncertain proposal without claiming it is approved; ask the Operator
+only where refinement still requires a real decision.
+
+Stage 1 changes Subjects, not ordinary Content, properties or lifecycle state.
+Later-stage gaps may be inventoried now, but are not permission to execute them
+early. Normal maintenance of these execution Plans records the new order; it
+does not count as migration of a model Atom's Content.
+
+Mapping, application and verification are per-pass milestones. Methodology
+completion opens Methodology content work; it must not wait on the later
+PROGRAMMATIC pass. Verify each pass separately before its content stage.
+Keep CA-P-1959 Active while its retained work remains unproved. Earlier mixed
+increment schedules and global all-pass wording below are historical where
+they conflict with this order.
+
 
 ### Shared storage policies — Operator decision, 2026-10-14
 

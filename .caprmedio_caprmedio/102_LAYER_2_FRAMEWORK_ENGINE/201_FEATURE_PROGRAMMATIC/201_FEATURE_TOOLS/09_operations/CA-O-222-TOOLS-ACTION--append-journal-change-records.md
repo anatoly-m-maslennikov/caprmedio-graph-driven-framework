@@ -6,14 +6,14 @@ claim_target_scope_unit: TOOLS
 type: Action
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: 2026-10-24 04:47:50 +0400
+version: 7
+updated_at: 2026-10-26 00:46:35 +0400
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Append Change Records'
+  governs: Subject/Graph Node/Domain/Continuant/History/Journal.Record
   depends_on:
-  - Subject/Domain/Node/Continuant/History/Journal
-  - Subject/Domain/Node/Continuant/History/Journal.Record
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
 relations: {}
 tier: 3
 ---

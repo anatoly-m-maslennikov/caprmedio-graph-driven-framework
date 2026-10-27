@@ -7,24 +7,19 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Domain/Node/Continuant/Projection
+  governs: Subject/Graph Node/Domain/Continuant/Projection
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Term
-  - Definition Atom
-  - 'Subject/Domain/Node/Continuant/Projection/Type: Terms Graph'
-  - Relation Kind
-  - Artifact/Revision
-  - Subject/Domain/Node/Continuant/History/Journal
-version: 11
-updated_at: 2026-10-24 00:51:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Term
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Definition'
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Terms Graph'
+  - Subject/Graph Relation/Type
+  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 16
+updated_at: 2026-10-26 17:20:40 +0400
 relations:
-  relates_to:
-  - CA-R-1335
-  - CA-R-1454
-  - CA-R-1318
-  - CA-R-1279
-  - CA-M-114
+  depends_on:
   - CA-R-1746
   - CA-R-1471
   - CA-R-1246
@@ -32,8 +27,6 @@ relations:
   - CA-R-1472
   - CA-R-1437
   - CA-E-382
-  - CA-R-1720
-  - CA-R-1728
 tier: 3
 ---
 # Summary
@@ -46,7 +39,7 @@ Construct Terms Graph Projection **means** the Action that constructs **or** con
 
 ### Inputs and admission
 
-require an admitted request, explicit source selection **and** any narrower/governed-only view selection, exact current source set **and** governing Term/Relation Kind authority, representation configuration, target Projection/output destination, any existing Projection with source evidence, admitted realization/permissions **and** actual Run/effect evidence context. declared selection governs required source kinds; an upstream Projection needs its identity/Revision **and** ultimate source traceability, **not** defining authority. an explicitly empty evidenced selection differs from absent **or** unreadable selection.
+require an admitted request, explicit source selection **and** any narrower/governed-only view selection, exact current source set **and** governing Term/Relation Type authority and any selected Graph Rule constraints, representation configuration, target Projection/output destination, any existing Projection with source evidence, admitted realization/permissions **and** actual Run/effect evidence context. declared selection governs required source kinds; an upstream Projection needs its identity/Revision **and** ultimate source traceability, **not** defining authority. an explicitly empty evidenced selection differs from absent **or** unreadable selection.
 
 ### Behavior
 
@@ -54,7 +47,7 @@ any consumed derived fact context binds the exact selected source contributions,
 
 1. resolve the actual request, source/view boundaries, admitted execution kind **and** capabilities **before** effects. retain the admitted source identities/Revisions/locations; do **not** silently substitute a different frontier **or** infer definitions from spelling, capitalization, a filename **or** shared Subject use.
 2. construct all **and** only selected native Terms admitted by governing authority under CA-R-1335. for a governed-only selection, reuse CA-R-1454's complete node/internal-Relation selection **and** defining-source evidence; use CA-R-1279/CA-M-114 **only** within their actual definition/derivation domains. full Subject Paths **or** referenced path components are **not** additional definitions supplied by the referring Atom. missing **or** conflicting defining authority remains an affected limitation, never an invented Term meaning.
-3. resolve each Relation's graph-qualified metadata under CA-R-1246/CA-R-806 **and** its source/derivation evidence under CA-R-1437. preserve its admitted direction, endpoint classes/context **and** cardinality. external references under CA-R-1472 remain distinguishable from native Terms; an Entity edge **or** compatible endpoint does **not** become a native Terms edge. Subject GOVERNS/DEPENDS_ON rows remain Atom incidence/provenance. do **not** infer an internal Relation merely from labels **or** operational classification; SUBKIND_OF is **not** an alias for NARROWER_THAN, which requires its explicit source declaration **and** governing-definition implication. qualified Entity paths can reuse one Term name **without** creating additional qualified Terms.
+3. resolve each Relation Type's defining Claim under CA-R-1246/CA-R-806 **and** its source/derivation evidence under CA-R-1437. preserve its declared direction and source traceability **and** any selected Graph Rule constraints; resolve endpoint classes, graph contexts and cardinality from those Rules when present, without inventing default permissions or prohibitions. external references under CA-R-1472 remain distinguishable from native Terms; an Entity edge **or** compatible endpoint does **not** become a native Terms edge. Subject GOVERNS/DEPENDS_ON rows remain Atom incidence/provenance. do **not** infer an internal Relation merely from labels **or** operational classification; SUBKIND_OF is **not** an alias for NARROWER_THAN, which requires its explicit source declaration **and** governing-definition implication. qualified Entity paths can reuse one Term name **without** creating additional qualified Terms.
 4. retain exact source Claim/Artifact Revision traceability through any upstream Projection chain under CA-R-1746/CA-R-1471. apply the applicable CA-E-382 checks, including declared hierarchy/Root Term authority where relevant, **without** inventing another hierarchy **or** silently importing outside-selection parents. preserve separate fidelity, graph-validity **and** coverage outcomes; a faithful representation of a source conflict is **not** a valid graph. missing, conflicting, inaccessible, unsupported **or** stale regions/checks remain visible.
 5. confirm source/definition/permission currentness **before** publishing **only** to the authorized derived-output destination. return no_op **only** **when** the existing Projection demonstrably matches the exact current selection/configuration **and** satisfies required checks. missing capability **or** stale prior output is **not** no_op. an explicitly authorized limited diagnostic output retains its incomplete/invalid state; do **not** replace an accepted complete target with an unapproved partial result.
 6. retain actual output effects **and** independent start/terminal Action/Run evidence, plus parent Workflow/Step references **when** applicable, in the one Journal under CA-R-1720/CA-R-1728. a Journal append is a provenance obligation, not a construction gate; append failure retains the actual result/effects and emits a `recording_error` diagnostic with pending evidence. only missing or uncertain independent Run/effect evidence yields `recording_blocked`; recover the append separately **without** blind construction replay. no secrets **or** fictitious no-op Artifact change are recorded.

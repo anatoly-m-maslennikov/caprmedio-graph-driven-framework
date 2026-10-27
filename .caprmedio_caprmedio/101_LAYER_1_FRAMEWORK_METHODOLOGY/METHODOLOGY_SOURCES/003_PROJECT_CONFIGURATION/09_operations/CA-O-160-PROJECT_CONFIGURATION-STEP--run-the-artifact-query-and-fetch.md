@@ -6,15 +6,15 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 type: Step
-version: 5
-updated_at: 2026-10-24 00:38:25 +0400
+version: 7
+updated_at: 2026-10-27 06:04:45 +0400
 subjects:
-  governs: Subject/Domain/Node/Continuant/Selection
+  governs: Subject/Graph Node/Domain/Continuant/Selection
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Engineering/Carrier/File Carrier.Format: Markdown'
-  - Subject/Domain/Node/Continuant/History/Journal
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Carrier/File.Format: Markdown'
+  - Subject/Graph Node/Domain/Continuant/History/Journal
 relations:
   part_of:
   - CA-O-158

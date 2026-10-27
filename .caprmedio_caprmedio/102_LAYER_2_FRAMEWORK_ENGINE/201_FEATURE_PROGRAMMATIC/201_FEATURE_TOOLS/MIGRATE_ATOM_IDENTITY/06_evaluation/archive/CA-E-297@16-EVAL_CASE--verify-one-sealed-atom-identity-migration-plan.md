@@ -1,0 +1,40 @@
+---
+cce_version: cce_1
+cce_form: evaluation
+subjects:
+  governs: Subject/Graph Node/Domain/Continuant/Atom
+  depends_on: []
+version: 16
+updated_at: 2026-10-25 17:32:27 +0400
+relations:
+  evaluation_for:
+  - CA-M-155
+  derived_from:
+  - CA-A-057
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-297@16
+status: Archived
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 2
+---
+# Verify one sealed Atom identity migration plan
+
+## Claim checked
+
+the identity-migration Method produces one sealed migration plan **before** **any** effect.
+
+## Test case
+
+Plan one identity migration with a fixed source frontier **and** relation set.
+
+## Acceptance criteria
+
+the plan names **every** affected carrier **and** precondition **without** applying a mutation **or** widening its input set.
+
+## Failure disposition
+
+Reject an unsealed **or** effectful migration plan.

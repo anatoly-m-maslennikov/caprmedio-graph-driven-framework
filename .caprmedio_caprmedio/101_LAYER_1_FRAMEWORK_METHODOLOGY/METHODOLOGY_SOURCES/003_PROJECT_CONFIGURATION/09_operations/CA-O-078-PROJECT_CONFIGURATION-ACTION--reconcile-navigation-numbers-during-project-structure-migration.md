@@ -7,42 +7,30 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Reconcile Navigation Numbers
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Reconcile Navigation Numbers'
   depends_on:
-  - Subject/Domain/Node/Continuant/Project.Structure
-  - Subject/Domain/Node/Continuant/Scope Unit
-  - Subject/Domain/Node/Continuant/Scope Unit.Navigational Order Number
-  - Subject/Domain/Node/Continuant/Scope Unit.Local Order
-  - Subject/Domain/Node/Continuant/Scope Unit.Structural Level
-  - Subject/Domain/Node/Continuant/Scope Unit/Type
-  - Subject/Domain/Node/Continuant/Scope Unit.Label
-  - Subject/Engineering/Carrier
-  - Subject/Engineering/Carrier/Directory Carrier.Numeric Prefix
-  - Subject/Engineering/Implementation Folder
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Subject/Domain/Node/Continuant/Atom
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
-version: 12
-updated_at: 2026-10-24 01:18:03 +0400
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Scope Unit.Navigational Order Number
+  - Subject/Graph Node/Domain/Continuant/Scope Unit.Local Order
+  - Subject/Graph Node/Domain/Continuant/Scope Unit/Type
+  - Subject/Graph Node/Domain/Continuant/Scope Unit.Label
+  - Subject/Graph Node/Carrier
+  - Subject/Graph Node/Carrier/Directory.Numeric Prefix
+  - Subject/Graph Node/Carrier/Directory
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+version: 17
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
-  relates_to:
-  - CA-R-1483
-  - CA-R-1484
-  - CA-R-976
+  depends_on:
   - CA-R-981
   - CA-R-983
-  - CA-M-291
   - CA-D-440
-  - CA-D-442
   - CA-D-444
-  - CA-D-445
-  - CA-D-297
-  - CA-D-299
-  - CA-D-300
   - CA-D-380
-  - CA-O-012
-  - CA-O-015
 tier: 3
 ---
 # Summary

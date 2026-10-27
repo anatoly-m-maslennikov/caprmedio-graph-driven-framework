@@ -6,30 +6,29 @@ label: Task
 work_sequence_number: 18
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
 subjects:
-  governs: Projection
+  governs: Subject/Graph Node/Domain/Continuant/Projection
   depends_on:
-    - Requirement
-    - Method
-    - Evaluation
-    - Delivery
-    - Workflow
-    - Action
-    - Entity
-    - Term
-    - Plan
-version: 2
-updated_at: "2026-10-09 19:23:34 +0400"
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Term
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   is_decomposition_of:
-    - CA-P-1872
+  - CA-P-1872
   blocks:
-    - CA-P-1898
+  - CA-P-1898
+tier: 3
 ---
 # Summary
 
@@ -99,7 +98,7 @@ The following baseline pins bind the reviewed pre-repair bytes at Git commit `13
 - `CA-R-1279@12` — `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1279-CORE_META_MODEL-CORE-REQUIREMENT--govern-every-defined-term.md` — SHA-256 `80e2ba7b9461cf5909891d3c7c2c2bcd12baccc161b7a86f7b977552a61666d5`.
 - `CA-R-1319@10` — `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md` — SHA-256 `9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58`.
 - `CA-R-1435@7` — `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1435-CORE_META_MODEL-CORE--define-narrower-than.md` — SHA-256 `3146341d2251f2d539cdbf7dd63313bf5b0c7c1b09656b3b38070b037cbecf72`.
-- `CA-R-1437@6` — `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md` — SHA-256 `31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf`.
+- `CA-R-1437@6` — `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL--keep-one-source-for-each-relation-fact.md` — SHA-256 `31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf`.
 - `CA-R-1454@7` — `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL-GENERAL--derive-governed-terms-views-from-selected-authority.md` — SHA-256 `bab78ca52edb070123af5d40dd61fe4f44cf70941253aeb6aaf9deab0a5283f5`.
 - `CA-R-1456@8` — `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL-GENERAL--derive-entities-views-from-selected-authority.md` — SHA-256 `3e389c9c223a5200e8fd7a1f3929dfa800f107e2b4e9a606a4eaf70247094fc8`.
 - `CA-R-1835@1` — `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/04_requirement/CA-R-1835-GRAPH_PROJECTIONS--build-faithful-entities-graph-projections.md` — SHA-256 `3d54055b0861ce4cf6734705067f24516ff2adb2259d481e66290618daab9778`.

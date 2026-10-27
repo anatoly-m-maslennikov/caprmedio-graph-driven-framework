@@ -5,18 +5,22 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Local Configuration Atom Frontier
-    occurrent:
-      - Local Configuration Atom Normalization
+  governs: Subject/Graph Node/Domain/Continuant/Atom
   depends_on:
-    occurrent:
-      - CA-P-919
-version: 2
-updated_at: 2026-08-29 09:23:00 +0400
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//CORE_META_MODEL
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Engineering/Methodology
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Normalize Local Configuration Atoms
 

@@ -7,21 +7,16 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Method Learning Workflow'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Method Learning Workflow'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Graph/Relation/Type: On Result'
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
-version: 10
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-O-101
-  - CA-O-098
-  - CA-R-1525
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+version: 13
+updated_at: 2026-10-26 17:20:40 +0400
+relations: {}
 tier: 3
 ---
 # Summary
@@ -34,7 +29,7 @@ Method Learning Workflow **means** the separately invoked graph that derives **a
 
 - entry: CA-O-101.
 - nodes: CA-O-101, CA-O-098.
-- transitions use Workflow-scoped `ON_RESULT`; terminal results are **not** Steps.
+- transitions use the Workflow's declared Step structure; result-based routing belongs to the applicable Conditional Step definition; terminal results are **not** Steps.
 
 | From Step | Result condition | Next Step **or** terminal result |
 |---|---|---|

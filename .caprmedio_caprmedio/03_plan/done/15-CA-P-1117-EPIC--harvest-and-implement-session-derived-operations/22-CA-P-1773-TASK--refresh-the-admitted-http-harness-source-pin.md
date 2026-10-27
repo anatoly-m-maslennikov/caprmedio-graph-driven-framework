@@ -5,20 +5,27 @@ type: Plan
 label: Task
 work_sequence_number: 22
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Active
-version: 2
-updated_at: "2026-10-08 00:06:48 +0000"
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Release Harness source-pin refresh"
-  depends_on: [Delivery, Evaluation, Implementation, Manifest]
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Manifest
 relations:
-  is_decomposition_of: [CA-P-1117]
-  blocks: [CA-P-1757, CA-P-1717, CA-P-1721]
+  is_decomposition_of:
+  - CA-P-1117
+  blocks:
+  - CA-P-1757
+  - CA-P-1717
+  - CA-P-1721
+tier: 3
 ---
 # Summary
 

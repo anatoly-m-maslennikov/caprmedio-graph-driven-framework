@@ -6,18 +6,23 @@ label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: Tool
-  depends_on: [Atom, Scope Unit, Configuration, Action, Workflow, Plan]
-version: 2
-updated_at: "2026-10-13 23:12:55 +0400"
+  governs: Subject/Graph Node/Engineering/Continuant/Tool
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Workflow
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-2301]
+  is_decomposition_of:
+  - CA-P-2301
+tier: 3
 ---
 # Summary
 

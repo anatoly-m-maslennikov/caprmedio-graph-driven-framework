@@ -6,19 +6,27 @@ label: Task
 work_sequence_number: 35
 current_scope_unit: caprmedio
 claim_target_scope_unit: REVERT_CHANGES
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Accepted native reversal evidence pin resolution"
-  depends_on: [Operator, Action, Journal, Carrier, Evaluation]
-version: 3
-updated_at: "2026-10-13 19:20:22 +0400"
+  governs: Subject/Graph Node/Engineering/Revert Changes/Admission and Result Evaluation
+  depends_on:
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Evaluation
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1568]
-  blocks: [CA-P-1568, CA-P-1567, CA-P-1519]
+  is_decomposition_of:
+  - CA-P-1568
+  blocks:
+  - CA-P-1568
+  - CA-P-1567
+  - CA-P-1519
+tier: 3
 ---
 # Summary
 

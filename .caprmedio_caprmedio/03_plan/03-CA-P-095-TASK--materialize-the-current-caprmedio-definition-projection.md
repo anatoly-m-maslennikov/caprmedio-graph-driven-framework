@@ -2,20 +2,24 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - CAPRMEDIO Definition Projection Materialization
+  governs: Subject/Graph Node/Domain/Continuant/Projection
   depends_on:
-    continuant:
-      - CAPRMEDIO Definition
-      - Intelligent Work Environment
-      - Principle Projection
-version: 5
-updated_at: "2026-09-09 21:56:59 +0400"
+  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
+  - Subject/Graph Node/Domain/Continuant/Projection
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 98
 relations:
   derived_from:
-    - CA-A-062
+  - CA-A-062
+status: Active
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
+atom_id: CA-P-095
 ---
 # Materialize the current CAPRMEDIO Definition projection
 

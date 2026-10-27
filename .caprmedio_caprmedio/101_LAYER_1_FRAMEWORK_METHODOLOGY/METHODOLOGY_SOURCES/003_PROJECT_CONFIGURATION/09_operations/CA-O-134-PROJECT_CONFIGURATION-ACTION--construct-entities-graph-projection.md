@@ -7,20 +7,20 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Domain/Node/Continuant/Projection
+  governs: Subject/Graph Node/Domain/Continuant/Projection
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node
-  - Subject/Domain/Node/Continuant/Term//Property
-  - 'Subject/Domain/Node/Continuant/Projection/Type: Entities Graph'
-  - Subject/Domain/Node/Continuant/Project.Structure
-  - Relation Kind
-  - Artifact/Revision
-  - Subject/Domain/Node/Continuant/History/Journal
-version: 11
-updated_at: 2026-10-24 00:51:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node
+  - Subject/Graph Node/Domain/Continuant/Term//Property
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph'
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Subject/Graph Relation/Type
+  - Subject/Graph Node/Engineering/Traceability
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 17
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
-  relates_to:
+  depends_on:
   - CA-R-1438
   - CA-R-1456
   - CA-R-1746
@@ -32,8 +32,6 @@ relations:
   - CA-R-1483
   - CA-D-440
   - CA-E-449
-  - CA-R-1720
-  - CA-R-1728
 tier: 3
 ---
 # Summary
@@ -46,7 +44,7 @@ Construct Entities Graph Projection **means** the Action that constructs **or** 
 
 ### Inputs and admission
 
-require an admitted request, explicit source selection **and** any narrower display selection, the exact current source set **and** governing source/Relation Kind authority, representation configuration, target Projection/output destination, any existing Projection with source evidence, admitted realization/permissions **and** actual Run/effect evidence context. the source set identifies all required source kinds **and** their coverage, including the authoritative Project Structure under CA-R-1483/CA-D-440 **when** declared Scope Unit facts are selected. upstream Projections need their own identity/Revision **and** ultimate source traceability, **not** independent authority. an explicitly empty evidenced selection differs from an absent **or** unreadable selection.
+require an admitted request, explicit source selection **and** any narrower display selection, the exact current source set **and** governing source Relation Type authority and any selected Graph Rule constraints, representation configuration, target Projection/output destination, any existing Projection with source evidence, admitted realization/permissions **and** actual Run/effect evidence context. the source set identifies all required source kinds **and** their coverage, including the authoritative Project Structure under CA-R-1483/CA-D-440 **when** declared Scope Unit facts are selected. upstream Projections need their own identity/Revision **and** ultimate source traceability, **not** independent authority. an explicitly empty evidenced selection differs from an absent **or** unreadable selection.
 
 ### Behavior
 
@@ -54,7 +52,7 @@ any consumed derived fact context binds the exact selected source contributions,
 
 1. resolve the actual request, source/display boundaries, admitted execution kind **and** capabilities **before** effects. retain source identities, Revisions **and** exact source locations **without** silently substituting current files for the admitted frontier. do **not** infer Scope Units from folders **or** convert native declarations into invented Atoms.
 2. construct all **and** only selected native Entity identities, their selected authoritative Property facts **and** admitted Relations under CA-R-1438/CA-R-1456 **and** the actual governing source declarations. retain actual Property bearers, occurrences, values **and** source contribution evidence; generic Atom/Carrier metadata does **not** transfer to its GOVERNS target. Subject GOVERNS/DEPENDS_ON incidence is **not** a native Entity Relation. declared Project Structure facts retain their non-Atom source identity/Revision; observed materialization remains separately traced, never declaration authority. preserve existing canonical/bearer-qualified identities; multiple views **or** governing Claims do **not** create duplicate identities.
-3. resolve each Relation's graph-qualified metadata under CA-R-1246/CA-R-806. preserve admitted direction, qualified endpoints, context **and** cardinality; use CA-R-1472 for external references, keeping them distinguishable from native members. source **and** admitted derived Relation traceability follows CA-R-1437. no foreign-kind edge, fabricated Property value **or** inferred identity fills a gap.
+3. resolve each Relation Type's defining Claim under CA-R-1246/CA-R-806 and preserve any selected Graph Rule constraints. preserve its declared direction and source traceability; resolve endpoint classes, graph contexts and cardinality from those Rules when present, without inventing default permissions or prohibitions. use CA-R-1472 for external references, keeping them distinguishable from native members. source **and** admitted derived Relation traceability follows CA-R-1437. no foreign-kind edge, fabricated Property value **or** inferred identity fills a gap.
 4. retain exact source Claim/Artifact Revision evidence for admission **and** represented facts under CA-R-1746/CA-R-1471, including any upstream chain. apply the applicable CA-E-449 checks to the requested scope **and** preserve separate fidelity, graph-validity **and** coverage outcomes. missing, conflicting, inaccessible, unsupported **or** stale regions remain explicitly identified; an unperformed **or** unresolved check is **not** a pass.
 5. confirm source/definition/permission currentness **before** publishing. publish **only** to the authorized derived-output destination. return no_op **only** **when** an existing Projection demonstrably matches the exact current selection/configuration **and** satisfies all required checks; a missing capability **or** stale prior output is **not** no_op. an explicitly authorized limited diagnostic output retains its actual incomplete/invalid state; do **not** replace an accepted complete target with an unapproved partial result.
 6. retain actual output effects **and** independent start/terminal Action/Run evidence, plus parent Workflow/Step references **when** applicable, in the one Journal under CA-R-1720/CA-R-1728. a Journal append is a provenance obligation, not a construction gate; append failure retains the actual result/effects and emits a `recording_error` diagnostic with pending evidence. only missing or uncertain independent Run/effect evidence yields `recording_blocked`; recover the append separately **without** blind construction replay. do **not** expose secrets **or** invent a no-op Artifact change.

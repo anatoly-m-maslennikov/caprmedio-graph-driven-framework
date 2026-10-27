@@ -5,18 +5,19 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - caprmedio Project Atom Frontier
-    occurrent:
-      - caprmedio Project Atom Normalization
+  governs: Subject/Graph Node/Domain/Continuant/Atom
   depends_on:
-    occurrent:
-      - CA-P-924
-version: 3
-updated_at: 2026-08-30 17:39:21 +0400
+  - Subject/Graph Node/Domain/Continuant/Project
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Normalize caprmedio Project Atoms
 

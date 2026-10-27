@@ -6,17 +6,19 @@ label: Epic
 work_sequence_number: 6
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Backlog
 subjects:
-  governs: Scope Unit
-  depends_on: [Scope Unit, Project Structure, Directory Carrier]
+  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Directory Carrier
 relations:
-  relates_to: [CA-P-2401]
-version: 3
-updated_at: "2026-10-20T19:51:40.038Z"
+  relates_to:
+  - CA-P-2401
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 ---
 # Summary
 

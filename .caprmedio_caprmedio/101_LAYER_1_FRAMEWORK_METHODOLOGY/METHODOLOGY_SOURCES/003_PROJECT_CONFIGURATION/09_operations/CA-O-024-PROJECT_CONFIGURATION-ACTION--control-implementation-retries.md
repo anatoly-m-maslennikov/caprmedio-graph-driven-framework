@@ -7,22 +7,22 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run.Implementation Retry Limit
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - Subject/Domain/Node/Occurrent/Execution/Step Run
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan/Type: Plan'
-  - Autonomous Confidence Threshold
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Engineering/Operation-Local Failure Containment
-version: 19
-updated_at: 2026-10-24 00:51:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
+  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Graph Node/Engineering/Execution Control/Failure Handling
+version: 23
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
-  relates_to:
+  depends_on:
   - CA-R-1559
   - CA-R-1591
   - CA-M-295

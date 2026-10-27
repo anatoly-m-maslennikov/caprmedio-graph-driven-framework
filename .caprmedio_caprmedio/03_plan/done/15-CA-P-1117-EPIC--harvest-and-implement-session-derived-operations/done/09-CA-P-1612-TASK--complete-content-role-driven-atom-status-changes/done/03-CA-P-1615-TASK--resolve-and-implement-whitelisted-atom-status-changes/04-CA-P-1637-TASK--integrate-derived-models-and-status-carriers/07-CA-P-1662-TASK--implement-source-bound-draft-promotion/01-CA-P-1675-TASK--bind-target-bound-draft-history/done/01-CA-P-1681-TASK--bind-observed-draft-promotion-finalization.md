@@ -5,20 +5,26 @@ type: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Bind observed Draft promotion finalization"
-  depends_on: [Atom, Carrier, History, Runtime, Tool]
-version: 1
-updated_at: "2026-10-05 05:18:32 +0000"
+  governs: Subject/Graph Node/Engineering/Atom Lifecycle/Draft History
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Domain/Continuant/History
+  - Subject/Graph Node/Engineering/Occurrent/Runtime
+  - Subject/Graph Node/Engineering/Continuant/Tool
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1675]
-  blocks: [CA-P-1676]
+  is_decomposition_of:
+  - CA-P-1675
+  blocks:
+  - CA-P-1676
+tier: 3
 ---
 # Summary
 

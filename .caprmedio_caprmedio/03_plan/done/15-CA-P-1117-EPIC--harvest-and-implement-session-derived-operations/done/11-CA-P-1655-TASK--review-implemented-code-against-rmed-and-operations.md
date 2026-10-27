@@ -5,20 +5,30 @@ type: Plan
 label: Task
 work_sequence_number: 11
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Epic implementation alignment"
-  depends_on: [Implementation, Requirement, Method, Evaluation, Delivery, Operations, Workflow, Action, Tool]
-version: 10
-updated_at: "2026-10-08 15:33:32 +0000"
+  governs: Subject/Graph Node/Engineering/Implementation Evaluation
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Engineering/Continuant/Tool
+version: 17
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1117]
-  blocks: [CA-P-1124]
+  is_decomposition_of:
+  - CA-P-1117
+  blocks:
+  - CA-P-1124
+tier: 3
 ---
 # Summary
 

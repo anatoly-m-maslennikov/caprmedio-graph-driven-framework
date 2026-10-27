@@ -6,19 +6,23 @@ label: Task
 work_sequence_number: 14
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Operation Carrier normalization packet 8"
-  depends_on: [Operations, "Markdown Atom Carrier/Structure"]
-version: 2
-updated_at: "2026-10-04 15:17:45 +0000"
+  governs: Subject/Graph Node/Engineering/Continuant/Carrier
+  depends_on:
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
+  - Subject/Graph Node/Engineering/Continuant/Carrier/File Carrier.Structure
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1131]
-  blocks: [CA-P-1132, CA-P-1157]
+  is_decomposition_of:
+  - CA-P-1131
+  blocks:
+  - CA-P-1132
+  - CA-P-1157
+tier: 3
 ---
 # Summary
 

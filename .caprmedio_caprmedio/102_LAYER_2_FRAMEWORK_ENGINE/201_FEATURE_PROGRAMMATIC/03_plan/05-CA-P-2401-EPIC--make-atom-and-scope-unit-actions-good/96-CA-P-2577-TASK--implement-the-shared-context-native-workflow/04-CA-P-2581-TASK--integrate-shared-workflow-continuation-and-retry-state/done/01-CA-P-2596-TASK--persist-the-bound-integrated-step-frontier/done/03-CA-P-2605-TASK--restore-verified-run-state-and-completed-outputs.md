@@ -6,19 +6,25 @@ label: Task
 work_sequence_number: 3
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Done
-version: 3
-updated_at: "2026-10-22T16:28:06Z"
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: Entity/Node/Continuant/Implementation
+  governs: Subject/Graph Node/Engineering/Workflow Orchestration/Run Execution Dispatch
   depends_on: []
 relations:
-  is_decomposition_of: [CA-P-2596]
-  depends_on: [CA-P-2604]
-  relates_to: [CA-R-1527, CA-M-405, CA-M-422, CA-M-430, CA-O-016]
+  is_decomposition_of:
+  - CA-P-2596
+  depends_on:
+  - CA-P-2604
+  relates_to:
+  - CA-R-1527
+  - CA-M-405
+  - CA-M-422
+  - CA-M-430
+  - CA-O-016
+tier: 3
 ---
 # Summary
 

@@ -7,29 +7,19 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Domain/Node/Continuant/Atom
+  governs: Subject/Graph Node/Domain/Continuant/Atom
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Atom.Summary
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Atom.Version Number
-  - Subject/Domain/Node/Continuant/Atom.Status
-  - Subject/Engineering/Carrier
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Subject/Domain/Node/Continuant/History/Journal
-version: 19
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-O-051
-  - CA-O-067
-  - CA-R-1432
-  - CA-R-1464
-  - CA-R-1521
-  - CA-R-1788
-  - CA-R-807
-  - CA-D-303
-  - CA-D-289
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Atom.Summary
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
+  - Subject/Graph Node/Domain/Continuant/Atom.Status
+  - Subject/Graph Node/Carrier
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 22
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 tier: 3
 ---
 # Summary

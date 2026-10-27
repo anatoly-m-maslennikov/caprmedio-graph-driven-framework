@@ -5,18 +5,20 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Project Scope Unit Graph Source Authority
-    occurrent:
-      - Project Scope Unit Graph Source Authority Repair
+  governs: Subject/Graph Node/Domain/Continuant/Project.Structure
   depends_on:
-    occurrent:
-      - CA-P-931
-version: 2
-updated_at: 2026-08-31 21:37:09 +0400
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Repair Project Scope Unit Graph Source Authority
 

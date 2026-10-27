@@ -1,0 +1,24 @@
+---
+subject_scopes:
+- guidance
+version: 12
+updated_at: 2026-10-26 00:46:35 +0400
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations:
+  child_of:
+  - CA-R-1056
+author: Anatoly Maslennikov
+content_role: Requirement
+current_scope_unit: SKILLS
+status: Active
+atom_id: CA-R-563
+type: Rule
+tier: 1
+subjects:
+  governs: Subject/Graph Node/UX/Adaptive Skill Guidance
+---
+# Calibrate guidance to current adequacy
+
+CAPRMEDIO Skills **and** their prompts provide **only** the guidance necessary **to** meet the operator-defined adequacy threshold under the current model, provider, host, task, risk, **and** Evaluation conditions, increasing **or** reducing guidance **when** evidence changes those conditions.

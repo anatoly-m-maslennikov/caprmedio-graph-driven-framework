@@ -6,26 +6,25 @@ label: Task
 work_sequence_number: 18
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Final-partition Tool policy follow-up"
+  governs: Subject/Graph Node/Engineering/Continuant/Tool
   depends_on:
-    - "Project"
-    - "Operations"
-version: 2
-updated_at: "2026-10-04 10:50:25 +0400"
+  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/Graph Node/Engineering/Operations
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   is_decomposition_of:
-    - CA-P-1129
+  - CA-P-1129
   blocks:
-    - CA-P-1264
-    - CA-P-1119
-    - CA-P-1130
-    - CA-P-1155
+  - CA-P-1264
+  - CA-P-1119
+  - CA-P-1130
+  - CA-P-1155
+tier: 3
 ---
 # Summary
 
@@ -594,7 +593,7 @@ Own A978,thisleafresult/Done,P1129roll-up and actual next bounded worker/source 
       "text_chars": 3584,
       "context_only": true,
       "source_character_spans_not_selected_fragments": true,
-      "text": "# Task, scope, and boundaries\n\nThis harvest examines one bounded claim for the CAPRMEDIO `TOOLS` Method/Evaluation authority: **minimize unit tests and rely more on integration, functional, end-to-end, and canary tests because unit tests obstruct code evolution**. The receiving use is a later operator decision about TOOLS testing policy. This result is evidence, not that decision: it changes no Atom, code, test, or project setting.\n\nThe target is the local, predominantly Python, file/process/Git-oriented Toolset and its governed evaluations. Current project authority already leans toward real public-boundary testing:\n\n- [CA-E-515](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-515-TOOLS-QA_CASE--check-atom-validator-carrier-coverage.md) requires the delivered command, public JSON interface, isolated fixture Projects, and real validation behavior while mocking only external boundaries.\n- [CA-E-517](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-517-TOOLS-QA_CASE--check-atom-validator-isolation-and-repeatability.md) requires end-to-end fixture execution, byte-preservation checks, repeatability, and explicit incomplete-coverage states.\n- [CA-E-353](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-353-TOOLS-EVAL_APPROACH--evaluate-the-installed-toolset-across-supported-boundaries.md) evaluates the installed release across declared Python and platform boundaries rather than only the source tree.\n- [CA-E-354](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-354-TOOLS-EVAL_APPROACH--evaluate-tool-source-architecture-and-dispatch-conformance.md) evaluates source architecture and dispatch boundaries separately.\n\nThe research boundary is software test-portfolio design for evolvable tools. It includes test levels, functional testing, implementation coupling, mocks, integration/contract testing, end-to-end economics, changed-code adequacy, and progressive exposure. It excludes a full survey of formal verification, static analysis, security testing, performance testing, fuzzing, property-based testing, regulated safety cases, UI-specific tooling, and LLM evaluation. Those methods may belong in a complete policy but are not needed to assess the bounded claim.\n\nEnglish-language peer-reviewed research, international standards, official engineering documentation, and first-party practitioner accounts were admitted. Sources had to expose a stable locator and directly bear on at least one of: defect-detection adequacy, change coupling, feedback cost, boundary realism, flakiness, or deployment risk. The freshness boundary is 4 October 2026. Recent 2024–2025 work and current official guidance were screened alongside older load-bearing studies; age alone was not treated as disqualifying. The search is plural and reconstructible, not exhaustive.\n\nThe governing FPF source is `G.2 — SoTA Harvester & Synthesis`. Its ledger-first, plural-tradition method was used without fusing rival testing traditions. The run is complete within this boundary. No durable report was requested or created; this is the final consolidated result for the `COMPLETE` Plan.\n\n"
+      "text": "# Task, scope, and boundaries\n\nThis harvest examines one bounded claim for the CAPRMEDIO `TOOLS` Method/Evaluation authority: **minimize unit tests and rely more on integration, functional, end-to-end, and canary tests because unit tests obstruct code evolution**. The receiving use is a later operator decision about TOOLS testing policy. This result is evidence, not that decision: it changes no Atom, code, test, or project setting.\n\nThe target is the local, predominantly Python, file/process/Git-oriented Toolset and its governed evaluations. Current project authority already leans toward real public-boundary testing:\n\n- [CA-E-515](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-515-TOOLS-EVAL_CASE--check-atom-validator-carrier-coverage.md) requires the delivered command, public JSON interface, isolated fixture Projects, and real validation behavior while mocking only external boundaries.\n- [CA-E-517](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-517-TOOLS-EVAL_CASE--check-atom-validator-isolation-and-repeatability.md) requires end-to-end fixture execution, byte-preservation checks, repeatability, and explicit incomplete-coverage states.\n- [CA-E-353](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-353-TOOLS-EVAL_CASE--evaluate-the-installed-toolset-across-supported-boundaries.md) evaluates the installed release across declared Python and platform boundaries rather than only the source tree.\n- [CA-E-354](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-354-TOOLS-EVAL_CASE--evaluate-tool-source-architecture-and-dispatch-conformance.md) evaluates source architecture and dispatch boundaries separately.\n\nThe research boundary is software test-portfolio design for evolvable tools. It includes test levels, functional testing, implementation coupling, mocks, integration/contract testing, end-to-end economics, changed-code adequacy, and progressive exposure. It excludes a full survey of formal verification, static analysis, security testing, performance testing, fuzzing, property-based testing, regulated safety cases, UI-specific tooling, and LLM evaluation. Those methods may belong in a complete policy but are not needed to assess the bounded claim.\n\nEnglish-language peer-reviewed research, international standards, official engineering documentation, and first-party practitioner accounts were admitted. Sources had to expose a stable locator and directly bear on at least one of: defect-detection adequacy, change coupling, feedback cost, boundary realism, flakiness, or deployment risk. The freshness boundary is 4 October 2026. Recent 2024–2025 work and current official guidance were screened alongside older load-bearing studies; age alone was not treated as disqualifying. The search is plural and reconstructible, not exhaustive.\n\nThe governing FPF source is `G.2 — SoTA Harvester & Synthesis`. Its ledger-first, plural-tradition method was used without fusing rival testing traditions. The run is complete within this boundary. No durable report was requested or created; this is the final consolidated result for the `COMPLETE` Plan.\n\n"
     },
     {
       "source_message": {

@@ -6,19 +6,26 @@ label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Independent Artifact query source and RMED review"
-  depends_on: [Operations, Workflow, Action, Tool, Evaluation, Journal]
-version: 2
-updated_at: "2026-10-05 01:05:27 +0400"
+  governs: Subject/Graph Node/Engineering/Evaluation
+  depends_on:
+  - Subject/Graph Node/Engineering/Operations
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1520]
-  blocks: [CA-P-1525]
+  is_decomposition_of:
+  - CA-P-1520
+  blocks:
+  - CA-P-1525
+tier: 3
 ---
 # Summary
 

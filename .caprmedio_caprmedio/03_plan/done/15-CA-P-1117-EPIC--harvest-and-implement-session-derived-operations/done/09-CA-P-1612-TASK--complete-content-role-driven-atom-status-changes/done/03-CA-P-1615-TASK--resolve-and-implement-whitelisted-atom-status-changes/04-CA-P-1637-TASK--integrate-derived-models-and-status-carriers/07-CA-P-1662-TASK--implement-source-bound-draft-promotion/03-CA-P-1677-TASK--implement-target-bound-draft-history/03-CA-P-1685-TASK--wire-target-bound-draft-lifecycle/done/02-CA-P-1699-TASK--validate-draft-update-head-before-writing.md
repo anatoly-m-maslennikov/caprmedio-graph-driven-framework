@@ -5,20 +5,26 @@ type: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Validate Draft Update head before writing"
-  depends_on: [Atom, Carrier, History, Tool, Evaluation]
-version: 1
-updated_at: "2026-10-05 07:10:33 +0000"
+  governs: Subject/Graph Node/Engineering/Implementation
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Domain/Continuant/History
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Validation
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1685]
-  blocks: [CA-P-1638]
+  is_decomposition_of:
+  - CA-P-1685
+  blocks:
+  - CA-P-1638
+tier: 3
 ---
 # Summary
 

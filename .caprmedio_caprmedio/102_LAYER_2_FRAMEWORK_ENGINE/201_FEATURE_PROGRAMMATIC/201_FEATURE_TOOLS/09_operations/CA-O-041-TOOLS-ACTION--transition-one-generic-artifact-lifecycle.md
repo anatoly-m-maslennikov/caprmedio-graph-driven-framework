@@ -2,15 +2,14 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: Transition Generic Artifact Lifecycle
+  governs: Subject/Graph Node/Engineering/Storage
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Artifact
-  - Subject/Engineering/Carrier
-  - Artifact/Revision
-  - Subject/Graph/Relation
-version: 8
-updated_at: 2026-10-24 02:14:24 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Term//Artifact
+  - Subject/Graph Node/Carrier
+  - Subject/Graph Relation
+version: 14
+updated_at: 2026-10-27 06:04:45 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}

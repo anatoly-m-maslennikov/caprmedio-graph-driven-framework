@@ -6,23 +6,17 @@ current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action//Run host-capable Candidate E2E'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Run host-capable Candidate E2E'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Test
-  - Docker Image
-  - Framework Package
-  - Subject/Domain/Node/Continuant/History/Journal
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-version: 6
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-O-164
-  - CA-O-186
-  - CA-O-182
-  - CA-R-1525
-  - CA-R-1720
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Engineering/Verification
+  - Subject/Graph Node/Carrier/Docker Image
+  - Subject/Graph Node/Carrier
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+version: 12
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 tier: 3
 ---
 # Summary

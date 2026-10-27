@@ -1,11 +1,9 @@
 ---
 subject_scopes:
 - applicability
-version: 12
-updated_at: 2026-10-24 04:48:21 +0400
-relations:
-  child_of:
-  - CA-R-622
+version: 15
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-826
@@ -16,7 +14,7 @@ current_scope_unit: caprmedio
 type: Boundary
 tier: 2
 subjects:
-  governs: Subject/Engineering/Codex Plugin
+  governs: 'Subject/Graph Node/Product: CAPRMEDIO Framework'
   depends_on: []
 ---
 # Codex native support only

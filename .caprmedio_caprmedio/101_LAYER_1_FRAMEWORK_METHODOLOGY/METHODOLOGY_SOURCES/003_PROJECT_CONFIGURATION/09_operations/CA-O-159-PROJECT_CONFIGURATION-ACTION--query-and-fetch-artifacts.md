@@ -6,16 +6,16 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 type: Action
-version: 7
-updated_at: 2026-10-24 01:18:03 +0400
+version: 10
+updated_at: 2026-10-27 06:04:45 +0400
 subjects:
-  governs: Subject/Domain/Node/Continuant/Selection
+  governs: Subject/Graph Node/Domain/Continuant/Selection
   depends_on:
-  - Subject/Domain/Node/Continuant/Term//Artifact
-  - Markdown
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Engineering/Carrier/Markdown Artifact Snapshot Query
-  - Subject/Domain/Node/Continuant/History/Journal
+  - Subject/Graph Node/Domain/Continuant/Term//Artifact
+  - 'Subject/Graph Node/Carrier/File.Format: Markdown'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Engineering/Data Handling/Source Retrieval
+  - Subject/Graph Node/Domain/Continuant/History/Journal
 relations: {}
 tier: 3
 ---

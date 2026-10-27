@@ -6,19 +6,26 @@ label: Task
 work_sequence_number: 19
 current_scope_unit: caprmedio
 claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Prepare native Entity and Term Graph golden inputs"
-  depends_on: [Implementation, Workflow, Action, Evaluation, Journal]
-version: 2
-updated_at: "2026-10-04 22:41:20 +0000"
+  governs: Subject/Graph Node/Engineering/Graph Projection
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Evaluation Implementation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1137]
-  blocks: [CA-P-1519, CA-P-1123]
+  is_decomposition_of:
+  - CA-P-1137
+  blocks:
+  - CA-P-1519
+  - CA-P-1123
+tier: 3
 ---
 # Summary
 

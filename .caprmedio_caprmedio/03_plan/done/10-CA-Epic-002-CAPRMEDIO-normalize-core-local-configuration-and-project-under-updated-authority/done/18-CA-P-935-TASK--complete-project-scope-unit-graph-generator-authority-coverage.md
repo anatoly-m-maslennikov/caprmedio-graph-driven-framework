@@ -5,18 +5,19 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Project Scope Unit Graph Generator
-    occurrent:
-      - Project Scope Unit Graph Generator Authority Coverage Completion
+  governs: Subject/Graph Node/Engineering/Continuant/Tool//GENERATE_PROJECT_GRAPH_STATE
   depends_on:
-    occurrent:
-      - CA-P-934
-version: 2
-updated_at: 2026-08-31 21:55:15 +0400
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Complete Project Scope Unit Graph Generator Authority Coverage
 

@@ -1,24 +1,18 @@
 ---
 subjects:
-  governs: Assess Atom Update Identity
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Assess Atom Update Identity'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Atom.Summary
-  - Subject/Domain/Node/Continuant/Atom.Substance
-  - Atom Change Classification
-  - Subject/Domain/Node/Continuant/Atom.Version Number
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-version: 16
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-R-1432
-  - CA-R-1464
-  - CA-M-303
-  - CA-R-1520
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Summary
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+version: 21
+updated_at: 2026-10-26 05:59:45 +0400
+relations: {}
 atom_id: CA-O-067
 content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION

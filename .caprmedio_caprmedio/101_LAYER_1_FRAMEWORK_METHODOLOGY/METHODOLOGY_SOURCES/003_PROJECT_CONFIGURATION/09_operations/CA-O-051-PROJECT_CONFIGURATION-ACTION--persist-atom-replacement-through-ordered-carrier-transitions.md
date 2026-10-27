@@ -1,18 +1,17 @@
 ---
 subjects:
-  governs: Persist Atom Replacement
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Persist Atom Replacement'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Atom
-  - Subject/Domain/Node/Continuant/Atom.Version Number
-  - Subject/Engineering/Carrier/File Carrier
-  - Subject/Domain/Node/Continuant/History/Journal
-  - Subject/Engineering/Carrier/File Carrier.Filename
-version: 15
-updated_at: 2026-10-24 00:51:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
+  - Subject/Graph Node/Carrier/File
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Carrier/File.Filename
+version: 20
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
-  relates_to:
-  - CA-R-1432
+  depends_on:
   - CA-R-807
 atom_id: CA-O-051
 content_role: Operations
@@ -33,7 +32,7 @@ Persist Atom Replacement **means** the reusable Action that persists **`=1`** ac
 
 1. persist the successor as Active **before** archiving the predecessor.
 2. archive the predecessor as one whole Carrier under CA-D-303 **and** record the corresponding replacement **in** the authoritative Journal with explicit predecessor **and** successor Atom IDs under CA-R-807.
-3. retain the predecessor's exact prior Revision bytes as history, including its prior Version, Status **and** Updated At, **without** another metadata edit to them. preserve the current predecessor's body, Summary, identity **and** every frontmatter value except Version, lifecycle `status` **and** `updated_at`; increment Version by exactly **`1`**, serialize `status: Archived` **and** refresh `updated_at` to the actual archive time. change its basename **only** by adding the canonical `@<version>` Archive suffix for that resulting Version under CA-D-289.
+3. retain the predecessor's exact prior Revision bytes as history, including its prior Version, Status **and** Updated At, **without** another metadata edit to them. materialize the predecessor's Archived representation with its prior Version and Updated At, version-qualified identity and governed history location; archival alone does not increment Version or refresh Updated At. the Active successor receives Version **`N+1`** and the actual Project-time Updated At for the real replacement update. change its basename **only** by adding the canonical `@<version>` Archive suffix for that predecessor Version under CA-D-289.
 4. keep replacement history out of predecessor **and** successor Atom frontmatter; formal replacement relations **and** inverse navigation remain deferred under CA-R-807.
 
 ## Details

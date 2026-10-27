@@ -1,0 +1,47 @@
+---
+cce_version: cce_1
+cce_form: evaluation
+subjects:
+  governs: Subject/Graph Node/Engineering/Aspect/Data Handling/Data Validation
+  depends_on:
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Term//Artifact
+  - Artifact/Revision
+  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
+version: 20
+updated_at: 2026-10-26 00:46:35 +0400
+relations:
+  evaluation_for:
+  - CA-R-1146
+  - CA-O-036
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-417@20
+status: Archived
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 2
+---
+# Verify reconcile declared provenance
+
+## Claim checked
+
+CA-O-036 read-only classifies declared provenance links as current, missing, conflicting, stale, **or** unverifiable **without** inferring repair **or** adoption.
+
+## Applicable when
+
+apply whenever declared-provenance comparison **or** finding classification changes.
+
+## Test case
+
+select Artifacts whose declared source, draft, session, revision, **and** digest links together contain one current, missing, conflicting, stale, **and** unverifiable case. reconcile them **and** compare **all** selected carriers **before** **and** **after**.
+
+## Acceptance criteria
+
+the result assigns **every** case exactly its corresponding classification with attributable source evidence. no selected Artifact changes, no link is repaired, **and** no adoption decision is created.
+
+## Failure disposition
+
+reject the realization **and** preserve selected carriers, declared links, observed targets, classifications, before-and-after digests, **and** no-mutation proof.

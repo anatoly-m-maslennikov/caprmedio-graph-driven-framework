@@ -6,40 +6,21 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
-version: 8
-updated_at: 2026-10-24 04:08:11 +0400
+version: 12
+updated_at: 2026-10-27 06:04:45 +0400
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
-  - Subject/Engineering/Implementation Evaluation
-  - Subject/Engineering/Carrier
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-relations:
-  relates_to:
-  - CA-R-1515
-  - CA-O-016
-  - CA-O-020
-  - CA-O-089
-  - CA-O-104
-  - CA-M-424
-  - CA-M-405
-  - CA-M-411
-  - CA-M-395
-  - CA-M-396
-  - CA-M-397
-  - CA-M-398
-  - CA-M-399
-  - CA-M-400
-  - CA-E-389
-  - CA-E-539
-  - CA-E-540
-  - CA-D-638
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+  - Subject/Graph Node/Engineering/Verification
+  - Subject/Graph Node/Carrier
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+relations: {}
 tier: 3
 ---
 # Summary
@@ -48,7 +29,7 @@ Review a code candidate against admitted checks and applicable PROGRAMMATIC poli
 
 ## Operation
 
-Entry is CA-O-226. Every Step-to-Step transition below is an explicit ON_RESULT edge in this Workflow; terminal results are not additional Steps. No other entry or successor selection is admitted.
+Entry is CA-O-226. Every Step-to-Step route below is explicit in this Workflow's Step structure; result-based routing belongs to the applicable Conditional Step definition; terminal results are not additional Steps. No other entry or successor selection is admitted.
 
 Code Candidate Review Workflow means exactly four Steps: bind the candidate, run selected Evaluations, diagnose failed checks, and perform a read-only semantic review. It requires either an existing bounded Plan or an actually admitted in-session P/task containing its instruction, Definition of Done, and source context. It never creates a Plan Atom or fabricates an initiative identity. CA-O-020 and CA-O-089 retain their own selected P/Plan requirements.
 

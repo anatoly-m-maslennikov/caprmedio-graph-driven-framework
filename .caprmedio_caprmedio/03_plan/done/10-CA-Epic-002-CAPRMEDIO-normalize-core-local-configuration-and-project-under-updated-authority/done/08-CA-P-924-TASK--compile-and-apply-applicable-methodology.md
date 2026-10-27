@@ -5,18 +5,22 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Applicable Methodology
-    occurrent:
-      - Applicable Methodology Compilation
+  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
   depends_on:
-    occurrent:
-      - CA-P-923
-version: 2
-updated_at: 2026-08-30 16:32:06 +0400
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Compile and Apply Applicable Methodology
 

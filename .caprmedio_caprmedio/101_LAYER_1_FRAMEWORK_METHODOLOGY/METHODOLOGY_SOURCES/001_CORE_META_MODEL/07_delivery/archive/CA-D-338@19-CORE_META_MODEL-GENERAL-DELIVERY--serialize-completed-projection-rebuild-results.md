@@ -1,0 +1,29 @@
+---
+subjects:
+  governs: Subject/Domain/Node/Continuant/History/Journal.Record
+  depends_on: []
+version: 19
+updated_at: 2026-10-24 01:37:42 +0400
+relations: {}
+atom_id: CA-D-338@19
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 2
+type: Eng Decision
+---
+# Summary
+
+Serialize Completed Projection Rebuild Results
+
+## Scope
+
+completed Projection Rebuild Event results.
+
+## Claim
+
+**every** completed Projection Rebuild Event **must** serialize the published Projection Updated At value, output Carrier reference, **and** content digest.
+
+## Details

@@ -6,19 +6,26 @@ label: Task
 work_sequence_number: 14
 current_scope_unit: caprmedio
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Selected compiler compatibility correction"
-  depends_on: [Implementation, Evaluation, Projection]
-version: 4
-updated_at: "2026-10-04 23:15:24 +0400"
+  governs: Subject/Graph Node/Engineering/Compatibility Boundary
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/Projection
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1134]
-  blocks: [CA-P-1498, CA-P-1122, CA-P-1162, CA-P-1163]
+  is_decomposition_of:
+  - CA-P-1134
+  blocks:
+  - CA-P-1498
+  - CA-P-1122
+  - CA-P-1162
+  - CA-P-1163
+tier: 3
 ---
 # Summary
 

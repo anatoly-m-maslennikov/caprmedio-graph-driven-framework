@@ -1,24 +1,19 @@
 ---
 subjects:
-  governs: Subject/Domain/Node/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  governs: Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Projection
-  - Artifact/Revision
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Subject/Domain/Node/Continuant/History/Journal.Record
-  - 'Subject/Domain/Node/Continuant/Projection/Type: Reconciled Projection'
-  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
-  - Subject/Domain/Node/Continuant/Atom.Substance
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
-version: 9
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-O-025
-  - CA-O-010
-  - CA-O-011
-  - CA-R-1460
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Engineering/Traceability
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Reconciled Projection'
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
+version: 14
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 atom_id: CA-O-026
 content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION

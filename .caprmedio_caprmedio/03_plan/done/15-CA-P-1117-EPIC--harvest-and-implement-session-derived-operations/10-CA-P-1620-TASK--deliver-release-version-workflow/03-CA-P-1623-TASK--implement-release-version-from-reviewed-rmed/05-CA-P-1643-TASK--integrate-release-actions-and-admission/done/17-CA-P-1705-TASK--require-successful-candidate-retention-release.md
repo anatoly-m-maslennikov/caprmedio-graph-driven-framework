@@ -5,20 +5,27 @@ type: Plan
 label: Task
 work_sequence_number: 17
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Require successful candidate retention release"
-  depends_on: [Framework Instance Settings, Manifest, Evaluation, Image]
-version: 1
-updated_at: "2026-10-05 07:34:12 +0000"
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  - Subject/Graph Node/Engineering/Manifest
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Engineering/Image
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1643]
-  blocks: [CA-P-1704, CA-P-1697, CA-P-1644]
+  is_decomposition_of:
+  - CA-P-1643
+  blocks:
+  - CA-P-1704
+  - CA-P-1697
+  - CA-P-1644
+tier: 3
 ---
 # Summary
 

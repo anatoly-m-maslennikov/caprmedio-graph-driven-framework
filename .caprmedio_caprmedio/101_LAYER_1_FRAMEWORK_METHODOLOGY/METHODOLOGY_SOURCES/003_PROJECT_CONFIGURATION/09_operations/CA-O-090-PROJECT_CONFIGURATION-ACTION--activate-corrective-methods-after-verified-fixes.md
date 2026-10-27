@@ -7,29 +7,24 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Engineering/Corrective Method Acceptance
+  governs: Subject/Graph Node/Engineering/Execution Control/Effect Authorization
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Method'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Engineering/Source Check Adoption
-  - Subject/Domain/Node/Continuant/Atom.Summary
-  - Subject/Domain/Node/Continuant/Atom.Author
-  - Subject/Domain/Node/Continuant/Atom.Tier
-  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Autonomous Confidence Threshold
-  - Spec
-version: 14
-updated_at: 2026-10-24 01:18:03 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Graph Node/Engineering/Verification/Dynamic Testing
+  - Subject/Graph Node/Domain/Continuant/Atom.Summary
+  - Subject/Graph Node/Domain/Continuant/Atom.Author
+  - Subject/Graph Node/Domain/Continuant/Atom.Tier
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
+  - Subject/Graph Node/Domain/Continuant/Selection
+version: 19
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
-  relates_to:
-  - CA-O-021
-  - CA-O-020
+  depends_on:
   - CA-R-1559
-  - CA-R-1591
-  - CA-M-002
-  - CA-M-262
 tier: 3
 ---
 # Summary

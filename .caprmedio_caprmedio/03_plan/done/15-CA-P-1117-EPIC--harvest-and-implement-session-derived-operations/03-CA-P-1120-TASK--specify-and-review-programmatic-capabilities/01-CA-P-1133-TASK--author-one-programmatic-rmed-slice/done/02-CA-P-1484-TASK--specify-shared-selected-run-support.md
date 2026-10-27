@@ -6,19 +6,25 @@ label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Shared selected Run support"
-  depends_on: [Implementation, Workflow, Action]
-version: 1
-updated_at: "2026-10-04 22:39:38 +0400"
+  governs: Subject/Graph Node/Engineering/Workflow
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1133]
-  blocks: [CA-P-1122, CA-P-1162, CA-P-1163]
+  is_decomposition_of:
+  - CA-P-1133
+  blocks:
+  - CA-P-1122
+  - CA-P-1162
+  - CA-P-1163
+tier: 3
 ---
 # Summary
 
@@ -52,8 +58,8 @@ to avoid silently inventing one, their governing subject is carried in the
 existing declared `TOOLS` authority path. A separately authorized structural
 change may later relocate these carriers.
 
-- [CA-R-1821](../../../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/04_requirement/CA-R-1821-TOOLS-REQUIREMENT--admit-only-current-authorized-selected-operation-runs.md)
-  through [CA-R-1824](../../../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/04_requirement/CA-R-1824-TOOLS-REQUIREMENT--recover-selected-run-journal-evidence-without-replaying-effects.md):
+- [CA-R-1821](../../../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/04_requirement/CA-R-1821-TOOLS-RULE--admit-only-current-authorized-selected-operation-runs.md)
+  through [CA-R-1824](../../../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/04_requirement/CA-R-1824-TOOLS-RULE--recover-selected-run-journal-evidence-without-replaying-effects.md):
   current Operator/source admission; exact Run identity, definition/revision
   and lineage; truthful outcome mapping; and canonical Journal recovery
   without effect replay.

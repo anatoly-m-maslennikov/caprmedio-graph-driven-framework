@@ -6,18 +6,18 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 type: Workflow
-version: 12
-updated_at: 2026-10-24 01:18:03 +0400
+version: 15
+updated_at: 2026-10-27 06:04:45 +0400
 subjects:
-  governs: Subject/Domain/Node/Continuant/Selection
+  governs: Subject/Graph Node/Domain/Continuant/Selection
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Term//Artifact
-  - Markdown
-  - Subject/Domain/Node/Continuant/History/Journal
-  - Subject/Engineering/Workflow Orchestration/Artifact Query Connector Route
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Term//Artifact
+  - 'Subject/Graph Node/Carrier/File.Format: Markdown'
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Engineering/Data Handling/Source Retrieval
 relations: {}
 tier: 3
 ---

@@ -6,20 +6,19 @@ label: Epic
 work_sequence_number: 15
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Session-derived operational capability delivery"
+  governs: Subject/Graph Node/Engineering/Implementation
   depends_on:
-    - "Operations"
-    - "Implementation"
-version: 30
-updated_at: "2026-10-08 15:51:25 +0000"
+  - Subject/Graph Node/Engineering/Operations
+  - Subject/Graph Node/Engineering/Implementation
+version: 35
+updated_at: 2026-10-25 17:32:27 +0400
 relations: {}
+tier: 3
 ---
 # Summary
 

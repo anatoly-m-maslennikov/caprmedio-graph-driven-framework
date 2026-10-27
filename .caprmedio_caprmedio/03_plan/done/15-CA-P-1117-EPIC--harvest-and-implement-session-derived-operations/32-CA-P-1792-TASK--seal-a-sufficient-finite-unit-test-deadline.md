@@ -5,20 +5,27 @@ type: Plan
 label: Task
 work_sequence_number: 32
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Active
-version: 1
-updated_at: "2026-10-06 14:06:13 +0000"
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Source-sealed Release Unit deadline repair"
-  depends_on: [Evaluation, Framework Instance Settings, Source Carrier, Journal, Implementation]
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  - Subject/Graph Node/Engineering/Continuant/Carrier/Framework Instance Settings TOML Serialization
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Engineering/Implementation
 relations:
-  is_decomposition_of: [CA-P-1117]
-  relates_to: [CA-C-499, CA-P-1782]
+  is_decomposition_of:
+  - CA-P-1117
+  relates_to:
+  - CA-C-499
+  - CA-P-1782
+tier: 3
 ---
 # Summary
 

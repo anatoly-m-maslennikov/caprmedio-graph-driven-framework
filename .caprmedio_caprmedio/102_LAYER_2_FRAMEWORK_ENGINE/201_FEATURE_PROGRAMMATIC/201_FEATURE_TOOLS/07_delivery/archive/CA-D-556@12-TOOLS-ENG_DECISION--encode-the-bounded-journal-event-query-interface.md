@@ -1,0 +1,46 @@
+---
+atom_id: CA-D-556@12
+content_role: Delivery
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+status: Archived
+author: Anatoly Maslennikov
+version: 12
+updated_at: 2026-10-26 00:46:35 +0400
+subjects:
+  governs: Subject/Graph Node/Engineering/Aspect/Architecture/Communication
+  depends_on:
+  - Subject/Graph Node/Engineering/Journal Event Query
+  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
+relations:
+  delivery_for:
+  - CA-R-1862
+  - CA-R-1863
+  - CA-R-1865
+  - CA-R-1868
+  - CA-R-1869
+  - CA-R-1871
+type: Eng Decision
+tier: 4
+---
+# Summary
+
+Encode the bounded Journal Event query interface
+
+## Scope
+
+The Tool input and result contract.
+
+## Claim
+
+FIND_AND_FETCH_JOURNAL_EVENTS **must** deliver one bounded interface with a
+snapshot token (source root, byte-prefix length/hash, ordered member hashes, and
+Event-ID frontier), literal filter, JSON-Pointer Event selectors, result
+selection, page request, and the shared configurable maxima for request bytes,
+grammar depth, filter tokens, IN members, page size, selected fields, frontier
+members, per-member bytes, total reads, timeout, and retained findings. Result
+evidence reports each applicable configured and consumed/exhausted limit.
+
+## Details
+
+The interface has no SQL, code, secret, mutation, or implicit selection field.

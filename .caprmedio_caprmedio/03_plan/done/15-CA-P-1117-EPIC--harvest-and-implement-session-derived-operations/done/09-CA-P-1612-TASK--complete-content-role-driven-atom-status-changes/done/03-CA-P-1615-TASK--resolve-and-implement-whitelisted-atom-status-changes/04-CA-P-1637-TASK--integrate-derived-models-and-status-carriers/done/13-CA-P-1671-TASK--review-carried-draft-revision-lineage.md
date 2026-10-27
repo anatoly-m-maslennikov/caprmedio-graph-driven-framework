@@ -5,20 +5,26 @@ type: Plan
 label: Task
 work_sequence_number: 13
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Review carried Draft Revision lineage"
-  depends_on: [Atom, Carrier, Revision, Tool, Manifest, Evaluation]
-version: 1
-updated_at: "2026-10-05 03:59:46 +0000"
+  governs: Subject/Graph Node/Engineering/Atom Lifecycle/Draft History
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Atom Lifecycle/Draft History
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Evaluation
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1637]
-  blocks: [CA-P-1662]
+  is_decomposition_of:
+  - CA-P-1637
+  blocks:
+  - CA-P-1662
+tier: 3
 ---
 # Summary
 

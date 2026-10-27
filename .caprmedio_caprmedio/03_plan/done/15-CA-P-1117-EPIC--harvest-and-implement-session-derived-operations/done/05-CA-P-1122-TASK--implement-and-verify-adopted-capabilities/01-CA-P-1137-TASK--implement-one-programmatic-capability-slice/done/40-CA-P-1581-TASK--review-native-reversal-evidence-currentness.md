@@ -6,18 +6,23 @@ label: Task
 work_sequence_number: 40
 current_scope_unit: caprmedio
 claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Native reversal evidence currentness review"
-  depends_on: [Workflow, Action, Operator, Evaluation, Journal]
-version: 1
-updated_at: "2026-10-04 23:41:14 +0000"
+  governs: Subject/Graph Node/Engineering/Revert Changes/Admission and Result Evaluation
+  depends_on:
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1137]
+  is_decomposition_of:
+  - CA-P-1137
+tier: 3
 ---
 # Summary
 

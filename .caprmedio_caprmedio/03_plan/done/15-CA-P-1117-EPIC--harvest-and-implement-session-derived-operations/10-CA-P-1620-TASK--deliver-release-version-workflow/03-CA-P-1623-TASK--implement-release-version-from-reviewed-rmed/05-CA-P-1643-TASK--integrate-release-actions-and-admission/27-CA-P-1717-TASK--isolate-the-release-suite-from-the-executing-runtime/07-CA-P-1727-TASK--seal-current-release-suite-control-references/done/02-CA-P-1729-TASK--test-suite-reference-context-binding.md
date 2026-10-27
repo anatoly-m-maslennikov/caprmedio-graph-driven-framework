@@ -5,19 +5,22 @@ type: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 1
-updated_at: "2026-10-05 19:52:10 +0000"
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Release suite reference delivery/Test suite reference-context binding"
-  depends_on: [Implementation, Evaluation, Manifest, Test Suite]
+  governs: Subject/Graph Node/Engineering/Release Testing/Executor Admission
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Implementation Evaluation
+  - Subject/Graph Node/Engineering/Release Testing/Executor Admission
 relations:
-  is_decomposition_of: [CA-P-1727]
+  is_decomposition_of:
+  - CA-P-1727
+tier: 3
 ---
 # Summary
 

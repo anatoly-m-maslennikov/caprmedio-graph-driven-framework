@@ -7,25 +7,15 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
-  - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-  - 'Subject/Graph/Relation/Type: On Result'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Subject/Domain/Node/Continuant/History/Journal
-version: 18
-updated_at: 2026-10-24 00:38:25 +0400
-relations:
-  relates_to:
-  - CA-O-129
-  - CA-O-145
-  - CA-M-303
-  - CA-R-1508
-  - CA-R-1513
-  - CA-R-1520
-  - CA-R-1525
-  - CA-R-1720
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 22
+updated_at: 2026-10-26 17:47:19 +0400
+relations: {}
 tier: 3
 ---
 # Summary
@@ -38,7 +28,7 @@ One reusable parameterized Workflow graph binds Create Atom, Update Atom, Replac
 
 Each invocation admits exactly one Create target or one existing current target/predecessor, with its complete required Carrier set. Replace retains the complete accepted set of >=1 distinct successors for that one predecessor, not additional predecessors. A Move request admits exactly one existing current Atom, its exact source locator/digest, and one explicit destination mapping; it preserves identity and content meaning and does not discover descendants. A request naming multiple independent targets/predecessors ends blocked before Step dispatch or effects; bulk callers expand their requests into separate individually admitted Runs of this same Workflow, with fresh exact inputs/assessment/permission bindings for each, except the instructed Subjects-only batch admission below.
 
-For a containment cascade required by R1521, the calling Workflow binds the parent and each selected contained Atom's latest Revision as separate individually admitted Runs of this Workflow under each target's own model, without an optional descendant mode. For target Archived, select all recursively contained latest Atoms, including Done descendants. For target Done, leave contained latest Plans already Done unchanged and request Canceled for every other contained latest Plan. Other admitted targets retain R1521's same-Status rule. Older historical Revisions and references outside the parent Carrier tree are excluded. Each Run retains the single-target boundary below; none discovers, invokes or authorizes the other targets. The caller applies D461/D467 placement, including flat Archived Plan Markdown, and completes descendant Actions before any parent relocation that would silently move an independent current child. It rebinds each later target after earlier placement effects and advances only after a verified applied or no-op result. It stops on the first failed, refused or uncertain result, retains earlier completed effects and leaves remaining targets untouched, without automatic retry or cross-Atom rollback. One completed Run proves only its bound target; the caller reports the whole cascade complete only after every selected target has a verified result.
+For a containment cascade required by R1521, the calling Workflow binds the parent and each selected contained Atom's latest Revision as separate individually admitted Runs of this Workflow under each target's own model, without an optional descendant mode. For a containing Plan Atom whose requested Status is Done **or** Canceled, preserve contained latest Plans already Done **or** Canceled and request Canceled for every other contained latest Plan. After the cascade, every selected latest Plan must be Done **or** Canceled; mixed terminal statuses are allowed, and no contained Plan is forced to match the parent's requested Status merely because the parent is Done **or** Canceled. For non-Plan parents, retain R1521's existing Done exception: target Done leaves contained latest Plans already Done unchanged and requests Canceled for every other contained latest Plan; other admitted targets retain R1521's same-Status behavior. For target Archived, select all recursively contained latest Atoms, including Done descendants. Older historical Revisions and references outside the parent Carrier tree are excluded. Each Run retains the single-target boundary below; none discovers, invokes or authorizes the other targets. The caller applies D461/D467 placement, including flat Archived Plan Markdown, and completes descendant Actions before any parent relocation that would silently move an independent current child. It rebinds each later target after earlier placement effects and advances only after a verified applied or no-op result. It stops on the first failed, refused or uncertain result, retains earlier completed effects and leaves remaining targets untouched, without automatic retry or cross-Atom rollback. One completed Run proves only its bound target; the caller reports the whole cascade complete only after every selected target has a verified result.
 
 ### Nodes and entry
 
@@ -48,14 +38,14 @@ The graph has exactly two Step nodes: CA-O-145 and CA-O-129. An ordinary admitte
 
 | Source Step result | Workflow-owned scheme |
 | --- | --- |
-| O145: identity-preserving | ON_RESULT O145→O129, subject to current authorization, compatible exact assessment and effect admission. |
+| O145: identity-preserving | Conditional Step route O145→O129, subject to current authorization, compatible exact assessment and effect admission. |
 | O145: replacement-required | End this Run with an R1520 terminal handoff to the Replace entry of CA-O-127 in a separately admitted Run. Do not call/wait for replacement, perform an intermediate update or treat the handoff as replacement permission. |
 | O145: unresolved, invalid, stale, unauthorized or unavailable | End blocked with the exact evidence/decision gap; no approval inferred. |
-| O129: reassessment-required for Update | ON_RESULT O129→O145 only with an explicitly admitted fresh proposal/evidence binding and remaining applicable retry allowance. Without them end blocked. |
+| O129: reassessment-required for Update | Conditional Step route O129→O145 only with an explicitly admitted fresh proposal/evidence binding and remaining applicable retry allowance. Without them end blocked. |
 | O129: applied or no-op | End complete only for the exact admitted boundary with verified effect/postcondition results; no-op reports no Artifact change. An independent Journal append failure is a recording diagnostic, not a non-complete result. |
 | O129: invalid, stale, unauthorized, unsupported, blocked, failed, partial or canceled | End with that truthful non-complete outcome, actual completed/incomplete effects and recoverable evidence; no automatic replay. |
 
-The two ON_RESULT edges have Step endpoints in this Workflow. No other route, implicit retry, continuation, graph node or Action-selected successor is admitted. A changed definition pauses dispatch for R1525 revalidation; completed effects and retry accounting remain retained.
+The two Conditional Step routes have Step endpoints in this Workflow. No other route, implicit retry, continuation, graph node or Action-selected successor is admitted. A changed definition pauses dispatch for R1525 revalidation; completed effects and retry accounting remain retained.
 
 ### Instructed Subjects-only batch routing
 

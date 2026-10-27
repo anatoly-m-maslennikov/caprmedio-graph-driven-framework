@@ -6,18 +6,45 @@ label: Task
 work_sequence_number: 22
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 status: Done
 subjects:
-  governs: Projection
-  depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 10
-updated_at: "2026-10-10 03:33:41 +0400"
+  governs: Subject/Graph Node/Domain/Continuant/Projection
+  depends_on:
+  - Subject
+  - Subject/Graph Node/Domain/Continuant/Term
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Term//Property
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+version: 14
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1872]
-  blocks: [CA-P-1907, CA-P-1928, CA-P-1929, CA-P-1930, CA-P-1931, CA-P-1932, CA-P-1933, CA-P-1934, CA-P-1935, CA-P-1936, CA-P-1939, CA-P-1940, CA-P-1941, CA-P-1942, CA-P-1943, CA-P-1944, CA-P-1945, CA-P-1946, CA-P-1947, CA-P-1948, CA-P-1949]
+  is_decomposition_of:
+  - CA-P-1872
+  blocks:
+  - CA-P-1907
+  - CA-P-1928
+  - CA-P-1929
+  - CA-P-1930
+  - CA-P-1931
+  - CA-P-1932
+  - CA-P-1933
+  - CA-P-1934
+  - CA-P-1935
+  - CA-P-1936
+  - CA-P-1939
+  - CA-P-1940
+  - CA-P-1941
+  - CA-P-1942
+  - CA-P-1943
+  - CA-P-1944
+  - CA-P-1945
+  - CA-P-1946
+  - CA-P-1947
+  - CA-P-1948
+  - CA-P-1949
+tier: 3
 ---
 # Summary
 

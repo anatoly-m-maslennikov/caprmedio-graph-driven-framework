@@ -5,20 +5,24 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - CA Main Skill Authority Bundle
-    occurrent:
-      - CA Main Skill Authority Establishment
+  governs: Subject/Graph Node/Engineering/Skill
   depends_on:
-    continuant:
-      - CAPRMEDIO Main Skill
-      - CAPRMEDIO Routing Tree
-      - CAPRMEDIO General System Prompt
-version: 2
-updated_at: 2026-09-07 19:43:08 +0000
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Methodology
+  - Subject/Graph Node/Engineering
+  - Subject/Graph Node/Engineering/Prompt
+  - Subject/Graph Node/Engineering/CAPRMEDIO Main Skill
+  - Subject/Graph Node/Engineering/Continuant/Tool
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations: {}
+status: Active
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Establish CA Main Skill Authority Bundle
 

@@ -1,18 +1,15 @@
 ---
 subjects:
-  governs: Prepare Structural Change
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Prepare Structural Change'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Project.Structure
-  - Subject/Domain/Node/Continuant/Scope Unit
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Goal'
-  - Subject/Engineering/Carrier
-version: 12
-updated_at: 2026-10-24 00:38:25 +0400
-relations:
-  relates_to:
-  - CA-M-291
-  - CA-R-926
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/Graph Node/Carrier
+version: 16
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 atom_id: CA-O-012
 content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION

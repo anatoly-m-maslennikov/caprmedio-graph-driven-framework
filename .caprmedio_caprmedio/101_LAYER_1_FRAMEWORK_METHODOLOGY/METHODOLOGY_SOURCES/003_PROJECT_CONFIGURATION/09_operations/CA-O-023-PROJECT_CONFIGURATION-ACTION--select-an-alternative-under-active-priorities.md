@@ -1,20 +1,19 @@
 ---
-version: 15
-updated_at: 2026-10-24 01:18:03 +0400
+version: 19
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
   child_of:
   - CA-R-1487
-  relates_to:
-  - CA-O-022
+  depends_on:
   - CA-M-297
 subjects:
-  governs: Select Priority-Governed Alternative
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Select Priority-Governed Alternative'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-  - Subject/Engineering/Resolve Operator Priorities
-  - Subject/Domain/Node/Continuant/Selection//PROJECT_PRIORITY_MODEL
-  - Subject/Domain/Node/Continuant/Selection//PROJECT_LEXICOGRAPHIC
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Engineering/Execution Control/Effect Authorization
+  - Subject/Graph Node/Domain/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - Subject/Graph Node/Domain/Continuant/Selection//PROJECT_LEXICOGRAPHIC
 atom_id: CA-O-023
 content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION

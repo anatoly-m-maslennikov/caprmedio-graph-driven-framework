@@ -6,16 +6,22 @@ label: Epic
 work_sequence_number: 5
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Tool
-  depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
+  governs: Subject/Graph Node/Engineering/Continuant/Tool
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Term//Property
+  - Subject/Graph Relation
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
 relations: {}
-version: 107
-updated_at: "2026-10-23T18:34:36+0400"
+version: 114
+updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 ---
 # Summary
 

@@ -6,31 +6,30 @@ label: Task
 work_sequence_number: 10
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Done
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-09 00:46:26 +0400"
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "CAPRMEDIO Framework Instance"
+  governs: Subject/Graph Node/Engineering/Image
   depends_on:
-    - "Project"
-    - "Project Settings"
-    - "Project Structure"
-    - "Framework Instance Settings"
-    - "Tool"
-    - "Action"
-    - "Workflow Run"
-    - "Carrier"
-    - "Evaluation"
-    - "AI Agent"
-    - "Operator"
+  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/Graph Node/Domain/Continuant/Project.Settings
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Evaluation
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
 relations:
   is_decomposition_of:
-    - CA-P-1829
+  - CA-P-1829
   blocks:
-    - CA-P-1840
+  - CA-P-1840
+tier: 3
 ---
 # Summary
 

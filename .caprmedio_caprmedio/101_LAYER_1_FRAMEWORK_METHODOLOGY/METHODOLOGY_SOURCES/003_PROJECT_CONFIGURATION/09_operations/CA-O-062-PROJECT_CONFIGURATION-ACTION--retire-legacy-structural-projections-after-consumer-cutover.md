@@ -1,19 +1,18 @@
 ---
 subjects:
-  governs: Subject/Domain/Node/Continuant/Projection
+  governs: Subject/Graph Node/Domain/Continuant/Projection
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Domain/Node/Continuant/Projection
-  - Subject/Domain/Node/Continuant/Project.Structure
-  - Subject/Domain/Node/Continuant/Projection//PROJECT_SCOPE_UNIT_GRAPH
-  - Subject/Engineering/Carrier
-version: 9
-updated_at: 2026-10-24 00:51:05 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Subject/Graph Node/Domain/Continuant/Projection//PROJECT_SCOPE_UNIT_GRAPH
+  - Subject/Graph Node/Carrier
+version: 12
+updated_at: 2026-10-27 06:04:45 +0400
 relations:
-  relates_to:
+  depends_on:
   - CA-D-453
   - CA-D-454
-  - CA-R-1483
 atom_id: CA-O-062
 content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION

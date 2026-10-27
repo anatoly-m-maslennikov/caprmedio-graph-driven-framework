@@ -6,20 +6,15 @@ current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Verify candidate release package and image
+  governs: Subject/Graph Node/Engineering/Delivery
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Test
-  - 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
-  - Artifact/Revision
-  - Subject/Domain/Node/Continuant/History/Journal
-version: 10
-updated_at: 2026-10-24 00:51:05 +0400
-relations:
-  relates_to:
-  - CA-O-164
-  - CA-O-185
-  - CA-R-1525
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Engineering/Verification
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 16
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
 tier: 3
 ---
 # Summary

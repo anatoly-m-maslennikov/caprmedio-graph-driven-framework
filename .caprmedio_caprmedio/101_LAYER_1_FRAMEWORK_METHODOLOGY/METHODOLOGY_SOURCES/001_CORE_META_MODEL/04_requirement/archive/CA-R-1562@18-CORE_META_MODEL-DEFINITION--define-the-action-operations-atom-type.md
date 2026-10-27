@@ -1,0 +1,33 @@
+---
+subjects:
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  depends_on:
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
+  - Subject/Graph Node/Domain/Continuant/Atom.Type
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+version: 18
+updated_at: 2026-10-26 05:59:45 +0400
+relations: {}
+atom_id: CA-R-1562@18
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 1
+type: Definition
+---
+# Summary
+
+Define the Action Operations Atom Type
+
+## Scope
+
+the Action Type of Operations Atoms.
+
+## Claim
+
+the Operations Atom Type Action **means** the Type of an Operations Atom whose Claim specifies that same Atom's reusable Action behavior.
+
+## Details

@@ -5,20 +5,25 @@ type: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Active
-version: 1
-updated_at: "2026-10-05 16:49:29 +0000"
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Release suite sandbox executor"
-  depends_on: [Implementation, Operator, Journal, Manifest, Evaluation]
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Engineering/Evaluation
 relations:
-  is_decomposition_of: [CA-P-1717]
-  blocks: [CA-P-1624]
+  is_decomposition_of:
+  - CA-P-1717
+  blocks:
+  - CA-P-1624
+tier: 3
 ---
 # Summary
 

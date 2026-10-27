@@ -1,0 +1,49 @@
+---
+subjects:
+  governs: Subject/Graph Node/Domain/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  depends_on:
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action/Execution Kind'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+version: 15
+updated_at: 2026-10-26 22:47:49 +0400
+relations:
+  evaluation_for:
+  - CA-R-1526
+  - CA-R-1527
+  - CA-R-1509
+atom_id: CA-E-495
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+type: Eval Case
+tier: 3
+---
+# Summary
+
+Validate Action kinds and Step contexts
+
+## Scope
+
+Action Execution Kind **and** Agentic Step Execution Context.
+
+## Claim
+
+the Evaluation **must** check that Action Execution Kind **and** Agentic Step Execution Context remain distinct **and** support reuse **without** duplicate definitions.
+
+## Details
+
+- a Programmatic Action interacts with the Operator through code **without** AI judgment: accept Programmatic classification.
+- code delegates the declared responsibility's judgment **to** an AI Agent: require Agentic classification rather than classifying by the surrounding code.
+- two Steps invoke the same Agentic Action **in** Integrated **and** Isolated contexts with valid bindings: accept the shared Action identity **and** distinct invocation contexts.
+- one Workflow mixes Programmatic, Integrated Agentic, **and** Isolated Agentic Steps: accept **without** a Workflow-wide context classification.
+- missing **or** unavailable required context: block execution admission; do **not** silently select a substitute **or** classify a well-formed definition as malformed merely because a worker is unavailable.
+- a Tool call appears inside an Agentic leaf Step Run: retain **`=1`** declared Action **and** its **`=1`** Action Run for that Step rather than inferring another Step from the call.
+- choosing Isolated grants additional permission, suppresses required Operator input, **or** permits concurrent mutations automatically: reject.
+
+use definition fixtures **and** invocation evidence. these checks do **not** claim that an executor Implementation has been tested.

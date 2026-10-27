@@ -2,14 +2,13 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: Validate Artifact Catalog
+  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Catalog'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Artifact
-  - Artifact/Revision
-  - Subject/Domain/Node/Continuant/Projection
-version: 10
-updated_at: 2026-10-24 02:14:24 +0400
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Term//Artifact
+  - Subject/Graph Node/Domain/Continuant/Projection
+version: 15
+updated_at: 2026-10-26 00:46:35 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}

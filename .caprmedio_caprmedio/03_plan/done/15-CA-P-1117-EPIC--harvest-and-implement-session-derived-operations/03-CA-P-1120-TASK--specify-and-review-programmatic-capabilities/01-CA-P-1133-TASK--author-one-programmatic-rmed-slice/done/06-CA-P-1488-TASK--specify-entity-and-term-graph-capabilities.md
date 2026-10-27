@@ -6,19 +6,25 @@ label: Task
 work_sequence_number: 6
 current_scope_unit: caprmedio
 claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Entity and Term graph implementation"
-  depends_on: [Implementation, Workflow, Action]
-version: 1
-updated_at: "2026-10-04 18:40:00 +0000"
+  governs: Entity and Term graph implementation
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+version: 5
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1133]
-  blocks: [CA-P-1122, CA-P-1162, CA-P-1163]
+  is_decomposition_of:
+  - CA-P-1133
+  blocks:
+  - CA-P-1122
+  - CA-P-1162
+  - CA-P-1163
+tier: 3
 ---
 # Summary
 

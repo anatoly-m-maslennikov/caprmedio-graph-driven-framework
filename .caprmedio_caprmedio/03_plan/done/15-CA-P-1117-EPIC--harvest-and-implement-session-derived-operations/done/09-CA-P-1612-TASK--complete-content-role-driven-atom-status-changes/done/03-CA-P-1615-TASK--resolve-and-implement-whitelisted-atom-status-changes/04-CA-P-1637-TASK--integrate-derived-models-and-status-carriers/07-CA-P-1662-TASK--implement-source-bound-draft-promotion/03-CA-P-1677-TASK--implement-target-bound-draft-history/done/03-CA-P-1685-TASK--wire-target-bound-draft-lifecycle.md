@@ -5,20 +5,27 @@ type: Plan
 label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
 subjects:
-  governs: "Wire target-bound Draft lifecycle"
-  depends_on: [Atom, Carrier, History, Runtime, Tool, Evaluation]
-version: 1
-updated_at: "2026-10-05 07:10:33 +0000"
+  governs: Subject/Graph Node/Engineering/Atom Lifecycle/Draft History
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Domain/Continuant/History
+  - Subject/Graph Node/Engineering/Occurrent/Runtime
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Evaluation
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1677]
-  blocks: [CA-P-1638]
+  is_decomposition_of:
+  - CA-P-1677
+  blocks:
+  - CA-P-1638
+tier: 3
 ---
 # Summary
 

@@ -6,19 +6,25 @@ label: Task
 work_sequence_number: 27
 current_scope_unit: caprmedio
 claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Prepare strict fifteen-route Docker evidence harness"
-  depends_on: [Workflow, Action, Implementation, Evaluation, Journal]
-version: 2
-updated_at: "2026-10-04 23:11:38 +0000"
+  governs: Subject/Graph Node/Engineering/Implementation Evaluation
+  depends_on:
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1137]
-  blocks: [CA-P-1519]
+  is_decomposition_of:
+  - CA-P-1137
+  blocks:
+  - CA-P-1519
+tier: 3
 ---
 # Summary
 

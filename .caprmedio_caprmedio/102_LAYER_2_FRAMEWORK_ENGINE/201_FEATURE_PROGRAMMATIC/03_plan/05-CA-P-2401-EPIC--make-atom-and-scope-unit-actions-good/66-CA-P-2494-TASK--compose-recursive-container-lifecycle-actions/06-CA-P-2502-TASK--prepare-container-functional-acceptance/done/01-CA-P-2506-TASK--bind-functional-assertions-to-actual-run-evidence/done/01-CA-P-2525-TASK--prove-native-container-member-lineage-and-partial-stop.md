@@ -6,17 +6,17 @@ label: Task
 work_sequence_number: 1
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
 author: Anatoly Maslennikov
 status: Done
 subjects:
-  governs: Entity/Node/Continuant/Atom
+  governs: Subject/Graph Node/Domain/Continuant/Atom
   depends_on: []
 relations:
-  is_decomposition_of: [CA-P-2506]
-version: 3
-updated_at: "2026-10-21T09:57:28Z"
+  is_decomposition_of:
+  - CA-P-2506
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 ---
 # Summary
 

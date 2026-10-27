@@ -5,20 +5,25 @@ type: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Active
 subjects:
-  governs: "Complete exact prior-image retirement"
-  depends_on: [Tool, Image, Manifest, Runtime, Evaluation]
-version: 1
-updated_at: "2026-10-05 07:21:10 +0000"
+  governs: Subject/Graph Node/Engineering/Release Version/Project-Owned Image Retention
+  depends_on:
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Image
+  - Subject/Graph Node/Engineering/Occurrent/Runtime
+  - Subject/Graph Node/Engineering/Evaluation
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1691]
-  blocks: [CA-P-1644]
+  is_decomposition_of:
+  - CA-P-1691
+  blocks:
+  - CA-P-1644
+tier: 3
 ---
 # Summary
 

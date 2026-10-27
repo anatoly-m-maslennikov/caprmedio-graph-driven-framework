@@ -5,19 +5,25 @@ type: Plan
 label: Task
 work_sequence_number: 66
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Align native Artifact query and shared Run source boundaries"
-  depends_on: [Tool, Workflow, Action, Journal, Implementation]
-version: 1
-updated_at: "2026-10-05 01:06:07 +0000"
+  governs: Subject/Graph Node/Engineering/Artifact Query
+  depends_on:
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/Graph Node/Engineering/Implementation
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of: [CA-P-1137]
-  blocks: [CA-P-1611]
+  is_decomposition_of:
+  - CA-P-1137
+  blocks:
+  - CA-P-1611
+tier: 3
 ---
 # Summary
 

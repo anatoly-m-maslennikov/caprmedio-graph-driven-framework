@@ -1,0 +1,30 @@
+---
+subjects:
+  governs: Subject/Graph Node/Domain/Continuant/Atom.Summary
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom.Summary
+version: 21
+updated_at: 2026-10-25 17:32:27 +0400
+relations: {}
+atom_id: CA-D-282
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
+---
+# Summary
+
+Serialize Filename Summary Slug from Summary
+
+## Scope
+
+Atom Filenames and their Summary Slugs.
+
+## Claim
+
+**every** Atom Filename Summary Slug **must** be the lowercase ASCII kebab-case serialization of the complete Atom Summary.
+
+## Details

@@ -5,20 +5,27 @@ type: Plan
 label: Task
 work_sequence_number: 27
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Active
-version: 1
-updated_at: "2026-10-05 16:49:29 +0000"
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Release suite preservation"
-  depends_on: [Implementation, Evaluation, Skill, Methodology, Image, Manifest]
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Engineering/CAPRMEDIO Main Skill
+  - Subject/Graph Node/Engineering/Methodology
+  - Subject/Graph Node/Engineering/Image
+  - Subject/Graph Node/Engineering/Manifest
 relations:
-  is_decomposition_of: [CA-P-1643]
-  blocks: [CA-P-1624]
+  is_decomposition_of:
+  - CA-P-1643
+  blocks:
+  - CA-P-1624
+tier: 3
 ---
 # Summary
 

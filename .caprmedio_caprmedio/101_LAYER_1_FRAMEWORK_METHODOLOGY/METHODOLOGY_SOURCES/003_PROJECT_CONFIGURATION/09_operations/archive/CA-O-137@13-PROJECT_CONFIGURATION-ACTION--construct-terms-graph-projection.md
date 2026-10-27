@@ -1,0 +1,73 @@
+---
+atom_id: CA-O-137@13
+content_role: Operations
+type: Action
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
+status: Archived
+subjects:
+  governs: Subject/Graph Node/Domain/Continuant/Projection
+  depends_on:
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Term
+  - Definition Atom
+  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Terms Graph'
+  - Subject/Graph Relation/Type
+  - Artifact/Revision
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+version: 13
+updated_at: 2026-10-25 17:32:27 +0400
+relations:
+  relates_to:
+  - CA-R-1335
+  - CA-R-1454
+  - CA-R-1318
+  - CA-R-1279
+  - CA-M-114
+  - CA-R-1746
+  - CA-R-1471
+  - CA-R-1246
+  - CA-R-806
+  - CA-R-1472
+  - CA-R-1437
+  - CA-E-382
+  - CA-R-1720
+  - CA-R-1728
+tier: 3
+---
+# Summary
+
+Construct Terms Graph Projection
+
+## Operation
+
+Construct Terms Graph Projection **means** the Action that constructs **or** confirms the requested derived Terms Graph from its bound current Term authority **and** admitted Relation declarations. one selected graph construction is the responsibility; vocabulary admission, source correction **and** unrelated graph generation are separate responsibilities.
+
+### Inputs and admission
+
+require an admitted request, explicit source selection **and** any narrower/governed-only view selection, exact current source set **and** governing Term/Relation Kind authority, representation configuration, target Projection/output destination, any existing Projection with source evidence, admitted realization/permissions **and** actual Run/effect evidence context. declared selection governs required source kinds; an upstream Projection needs its identity/Revision **and** ultimate source traceability, **not** defining authority. an explicitly empty evidenced selection differs from absent **or** unreadable selection.
+
+### Behavior
+
+any consumed derived fact context binds the exact selected source contributions, governing authority **and** actual admission checks. recognized candidates **or** matching digests alone do **not** admit native facts. missing source forms, unsupported semantic checks **or** unknown coverage remain unresolved, **not** evidenced empty data. caller-authored admission flags **or** receipts cannot replace actual admission **or** independent Run/effect evidence.
+
+1. resolve the actual request, source/view boundaries, admitted execution kind **and** capabilities **before** effects. retain the admitted source identities/Revisions/locations; do **not** silently substitute a different frontier **or** infer definitions from spelling, capitalization, a filename **or** shared Subject use.
+2. construct all **and** only selected native Terms admitted by governing authority under CA-R-1335. for a governed-only selection, reuse CA-R-1454's complete node/internal-Relation selection **and** defining-source evidence; use CA-R-1279/CA-M-114 **only** within their actual definition/derivation domains. full Subject Paths **or** referenced path components are **not** additional definitions supplied by the referring Atom. missing **or** conflicting defining authority remains an affected limitation, never an invented Term meaning.
+3. resolve each Relation's graph-qualified metadata under CA-R-1246/CA-R-806 **and** its source/derivation evidence under CA-R-1437. preserve its admitted direction, endpoint classes/context **and** cardinality. external references under CA-R-1472 remain distinguishable from native Terms; an Entity edge **or** compatible endpoint does **not** become a native Terms edge. Subject GOVERNS/DEPENDS_ON rows remain Atom incidence/provenance. do **not** infer an internal Relation merely from labels **or** operational classification; SUBKIND_OF is **not** an alias for NARROWER_THAN, which requires its explicit source declaration **and** governing-definition implication. qualified Entity paths can reuse one Term name **without** creating additional qualified Terms.
+4. retain exact source Claim/Artifact Revision traceability through any upstream Projection chain under CA-R-1746/CA-R-1471. apply the applicable CA-E-382 checks, including declared hierarchy/Root Term authority where relevant, **without** inventing another hierarchy **or** silently importing outside-selection parents. preserve separate fidelity, graph-validity **and** coverage outcomes; a faithful representation of a source conflict is **not** a valid graph. missing, conflicting, inaccessible, unsupported **or** stale regions/checks remain visible.
+5. confirm source/definition/permission currentness **before** publishing **only** to the authorized derived-output destination. return no_op **only** **when** the existing Projection demonstrably matches the exact current selection/configuration **and** satisfies required checks. missing capability **or** stale prior output is **not** no_op. an explicitly authorized limited diagnostic output retains its incomplete/invalid state; do **not** replace an accepted complete target with an unapproved partial result.
+6. retain actual output effects **and** independent start/terminal Action/Run evidence, plus parent Workflow/Step references **when** applicable, in the one Journal under CA-R-1720/CA-R-1728. a Journal append is a provenance obligation, not a construction gate; append failure retains the actual result/effects and emits a `recording_error` diagnostic with pending evidence. only missing or uncertain independent Run/effect evidence yields `recording_blocked`; recover the append separately **without** blind construction replay. no secrets **or** fictitious no-op Artifact change are recorded.
+
+the pure builder does **not** write Journal events; the shared executor appends actual start/terminal events **without** changing prior Journal history. a start context **or** published output alone is **not** terminal completion. missing independent terminal Run/effect evidence preserves actual output/effects **and** the pending event reference, **not** a completed Run; a Journal append failure alone is a `recording_error` diagnostic, and a later append may preserve the supplied event observation **without** construction replay. publish **only** to an explicit authorized **or** current unambiguous registered derived destination; a root folder **or** conventional name is **not** registration. non-persisting Tool description is **not** a completed graph Action with a missing required target.
+
+### Results and effects
+
+- built: exact produced Projection Revision, selection/configuration/source evidence **and** actual effects/independent Run/effect evidence, **only** **when** all required checks pass, requested coverage is complete **and** all currentness/permission/evidence conditions are satisfied. a failed check returns conflicting **or** failed as evidenced; missing independent evidence returns incomplete **or** blocked, even **when** output was produced. a Journal append failure alone leaves the actual outcome intact and is reported as `recording_error`.
+- no_op: the proven unchanged current Projection **and** the same all-passed, complete-coverage/currentness/permission/independent-evidence boundary as built, with no fabricated mutation. a Journal append failure alone is reported as `recording_error` and does not change the no_op outcome.
+- incomplete, conflicting, stale **or** blocked: affected source regions/checks, actual limited output/effects **if** any **and** missing evidence/permission; no complete Projection **or** complete Run claim.
+- failed **or** canceled: actual outcome, partial effects, retained prior/result evidence **and** authorized recovery boundary; no automatic repair **or** retry.
+
+## Details
+
+only the requested derived output **and** truthful execution evidence are effects. no defining Claim, Term meaning, Relation declaration **or** other source authority is changed. current R/M/E/D remain the graph/vocabulary/representation authority; this Action defines no Tool-specific grammar, generator, database **or** forced build schedule.

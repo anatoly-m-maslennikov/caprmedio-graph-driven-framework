@@ -5,19 +5,24 @@ type: Plan
 label: Task
 work_sequence_number: 5
 current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 1
-updated_at: "2026-10-05 19:52:10 +0000"
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "Release suite delivery/Bind the suite envelope and result admission"
-  depends_on: [Implementation, Evaluation, Methodology, Manifest, Test Suite]
+  governs: Subject/Graph Node/Engineering/Release
+  depends_on:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Engineering/Methodology
+  - Subject/Graph Node/Engineering/Manifest
+  - Subject/Graph Node/Engineering/Release Testing/Executor Admission
 relations:
-  is_decomposition_of: [CA-P-1717]
+  is_decomposition_of:
+  - CA-P-1717
+tier: 3
 ---
 # Summary
 

@@ -6,27 +6,26 @@ label: Epic
 work_sequence_number: 16
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 status: Done
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 03:46:50 +0400"
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 subjects:
-  governs: "CAPRMEDIO Framework Instance"
+  governs: Subject/Graph Node/Engineering/MCP
   depends_on:
-    - "Project"
-    - "Project Settings"
-    - "Project Structure"
-    - "Framework Instance Settings"
-    - "Tool"
-    - "Action"
-    - "Workflow Run"
-    - "Carrier"
-    - "Evaluation"
-    - "AI Agent"
-    - "Operator"
+  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/Graph Node/Domain/Continuant/Project.Settings
+  - Subject/Graph Node/Domain/Continuant/Project.Structure
+  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Evaluation
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
 relations: {}
+tier: 3
 ---
 # Summary
 

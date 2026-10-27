@@ -5,18 +5,21 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - CA MCP Surface
-      - Project-local Provider-neutral MCP Service
-    occurrent:
-      - CA MCP Exposure
-version: 3
-updated_at: 2026-09-02 03:30:00 +0400
+  governs: Subject/Graph Node/Engineering/MCP
+  depends_on:
+  - Subject/Graph Node/Engineering/Continuant/Tool
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations:
   depends_on:
-    - CA-P-938
+  - CA-P-938
+status: Active
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Expose CA Runtime Tools Through MCP
 

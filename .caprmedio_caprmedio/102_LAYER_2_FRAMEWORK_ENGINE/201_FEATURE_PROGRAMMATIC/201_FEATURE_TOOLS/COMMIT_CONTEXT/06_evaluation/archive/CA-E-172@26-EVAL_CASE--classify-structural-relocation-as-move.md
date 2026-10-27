@@ -1,0 +1,45 @@
+---
+subjects:
+  governs: Subject/Graph Node/Engineering/Aspect/Delivery/Git Commits
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom.Local Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Relation
+version: 26
+updated_at: 2026-10-26 05:48:50 +0400
+relations:
+  evaluation_for:
+  - CA-R-1433
+  - CA-D-304
+  - CA-M-087
+  - CA-R-804
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-172@26
+status: Archived
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eval Case
+tier: 3
+---
+# Classify structural relocation as MOVE
+
+## Claim checked
+
+relocation of an unchanged governed file identity is classified as `MOVE` **when** **only** its Carrier directory changes; this classification does **not** by itself prove Project conformance.
+
+## Test case
+
+supply a trigger for an admitted Carrier-only relocation within the same owning Scope Unit. preserve the filename, content, Atom identity, Claim, Atom Scope, Claim Scope, authored semantic Relations **and** Version under CA-R-1433 **and** CA-D-304. choose a destination admitted by the applicable Carrier rules; do **not** silently transfer ownership **to** another Scope Unit.
+
+## Acceptance criteria
+
+- provisional context reports `MOVE`, preserves Version, records both repository-relative paths **and** resolves the same authored Relations.
+- no context-gathering mutation occurs. an observed nonconforming move is preserved as an observation rather than silently repaired **or** certified conforming.
+- a transfer that changes ownership, a governed filename token **or** another semantic value is outside this unchanged-Carrier fixture; do **not** force it into the Version-preserving success case.
+
+## Failure disposition
+
+reject incorrect change classification, lost **before**/**after** paths, an invented Version change for the conforming fixture **or** a claimed preservation of semantic values that actually changed.

@@ -6,32 +6,31 @@ label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
 subjects:
-  governs: "Session evidence metadata manifest"
+  governs: Subject/Graph Node/Engineering/Manifest
   depends_on:
-    - "Project"
-    - "Operations"
-    - "Atom/Content Role: Plan"
-version: 2
-updated_at: "2026-10-04 06:55:00 +0400"
+  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/Graph Node/Engineering/Operations
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   is_decomposition_of:
-    - CA-P-1125
+  - CA-P-1125
   blocks:
-    - CA-P-1176
-    - CA-P-1151
-    - CA-P-1152
-    - CA-P-1153
-    - CA-P-1154
-    - CA-P-1126
-    - CA-P-1127
-    - CA-P-1128
-    - CA-P-1129
+  - CA-P-1176
+  - CA-P-1151
+  - CA-P-1152
+  - CA-P-1153
+  - CA-P-1154
+  - CA-P-1126
+  - CA-P-1127
+  - CA-P-1128
+  - CA-P-1129
+tier: 3
 ---
 # Summary
 

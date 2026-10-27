@@ -5,13 +5,13 @@ type: Rule
 current_scope_unit: ATOM_ACTIONS
 status: Active
 tier: 1
-version: 1
-updated_at: 2026-10-24 03:12:41 +0400
+version: 4
+updated_at: 2026-10-27 06:04:45 +0400
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Engineering/Atom Editing/Logical Modification Interface
+  governs: Subject/Graph Node/Engineering/Data Handling/Data Validation
   depends_on:
-  - Subject/Domain/Node/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom
 relations: {}
 ---
 # Summary

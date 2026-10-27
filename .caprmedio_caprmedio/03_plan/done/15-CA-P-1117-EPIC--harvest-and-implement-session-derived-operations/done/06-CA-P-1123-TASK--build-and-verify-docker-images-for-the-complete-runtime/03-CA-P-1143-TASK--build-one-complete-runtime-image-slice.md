@@ -6,26 +6,25 @@ label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
 claim_target_scope_unit: FRAMEWORK_ENGINE
-local_tier: Standard
-global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
 subjects:
-  governs: "Session-derived operational capability delivery"
+  governs: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Workflow Execution
   depends_on:
-    - "Operations"
-    - "Implementation"
-version: 1
-updated_at: "2026-10-04 06:36:25 +0400"
+  - Subject/Graph Node/Engineering/Operations
+  - Subject/Graph Node/Engineering/Implementation
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 relations:
   is_decomposition_of:
-    - CA-P-1123
+  - CA-P-1123
   blocks:
-    - CA-P-1169
-    - CA-P-1170
-    - CA-P-1144
-    - CA-P-1145
+  - CA-P-1169
+  - CA-P-1170
+  - CA-P-1144
+  - CA-P-1145
+tier: 3
 ---
 # Summary
 

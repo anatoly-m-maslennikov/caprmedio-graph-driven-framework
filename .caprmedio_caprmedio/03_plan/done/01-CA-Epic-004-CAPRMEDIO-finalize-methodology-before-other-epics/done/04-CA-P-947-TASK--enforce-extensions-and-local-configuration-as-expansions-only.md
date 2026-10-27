@@ -5,20 +5,21 @@ cce_form: obligation
 author: Operator
 assignee: AI Agent
 subjects:
-  governs:
-    continuant:
-      - Methodology Source Expansion Boundary
-    occurrent:
-      - Methodology Source Expansion Validation
+  governs: Subject/Graph Rule
   depends_on:
-    occurrent:
-      - CA-P-946
-version: 1
-updated_at: 2026-09-03 21:28:22 +0400
+  - Subject/Graph Node/Engineering/Methodology
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
 relations:
   depends_on:
-    - CA-P-946
+  - CA-P-946
+status: Done
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
 ---
 # Enforce Extensions and Local Configuration as Expansions Only
 

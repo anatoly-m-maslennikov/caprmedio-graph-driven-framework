@@ -2,21 +2,23 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - UV Adoption
+  governs: Subject/Graph Node/Engineering/Python Environment Frontend
   depends_on:
-    continuant:
-      - Python Toolchain
-      - Development Environment
-    occurrent:
-      - Environment Reproduction
-version: 3
-updated_at: 2026-09-06 01:45:12 +0400
+  - Subject/Graph Node/Engineering/Python Environment Frontend
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 98
 relations:
   derived_from:
-    - CA-A-062
+  - CA-A-062
+status: Active
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+content_role: Plan
+type: Plan
+label: Task
+tier: 3
+atom_id: CA-P-098
 ---
 # Adopt uv for Python workflows
 
