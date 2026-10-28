@@ -1,17 +1,17 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Structure
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Carrier
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Goal'
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Carrier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+version: 20
+updated_at: 2026-10-27 19:59:35 +0400
 relations:
   evaluation_for:
   - CA-O-012

@@ -1,0 +1,42 @@
+---
+atom_id: CA-A-1225@1
+content_role: Analysis
+type: Specification Proposal
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+status: Archived
+author: Anatoly Maslennikov
+subjects:
+  governs: Subject
+version: 1
+updated_at: 2026-10-27 21:49:14 +0400
+relations: {}
+tier: 3
+---
+# Summary
+
+Distinguish Events from Journal records
+
+## Question
+
+How do Event, Occurrent, Event Record and Journal relate?
+
+## Operator decision
+
+- An Event happening in a Runtime is an Occurrent.
+- A record about that Event in a Journal is a Continuant.
+- A Journal contains Event Records: Journal > Event Record.
+
+The occurrence and its record are different things. The containment statement concerns Journal records, not the actual Events.
+
+## Interpretation boundary
+
+Keep Event as an actual occurrence under the existing Occurrent classification. Do not infer an instantaneous-only Event criterion or a new lifecycle from this answer. The answer establishes the occurrence/record distinction and Journal containment; it does not require a new Subject path for Event Record or merging Event and Occurrent definitions.
+
+## Review disposition
+
+This addresses C10-I04 / C10-G03 with the Operator's intended distinction. Existing Continuant/Occurrent meanings stay settled. C10-I06 / C10-G04 (Runtime boundary), optional Prompts/Documentation clarification, general stale drafting language and Projection source-count correction remain separate items.
+
+## Drafts
+
+Prepare the next CA-R-1968 and CA-R-1745 versions. CA-R-1972 already classifies actual Events as Occurrents and remains unchanged. Current sources and the Projection remain unchanged pending promotion.

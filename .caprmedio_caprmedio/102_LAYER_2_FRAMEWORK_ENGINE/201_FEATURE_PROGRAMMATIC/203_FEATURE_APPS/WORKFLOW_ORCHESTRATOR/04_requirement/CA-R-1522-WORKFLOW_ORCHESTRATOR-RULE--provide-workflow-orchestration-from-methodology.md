@@ -5,18 +5,18 @@ current_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action.Execution Kind'
-  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run.Agentic Step Execution Context
-  - Subject/Graph Node/Engineering/Architecture/Component Structure
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 15
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action.Execution Kind'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+version: 16
+updated_at: 2026-10-27 19:59:57 +0400
 relations: {}
 type: Rule
 tier: 3

@@ -1,8 +1,8 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
-version: 26
-updated_at: 2026-10-27 06:04:45 +0400
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+version: 27
+updated_at: 2026-10-27 20:00:11 +0400
 atom_id: CA-R-856
 status: Active
 content_role: Requirement

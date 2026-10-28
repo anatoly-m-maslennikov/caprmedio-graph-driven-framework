@@ -1,17 +1,17 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Reconciled Projection'
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Goal'
-  - Subject/Graph Node/Carrier
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
-version: 32
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Reconciled Projection'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/CAPRMEDIO/Carrier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
+version: 33
+updated_at: 2026-10-27 19:59:52 +0400
 relations: {}
 atom_id: CA-R-1213
 content_role: Requirement

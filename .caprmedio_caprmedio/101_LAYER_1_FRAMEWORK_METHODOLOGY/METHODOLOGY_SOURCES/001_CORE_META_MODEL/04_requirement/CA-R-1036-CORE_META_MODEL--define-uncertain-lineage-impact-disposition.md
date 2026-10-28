@@ -2,9 +2,9 @@
 subjects:
   governs: Subject
   depends_on:
-  - Subject/Graph Relation
-version: 20
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Relation
+version: 21
+updated_at: 2026-10-27 19:59:49 +0400
 relations: {}
 atom_id: CA-R-1036
 content_role: Requirement

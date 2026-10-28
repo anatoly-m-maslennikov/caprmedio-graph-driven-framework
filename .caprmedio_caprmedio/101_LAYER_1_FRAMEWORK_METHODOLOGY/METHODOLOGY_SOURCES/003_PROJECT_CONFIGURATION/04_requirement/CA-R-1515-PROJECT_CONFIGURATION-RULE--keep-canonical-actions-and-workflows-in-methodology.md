@@ -1,17 +1,17 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//CORE_META_MODEL
-  - Subject/Graph Node/Domain/Continuant/Selection//Extension Sources
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/Graph Node/Engineering/Architecture/Component Structure
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Extension Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+version: 20
+updated_at: 2026-10-27 19:59:56 +0400
 relations: {}
 atom_id: CA-R-1515
 content_role: Requirement

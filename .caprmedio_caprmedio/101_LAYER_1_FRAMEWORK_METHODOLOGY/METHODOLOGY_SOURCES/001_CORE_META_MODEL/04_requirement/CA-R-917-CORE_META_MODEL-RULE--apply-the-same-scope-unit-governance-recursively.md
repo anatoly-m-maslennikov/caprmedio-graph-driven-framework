@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-version: 29
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+version: 30
+updated_at: 2026-10-27 20:00:12 +0400
 relations:
   child_of:
   - CA-R-1719

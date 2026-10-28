@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Traceability
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
   depends_on: []
-version: 26
-updated_at: 2026-10-27 06:04:45 +0400
+version: 27
+updated_at: 2026-10-27 20:00:01 +0400
 relations: {}
 atom_id: CA-R-1687
 content_role: Requirement

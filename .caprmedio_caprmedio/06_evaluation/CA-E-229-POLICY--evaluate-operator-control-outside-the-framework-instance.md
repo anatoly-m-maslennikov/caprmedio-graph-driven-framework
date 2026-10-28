@@ -1,18 +1,18 @@
 ---
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+version: 21
+updated_at: 2026-10-27 19:59:30 +0400
 relations:
   child_of:
   - CA-R-827
   evaluation_for:
   - CA-R-827
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Project
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:

@@ -1,21 +1,21 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-version: 29
-updated_at: 2026-10-27 06:04:45 +0400
+version: 30
+updated_at: 2026-10-27 20:00:11 +0400
 relations:
   child_of:
   - CA-R-1421
   - CA-R-815
   - CA-M-006
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Governing Configuration
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Product/Extension
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-832

@@ -6,15 +6,15 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: 2026-10-27 06:04:45 +0400
+version: 10
+updated_at: 2026-10-27 19:59:37 +0400
 subjects:
-  governs: Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run.Retry and Repair Results
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Retry and Repair Results
   depends_on:
-  - Subject/Graph Node/Engineering/Execution Control/Failure Handling
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run.Retry
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Graph Node/Domain/Continuant/History
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Failure Handling
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Retry
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History
 relations: {}
 tier: 3
 ---

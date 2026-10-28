@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: 'Subject/Graph Relation/Type: structural_parent'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: structural_parent'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Carrier
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Carrier
+version: 21
+updated_at: 2026-10-27 19:59:29 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

@@ -7,26 +7,26 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Check Atoms'
+  governs: Subject/caprmedio/Action//Check Atoms
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Carrier/File.YAML Frontmatter
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Relation
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Continuant/Selection
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Carrier/File.YAML Frontmatter
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Relation
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+version: 25
+updated_at: 2026-10-27 19:59:45 +0400
 relations:
   depends_on:
   - CA-D-305

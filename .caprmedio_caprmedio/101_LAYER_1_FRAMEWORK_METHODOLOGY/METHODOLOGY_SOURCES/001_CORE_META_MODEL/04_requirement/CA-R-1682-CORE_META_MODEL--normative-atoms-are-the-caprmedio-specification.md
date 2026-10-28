@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Rule
+  governs: Subject/CAPRMEDIO/Graph/Rule
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Selection
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - Subject/Graph Node
-  - Subject/Graph Node/Implementation
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-version: 34
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+version: 35
+updated_at: 2026-10-27 20:00:00 +0400
 relations:
   child_of:
   - CA-M-001

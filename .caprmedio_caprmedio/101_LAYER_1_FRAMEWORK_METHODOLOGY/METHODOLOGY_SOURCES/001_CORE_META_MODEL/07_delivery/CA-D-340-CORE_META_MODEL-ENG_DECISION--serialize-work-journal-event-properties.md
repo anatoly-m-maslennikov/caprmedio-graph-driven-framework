@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Project
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
-version: 26
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+version: 27
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-340
 content_role: Delivery

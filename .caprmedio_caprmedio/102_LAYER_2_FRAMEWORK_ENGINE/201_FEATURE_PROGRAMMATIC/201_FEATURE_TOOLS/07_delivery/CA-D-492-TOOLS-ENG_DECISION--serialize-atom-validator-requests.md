@@ -6,16 +6,16 @@ claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Serialization
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Domain/Continuant/Project.Operator Registry
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-version: 17
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Operator Registry
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+version: 18
+updated_at: 2026-10-27 19:59:25 +0400
 relations:
   delivery_for:
   - CA-R-1622

@@ -6,12 +6,12 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Enabled Relations.Contains
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Enabled Relations.Contains
 relations:
   child_of:
   - CA-R-1174
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
+version: 10
+updated_at: 2026-10-27 20:00:06 +0400
 tier: 2
 type: Definition
 ---

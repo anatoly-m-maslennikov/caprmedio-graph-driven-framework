@@ -6,14 +6,14 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Rule.Condition
+  governs: Subject/CAPRMEDIO/Graph/Rule.Condition
   depends_on:
-  - Subject/Graph Rule.Type
-  - Subject/Graph Rule.Applies To
-  - Subject/Graph Relation
+  - Subject/CAPRMEDIO/Graph/Rule.Type
+  - Subject/CAPRMEDIO/Graph/Rule.Applies To
+  - Subject/CAPRMEDIO/Graph/Relation
 relations: {}
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
+version: 10
+updated_at: 2026-10-27 20:00:07 +0400
 tier: 1
 type: Definition
 ---

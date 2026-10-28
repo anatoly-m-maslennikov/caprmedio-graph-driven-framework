@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Node/Engineering/Verification/Static Analysis
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
   depends_on:
-  - Subject/Graph Node/Engineering/Verification/Static Analysis
-  - Subject/Graph Node/Implementation
-version: 22
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+version: 23
+updated_at: 2026-10-27 19:59:33 +0400
 relations:
   evaluation_for:
   - CA-M-419

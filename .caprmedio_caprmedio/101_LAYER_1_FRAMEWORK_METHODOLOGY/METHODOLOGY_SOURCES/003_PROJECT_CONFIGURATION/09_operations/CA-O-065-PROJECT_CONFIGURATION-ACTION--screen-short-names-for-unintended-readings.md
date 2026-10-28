@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Screen Short Names'
+  governs: Subject/caprmedio/Action//Screen Short Names
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Project
-version: 14
-updated_at: 2026-10-26 05:59:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+version: 15
+updated_at: 2026-10-27 19:59:45 +0400
 relations:
   child_of:
   - CA-M-005

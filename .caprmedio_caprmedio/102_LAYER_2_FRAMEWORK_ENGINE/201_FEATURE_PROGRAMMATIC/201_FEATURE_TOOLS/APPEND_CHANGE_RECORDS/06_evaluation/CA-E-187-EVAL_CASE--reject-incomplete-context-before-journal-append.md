@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   depends_on:
-  - Subject/Graph Node/Engineering/Execution Control/Failure Handling
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-  - Subject/Graph Node/Carrier
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Failure Handling
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Carrier
+version: 24
+updated_at: 2026-10-27 19:59:30 +0400
 relations:
   evaluation_for:
   - CA-R-1491

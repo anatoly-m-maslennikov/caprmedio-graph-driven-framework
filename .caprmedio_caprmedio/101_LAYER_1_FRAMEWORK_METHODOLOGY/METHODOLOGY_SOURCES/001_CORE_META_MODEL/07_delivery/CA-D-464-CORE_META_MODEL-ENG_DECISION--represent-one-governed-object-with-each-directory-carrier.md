@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/Directory
+  governs: Subject/CAPRMEDIO/Carrier/Directory
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node
-  - Subject/Graph Node/Domain/Continuant/Atom
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+version: 20
+updated_at: 2026-10-27 19:59:25 +0400
 relations: {}
 atom_id: CA-D-464
 content_role: Delivery

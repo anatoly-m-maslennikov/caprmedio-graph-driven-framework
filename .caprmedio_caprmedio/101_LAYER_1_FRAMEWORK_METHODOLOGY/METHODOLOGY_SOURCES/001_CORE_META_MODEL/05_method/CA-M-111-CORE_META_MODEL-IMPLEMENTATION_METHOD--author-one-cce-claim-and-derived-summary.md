@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Authoring
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Rule/CCE
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-version: 40
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+version: 41
+updated_at: 2026-10-27 19:59:39 +0400
 relations:
   depends_on:
   - CA-R-1624

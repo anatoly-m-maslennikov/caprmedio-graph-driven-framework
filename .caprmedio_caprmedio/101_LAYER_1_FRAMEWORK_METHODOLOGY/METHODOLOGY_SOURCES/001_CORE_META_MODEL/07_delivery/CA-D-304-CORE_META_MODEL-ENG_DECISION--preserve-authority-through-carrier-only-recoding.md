@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier
+  governs: Subject/CAPRMEDIO/Carrier
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Atom.Local Scope Unit
-  - Subject/Graph Relation
-version: 25
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
+  - Subject/CAPRMEDIO/Graph/Relation
+version: 26
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-304
 content_role: Delivery

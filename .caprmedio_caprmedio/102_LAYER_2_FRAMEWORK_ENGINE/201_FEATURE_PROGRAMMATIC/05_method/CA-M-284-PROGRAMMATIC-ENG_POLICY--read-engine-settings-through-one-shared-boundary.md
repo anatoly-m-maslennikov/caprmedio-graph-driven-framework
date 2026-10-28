@@ -7,12 +7,12 @@ claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Source Retrieval
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
   depends_on:
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-version: 26
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+version: 27
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   derived_from:
   - CA-A-053

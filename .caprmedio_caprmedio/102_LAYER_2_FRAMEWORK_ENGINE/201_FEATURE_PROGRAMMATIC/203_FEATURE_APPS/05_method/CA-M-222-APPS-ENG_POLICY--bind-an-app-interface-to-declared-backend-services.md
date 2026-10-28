@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Communication
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   depends_on:
-  - Subject/Graph Node/UX
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/UX
+version: 21
+updated_at: 2026-10-27 19:59:40 +0400
 relations:
   method_for:
   - CA-R-1187

@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Canonical Signature'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Canonical Signature'
   depends_on:
-  - Subject/Graph Node/Engineering/Data Handling/Output Publication
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Carrier/File
-  - Subject/Graph Rule/CCE
-version: 27
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Carrier/File
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+version: 28
+updated_at: 2026-10-27 19:59:23 +0400
 relations:
   child_of:
   - CA-D-266

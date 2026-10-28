@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit.Label
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Label
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit/Type
-version: 29
-updated_at: 2026-10-26 05:59:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type
+version: 30
+updated_at: 2026-10-27 20:00:13 +0400
 relations: {}
 atom_id: CA-R-972
 content_role: Requirement

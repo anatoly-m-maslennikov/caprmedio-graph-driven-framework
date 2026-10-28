@@ -6,14 +6,14 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph'
   depends_on:
-  - Subject/Graph Node
-  - Subject/Graph Relation
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Projection
-version: 16
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Relation
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+version: 17
+updated_at: 2026-10-27 19:59:43 +0400
 relations:
   method_for:
   - CA-R-1456

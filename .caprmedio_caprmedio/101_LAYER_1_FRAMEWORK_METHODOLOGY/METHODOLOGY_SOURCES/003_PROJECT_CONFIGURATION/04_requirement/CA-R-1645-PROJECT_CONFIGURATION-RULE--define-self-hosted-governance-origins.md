@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Rule
+  governs: Subject/CAPRMEDIO/Graph/Rule
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-version: 31
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+version: 32
+updated_at: 2026-10-27 19:59:59 +0400
 relations: {}
 atom_id: CA-R-1645
 content_role: Requirement

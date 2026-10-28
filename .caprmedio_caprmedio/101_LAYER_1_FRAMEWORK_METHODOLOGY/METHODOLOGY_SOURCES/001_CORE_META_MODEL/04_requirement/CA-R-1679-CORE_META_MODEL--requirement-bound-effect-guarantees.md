@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control/Effect Authorization
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   depends_on: []
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+version: 24
+updated_at: 2026-10-27 20:00:00 +0400
 relations: {}
 atom_id: CA-R-1679
 content_role: Requirement

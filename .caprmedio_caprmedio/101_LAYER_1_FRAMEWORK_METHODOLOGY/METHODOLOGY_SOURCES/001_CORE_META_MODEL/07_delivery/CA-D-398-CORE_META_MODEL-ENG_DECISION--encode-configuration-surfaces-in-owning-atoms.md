@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Frontmatter
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Frontmatter
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-version: 19
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+version: 20
+updated_at: 2026-10-27 19:59:24 +0400
 relations:
   depends_on:
   - CA-D-311

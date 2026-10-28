@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 28
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+version: 29
+updated_at: 2026-10-27 19:59:59 +0400
 relations:
   child_of:
   - CA-R-1711

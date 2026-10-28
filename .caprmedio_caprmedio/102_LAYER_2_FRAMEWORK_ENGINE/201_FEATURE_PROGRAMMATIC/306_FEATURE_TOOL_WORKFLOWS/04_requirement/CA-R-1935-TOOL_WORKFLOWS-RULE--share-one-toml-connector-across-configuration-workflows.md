@@ -6,13 +6,13 @@ current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: 2026-10-26 05:59:45 +0400
+version: 10
+updated_at: 2026-10-27 20:00:05 +0400
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Governing Configuration
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
 relations: {}
 tier: 1
 ---

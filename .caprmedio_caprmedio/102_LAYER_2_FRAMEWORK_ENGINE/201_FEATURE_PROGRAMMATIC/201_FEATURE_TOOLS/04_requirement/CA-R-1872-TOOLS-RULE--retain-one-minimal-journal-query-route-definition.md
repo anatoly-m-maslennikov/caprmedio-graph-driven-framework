@@ -5,14 +5,14 @@ current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 8
-updated_at: 2026-10-27 06:04:45 +0400
+version: 9
+updated_at: 2026-10-27 20:00:05 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Component Structure
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
 relations: {}
 type: Rule
 tier: 3

@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom/Content Role
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Concern'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
-  - Subject/Graph Node/Implementation
-version: 17
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+version: 18
+updated_at: 2026-10-27 19:59:57 +0400
 relations: {}
 atom_id: CA-R-1549
 content_role: Requirement

@@ -6,11 +6,11 @@ claim_target_scope_unit: CORE_META_MODEL
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Graph Relation/Type: IS_DERIVED_RELATION_OF'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: IS_DERIVED_RELATION_OF'
   depends_on:
-  - Subject/Graph Relation
-version: 1
-updated_at: 2026-10-26 05:27:27 +0400
+  - Subject/CAPRMEDIO/Graph/Relation
+version: 2
+updated_at: 2026-10-27 20:00:08 +0400
 relations: {}
 tier: 1
 type: Definition

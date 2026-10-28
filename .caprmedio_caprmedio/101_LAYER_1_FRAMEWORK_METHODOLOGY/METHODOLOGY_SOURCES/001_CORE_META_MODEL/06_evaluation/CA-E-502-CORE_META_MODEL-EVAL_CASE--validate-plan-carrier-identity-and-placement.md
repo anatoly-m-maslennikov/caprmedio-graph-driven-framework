@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier
+  governs: Subject/CAPRMEDIO/Carrier
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-  - Subject/Graph Node/Carrier/File
-  - Subject/Graph Node/Carrier/Directory
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Work Sequence Number'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Label'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Status'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Definition of Done'
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+  - Subject/CAPRMEDIO/Carrier/File
+  - Subject/CAPRMEDIO/Carrier/Directory
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Work Sequence Number'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Definition of Done'
+version: 25
+updated_at: 2026-10-27 19:59:36 +0400
 relations:
   evaluation_for:
   - CA-D-460

@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Project.Framework Settings.Interaction.Reporting Mode: silent'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode: silent'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings.Interaction.Reporting Mode
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Effects
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node/Engineering/Architecture/Communication
-  - Subject/Graph Node/Domain/Continuant/Project
-version: 25
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode.Effects
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+version: 26
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   depends_on:
   - CA-R-1440

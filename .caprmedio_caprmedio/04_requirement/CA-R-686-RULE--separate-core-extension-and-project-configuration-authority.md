@@ -1,6 +1,6 @@
 ---
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+version: 25
+updated_at: 2026-10-27 20:00:10 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -9,12 +9,12 @@ relations:
   - CA-M-001
   - CA-M-006
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   depends_on:
-  - Subject/Graph Node/Product/Extension
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
 cce_version: cce_1
 cce_form: obligation
 author: Anatoly Maslennikov

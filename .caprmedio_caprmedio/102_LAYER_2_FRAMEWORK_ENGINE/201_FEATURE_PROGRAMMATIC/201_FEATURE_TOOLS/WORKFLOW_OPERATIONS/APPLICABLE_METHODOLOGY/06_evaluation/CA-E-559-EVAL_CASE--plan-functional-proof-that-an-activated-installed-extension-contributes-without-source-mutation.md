@@ -6,17 +6,17 @@ current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-27 06:04:45 +0400
+version: 14
+updated_at: 2026-10-27 19:59:37 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Source Selection
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
   depends_on:
-  - Subject/Graph Node/Implementation/Code/Tool
-  - Subject/Graph Node/Domain/Continuant/Selection//Extension Sources
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Extension Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 relations:
   evaluation_for:
   - CA-R-1839

@@ -2,13 +2,13 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Product/Extension
-  - Subject/Graph Node/Carrier
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Carrier
+version: 25
+updated_at: 2026-10-27 19:59:34 +0400
 relations:
   evaluation_for:
   - CA-R-1152

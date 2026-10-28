@@ -6,18 +6,18 @@ current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Continuant/History/Release.ID
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
-  - Subject/Graph Node/Engineering/Verification/Dynamic Testing
-  - Subject/Graph Node/UX/CAPRMEDIO Skill and MCP Entry Interface
-  - Subject/Graph Node/Engineering/Verification
-  - Subject/Graph Node/Engineering/Execution Control/Effect Authorization
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 21
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+version: 22
+updated_at: 2026-10-27 19:59:47 +0400
 relations: {}
 tier: 3
 ---

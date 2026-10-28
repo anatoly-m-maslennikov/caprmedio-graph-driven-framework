@@ -2,15 +2,15 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   depends_on:
-  - Subject/Graph Node/Engineering/Data Handling/Output Publication
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Carrier/Git Index
-  - Subject/Graph Node/Implementation/Code/Tool//COMMIT_CONTEXT
-version: 14
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Carrier/Git Index
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//COMMIT_CONTEXT
+version: 15
+updated_at: 2026-10-27 19:59:36 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:

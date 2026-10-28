@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
   depends_on:
-  - Subject/Graph Rule/CCE
-version: 24
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+version: 25
+updated_at: 2026-10-27 19:59:39 +0400
 relations:
   child_of:
   - CA-M-113

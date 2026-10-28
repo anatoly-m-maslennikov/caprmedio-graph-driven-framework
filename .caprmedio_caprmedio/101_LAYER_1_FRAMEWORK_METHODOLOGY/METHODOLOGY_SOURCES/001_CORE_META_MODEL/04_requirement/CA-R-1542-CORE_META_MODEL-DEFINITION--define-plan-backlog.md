@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Status: Backlog'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
-version: 17
-updated_at: 2026-10-26 05:59:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status: Backlog'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+version: 18
+updated_at: 2026-10-27 19:59:57 +0400
 relations: {}
 atom_id: CA-R-1542
 content_role: Requirement

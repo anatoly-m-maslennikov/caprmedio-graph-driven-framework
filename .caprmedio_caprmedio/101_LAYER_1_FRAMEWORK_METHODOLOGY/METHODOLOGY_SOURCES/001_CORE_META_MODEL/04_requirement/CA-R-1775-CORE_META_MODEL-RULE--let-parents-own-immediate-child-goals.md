@@ -1,15 +1,15 @@
 ---
-version: 27
-updated_at: 2026-10-25 17:32:27 +0400
+version: 28
+updated_at: 2026-10-27 20:00:03 +0400
 relations:
   child_of:
   - CA-M-001
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Goal'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Goal'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Selection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
 atom_id: CA-R-1775
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL

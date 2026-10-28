@@ -1,0 +1,32 @@
+---
+subjects:
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Concern.Priority'
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Concern.Priority'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+version: 18
+updated_at: 2026-10-25 17:32:27 +0400
+relations: {}
+atom_id: CA-D-386@18
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 3
+type: Eng Decision
+---
+# Summary
+
+Serialize Concern Priority
+
+## Scope
+
+Concern Atom Carriers and non-Concern Content Role Atom Carriers.
+
+## Claim
+
+a Concern Atom Carrier **must** serialize **`=1`** selected Priority as `priority` with the lowercase value `high`, `medium`, **or** `low`. **every** non-Concern Content Role Atom Carrier **must** omit `priority`; virtual `highest` **must not** be stored.
+
+## Details

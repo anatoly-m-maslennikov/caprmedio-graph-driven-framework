@@ -1,8 +1,8 @@
 ---
 subjects:
-  governs: Subject/Graph Relation
-version: 29
-updated_at: 2026-10-25 17:32:27 +0400
+  governs: Subject/CAPRMEDIO/Graph/Relation
+version: 30
+updated_at: 2026-10-27 20:00:00 +0400
 relations:
   child_of:
   - CA-R-1051

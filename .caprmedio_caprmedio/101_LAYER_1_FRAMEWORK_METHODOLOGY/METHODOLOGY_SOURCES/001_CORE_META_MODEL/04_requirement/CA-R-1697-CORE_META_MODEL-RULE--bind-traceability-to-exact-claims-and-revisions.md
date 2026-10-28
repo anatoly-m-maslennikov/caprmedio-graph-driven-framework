@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Relation
+  governs: Subject/CAPRMEDIO/Graph/Relation
   depends_on: []
-version: 28
-updated_at: 2026-10-25 17:32:27 +0400
+version: 29
+updated_at: 2026-10-27 20:00:01 +0400
 relations:
   child_of:
   - CA-R-007

@@ -6,18 +6,18 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+version: 20
+updated_at: 2026-10-27 19:59:46 +0400
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step//RMED Review Repair Step'
+  governs: Subject/caprmedio/Step//RMED Review Repair Step
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run.Agentic Step Execution Context
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Continuant/History
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History
 relations: {}
 tier: 3
 ---

@@ -7,15 +7,15 @@ claim_target_scope_unit: TOOL_WORKFLOWS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Modify explicit Atom targets'
+  governs: Subject/caprmedio/Workflow//Modify explicit Atom targets
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Term//Property
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-version: 11
-updated_at: 2026-10-26 14:22:14 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+version: 12
+updated_at: 2026-10-27 19:59:48 +0400
 relations: {}
 tier: 3
 ---

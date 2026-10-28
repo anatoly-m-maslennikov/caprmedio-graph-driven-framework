@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology.Conflict'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology.Conflict'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
-version: 21
-updated_at: 2026-10-25 17:32:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+version: 22
+updated_at: 2026-10-27 19:59:53 +0400
 relations: {}
 atom_id: CA-R-1373
 content_role: Requirement

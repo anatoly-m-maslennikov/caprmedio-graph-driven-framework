@@ -4,17 +4,17 @@ content_role: Method
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
-version: 16
-updated_at: 2026-10-27 06:04:45 +0400
+version: 17
+updated_at: 2026-10-27 19:59:42 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   depends_on:
-  - Subject/Graph Node/Engineering/Architecture/Communication
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Engineering/Architecture/Component Structure
-  - Subject/Graph Node/Implementation/Code
-  - Subject/Graph Node/Engineering/Execution Control/Effect Authorization
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
 relations:
   method_for:
   - CA-R-1891

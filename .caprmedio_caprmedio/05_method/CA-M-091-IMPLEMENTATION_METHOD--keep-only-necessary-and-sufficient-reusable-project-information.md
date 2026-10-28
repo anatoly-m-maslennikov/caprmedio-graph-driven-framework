@@ -1,14 +1,14 @@
 ---
-version: 21
-updated_at: 2026-10-25 17:32:27 +0400
+version: 22
+updated_at: 2026-10-27 19:59:39 +0400
 relations:
   child_of:
   - CA-M-003
   - CA-M-005
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

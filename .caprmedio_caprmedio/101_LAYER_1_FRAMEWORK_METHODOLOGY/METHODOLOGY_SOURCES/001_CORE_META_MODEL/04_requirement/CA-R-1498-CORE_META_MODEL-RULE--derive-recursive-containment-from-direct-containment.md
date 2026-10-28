@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Rule//Recursive Containment
+  governs: Subject/CAPRMEDIO/Graph/Rule//Recursive Containment
   depends_on:
-  - 'Subject/Graph Relation/Type: CONTAINS'
-version: 11
-updated_at: 2026-10-25 17:32:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: CONTAINS'
+version: 12
+updated_at: 2026-10-27 19:59:56 +0400
 relations: {}
 atom_id: CA-R-1498
 content_role: Requirement

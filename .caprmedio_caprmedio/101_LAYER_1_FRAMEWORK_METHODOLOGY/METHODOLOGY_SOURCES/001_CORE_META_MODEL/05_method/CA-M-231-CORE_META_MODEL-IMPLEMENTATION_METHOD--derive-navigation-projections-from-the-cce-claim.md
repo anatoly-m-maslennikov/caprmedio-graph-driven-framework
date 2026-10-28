@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-version: 28
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+version: 29
+updated_at: 2026-10-27 19:59:40 +0400
 relations: {}
 atom_id: CA-M-231
 content_role: Method

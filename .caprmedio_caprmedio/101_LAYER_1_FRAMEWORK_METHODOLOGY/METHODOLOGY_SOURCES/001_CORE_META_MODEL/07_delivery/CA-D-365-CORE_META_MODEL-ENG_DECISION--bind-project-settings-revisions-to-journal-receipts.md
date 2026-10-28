@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Settings
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/History
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-version: 22
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+version: 23
+updated_at: 2026-10-27 19:59:24 +0400
 relations:
   child_of:
   - CA-D-364

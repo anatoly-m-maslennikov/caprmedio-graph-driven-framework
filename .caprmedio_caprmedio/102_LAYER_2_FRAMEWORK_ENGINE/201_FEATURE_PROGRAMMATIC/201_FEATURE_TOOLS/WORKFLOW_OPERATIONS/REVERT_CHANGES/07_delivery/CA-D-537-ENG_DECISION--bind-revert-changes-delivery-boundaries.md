@@ -5,16 +5,16 @@ current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-27 06:04:45 +0400
+version: 13
+updated_at: 2026-10-27 19:59:27 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Communication
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   depends_on:
-  - Subject/Graph Node/Engineering/Delivery
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Implementation/Code/Tool
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
 relations:
   delivery_for:
   - CA-R-1834

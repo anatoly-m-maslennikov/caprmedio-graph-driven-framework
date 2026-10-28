@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Governing Configuration
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+version: 24
+updated_at: 2026-10-27 19:59:54 +0400
 relations: {}
 atom_id: CA-R-1429
 content_role: Requirement

@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: 'Subject/Graph Relation/Type: structural_parent'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: structural_parent'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-version: 27
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+version: 28
+updated_at: 2026-10-27 20:00:00 +0400
 relations: {}
 atom_id: CA-R-1660
 content_role: Requirement

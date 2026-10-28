@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.ID
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Atom.Local Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - Subject/Graph Node/Carrier.Canonical Address
-  - Subject/Graph Node/Domain/Continuant/Project
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
-  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Carrier.Canonical Address
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+version: 25
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   method_for:
   - CA-R-728

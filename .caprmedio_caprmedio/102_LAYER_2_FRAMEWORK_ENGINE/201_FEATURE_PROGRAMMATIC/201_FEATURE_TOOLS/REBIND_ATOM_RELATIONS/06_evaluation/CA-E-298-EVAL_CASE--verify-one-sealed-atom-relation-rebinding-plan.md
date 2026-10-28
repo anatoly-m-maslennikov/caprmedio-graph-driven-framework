@@ -2,10 +2,10 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Relation
+  governs: Subject/CAPRMEDIO/Graph/Relation
   depends_on: []
-version: 16
-updated_at: 2026-10-25 17:32:27 +0400
+version: 17
+updated_at: 2026-10-27 19:59:32 +0400
 relations:
   evaluation_for:
   - CA-M-156

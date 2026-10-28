@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: 'Subject/Graph Relation/Type: IS_BORNE_BY'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: IS_BORNE_BY'
   depends_on:
-  - Subject/Graph Relation
-  - Subject/Graph Node/Domain/Continuant/Term//Dependent Entity
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph'
-version: 26
-updated_at: 2026-10-26 17:20:40 +0400
+  - Subject/CAPRMEDIO/Graph/Relation
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Dependent Entity
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph'
+version: 27
+updated_at: 2026-10-27 19:59:52 +0400
 relations: {}
 atom_id: CA-R-1260
 content_role: Requirement

@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: Subject/Graph Node
+  governs: Subject/CAPRMEDIO/Graph/Node
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - Subject/Graph Node/Domain/Continuant/Projection/Type
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Scope Unit Graph'
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings.Authority Modes
-version: 38
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Scope Unit Graph'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Authority Modes
+version: 39
+updated_at: 2026-10-27 20:00:00 +0400
 relations: {}
 atom_id: CA-R-1655
 content_role: Requirement

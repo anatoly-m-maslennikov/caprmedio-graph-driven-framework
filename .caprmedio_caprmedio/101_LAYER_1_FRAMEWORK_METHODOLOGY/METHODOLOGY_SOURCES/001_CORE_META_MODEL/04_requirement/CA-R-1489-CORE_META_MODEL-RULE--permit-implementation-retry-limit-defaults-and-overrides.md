@@ -1,17 +1,17 @@
 ---
-version: 17
-updated_at: 2026-10-25 17:32:27 +0400
+version: 18
+updated_at: 2026-10-27 19:59:56 +0400
 relations:
   child_of:
   - CA-R-1488
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings.implementation.retry_limit
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - Subject/Graph Node/Domain/Continuant/Term//Property
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.implementation.retry_limit
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
 atom_id: CA-R-1489
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL

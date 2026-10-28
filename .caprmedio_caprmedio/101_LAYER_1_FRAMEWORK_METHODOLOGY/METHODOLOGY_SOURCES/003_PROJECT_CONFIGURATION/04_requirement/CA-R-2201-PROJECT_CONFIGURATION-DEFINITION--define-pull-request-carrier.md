@@ -7,9 +7,9 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Carrier/Pull Request
-version: 1
-updated_at: 2026-10-27 04:58:51 +0400
+  governs: Subject/CAPRMEDIO/Carrier/Pull Request
+version: 2
+updated_at: 2026-10-27 20:00:09 +0400
 relations: {}
 tier: 1
 ---

@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context'
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-version: 24
-updated_at: 2026-10-26 17:20:40 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+version: 25
+updated_at: 2026-10-27 19:59:56 +0400
 relations: {}
 atom_id: CA-R-1508
 content_role: Requirement

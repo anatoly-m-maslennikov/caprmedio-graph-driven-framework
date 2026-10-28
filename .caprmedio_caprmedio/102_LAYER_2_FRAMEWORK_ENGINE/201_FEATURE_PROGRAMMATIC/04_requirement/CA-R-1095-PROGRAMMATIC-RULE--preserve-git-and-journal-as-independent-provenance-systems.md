@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Component Structure
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   depends_on: []
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+version: 21
+updated_at: 2026-10-27 19:59:50 +0400
 atom_id: CA-R-1095
 content_role: Requirement
 current_scope_unit: PROGRAMMATIC

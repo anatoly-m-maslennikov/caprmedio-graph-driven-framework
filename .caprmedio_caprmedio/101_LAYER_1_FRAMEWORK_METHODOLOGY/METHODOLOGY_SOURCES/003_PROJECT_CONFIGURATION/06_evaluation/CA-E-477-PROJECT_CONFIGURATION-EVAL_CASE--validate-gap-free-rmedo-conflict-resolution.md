@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//RMEDO Conflict Resolution'
+  governs: Subject/caprmedio/Workflow//RMEDO Conflict Resolution
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-  - Subject/Graph Node/Domain/Continuant/Atom.Updated At
-  - 'Subject/Graph Node/Domain/Continuant/Atom.Tier: Principle'
-  - Subject/Graph Relation
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier: Principle'
+  - Subject/CAPRMEDIO/Graph/Relation
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+version: 24
+updated_at: 2026-10-27 19:59:35 +0400
 relations:
   evaluation_for:
   - CA-O-028

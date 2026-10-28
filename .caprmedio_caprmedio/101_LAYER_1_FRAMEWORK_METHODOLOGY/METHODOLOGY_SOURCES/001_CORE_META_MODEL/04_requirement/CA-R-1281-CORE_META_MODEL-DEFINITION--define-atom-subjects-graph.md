@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Atom Subjects Graph'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Atom Subjects Graph'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Atom Subjects Graph'
-  - 'Subject/Graph Relation/Type: GOVERNS'
-  - 'Subject/Graph Relation/Type: DEPENDS_ON'
-  - Subject/Graph Relation
-  - Subject/Graph Relation/Type
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Atom Subjects Graph'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: GOVERNS'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: DEPENDS_ON'
+  - Subject/CAPRMEDIO/Graph/Relation
+  - Subject/CAPRMEDIO/Graph/Relation/Type
   - Subject
-  - Subject/Graph Node/Domain/Continuant/Term
-version: 28
-updated_at: 2026-10-26 22:47:49 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
+version: 29
+updated_at: 2026-10-27 19:59:52 +0400
 relations: {}
 atom_id: CA-R-1281
 content_role: Requirement

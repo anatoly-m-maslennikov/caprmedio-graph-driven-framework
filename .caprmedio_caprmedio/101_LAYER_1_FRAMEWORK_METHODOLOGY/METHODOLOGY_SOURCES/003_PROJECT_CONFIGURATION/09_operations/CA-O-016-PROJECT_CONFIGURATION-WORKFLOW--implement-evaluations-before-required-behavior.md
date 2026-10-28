@@ -7,16 +7,16 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  governs: Subject/caprmedio/Workflow//Implementation Workflow
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
-version: 25
-updated_at: 2026-10-26 17:20:40 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - Subject/caprmedio/Action//Implementation Retry Control
+version: 26
+updated_at: 2026-10-27 19:59:44 +0400
 relations: {}
 tier: 3
 ---

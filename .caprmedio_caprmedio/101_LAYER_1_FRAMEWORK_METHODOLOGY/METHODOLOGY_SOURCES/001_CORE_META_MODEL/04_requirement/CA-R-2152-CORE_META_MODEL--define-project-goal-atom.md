@@ -6,15 +6,15 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
-version: 4
-updated_at: 2026-10-25 17:32:27 +0400
+version: 5
+updated_at: 2026-10-27 20:00:08 +0400
 author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Project Goal'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Project Goal'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Project
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
 relations: {}
 ---
 # Summary

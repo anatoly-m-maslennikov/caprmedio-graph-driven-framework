@@ -2,16 +2,16 @@
 subjects:
   governs: Subject
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
   - Subject
-  - Subject/Graph Node/Domain/Continuant/Term//Dependent Entity
-  - Subject/Graph Node/Domain/Continuant/Term//Property
-  - 'Subject/Graph Relation/Type: IS_BORNE_BY'
-  - 'Subject/Graph Relation/Type: IS_ALLOWED_VALUE_OF'
-  - Subject/Graph Node/Engineering/Data Handling/Data Validation
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Name
-version: 33
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Dependent Entity
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: IS_BORNE_BY'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: IS_ALLOWED_VALUE_OF'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name
+version: 34
+updated_at: 2026-10-27 19:59:34 +0400
 relations:
   evaluation_for:
   - CA-R-1194

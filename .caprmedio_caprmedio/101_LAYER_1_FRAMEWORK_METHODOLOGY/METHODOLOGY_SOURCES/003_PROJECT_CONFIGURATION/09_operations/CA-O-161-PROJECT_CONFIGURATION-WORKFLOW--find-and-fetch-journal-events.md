@@ -6,17 +6,17 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-26 05:59:45 +0400
+version: 13
+updated_at: 2026-10-27 19:59:47 +0400
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Find and Fetch Journal Events'
+  governs: Subject/caprmedio/Workflow//Find and Fetch Journal Events
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-  - Subject/Graph Node/Domain/Occurrent/Execution
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
 relations: {}
 tier: 3
 ---

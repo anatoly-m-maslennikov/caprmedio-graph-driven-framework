@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Traceability
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
   depends_on: []
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+version: 25
+updated_at: 2026-10-27 19:59:39 +0400
 relations: {}
 atom_id: CA-M-135
 content_role: Method

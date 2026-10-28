@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   depends_on: []
-version: 29
+version: 30
 status: Active
-updated_at: 2026-10-27 06:04:45 +0400
+updated_at: 2026-10-27 19:59:51 +0400
 llm_session_ids:
 - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File.Filename
+  governs: Subject/CAPRMEDIO/Carrier/File.Filename
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-  - Subject/Graph Node/Domain/Continuant/Atom.Local Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-  - Subject/Graph Node/Domain/Continuant/Atom.Label
-version: 27
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Label
+version: 28
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-283
 content_role: Delivery

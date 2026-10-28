@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node/Carrier.Canonical Address
-version: 25
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Carrier.Canonical Address
+version: 26
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-336
 content_role: Delivery

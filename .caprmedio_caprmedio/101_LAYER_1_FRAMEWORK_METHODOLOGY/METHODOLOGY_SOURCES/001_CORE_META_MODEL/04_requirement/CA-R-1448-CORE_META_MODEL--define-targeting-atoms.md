@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Target Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-version: 19
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+version: 20
+updated_at: 2026-10-27 19:59:55 +0400
 relations: {}
 atom_id: CA-R-1448
 content_role: Requirement

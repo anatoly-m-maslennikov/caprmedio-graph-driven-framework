@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Relation
+  governs: Subject/CAPRMEDIO/Graph/Relation
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-  - Subject/Graph Relation
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
-version: 17
-updated_at: 2026-10-26 17:47:19 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+  - Subject/CAPRMEDIO/Graph/Relation
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
+version: 18
+updated_at: 2026-10-27 19:59:25 +0400
 relations:
   delivery_for:
   - CA-R-1580

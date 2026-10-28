@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: 'Subject/Graph Relation/Type: child_of'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: child_of'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-  - Subject/Graph Node/Domain/Continuant/Atom.Local Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom.Target Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom.Content.Scope
-version: 35
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content.Scope
+version: 36
+updated_at: 2026-10-27 20:00:11 +0400
 relations:
   child_of:
   - CA-R-1174

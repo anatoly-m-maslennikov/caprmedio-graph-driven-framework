@@ -4,8 +4,8 @@ subject_scopes:
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 11
-updated_at: 2026-10-27 06:04:45 +0400
+version: 12
+updated_at: 2026-10-27 20:00:10 +0400
 relations:
   child_of:
   - CAPRMEDIO-METHODOLOGY-REQU-507-FRAMEWORK_METHODOLOGY-CORE-REQUIREMENT--automatically-initialize-the-session-engine
@@ -17,7 +17,7 @@ atom_id: CA-R-578
 type: Rule
 tier: 1
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
 ---
 # Initialize the session engine at host context boundaries
 

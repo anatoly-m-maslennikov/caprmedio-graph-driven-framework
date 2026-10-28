@@ -6,15 +6,15 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis.Status'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis.Status'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis/Type'
-  - Subject/Graph Node/Domain/Continuant/Atom.Status
-  - Subject/Graph Node/Domain/Continuant/Selection//Extension Sources
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-version: 14
-updated_at: 2026-10-26 05:59:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Extension Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+version: 15
+updated_at: 2026-10-27 20:00:05 +0400
 relations: {}
 tier: 2
 type: Rule

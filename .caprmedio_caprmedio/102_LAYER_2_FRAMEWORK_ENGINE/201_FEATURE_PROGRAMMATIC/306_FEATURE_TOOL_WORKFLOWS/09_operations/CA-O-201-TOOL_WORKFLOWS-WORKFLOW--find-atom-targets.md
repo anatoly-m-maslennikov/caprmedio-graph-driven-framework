@@ -7,15 +7,15 @@ claim_target_scope_unit: TOOL_WORKFLOWS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Find Atom targets'
+  governs: Subject/caprmedio/Workflow//Find Atom targets
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-version: 9
-updated_at: 2026-10-26 05:59:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+version: 10
+updated_at: 2026-10-27 19:59:48 +0400
 relations: {}
 tier: 3
 ---

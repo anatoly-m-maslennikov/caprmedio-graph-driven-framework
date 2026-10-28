@@ -2,15 +2,15 @@
 subjects:
   governs: Subject
   depends_on:
-  - Subject/Graph Rule
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Relation
-version: 21
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Rule
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Relation
+version: 22
+updated_at: 2026-10-27 19:59:55 +0400
 relations: {}
 atom_id: CA-R-1471
 content_role: Requirement

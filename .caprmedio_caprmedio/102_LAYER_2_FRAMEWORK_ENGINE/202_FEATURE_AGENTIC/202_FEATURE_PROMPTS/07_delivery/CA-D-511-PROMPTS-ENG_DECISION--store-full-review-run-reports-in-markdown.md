@@ -5,19 +5,19 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-27 06:04:45 +0400
+version: 14
+updated_at: 2026-10-27 19:59:26 +0400
 subjects:
-  governs: Subject/Graph Node/Documentation/Traceability
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation/Traceability
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-  - Subject/Graph Node/Carrier/File
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Carrier/File
 relations: {}
 tier: 3
 type: Eng Decision

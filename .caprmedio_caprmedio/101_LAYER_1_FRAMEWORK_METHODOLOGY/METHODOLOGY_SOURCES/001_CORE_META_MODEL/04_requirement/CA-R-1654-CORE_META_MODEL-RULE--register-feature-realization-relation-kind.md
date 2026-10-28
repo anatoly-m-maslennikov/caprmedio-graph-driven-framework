@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: 'Subject/Graph Relation/Type: feature_realization'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: feature_realization'
   depends_on:
-  - Subject/Graph Relation
-version: 29
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Relation
+version: 30
+updated_at: 2026-10-27 20:00:00 +0400
 relations:
   child_of:
   - CA-R-1718

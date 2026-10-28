@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Boundary'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Boundary'
   depends_on: []
-version: 27
-updated_at: 2026-10-25 17:32:27 +0400
+version: 28
+updated_at: 2026-10-27 20:00:11 +0400
 relations:
   depends_on:
   - CA-R-740

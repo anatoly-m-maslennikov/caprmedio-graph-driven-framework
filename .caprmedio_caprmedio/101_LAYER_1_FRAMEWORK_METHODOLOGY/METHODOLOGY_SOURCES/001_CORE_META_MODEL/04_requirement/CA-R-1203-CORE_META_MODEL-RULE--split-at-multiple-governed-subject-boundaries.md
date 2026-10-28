@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Content
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   depends_on:
-  - 'Subject/Graph Relation/Type: GOVERNS'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: GOVERNS'
   - Subject
-  - Subject/Graph Node
-version: 27
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node
+version: 28
+updated_at: 2026-10-27 19:59:52 +0400
 relations: {}
 atom_id: CA-R-1203
 content_role: Requirement

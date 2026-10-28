@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom
-version: 23
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+version: 24
+updated_at: 2026-10-27 19:59:50 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 atom_id: CA-R-1070

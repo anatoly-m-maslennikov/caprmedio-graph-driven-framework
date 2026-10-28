@@ -6,13 +6,13 @@ claim_target_scope_unit: PROJECT_TOOLS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - Subject/Graph Node/Carrier/Pull Request.ID
-  - Subject/Graph Node/Carrier/Git Branch
-  - Subject/Graph Node/Carrier/Git Repository
-version: 11
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Carrier/Pull Request.ID
+  - Subject/CAPRMEDIO/Carrier/Git Branch
+  - Subject/CAPRMEDIO/Carrier/Git Repository
+version: 12
+updated_at: 2026-10-27 20:00:05 +0400
 relations: {}
 tier: 3
 type: Rule

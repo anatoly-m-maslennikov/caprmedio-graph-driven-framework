@@ -4,14 +4,14 @@ content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-version: 12
-updated_at: 2026-10-27 06:04:45 +0400
+version: 13
+updated_at: 2026-10-27 19:59:26 +0400
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node
+  governs: Subject/CAPRMEDIO/Graph/Node
   depends_on:
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Term//Property
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
 relations: {}
 tier: 1
 type: Eng Decision

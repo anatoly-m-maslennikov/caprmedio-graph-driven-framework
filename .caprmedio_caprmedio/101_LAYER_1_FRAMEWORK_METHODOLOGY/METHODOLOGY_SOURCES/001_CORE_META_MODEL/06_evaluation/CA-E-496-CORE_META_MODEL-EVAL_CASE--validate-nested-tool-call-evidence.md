@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   depends_on:
-  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Continuant/Projection
-version: 16
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+version: 17
+updated_at: 2026-10-27 19:59:36 +0400
 relations:
   evaluation_for:
   - CA-R-1528

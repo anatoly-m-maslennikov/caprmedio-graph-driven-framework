@@ -7,21 +7,21 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control/Effect Authorization
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Graph Node/Engineering/Verification/Dynamic Testing
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-  - Subject/Graph Node/Domain/Continuant/Atom.Author
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
-  - Subject/Graph Node/Domain/Continuant/Selection
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+version: 20
+updated_at: 2026-10-27 19:59:45 +0400
 relations:
   depends_on:
   - CA-R-1559

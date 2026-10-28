@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   depends_on: []
-version: 21
-updated_at: 2026-10-25 17:32:27 +0400
+version: 22
+updated_at: 2026-10-27 20:00:02 +0400
 relations: {}
 atom_id: CA-R-1749
 content_role: Requirement

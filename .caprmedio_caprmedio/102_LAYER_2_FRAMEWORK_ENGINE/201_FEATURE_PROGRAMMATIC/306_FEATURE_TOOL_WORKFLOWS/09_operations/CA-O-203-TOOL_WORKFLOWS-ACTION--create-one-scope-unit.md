@@ -7,14 +7,14 @@ claim_target_scope_unit: TOOL_WORKFLOWS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Implementation
-version: 8
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+version: 9
+updated_at: 2026-10-27 19:59:48 +0400
 relations:
   depends_on:
   - CA-D-441

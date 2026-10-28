@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
-  - Subject/Graph Node/Domain/Continuant/Atom.Content.Scope
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-  - 'Subject/Graph Relation/Type: evaluation_for'
-version: 22
-updated_at: 2026-10-25 17:32:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content.Scope
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: evaluation_for'
+version: 23
+updated_at: 2026-10-27 19:59:41 +0400
 relations: {}
 atom_id: CA-M-264
 content_role: Method

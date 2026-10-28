@@ -5,21 +5,21 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
-version: 15
-updated_at: 2026-10-27 06:04:45 +0400
+version: 16
+updated_at: 2026-10-27 20:00:03 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Authoring/Prompt Authoring
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Term//Property
-  - Subject/Graph Node/Domain/Continuant/Atom.Content.Scope
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Atom.Details
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-  - Subject/Graph Rule/CCE
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content.Scope
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Details
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
 relations: {}
 tier: 3
 type: Goal

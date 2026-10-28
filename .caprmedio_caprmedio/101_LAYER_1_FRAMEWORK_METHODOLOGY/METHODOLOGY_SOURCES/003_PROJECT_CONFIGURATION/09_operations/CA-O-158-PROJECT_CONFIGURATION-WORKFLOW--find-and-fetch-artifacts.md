@@ -6,18 +6,18 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 type: Workflow
-version: 15
-updated_at: 2026-10-27 06:04:45 +0400
+version: 16
+updated_at: 2026-10-27 19:59:47 +0400
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - 'Subject/Graph Node/Carrier/File.Format: Markdown'
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Engineering/Data Handling/Source Retrieval
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - 'Subject/CAPRMEDIO/Carrier/File.Format: Markdown'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
 relations: {}
 tier: 3
 ---

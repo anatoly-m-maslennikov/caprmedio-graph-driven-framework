@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom.Status: Draft'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status: Draft'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - 'Subject/Graph Node/Domain/Continuant/Atom.Status: Draft'
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-version: 18
-updated_at: 2026-10-26 05:59:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status: Draft'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+version: 19
+updated_at: 2026-10-27 19:59:27 +0400
 relations: {}
 atom_id: CA-D-570
 content_role: Delivery

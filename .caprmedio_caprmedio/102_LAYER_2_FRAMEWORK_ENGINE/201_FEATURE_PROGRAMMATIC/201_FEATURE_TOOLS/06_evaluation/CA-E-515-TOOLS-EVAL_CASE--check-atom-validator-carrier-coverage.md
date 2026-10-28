@@ -7,20 +7,20 @@ claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Verification/Coverage
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Atom.Author
-  - Subject/Graph Node/Implementation/Code/Tool
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Carrier/File.YAML Frontmatter
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-  - Subject/Graph Relation
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Carrier/File.YAML Frontmatter
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Relation
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+version: 25
+updated_at: 2026-10-27 19:59:36 +0400
 relations:
   evaluation_for:
   - CA-M-316

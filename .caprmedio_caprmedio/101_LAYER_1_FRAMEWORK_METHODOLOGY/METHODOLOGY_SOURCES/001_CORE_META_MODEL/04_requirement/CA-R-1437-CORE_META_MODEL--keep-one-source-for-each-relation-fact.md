@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: Subject/Graph Relation
+  governs: Subject/CAPRMEDIO/Graph/Relation
   depends_on:
-  - Subject/Graph Relation/Type
+  - Subject/CAPRMEDIO/Graph/Relation/Type
   - Subject
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Engineering/Traceability
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+version: 24
+updated_at: 2026-10-27 19:59:54 +0400
 relations: {}
 atom_id: CA-R-1437
 content_role: Requirement

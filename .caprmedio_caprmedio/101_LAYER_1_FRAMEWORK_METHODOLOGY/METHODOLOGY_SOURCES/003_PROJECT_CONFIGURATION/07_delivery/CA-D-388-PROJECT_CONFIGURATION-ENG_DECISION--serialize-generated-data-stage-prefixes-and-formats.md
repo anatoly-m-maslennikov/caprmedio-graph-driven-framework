@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier
+  governs: Subject/CAPRMEDIO/Carrier
   depends_on:
-  - Subject/Graph Node/Engineering/Data Handling/Serialization
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Carrier.Format
-version: 16
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Carrier.Format
+version: 17
+updated_at: 2026-10-27 19:59:24 +0400
 relations: {}
 atom_id: CA-D-388
 content_role: Delivery

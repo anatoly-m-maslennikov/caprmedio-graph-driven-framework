@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Canonical Scope Signature'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Canonical Scope Signature'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Selection
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Engineering/Data Handling/Parsing
-version: 26
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Parsing
+version: 27
+updated_at: 2026-10-27 19:59:53 +0400
 relations: {}
 atom_id: CA-R-1361
 content_role: Requirement

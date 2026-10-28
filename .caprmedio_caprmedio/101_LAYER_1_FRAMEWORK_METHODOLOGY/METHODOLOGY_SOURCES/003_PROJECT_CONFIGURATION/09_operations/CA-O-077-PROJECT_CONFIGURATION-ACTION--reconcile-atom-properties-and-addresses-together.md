@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Reconcile Atom Properties and Addresses'
+  governs: Subject/caprmedio/Action//Reconcile Atom Properties and Addresses
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-  - Subject/Graph Node/Carrier
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 18
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Carrier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+version: 19
+updated_at: 2026-10-27 19:59:45 +0400
 relations: {}
 atom_id: CA-O-077
 content_role: Operations

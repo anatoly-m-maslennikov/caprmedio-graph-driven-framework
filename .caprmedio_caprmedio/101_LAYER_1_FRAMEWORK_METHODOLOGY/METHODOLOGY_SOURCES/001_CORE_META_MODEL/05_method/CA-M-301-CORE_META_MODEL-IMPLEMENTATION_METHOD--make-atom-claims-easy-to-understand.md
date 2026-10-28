@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Content
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Actor
-  - Subject/Graph Rule/CCE
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-version: 23
-updated_at: 2026-10-26 17:20:40 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+version: 24
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   child_of:
   - CA-M-113

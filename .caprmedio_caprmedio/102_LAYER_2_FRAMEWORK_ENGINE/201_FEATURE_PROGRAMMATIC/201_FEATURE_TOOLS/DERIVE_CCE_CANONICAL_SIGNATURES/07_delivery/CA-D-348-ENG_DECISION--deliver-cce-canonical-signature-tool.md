@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: delivery
 subjects:
-  governs: Subject/Graph Node/Engineering/Storage/Directory Layout
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
   depends_on:
-  - Subject/Graph Node/Implementation/Code/Tool//DERIVE_CCE_CANONICAL_SIGNATURES
-version: 16
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//DERIVE_CCE_CANONICAL_SIGNATURES
+version: 17
+updated_at: 2026-10-27 19:59:23 +0400
 relations:
   delivery_for:
   - CA-M-256

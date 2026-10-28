@@ -1,17 +1,17 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-version: 27
-updated_at: 2026-10-27 06:04:45 +0400
+version: 28
+updated_at: 2026-10-27 20:00:11 +0400
 relations:
   child_of:
   - CA-R-2155
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
 atom_id: CA-R-819
 status: Active
 content_role: Requirement

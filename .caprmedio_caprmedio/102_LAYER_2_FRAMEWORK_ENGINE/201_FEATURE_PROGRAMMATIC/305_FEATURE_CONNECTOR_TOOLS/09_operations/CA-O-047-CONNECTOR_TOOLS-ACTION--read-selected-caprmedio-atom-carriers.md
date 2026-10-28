@@ -9,15 +9,15 @@ status: Active
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Source Retrieval
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Implementation/Code/Tool//ATOM_READ
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-version: 13
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//ATOM_READ
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+version: 14
+updated_at: 2026-10-27 19:59:44 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:

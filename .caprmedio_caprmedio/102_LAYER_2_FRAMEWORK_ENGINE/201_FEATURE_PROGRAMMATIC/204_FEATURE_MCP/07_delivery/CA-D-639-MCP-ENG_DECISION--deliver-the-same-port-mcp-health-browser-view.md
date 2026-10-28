@@ -5,10 +5,10 @@ current_scope_unit: MCP
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: 2026-10-26 00:46:35 +0400
+version: 10
+updated_at: 2026-10-27 19:59:28 +0400
 subjects:
-  governs: Subject/Graph Node/UX/MCP Health and Diagnostic View
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation
   depends_on: []
 relations:
   delivery_for:

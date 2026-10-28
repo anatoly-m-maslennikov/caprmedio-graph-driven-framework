@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control/Decision Confidence
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
-version: 25
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+version: 26
+updated_at: 2026-10-27 19:59:49 +0400
 relations: {}
 atom_id: CA-R-1044
 content_role: Requirement

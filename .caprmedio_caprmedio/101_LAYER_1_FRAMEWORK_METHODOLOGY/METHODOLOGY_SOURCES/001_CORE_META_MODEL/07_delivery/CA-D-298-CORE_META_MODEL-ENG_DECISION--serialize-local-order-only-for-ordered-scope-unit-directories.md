@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/Directory.Name
+  governs: Subject/CAPRMEDIO/Carrier/Directory.Name
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Scope Unit/Type: Ordered'
-  - 'Subject/Graph Node/Domain/Continuant/Scope Unit/Type: Unordered'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Label
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Local Order
-version: 25
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type: Ordered'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type: Unordered'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Local Order
+version: 26
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-298
 content_role: Delivery

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Relation
+  governs: Subject/CAPRMEDIO/Graph/Relation
   depends_on: []
-version: 27
-updated_at: 2026-10-25 17:32:27 +0400
+version: 28
+updated_at: 2026-10-27 19:59:38 +0400
 relations: {}
 atom_id: CA-E-620
 content_role: Evaluation

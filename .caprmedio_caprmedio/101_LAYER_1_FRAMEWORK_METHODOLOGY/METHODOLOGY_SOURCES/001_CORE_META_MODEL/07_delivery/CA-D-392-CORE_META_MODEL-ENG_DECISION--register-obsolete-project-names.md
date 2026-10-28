@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Scope Unit Graph'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Scope Unit Graph'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-  - Subject/Graph Node/Domain/Continuant/Project.Settings.Project Name
-  - Subject/Graph Node/Domain/Continuant/Project.Settings.Obsolete Names
-version: 20
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Project Name
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Obsolete Names
+version: 21
+updated_at: 2026-10-27 19:59:24 +0400
 relations:
   child_of:
   - CA-R-1052

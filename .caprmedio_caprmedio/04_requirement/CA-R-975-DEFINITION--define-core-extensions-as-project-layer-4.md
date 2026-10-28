@@ -2,14 +2,14 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit.Project Boundary Position
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Project Boundary Position
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Local Order
-  - 'Subject/Graph Node/Domain/Continuant/Scope Unit/Type: Ordered'
-version: 18
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Local Order
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type: Ordered'
+version: 19
+updated_at: 2026-10-27 20:00:13 +0400
 relations:
   child_of:
   - CA-R-707

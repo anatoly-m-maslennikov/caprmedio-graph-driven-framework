@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - Subject/Graph Node/Domain/Continuant/Projection
-version: 29
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+version: 30
+updated_at: 2026-10-27 19:59:59 +0400
 relations: {}
 atom_id: CA-R-1631
 content_role: Requirement

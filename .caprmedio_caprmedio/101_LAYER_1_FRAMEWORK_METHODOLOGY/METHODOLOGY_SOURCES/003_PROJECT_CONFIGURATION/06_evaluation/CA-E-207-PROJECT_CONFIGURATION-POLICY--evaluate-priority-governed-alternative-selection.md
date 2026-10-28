@@ -1,6 +1,6 @@
 ---
-version: 28
-updated_at: 2026-10-27 06:04:45 +0400
+version: 29
+updated_at: 2026-10-27 19:59:30 +0400
 relations:
   child_of:
   - CA-R-815
@@ -10,14 +10,14 @@ relations:
   - CA-O-022
   - CA-O-023
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/Selection//PROJECT_PRIORITY_MODEL
-  - Subject/Graph Node/Engineering/Execution Control/Effect Authorization
-  - Subject/Graph Node/Domain/Continuant/Selection
-  - Subject/Graph Node/Domain/Continuant/Selection//PROJECT_LEXICOGRAPHIC
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_LEXICOGRAPHIC
 atom_id: CA-E-207
 content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION

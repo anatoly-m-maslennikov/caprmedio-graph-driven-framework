@@ -6,12 +6,12 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Direct Relation Registry'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Direct Relation Registry'
 relations:
   child_of:
   - CA-R-1746
-version: 9
-updated_at: 2026-10-26 17:20:40 +0400
+version: 10
+updated_at: 2026-10-27 20:00:06 +0400
 tier: 3
 type: Definition
 ---

@@ -4,19 +4,19 @@ content_role: Delivery
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-27 06:04:45 +0400
+version: 14
+updated_at: 2026-10-27 19:59:27 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Output Publication
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Carrier/File
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Occurrent/Execution
-  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Carrier/File
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 relations:
   delivery_for:
   - CA-R-1882

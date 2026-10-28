@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Scope Unit Graph'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Scope Unit Graph'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Goal'
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-version: 35
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+version: 36
+updated_at: 2026-10-27 20:00:10 +0400
 relations:
   child_of:
   - CA-R-960

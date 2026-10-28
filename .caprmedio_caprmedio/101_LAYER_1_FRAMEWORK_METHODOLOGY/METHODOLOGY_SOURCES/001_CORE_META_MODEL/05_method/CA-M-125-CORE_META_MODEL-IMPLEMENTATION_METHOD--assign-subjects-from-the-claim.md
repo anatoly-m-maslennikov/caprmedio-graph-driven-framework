@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Subjects
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
-  - Subject/Graph Node/Domain/Continuant/Actor
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
   - Subject
-  - Subject/Graph Node/Domain/Continuant/Term
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Graph Relation/Type: evaluation_for'
-  - Subject/Graph Node
-  - Subject/Graph Node/Domain/Continuant/Term//Dependent Entity
-version: 40
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: evaluation_for'
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Dependent Entity
+version: 41
+updated_at: 2026-10-27 19:59:39 +0400
 relations: {}
 atom_id: CA-M-125
 content_role: Method

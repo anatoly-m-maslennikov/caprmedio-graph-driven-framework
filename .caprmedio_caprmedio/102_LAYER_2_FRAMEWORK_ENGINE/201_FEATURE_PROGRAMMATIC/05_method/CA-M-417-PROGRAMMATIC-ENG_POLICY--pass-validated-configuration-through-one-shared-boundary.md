@@ -5,12 +5,12 @@ type: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Component Structure
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-  - Subject/Graph Node/Carrier
-version: 8
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  - Subject/CAPRMEDIO/Carrier
+version: 9
+updated_at: 2026-10-27 19:59:43 +0400
 author: Anatoly Maslennikov
 tier: 3
 ---

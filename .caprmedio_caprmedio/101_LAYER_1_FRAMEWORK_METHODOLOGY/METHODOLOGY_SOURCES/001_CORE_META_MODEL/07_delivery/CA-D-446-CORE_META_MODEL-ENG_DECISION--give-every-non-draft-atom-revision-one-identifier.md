@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.ID
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - 'Subject/Graph Node/Domain/Continuant/Atom.Status: Draft'
-version: 24
-updated_at: 2026-10-26 05:59:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status: Draft'
+version: 25
+updated_at: 2026-10-27 19:59:25 +0400
 relations: {}
 atom_id: CA-D-446
 content_role: Delivery

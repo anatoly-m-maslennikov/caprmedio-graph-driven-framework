@@ -6,23 +6,23 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
-version: 22
-updated_at: 2026-10-27 06:04:45 +0400
+version: 23
+updated_at: 2026-10-27 19:59:36 +0400
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Atom.Target Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom.Details
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - Subject/Graph Node/Domain/Continuant/Term//Property
-  - Subject/Graph Node
-  - Subject/Graph Rule/CCE
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Details
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
 relations:
   evaluation_for:
   - CA-D-269

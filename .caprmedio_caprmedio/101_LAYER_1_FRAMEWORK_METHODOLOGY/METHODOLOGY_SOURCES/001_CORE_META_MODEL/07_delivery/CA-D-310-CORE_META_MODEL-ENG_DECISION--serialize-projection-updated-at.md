@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection.Updated At
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection.Updated At
   depends_on: []
-version: 20
-updated_at: 2026-10-25 17:32:27 +0400
+version: 21
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-310
 content_role: Delivery

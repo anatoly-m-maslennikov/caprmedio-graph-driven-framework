@@ -1,8 +1,8 @@
 ---
 subjects:
-  governs: Subject/Graph Relation
-version: 20
-updated_at: 2026-10-25 17:32:27 +0400
+  governs: Subject/CAPRMEDIO/Graph/Relation
+version: 21
+updated_at: 2026-10-27 19:59:49 +0400
 relations: {}
 atom_id: CA-R-1025
 content_role: Requirement

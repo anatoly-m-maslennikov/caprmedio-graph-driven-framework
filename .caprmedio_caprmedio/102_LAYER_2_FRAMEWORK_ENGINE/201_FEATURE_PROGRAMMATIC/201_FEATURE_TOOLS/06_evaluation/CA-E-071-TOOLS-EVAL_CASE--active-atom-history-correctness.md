@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Domain/Continuant/History
-version: 24
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History
+version: 25
+updated_at: 2026-10-27 19:59:28 +0400
 llm_session_ids:
 - codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

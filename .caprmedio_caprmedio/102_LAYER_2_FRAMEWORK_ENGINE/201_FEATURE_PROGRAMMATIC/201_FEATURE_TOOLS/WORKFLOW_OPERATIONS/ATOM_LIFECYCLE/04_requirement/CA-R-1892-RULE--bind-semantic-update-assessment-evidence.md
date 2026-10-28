@@ -5,11 +5,11 @@ current_scope_unit: TOOLS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis/Type: Analysis Report'
-version: 14
-updated_at: 2026-10-26 05:59:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: Analysis Report'
+version: 15
+updated_at: 2026-10-27 20:00:05 +0400
 relations: {}
 tier: 3
 type: Rule

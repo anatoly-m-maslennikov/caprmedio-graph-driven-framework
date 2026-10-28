@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Reconciled Projection'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Reconciled Projection'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Domain/Continuant/Projection/Type
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Carrier
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Carrier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+version: 20
+updated_at: 2026-10-27 19:59:55 +0400
 relations: {}
 atom_id: CA-R-1461
 content_role: Requirement

@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology.Member'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology.Member'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - 'Subject/Graph Relation/Type: DERIVED_FROM'
-version: 27
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: DERIVED_FROM'
+version: 28
+updated_at: 2026-10-27 19:59:53 +0400
 relations: {}
 atom_id: CA-R-1314
 content_role: Requirement

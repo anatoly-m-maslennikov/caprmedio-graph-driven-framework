@@ -6,13 +6,13 @@ claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-version: 11
-updated_at: 2026-10-26 05:59:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+version: 12
+updated_at: 2026-10-27 20:00:04 +0400
 relations: {}
 tier: 3
 type: Rule

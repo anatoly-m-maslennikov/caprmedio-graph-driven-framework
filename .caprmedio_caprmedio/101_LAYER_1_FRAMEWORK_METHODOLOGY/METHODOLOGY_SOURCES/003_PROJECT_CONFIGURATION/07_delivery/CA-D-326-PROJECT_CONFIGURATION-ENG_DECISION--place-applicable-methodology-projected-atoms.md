@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File
+  governs: Subject/CAPRMEDIO/Carrier/File
   depends_on: []
-version: 21
-updated_at: 2026-10-27 06:04:45 +0400
+version: 22
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-326
 content_role: Delivery

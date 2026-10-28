@@ -1,0 +1,50 @@
+---
+atom_id: CA-E-626@13
+content_role: Evaluation
+type: Eval Case
+current_scope_unit: TOOL_WORKFLOWS
+claim_target_scope_unit: TOOL_WORKFLOWS
+author: Anatoly Maslennikov
+status: Archived
+subjects:
+  governs: Subject/Graph Node/Engineering/Verification/Dynamic Testing
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+version: 13
+updated_at: 2026-10-27 06:04:45 +0400
+relations:
+  evaluation_for:
+  - CA-R-1093
+  - CA-R-1041
+  - CA-R-1067
+tier: 4
+---
+# Summary
+
+Verify independent Atom workflow effects
+
+## Scope
+
+Workflow admission owns identity, Version/time, lifecycle and complete schema decisions. Connector calls use CA-D-625 only to verify the supplied request, source preconditions and permission and to perform the explicit mechanical operation. A connector does not choose those decisions.
+
+Required future checks for ordered independent Atom workflows, fresh-ID Summary replacement and explicit reference handoffs.
+
+## Claim
+
+A workflow stops at its first failed Atom action, retains earlier completed actions and leaves the remaining targets untouched. All-or-nothing successful completion within one admitted Atom action remains required; there is no cross-Atom transaction. The selected Subject publication failure envelope below is not crash-atomic and does not change other Actions' safety boundaries.
+
+## Details
+
+1. Prepare ordered explicit targets A, B and C with exact ID/Version/source pins. Complete A, then make B fail validation, currentness, permission or publication. Independently observe A's retained effect, B's truthful failure/uncertainty and C's unchanged bytes with no invocation.
+2. Test successful actions and truthful no-ops without implicit rollback, widened selection or invented results. An action-local failure must honor that action's admitted restoration boundary; it cannot undo A. A claimed restoration needs observed proof.
+For selected one-target Subject publication under CA-R-866/CA-O-030, inject caught publication/postcondition errors within the confirmed exclusive window. Require an attempt to restore the verified mutable before-frontier and remove attempt-owned history, preserving pre-existing history and accepted Journal evidence. Observed exact restoration reports a failed attempt, not update success; failed or unverified restoration is partial/unknown. Abrupt process crash or interruption may leave partial files: retain interrupted disposition and inspect actual affected current/history files and Run evidence before any separately admitted continuation. Never automatically replay an Atom effect or claim crash-atomic publication.
+
+3. Apply a wording-only Summary replacement using full Atom IDs corresponding to illustrative target 100 and successor 200. Require a fresh ID and predecessor archival; ordinary same-ID Modify fails. Completed output identifies target 100, created 200 and archived 100 with exact observed state evidence. A changed predecessor archival state is N+1; exact prior history remains at N. A fresh successor starts at its admitted initial Version.
+4. Make independent successor Create complete and predecessor Archive fail. Retain the observed created successor and report incomplete replacement; do not serialize a proposed archive as completed or erase the earlier action.
+5. Keep incoming references to 100 unchanged. Use a separate Find workflow for actual referrers and a separate Modify workflow for explicit referrer targets with their own source pins/permission. A replacement result alone cannot authorize those changes.
+6. A requested new-workflow resume/retry is explicitly deferred. Existing shared recording-only handling never authorizes replay of an Atom effect. Do not assert concurrent publication or stronger backend guarantees without separate proof.
+
+### Acceptance and failure disposition
+
+Compare independent invocation/effect ledgers and source/history observations. Retain completed actions, the first failure and unperformed remainder with currentness/permission and known/unknown effect evidence. Reject false batch atomicity, automatic reference rewriting, implicit retries and completion without actual effects/recording. These are required cases, not observed test passes or implementation claims.

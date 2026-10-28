@@ -4,15 +4,15 @@ content_role: Delivery
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-27 06:04:45 +0400
+version: 13
+updated_at: 2026-10-27 19:59:26 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   depends_on:
-  - Subject/Graph Node/Carrier
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-  - Subject/Graph Node/Implementation
+  - Subject/CAPRMEDIO/Carrier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
 relations: {}
 type: Eng Decision
 tier: 3

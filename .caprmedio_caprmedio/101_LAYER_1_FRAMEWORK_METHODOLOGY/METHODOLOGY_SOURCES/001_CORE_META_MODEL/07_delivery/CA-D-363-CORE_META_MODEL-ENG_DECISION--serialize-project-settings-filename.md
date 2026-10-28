@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File.Filename
+  governs: Subject/CAPRMEDIO/Carrier/File.Filename
   depends_on:
-  - Subject/Graph Node/Carrier/File
-  - Subject/Graph Node/Carrier/File.Format
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Carrier/File
+  - Subject/CAPRMEDIO/Carrier/File.Format
+version: 24
+updated_at: 2026-10-27 19:59:24 +0400
 relations:
   child_of:
   - CA-D-362

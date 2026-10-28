@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   depends_on: []
 cce_version: cce_1
 cce_form: obligation
-version: 34
-updated_at: 2026-10-27 06:04:45 +0400
+version: 35
+updated_at: 2026-10-27 20:00:11 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-803

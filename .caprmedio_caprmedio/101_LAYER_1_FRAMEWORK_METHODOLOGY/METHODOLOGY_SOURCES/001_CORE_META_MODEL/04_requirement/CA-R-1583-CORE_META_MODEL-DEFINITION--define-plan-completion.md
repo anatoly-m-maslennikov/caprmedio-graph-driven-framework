@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Status'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Definition of Done'
-  - Subject/Graph Node/Carrier/File
-version: 21
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Definition of Done'
+  - Subject/CAPRMEDIO/Carrier/File
+version: 22
+updated_at: 2026-10-27 19:59:58 +0400
 relations: {}
 atom_id: CA-R-1583
 content_role: Requirement

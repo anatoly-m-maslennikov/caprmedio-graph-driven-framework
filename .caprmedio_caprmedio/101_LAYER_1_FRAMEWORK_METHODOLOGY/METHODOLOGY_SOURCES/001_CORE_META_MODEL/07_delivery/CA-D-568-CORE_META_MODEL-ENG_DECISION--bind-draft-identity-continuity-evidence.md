@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.ID
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom.Status: Draft'
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - Subject/Graph Node/Domain/Continuant/Atom
-version: 15
-updated_at: 2026-10-26 05:59:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status: Draft'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+version: 16
+updated_at: 2026-10-27 19:59:27 +0400
 relations:
   depends_on:
   - CA-D-650

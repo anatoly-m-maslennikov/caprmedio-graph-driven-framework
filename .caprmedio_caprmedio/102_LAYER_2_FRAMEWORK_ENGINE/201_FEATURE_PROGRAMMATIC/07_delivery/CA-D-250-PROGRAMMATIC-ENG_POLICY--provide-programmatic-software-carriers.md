@@ -3,8 +3,8 @@ atom_id: CA-D-250
 content_role: Delivery
 current_scope_unit: PROGRAMMATIC
 status: Active
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+version: 25
+updated_at: 2026-10-27 19:59:23 +0400
 relations:
   child_of:
   - CA-M-261
@@ -14,10 +14,10 @@ relations:
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
-  - Subject/Graph Node/Carrier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
+  - Subject/CAPRMEDIO/Carrier
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 type: Eng Policy

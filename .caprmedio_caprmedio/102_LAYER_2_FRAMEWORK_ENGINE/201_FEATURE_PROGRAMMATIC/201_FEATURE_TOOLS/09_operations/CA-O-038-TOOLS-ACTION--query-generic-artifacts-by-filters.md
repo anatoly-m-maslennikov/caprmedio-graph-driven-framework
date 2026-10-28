@@ -2,14 +2,14 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Relation
-version: 14
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Relation
+version: 15
+updated_at: 2026-10-27 19:59:44 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}

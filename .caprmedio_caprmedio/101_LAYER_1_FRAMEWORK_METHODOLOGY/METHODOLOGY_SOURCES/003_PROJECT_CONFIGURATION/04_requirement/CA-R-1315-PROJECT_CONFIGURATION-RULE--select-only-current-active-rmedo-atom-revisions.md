@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - Subject/Graph Node/Domain/Continuant/Atom.Status
-version: 26
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+version: 27
+updated_at: 2026-10-27 19:59:53 +0400
 relations: {}
 atom_id: CA-R-1315
 content_role: Requirement

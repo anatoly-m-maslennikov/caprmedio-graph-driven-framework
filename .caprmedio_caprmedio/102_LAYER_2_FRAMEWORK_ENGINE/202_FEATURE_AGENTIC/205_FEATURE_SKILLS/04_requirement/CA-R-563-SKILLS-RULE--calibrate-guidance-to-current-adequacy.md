@@ -1,8 +1,8 @@
 ---
 subject_scopes:
 - guidance
-version: 12
-updated_at: 2026-10-26 00:46:35 +0400
+version: 13
+updated_at: 2026-10-27 20:00:09 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -17,7 +17,7 @@ atom_id: CA-R-563
 type: Rule
 tier: 1
 subjects:
-  governs: Subject/Graph Node/UX/Adaptive Skill Guidance
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Guidance
 ---
 # Calibrate guidance to current adequacy
 

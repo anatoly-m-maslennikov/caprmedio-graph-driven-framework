@@ -7,17 +7,17 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Continuant/Term
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Definition'
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Terms Graph'
-  - Subject/Graph Relation/Type
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 16
-updated_at: 2026-10-26 17:20:40 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Definition'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Terms Graph'
+  - Subject/CAPRMEDIO/Graph/Relation/Type
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+version: 17
+updated_at: 2026-10-27 19:59:46 +0400
 relations:
   depends_on:
   - CA-R-1746

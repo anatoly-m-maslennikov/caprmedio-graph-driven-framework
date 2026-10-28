@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control/Decision Confidence
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
   depends_on: []
-version: 13
-updated_at: 2026-10-27 06:04:45 +0400
+version: 14
+updated_at: 2026-10-27 19:59:54 +0400
 relations: {}
 atom_id: CA-R-1427
 content_role: Requirement

@@ -1,13 +1,13 @@
 ---
-version: 22
-updated_at: 2026-10-25 17:32:27 +0400
+version: 23
+updated_at: 2026-10-27 20:00:03 +0400
 relations:
   child_of:
   - CA-R-1773
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Principle Universe
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Principle Universe
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
 atom_id: CA-R-1774
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL

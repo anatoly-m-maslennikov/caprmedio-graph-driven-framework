@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Structure
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-version: 16
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+version: 17
+updated_at: 2026-10-27 19:59:25 +0400
 relations: {}
 atom_id: CA-D-440
 content_role: Delivery

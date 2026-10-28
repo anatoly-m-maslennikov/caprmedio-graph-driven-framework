@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Source Selection
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
-version: 18
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/caprmedio/Workflow//Applicable Methodology Compilation
+version: 19
+updated_at: 2026-10-27 19:59:51 +0400
 relations: {}
 atom_id: CA-R-1175
 content_role: Requirement

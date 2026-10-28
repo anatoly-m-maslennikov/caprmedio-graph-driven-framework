@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Assignee'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Assignee'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Assignee'
-  - Subject/Graph Node/Carrier/File
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Assignee'
+  - Subject/CAPRMEDIO/Carrier/File
+version: 21
+updated_at: 2026-10-27 19:59:25 +0400
 relations:
   delivery_for:
   - CA-R-1585

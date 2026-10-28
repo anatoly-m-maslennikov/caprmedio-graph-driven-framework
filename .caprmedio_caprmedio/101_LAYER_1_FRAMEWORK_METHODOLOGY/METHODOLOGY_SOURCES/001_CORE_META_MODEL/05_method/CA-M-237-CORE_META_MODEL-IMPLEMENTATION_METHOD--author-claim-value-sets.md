@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Content
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Actor
-  - Subject/Graph Node/Domain/Continuant/Term//Property
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
   - Subject
-  - 'Subject/Graph Relation/Type: IS_ALLOWED_VALUE_OF'
-version: 24
-updated_at: 2026-10-25 17:32:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: IS_ALLOWED_VALUE_OF'
+version: 25
+updated_at: 2026-10-27 19:59:40 +0400
 relations:
   child_of:
   - CA-M-115

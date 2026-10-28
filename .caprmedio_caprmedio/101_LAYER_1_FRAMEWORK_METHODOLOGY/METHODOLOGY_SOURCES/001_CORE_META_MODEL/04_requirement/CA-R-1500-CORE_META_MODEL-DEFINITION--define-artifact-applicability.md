@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node
+  governs: Subject/CAPRMEDIO/Graph/Node
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node
-version: 13
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node
+version: 14
+updated_at: 2026-10-27 19:59:56 +0400
 relations:
   child_of:
   - CA-M-001

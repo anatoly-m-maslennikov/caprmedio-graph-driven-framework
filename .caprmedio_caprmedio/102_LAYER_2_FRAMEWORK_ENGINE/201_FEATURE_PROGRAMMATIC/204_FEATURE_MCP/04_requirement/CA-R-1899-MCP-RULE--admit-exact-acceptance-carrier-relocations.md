@@ -4,17 +4,17 @@ content_role: Requirement
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-27 06:04:45 +0400
+version: 13
+updated_at: 2026-10-27 20:00:05 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Storage
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
   depends_on:
-  - Subject/Graph Node/Engineering/Data Handling/Data Validation
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Occurrent/Execution
-  - Subject/Graph Node/Engineering/Data Handling/Serialization
-  - Subject/Graph Node/Carrier/File
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
+  - Subject/CAPRMEDIO/Carrier/File
 relations: {}
 tier: 3
 type: Rule

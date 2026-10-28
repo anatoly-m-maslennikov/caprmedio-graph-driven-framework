@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File.Filename
+  governs: Subject/CAPRMEDIO/Carrier/File.Filename
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Label'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Work Sequence Number'
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node/Carrier
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Work Sequence Number'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Carrier
+version: 20
+updated_at: 2026-10-27 19:59:25 +0400
 relations: {}
 atom_id: CA-D-469
 content_role: Delivery

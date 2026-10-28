@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection//Current Plan Scope
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Current Plan Scope
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Status: Active'
-version: 16
-updated_at: 2026-10-26 05:59:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status: Active'
+version: 17
+updated_at: 2026-10-27 19:59:57 +0400
 relations: {}
 atom_id: CA-R-1541
 content_role: Requirement

@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings.Authority Modes
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 31
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Authority Modes
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+version: 32
+updated_at: 2026-10-27 19:59:38 +0400
 relations:
   evaluation_for:
   - CA-R-1052

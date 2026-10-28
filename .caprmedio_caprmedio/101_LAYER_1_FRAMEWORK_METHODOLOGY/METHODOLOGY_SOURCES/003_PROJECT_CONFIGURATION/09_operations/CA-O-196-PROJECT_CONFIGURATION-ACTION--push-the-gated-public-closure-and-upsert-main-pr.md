@@ -6,15 +6,15 @@ current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node/Carrier/Pull Request
+  governs: Subject/CAPRMEDIO/Carrier/Pull Request
   depends_on:
-  - Subject/Graph Node/Carrier/Git Commit
-  - Subject/Graph Node/Carrier/Git Repository
-  - Subject/Graph Node/Carrier/Pull Request
-  - Subject/Graph Node/Domain/Occurrent/Execution
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 9
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Carrier/Git Commit
+  - Subject/CAPRMEDIO/Carrier/Git Repository
+  - Subject/CAPRMEDIO/Carrier/Pull Request
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+version: 10
+updated_at: 2026-10-27 19:59:47 +0400
 relations: {}
 tier: 3
 ---

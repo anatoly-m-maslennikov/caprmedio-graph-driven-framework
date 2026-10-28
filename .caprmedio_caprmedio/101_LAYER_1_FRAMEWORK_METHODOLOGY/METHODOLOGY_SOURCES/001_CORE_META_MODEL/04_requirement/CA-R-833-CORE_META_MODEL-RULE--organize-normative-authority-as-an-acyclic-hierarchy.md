@@ -1,13 +1,13 @@
 ---
-version: 24
-updated_at: 2026-10-25 17:32:27 +0400
+version: 25
+updated_at: 2026-10-27 20:00:11 +0400
 relations:
   child_of:
   - CA-R-1407
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
 atom_id: CA-R-833
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL

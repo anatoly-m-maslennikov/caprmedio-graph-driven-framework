@@ -6,10 +6,10 @@ claim_target_scope_unit: PROJECTION_ACTIONS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   depends_on: []
-version: 15
-updated_at: 2026-10-25 17:32:27 +0400
+version: 16
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   method_for:
   - CA-R-1387

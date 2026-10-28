@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node
+  governs: Subject/CAPRMEDIO/Graph/Node
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - 'Subject/Graph Relation/Type: NARROWER_THAN'
-version: 29
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: NARROWER_THAN'
+version: 30
+updated_at: 2026-10-27 20:00:02 +0400
 relations: {}
 atom_id: CA-R-1765
 content_role: Requirement

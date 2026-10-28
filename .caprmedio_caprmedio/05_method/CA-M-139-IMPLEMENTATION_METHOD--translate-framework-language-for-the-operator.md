@@ -1,17 +1,17 @@
 ---
-version: 22
-updated_at: 2026-10-27 06:04:45 +0400
+version: 23
+updated_at: 2026-10-27 19:59:39 +0400
 relations:
   child_of:
   - CA-M-005
   method_for:
   - CA-R-1057
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Term
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

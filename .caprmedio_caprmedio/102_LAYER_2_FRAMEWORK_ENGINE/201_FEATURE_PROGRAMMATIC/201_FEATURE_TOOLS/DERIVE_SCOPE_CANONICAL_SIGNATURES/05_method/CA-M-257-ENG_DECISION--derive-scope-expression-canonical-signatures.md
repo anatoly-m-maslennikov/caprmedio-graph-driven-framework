@@ -2,13 +2,13 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Data Transformation
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
   depends_on:
-  - Subject/Graph Node/Implementation/Code/Tool//DERIVE_SCOPE_CANONICAL_SIGNATURES
-  - Subject/Graph Node/Domain/Continuant/Selection
-  - Subject/Graph Node/Engineering/Data Handling/Data Transformation
-version: 18
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//DERIVE_SCOPE_CANONICAL_SIGNATURES
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
+version: 19
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   child_of:
   - CA-M-241

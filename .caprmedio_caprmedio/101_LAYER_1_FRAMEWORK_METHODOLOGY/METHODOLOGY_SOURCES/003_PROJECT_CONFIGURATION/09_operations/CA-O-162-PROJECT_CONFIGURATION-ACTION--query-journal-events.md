@@ -6,15 +6,15 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-27 06:04:45 +0400
+version: 14
+updated_at: 2026-10-27 19:59:47 +0400
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Occurrent/Event
-  - Subject/Graph Node/Engineering/Data Handling/Source Retrieval
-  - Subject/Graph Node/Domain/Occurrent/Execution
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Event
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
 relations:
   depends_on:
   - CA-R-1850

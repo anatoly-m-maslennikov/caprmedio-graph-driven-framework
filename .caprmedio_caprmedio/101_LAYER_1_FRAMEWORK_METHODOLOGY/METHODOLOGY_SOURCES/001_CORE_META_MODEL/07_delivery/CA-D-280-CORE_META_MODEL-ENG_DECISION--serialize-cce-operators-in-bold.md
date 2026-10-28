@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File.Main Content.CCE Operator
+  governs: Subject/CAPRMEDIO/Carrier/File.Main Content.CCE Operator
   depends_on:
-  - Subject/Graph Node/Engineering/Authoring/Controlled English
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+version: 21
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-280
 content_role: Delivery

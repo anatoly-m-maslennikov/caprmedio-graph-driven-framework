@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Occurrent/Event
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Event
   depends_on: []
-version: 20
-updated_at: 2026-10-26 00:46:35 +0400
+version: 21
+updated_at: 2026-10-27 19:59:30 +0400
 relations:
   evaluation_for:
   - CA-R-805

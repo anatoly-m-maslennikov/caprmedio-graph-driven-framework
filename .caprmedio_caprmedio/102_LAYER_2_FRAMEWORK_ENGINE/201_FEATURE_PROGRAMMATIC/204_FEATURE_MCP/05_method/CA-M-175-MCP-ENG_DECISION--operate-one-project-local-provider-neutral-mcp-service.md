@@ -2,10 +2,10 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: Subject/Graph Node/UX/MCP Headless Capability Interface
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry
   depends_on: []
-version: 16
-updated_at: 2026-10-26 00:46:35 +0400
+version: 17
+updated_at: 2026-10-27 19:59:40 +0400
 relations:
   method_for:
   - CA-R-1113

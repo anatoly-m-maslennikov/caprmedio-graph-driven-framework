@@ -4,17 +4,17 @@ content_role: Delivery
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
-version: 17
-updated_at: 2026-10-27 06:04:45 +0400
+version: 18
+updated_at: 2026-10-27 19:59:27 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Runtime/Container Run
-  - Subject/Graph Node/Carrier/Docker Image
-  - Subject/Graph Node/Engineering/Architecture/Component Structure
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run
+  - Subject/CAPRMEDIO/Carrier/Docker Image
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
 relations:
   delivery_for:
   - CA-R-1901

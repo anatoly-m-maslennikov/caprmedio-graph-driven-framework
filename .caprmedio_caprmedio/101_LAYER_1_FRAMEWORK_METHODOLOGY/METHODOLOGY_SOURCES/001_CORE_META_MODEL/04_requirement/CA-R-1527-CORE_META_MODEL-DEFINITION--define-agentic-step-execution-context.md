@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action/Execution Kind'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 16
-updated_at: 2026-10-26 05:59:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action/Execution Kind'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+version: 17
+updated_at: 2026-10-27 19:59:57 +0400
 relations: {}
 atom_id: CA-R-1527
 content_role: Requirement

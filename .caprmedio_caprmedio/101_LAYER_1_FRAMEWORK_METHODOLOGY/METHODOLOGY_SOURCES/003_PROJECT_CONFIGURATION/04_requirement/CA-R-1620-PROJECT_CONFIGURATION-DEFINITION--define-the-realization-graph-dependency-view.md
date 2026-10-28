@@ -6,12 +6,12 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Realization Graph'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Realization Graph'
   depends_on:
-  - Subject/Graph Relation
-  - Subject/Graph Node/Domain/Continuant/Projection
-version: 14
-updated_at: 2026-10-26 05:59:45 +0400
+  - Subject/CAPRMEDIO/Graph/Relation
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+version: 15
+updated_at: 2026-10-27 19:59:59 +0400
 relations: {}
 tier: 3
 type: Definition

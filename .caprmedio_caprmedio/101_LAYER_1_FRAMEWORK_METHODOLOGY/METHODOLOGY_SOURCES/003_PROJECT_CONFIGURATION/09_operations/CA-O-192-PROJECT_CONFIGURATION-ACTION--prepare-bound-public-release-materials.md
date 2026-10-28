@@ -6,15 +6,15 @@ current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Prepare bound public release materials'
+  governs: Subject/caprmedio/Action//Prepare bound public release materials
   depends_on:
-  - Subject/Graph Node/Documentation
-  - Subject/Graph Node/Carrier/Pull Request
-  - Subject/Graph Node/Domain/Continuant/History
-  - Subject/Graph Node/Domain/Occurrent/Execution
-  - Subject/Graph Node/Domain/Continuant/History/Release.ID
-version: 14
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation
+  - Subject/CAPRMEDIO/Carrier/Pull Request
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
+version: 15
+updated_at: 2026-10-27 19:59:47 +0400
 relations: {}
 tier: 3
 ---

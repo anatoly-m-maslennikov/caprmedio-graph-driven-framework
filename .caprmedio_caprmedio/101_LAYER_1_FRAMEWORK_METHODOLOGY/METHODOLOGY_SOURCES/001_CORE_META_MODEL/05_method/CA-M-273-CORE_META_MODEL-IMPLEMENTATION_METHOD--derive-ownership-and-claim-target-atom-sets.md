@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Author
-  - Subject/Graph Node/Domain/Continuant/Selection
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Atom.Target Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - Subject/Graph Node/Domain/Continuant/Atom.Status
-  - Subject/Graph Node/Carrier/Directory
-version: 31
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  - Subject/CAPRMEDIO/Carrier/Directory
+version: 32
+updated_at: 2026-10-27 19:59:41 +0400
 relations: {}
 atom_id: CA-M-273
 content_role: Method

@@ -2,10 +2,10 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Catalog'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog'
   depends_on: []
-version: 16
-updated_at: 2026-10-25 17:32:27 +0400
+version: 17
+updated_at: 2026-10-27 19:59:40 +0400
 relations:
   method_for:
   - CA-R-1141

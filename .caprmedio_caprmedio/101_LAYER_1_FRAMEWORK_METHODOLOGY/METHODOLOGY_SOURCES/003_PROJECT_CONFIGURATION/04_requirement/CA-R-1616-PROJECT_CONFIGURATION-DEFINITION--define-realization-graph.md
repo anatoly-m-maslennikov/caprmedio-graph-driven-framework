@@ -6,16 +6,16 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Realization Graph'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Realization Graph'
   depends_on:
-  - Subject/Graph Node/Engineering/Traceability
-  - Subject/Graph Node
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Realization Graph'
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Relation
-version: 16
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - Subject/CAPRMEDIO/Graph/Node
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Realization Graph'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Relation
+version: 17
+updated_at: 2026-10-27 19:59:59 +0400
 relations:
   depends_on:
   - CA-R-1493

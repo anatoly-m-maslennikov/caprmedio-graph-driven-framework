@@ -1,8 +1,8 @@
 ---
 subject_scopes:
 - skill-boundary
-version: 21
-updated_at: 2026-10-27 06:04:45 +0400
+version: 22
+updated_at: 2026-10-27 20:00:10 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -17,11 +17,11 @@ atom_id: CA-R-665
 tier: 1
 type: Rule
 subjects:
-  governs: Subject/Graph Node/Engineering/Authoring/Prompt Authoring
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Implementation/Code/Tool
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
 ---
 # Provide a Project Scope Unit Graph Projection skill
 

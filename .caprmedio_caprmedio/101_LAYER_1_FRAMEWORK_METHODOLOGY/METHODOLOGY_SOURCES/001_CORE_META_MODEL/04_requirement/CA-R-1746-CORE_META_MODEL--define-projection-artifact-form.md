@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Rule
-version: 34
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Rule
+version: 36
+updated_at: 2026-10-27 20:00:02 +0400
 relations: {}
 atom_id: CA-R-1746
 content_role: Requirement
@@ -27,14 +27,22 @@ Define Projection Artifact form
 
 ## Scope
 
-Projection Artifacts and the authoritative sources represented in their derived views.
+Projections and their authoritative sources.
 
 ## Claim
 
-a Projection **means** a non-authoritative generated view derived from its declared selection of authoritative sources **or** other Projections. source authority follows Single Source of Truth under CA-R-1470. **every** represented fact retains traceability through **any** upstream Projections **to** its appropriate authoritative sources. a Projection's source specification governs its required behavior **without** making its derived contents authoritative. multiple Projections of the same source facts, further derived views, **and** the choice of generation mechanism do **not** create another independent authority for those facts.
+A Projection is a non-authoritative output produced from a declared selection of sources through a Workflow:
 
-the declared selection identifies the sources actually used; it does **not** require **every** Projection **to** consume **every** source kind **or** require generation **to** be byte-deterministic.
+source of truth → Workflow → Projection.
+
+A Projection is not edited directly. Changes are made in its authoritative sources, then the Projection is rebuilt through its Workflow. Its sources may include other Projections; represented facts remain traceable through them to the appropriate source of truth under CA-R-1470. Multiple views of the same facts do not create independent authority.
+
+The declared selection identifies the sources actually used. A Projection need not consume every source kind, and its generation need not be byte-deterministic.
+
+## Semantics
+
+Implementation is not a Projection merely because it realizes RMED. Code, tests, prompts, configuration and documentation can be edited directly and can be authoritative for actual implementation. A generated view of Implementation is a Projection when changes belong in its sources and the view is rebuilt.
 
 ## Details
 
-The production relation RMED → using O → I is a projection/derivation of governing intent during Implementation. This does not permanently classify every native Implementation Carrier as a non-authoritative view: native I can subsequently supply actual-state source facts under CA-R-1470. A generated view of I, including its dependency graph, has no independent authority for those source facts. Ordinary Projection Artifacts remain non-authoritative.
+The Workflow defines how the selected sources produce the Projection. Carrier materialization remains separate from that derivation under CA-R-1460.

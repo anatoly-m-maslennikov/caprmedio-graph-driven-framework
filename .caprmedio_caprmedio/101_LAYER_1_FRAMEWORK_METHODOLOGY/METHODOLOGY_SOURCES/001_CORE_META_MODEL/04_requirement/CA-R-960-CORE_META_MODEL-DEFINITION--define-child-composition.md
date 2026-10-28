@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Relation
-version: 22
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Relation
+version: 23
+updated_at: 2026-10-27 20:00:12 +0400
 relations: {}
 atom_id: CA-R-960
 content_role: Requirement

@@ -8,16 +8,16 @@ claim_target_scope_unit: ATOM_ACTIONS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Implementation/Code/Tool//ATOM_PROMOTE
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-version: 22
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//ATOM_PROMOTE
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+version: 23
+updated_at: 2026-10-27 19:59:32 +0400
 relations:
   evaluation_for:
   - CA-O-066

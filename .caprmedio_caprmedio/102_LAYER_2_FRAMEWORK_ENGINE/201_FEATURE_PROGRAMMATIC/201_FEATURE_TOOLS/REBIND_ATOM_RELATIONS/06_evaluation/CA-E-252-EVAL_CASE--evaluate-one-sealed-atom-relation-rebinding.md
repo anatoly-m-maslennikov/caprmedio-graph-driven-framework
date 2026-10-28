@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Implementation/Code/Tool//REBIND_ATOM_RELATIONS
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//REBIND_ATOM_RELATIONS
   depends_on: []
-version: 22
-updated_at: 2026-10-27 06:04:45 +0400
+version: 23
+updated_at: 2026-10-27 19:59:31 +0400
 relations:
   evaluation_for:
   - CA-R-1049

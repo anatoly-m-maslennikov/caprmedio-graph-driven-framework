@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File.YAML Frontmatter
+  governs: Subject/CAPRMEDIO/Carrier/File.YAML Frontmatter
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Author
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Actor
-version: 30
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
+version: 31
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-276
 content_role: Delivery

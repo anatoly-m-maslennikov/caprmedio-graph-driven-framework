@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Rule/CCE Role Profile
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   depends_on:
-  - Subject/Graph Rule/CCE Role Profile
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - Subject/Graph Node/Domain/Continuant/Atom.Type
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-version: 18
-updated_at: 2026-10-26 05:59:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+version: 19
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   child_of:
   - CA-M-307

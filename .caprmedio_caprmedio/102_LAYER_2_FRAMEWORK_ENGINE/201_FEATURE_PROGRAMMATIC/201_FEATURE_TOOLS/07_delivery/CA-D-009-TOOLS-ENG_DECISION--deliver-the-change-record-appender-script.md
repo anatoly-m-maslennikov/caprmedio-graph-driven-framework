@@ -8,16 +8,16 @@ author: Anatoly Maslennikov
 cce_version: cce_1
 cce_form: serialization
 subjects:
-  governs: Subject/Graph Node/Engineering/Storage
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
   depends_on:
-  - Subject/Graph Node/Engineering/Data Handling/Serialization
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Project
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
-version: 29
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+version: 30
+updated_at: 2026-10-27 19:59:22 +0400
 relations:
   delivery_for:
   - CA-R-812

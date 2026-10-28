@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Local Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Author
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Scope
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Atom.Governed Subject
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-version: 31
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Scope
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Governed Subject
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+version: 32
+updated_at: 2026-10-27 19:59:49 +0400
 relations:
   child_of:
   - CA-R-1596

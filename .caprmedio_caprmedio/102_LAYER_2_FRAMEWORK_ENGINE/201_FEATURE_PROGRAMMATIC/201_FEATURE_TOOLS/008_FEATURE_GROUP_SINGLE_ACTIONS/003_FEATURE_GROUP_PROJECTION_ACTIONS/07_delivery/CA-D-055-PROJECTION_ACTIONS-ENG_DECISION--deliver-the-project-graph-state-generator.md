@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Output Publication
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
   depends_on: []
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+version: 20
+updated_at: 2026-10-27 19:59:23 +0400
 relations:
   delivery_for:
   - CA-R-1070

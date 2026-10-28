@@ -4,15 +4,15 @@ content_role: Delivery
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: 2026-10-27 06:04:45 +0400
+version: 10
+updated_at: 2026-10-27 19:59:26 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Communication
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Project
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/Graph Node/Domain/Continuant/Atom
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
 type: Eng Decision
 tier: 3
 ---

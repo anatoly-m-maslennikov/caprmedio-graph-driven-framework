@@ -2,10 +2,10 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: Subject/Graph Node/Engineering/Storage/Directory Layout
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
   depends_on: []
-version: 29
-updated_at: 2026-10-27 06:04:45 +0400
+version: 30
+updated_at: 2026-10-27 19:59:39 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a0263a-7510-7672-bce4-58830bc4d184

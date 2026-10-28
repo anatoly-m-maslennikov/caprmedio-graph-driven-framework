@@ -2,10 +2,10 @@
 cce_version: cce_1
 cce_form: delivery
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   depends_on: []
-version: 15
-updated_at: 2026-10-25 17:32:27 +0400
+version: 16
+updated_at: 2026-10-27 19:59:23 +0400
 relations:
   delivery_for:
   - CA-R-1387

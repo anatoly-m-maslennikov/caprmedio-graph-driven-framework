@@ -1,8 +1,8 @@
 ---
 subject_scopes:
 - scope-topology
-version: 19
-updated_at: 2026-10-25 17:32:27 +0400
+version: 20
+updated_at: 2026-10-27 20:00:10 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -15,7 +15,7 @@ atom_id: CA-R-709
 type: Definition
 tier: 0
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   depends_on: []
 ---
 # Classify Project Features as unordered units

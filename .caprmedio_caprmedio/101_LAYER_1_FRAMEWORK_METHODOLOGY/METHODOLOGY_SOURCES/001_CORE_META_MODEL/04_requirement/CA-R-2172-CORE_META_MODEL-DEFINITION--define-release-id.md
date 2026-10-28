@@ -7,11 +7,11 @@ claim_target_scope_unit: CORE_META_MODEL
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History/Release.ID
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/History/Release
-version: 1
-updated_at: 2026-10-27 05:58:41 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release
+version: 2
+updated_at: 2026-10-27 20:00:08 +0400
 relations: {}
 tier: 2
 ---

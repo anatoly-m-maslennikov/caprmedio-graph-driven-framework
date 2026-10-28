@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Target Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Project Goal'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/Atom.Author
-  - Subject/Graph Node/Domain/Continuant/Atom.Target Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom.Local Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom
-version: 20
-updated_at: 2026-10-26 05:59:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Project Goal'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+version: 21
+updated_at: 2026-10-27 19:59:25 +0400
 relations: {}
 atom_id: CA-D-482
 content_role: Delivery

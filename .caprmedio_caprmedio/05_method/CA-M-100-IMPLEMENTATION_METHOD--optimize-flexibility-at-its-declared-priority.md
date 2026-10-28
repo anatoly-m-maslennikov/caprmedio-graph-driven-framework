@@ -1,18 +1,18 @@
 ---
-version: 21
-updated_at: 2026-10-27 06:04:45 +0400
+version: 22
+updated_at: 2026-10-27 19:59:39 +0400
 relations:
   child_of:
   - CA-R-815
   method_for:
   - CA-R-815
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control/Effect Authorization
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
-  - Subject/Graph Node/Implementation
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

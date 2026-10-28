@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-version: 22
-updated_at: 2026-10-26 05:59:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+version: 23
+updated_at: 2026-10-27 19:59:24 +0400
 relations:
   child_of:
   - CA-D-361

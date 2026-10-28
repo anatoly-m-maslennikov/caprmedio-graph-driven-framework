@@ -7,24 +7,24 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Reconcile Navigation Numbers'
+  governs: Subject/caprmedio/Action//Reconcile Navigation Numbers
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Navigational Order Number
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Local Order
-  - Subject/Graph Node/Domain/Continuant/Scope Unit/Type
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Label
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Carrier/Directory.Numeric Prefix
-  - Subject/Graph Node/Carrier/Directory
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Concern'
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Navigational Order Number
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Local Order
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Carrier/Directory.Numeric Prefix
+  - Subject/CAPRMEDIO/Carrier/Directory
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
+version: 21
+updated_at: 2026-10-27 19:59:36 +0400
 relations:
   evaluation_for:
   - CA-O-078

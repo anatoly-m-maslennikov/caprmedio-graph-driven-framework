@@ -1,6 +1,6 @@
 ---
-version: 29
-updated_at: 2026-10-27 06:04:45 +0400
+version: 30
+updated_at: 2026-10-27 19:59:30 +0400
 relations:
   child_of:
   - CA-E-001
@@ -8,14 +8,14 @@ relations:
   - CA-M-298
   - CA-R-1375
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit.Expansion Boundary
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Expansion Boundary
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//CORE_META_MODEL
-  - Subject/Graph Node/Product/Extension
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
 atom_id: CA-E-249
 content_role: Evaluation
 current_scope_unit: CORE_META_MODEL

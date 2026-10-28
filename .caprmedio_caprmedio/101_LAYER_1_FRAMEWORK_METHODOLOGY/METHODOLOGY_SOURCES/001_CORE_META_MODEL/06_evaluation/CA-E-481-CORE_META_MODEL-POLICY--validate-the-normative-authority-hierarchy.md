@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Relation
-version: 17
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Relation
+version: 18
+updated_at: 2026-10-27 19:59:36 +0400
 relations:
   evaluation_for:
   - CA-R-833

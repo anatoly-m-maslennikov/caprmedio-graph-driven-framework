@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom.Status: Archived'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status: Archived'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Status
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-version: 16
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+version: 17
+updated_at: 2026-10-27 19:59:54 +0400
 relations: {}
 atom_id: CA-R-1419
 content_role: Requirement

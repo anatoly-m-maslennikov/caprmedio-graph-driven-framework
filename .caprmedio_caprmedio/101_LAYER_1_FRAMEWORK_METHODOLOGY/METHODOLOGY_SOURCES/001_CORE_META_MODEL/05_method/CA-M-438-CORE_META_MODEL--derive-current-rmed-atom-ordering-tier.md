@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Tier
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Atom.Local Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Parent
-  - Subject/Graph Node/Domain/Continuant/Selection
-  - Subject/Graph Node/Domain/Continuant/Selection//Stored Governing RMED Relation Occurrences
-  - Subject/Graph Rule
-  - Subject/Graph Rule.Applies To
-  - Subject/Graph Rule.Condition
-version: 10
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Parent
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Stored Governing RMED Relation Occurrences
+  - Subject/CAPRMEDIO/Graph/Rule
+  - Subject/CAPRMEDIO/Graph/Rule.Applies To
+  - Subject/CAPRMEDIO/Graph/Rule.Condition
+version: 11
+updated_at: 2026-10-27 19:59:43 +0400
 relations:
   method_for:
   - CA-R-2124

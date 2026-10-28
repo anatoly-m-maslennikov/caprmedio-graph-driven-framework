@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node.Type
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - Subject/Graph Node/Carrier
-version: 18
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - Subject/CAPRMEDIO/Carrier
+version: 19
+updated_at: 2026-10-27 19:59:24 +0400
 relations:
   child_of:
   - CA-R-1690

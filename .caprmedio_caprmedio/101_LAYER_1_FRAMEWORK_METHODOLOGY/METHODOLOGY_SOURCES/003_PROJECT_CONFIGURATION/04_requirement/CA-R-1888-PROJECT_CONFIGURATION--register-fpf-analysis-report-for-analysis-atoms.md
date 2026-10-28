@@ -6,11 +6,11 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis/Type'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis'
-version: 9
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis'
+version: 10
+updated_at: 2026-10-27 20:00:05 +0400
 relations: {}
 tier: 2
 type: Rule

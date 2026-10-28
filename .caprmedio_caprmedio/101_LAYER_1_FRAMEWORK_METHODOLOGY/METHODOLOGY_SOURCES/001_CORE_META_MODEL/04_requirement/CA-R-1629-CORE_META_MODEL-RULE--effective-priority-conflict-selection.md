@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Concern.Priority'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern.Priority'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Concern'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 34
-updated_at: 2026-10-25 17:32:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+version: 35
+updated_at: 2026-10-27 19:59:59 +0400
 relations: {}
 atom_id: CA-R-1629
 content_role: Requirement

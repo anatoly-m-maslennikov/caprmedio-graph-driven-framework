@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action.Execution Kind'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action.Execution Kind'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
-  - Subject/Graph Node/Engineering/Execution Control/Effect Authorization
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 16
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+version: 17
+updated_at: 2026-10-27 19:59:57 +0400
 relations: {}
 atom_id: CA-R-1526
 content_role: Requirement

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Authoring/Controlled English
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
   depends_on:
-  - Subject/Graph Rule/CCE
-version: 18
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+version: 19
+updated_at: 2026-10-27 19:59:40 +0400
 relations: {}
 atom_id: CA-M-230
 content_role: Method

@@ -5,10 +5,10 @@ current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 8
-updated_at: 2026-10-27 06:04:45 +0400
+version: 9
+updated_at: 2026-10-27 20:00:04 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Data Validation
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
   depends_on: []
 relations: {}
 type: Rule

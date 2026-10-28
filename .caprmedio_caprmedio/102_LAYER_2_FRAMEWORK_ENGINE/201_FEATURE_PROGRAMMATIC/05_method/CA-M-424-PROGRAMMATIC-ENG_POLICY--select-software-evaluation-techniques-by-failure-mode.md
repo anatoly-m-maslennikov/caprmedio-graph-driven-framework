@@ -5,12 +5,12 @@ type: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Verification/Test Design
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
   depends_on:
-  - Subject/Graph Node/Engineering/Verification/Test Design
-  - Subject/Graph Node/Domain/Continuant/Actor
-version: 11
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
+version: 12
+updated_at: 2026-10-27 19:59:43 +0400
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 relations:

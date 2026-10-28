@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-version: 21
-updated_at: 2026-10-27 06:04:45 +0400
+version: 22
+updated_at: 2026-10-27 19:59:35 +0400
 relations:
   child_of:
   - CA-E-001
@@ -10,15 +10,15 @@ relations:
   - CA-R-1407
   - CA-R-007
 subjects:
-  governs: Subject/Graph Relation
+  governs: Subject/CAPRMEDIO/Graph/Relation
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - Subject
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node/Engineering/Traceability
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Engineering/Architecture/Component Structure
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-436

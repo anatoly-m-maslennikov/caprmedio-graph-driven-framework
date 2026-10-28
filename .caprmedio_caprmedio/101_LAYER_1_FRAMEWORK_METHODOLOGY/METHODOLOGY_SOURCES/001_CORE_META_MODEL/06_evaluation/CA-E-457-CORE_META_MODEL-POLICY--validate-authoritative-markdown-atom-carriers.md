@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File
+  governs: Subject/CAPRMEDIO/Carrier/File
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Carrier/File
-  - Subject/Graph Node/Domain/Continuant/Project
-version: 29
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Carrier/File
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+version: 30
+updated_at: 2026-10-27 19:59:35 +0400
 relations:
   evaluation_for:
   - CA-D-463

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier
+  governs: Subject/CAPRMEDIO/Carrier
   depends_on:
-  - Subject/Graph Node/Engineering/Observability/Logging
-version: 16
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Logging
+version: 17
+updated_at: 2026-10-27 19:59:24 +0400
 relations: {}
 atom_id: CA-D-396
 content_role: Delivery

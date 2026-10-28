@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Tier
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-version: 4
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+version: 5
+updated_at: 2026-10-27 20:00:07 +0400
 relations: {}
 atom_id: CA-R-2131
 content_role: Requirement

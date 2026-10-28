@@ -6,21 +6,21 @@ claim_target_scope_unit: SKILLS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/UX/CAPRMEDIO Skill and MCP Entry Interface
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction
   depends_on:
-  - Subject/Graph Node/Engineering/Execution Control/Effect Authorization
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action.Execution Kind'
-  - Subject/Graph Node/UX/CAPRMEDIO Skill and MCP Entry Interface
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Project
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
-  - Subject/Graph Node/Domain/Occurrent/Execution
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step.Agentic Execution Context'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action.Execution Kind'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step.Agentic Execution Context'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+version: 20
+updated_at: 2026-10-27 19:59:59 +0400
 relations:
   child_of:
   - CA-R-1124

@@ -1,6 +1,6 @@
 ---
-version: 27
-updated_at: 2026-10-27 06:04:45 +0400
+version: 28
+updated_at: 2026-10-27 19:59:35 +0400
 relations:
   child_of:
   - CA-E-001
@@ -10,14 +10,14 @@ relations:
   - CA-R-1559
   - CA-M-295
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
+  governs: Subject/caprmedio/Action//Implementation Retry Control
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Graph Node/Engineering/Execution Control/Failure Handling
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold'
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Failure Handling
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Implementation Retry Limit
 atom_id: CA-E-441
 content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION

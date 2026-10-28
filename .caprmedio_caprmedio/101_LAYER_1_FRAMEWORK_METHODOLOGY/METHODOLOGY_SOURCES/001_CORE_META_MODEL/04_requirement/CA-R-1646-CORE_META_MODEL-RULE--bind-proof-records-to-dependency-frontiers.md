@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Traceability
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node/Engineering/Traceability
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Carrier
-version: 32
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Carrier
+version: 33
+updated_at: 2026-10-27 19:59:59 +0400
 relations:
   resolution_of:
   - CAPRMEDIO-GOV-CONC-054--how-should-proof-currentness-be-represented

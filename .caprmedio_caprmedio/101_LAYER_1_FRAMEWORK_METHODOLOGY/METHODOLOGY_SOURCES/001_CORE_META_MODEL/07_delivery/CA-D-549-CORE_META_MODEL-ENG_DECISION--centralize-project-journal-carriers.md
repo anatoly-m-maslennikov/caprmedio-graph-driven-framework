@@ -6,15 +6,15 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History/Journal
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-version: 15
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+version: 16
+updated_at: 2026-10-27 19:59:27 +0400
 relations: {}
 tier: 3
 type: Eng Decision

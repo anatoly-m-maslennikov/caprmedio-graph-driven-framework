@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: 'Subject/Graph Relation/Type: DEPENDS_ON'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: DEPENDS_ON'
   depends_on:
-  - Subject/Graph Relation/Type
-  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/CAPRMEDIO/Graph/Relation/Type
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-version: 31
-updated_at: 2026-10-26 05:41:12 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+version: 32
+updated_at: 2026-10-27 19:59:52 +0400
 relations:
   depends_on:
   - CA-R-1275

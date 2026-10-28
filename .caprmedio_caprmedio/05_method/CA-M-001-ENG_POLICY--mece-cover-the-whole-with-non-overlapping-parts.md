@@ -1,15 +1,15 @@
 ---
 cce_version: cce_1
 cce_form: method
-version: 21
-updated_at: 2026-10-25 17:32:27 +0400
+version: 22
+updated_at: 2026-10-27 19:59:38 +0400
 relations:
   child_of:
   - CA-R-2155
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Structure
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
 atom_id: CA-M-001
 status: Active
 content_role: Method

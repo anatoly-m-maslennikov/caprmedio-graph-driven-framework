@@ -2,13 +2,13 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Serialization
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
   depends_on:
-  - Subject/Graph Node/Implementation/Code/Tool//DERIVE_CCE_CANONICAL_SIGNATURES
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Engineering/Data Handling/Data Transformation
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//DERIVE_CCE_CANONICAL_SIGNATURES
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
+version: 20
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   child_of:
   - CA-M-240

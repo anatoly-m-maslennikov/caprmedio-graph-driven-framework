@@ -1,8 +1,8 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+version: 9
+updated_at: 2026-10-27 20:00:07 +0400
 relations: {}
 atom_id: CA-R-2102
 content_role: Requirement

@@ -1,8 +1,8 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling
+version: 25
+updated_at: 2026-10-27 19:59:59 +0400
 relations: {}
 atom_id: CA-R-1627
 content_role: Requirement

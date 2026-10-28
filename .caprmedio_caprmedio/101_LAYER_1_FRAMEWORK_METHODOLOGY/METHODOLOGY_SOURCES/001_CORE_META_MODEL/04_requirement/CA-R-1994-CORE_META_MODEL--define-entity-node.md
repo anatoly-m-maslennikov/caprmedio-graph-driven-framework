@@ -6,13 +6,12 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node
+  governs: Subject/CAPRMEDIO/Graph/Node
   depends_on:
-  - Subject/Graph Node/Domain/Continuant
-  - Subject/Graph Node/Domain/Occurrent
+  - Subject/CAPRMEDIO/Graph/Node/Project Model
 relations: {}
-version: 10
-updated_at: 2026-10-27 06:04:45 +0400
+version: 11
+updated_at: 2026-10-27 20:00:07 +0400
 tier: 1
 type: Definition
 ---
@@ -22,15 +21,17 @@ Define Entity/Node
 
 ## Scope
 
-Nodes in the Entity model.
+Nodes in the Subject graph.
 
 ## Claim
 
-a Node means a logical abstraction in the Entity graph. It can be a Continuant, Occurrent, Aspect, or another category admitted by the framework.
+A Node identifies a thing or topic addressed by the graph. Its description and Carrier are separate.
 
 ## Semantics
 
-Artifact is a Term for a Node instance delivered into one or more Carrier instances. It does not name another Node kind or branch. A Carrier remains distinct from what it represents.
+Subjects intentionally include actual things, descriptions and abstract topics. This mix does not make them one uniform kind of entity. A description can itself be a separate Subject; it is not the thing described.
+
+Artifact is a Term for a Node instance delivered into one or more Carrier instances. Carrying a record of an occurrence does not carry the actual occurrence. Artifact does not name another Node kind or branch. A Carrier remains distinct from what it represents.
 
 ## Details
 

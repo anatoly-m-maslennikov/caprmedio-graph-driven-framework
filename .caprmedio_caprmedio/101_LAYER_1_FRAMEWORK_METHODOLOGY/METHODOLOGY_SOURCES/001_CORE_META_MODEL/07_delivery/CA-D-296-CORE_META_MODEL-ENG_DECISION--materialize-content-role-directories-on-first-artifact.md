@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier.Canonical Address
+  governs: Subject/CAPRMEDIO/Carrier.Canonical Address
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Carrier/Directory
-version: 25
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Carrier/Directory
+version: 26
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-296
 content_role: Delivery

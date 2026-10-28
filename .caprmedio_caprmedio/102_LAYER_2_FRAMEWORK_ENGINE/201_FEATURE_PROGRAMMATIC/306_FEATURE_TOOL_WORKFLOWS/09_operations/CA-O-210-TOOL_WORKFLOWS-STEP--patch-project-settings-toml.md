@@ -7,13 +7,13 @@ claim_target_scope_unit: TOOL_WORKFLOWS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Update Project Settings > Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step//Patch Project Settings TOML'
+  governs: Subject/caprmedio/Workflow//Update Project Settings > Subject/caprmedio/Step//Patch Project Settings TOML
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-version: 10
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+version: 11
+updated_at: 2026-10-27 19:59:48 +0400
 relations: {}
 tier: 3
 ---

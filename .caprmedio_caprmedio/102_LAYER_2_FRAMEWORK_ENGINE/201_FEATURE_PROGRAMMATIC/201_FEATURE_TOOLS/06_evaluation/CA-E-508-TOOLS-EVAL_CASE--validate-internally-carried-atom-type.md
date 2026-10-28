@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Type
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Type
-  - Subject/Graph Node/Carrier
-version: 13
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
+  - Subject/CAPRMEDIO/Carrier
+version: 14
+updated_at: 2026-10-27 19:59:36 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:

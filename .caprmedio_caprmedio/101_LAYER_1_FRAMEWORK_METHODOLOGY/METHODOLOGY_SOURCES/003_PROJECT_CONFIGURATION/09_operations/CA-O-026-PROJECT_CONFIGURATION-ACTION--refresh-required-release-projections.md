@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Engineering/Traceability
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Reconciled Projection'
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
-version: 14
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Reconciled Projection'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
+version: 15
+updated_at: 2026-10-27 19:59:44 +0400
 relations: {}
 atom_id: CA-O-026
 content_role: Operations

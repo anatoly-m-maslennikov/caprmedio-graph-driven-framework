@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit//CORE_META_MODEL
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
-  - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
-  - Subject/Graph Node/Domain/Continuant/Selection//Extension Sources
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Expansion Boundary
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - Subject/Graph Node/Domain/Continuant/Project
-version: 22
-updated_at: 2026-10-25 17:32:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Extension Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Expansion Boundary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+version: 23
+updated_at: 2026-10-27 19:59:54 +0400
 relations: {}
 atom_id: CA-R-1434
 content_role: Requirement

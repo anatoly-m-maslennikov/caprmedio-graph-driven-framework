@@ -6,14 +6,14 @@ claim_target_scope_unit: TOOLS
 type: Action
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: 2026-10-26 00:46:35 +0400
+version: 8
+updated_at: 2026-10-27 19:59:48 +0400
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
 relations: {}
 tier: 3
 ---

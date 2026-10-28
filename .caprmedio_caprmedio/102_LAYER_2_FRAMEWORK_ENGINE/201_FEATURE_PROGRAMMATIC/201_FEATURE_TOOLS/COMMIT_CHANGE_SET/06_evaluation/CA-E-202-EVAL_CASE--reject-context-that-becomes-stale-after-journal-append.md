@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - Subject/Graph Node/Engineering/Execution Control/Effect Authorization
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Project
-version: 21
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+version: 22
+updated_at: 2026-10-27 19:59:30 +0400
 relations:
   evaluation_for:
   - CA-M-087

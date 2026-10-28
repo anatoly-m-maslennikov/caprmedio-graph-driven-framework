@@ -5,15 +5,15 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+version: 21
+updated_at: 2026-10-27 19:59:25 +0400
 subjects:
-  governs: Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Graph Node/Carrier/File
-  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Carrier/File
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
 relations: {}
 tier: 3
 type: Eng Decision

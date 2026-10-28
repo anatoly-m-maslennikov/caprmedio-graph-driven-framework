@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Storage
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 27
+version: 28
 status: Active
-updated_at: 2026-10-27 06:04:45 +0400
+updated_at: 2026-10-27 19:59:50 +0400
 content_role: Requirement
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS

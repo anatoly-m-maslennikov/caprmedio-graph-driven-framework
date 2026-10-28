@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Data Transformation
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
   depends_on: []
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+version: 25
+updated_at: 2026-10-27 20:00:01 +0400
 relations: {}
 atom_id: CA-R-1717
 content_role: Requirement

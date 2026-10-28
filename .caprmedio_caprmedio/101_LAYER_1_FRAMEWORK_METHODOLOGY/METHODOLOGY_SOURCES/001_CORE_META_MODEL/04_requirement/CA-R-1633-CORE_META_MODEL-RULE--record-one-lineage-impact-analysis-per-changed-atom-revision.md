@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Engineering/Traceability
-version: 35
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+version: 36
+updated_at: 2026-10-27 19:59:59 +0400
 relations: {}
 atom_id: CA-R-1633
 content_role: Requirement

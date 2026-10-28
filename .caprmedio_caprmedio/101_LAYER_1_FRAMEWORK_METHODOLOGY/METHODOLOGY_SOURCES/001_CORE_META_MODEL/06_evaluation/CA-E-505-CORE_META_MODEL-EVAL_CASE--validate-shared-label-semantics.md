@@ -1,17 +1,17 @@
 ---
 subjects:
-  governs: Subject/Graph Node
+  governs: Subject/CAPRMEDIO/Graph/Node
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Label
-  - Subject/Graph Node/Domain/Continuant/Scope Unit/Type
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Label'
-  - 'Subject/Graph Relation/Type: BLOCKS'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
-  - Subject/Graph Node
-  - Subject/Graph Node/Domain/Continuant/Term//Property
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 16
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: BLOCKS'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+version: 17
+updated_at: 2026-10-27 19:59:36 +0400
 relations:
   evaluation_for:
   - CA-R-1594

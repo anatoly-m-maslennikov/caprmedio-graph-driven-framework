@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   depends_on: []
-version: 23
+version: 24
 status: Active
-updated_at: 2026-10-27 06:04:45 +0400
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   method_for:
   - CA-R-1155

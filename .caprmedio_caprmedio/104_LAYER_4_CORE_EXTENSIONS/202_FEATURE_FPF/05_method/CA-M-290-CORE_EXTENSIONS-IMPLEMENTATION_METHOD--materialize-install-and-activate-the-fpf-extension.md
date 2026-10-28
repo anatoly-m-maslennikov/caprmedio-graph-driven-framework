@@ -2,15 +2,15 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - Subject/Graph Node/Engineering/Delivery
-  - Subject/Graph Node/Product/Extension//FPF
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/Graph Node/Implementation/Code/Tool
-  - Subject/Graph Node/Engineering/Data Handling/Output Publication
-version: 18
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  - Subject/caprmedio/Extension//FPF
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
+version: 19
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   method_for:
   - CA-R-1475

@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control/Decision Confidence
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
-  - Subject/Graph Node/Domain/Continuant/Term//Property
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+version: 25
+updated_at: 2026-10-27 19:59:54 +0400
 relations:
   child_of:
   - CA-R-1427

@@ -1,17 +1,17 @@
 ---
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+version: 21
+updated_at: 2026-10-27 19:59:44 +0400
 relations:
   child_of:
   - CA-R-1487
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control/Effect Authorization
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
 atom_id: CA-O-022
 content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION

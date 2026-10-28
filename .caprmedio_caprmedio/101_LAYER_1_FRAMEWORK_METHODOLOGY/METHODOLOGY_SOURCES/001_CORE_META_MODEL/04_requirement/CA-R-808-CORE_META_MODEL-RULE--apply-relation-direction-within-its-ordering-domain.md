@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Relation
+  governs: Subject/CAPRMEDIO/Graph/Relation
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Selection//Stored Governing RMED Relation Occurrences
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-version: 27
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Stored Governing RMED Relation Occurrences
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+version: 28
+updated_at: 2026-10-27 20:00:11 +0400
 relations: {}
 atom_id: CA-R-808
 content_role: Requirement

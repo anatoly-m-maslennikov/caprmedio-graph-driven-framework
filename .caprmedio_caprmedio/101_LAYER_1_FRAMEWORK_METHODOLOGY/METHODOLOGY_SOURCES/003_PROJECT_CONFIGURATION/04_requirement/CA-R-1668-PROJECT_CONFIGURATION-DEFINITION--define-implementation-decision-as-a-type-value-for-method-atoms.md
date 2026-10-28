@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method/Type: Eng Decision'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method/Type: Eng Decision'
   depends_on: []
-version: 29
-updated_at: 2026-10-25 17:32:27 +0400
+version: 30
+updated_at: 2026-10-27 20:00:00 +0400
 relations:
   depends_on:
   - CA-R-1767

@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: 'Subject/Graph Relation/Type: GOVERNS'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: GOVERNS'
   depends_on:
-  - Subject/Graph Relation/Type
-  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/CAPRMEDIO/Graph/Relation/Type
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-version: 28
-updated_at: 2026-10-26 05:41:12 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+version: 29
+updated_at: 2026-10-27 19:59:52 +0400
 relations:
   depends_on:
   - CA-R-1275

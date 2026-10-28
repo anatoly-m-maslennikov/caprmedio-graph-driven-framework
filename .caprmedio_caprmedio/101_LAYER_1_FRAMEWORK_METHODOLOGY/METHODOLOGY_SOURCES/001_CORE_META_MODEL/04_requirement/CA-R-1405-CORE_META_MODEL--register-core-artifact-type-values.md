@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node
+  governs: Subject/CAPRMEDIO/Graph/Node
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node/Domain/Continuant/Governing Configuration
-  - Subject/Graph Node/Domain/Continuant/Projection/Type
-  - 'Subject/Graph Relation/Type: IS_ALLOWED_VALUE_OF'
-version: 21
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: IS_ALLOWED_VALUE_OF'
+version: 22
+updated_at: 2026-10-27 19:59:54 +0400
 relations:
   child_of:
   - CA-R-1765

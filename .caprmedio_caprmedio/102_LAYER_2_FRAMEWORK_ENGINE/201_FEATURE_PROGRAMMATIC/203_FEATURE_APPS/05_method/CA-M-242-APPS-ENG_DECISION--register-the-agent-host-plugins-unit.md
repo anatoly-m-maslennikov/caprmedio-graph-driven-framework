@@ -2,10 +2,10 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   depends_on: []
-version: 13
-updated_at: 2026-10-25 17:32:27 +0400
+version: 14
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   method_for:
   - CA-R-1101

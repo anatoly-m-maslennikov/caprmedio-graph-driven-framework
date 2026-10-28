@@ -1,0 +1,38 @@
+---
+subjects:
+  governs: Subject/Graph Node/Domain/Continuant/Projection
+  depends_on:
+  - Subject/Graph Node/Implementation
+  - Subject/Graph Node/Domain/Continuant/Selection
+  - Subject/Graph Node/Domain/Continuant/Term//Artifact
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Projection.Authority
+version: 19
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
+atom_id: CA-R-1568@19
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 2
+type: Rule
+---
+# Summary
+
+Permit Projections as Implementation outputs
+
+## Scope
+
+non-authoritative view Projections delivered as Implementation outputs.
+
+## Claim
+
+a view Projection **may** be delivered as an Implementation output of its governing RMED **without** becoming an Atom **or** another source of truth for the facts it represents.
+
+- its output contribution is I; its Artifact kind remains Projection **and** its content remains derived from its declared sources.
+
+## Details
+
+This permission concerns delivered views, not a permanent loss of actual-state authority for native Implementation. RMED → using O → I derives a realization of intent; that native I can then be source truth for what actually exists. I → using O → a dependency graph or another view produces a non-authoritative Projection.

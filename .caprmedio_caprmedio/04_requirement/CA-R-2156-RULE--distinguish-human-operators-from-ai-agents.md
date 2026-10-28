@@ -7,13 +7,13 @@ author: Anatoly Maslennikov
 status: Active
 tier: 3
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Actor/Type
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Actor
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
-version: 4
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+version: 5
+updated_at: 2026-10-27 20:00:08 +0400
 relations:
   child_of:
   - CA-R-2155

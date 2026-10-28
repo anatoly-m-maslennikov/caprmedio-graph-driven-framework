@@ -4,14 +4,14 @@ content_role: Method
 current_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 10
-updated_at: 2026-10-26 05:59:45 +0400
+version: 11
+updated_at: 2026-10-27 19:59:42 +0400
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Continuant/Selection
-  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
 relations: {}
 type: Eng Decision
 tier: 3

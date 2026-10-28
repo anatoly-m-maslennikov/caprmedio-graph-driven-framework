@@ -1,8 +1,8 @@
 ---
 subject_scopes:
 - applicability
-version: 15
-updated_at: 2026-10-27 06:04:45 +0400
+version: 16
+updated_at: 2026-10-27 20:00:11 +0400
 relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -14,7 +14,7 @@ current_scope_unit: caprmedio
 type: Boundary
 tier: 2
 subjects:
-  governs: 'Subject/Graph Node/Product: CAPRMEDIO Framework'
+  governs: 'Subject/caprmedio/Product: CAPRMEDIO Framework'
   depends_on: []
 ---
 # Codex native support only

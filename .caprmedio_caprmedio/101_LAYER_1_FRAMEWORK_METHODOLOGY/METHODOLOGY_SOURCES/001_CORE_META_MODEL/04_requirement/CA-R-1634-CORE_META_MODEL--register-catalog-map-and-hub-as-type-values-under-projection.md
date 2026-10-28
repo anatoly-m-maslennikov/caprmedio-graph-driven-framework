@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection/Type
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Domain/Continuant/Projection/Type
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Catalog'
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Map'
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Hub'
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-version: 38
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Map'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Hub'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+version: 39
+updated_at: 2026-10-27 19:59:59 +0400
 relations: {}
 atom_id: CA-R-1634
 content_role: Requirement

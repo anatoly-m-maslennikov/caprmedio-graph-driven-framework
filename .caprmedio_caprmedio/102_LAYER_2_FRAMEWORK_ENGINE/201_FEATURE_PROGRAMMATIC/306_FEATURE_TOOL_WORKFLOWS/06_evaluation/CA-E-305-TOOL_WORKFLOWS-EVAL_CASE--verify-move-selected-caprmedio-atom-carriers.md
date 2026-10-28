@@ -6,11 +6,11 @@ atom_id: CA-E-305
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Node/Engineering/Verification/Dynamic Testing
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   depends_on: []
-version: 22
+version: 23
 status: Active
-updated_at: 2026-10-27 06:04:45 +0400
+updated_at: 2026-10-27 19:59:32 +0400
 relations:
   evaluation_for:
   - CA-M-187

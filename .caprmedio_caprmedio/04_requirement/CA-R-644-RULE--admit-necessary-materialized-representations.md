@@ -1,6 +1,6 @@
 ---
-version: 18
-updated_at: 2026-10-27 06:04:45 +0400
+version: 19
+updated_at: 2026-10-27 20:00:10 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -8,10 +8,10 @@ relations:
   child_of:
   - CA-M-002
 subjects:
-  governs: Subject/Graph Node/Carrier
+  governs: Subject/CAPRMEDIO/Carrier
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
-  - Subject/Graph Node/Domain/Continuant/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
 cce_version: cce_1
 cce_form: permission
 author: Anatoly Maslennikov

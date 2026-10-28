@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Framework Settings.Confidence.Semantic Resolution Threshold
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Confidence.Semantic Resolution Threshold
   depends_on:
-  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 36
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+version: 37
+updated_at: 2026-10-27 20:00:09 +0400
 relations:
   child_of:
   - CA-M-115

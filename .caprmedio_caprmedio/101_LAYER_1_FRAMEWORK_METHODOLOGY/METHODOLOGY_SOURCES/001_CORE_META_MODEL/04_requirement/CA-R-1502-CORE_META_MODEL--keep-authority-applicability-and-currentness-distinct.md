@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Continuant
   depends_on:
-  - Subject/Graph Node
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Graph Node/Domain/Continuant/Term//Property
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
+version: 20
+updated_at: 2026-10-27 19:59:56 +0400
 relations:
   child_of:
   - CA-M-001

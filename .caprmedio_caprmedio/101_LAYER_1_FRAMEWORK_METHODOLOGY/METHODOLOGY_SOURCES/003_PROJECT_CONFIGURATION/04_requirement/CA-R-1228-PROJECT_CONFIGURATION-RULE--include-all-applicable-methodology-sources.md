@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//CORE_META_MODEL
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/Graph Node/Domain/Continuant/Selection//Extension Sources
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-version: 30
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Extension Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+version: 31
+updated_at: 2026-10-27 19:59:52 +0400
 relations: {}
 atom_id: CA-R-1228
 content_role: Requirement

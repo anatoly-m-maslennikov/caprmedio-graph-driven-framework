@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery/Git Commits
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Git Commits
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Local Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Relation
-version: 27
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Relation
+version: 28
+updated_at: 2026-10-27 19:59:29 +0400
 relations:
   evaluation_for:
   - CA-R-1433

@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File.Filename
+  governs: Subject/CAPRMEDIO/Carrier/File.Filename
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-version: 8
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+version: 9
+updated_at: 2026-10-27 19:59:28 +0400
 relations: {}
 atom_id: CA-D-650
 content_role: Delivery

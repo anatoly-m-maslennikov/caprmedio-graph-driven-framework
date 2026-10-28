@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Project Boundary Position
-  - Subject/Graph Node/Domain/Continuant/Scope Unit/Type
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-version: 30
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Project Boundary Position
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+version: 31
+updated_at: 2026-10-27 20:00:02 +0400
 relations: {}
 atom_id: CA-R-1762
 content_role: Requirement

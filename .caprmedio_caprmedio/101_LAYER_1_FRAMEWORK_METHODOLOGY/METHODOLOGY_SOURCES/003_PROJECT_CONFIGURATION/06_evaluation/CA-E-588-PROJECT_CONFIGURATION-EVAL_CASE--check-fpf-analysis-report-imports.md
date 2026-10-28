@@ -7,12 +7,12 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis/Type: FPF Analysis Report'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: FPF Analysis Report'
   depends_on:
-  - Subject/Graph Node/Engineering/Traceability
-  - Subject/Graph Node/Carrier
-version: 10
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - Subject/CAPRMEDIO/Carrier
+version: 11
+updated_at: 2026-10-27 19:59:37 +0400
 relations:
   evaluation_for:
   - CA-R-1889

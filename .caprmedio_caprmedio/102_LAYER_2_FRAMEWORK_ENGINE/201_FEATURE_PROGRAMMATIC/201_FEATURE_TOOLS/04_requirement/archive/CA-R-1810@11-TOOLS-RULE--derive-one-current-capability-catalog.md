@@ -1,0 +1,41 @@
+---
+atom_id: CA-R-1810@11
+content_role: Requirement
+current_scope_unit: TOOLS
+status: Archived
+author: Anatoly Maslennikov
+version: 11
+updated_at: 2026-10-27 06:04:45 +0400
+subjects:
+  governs: Subject/Graph Node/Domain/Continuant/Projection
+  depends_on:
+  - Subject/Graph Node/Engineering/Data Handling/Data Transformation
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+relations: {}
+tier: 3
+type: Rule
+---
+# Summary
+
+Derive one current capability catalog
+
+## Scope
+
+the TOOLS capability for Capability Catalog.
+
+## Claim
+
+the Capability Catalog **must** be **`=1`** derived read model shared by Tool discovery, Operations discovery **and** execution-context retrieval.
+
+## Details
+
+- active source Atoms **and** authoritative Project Structure declare capabilities **and** scope ancestry.
+- D-owned Tool bindings declare Implementation paths **and** Action bindings; observed files **and** registered MCP handlers establish observed availability.
+- declared authority, observed Implementation **and** exposed execution are distinct facts.
+- source changes invalidate the derived catalog. duplicate active identifiers, ambiguous bindings, malformed sources **and** bounded reads remain visible.
+- the catalog is a Projection; its descriptions do **not** become a separately authored source of truth.

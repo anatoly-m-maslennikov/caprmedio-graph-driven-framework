@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - Subject/Graph Node/Domain/Continuant/Selection//Extension Sources
-  - Subject/Graph Node/Domain/Continuant/Governing Configuration
-version: 31
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Extension Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
+version: 32
+updated_at: 2026-10-27 20:00:02 +0400
 relations: {}
 atom_id: CA-R-1724
 content_role: Requirement

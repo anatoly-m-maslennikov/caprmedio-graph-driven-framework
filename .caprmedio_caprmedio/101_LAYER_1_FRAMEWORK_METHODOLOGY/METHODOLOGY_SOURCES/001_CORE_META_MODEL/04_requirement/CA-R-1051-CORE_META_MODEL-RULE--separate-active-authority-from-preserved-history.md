@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History
   depends_on: []
-version: 27
-updated_at: 2026-10-25 17:32:27 +0400
+version: 28
+updated_at: 2026-10-27 19:59:49 +0400
 relations:
   child_of:
   - CA-M-002

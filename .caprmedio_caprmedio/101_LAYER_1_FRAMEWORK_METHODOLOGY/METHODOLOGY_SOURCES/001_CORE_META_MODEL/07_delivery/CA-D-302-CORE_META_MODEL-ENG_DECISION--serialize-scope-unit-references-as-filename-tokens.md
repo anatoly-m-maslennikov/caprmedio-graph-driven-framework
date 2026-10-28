@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File.Filename.Scope Unit Token
+  governs: Subject/CAPRMEDIO/Carrier/File.Filename.Scope Unit Token
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Name
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+version: 24
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-302
 content_role: Delivery

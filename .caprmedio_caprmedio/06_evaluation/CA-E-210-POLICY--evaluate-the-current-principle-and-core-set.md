@@ -1,6 +1,6 @@
 ---
-version: 27
-updated_at: 2026-10-26 05:59:45 +0400
+version: 28
+updated_at: 2026-10-27 19:59:30 +0400
 relations:
   child_of:
   - CA-M-001
@@ -9,21 +9,21 @@ relations:
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Principle Universe
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Principle Universe
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
-  - Subject/Graph Node/Domain/Continuant/Actor
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-210

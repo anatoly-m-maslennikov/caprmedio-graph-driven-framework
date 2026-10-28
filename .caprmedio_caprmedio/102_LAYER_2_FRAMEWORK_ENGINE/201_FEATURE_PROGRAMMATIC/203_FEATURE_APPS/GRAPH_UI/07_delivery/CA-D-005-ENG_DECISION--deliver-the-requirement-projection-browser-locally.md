@@ -1,8 +1,8 @@
 ---
 subject_scopes:
 - projection-pipeline
-version: 16
-updated_at: 2026-10-26 00:46:35 +0400
+version: 17
+updated_at: 2026-10-27 19:59:22 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -20,9 +20,9 @@ atom_id: CA-D-005
 type: Eng Decision
 tier: 2
 subjects:
-  governs: Subject/Graph Node/UX/Graph view presentation and navigation
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
 ---
 # Deliver the Requirement Projection browser locally
 

@@ -6,12 +6,12 @@ atom_id: CA-D-423
 cce_version: cce_1
 cce_form: delivery
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - Subject/Graph Node/Implementation/Code/Tool//ATOM_READ
-version: 19
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//ATOM_READ
+version: 20
 status: Active
-updated_at: 2026-10-27 06:04:45 +0400
+updated_at: 2026-10-27 19:59:24 +0400
 relations:
   delivery_for:
   - CA-R-864

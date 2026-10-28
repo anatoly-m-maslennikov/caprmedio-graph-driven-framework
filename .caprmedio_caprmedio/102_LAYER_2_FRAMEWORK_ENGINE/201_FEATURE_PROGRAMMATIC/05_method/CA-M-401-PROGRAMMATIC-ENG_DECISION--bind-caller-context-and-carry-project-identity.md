@@ -6,10 +6,10 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
-version: 10
-updated_at: 2026-10-27 06:04:45 +0400
+version: 11
+updated_at: 2026-10-27 19:59:43 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Communication
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   depends_on: []
 relations:
   method_for:

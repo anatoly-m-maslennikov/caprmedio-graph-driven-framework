@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Rule/CCE
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
   depends_on:
-  - Subject/Graph Rule/CCE
-  - Subject/Graph Node/Domain/Continuant/Actor
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-version: 31
-updated_at: 2026-10-26 05:59:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+version: 32
+updated_at: 2026-10-27 19:59:39 +0400
 relations:
   child_of:
   - CA-M-111

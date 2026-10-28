@@ -2,10 +2,10 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Communication
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   depends_on: []
-version: 15
-updated_at: 2026-10-27 06:04:45 +0400
+version: 16
+updated_at: 2026-10-27 19:59:32 +0400
 relations:
   evaluation_for:
   - CA-M-180

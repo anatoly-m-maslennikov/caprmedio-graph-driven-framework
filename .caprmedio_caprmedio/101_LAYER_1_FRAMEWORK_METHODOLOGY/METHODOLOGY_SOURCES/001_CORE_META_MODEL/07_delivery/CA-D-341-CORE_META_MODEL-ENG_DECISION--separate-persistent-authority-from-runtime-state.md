@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier
+  governs: Subject/CAPRMEDIO/Carrier
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/History
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History
+version: 25
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-341
 content_role: Delivery

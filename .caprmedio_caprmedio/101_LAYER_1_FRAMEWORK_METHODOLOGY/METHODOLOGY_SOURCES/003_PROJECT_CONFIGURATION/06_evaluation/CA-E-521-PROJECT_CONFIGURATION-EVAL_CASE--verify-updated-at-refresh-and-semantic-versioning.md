@@ -1,17 +1,17 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Updated At
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Domain/Continuant/Atom.Status
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-  - Subject/Graph Node
-version: 18
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Graph/Node
+version: 19
+updated_at: 2026-10-27 19:59:36 +0400
 relations:
   evaluation_for:
   - CA-D-270

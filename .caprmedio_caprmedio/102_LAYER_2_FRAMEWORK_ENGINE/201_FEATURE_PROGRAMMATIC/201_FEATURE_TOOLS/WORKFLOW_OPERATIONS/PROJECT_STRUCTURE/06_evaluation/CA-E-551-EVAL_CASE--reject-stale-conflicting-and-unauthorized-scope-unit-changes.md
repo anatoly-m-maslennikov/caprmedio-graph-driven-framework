@@ -6,14 +6,14 @@ current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 11
-updated_at: 2026-10-27 06:04:45 +0400
+version: 12
+updated_at: 2026-10-27 19:59:37 +0400
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
 relations: {}
 tier: 3
 ---

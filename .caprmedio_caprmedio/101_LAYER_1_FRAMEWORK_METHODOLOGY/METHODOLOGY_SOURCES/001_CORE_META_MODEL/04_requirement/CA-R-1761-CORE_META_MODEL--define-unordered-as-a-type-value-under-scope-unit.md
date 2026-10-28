@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Scope Unit/Type: Unordered'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type: Unordered'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Local Order
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-version: 30
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Local Order
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+version: 31
+updated_at: 2026-10-27 20:00:02 +0400
 relations: {}
 atom_id: CA-R-1761
 content_role: Requirement

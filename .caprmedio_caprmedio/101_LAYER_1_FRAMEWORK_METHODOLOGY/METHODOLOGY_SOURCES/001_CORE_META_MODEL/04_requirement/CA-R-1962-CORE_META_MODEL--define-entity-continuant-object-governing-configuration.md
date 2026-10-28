@@ -6,12 +6,12 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Governing Configuration
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
 relations:
   child_of:
   - CA-R-1174
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+version: 10
+updated_at: 2026-10-27 22:43:55 +0400
 tier: 1
 type: Definition
 ---
@@ -29,4 +29,4 @@ Governing Configuration **means** authoritative non-Atom content that supplies d
 
 ## Details
 
-Candidate #5 retains Governing Configuration while placing Settings and Structure under Project properties; Candidate #6 retains that distinction. CA-R-1402, CA-R-1738 and CA-R-1483 define specific configurations, not this general kind. No selected Settings values are copied into this draft.
+CA-R-1402, CA-R-1738 and CA-R-1483 define specific configurations rather than the general kind. Selected Settings values are not copied into this definition.

@@ -1,0 +1,38 @@
+---
+atom_id: CA-R-1612@17
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
+status: Archived
+subjects:
+  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Realization Graph'
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Graph Node/Engineering/Verification
+version: 17
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
+tier: 3
+type: Rule
+---
+# Summary
+
+Allow pre-runtime pass only with sufficient evidence
+
+## Scope
+
+Evaluations using a Realization Graph before runtime, for their declared input boundary.
+
+## Claim
+
+an Evaluation using a Realization Graph **may** return `pass` **before** runtime **only** **when** sufficient evidence establishes the checked Claim for the declared input boundary.
+
+- **if** the Claim requires complete coverage of particular Relation mechanisms, the evidence **must** establish that coverage; a completeness declaration alone is insufficient.
+- the evidence **must** establish the actual acceptance condition. complete provenance **or** graph coverage does **not** itself establish that condition.
+- a possible inferred Relation is **not** an observed occurrence. **when** required runtime evidence is unavailable **or** a material condition remains unresolved, the Evaluation **must not** return a pre-runtime `pass`.
+
+this Claim constrains permission **to** report a result; the applicable E Atoms supply the checks. it does **not** require complete graph coverage for a Claim that needs **only** bounded evidence.
+
+## Details

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Product/Extension
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   depends_on: []
-version: 26
-updated_at: 2026-10-27 06:04:45 +0400
+version: 27
+updated_at: 2026-10-27 20:00:02 +0400
 relations:
   child_of:
   - CA-R-1058

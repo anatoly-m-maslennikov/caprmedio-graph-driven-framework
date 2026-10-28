@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-version: 19
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+version: 20
+updated_at: 2026-10-27 19:59:39 +0400
 relations:
   child_of:
   - CA-R-2155

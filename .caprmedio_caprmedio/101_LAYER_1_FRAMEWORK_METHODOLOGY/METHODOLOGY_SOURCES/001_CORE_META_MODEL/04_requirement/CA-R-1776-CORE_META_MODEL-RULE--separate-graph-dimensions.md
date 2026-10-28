@@ -1,16 +1,16 @@
 ---
-version: 31
-updated_at: 2026-10-27 06:04:45 +0400
+version: 32
+updated_at: 2026-10-27 20:00:03 +0400
 relations:
   child_of:
   - CA-M-001
   - CA-R-1407
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Graph Dimensions
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Graph Dimensions
   depends_on:
   - Subject
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
-  - Subject/Graph Node/Domain/Continuant/Project
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
 atom_id: CA-R-1776
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL

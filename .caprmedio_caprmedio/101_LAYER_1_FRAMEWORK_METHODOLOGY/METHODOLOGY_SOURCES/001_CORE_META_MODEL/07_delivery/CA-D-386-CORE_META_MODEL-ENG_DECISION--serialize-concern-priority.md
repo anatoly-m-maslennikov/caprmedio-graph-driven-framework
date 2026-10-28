@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Concern.Priority'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern.Priority'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Concern.Priority'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 18
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern.Priority'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+version: 19
+updated_at: 2026-10-27 19:59:24 +0400
 relations: {}
 atom_id: CA-D-386
 content_role: Delivery

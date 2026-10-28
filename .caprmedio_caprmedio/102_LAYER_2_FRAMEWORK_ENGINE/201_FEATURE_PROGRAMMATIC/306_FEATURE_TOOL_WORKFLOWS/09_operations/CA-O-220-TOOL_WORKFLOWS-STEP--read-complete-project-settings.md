@@ -6,15 +6,15 @@ current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
 status: Active
 author: Anatoly Maslennikov
-version: 8
-updated_at: 2026-10-26 05:59:45 +0400
+version: 9
+updated_at: 2026-10-27 19:59:48 +0400
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Update Project Settings > Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step//Read complete Project Settings'
+  governs: Subject/caprmedio/Workflow//Update Project Settings > Subject/caprmedio/Step//Read complete Project Settings
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
 relations: {}
 tier: 3
 ---

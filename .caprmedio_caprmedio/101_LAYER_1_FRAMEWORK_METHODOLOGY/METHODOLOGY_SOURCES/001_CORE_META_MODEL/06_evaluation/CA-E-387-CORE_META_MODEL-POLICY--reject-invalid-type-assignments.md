@@ -1,12 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node.Type
+  governs: Subject/CAPRMEDIO/Graph/Node
   depends_on:
-  - Subject/Graph Node
+  - Subject/CAPRMEDIO/Graph/Node
   - Subject
-  - Subject/Graph Node.Type
-version: 21
-updated_at: 2026-10-25 17:32:27 +0400
+version: 22
+updated_at: 2026-10-27 19:59:34 +0400
 relations:
   evaluation_for:
   - CA-R-1285

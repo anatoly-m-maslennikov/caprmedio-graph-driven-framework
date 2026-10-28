@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Label
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Label
   depends_on:
-  - Subject/Graph Node
-  - Subject/Graph Node/Domain/Continuant/Term//Property
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Atom.Type
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Label'
-version: 13
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label'
+version: 14
+updated_at: 2026-10-27 19:59:58 +0400
 relations: {}
 atom_id: CA-R-1594
 content_role: Requirement

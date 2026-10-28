@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Term
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Term
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Terms Graph'
-  - 'Subject/Graph Relation/Type: NARROWER_THAN'
-version: 22
-updated_at: 2026-10-25 22:10:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Terms Graph'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: NARROWER_THAN'
+version: 23
+updated_at: 2026-10-27 19:59:53 +0400
 relations: {}
 atom_id: CA-R-1347
 content_role: Requirement

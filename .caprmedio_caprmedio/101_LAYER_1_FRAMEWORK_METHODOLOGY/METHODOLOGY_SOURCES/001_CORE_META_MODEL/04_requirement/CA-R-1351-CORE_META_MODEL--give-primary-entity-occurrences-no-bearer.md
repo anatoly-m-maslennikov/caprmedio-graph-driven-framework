@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: 'Subject/Graph Relation/Type: IS_BORNE_BY'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: IS_BORNE_BY'
   depends_on:
-  - Subject/Graph Relation
+  - Subject/CAPRMEDIO/Graph/Relation
   - Subject
-version: 16
-updated_at: 2026-10-25 17:32:27 +0400
+version: 17
+updated_at: 2026-10-27 19:59:53 +0400
 relations: {}
 atom_id: CA-R-1351
 content_role: Requirement

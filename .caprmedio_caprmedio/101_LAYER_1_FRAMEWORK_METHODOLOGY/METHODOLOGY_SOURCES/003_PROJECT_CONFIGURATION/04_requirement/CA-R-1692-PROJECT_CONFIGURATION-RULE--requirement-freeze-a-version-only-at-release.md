@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History/Release.ID
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/History/Release.ID
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-  - Subject/Graph Node/Engineering/Traceability
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
-  - Subject/Graph Node/Implementation
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Graph Node/Product/Extension
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-version: 32
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+version: 33
+updated_at: 2026-10-27 20:00:01 +0400
 relations:
   depends_on:
   - CA-R-1712

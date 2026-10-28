@@ -2,10 +2,10 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Data Validation
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
   depends_on: []
-version: 18
-updated_at: 2026-10-27 06:04:45 +0400
+version: 19
+updated_at: 2026-10-27 19:59:40 +0400
 relations:
   method_for:
   - CA-R-1143

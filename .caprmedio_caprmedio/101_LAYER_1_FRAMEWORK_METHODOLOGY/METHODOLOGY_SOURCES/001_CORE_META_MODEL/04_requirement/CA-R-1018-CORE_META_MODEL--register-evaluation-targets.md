@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: 'Subject/Graph Relation/Type: evaluation_for'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: evaluation_for'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-version: 29
-updated_at: 2026-10-25 17:32:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+version: 30
+updated_at: 2026-10-27 19:59:49 +0400
 relations: {}
 atom_id: CA-R-1018
 content_role: Requirement

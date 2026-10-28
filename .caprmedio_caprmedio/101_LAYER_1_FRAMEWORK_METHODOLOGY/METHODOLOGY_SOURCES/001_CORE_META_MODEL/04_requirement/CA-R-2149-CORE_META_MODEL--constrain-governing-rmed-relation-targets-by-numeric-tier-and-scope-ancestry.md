@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Rule
+  governs: Subject/CAPRMEDIO/Graph/Rule
   depends_on:
-  - Subject/Graph Rule.Type
-  - Subject/Graph Rule.Applies To
-  - Subject/Graph Rule.Condition
-  - Subject/Graph Node/Domain/Continuant/Selection//Stored Governing RMED Relation Occurrences
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Rule.Type
+  - Subject/CAPRMEDIO/Graph/Rule.Applies To
+  - Subject/CAPRMEDIO/Graph/Rule.Condition
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Stored Governing RMED Relation Occurrences
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
 relations: {}
 atom_id: CA-R-2149
 content_role: Requirement
@@ -17,12 +17,12 @@ claim_target_scope_unit: CORE_META_MODEL
 tier: 1
 status: Active
 author: Anatoly Maslennikov
-version: 8
-updated_at: 2026-10-26 05:29:36 +0400
+version: 9
+updated_at: 2026-10-27 20:00:08 +0400
 claim:
   graph_rule_type: endpoint_constraint
   applies_to:
-    relation_selection: Subject/Graph Node/Domain/Continuant/Selection//Stored Governing RMED Relation Occurrences
+    relation_selection: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Stored Governing RMED Relation Occurrences
   condition:
     ordering: same_scope_lower_target_tier_or_strict_ancestor_or_project_configuration_core_prerequisite
 ---

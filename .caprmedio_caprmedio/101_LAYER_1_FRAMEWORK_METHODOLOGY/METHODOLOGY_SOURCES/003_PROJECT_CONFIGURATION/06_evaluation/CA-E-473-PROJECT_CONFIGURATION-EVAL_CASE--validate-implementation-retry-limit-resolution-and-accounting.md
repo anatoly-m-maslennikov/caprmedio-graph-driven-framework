@@ -1,6 +1,6 @@
 ---
-version: 22
-updated_at: 2026-10-25 17:32:27 +0400
+version: 23
+updated_at: 2026-10-27 19:59:35 +0400
 relations:
   evaluation_for:
   - CA-R-1488
@@ -9,14 +9,14 @@ relations:
   - CA-D-447
   - CA-O-024
 subjects:
-  governs: Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Implementation Retry Limit
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - Subject/Graph Node/Domain/Continuant/Governing Configuration
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - Subject/caprmedio/Action//Implementation Retry Control
+  - Subject/caprmedio/Workflow//Implementation Workflow
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
 atom_id: CA-E-473
 content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION

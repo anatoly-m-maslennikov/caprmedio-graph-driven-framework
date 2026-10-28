@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: Subject/Graph Node/Product/Extension//FPF
+  governs: Subject/caprmedio/Extension//FPF
   depends_on:
-  - Subject/Graph Node/Implementation/Code/Tool
-  - Subject/Graph Node/Runtime
-version: 11
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime
+version: 12
+updated_at: 2026-10-27 19:59:56 +0400
 relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

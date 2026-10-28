@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
   depends_on:
-  - Subject/Graph Node/Engineering/Data Handling/Serialization
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - Subject/Graph Node/Domain/Continuant/Governing Configuration
-version: 25
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
+version: 26
+updated_at: 2026-10-27 19:59:23 +0400
 relations:
   child_of:
   - CA-D-359

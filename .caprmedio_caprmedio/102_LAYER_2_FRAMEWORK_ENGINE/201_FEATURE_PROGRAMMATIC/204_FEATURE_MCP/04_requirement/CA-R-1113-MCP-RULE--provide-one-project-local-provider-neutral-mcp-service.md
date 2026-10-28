@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/UX/MCP Headless Capability Interface
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry
   depends_on: []
-version: 20
-updated_at: 2026-10-26 00:46:35 +0400
+version: 21
+updated_at: 2026-10-27 19:59:50 +0400
 llm_session_ids:
 - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

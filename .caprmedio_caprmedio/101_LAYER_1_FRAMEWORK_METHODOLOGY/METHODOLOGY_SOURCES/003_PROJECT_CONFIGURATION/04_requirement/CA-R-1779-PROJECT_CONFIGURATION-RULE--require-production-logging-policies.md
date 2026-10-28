@@ -6,13 +6,13 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node/Engineering/Observability/Logging
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Logging
   depends_on:
-  - Subject/Graph Node/Carrier
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Catalog'
-version: 11
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Carrier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog'
+version: 12
+updated_at: 2026-10-27 20:00:03 +0400
 relations: {}
 tier: 3
 type: Rule

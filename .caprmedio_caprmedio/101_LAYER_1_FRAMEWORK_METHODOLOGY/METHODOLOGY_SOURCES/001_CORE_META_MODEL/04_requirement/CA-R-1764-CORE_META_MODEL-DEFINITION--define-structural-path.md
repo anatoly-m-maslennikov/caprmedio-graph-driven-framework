@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit.Path
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Parent
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Children
-version: 28
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Parent
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Children
+version: 29
+updated_at: 2026-10-27 20:00:02 +0400
 relations: {}
 atom_id: CA-R-1764
 content_role: Requirement

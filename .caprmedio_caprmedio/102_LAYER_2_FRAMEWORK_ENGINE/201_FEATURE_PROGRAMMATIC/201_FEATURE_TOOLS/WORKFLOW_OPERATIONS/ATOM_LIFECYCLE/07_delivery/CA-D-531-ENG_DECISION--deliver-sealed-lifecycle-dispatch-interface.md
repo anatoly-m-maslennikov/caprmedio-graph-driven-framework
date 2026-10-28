@@ -6,13 +6,13 @@ claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Communication
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   depends_on:
-  - Subject/Graph Node/Implementation/Code/Tool
-  - Subject/Graph Node/Engineering/Execution Control/Effect Authorization
-  - Subject/Graph Node/Domain/Continuant/Atom
-version: 21
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+version: 22
+updated_at: 2026-10-27 19:59:27 +0400
 relations:
   delivery_for:
   - CA-R-1825

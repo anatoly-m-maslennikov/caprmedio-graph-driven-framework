@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Rule/CCE Operator Expression Normalization
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
   depends_on:
-  - Subject/Graph Rule/CCE Operator Expression
-  - Subject/Graph Rule/CCE Operator Registry
-version: 17
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+version: 18
+updated_at: 2026-10-27 19:59:40 +0400
 relations: {}
 atom_id: CA-M-236
 content_role: Method

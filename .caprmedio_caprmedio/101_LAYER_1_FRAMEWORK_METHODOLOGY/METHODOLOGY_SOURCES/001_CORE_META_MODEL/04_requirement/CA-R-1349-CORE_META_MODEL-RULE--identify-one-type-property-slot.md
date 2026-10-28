@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node.Type
+  governs: Subject/CAPRMEDIO/Graph/Node
   depends_on:
   - Subject
-  - Subject/Graph Node.Type
-version: 16
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node
+version: 17
+updated_at: 2026-10-27 19:59:53 +0400
 relations: {}
 atom_id: CA-R-1349
 content_role: Requirement

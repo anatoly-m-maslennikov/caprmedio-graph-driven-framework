@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Authoring
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Rule/CCE
-  - Subject/Graph Node/Domain/Continuant/Actor
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom.Target Scope Unit
-version: 39
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
+version: 40
+updated_at: 2026-10-27 19:59:39 +0400
 relations: {}
 atom_id: CA-M-115
 content_role: Method

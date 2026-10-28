@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.ID
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
-version: 31
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+version: 32
+updated_at: 2026-10-27 20:00:10 +0400
 relations: {}
 atom_id: CA-R-728
 content_role: Requirement

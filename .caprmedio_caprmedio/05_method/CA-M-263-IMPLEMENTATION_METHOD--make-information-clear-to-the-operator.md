@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
-version: 16
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+version: 17
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   child_of:
   - CA-R-1420

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File.Main Content
+  governs: Subject/CAPRMEDIO/Carrier/File.Main Content
   depends_on:
-  - Subject/Graph Node/Carrier/File.YAML Frontmatter
-version: 16
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Carrier/File.YAML Frontmatter
+version: 17
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-357
 content_role: Delivery

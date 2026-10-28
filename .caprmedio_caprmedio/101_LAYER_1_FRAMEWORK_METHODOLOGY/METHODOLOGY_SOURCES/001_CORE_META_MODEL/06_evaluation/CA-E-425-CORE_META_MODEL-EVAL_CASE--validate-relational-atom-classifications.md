@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Goal'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Demand'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 25
-updated_at: 2026-10-25 17:32:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Goal'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Demand'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+version: 26
+updated_at: 2026-10-27 19:59:34 +0400
 relations:
   evaluation_for:
   - CA-R-923

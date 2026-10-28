@@ -5,19 +5,19 @@ type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-27 06:04:45 +0400
+version: 14
+updated_at: 2026-10-27 19:59:47 +0400
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Initialize first Framework runtime and project-local ca Skill'
+  governs: Subject/caprmedio/Action//Initialize first Framework runtime and project-local ca Skill
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Runtime
-  - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
-  - Subject/Graph Node/UX/CAPRMEDIO Skill and MCP Entry Interface
-  - Subject/Graph Node/Carrier/Docker Image
-  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface
+  - Subject/CAPRMEDIO/Carrier/Docker Image
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 relations: {}
 tier: 3
 ---

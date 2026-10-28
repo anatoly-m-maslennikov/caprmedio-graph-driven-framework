@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Term//Artifact
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
   depends_on: []
-version: 22
-updated_at: 2026-10-25 17:32:27 +0400
+version: 23
+updated_at: 2026-10-27 20:00:02 +0400
 relations: {}
 atom_id: CA-R-1747
 content_role: Requirement

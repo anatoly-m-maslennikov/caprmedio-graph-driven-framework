@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Effects
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode.Effects
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings.Interaction.Reporting Mode
-version: 17
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode
+version: 18
+updated_at: 2026-10-27 19:59:54 +0400
 relations:
   child_of:
   - CA-R-1402

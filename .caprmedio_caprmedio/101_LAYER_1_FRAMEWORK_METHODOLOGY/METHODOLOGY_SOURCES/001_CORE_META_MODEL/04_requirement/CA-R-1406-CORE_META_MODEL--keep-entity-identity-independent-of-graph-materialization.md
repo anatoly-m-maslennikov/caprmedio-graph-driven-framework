@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   depends_on:
-  - Subject/Graph Node
-  - Subject/Graph Node/Domain/Continuant/Projection
-version: 21
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+version: 22
+updated_at: 2026-10-27 19:59:54 +0400
 relations:
   child_of:
   - CA-R-1248

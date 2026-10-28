@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Product: CAPRMEDIO Framework'
+  governs: 'Subject/caprmedio/Product: CAPRMEDIO Framework'
   depends_on: []
-version: 20
-updated_at: 2026-10-25 17:32:27 +0400
+version: 21
+updated_at: 2026-10-27 20:00:03 +0400
 relations:
   child_of:
   - CA-M-002

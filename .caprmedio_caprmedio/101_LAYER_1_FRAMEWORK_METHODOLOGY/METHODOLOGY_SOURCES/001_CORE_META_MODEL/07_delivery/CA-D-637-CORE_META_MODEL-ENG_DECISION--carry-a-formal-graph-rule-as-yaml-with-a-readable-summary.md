@@ -6,18 +6,18 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Rule
+  governs: Subject/CAPRMEDIO/Graph/Rule
   depends_on:
-  - Subject/Graph Rule.Type
-  - Subject/Graph Rule.Applies To
-  - Subject/Graph Rule.Condition
-  - Subject/Graph Rule.Default Value
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Graph Rule'
-  - Subject/Graph Node/Domain/Continuant/Atom.Summary
-  - Subject/Graph Node/Carrier/File
+  - Subject/CAPRMEDIO/Graph/Rule.Type
+  - Subject/CAPRMEDIO/Graph/Rule.Applies To
+  - Subject/CAPRMEDIO/Graph/Rule.Condition
+  - Subject/CAPRMEDIO/Graph/Rule.Default Value
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Graph Rule'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Carrier/File
 relations: {}
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+version: 20
+updated_at: 2026-10-27 19:59:28 +0400
 tier: 1
 type: Eng Decision
 ---

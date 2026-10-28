@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit.Name
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name
   depends_on:
-  - Subject/Graph Node/Engineering/Authoring/Controlled English
-version: 21
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+version: 22
+updated_at: 2026-10-27 19:59:53 +0400
 relations: {}
 atom_id: CA-R-1297
 content_role: Requirement

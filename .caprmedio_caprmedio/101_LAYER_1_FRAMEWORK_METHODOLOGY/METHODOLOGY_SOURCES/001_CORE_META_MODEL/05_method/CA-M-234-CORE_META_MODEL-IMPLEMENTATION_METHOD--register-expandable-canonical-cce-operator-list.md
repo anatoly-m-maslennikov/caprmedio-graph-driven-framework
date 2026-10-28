@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Rule/CCE Operator Registry
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
   depends_on:
-  - Subject/Graph Node/Engineering/Authoring/Controlled English
-  - Subject/Graph Rule/CCE Operator Registry
-version: 18
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+version: 19
+updated_at: 2026-10-27 19:59:40 +0400
 relations: {}
 atom_id: CA-M-234
 content_role: Method

@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Framework Settings.Parameter Resolution
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Parameter Resolution
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - Subject/Graph Node/Domain/Continuant/Governing Configuration
-  - Subject/Graph Node/Domain/Continuant/Project
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 19
-updated_at: 2026-10-26 05:59:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+version: 20
+updated_at: 2026-10-27 19:59:41 +0400
 relations: {}
 atom_id: CA-M-279
 content_role: Method

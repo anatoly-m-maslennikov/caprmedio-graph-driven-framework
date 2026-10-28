@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Catalog'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog'
   depends_on: []
-version: 24
-updated_at: 2026-10-25 17:32:27 +0400
+version: 25
+updated_at: 2026-10-27 19:59:59 +0400
 relations:
   resolution_of:
   - CAPRMEDIO-GOV-CONC-054--how-should-proof-currentness-be-represented

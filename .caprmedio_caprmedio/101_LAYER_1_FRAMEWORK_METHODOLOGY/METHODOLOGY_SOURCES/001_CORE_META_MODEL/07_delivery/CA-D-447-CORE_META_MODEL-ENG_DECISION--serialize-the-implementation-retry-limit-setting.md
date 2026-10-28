@@ -1,15 +1,15 @@
 ---
-version: 24
-updated_at: 2026-10-27 06:04:45 +0400
+version: 25
+updated_at: 2026-10-27 19:59:25 +0400
 relations: {}
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Framework Settings.implementation.retry_limit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.implementation.retry_limit
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - Subject/Graph Node/Domain/Continuant/Governing Configuration
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
-  - Subject/Graph Node/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - Subject/CAPRMEDIO/Carrier
 atom_id: CA-D-447
 content_role: Delivery
 current_scope_unit: CORE_META_MODEL

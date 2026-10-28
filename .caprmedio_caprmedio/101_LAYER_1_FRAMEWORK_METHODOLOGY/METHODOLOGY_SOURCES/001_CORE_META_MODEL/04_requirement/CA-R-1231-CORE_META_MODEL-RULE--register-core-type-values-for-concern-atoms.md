@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Concern/Type'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern/Type'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Concern'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Concern/Type'
-version: 23
-updated_at: 2026-10-25 17:32:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern/Type'
+version: 24
+updated_at: 2026-10-27 19:59:52 +0400
 relations: {}
 atom_id: CA-R-1231
 content_role: Requirement

@@ -4,15 +4,15 @@ content_role: Method
 current_scope_unit: PROJECT_TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 22
-updated_at: 2026-10-27 06:04:45 +0400
+version: 23
+updated_at: 2026-10-27 19:59:42 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
-  - Subject/Graph Node/Runtime
-  - Subject/Graph Node/Engineering/Storage/Directory Layout
-  - Subject/Graph Node/Carrier/Docker Image
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
+  - Subject/CAPRMEDIO/Carrier/Docker Image
 relations:
   method_for:
   - CA-R-1877

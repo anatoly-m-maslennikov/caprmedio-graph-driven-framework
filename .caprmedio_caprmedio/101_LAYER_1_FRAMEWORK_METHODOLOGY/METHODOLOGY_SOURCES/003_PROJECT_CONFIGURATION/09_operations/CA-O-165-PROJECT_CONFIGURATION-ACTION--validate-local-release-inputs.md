@@ -6,15 +6,15 @@ current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Validate local release inputs'
+  governs: Subject/caprmedio/Action//Validate local release inputs
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
-  - Subject/Graph Node/Domain/Continuant/History/Release.ID
-  - Subject/Graph Node/Engineering/Verification
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
+version: 21
+updated_at: 2026-10-27 19:59:47 +0400
 relations: {}
 tier: 3
 ---

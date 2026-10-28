@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Target Scope Unit'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Target Scope Unit'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-  - Subject/Graph Node/Domain/Continuant/Atom.Target Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Label'
-version: 21
-updated_at: 2026-10-26 17:47:19 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label'
+version: 22
+updated_at: 2026-10-27 19:59:58 +0400
 relations: {}
 atom_id: CA-R-1588
 content_role: Requirement

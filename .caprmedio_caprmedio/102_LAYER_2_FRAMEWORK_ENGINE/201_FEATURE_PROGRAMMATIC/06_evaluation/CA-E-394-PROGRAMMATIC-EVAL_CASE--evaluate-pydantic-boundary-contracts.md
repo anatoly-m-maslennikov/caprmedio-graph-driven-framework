@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Data Validation
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
   depends_on:
-  - Subject/Graph Node/Implementation
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+version: 20
+updated_at: 2026-10-27 19:59:34 +0400
 relations:
   evaluation_for:
   - CA-M-286

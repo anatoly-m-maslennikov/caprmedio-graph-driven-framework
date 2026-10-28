@@ -1,6 +1,6 @@
 ---
-version: 29
-updated_at: 2026-10-27 06:04:45 +0400
+version: 30
+updated_at: 2026-10-27 19:59:49 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -8,20 +8,20 @@ relations:
   child_of:
   - CA-R-1423
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-  - Subject/Graph Node/Implementation
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
 cce_version: cce_1
 cce_form: obligation
 author: Anatoly Maslennikov

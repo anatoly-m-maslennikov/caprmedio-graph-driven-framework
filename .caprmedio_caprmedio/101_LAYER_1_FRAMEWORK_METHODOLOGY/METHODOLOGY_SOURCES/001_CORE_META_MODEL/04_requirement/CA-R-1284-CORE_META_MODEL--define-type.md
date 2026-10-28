@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node.Type
+  governs: Subject/CAPRMEDIO/Graph/Node
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Term//Property
-version: 18
-updated_at: 2026-10-26 17:20:40 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+version: 19
+updated_at: 2026-10-27 19:59:53 +0400
 relations: {}
 atom_id: CA-R-1284
 content_role: Requirement

@@ -3,12 +3,12 @@ subjects:
   governs: Subject
   depends_on:
   - Subject
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Relation
-  - Subject/Graph Relation/Type
-  - Subject/Graph Rule
-version: 18
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Relation
+  - Subject/CAPRMEDIO/Graph/Relation/Type
+  - Subject/CAPRMEDIO/Graph/Rule
+version: 19
+updated_at: 2026-10-27 19:59:54 +0400
 relations: {}
 atom_id: CA-R-1408
 content_role: Requirement

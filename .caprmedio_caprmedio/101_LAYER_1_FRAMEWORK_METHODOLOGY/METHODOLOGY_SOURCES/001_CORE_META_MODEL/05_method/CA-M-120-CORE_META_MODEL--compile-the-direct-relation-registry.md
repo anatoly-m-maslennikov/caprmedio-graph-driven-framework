@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Direct Relation Registry'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Direct Relation Registry'
   depends_on:
-  - Subject/Graph Relation/Type
+  - Subject/CAPRMEDIO/Graph/Relation/Type
   - Subject
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
-  - Subject/Graph Relation.Authority
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Implementation/Code/Tool
-  - Subject/Graph Relation
-  - Subject/Graph Node/Engineering/Traceability
-version: 31
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+  - Subject/CAPRMEDIO/Graph/Relation.Authority
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
+  - Subject/CAPRMEDIO/Graph/Relation
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+version: 32
+updated_at: 2026-10-27 19:59:39 +0400
 relations:
   method_for:
   - CA-R-806

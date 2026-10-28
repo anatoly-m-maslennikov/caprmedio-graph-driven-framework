@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Source Retrieval
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
   depends_on: []
-version: 17
-updated_at: 2026-10-27 06:04:45 +0400
+version: 18
+updated_at: 2026-10-27 19:59:51 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

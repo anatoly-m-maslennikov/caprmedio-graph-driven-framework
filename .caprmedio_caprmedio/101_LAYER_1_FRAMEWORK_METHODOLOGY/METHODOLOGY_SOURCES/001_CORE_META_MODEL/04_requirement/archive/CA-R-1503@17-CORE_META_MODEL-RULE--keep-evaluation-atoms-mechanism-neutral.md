@@ -1,0 +1,33 @@
+---
+subjects:
+  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  depends_on:
+  - Subject/Graph Node/Domain/Continuant/Atom.Content
+  - Subject/Graph Node/Engineering/Verification
+version: 17
+updated_at: 2026-10-27 06:04:45 +0400
+relations: {}
+atom_id: CA-R-1503@17
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
+---
+# Summary
+
+Keep Evaluation Atoms mechanism-neutral
+
+## Scope
+
+Evaluation Atom check definitions and their implementation mechanisms.
+
+## Claim
+
+an Evaluation Atom **must** define the checked Claim, applicable conditions, acceptance criteria, **and** disposition rule **without** prescribing the mechanism that realizes its check.
+
+## Details
+
+automated tests, model-judged evaluations, statistical assessments, rubrics, manual reviews, **and** other implementation mechanisms **may** realize that check. choosing a mechanism does **not** change the governing Evaluation Atom's Claim.

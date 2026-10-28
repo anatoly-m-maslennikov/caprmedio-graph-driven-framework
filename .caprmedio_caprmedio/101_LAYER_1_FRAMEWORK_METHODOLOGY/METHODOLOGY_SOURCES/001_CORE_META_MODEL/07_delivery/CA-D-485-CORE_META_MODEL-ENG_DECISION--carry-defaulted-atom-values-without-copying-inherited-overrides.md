@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term//Property
-  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings.implementation.retry_limit
-version: 17
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.implementation.retry_limit
+version: 18
+updated_at: 2026-10-27 19:59:25 +0400
 relations: {}
 atom_id: CA-D-485
 content_role: Delivery

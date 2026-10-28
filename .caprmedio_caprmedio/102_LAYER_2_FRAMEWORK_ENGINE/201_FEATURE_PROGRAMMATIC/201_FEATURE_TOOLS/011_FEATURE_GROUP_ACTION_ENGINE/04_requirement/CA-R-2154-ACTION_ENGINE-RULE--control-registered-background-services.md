@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   depends_on: []
-version: 5
-updated_at: 2026-10-27 06:04:45 +0400
+version: 6
+updated_at: 2026-10-27 20:00:08 +0400
 relations: {}
 atom_id: CA-R-2154
 status: Active

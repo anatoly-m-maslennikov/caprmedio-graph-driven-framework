@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/Graph Node/Domain/Occurrent/Execution/Step Run
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-version: 15
-updated_at: 2026-10-25 17:32:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+version: 16
+updated_at: 2026-10-27 19:59:56 +0400
 relations: {}
 atom_id: CA-R-1510
 content_role: Requirement

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Governing Configuration
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
   depends_on: []
-version: 26
-updated_at: 2026-10-27 06:04:45 +0400
+version: 27
+updated_at: 2026-10-27 19:59:59 +0400
 relations: {}
 atom_id: CA-R-1640
 content_role: Requirement

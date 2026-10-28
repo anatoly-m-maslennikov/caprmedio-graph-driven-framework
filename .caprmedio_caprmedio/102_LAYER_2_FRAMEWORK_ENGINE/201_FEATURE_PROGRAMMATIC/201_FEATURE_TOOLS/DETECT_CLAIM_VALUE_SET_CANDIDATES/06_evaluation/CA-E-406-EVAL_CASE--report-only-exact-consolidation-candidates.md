@@ -2,18 +2,18 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Node/Engineering/Verification/Dynamic Testing
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   depends_on:
-  - Subject/Graph Node/Implementation/Code/Tool//DETECT_CLAIM_VALUE_SET_CANDIDATES
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Atom.Local Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
-  - Subject/Graph Node/Domain/Continuant/Atom.Content.Scope
-  - Subject/Graph Node/Domain/Continuant/Term//Property
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph'
-  - 'Subject/Graph Relation/Type: IS_ALLOWED_VALUE_OF'
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//DETECT_CLAIM_VALUE_SET_CANDIDATES
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content.Scope
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: IS_ALLOWED_VALUE_OF'
+version: 24
+updated_at: 2026-10-27 19:59:34 +0400
 relations:
   evaluation_for:
   - CA-M-238

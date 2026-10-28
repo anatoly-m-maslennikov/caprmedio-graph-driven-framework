@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Updated At
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Status
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Carrier.Canonical Address
-version: 14
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Carrier.Canonical Address
+version: 15
+updated_at: 2026-10-27 20:00:03 +0400
 claim_target_scope_unit: CORE_META_MODEL
 relations:
   child_of:

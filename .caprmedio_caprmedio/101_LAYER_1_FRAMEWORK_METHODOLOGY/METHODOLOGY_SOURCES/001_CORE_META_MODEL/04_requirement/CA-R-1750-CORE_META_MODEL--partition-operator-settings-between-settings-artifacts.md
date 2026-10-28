@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Framework Settings
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Domain/Continuant/Governing Configuration
-  - Subject/Graph Node/Domain/Continuant/Project.Settings.Project Name
-  - Subject/Graph Node/Domain/Continuant/Project.Settings.Atom Prefix
-  - Subject/Graph Node/Domain/Continuant/Atom
-version: 33
-updated_at: 2026-10-26 05:59:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Project Name
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Atom Prefix
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+version: 34
+updated_at: 2026-10-27 20:00:02 +0400
 relations: {}
 atom_id: CA-R-1750
 content_role: Requirement

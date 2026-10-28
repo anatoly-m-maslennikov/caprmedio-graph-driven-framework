@@ -1,19 +1,19 @@
 ---
 atom_id: CA-D-498
-version: 9
-updated_at: 2026-10-27 06:04:45 +0400
+version: 10
+updated_at: 2026-10-27 19:59:26 +0400
 content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node/Carrier/File.Filename
+  governs: Subject/CAPRMEDIO/Carrier/File.Filename
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Name
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name
 relations:
   depends_on:
   - CA-D-284

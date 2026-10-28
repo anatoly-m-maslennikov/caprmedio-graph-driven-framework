@@ -6,12 +6,12 @@ claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Communication
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   depends_on:
-  - Subject/Graph Node/Carrier
-  - 'Subject/Graph Node/Domain/Continuant/Atom.Status: Draft'
-version: 17
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Carrier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status: Draft'
+version: 18
+updated_at: 2026-10-27 19:59:27 +0400
 relations: {}
 type: Eng Decision
 tier: 3

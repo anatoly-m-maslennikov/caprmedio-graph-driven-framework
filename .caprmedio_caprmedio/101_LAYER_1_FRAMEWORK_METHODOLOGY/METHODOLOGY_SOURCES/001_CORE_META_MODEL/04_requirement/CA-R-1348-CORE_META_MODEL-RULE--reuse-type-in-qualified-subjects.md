@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Term.Type
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Term.Type
   depends_on:
   - Subject
-  - Subject/Graph Node/Domain/Continuant/Term
-version: 18
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
+version: 19
+updated_at: 2026-10-27 19:59:53 +0400
 relations: {}
 atom_id: CA-R-1348
 content_role: Requirement

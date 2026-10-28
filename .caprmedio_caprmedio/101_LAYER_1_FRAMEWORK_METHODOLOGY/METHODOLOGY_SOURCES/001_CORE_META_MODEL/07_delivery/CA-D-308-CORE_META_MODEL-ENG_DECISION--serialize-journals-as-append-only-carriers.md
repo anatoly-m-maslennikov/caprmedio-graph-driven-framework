@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History/Journal
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-version: 21
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+version: 22
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-308
 content_role: Delivery

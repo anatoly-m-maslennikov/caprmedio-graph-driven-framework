@@ -5,11 +5,11 @@ type: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Authoring/Code Authoring/Python Code
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python Code
   depends_on:
-  - Subject/Graph Node/Engineering/Authoring/Code Authoring/Python Code
-version: 8
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python Code
+version: 9
+updated_at: 2026-10-27 19:59:43 +0400
 author: Anatoly Maslennikov
 tier: 3
 ---

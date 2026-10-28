@@ -4,11 +4,11 @@ current_scope_unit: TOOL_WORKFLOWS
 content_role: Delivery
 atom_id: CA-D-054
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on: []
-version: 17
+version: 18
 status: Active
-updated_at: 2026-10-26 00:46:35 +0400
+updated_at: 2026-10-27 19:59:22 +0400
 relations:
   delivery_for:
   - CA-R-862

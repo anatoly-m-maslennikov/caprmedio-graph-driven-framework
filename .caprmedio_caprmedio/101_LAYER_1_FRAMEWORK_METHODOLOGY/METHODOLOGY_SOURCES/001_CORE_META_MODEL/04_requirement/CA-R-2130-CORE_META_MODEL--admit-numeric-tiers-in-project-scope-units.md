@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Tier
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/Atom.Tier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
 relations:
   child_of:
   - CA-R-917
-version: 6
-updated_at: 2026-10-25 17:32:27 +0400
+version: 7
+updated_at: 2026-10-27 20:00:07 +0400
 atom_id: CA-R-2130
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL

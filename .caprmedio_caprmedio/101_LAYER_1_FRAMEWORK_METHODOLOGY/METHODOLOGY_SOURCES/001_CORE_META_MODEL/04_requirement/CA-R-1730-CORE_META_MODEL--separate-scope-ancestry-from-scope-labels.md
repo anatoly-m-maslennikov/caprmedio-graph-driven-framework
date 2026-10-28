@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Path
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Parent
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Children
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Label
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-version: 34
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Parent
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Children
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+version: 35
+updated_at: 2026-10-27 20:00:02 +0400
 relations:
   child_of:
   - CA-R-1776

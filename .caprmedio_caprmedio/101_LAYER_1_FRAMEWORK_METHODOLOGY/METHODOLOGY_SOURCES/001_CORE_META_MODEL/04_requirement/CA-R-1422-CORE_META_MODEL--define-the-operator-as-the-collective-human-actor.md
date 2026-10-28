@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Actor
-  - Subject/Graph Node/Domain/Continuant/Project
-version: 18
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+version: 19
+updated_at: 2026-10-27 19:59:54 +0400
 relations:
   child_of:
   - CA-R-2156

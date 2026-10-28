@@ -3,10 +3,10 @@ cce_version: cce_1
 cce_form: obligation
 atom_id: CA-R-867
 subjects:
-  governs: Subject/Graph Node/Engineering/Storage/Directory Layout
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
   depends_on: []
-version: 25
-updated_at: 2026-10-27 06:04:45 +0400
+version: 26
+updated_at: 2026-10-27 20:00:11 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 content_role: Requirement

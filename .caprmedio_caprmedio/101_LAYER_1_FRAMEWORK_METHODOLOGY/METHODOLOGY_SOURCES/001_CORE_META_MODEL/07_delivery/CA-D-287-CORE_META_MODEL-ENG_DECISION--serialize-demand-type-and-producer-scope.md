@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File.Filename
+  governs: Subject/CAPRMEDIO/Carrier/File.Filename
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit'
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit'
+version: 24
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-287
 content_role: Delivery

@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File
+  governs: Subject/CAPRMEDIO/Carrier/File
   depends_on:
-  - Subject/Graph Node/Engineering/Data Handling/Serialization
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+version: 24
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-339
 content_role: Delivery

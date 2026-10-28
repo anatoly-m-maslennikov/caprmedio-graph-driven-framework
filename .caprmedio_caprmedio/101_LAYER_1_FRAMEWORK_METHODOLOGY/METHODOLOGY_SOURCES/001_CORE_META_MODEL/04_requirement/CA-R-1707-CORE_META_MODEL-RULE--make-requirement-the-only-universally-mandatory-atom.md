@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
   depends_on: []
-version: 25
-updated_at: 2026-10-25 17:32:27 +0400
+version: 26
+updated_at: 2026-10-27 20:00:01 +0400
 relations:
   child_of:
   - CA-R-1772

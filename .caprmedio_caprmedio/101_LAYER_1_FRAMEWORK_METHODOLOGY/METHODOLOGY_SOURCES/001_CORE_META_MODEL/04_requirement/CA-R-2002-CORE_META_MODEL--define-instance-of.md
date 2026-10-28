@@ -6,14 +6,14 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/Graph Relation/Type: INSTANCE_OF'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: INSTANCE_OF'
   depends_on:
-  - Subject/Graph Node
-  - Subject/Graph Relation
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph'
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Relation
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph'
 relations: {}
-version: 10
-updated_at: 2026-10-26 17:20:40 +0400
+version: 11
+updated_at: 2026-10-27 20:00:07 +0400
 tier: 1
 type: Definition
 ---

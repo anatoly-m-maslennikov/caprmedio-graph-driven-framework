@@ -6,16 +6,16 @@ current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-27 06:04:45 +0400
+version: 14
+updated_at: 2026-10-27 19:59:37 +0400
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Terms Graph'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Terms Graph'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Terms Graph'
-  - Subject/Graph Node/Domain/Continuant/Term
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Definition'
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Relation/Type
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Terms Graph'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Definition'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Relation/Type
 relations:
   evaluation_for:
   - CA-R-1836

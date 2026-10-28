@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Subject Graph'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Subject Graph'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Atom Subjects Graph'
-  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Atom Subjects Graph'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
   - Subject
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - 'Subject/Graph Relation/Type: GOVERNS'
-  - 'Subject/Graph Relation/Type: DEPENDS_ON'
-version: 25
-updated_at: 2026-10-26 05:29:36 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: GOVERNS'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: DEPENDS_ON'
+version: 26
+updated_at: 2026-10-27 19:59:40 +0400
 relations: {}
 atom_id: CA-M-232
 content_role: Method

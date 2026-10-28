@@ -7,14 +7,14 @@ claim_target_scope_unit: CONNECTOR_TOOLS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Communication
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Workflow
-  - Subject/Graph Node/Domain/Continuant/Governing Configuration
-version: 10
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Continuant/Workflow
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
+version: 11
+updated_at: 2026-10-27 19:59:38 +0400
 relations:
   evaluation_for:
   - CA-R-1936

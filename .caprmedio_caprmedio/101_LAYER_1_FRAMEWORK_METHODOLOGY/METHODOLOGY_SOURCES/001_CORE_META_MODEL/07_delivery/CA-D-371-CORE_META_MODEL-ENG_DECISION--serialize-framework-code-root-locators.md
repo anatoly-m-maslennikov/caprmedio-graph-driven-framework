@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Framework Settings.Code-Root Locators
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Code-Root Locators
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-version: 19
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+version: 20
+updated_at: 2026-10-27 19:59:24 +0400
 relations:
   child_of:
   - CA-D-361

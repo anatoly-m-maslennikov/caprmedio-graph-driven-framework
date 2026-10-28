@@ -1,13 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node
+  governs: Subject/CAPRMEDIO/Graph/Node
   depends_on:
-  - Subject/Graph Node
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - Subject/Graph Node.Type
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Status'
-version: 2
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status'
+version: 3
+updated_at: 2026-10-27 19:59:38 +0400
 relations: {}
 atom_id: CA-E-657
 content_role: Evaluation

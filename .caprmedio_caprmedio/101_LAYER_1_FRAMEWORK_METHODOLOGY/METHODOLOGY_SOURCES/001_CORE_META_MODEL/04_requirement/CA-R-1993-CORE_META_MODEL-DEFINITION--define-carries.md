@@ -6,16 +6,16 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/Graph Relation/Type: CARRIES'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: CARRIES'
   depends_on:
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node
-  - Subject/Graph Relation
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Relation
 relations:
   child_of:
   - CA-R-1174
-version: 11
-updated_at: 2026-10-27 06:04:45 +0400
+version: 12
+updated_at: 2026-10-27 20:00:07 +0400
 tier: 1
 type: Definition
 ---

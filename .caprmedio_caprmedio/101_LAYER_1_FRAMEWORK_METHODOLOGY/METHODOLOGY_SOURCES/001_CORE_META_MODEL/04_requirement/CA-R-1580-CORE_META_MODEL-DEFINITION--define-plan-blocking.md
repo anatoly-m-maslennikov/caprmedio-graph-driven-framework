@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: 'Subject/Graph Relation/Type: BLOCKS'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: BLOCKS'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan.Status: Done'
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - 'Subject/Graph Relation/Type: DEPENDS_ON'
-version: 18
-updated_at: 2026-10-26 17:47:19 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status: Done'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: DEPENDS_ON'
+version: 19
+updated_at: 2026-10-27 19:59:58 +0400
 relations: {}
 atom_id: CA-R-1580
 content_role: Requirement

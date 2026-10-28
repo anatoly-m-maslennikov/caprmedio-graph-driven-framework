@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History/Journal.Record
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-version: 33
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+version: 34
+updated_at: 2026-10-27 19:59:59 +0400
 relations: {}
 atom_id: CA-R-1643
 content_role: Requirement

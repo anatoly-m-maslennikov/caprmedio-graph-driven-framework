@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Rule/CCE Condition Expression Evaluation
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
   depends_on:
-  - Subject/Graph Rule/CCE Condition Expression
-  - Subject/Graph Node/Engineering/Data Handling/Parsing
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Parsing
+version: 24
+updated_at: 2026-10-27 19:59:39 +0400
 relations:
   child_of:
   - CA-M-113

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier
+  governs: Subject/CAPRMEDIO/Carrier
   depends_on: []
-version: 27
-updated_at: 2026-10-27 06:04:45 +0400
+version: 28
+updated_at: 2026-10-27 19:59:59 +0400
 relations:
   depends_on:
   - CA-R-1717

@@ -6,12 +6,12 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node/Domain/Occurrent
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Occurrent
 relations:
   child_of:
   - CA-R-1174
-version: 7
-updated_at: 2026-10-25 17:32:27 +0400
+version: 9
+updated_at: 2026-10-27 22:43:55 +0400
 tier: 1
 type: Definition
 ---
@@ -29,4 +29,4 @@ an Occurrent **means** an actual occurrence, such as an Event, Execution or Sess
 
 ## Details
 
-Candidate #6 separates runs from definitions and historical records. CA-R-1510 and CA-R-1511 define particular Run kinds; CA-R-1745 distinguishes Journal records from events. These support the distinction but do not define the general Occurrent kind. This draft adds no Run or Session lifecycle.
+CA-R-1510 and CA-R-1511 define particular Run kinds; CA-R-1745 distinguishes Journal records from events. This definition adds no Run or Session lifecycle.

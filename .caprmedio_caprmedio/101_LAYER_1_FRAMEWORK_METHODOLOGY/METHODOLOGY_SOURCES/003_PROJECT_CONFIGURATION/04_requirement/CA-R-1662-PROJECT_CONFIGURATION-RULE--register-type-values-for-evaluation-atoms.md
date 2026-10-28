@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation/Type'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation/Type'
   depends_on: []
-version: 34
-updated_at: 2026-10-25 17:32:27 +0400
+version: 35
+updated_at: 2026-10-27 20:00:00 +0400
 relations:
   depends_on:
   - CA-R-1506

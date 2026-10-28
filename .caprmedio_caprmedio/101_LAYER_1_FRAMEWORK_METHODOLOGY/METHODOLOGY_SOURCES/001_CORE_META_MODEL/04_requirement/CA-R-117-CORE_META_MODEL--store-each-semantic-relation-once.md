@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Relation
+  governs: Subject/CAPRMEDIO/Graph/Relation
   depends_on:
-  - Subject/Graph Relation
-version: 24
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Relation
+version: 25
+updated_at: 2026-10-27 19:59:51 +0400
 relations: {}
 atom_id: CA-R-117
 content_role: Requirement

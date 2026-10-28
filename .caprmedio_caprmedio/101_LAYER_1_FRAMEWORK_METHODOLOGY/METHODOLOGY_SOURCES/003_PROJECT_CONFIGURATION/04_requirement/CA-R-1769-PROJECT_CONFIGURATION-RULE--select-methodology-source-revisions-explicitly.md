@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Source Selection
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
   depends_on: []
-version: 28
-updated_at: 2026-10-27 06:04:45 +0400
+version: 29
+updated_at: 2026-10-27 20:00:02 +0400
 relations:
   child_of:
   - CA-R-686

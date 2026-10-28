@@ -1,8 +1,8 @@
 ---
 subject_scopes:
 - scope-topology
-version: 9
-updated_at: 2026-10-27 06:04:45 +0400
+version: 10
+updated_at: 2026-10-27 19:59:25 +0400
 relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -14,7 +14,7 @@ current_scope_unit: PROMPTS
 type: Eng Decision
 tier: 1
 subjects:
-  governs: Subject/Graph Node/Engineering/Storage/Directory Layout
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
 ---
 # Bind PROMPTS Delivery place
 

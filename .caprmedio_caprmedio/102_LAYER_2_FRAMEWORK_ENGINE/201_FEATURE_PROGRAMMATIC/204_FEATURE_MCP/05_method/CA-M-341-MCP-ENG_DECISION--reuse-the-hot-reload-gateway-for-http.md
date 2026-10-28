@@ -4,16 +4,16 @@ content_role: Method
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
-version: 11
-updated_at: 2026-10-27 06:04:45 +0400
+version: 12
+updated_at: 2026-10-27 19:59:42 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Communication
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   depends_on:
-  - Subject/Graph Node/Implementation
-  - Subject/Graph Node/Engineering/Architecture/Communication
-  - Subject/Graph Node/Engineering/Architecture/Component Structure
-  - Subject/Graph Node/Runtime/Session
-  - Subject/Graph Node/Engineering/Execution Control/Recovery
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Session
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
 relations:
   method_for:
   - CA-R-1884

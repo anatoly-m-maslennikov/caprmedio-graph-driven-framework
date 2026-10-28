@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method/Type: External Implementation Method'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method/Type: External Implementation Method'
   depends_on: []
-version: 28
-updated_at: 2026-10-26 05:59:45 +0400
+version: 29
+updated_at: 2026-10-27 20:00:00 +0400
 relations:
   depends_on:
   - CA-R-1690

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: 'Subject/Graph Relation/Type: child_of'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: child_of'
   depends_on: []
-version: 18
-updated_at: 2026-10-25 17:32:27 +0400
+version: 19
+updated_at: 2026-10-27 19:59:28 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

@@ -4,19 +4,19 @@ content_role: Delivery
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
-version: 14
-updated_at: 2026-10-27 06:04:45 +0400
+version: 15
+updated_at: 2026-10-27 19:59:27 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Data Validation
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
   depends_on:
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Engineering/Execution Control/Recovery
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Engineering/Execution Control/Effect Authorization
-  - Subject/Graph Node/Engineering/Data Handling/Serialization
-  - Subject/Graph Node/Engineering/Execution Control
-  - Subject/Graph Node/Implementation/Code
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code
 relations:
   delivery_for:
   - CA-R-1883

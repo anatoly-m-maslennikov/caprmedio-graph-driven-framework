@@ -5,14 +5,14 @@ type: Eval Case
 current_scope_unit: PROJECT_TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 15
-updated_at: 2026-10-27 06:04:45 +0400
+version: 16
+updated_at: 2026-10-27 19:59:37 +0400
 subjects:
-  governs: Subject/Graph Node/Implementation
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
   depends_on:
-  - Subject/Graph Node/Runtime
-  - Subject/Graph Node/Engineering/Delivery
-  - Subject/Graph Node/Carrier/Docker Image
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  - Subject/CAPRMEDIO/Carrier/Docker Image
 relations:
   evaluation_for:
   - CA-R-1877

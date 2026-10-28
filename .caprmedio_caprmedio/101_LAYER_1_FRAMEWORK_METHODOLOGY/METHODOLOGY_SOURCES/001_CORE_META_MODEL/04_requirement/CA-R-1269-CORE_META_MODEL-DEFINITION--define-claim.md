@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement.Content.Claim'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method.Content.Claim'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation.Content.Claim'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery.Content.Claim'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Graph Rule'
-version: 26
-updated_at: 2026-10-26 06:07:29 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement.Content.Claim'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method.Content.Claim'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation.Content.Claim'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery.Content.Claim'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Graph Rule'
+version: 27
+updated_at: 2026-10-27 19:59:52 +0400
 relations: {}
 atom_id: CA-R-1269
 content_role: Requirement

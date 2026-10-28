@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-  - Subject/Graph Node/Domain/Continuant/Project
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Goal'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Parent
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Children
-version: 16
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Parent
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Children
+version: 17
+updated_at: 2026-10-27 19:59:56 +0400
 relations: {}
 atom_id: CA-R-1484
 content_role: Requirement

@@ -2,10 +2,10 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Node/UX/MCP Headless Capability Interface
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry
   depends_on: []
-version: 15
-updated_at: 2026-10-26 00:46:35 +0400
+version: 16
+updated_at: 2026-10-27 19:59:32 +0400
 relations:
   evaluation_for:
   - CA-M-175

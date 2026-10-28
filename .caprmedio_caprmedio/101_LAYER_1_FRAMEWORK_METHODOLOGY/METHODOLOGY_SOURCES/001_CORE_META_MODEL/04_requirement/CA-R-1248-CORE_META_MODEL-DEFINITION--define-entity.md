@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node
+  governs: Subject/CAPRMEDIO/Graph/Node
   depends_on: []
-version: 19
-updated_at: 2026-10-25 17:32:27 +0400
+version: 20
+updated_at: 2026-10-27 19:59:52 +0400
 relations: {}
 atom_id: CA-R-1248
 content_role: Requirement

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on: []
-version: 34
-updated_at: 2026-10-27 06:04:45 +0400
+version: 35
+updated_at: 2026-10-27 19:59:22 +0400
 relations:
   delivery_for:
   - CA-R-803

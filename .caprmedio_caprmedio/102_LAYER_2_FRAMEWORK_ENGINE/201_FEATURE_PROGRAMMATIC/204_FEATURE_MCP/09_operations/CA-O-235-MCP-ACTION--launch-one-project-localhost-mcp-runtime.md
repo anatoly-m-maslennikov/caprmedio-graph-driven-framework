@@ -7,16 +7,16 @@ claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Runtime/Container Run
-  - Subject/Graph Node/Engineering/Architecture/Component Structure
-  - Subject/Graph Node/Carrier/Docker Image
-  - Subject/Graph Node/Carrier
-version: 10
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  - Subject/CAPRMEDIO/Carrier/Docker Image
+  - Subject/CAPRMEDIO/Carrier
+version: 11
+updated_at: 2026-10-27 19:59:48 +0400
 relations: {}
 tier: 1
 ---

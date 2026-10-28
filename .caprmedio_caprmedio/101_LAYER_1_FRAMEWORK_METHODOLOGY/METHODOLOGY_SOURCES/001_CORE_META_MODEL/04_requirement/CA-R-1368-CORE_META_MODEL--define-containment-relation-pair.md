@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: 'Subject/Graph Relation/Type: CONTAINS'
+  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: CONTAINS'
   depends_on:
-  - 'Subject/Graph Relation/Type: IS_DERIVED_RELATION_OF'
-  - Subject/Graph Node/Domain/Continuant/Atom.Enabled Relations.Contains
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-version: 21
-updated_at: 2026-10-26 05:27:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: IS_DERIVED_RELATION_OF'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Enabled Relations.Contains
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+version: 22
+updated_at: 2026-10-27 19:59:53 +0400
 relations: {}
 atom_id: CA-R-1368
 content_role: Requirement

@@ -6,17 +6,17 @@ current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-27 06:04:45 +0400
+version: 13
+updated_at: 2026-10-27 19:59:37 +0400
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph'
-  - Subject/Graph Node
-  - Subject/Graph Node/Domain/Continuant/Term//Property
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Relation/Type
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph'
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Relation/Type
 relations:
   evaluation_for:
   - CA-R-1835

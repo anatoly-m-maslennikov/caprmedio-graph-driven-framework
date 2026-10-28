@@ -2,10 +2,10 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: Subject/Graph Node/Engineering/Execution Control/Effect Authorization
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   depends_on: []
-version: 17
-updated_at: 2026-10-27 06:04:45 +0400
+version: 18
+updated_at: 2026-10-27 19:59:40 +0400
 relations:
   method_for:
   - CA-R-1118

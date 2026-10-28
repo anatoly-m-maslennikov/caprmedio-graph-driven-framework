@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Relation
+  governs: Subject/CAPRMEDIO/Graph/Relation
   depends_on:
-  - Subject/Graph Relation
-  - Subject/Graph Node/Carrier/Directory
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Relation
+  - Subject/CAPRMEDIO/Carrier/Directory
+version: 24
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-266
 content_role: Delivery

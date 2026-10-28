@@ -6,12 +6,12 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-27 06:04:45 +0400
+version: 13
+updated_at: 2026-10-27 19:59:38 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Architecture/Component Structure
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 relations:
   evaluation_for:
   - CA-M-426

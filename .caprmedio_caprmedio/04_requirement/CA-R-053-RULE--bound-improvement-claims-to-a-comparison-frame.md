@@ -1,6 +1,6 @@
 ---
-version: 21
-updated_at: 2026-10-27 06:04:45 +0400
+version: 22
+updated_at: 2026-10-27 19:59:49 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -9,10 +9,10 @@ relations:
   - CA-E-001
   - CA-R-1423
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   depends_on:
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
-  - Subject/Graph Node/Domain/Continuant/Project
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
 cce_version: cce_1
 cce_form: obligation
 author: Anatoly Maslennikov

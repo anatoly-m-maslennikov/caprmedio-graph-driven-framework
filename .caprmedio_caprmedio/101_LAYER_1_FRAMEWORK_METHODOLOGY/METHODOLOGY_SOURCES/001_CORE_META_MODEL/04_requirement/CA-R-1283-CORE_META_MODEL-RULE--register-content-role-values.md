@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom/Content Role
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
   depends_on: []
-version: 23
-updated_at: 2026-10-25 17:32:27 +0400
+version: 24
+updated_at: 2026-10-27 19:59:52 +0400
 relations: {}
 atom_id: CA-R-1283
 content_role: Requirement

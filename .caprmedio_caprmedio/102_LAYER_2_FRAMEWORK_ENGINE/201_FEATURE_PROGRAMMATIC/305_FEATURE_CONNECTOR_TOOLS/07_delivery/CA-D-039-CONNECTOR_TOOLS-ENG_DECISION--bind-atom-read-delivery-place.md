@@ -4,11 +4,11 @@ current_scope_unit: CONNECTOR_TOOLS
 content_role: Delivery
 atom_id: CA-D-039
 subjects:
-  governs: Subject/Graph Node/Engineering/Storage/Directory Layout
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
   depends_on: []
-version: 20
+version: 21
 status: Active
-updated_at: 2026-10-27 06:04:45 +0400
+updated_at: 2026-10-27 19:59:22 +0400
 relations:
   delivery_for:
   - CA-R-862

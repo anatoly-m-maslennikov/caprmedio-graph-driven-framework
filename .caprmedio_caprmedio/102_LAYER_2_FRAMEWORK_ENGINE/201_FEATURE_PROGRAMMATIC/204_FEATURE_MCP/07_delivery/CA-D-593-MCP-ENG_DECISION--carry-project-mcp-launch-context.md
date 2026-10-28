@@ -4,16 +4,16 @@ content_role: Delivery
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
-version: 14
-updated_at: 2026-10-27 06:04:45 +0400
+version: 15
+updated_at: 2026-10-27 19:59:27 +0400
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Carrier
-  - Subject/Graph Node/Engineering/Architecture/Component Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
 relations:
   delivery_for:
   - CA-R-1900

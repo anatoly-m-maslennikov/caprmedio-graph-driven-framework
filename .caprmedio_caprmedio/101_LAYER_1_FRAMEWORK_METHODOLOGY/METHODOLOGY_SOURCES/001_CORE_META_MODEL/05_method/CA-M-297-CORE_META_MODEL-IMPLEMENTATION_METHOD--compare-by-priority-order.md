@@ -1,17 +1,17 @@
 ---
-version: 16
-updated_at: 2026-10-25 17:32:27 +0400
+version: 17
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   child_of:
   - CA-R-1487
   method_for:
   - CA-R-1487
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection//PROJECT_LEXICOGRAPHIC
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_LEXICOGRAPHIC
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Selection//PROJECT_PRIORITY_MODEL
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
 atom_id: CA-M-297
 content_role: Method
 current_scope_unit: CORE_META_MODEL

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Verification/Dynamic Testing
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   depends_on: []
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+version: 24
+updated_at: 2026-10-27 19:59:39 +0400
 relations:
   method_for:
   - CA-R-1075

@@ -7,14 +7,14 @@ claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node/Engineering/Verification/Test Design
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
-version: 25
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
+version: 26
+updated_at: 2026-10-27 19:59:34 +0400
 relations:
   evaluation_for:
   - CA-M-424

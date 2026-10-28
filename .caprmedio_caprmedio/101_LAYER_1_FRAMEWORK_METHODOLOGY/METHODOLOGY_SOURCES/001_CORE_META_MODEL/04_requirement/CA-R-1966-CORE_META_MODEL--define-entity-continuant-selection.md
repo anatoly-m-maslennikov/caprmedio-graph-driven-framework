@@ -6,12 +6,12 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
 relations:
   child_of:
   - CA-R-1174
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+version: 10
+updated_at: 2026-10-27 22:43:55 +0400
 tier: 1
 type: Definition
 ---
@@ -29,4 +29,4 @@ a Selection **means** criteria for choosing members. a named Selection gives tho
 
 ## Details
 
-Candidate #6 preserves Selection separately from Object and concrete named selections separately from abstract Core kinds. CA-R-1447 defines Owned Atoms and CA-R-1448 defines Targeting Atoms; they define particular selections, not the general kind. This draft adds no selector syntax or mandatory materialization.
+CA-R-1447 defines Owned Atoms and CA-R-1448 defines Targeting Atoms; they define particular selections, not the general kind. This definition adds no selector syntax or mandatory materialization.

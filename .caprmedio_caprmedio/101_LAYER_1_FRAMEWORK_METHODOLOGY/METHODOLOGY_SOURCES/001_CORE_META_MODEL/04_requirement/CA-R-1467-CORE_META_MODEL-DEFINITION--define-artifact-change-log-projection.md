@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Artifact Change Log'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Artifact Change Log'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Domain/Continuant/History/Journal
-  - Subject/Graph Node/Domain/Continuant/History/Journal.Record
-version: 15
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+version: 16
+updated_at: 2026-10-27 19:59:55 +0400
 relations: {}
 atom_id: CA-R-1467
 content_role: Requirement

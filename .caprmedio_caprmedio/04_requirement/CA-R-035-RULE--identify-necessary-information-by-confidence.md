@@ -1,6 +1,6 @@
 ---
-version: 27
-updated_at: 2026-10-27 06:04:45 +0400
+version: 28
+updated_at: 2026-10-27 19:59:49 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -8,14 +8,14 @@ relations:
   child_of:
   - CA-M-003
 subjects:
-  governs: 'Subject/Graph Node/Product: CAPRMEDIO Framework'
+  governs: 'Subject/caprmedio/Product: CAPRMEDIO Framework'
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
-  - Subject/Graph Relation
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+  - Subject/CAPRMEDIO/Graph/Relation
   - Subject
-  - Subject/Graph Node/Engineering/Execution Control/Decision Confidence
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
 cce_version: cce_1
 cce_form: obligation
 author: Anatoly Maslennikov

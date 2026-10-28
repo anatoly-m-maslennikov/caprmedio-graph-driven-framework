@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit.Project Boundary Position
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Project Boundary Position
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-version: 20
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+version: 21
+updated_at: 2026-10-27 20:00:12 +0400
 relations: {}
 atom_id: CA-R-961
 content_role: Requirement

@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Framework Settings.Parameter Resolution Validation
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Parameter Resolution Validation
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - Subject/Graph Node/Domain/Continuant/Governing Configuration
-  - Subject/Graph Node/Domain/Continuant/Project
-  - Subject/Graph Node/Carrier
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Carrier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+version: 21
+updated_at: 2026-10-27 19:59:35 +0400
 relations:
   evaluation_for:
   - CA-D-407

@@ -6,11 +6,11 @@ claim_target_scope_unit: PROJECT_TOOLS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - Subject/Graph Node/Carrier
-version: 11
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Carrier
+version: 12
+updated_at: 2026-10-27 19:59:27 +0400
 relations:
   delivery_for:
   - CA-R-1921

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Settings.Temporary State
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Temporary State
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Settings
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+version: 20
+updated_at: 2026-10-27 19:59:55 +0400
 relations: {}
 atom_id: CA-R-1473
 content_role: Requirement

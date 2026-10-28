@@ -1,17 +1,17 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Settings
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node/Domain/Continuant/Project
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Implementation
-  - Subject/Graph Node/Domain/Continuant/Projection
-  - Subject/Graph Node/Domain/Continuant/Project.Settings.Project Name
-  - Subject/Graph Node/Domain/Continuant/Project.Settings.Atom Prefix
-version: 34
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Project Name
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Atom Prefix
+version: 35
+updated_at: 2026-10-27 20:00:02 +0400
 relations:
   child_of:
   - CA-R-1708

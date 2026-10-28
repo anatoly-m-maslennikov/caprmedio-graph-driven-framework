@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Data Transformation
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Engineering/Data Handling/Parsing
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Parsing
   - Subject
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+version: 21
+updated_at: 2026-10-27 19:59:53 +0400
 relations:
   child_of:
   - CA-R-2102

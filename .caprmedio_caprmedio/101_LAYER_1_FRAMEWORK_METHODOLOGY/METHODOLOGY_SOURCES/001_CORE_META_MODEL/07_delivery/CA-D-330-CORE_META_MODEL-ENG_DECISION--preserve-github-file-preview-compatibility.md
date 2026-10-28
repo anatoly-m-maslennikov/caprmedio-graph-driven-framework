@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier/File
+  governs: Subject/CAPRMEDIO/Carrier/File
   depends_on:
-  - 'Subject/Graph Node/Carrier/File.Format: Markdown'
-  - 'Subject/Graph Node/Carrier/File.Format: TOML'
-  - 'Subject/Graph Node/Carrier/File.Format: YAML'
-version: 22
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Carrier/File.Format: Markdown'
+  - 'Subject/CAPRMEDIO/Carrier/File.Format: TOML'
+  - 'Subject/CAPRMEDIO/Carrier/File.Format: YAML'
+version: 23
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-330
 content_role: Delivery

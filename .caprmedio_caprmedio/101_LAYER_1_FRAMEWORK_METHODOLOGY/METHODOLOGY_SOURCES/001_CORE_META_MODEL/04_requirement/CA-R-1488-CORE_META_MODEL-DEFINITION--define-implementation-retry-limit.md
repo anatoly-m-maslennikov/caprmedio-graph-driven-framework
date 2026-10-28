@@ -1,14 +1,14 @@
 ---
-version: 16
-updated_at: 2026-10-25 17:32:27 +0400
+version: 17
+updated_at: 2026-10-27 19:59:56 +0400
 relations: {}
 subjects:
-  governs: Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Implementation Retry Limit
   depends_on:
-  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/caprmedio/Workflow//Implementation Workflow
+  - Subject/caprmedio/Action//Implementation Retry Control
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
 atom_id: CA-R-1488
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL

@@ -2,15 +2,15 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Node/Product/Extension//FPF
+  governs: Subject/caprmedio/Extension//FPF
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis/Type: Analysis Report'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Concern'
-  - Subject/Graph Node/Implementation/Code/Tool
-  - Subject/Graph Node/Runtime
-  - Subject/Graph Node/Engineering/Verification/Dynamic Testing
-version: 18
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: Analysis Report'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+version: 19
+updated_at: 2026-10-27 19:59:35 +0400
 relations:
   evaluation_for:
   - CA-M-290

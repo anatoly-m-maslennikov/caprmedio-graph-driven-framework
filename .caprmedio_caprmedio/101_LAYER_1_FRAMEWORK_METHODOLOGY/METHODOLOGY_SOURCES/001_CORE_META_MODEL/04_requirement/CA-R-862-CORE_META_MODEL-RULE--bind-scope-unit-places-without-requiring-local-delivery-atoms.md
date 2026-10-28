@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project.Structure
-  - Subject/Graph Node/Carrier/Directory
-  - Subject/Graph Node/Carrier
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
-version: 28
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Carrier/Directory
+  - Subject/CAPRMEDIO/Carrier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
+version: 29
+updated_at: 2026-10-27 20:00:11 +0400
 relations:
   child_of:
   - CA-R-1484

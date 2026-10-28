@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier.Canonical Address.Segment
+  governs: Subject/CAPRMEDIO/Carrier.Canonical Address.Segment
   depends_on: []
-version: 23
-updated_at: 2026-10-27 06:04:45 +0400
+version: 24
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-301
 content_role: Delivery

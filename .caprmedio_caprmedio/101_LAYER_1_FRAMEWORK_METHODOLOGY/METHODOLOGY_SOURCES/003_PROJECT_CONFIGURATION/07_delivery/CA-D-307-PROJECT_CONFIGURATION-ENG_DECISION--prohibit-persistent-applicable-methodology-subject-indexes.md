@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
   depends_on:
-  - 'Subject/Graph Relation/Type: GOVERNS'
-  - 'Subject/Graph Relation/Type: DEPENDS_ON'
-version: 21
-updated_at: 2026-10-25 17:32:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: GOVERNS'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: DEPENDS_ON'
+version: 22
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-307
 content_role: Delivery

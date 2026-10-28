@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Verification/Coverage
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - Subject/Graph Node/Implementation
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+version: 20
+updated_at: 2026-10-27 19:59:56 +0400
 relations: {}
 atom_id: CA-R-1504
 content_role: Requirement

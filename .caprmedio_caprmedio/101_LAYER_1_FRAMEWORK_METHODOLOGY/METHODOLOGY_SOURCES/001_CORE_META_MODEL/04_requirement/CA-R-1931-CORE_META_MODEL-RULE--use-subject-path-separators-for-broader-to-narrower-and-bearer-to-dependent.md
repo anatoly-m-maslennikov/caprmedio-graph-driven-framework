@@ -2,11 +2,11 @@
 subjects:
   governs: Subject
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term//Dependent Entity
-  - 'Subject/Graph Relation/Type: IS_BORNE_BY'
-  - Subject/Graph Node
-version: 11
-updated_at: 2026-10-26 17:20:40 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Dependent Entity
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: IS_BORNE_BY'
+  - Subject/CAPRMEDIO/Graph/Node
+version: 12
+updated_at: 2026-10-27 20:00:05 +0400
 relations: {}
 atom_id: CA-R-1931
 content_role: Requirement

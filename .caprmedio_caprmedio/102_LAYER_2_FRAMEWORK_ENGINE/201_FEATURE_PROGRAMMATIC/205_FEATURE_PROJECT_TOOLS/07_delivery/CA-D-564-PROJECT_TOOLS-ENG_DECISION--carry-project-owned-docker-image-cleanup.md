@@ -4,13 +4,13 @@ content_role: Delivery
 current_scope_unit: PROJECT_TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 17
-updated_at: 2026-10-27 06:04:45 +0400
+version: 18
+updated_at: 2026-10-27 19:59:27 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - Subject/Graph Node/Carrier/Docker Image
-  - Subject/Graph Node/Runtime
+  - Subject/CAPRMEDIO/Carrier/Docker Image
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime
 relations:
   delivery_for:
   - CA-M-332

@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection//Stored Governing RMED Relation Occurrences
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Stored Governing RMED Relation Occurrences
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
-  - 'Subject/Graph Relation/Type: method_for'
-  - 'Subject/Graph Relation/Type: evaluation_for'
-  - 'Subject/Graph Relation/Type: delivery_for'
-  - 'Subject/Graph Relation/Type: depends_on'
-  - 'Subject/Graph Relation/Type: child_of'
-version: 6
-updated_at: 2026-10-26 05:35:42 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: method_for'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: evaluation_for'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: delivery_for'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: depends_on'
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: child_of'
+version: 7
+updated_at: 2026-10-27 20:00:08 +0400
 relations: {}
 atom_id: CA-R-2148
 content_role: Requirement

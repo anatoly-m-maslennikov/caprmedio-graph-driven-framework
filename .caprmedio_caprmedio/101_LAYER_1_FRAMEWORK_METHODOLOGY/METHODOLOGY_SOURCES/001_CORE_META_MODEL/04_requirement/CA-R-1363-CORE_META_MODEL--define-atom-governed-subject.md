@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Governed Subject
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Governed Subject
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Atom.Subjects
-  - 'Subject/Graph Relation/Type: GOVERNS'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
+  - 'Subject/CAPRMEDIO/Graph/Relation/Type: GOVERNS'
   - Subject
-  - Subject/Graph Relation/Type
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-version: 23
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Relation/Type
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+version: 24
+updated_at: 2026-10-27 19:59:53 +0400
 relations:
   child_of:
   - CA-R-1269

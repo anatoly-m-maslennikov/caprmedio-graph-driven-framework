@@ -2,13 +2,13 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
-  - 'Subject/Graph Node/Domain/Continuant/Scope Unit: TOOLS'
-  - Subject/Graph Node/Engineering/Authoring/Prompt Authoring
-version: 11
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit: TOOLS'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+version: 12
+updated_at: 2026-10-27 19:59:59 +0400
 relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

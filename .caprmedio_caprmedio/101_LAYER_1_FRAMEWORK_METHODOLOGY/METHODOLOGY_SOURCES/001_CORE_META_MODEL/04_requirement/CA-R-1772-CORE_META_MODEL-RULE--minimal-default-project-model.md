@@ -1,17 +1,17 @@
 ---
-version: 29
-updated_at: 2026-10-27 06:04:45 +0400
+version: 30
+updated_at: 2026-10-27 20:00:02 +0400
 relations:
   child_of:
   - CA-M-005
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Minimum Model
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Minimum Model
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Project
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
-  - Subject/Graph Node/Implementation
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
 atom_id: CA-R-1772
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL

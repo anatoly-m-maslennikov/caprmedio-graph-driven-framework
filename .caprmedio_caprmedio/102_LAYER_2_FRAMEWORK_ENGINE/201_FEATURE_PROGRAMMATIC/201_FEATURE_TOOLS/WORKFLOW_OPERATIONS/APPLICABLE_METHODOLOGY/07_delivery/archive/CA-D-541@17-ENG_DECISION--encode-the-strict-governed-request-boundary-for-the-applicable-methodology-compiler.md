@@ -1,0 +1,58 @@
+---
+atom_id: CA-D-541@17
+content_role: Delivery
+type: Eng Decision
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+status: Archived
+author: Anatoly Maslennikov
+version: 17
+updated_at: 2026-10-27 06:04:45 +0400
+subjects:
+  governs: Subject/Graph Node/Engineering/Architecture/Communication
+  depends_on:
+  - Subject/Graph Node/Implementation/Code/Tool
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Product/Extension
+  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+relations:
+  delivery_for:
+  - CA-R-1839
+  - CA-R-1840
+  - CA-R-2118
+tier: 4
+---
+# Summary
+
+Encode the strict governed request boundary for the Applicable Methodology compiler.
+
+## Scope
+
+The strict native request boundary for the Applicable Methodology compiler; it does not define a second Workflow or Journal interface.
+
+## Claim
+
+The delivered compiler **must** accept an explicit mode and exact governed bindings, and **must not** accept caller-supplied source edits, arbitrary conflict winners, or unbound approval text.
+
+## Details
+
+```toml
+[tool_binding]
+name = "COMPILE_APPLICABLE_METHODOLOGY"
+entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py"
+workflow_id = "CA-O-011"
+action_ids = ["CA-O-004", "CA-O-005", "CA-O-006", "CA-O-007", "CA-O-008", "CA-O-009"]
+operations = ["dry_run", "apply", "recover_publication"]
+```
+
+The strict request contains `operation`; `project_root`; expected Project Structure, Framework Settings, and Project Configuration revision/digest bindings; `projection_target`; and, for `apply` or `recover_publication`, the expected assessed frontier digest plus the exact current Operator decision, independently verified admitted Run/effect evidence, and prior-publication evidence references. Optional Journal references are observational and cannot authorize the operation. The Tool resolves all source locations from governed Project Structure/Settings. `apply` refuses a request without a fresh publishable assessment; `recover_publication` accepts only a failed-publication receipt and never a source-change instruction.
+
+Unknown fields, mixed operations, mutable source/output paths outside governed declarations, `edit_source`, raw source patch, arbitrary selected candidate, raw approval text, or a TOML-only approval are explicit errors. Canonical shared Run/Journal handles are references, not caller-authored event payloads; a Journal append is a business-provenance attempt and not a permission or completion gate.
+
+### Sources
+
+- CA-R-1839, CA-R-1840, CA-R-2118; CA-O-011 v12; CA-P-1442 v1.

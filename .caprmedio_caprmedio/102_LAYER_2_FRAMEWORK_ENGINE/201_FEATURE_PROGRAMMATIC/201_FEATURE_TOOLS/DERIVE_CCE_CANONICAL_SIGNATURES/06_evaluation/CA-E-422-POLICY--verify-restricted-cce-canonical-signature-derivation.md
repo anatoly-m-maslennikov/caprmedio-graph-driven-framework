@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs: Subject/Graph Node/Engineering/Verification/Dynamic Testing
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   depends_on:
-  - Subject/Graph Node/Implementation/Code/Tool//DERIVE_CCE_CANONICAL_SIGNATURES
-  - Subject/Graph Node/Engineering/Data Handling/Data Validation
-version: 16
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//DERIVE_CCE_CANONICAL_SIGNATURES
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+version: 17
+updated_at: 2026-10-27 19:59:34 +0400
 relations:
   evaluation_for:
   - CA-M-256

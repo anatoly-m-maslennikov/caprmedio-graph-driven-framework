@@ -6,15 +6,15 @@ claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Verification/Static Analysis
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
   depends_on:
-  - Subject/Graph Node/Engineering/Data Handling/Data Validation
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Check Atoms'
-  - Subject/Graph Node/Domain/Continuant/Atom
-  - Subject/Graph Node/Implementation
-version: 16
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/caprmedio/Action//Check Atoms
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+version: 17
+updated_at: 2026-10-27 19:59:59 +0400
 relations: {}
 tier: 3
 type: Rule

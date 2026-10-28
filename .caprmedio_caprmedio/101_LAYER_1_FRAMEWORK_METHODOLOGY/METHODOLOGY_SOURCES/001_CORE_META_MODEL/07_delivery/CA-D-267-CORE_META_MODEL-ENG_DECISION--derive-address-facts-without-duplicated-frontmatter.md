@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier.Canonical Address
+  governs: Subject/CAPRMEDIO/Carrier.Canonical Address
   depends_on:
-  - Subject/Graph Node
-  - Subject/Graph Node/Carrier/File.YAML Frontmatter
-version: 22
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node
+  - Subject/CAPRMEDIO/Carrier/File.YAML Frontmatter
+version: 23
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-267
 content_role: Delivery

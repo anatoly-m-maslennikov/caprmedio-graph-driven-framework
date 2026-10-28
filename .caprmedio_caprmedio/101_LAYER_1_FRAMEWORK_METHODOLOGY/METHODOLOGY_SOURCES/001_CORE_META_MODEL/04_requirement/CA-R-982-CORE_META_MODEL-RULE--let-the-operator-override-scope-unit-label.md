@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit.Label
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit/Type
-version: 27
-updated_at: 2026-10-25 17:32:27 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type
+version: 28
+updated_at: 2026-10-27 20:00:13 +0400
 relations:
   child_of:
   - CA-R-972

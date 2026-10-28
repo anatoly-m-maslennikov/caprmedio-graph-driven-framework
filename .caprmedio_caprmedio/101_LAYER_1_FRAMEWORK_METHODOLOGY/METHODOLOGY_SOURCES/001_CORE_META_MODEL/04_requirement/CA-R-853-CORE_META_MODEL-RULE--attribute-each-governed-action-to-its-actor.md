@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Occurrent/Execution
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   depends_on: []
-version: 22
-updated_at: 2026-10-25 17:32:27 +0400
+version: 23
+updated_at: 2026-10-27 20:00:11 +0400
 relations: {}
 atom_id: CA-R-853
 content_role: Requirement

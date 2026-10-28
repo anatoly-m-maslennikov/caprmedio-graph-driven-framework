@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Data Validation
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
   depends_on:
-  - Subject/Graph Node/Runtime/Session
-version: 27
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Session
+version: 28
+updated_at: 2026-10-27 19:59:59 +0400
 relations: {}
 atom_id: CA-R-1650
 content_role: Requirement

@@ -1,16 +1,15 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Admit Methodology Expansion Mapping'
+  governs: Subject/caprmedio/Action//Admit Methodology Expansion Mapping
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Expansion Boundary
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Product/Extension
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//CORE_META_MODEL
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 19
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Expansion Boundary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+version: 20
+updated_at: 2026-10-27 19:59:45 +0400
 relations: {}
 atom_id: CA-O-054
 content_role: Operations

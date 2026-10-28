@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit.Expansion Boundary
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Expansion Boundary
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//CORE_META_MODEL
-  - Subject/Graph Node/Domain/Continuant/Selection//Extension Sources
-  - Subject/Graph Node/Domain/Continuant/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/Graph Node/Domain/Continuant/Atom.Content
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-version: 28
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Extension Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+version: 29
+updated_at: 2026-10-27 19:59:54 +0400
 relations: {}
 atom_id: CA-R-1375
 content_role: Requirement

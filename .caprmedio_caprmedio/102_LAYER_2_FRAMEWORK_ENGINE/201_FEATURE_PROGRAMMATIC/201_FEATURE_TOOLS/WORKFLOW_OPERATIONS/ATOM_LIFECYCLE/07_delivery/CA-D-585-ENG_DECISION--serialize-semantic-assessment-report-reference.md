@@ -5,9 +5,9 @@ current_scope_unit: TOOLS
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Data Handling/Serialization
-version: 15
-updated_at: 2026-10-27 06:04:45 +0400
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
+version: 16
+updated_at: 2026-10-27 19:59:27 +0400
 relations:
   delivery_for:
   - CA-R-1892

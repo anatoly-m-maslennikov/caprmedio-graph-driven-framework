@@ -1,8 +1,8 @@
 ---
 subject_scopes:
 - extension-promotion
-version: 12
-updated_at: 2026-10-26 00:46:35 +0400
+version: 13
+updated_at: 2026-10-27 20:00:10 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -18,7 +18,7 @@ atom_id: CA-R-694
 tier: 1
 type: Rule
 subjects:
-  governs: Subject/Graph Node/UX/Extension Lifecycle Skill Interface
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Guidance
 ---
 # Guide Project Adaptation promotion
 

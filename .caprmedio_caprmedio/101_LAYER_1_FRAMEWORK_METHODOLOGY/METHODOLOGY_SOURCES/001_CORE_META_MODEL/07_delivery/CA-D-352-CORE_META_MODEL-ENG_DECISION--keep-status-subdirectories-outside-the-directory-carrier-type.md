@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Carrier.Canonical Address.Segment
+  governs: Subject/CAPRMEDIO/Carrier.Canonical Address.Segment
   depends_on:
-  - Subject/Graph Node/Carrier/Directory
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Carrier/Directory
+version: 21
+updated_at: 2026-10-27 19:59:23 +0400
 relations: {}
 atom_id: CA-D-352
 content_role: Delivery

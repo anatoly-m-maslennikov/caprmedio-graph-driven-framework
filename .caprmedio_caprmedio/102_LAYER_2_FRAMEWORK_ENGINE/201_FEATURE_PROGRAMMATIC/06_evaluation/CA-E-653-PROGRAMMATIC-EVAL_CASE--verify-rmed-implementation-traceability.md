@@ -8,12 +8,12 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: 2026-10-27 06:04:45 +0400
+version: 10
+updated_at: 2026-10-27 19:59:38 +0400
 subjects:
-  governs: Subject/Graph Node/Engineering/Traceability
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
   depends_on:
-  - Subject/Graph Node/Engineering/Traceability
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
 relations:
   evaluation_for:
   - CA-R-2117

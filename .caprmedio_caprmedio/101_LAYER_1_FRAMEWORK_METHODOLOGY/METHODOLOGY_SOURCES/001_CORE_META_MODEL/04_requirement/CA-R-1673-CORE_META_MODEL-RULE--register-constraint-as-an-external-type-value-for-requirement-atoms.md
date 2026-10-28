@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Constraint'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Constraint'
   depends_on: []
-version: 32
-updated_at: 2026-10-26 05:59:45 +0400
+version: 33
+updated_at: 2026-10-27 20:00:00 +0400
 relations:
   depends_on:
   - CA-R-1690

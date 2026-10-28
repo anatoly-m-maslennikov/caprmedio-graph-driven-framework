@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit.Local Order
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Local Order
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Scope Unit/Type
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Parent
-  - Subject/Graph Node/Domain/Continuant/Scope Unit.Children
-  - Subject/Graph Relation
-version: 30
-updated_at: 2026-10-25 17:32:27 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Parent
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Children
+  - Subject/CAPRMEDIO/Graph/Relation
+version: 31
+updated_at: 2026-10-27 20:00:02 +0400
 relations: {}
 atom_id: CA-R-1763
 content_role: Requirement

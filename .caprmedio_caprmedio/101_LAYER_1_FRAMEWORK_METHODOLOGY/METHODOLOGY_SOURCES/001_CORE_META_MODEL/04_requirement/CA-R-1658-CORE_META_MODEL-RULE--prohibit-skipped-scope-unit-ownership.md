@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Scope Unit.Parent
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Parent
   depends_on: []
-version: 26
-updated_at: 2026-10-25 17:32:27 +0400
+version: 27
+updated_at: 2026-10-27 20:00:00 +0400
 relations: {}
 atom_id: CA-R-1658
 content_role: Requirement

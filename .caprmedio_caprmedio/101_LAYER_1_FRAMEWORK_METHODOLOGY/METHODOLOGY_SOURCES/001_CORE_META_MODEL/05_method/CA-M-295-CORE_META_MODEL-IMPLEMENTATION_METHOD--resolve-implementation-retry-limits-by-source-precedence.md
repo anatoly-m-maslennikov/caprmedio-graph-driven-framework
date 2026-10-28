@@ -1,20 +1,20 @@
 ---
-version: 26
-updated_at: 2026-10-27 06:04:45 +0400
+version: 27
+updated_at: 2026-10-27 19:59:41 +0400
 relations:
   child_of:
   - CA-R-1489
   depends_on:
   - CA-M-279
 subjects:
-  governs: Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Implementation Retry Limit
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
-  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-  - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
-  - Subject/Graph Node/Domain/Continuant/Governing Configuration
-  - Subject/Graph Node/Carrier/File
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
+  - Subject/CAPRMEDIO/Carrier/File
 atom_id: CA-M-295
 content_role: Method
 current_scope_unit: CORE_META_MODEL

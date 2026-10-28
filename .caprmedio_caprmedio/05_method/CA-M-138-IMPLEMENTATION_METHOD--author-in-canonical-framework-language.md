@@ -1,15 +1,15 @@
 ---
-version: 22
-updated_at: 2026-10-27 06:04:45 +0400
+version: 23
+updated_at: 2026-10-27 19:59:39 +0400
 relations:
   child_of:
   - CA-M-006
 subjects:
-  governs: Subject/Graph Node/Engineering/Authoring
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring
   depends_on:
-  - Subject/Graph Node/Domain/Continuant/Term//Artifact
-  - Subject/Graph Node/Domain/Continuant/Term
-  - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
+  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

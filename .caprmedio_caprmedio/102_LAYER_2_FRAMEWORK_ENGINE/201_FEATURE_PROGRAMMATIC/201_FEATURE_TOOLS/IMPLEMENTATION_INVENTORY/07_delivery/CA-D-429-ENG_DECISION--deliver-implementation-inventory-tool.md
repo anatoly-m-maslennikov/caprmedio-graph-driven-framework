@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: delivery
 subjects:
-  governs: Subject/Graph Node/Engineering/Delivery
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - Subject/Graph Node/Implementation/Code/Tool//IMPLEMENTATION_INVENTORY
-version: 15
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//IMPLEMENTATION_INVENTORY
+version: 16
+updated_at: 2026-10-27 19:59:25 +0400
 relations:
   delivery_for:
   - CA-R-1071

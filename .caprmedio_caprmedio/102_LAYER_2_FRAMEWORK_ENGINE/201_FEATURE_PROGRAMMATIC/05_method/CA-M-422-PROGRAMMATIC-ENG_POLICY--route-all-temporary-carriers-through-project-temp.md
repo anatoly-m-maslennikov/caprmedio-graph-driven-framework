@@ -5,11 +5,11 @@ type: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
 subjects:
-  governs: Subject/Graph Node/Engineering/Storage/Directory Layout
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
   depends_on:
-  - Subject/Graph Node/Engineering/Storage/Directory Layout
-version: 9
-updated_at: 2026-10-27 06:04:45 +0400
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
+version: 10
+updated_at: 2026-10-27 19:59:43 +0400
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

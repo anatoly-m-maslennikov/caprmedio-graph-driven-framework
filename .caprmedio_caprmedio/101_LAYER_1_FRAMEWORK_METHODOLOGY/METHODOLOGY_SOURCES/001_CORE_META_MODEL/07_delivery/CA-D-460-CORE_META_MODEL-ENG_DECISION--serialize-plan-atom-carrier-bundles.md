@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-  - Subject/Graph Node/Carrier/File
-  - Subject/Graph Node/Carrier/Directory
-version: 20
-updated_at: 2026-10-27 06:04:45 +0400
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+  - Subject/CAPRMEDIO/Carrier/File
+  - Subject/CAPRMEDIO/Carrier/Directory
+version: 21
+updated_at: 2026-10-27 19:59:25 +0400
 relations: {}
 atom_id: CA-D-460
 content_role: Delivery

@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   depends_on: []
 llm_session_ids:
 - codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 18
-updated_at: 2026-10-25 17:32:27 +0400
+version: 19
+updated_at: 2026-10-27 19:59:50 +0400
 atom_id: CA-R-1069
 status: Active
 content_role: Requirement
