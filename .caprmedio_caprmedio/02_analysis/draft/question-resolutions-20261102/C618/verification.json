@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "question": "CA-C-618@3 Resolved",
+  "settings_files": 2,
+  "release_evidence_preserved": true,
+  "toml_other_sections_unchanged": true,
+  "journal_records": 1,
+  "limits": [
+    "Release/runtime execution not exercised"
+  ]
+}

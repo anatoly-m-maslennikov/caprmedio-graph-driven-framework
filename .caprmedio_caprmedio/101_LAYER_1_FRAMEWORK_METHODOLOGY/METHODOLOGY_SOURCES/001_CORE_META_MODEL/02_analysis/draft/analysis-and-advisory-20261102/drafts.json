@@ -1,0 +1,16 @@
+[
+  {
+    "source": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2510-CORE_META_MODEL-DECLARATION--declare-analysis.md",
+    "draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/analysis-and-advisory-20261102/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-analysis-and-advisory.md",
+    "source_sha256": "af9b8bc84b0718796818d035c96791eac30ef6f6ced89e0b898bca2436040fcc",
+    "draft_sha256": "d001b4accf6267fa7edb9d25f3acdf5f5c80f8aec91f4b6a33d61fe1bbc47373",
+    "status": "Drafted; new canonical ID needed at adoption because Summary changes"
+  },
+  {
+    "source": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-RULE--register-content-role-values.md",
+    "draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/analysis-and-advisory-20261102/CA-R-1283@31-draft-CORE_META_MODEL-RULE--register-content-role-values.md",
+    "source_sha256": "24445d226b647b86b10b448827630dcbad8d07e138c1cdda614c4d51ca460f01",
+    "draft_sha256": "8126a433977a5a96db69a1f45f3fd2d73b0f39d9b3a1beba017edcb8ec9f71dd",
+    "status": "Drafted"
+  }
+]

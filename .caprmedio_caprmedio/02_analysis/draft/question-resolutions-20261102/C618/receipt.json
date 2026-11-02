@@ -1,0 +1,63 @@
+{
+  "status": "APPLIED",
+  "accepted_at": "2026-11-02 15:25:54 +0400",
+  "decision": "Rollback information belongs to its Release, outside Framework Settings.",
+  "settings": [
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml",
+      "removed_block": "[release_version.rollback_retention]\n# Preserve the verified first N image as the rollback point for this release.\ncondition = \"retain_prior\"\nrequired_image_digests = [\n  \"sha256:79899cfe59fb36c8da5ce1c12ea52c529a61738e51100b3d3e8488c52496d54e\"\n]\n",
+      "before_sha256": "5edce368b8a75b99c0f74f92a3ef706f5970e0aa8b8304989564e8b64950bb82",
+      "after_sha256": "ffebca4931bd3b62a2c5027ff860829b1524db02c0a03ce2b136519f43ad61ce"
+    },
+    {
+      "path": "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml",
+      "removed_block": "[release_version.rollback_retention]\n# Preserve the verified first N image as the rollback point for this release.\ncondition = \"retain_prior\"\nrequired_image_digests = [\n  \"sha256:79899cfe59fb36c8da5ce1c12ea52c529a61738e51100b3d3e8488c52496d54e\"\n]\n",
+      "before_sha256": "5edce368b8a75b99c0f74f92a3ef706f5970e0aa8b8304989564e8b64950bb82",
+      "after_sha256": "ffebca4931bd3b62a2c5027ff860829b1524db02c0a03ce2b136519f43ad61ce"
+    }
+  ],
+  "question": {
+    "path": ".caprmedio_caprmedio/01_concern/CA-C-618-QUESTION--resolve-the-logical-status-of-release-retention-settings.md",
+    "before_sha256": "970b34a5226cb57b64bfd44cb15353b39ee0a2ddbde3ced74401d2d33ec7631e",
+    "sha256": "d6366af3da8557e805a5f885931305e968a9e696bf9e312e297d4dc729b000cc",
+    "old_version": 1,
+    "version": 3,
+    "status": "Resolved",
+    "archive_path": ".caprmedio_caprmedio/01_concern/archive/CA-C-618@1-QUESTION--resolve-the-logical-status-of-release-retention-settings.md",
+    "archive_sha256": "4238382b7148ecec66827f92998f4719df62fb1a5006f15173d5d7d5213b58c6",
+    "draft_path": ".caprmedio_caprmedio/01_concern/draft/question-resolutions-20261102/CA-C-618@2-draft-QUESTION--resolve-the-logical-status-of-release-retention-settings.md"
+  },
+  "retained_release_evidence": {
+    "path": ".caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/done/05-CA-P-1714-TASK--initialize-the-first-framework-runtime-and-project-local-ca-skill.md",
+    "sha256": "4e800b376aae0e475d9199b17e5b9b021ab39daefcdc4a80ddc5526ef54cd94b"
+  },
+  "consumer_check": "No source-code references to rollback_retention or required_image_digests found.",
+  "event": {
+    "event_id": "ef9c43c6-8946-4814-97d0-f95c7ae8fda4",
+    "happened_at": "2026-11-02 15:25:54 +0400",
+    "inserted_at": "2026-11-02T15:25:54.514291+04:00",
+    "action": "update",
+    "object_input": {
+      "id": "CA-C-618",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "object_output": {
+      "id": "CA-C-618",
+      "version": 3,
+      "updated_at": "2026-11-02 15:25:54 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  "journal_receipts": [
+    {
+      "event_id": "ef9c43c6-8946-4814-97d0-f95c7ae8fda4",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 706
+    }
+  ]
+}
