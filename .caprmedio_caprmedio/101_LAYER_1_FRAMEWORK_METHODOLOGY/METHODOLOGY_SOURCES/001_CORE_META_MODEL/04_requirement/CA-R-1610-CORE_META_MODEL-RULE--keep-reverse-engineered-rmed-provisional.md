@@ -1,29 +1,27 @@
 ---
 atom_id: CA-R-1610
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Graph/Rule
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-version: 20
-updated_at: 2026-10-27 19:59:59 +0400
+  active: Atom.Status
+  passive:
+  - Atom.Content
+  - Entity/Object/Continuant/Package/Project Implementation
+  - Projection
+  - Entity/Object/Continuant/Selection
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Keep reverse-engineered RMED provisional
 
-## Scope
+## Claim scope
 
 RMED Claims reconstructed from existing Implementation or its Projections.
 
@@ -33,5 +31,3 @@ RMED Claims reconstructed from existing Implementation **or** its Projections **
 
 - extraction **or** inference alone does **not** establish Active authority.
 - the accepted RMED, **not** the legacy Implementation **or** its Projection, governs subsequent refactoring **and** Evaluation of the result.
-
-## Details

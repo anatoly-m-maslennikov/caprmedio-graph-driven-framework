@@ -6,8 +6,8 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
-version: 11
-updated_at: 2026-10-27 19:59:48 +0400
+version: 12
+updated_at: 2026-10-29 22:26:57 +0400
 subjects:
   governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
   depends_on:
@@ -29,7 +29,7 @@ Bind one exact code candidate and review boundary
 
 ## Operation
 
-This Step invokes CA-O-224 in Integrated context. Bind candidate digest, owned paths, either an existing Plan or an actually admitted in-session P/task with instruction, Definition of Done, and source context, direct full `requirements`, `methods`, `evaluations`, and `delivery` rows, Project Principles, permissions, allowed commands, context authority, source revisions/hashes, report, and Run ID. An optional legacy `method_projection` may accompany direct rows but is not required.
+This Step invokes CA-O-224 in Integrated context. Bind candidate digest, owned paths, either an existing Plan or an actually admitted in-session P/task with instruction, Definition of Done, and source context, direct full `requirements`, `methods`, `evaluations`, and `delivery` rows, Project-owned Tier 0 Atoms, permissions, allowed commands, context authority, source revisions/hashes, report, and Run ID. An optional legacy `method_projection` may accompany direct rows but is not required.
 
 Return the Action's `bound` or `blocked` result unchanged. Missing Plan/P-task content is blocked. No hidden next Step, retry, candidate substitution, Plan fabrication, or source edit.
 

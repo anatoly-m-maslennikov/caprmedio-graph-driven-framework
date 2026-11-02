@@ -1,0 +1,27 @@
+---
+subjects:
+  active: 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  passive:
+  - Atom.Content
+version: 30
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1316@30
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Archived
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Forbid Claim Synthesis and Merge During Compilation
+
+## Claim scope
+
+Applicable Methodology compilation of source Claims.
+
+## Claim
+
+Applicable Methodology compilation **must not** synthesize **or** merge source Claims.

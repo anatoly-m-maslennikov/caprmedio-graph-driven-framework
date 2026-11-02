@@ -1,32 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-version: 15
-updated_at: 2026-10-27 19:59:56 +0400
+  active: Projection
+  passive:
+  - Atom
+version: 19
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-1746
+  - CA-R-2535
 atom_id: CA-R-1507
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Require declared source Atoms before Projection refresh
 
-## Scope
+## Claim scope
 
 Projection refreshes with declared source Atoms.
 
 ## Claim
 
 a Projection **may** refresh **only** **after** **every** declared source Atom exists.
-
-## Details

@@ -1,30 +1,26 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Carrier
-version: 33
-updated_at: 2026-10-27 19:59:59 +0400
-relations:
-  resolution_of:
-  - CAPRMEDIO-GOV-CONC-054--how-should-proof-currentness-be-represented
+  active: Entity/Aspect/Engineering/Traceability
+  passive:
+  - Term//Artifact
+  - Projection
+  - Carrier
+version: 39
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
 atom_id: CA-R-1646
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Bind proof records to dependency frontiers
 
-## Scope
+## Claim scope
 
 governed proof records, their applicable inputs, and all selected Workflows, release policies, and version-control mechanisms.
 
@@ -37,5 +33,3 @@ governed proof records, their applicable inputs, and all selected Workflows, rel
 - a changed material input makes the affected proof stale for that candidate **until** the required checks run against the changed inputs. a missing **or** unresolved binding is unknown, **not** current.
 - an unrelated change does **not** invalidate proof **unless** it changes the evaluated dependencies **or** satisfies an additional governing invalidation condition.
 - retain the historical record unchanged. **not** (a recent timestamp **or** a refreshed Projection) alone proves currentness.
-
-## Details

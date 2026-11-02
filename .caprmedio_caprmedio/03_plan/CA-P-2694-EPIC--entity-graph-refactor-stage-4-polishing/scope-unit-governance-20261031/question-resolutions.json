@@ -1,0 +1,38 @@
+{
+  "Q1": {
+    "status": "answered",
+    "operator_words": "Outside the project, as project goal",
+    "resolution": "Project Declaration outside Project, like Project Goal, with the same external Operator ownership. No filesystem path selected; project-root carrier proposal not adopted."
+  },
+  "remaining": [],
+  "current_sources_changed": false,
+  "Q2": {
+    "status": "answered",
+    "operator_words": "I'm but sure, so no",
+    "resolution": "No mandatory minimum number of local Scope Contract Atoms. Zero allowed; no new sufficiency test."
+  },
+  "Q3": {
+    "status": "superseded by Q6",
+    "operator_words": "Explicit",
+    "resolution": "Navigation Number, when present, is explicitly declared. Filenames and views that use it derive their displayed number from that declared value; do not maintain a separate authoritative value for the same position."
+  },
+  "Q4": {
+    "status": "answered",
+    "operator_words": "One atom with role scope unit declaration and active subject = the Scope Unit",
+    "resolution": "A Scope Unit Declaration Atom has Role = Requirement and Form = Scope Unit Declaration. Its active Subject (`subjects.active`) identifies the specific Scope Unit instance being declared, not merely the generic Scope Unit kind. Count exactly one matching Declaration Atom per declared Scope Unit. Use this Subject binding; do not require a duplicate binding in Claim or Target Scope Unit. “Active” here names the Subject field, not an added Atom.Status predicate."
+  },
+  "Q5": {
+    "status": "answered",
+    "operator_words": ".Role = Requirement & .Form = Scope Unit Declaration",
+    "resolution": "A Scope Unit Declaration Atom has Role = Requirement and Form = Scope Unit Declaration. Its active Subject (`subjects.active`) identifies the specific Scope Unit instance being declared, not merely the generic Scope Unit kind. Count exactly one matching Declaration Atom per declared Scope Unit. Use this Subject binding; do not require a duplicate binding in Claim or Target Scope Unit. “Active” here names the Subject field, not an added Atom.Status predicate.",
+    "formal_expression": "(Atom//.Role = Requirement & .Form = Scope Unit Declaration & .subjects.active = Scope Unit//){:1}"
+  },
+  "Q6": {
+    "status": "answered",
+    "operator_words": [
+      "we can drop navigational number for scope units",
+      "keep only for steps and P"
+    ],
+    "resolution": "Scope Units do not have Navigation Number. Keep their existing Local Order semantics; do not maintain a duplicate navigation position. Navigation Number is retained only for Steps and P (Plan) Atoms. This decision does not add new numbering or Carrier-format rules for those Atoms."
+  }
+}

@@ -1,0 +1,423 @@
+{
+  "status": "Draft carriers created; no Current source changed; not registered or promoted.",
+  "scope": "Six leaf Atom Property Declarations only; no root, content, status, timestamp, or relations file; no instance review.",
+  "source_evidence_reports": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/declaration-expansion/census.json",
+      "sha256": "557f7a1e2619ad308d9230452e2d8b66d9a51a1c0f38c5016f44f3d5545059ff"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/declaration-expansion/property-contracts.json",
+      "sha256": "7b75b83b1a0e26e6b34193bacd901d3c91b231ada4da0d416172dba5d222cfba"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/declaration-expansion/property-contracts.md",
+      "sha256": "59cedb3a3d8ba25288295f67fbfb3136c59a2c8c4613a9cd43f46b4aeebfb540"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/declaration-expansion/ready-property-review.json",
+      "sha256": "380af25327ec4161cd579524584b2ab9a39fdbd681f4db51d534ccfd4a584d70"
+    }
+  ],
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.ID",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "governs": "Atom.ID",
+      "formal_claim": "Atom.ID[string]{1}.[]{0}",
+      "sha256": "8273b5e0542cc410fd798c8b5bc0de9198d5f6409109706c91cc24a1d77d2ef6",
+      "source_pins": [
+        {
+          "id": "CA-R-655",
+          "version": 42,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-ENTITY-DEFINITION--define-atom-artifact-form.md",
+          "sha256": "ddf97b84cfef8829604bcf39b8b84f9f60d27c395fa93d64c981d7512c072327",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom"
+        },
+        {
+          "id": "CA-R-2102",
+          "version": 13,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md",
+          "sha256": "1d1ebd5b32983f7a26cc0c745af1f66c37d2ade5cf3824ad86c6f6a31dbb266b",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom"
+        },
+        {
+          "id": "CA-R-728",
+          "version": 35,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-728-CORE_META_MODEL-DEFINITION--define-project-atom-id.md",
+          "sha256": "2736dc478aa1bb649bae59a7b4632633ab6e67dd4aa8f553bc6caf10f51e6f49",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.ID"
+        },
+        {
+          "id": "CA-R-1464",
+          "version": 21,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL-RULE--keep-summary-fixed-for-atom-identity.md",
+          "sha256": "4c8a0ba02c49c067dfa479578c517a0bb340ecf0a0ea7af9444fbcf968dd344f",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.Content.Summary"
+        },
+        {
+          "id": "CA-D-657",
+          "version": 1,
+          "type": "Decision",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "sha256": "34d889b05d5a0167960c9c63d435f3ba7f6595f2629eeb210a6051eb32539ad8",
+          "subjects_governs": "Entity/Carrier/File.YAML Frontmatter"
+        }
+      ],
+      "contract_note": "Project-owned Atom IDs remain immutable identities; the direct value is a string; no dependent Property is declared.",
+      "dependent_property_decision": "No dependent entity is declared for this property in its source or inherited current rules; explicitly forbid with .[]{0}."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-role.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Role",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "governs": "Atom.Role",
+      "formal_claim": "Atom.Role[string]{1}.[]{0}",
+      "sha256": "9605e1349bf5f40234466964859bbd1b356c1cc33931a72e9e69749d30b468a9",
+      "source_pins": [
+        {
+          "id": "CA-R-655",
+          "version": 42,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-ENTITY-DEFINITION--define-atom-artifact-form.md",
+          "sha256": "ddf97b84cfef8829604bcf39b8b84f9f60d27c395fa93d64c981d7512c072327",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom"
+        },
+        {
+          "id": "CA-R-2102",
+          "version": 13,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md",
+          "sha256": "1d1ebd5b32983f7a26cc0c745af1f66c37d2ade5cf3824ad86c6f6a31dbb266b",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom"
+        },
+        {
+          "id": "CA-R-2357",
+          "version": 2,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2357-CORE_META_MODEL-ENTITY_DEFINITION--define-atom-content-role.md",
+          "sha256": "4dcfd13ad5c9f900d7875e307f8a7edae5078e01bb327ff9d22ece54dceaa6f0",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.Content Role"
+        },
+        {
+          "id": "CA-R-740",
+          "version": 35,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-740-CORE_META_MODEL-RULE--give-every-atom-one-content-role.md",
+          "sha256": "d7bf64c70f0f0b676b9f4bfd33682566b8316a57059cd2faf0b2071c3673ef26",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role"
+        },
+        {
+          "id": "CA-R-1283",
+          "version": 27,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-RULE--register-content-role-values.md",
+          "sha256": "6e9ccec56f3f466c9a9f93ce56acdaba42c843174db217d728d0a958fc9b3a1f",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role"
+        },
+        {
+          "id": "CA-R-1531",
+          "version": 20,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-DEFINITION--define-the-content-role-property.md",
+          "sha256": "d249d9f4de10a47522a3f7f377ad43ee87a2cf9eb31f534bf53898e8c4d3b622",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role"
+        },
+        {
+          "id": "CA-R-1549",
+          "version": 21,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1549-CORE_META_MODEL-DEFINITION--define-change-content-roles.md",
+          "sha256": "73a1cd74dea72ff4287596725b79543abf0ef084a45f457e18cd85022b55d65d",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role"
+        },
+        {
+          "id": "CA-R-1704",
+          "version": 32,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-RULE--require-stable-noun-content-role-names.md",
+          "sha256": "01a1d25c54c33e2bb5cffda6778edffc7305f8557d45c3e8194f3d021c942b91",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role"
+        },
+        {
+          "id": "CA-D-657",
+          "version": 1,
+          "type": "Decision",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "sha256": "34d889b05d5a0167960c9c63d435f3ba7f6595f2629eeb210a6051eb32539ad8",
+          "subjects_governs": "Entity/Carrier/File.YAML Frontmatter"
+        }
+      ],
+      "contract_note": "Allowed Role values follow the closed eight-value registry in R1283; Role classifies an Atom and is not a separate Node.",
+      "dependent_property_decision": "No dependent entity is declared for this property in its source or inherited current rules; explicitly forbid with .[]{0}."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-form.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Form",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "governs": "Atom.Form",
+      "formal_claim": "Atom.Form[string]{1}.[]{0}",
+      "sha256": "ed06932e7a24e6d6118ae8a2685feb949977c61781affe26d418bf754007f47b",
+      "source_pins": [
+        {
+          "id": "CA-R-655",
+          "version": 42,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-ENTITY-DEFINITION--define-atom-artifact-form.md",
+          "sha256": "ddf97b84cfef8829604bcf39b8b84f9f60d27c395fa93d64c981d7512c072327",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom"
+        },
+        {
+          "id": "CA-R-2102",
+          "version": 13,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md",
+          "sha256": "1d1ebd5b32983f7a26cc0c745af1f66c37d2ade5cf3824ad86c6f6a31dbb266b",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom"
+        },
+        {
+          "id": "CA-R-2361",
+          "version": 1,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2361-CORE_META_MODEL-ENTITY_DEFINITION--define-atom-type.md",
+          "sha256": "692dacd199ed5b0b423594e37e384dc3582b1d7f831af5ef31691e24e6f80c4c",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.Type"
+        },
+        {
+          "id": "CA-R-1700",
+          "version": 30,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1700-CORE_META_MODEL-RULE--admit-atoms-only-where-a-role-has-an-atomic-unit.md",
+          "sha256": "9277c3ca2e5ba8c31abfccdae57f613fc1f617c0f483c07c5942c1ca647da2a6",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.Type"
+        },
+        {
+          "id": "CA-R-924",
+          "version": 36,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-RULE--register-core-relational-atom-classifications.md",
+          "sha256": "a45f3e71025b44304e44456e15123805851c8b02537094df7e047a57ea62fbc3",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.Type"
+        },
+        {
+          "id": "CA-D-657",
+          "version": 1,
+          "type": "Decision",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "sha256": "34d889b05d5a0167960c9c63d435f3ba7f6595f2629eeb210a6051eb32539ad8",
+          "subjects_governs": "Entity/Carrier/File.YAML Frontmatter"
+        }
+      ],
+      "contract_note": "Form is one admitted string under Role. Current admission is role-specific and requires an independently governed atomic unit; no universal closed Form list is inferred.",
+      "dependent_property_decision": "No dependent entity is declared for this property in its source or inherited current rules; explicitly forbid with .[]{0}."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-version-number.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Version Number",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "governs": "Atom.Version Number",
+      "formal_claim": "Atom.Version Number[int]{1}.[]{0}",
+      "sha256": "485936b04267b203e84142eb0e0adaab31ea402620b5114fe0995c61efdb0efe",
+      "source_pins": [
+        {
+          "id": "CA-R-655",
+          "version": 42,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-ENTITY-DEFINITION--define-atom-artifact-form.md",
+          "sha256": "ddf97b84cfef8829604bcf39b8b84f9f60d27c395fa93d64c981d7512c072327",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom"
+        },
+        {
+          "id": "CA-R-2102",
+          "version": 13,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md",
+          "sha256": "1d1ebd5b32983f7a26cc0c745af1f66c37d2ade5cf3824ad86c6f6a31dbb266b",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom"
+        },
+        {
+          "id": "CA-R-2363",
+          "version": 1,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2363-CORE_META_MODEL-ENTITY_DEFINITION--define-atom-version-number.md",
+          "sha256": "0236539bc35acb9bab4f68d1b76b13b269e270f3850e6532bca26cdee74354ee",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.Version Number"
+        },
+        {
+          "id": "CA-R-1415",
+          "version": 25,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL--give-every-atom-revision-one-version.md",
+          "sha256": "29f824be017b5c8e69ba74fbca0a924bb38eb9421cadeafe1b6f28dbcba729f3",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.Version Number"
+        },
+        {
+          "id": "CA-R-1419",
+          "version": 20,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1419-CORE_META_MODEL--restrict-archived-status-to-non-current-revisions.md",
+          "sha256": "b11785527f758d888f2fc28ddb75c488e8fecd884dc2b1eea8d1e8b36a68e780",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.Status: Archived"
+        },
+        {
+          "id": "CA-D-657",
+          "version": 1,
+          "type": "Decision",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "sha256": "34d889b05d5a0167960c9c63d435f3ba7f6595f2629eeb210a6051eb32539ad8",
+          "subjects_governs": "Entity/Carrier/File.YAML Frontmatter"
+        }
+      ],
+      "contract_note": "Version Number is a positive integer and increases monotonically across successive versions of the same Atom.",
+      "dependent_property_decision": "No dependent entity is declared for this property in its source or inherited current rules; explicitly forbid with .[]{0}."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-author.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Author",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "governs": "Atom.Author",
+      "formal_claim": "Atom.Author[string]{1}.[]{0}",
+      "sha256": "5a779eeea301e7770c2b050b0af6bffd2061b218948aafd2507dd7713b492783",
+      "source_pins": [
+        {
+          "id": "CA-R-655",
+          "version": 42,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-ENTITY-DEFINITION--define-atom-artifact-form.md",
+          "sha256": "ddf97b84cfef8829604bcf39b8b84f9f60d27c395fa93d64c981d7512c072327",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom"
+        },
+        {
+          "id": "CA-R-2102",
+          "version": 13,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md",
+          "sha256": "1d1ebd5b32983f7a26cc0c745af1f66c37d2ade5cf3824ad86c6f6a31dbb266b",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom"
+        },
+        {
+          "id": "CA-R-2356",
+          "version": 1,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2356-CORE_META_MODEL-ENTITY_DEFINITION--define-atom-author.md",
+          "sha256": "f72d8806e2524f05cd23510056b29ea87b12bf0a78110d630091aeb8d03fd28e",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.Author"
+        },
+        {
+          "id": "CA-R-1078",
+          "version": 31,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-RULE--give-every-atom-revision-one-author.md",
+          "sha256": "d399c39aa77ed0a5a2f909d90808bd6eac0aba42e2e3b4b0853210c8d481d814",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.Author"
+        },
+        {
+          "id": "CA-R-1080",
+          "version": 29,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1080-CORE_META_MODEL-RULE--default-atom-revision-author-to-the-operator.md",
+          "sha256": "c5a0e4b107484745c46649f3c9bb57dedc189dc7ffd36346ce8a18c71157b753",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.Author"
+        },
+        {
+          "id": "CA-D-657",
+          "version": 1,
+          "type": "Decision",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "sha256": "34d889b05d5a0167960c9c63d435f3ba7f6595f2629eeb210a6051eb32539ad8",
+          "subjects_governs": "Entity/Carrier/File.YAML Frontmatter"
+        }
+      ],
+      "contract_note": "Each revision has one resolved Actor as Author. Current serialization stores the resolved nonempty registry name; the admitting Operator is the effective Author when none is supplied.",
+      "dependent_property_decision": "No dependent entity is declared for this property in its source or inherited current rules; explicitly forbid with .[]{0}."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-label.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Label",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "governs": "Atom.Label",
+      "formal_claim": "Atom.Label[string]{0..1}.[]{0}",
+      "sha256": "d228b6948e6127fea32823382520cf9ec79e3a20513bcd6fa71265c0175645f4",
+      "source_pins": [
+        {
+          "id": "CA-R-655",
+          "version": 42,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-ENTITY-DEFINITION--define-atom-artifact-form.md",
+          "sha256": "ddf97b84cfef8829604bcf39b8b84f9f60d27c395fa93d64c981d7512c072327",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom"
+        },
+        {
+          "id": "CA-R-2102",
+          "version": 13,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md",
+          "sha256": "1d1ebd5b32983f7a26cc0c745af1f66c37d2ade5cf3824ad86c6f6a31dbb266b",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom"
+        },
+        {
+          "id": "CA-R-1594",
+          "version": 18,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1594-CORE_META_MODEL-DEFINITION--define-label.md",
+          "sha256": "3ea6d9319713307ed13a2909754810f59acfe17bd13e3c96ae2efd0076b9c62b",
+          "subjects_governs": "Entity/Object/Continuant/Governing Objects/Atom.Label"
+        },
+        {
+          "id": "CA-D-657",
+          "version": 1,
+          "type": "Decision",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "sha256": "34d889b05d5a0167960c9c63d435f3ba7f6595f2629eeb210a6051eb32539ad8",
+          "subjects_governs": "Entity/Carrier/File.YAML Frontmatter"
+        }
+      ],
+      "contract_note": "An omitted explicit Label has a derived effective fallback from the Form name; the fallback is not stored twice.",
+      "dependent_property_decision": "No dependent entity is declared for this property in its source or inherited current rules; explicitly forbid with .[]{0}."
+    }
+  ],
+  "unresolved": [
+    {
+      "issue": "The Form value set is role-specific; Current sources do not establish a universal closed list across all Roles.",
+      "handling": "The Declaration fixes one string and zero dependent Properties. R1700 admission applies; no unregistered Form values or actual instances are enumerated."
+    },
+    {
+      "issue": "Current Author semantics name an Actor while the direct value is serialized as a registry-name string.",
+      "handling": "R655/R2356 and Delivery source D657 fix the current string representation; the prose preserves Actor identity and Operator default without asserting new endpoint syntax."
+    },
+    {
+      "issue": "Two active Definitions share the legacy Content Role subject scope.",
+      "handling": "The string cardinality and eight allowed values are directly supported by R2357/R740/R1283; R1549 describes the Change Content Roles family and does not change that contract."
+    }
+  ],
+  "validation": {
+    "draft_count": 6,
+    "all_formal_claims_include_direct_format_count_and_zero_dependent_count": true,
+    "all_drafts_have_no_Semantics_section": true,
+    "all_source_pins_include_version_path_sha256": true,
+    "author_prose_bullets_for_parallel_conditions": true
+  }
+}

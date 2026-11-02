@@ -1,0 +1,33 @@
+{
+  "reviewed_count": 4,
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-active.md",
+      "sha256": "ba014d4ec6edd8457a9262158f1f9e77085e7151adfdcdbdefb892a7cae4f276",
+      "changed": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-semantics.md",
+      "sha256": "b5c7adea3b3c84d54358ac324f9371ce575786cc5632adb71a7b575e7ebd9b94",
+      "changed": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+      "sha256": "03adcb73e710f59e101a4340bdd8a84b6afc4a89f0280a56bc0846a857e72472",
+      "changed": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md",
+      "sha256": "68bafb9173bdfda3bf5b0e591617183723d5a562ecb45b7b48d7c4214fd923ee",
+      "changed": false
+    }
+  ],
+  "constraint_mapping": "For complete Atoms only: IF Atom.Status is classified Current THEN Atom.Subjects.Active{==1}. Base0..1 preserves incompleteDraft omission.",
+  "residual_blockers": [
+    "Atom.Content.Semantics conditions require binding the active Subject target and distinguishing its Primary/Property classification; no established safe binding syntax.",
+    "Tier Project Goal and Operator ownership require selected Goal and ownership selectors not established by this bounded inventory.",
+    "Relation notation requirement depends on the admission of a particular short notation, with no established admission predicate/binding.",
+    "The completeness qualifier is not a declared GFEL selector; it is retained explicitly as Claim prose."
+  ],
+  "status": "Partial formalization: grammar corrected; completeness scope remains essential prose"
+}

@@ -234,6 +234,31 @@ def copy_complete_selected_guard_fixture(project: Path) -> dict:
     from validate_atoms_workers.parsing import parse_carrier
 
     project = frozen_project(project)
+    # The frozen corpus predates the Core -> Project Configuration move.  The
+    # query admission fixture must expose one current carrier per identity.
+    core_operations = project / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations"
+    for name in (
+        "CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md",
+        "CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
+        "CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md",
+        "CA-O-161-CORE_META_MODEL-WORKFLOW--find-and-fetch-journal-events.md",
+        "CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md",
+        "CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md",
+    ):
+        (core_operations / name).unlink(missing_ok=True)
+    project_operations = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/"
+    for relative in (
+        "CA-O-158-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-artifacts.md",
+        "CA-O-159-PROJECT_CONFIGURATION-ACTION--query-and-fetch-artifacts.md",
+        "CA-O-160-PROJECT_CONFIGURATION-STEP--run-the-artifact-query-and-fetch.md",
+        "CA-O-161-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-journal-events.md",
+        "CA-O-162-PROJECT_CONFIGURATION-ACTION--query-journal-events.md",
+        "CA-O-161-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-journal-events/CA-O-163-PROJECT_CONFIGURATION-STEP--query-the-stable-journal-event-snapshot.md",
+    ):
+        source = ROOT / (project_operations + relative)
+        destination = project / (project_operations + relative)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(source.read_bytes())
     manifest = frozen_manifest()
     assert tuple(row["route"] for row in manifest["routes"]) == SELECTED_ROUTE_NAMES
     manifest["query_source_admissions"] = copy.deepcopy(list(selected_routes._query_admission_specs(project)))

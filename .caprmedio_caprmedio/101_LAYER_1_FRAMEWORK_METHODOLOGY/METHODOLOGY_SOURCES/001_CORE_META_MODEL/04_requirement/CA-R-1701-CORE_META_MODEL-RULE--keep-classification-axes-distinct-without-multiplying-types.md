@@ -1,33 +1,30 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-version: 29
-updated_at: 2026-10-27 20:00:01 +0400
+  active: Entity
+  passive:
+  - Entity
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+version: 34
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-M-001
+  - CA-M-447
 atom_id: CA-R-1701
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Keep Classification Axes Distinct without Multiplying Types
 
-## Scope
+## Claim scope
 
 Artifact Type, Atom Content Role, and Governance Origin classification.
 
 ## Claim
 
 Artifact Type, Atom Content Role, **and** Governance Origin **must** remain distinct classification axes **without** requiring an Artifact **or** a new Type for **every** possible combination; the Content Role axis applies **to** Atoms **only**.
-
-## Details

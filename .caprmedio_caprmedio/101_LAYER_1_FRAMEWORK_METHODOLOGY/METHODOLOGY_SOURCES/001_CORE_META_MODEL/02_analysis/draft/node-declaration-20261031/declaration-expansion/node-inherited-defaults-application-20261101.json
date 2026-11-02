@@ -1,0 +1,34 @@
+{
+  "changed": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "before_sha256": "76e5c5ae19616407a85b2579d5156c14e1cf8d2e2423e0083024c3c31c283431",
+      "after_sha256": "0360986677a8d903eaf84c5d20ac73b026da7edb587ebcf0ec2e46c928f1d6b8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "before_sha256": "1975b3e56e1a3ae863c4a31cb4fae0646df37e958f8f825b8bb46429929718d1",
+      "after_sha256": "f87c593241aae97d7694e2736729124d102d52fb2e9e05ba5679581b70fde530"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+      "before_sha256": "f171092984ba5ce1e5e4662bfe4d4ec2e11608442f0516259a82b8735a797772",
+      "after_sha256": "abd7e69cbdb8ed839e29d31c57537b547f49e276950e74ae2b17054f7d9ca96a"
+    }
+  ],
+  "scope": "Two wildcard defaults are declared only in Node; no local whitelists are claimed complete.",
+  "checks": [
+    "Root-only IS_PROPERTY_OF zero does not propagate to dependent Properties; narrowing inheritance and Property dependence are distinct.",
+    "Property named zero HAS_INSTANCE/HAS_NARROWER remains, and Relation Definition still limits INSTANCE_OF targets to Primary Nodes.",
+    "No automatic inverse permission or second inverse authored fact; each applicable named constraint remains independently checked.",
+    "Model and instance layers, inherited permissions, concrete classification assertions and conditional tests remain distinct.",
+    "Latest `(Node//).**` denotes Property occurrences of Node instances via ordinary grouped traversal, not independently instantiated Property kinds."
+  ],
+  "review_gate": "Confirm graph binding of inherited Node selectors on narrower kinds and Property occurrences, and inspect local Relation entries separately before claiming full whitelist completeness.",
+  "latest_user_scopes": {
+    "model": "(Node, Node.**)",
+    "instances": "(Node//, (Node//).**)"
+  },
+  "final_inverse_policy": "No automatic inverse permission. Each direction is named explicitly; all applicable own-endpoint bounds are checked together.",
+  "review_correction": "Model HAS_PROPERTY host includes dependent Property bearers; inheritance/dependence scope explanation belongs to the CFEL Rule, not repeated Node prose."
+}

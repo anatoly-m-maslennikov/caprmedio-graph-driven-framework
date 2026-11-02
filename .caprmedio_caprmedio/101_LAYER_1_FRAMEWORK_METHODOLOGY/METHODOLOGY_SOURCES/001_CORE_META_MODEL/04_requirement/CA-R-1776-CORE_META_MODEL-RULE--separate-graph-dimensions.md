@@ -1,35 +1,32 @@
 ---
-version: 32
-updated_at: 2026-10-27 20:00:03 +0400
+version: 38
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-M-001
+  - CA-M-447
   - CA-R-1407
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Graph Dimensions
-  depends_on:
-  - Subject
-  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  active: Project
+  passive:
+  - Entity
+  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  - Project
 atom_id: CA-R-1776
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Separate graph dimensions
 
-## Scope
+## Claim scope
 
 the Project's graph dimensions.
 
 ## Claim
 
 CAPRMEDIO **must** keep Structural ownership, scope inclusion, local order, normative authority, applicability tier, Subject classification, semantic control, dependency, realization, information **or** result flow, **and** lifecycle succession as distinct graph dimensions. a position **or** edge on one dimension **must not** create **or** substitute for a position **or** edge on another.
-
-## Details

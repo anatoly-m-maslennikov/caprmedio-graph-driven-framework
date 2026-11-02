@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-01",
+  "user_decision": "Keep archive preservation in Workflow requirements",
+  "changes": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-status.md",
+      "before_sha256": "2c8ab6d7b3b28d8c19b1d19edf7c6f3e58ccf208be439df3264153f6a94220a0",
+      "after_sha256": "07d65f536bde97a1eed514a1b7d26a45af7ba274c2849ffe983c895b1228514b",
+      "before_claim": "\nArchiving preserves:\n\n- Version.\n- Updated At.\n\nArchiving alone does not create a new version.\n\n```CFEL\nAtom.Status{:1}: [string]{:1};\nAtom.Status.*[]{:0};\nAtom.Status: Draft;\nAtom.Status: Active;\nAtom.Status: Archived\n```\n",
+      "after_claim": "\n```CFEL\nAtom.Status{:1}: [string]{:1};\nAtom.Status.*[]{:0};\nAtom.Status: Draft;\nAtom.Status: Active;\nAtom.Status: Archived\n```\n",
+      "formal_block_preserved": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "before_sha256": "15c0ceeb9c443a2c5878b3eae3250a754c75dbdc49f7fed53fe8919a699bd359",
+      "after_sha256": "acdedca110359a2109f5ee3a5b8f86dec91e64a6d805dd1c14e0c44755b5af0c",
+      "before_claim": "\nUpdated At records the actual Project-time instant of the accepted edit represented by the Atom. An exact no-op and an archived predecessor retain the prior timestamp.\n\n```CFEL\nAtom.Updated At{:1}: [datetime]{:1};\nAtom.Updated At.*[]{:0}\n```\n",
+      "after_claim": "\nUpdated At records the actual Project-time instant of the accepted edit represented by the Atom. An exact no-op retains the prior timestamp.\n\n```CFEL\nAtom.Updated At{:1}: [datetime]{:1};\nAtom.Updated At.*[]{:0}\n```\n",
+      "formal_block_preserved": true
+    }
+  ],
+  "workflow_requirement": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--preserve-atom-version-and-updated-at-when-archiving.md",
+  "preserved_requirements": [
+    "Archive keeps Version",
+    "Archive keeps Updated At, including predecessor timestamp",
+    "Archive alone creates no new Version"
+  ],
+  "retained_property_requirements": [
+    "Actual Project-time instant of accepted edit",
+    "Exact no-op keeps prior timestamp"
+  ],
+  "new_before_after_syntax": false,
+  "new_workflow_instances": 0,
+  "runtime_changed": false,
+  "review": "PASS",
+  "review_file": "archive-preservation-workflow-review-20261101.json"
+}

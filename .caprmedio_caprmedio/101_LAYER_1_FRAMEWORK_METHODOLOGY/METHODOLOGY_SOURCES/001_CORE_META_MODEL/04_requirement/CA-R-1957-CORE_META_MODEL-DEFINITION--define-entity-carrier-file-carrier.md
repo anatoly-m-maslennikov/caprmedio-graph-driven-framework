@@ -1,25 +1,24 @@
 ---
 atom_id: CA-R-1957
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier/File
+  active: Carrier/File
 relations:
   child_of:
   - CA-R-1174
-version: 8
-updated_at: 2026-10-27 20:00:06 +0400
+version: 11
+updated_at: 2026-11-02 00:18:22 +0400
 tier: 3
-type: Definition
+role: Requirement
+form: Entity Definition
 ---
-# Summary
+## Summary
 
 Define Entity/Carrier/File Carrier
 
-## Scope
+## Claim scope
 
 File Carriers.
 

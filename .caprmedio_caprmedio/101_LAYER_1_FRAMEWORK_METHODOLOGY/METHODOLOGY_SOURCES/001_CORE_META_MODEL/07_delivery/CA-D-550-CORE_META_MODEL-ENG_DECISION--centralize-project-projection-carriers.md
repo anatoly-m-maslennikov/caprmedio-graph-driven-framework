@@ -1,33 +1,32 @@
 ---
 atom_id: CA-D-550
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier/Directory
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Carrier
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
-version: 16
-updated_at: 2026-10-27 19:59:27 +0400
+  active: Carrier/Directory
+  passive:
+  - Project
+  - Projection
+  - Carrier
+  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - Journal
+  - Atom
+  - Scope Unit
+  - Project.Settings
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+version: 19
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Centralize Project Projection Carriers
 
-## Scope
+## Claim scope
 
 persistent non-authoritative view Projection Carriers belonging to a Project.
 

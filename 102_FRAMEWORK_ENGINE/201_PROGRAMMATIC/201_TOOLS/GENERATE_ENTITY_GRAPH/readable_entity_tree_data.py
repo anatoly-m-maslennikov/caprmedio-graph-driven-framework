@@ -10,7 +10,10 @@ Children = dict[str, list[tuple[str, Record]]]
 LABELS = {
     "NARROWER_THAN": "/",
     "INSTANCE_OF": "//",
-    "IS_BORNE_BY": ".",
+    "IS_BORNE_BY": ".",  # Historical graphs retain their source vocabulary.
+    "IS_PROPERTY_OF": ".",
+    "IS_CONTAINED_BY": "<+",
+    "HAS_CLASSIFICATION": ">|",
     "IS_ALLOWED_VALUE_OF": ":",
 }
 
@@ -86,8 +89,10 @@ def read_edges(rows: list[Record], nodes: Nodes) -> tuple[Children, set[str], Co
         if kind not in LABELS:
             omitted[kind] += 1
             continue
+        if kind == "HAS_CLASSIFICATION":
+            child, parent = parent, child
         children[parent].append((child, edge))
-        if kind == "IS_BORNE_BY":
+        if kind in {"IS_PROPERTY_OF", "IS_BORNE_BY"}:
             dependents.add(child)
     for edges in children.values():
         edges.sort(key=lambda pair: (*order(pair[1]), *name_key(nodes, pair[0]), pair[1]["kind"]))
@@ -104,6 +109,34 @@ def _descendants(roots: set[str], children: Children) -> set[str]:
     return found
 
 
+def _count(value: object) -> str:
+    if value is None:
+        return ""
+    value = record(value)
+    minimum, maximum = value.get("minimum"), value.get("maximum")
+    if type(minimum) is not int or minimum < 0 or (maximum is not None and
+            (type(maximum) is not int or maximum < minimum)):
+        raise ValueError("Invalid relation cardinality")
+    suffix = "+" if maximum is None else "" if minimum == maximum else f"..{maximum}"
+    return "{" + str(minimum) + suffix + "}"
+
+
+def _label(edge: Record) -> str:
+    forward, reverse = edge.get("forward_cardinality"), edge.get("reverse_cardinality")
+    if edge["kind"] == "IS_CONTAINED_BY":
+        forward, reverse = reverse, forward
+    return _count(forward) + LABELS[edge["kind"]] + _count(reverse) + " "
+
+
+def _display(node: Record) -> str:
+    result = node.get("display_name", node["identity"])
+    if "value_format" in node:
+        result += "[" + text(node["value_format"], "value Format") + "]"
+    if "value_cardinality" in node:
+        result += _count(node["value_cardinality"])
+    return result
+
+
 def tree(
     start: str, allowed: set[str], nodes: Nodes, children: Children
 ) -> tuple[list[str], list[str], set[str]]:
@@ -114,14 +147,14 @@ def tree(
     while stack:
         key, depth, label, path = stack.pop()
         cyclic = key in path
-        lines.append("\t" * depth + label + nodes[key]["identity"] + (" [cycle]" if cyclic else ""))
+        lines.append("\t" * depth + label + _display(nodes[key]) + (" [cycle]" if cyclic else ""))
         if cyclic:
             cycles.add(key)
             continue
         appearances.append(key)
         next_path = path | {key}
         stack.extend(
-            (child, depth + 1, LABELS[edge["kind"]] + " ", next_path)
+            (child, depth + 1, _label(edge), next_path)
             for child, edge in reversed(children[key])
             if child in allowed
         )

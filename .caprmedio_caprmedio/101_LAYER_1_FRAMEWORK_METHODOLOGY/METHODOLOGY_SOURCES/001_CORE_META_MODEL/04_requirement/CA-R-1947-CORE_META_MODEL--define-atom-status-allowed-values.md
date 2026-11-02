@@ -1,25 +1,24 @@
 ---
 atom_id: CA-R-1947
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  active: Atom.Status
 relations:
   child_of:
   - CA-R-1174
-version: 9
-updated_at: 2026-10-27 20:00:06 +0400
+version: 13
+updated_at: 2026-11-02 00:18:22 +0400
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Define Atom.Status allowed values
 
-## Scope
+## Claim scope
 
 The base allowed values inherited by narrower Atom kinds.
 
@@ -30,5 +29,3 @@ Atom.Status **must** admit (Draft, Active, Archived). Narrower Atom kinds inheri
 ## Details
 
 CA-R-1412 requires exactly one Status but does not declare the base allowed values. CA-R-1309 declares Draft, Active and Archived only for Requirements; it must not be retargeted to all Atoms as a Subjects-only change.
-
-Later content alignment is needed: CA-R-1539's exact Plan set excludes inherited Draft, CA-R-1875's Analysis set excludes inherited Active, and CA-R-1608 uses a different Concern spelling/domain. C/A content remains deferred. CA-R-1308 and CA-R-1313 also need alignment with additive inheritance. This draft does not change transition procedures, existing Status values or any active source.

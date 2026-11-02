@@ -9,11 +9,9 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-version: 18
-updated_at: 2026-10-27 19:59:45 +0400
-relations:
-  child_of:
-  - CA-E-002
+version: 19
+updated_at: 2026-10-30 00:32:29 +0400
+relations: {}
 atom_id: CA-O-058
 content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION

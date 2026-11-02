@@ -19,7 +19,8 @@ from .settings import CEILINGS
 from .support_authority import support_sources
 from .check_support import Check
 from .check_graph_extended import relations_resolution, plan_resolution
-from .check_schema_extended import TYPE_CONTRIBUTIONS
+from .check_schema_extended import TYPE_CONTRIBUTIONS, declared_type_coordinate
+from .check_fields import reviewed_encoding_profile
 from .check_sections import GRAPH_RULE_SOURCES, is_graph_rule
 from .proposed_references import (
     ProposedReferenceError, ProposedReferenceInventory, _container_id, inventory_proposed_references,
@@ -141,7 +142,10 @@ def _source(
     if selection is not None and Path(path).is_relative_to('.caprmedio_caprmedio'):
         path = (selection.control_relative / Path(path).relative_to('.caprmedio_caprmedio')).as_posix()
     absolute = root / path
-    if locator is not None and not absolute.exists() and not absolute.is_symlink():
+    if not absolute.exists() and not absolute.is_symlink():
+        if locator is None:
+            from current_atom_locator import CurrentAtomLocator
+            locator = CurrentAtomLocator(root, reader=reader)
         path = locator.locate(identifier, path)
         absolute = root / path
     item = load_source(absolute, None, reader, report)
@@ -181,6 +185,35 @@ def _plan_mapping(source: str | dict[str, str]) -> dict[str, str]:
     return mapping
 
 
+def _encoding_source(root: Path, reader: ReadContext, report: Record, locator: Any) -> Record:
+    from current_atom_locator import CurrentAtomLocatorError
+
+    # Probe the new identity without treating an absent Current source as a
+    # retired-ID alias. Historical disposable Projects still select D276.
+    entry = json.loads(Path(__file__).with_name("registry.json").read_text())["sources"]["CA-D-657"]
+    path = Path(entry["source_path"])
+    selection = bound_selection(root)
+    if selection is not None:
+        path = selection.control_relative / path.relative_to(".caprmedio_caprmedio")
+    try:
+        locator.locate("CA-D-657", path)
+    except CurrentAtomLocatorError as error:
+        if error.code != "atom-identity-not-found":
+            raise
+        return _source(root, "CA-D-276", reader, report, locator=locator)
+    source = _source(root, "CA-D-657", reader, report, locator=locator)
+    try:
+        _source(root, "CA-D-276", reader, report, locator=locator)
+    except CurrentAtomLocatorError as error:
+        if error.code != "atom-identity-not-found":
+            raise
+    else:
+        raise ProposedCarrierError("frontmatter encoding authority is ambiguous")
+    if reviewed_encoding_profile(source) != "current":
+        raise ProposedCarrierError("Current frontmatter encoding authority is unreviewed")
+    return source
+
+
 def source_context_from_project(root: Path) -> VerifiedSourceContext:
     """Load just the finite checked authority closure and selected Project inputs."""
 
@@ -204,10 +237,17 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
         with bind_selection(selection):
             identity = project_identity(root)
             locator = CurrentAtomLocator(root, reader=reader)
-            source_ids = (*_REGISTRY_IDS, *(identifier for identifier in _SUPPORT_IDS
-                                            if identifier not in _DEFERRED_SUPPORT_IDS))
-            sources = [_source(root, identifier, reader, report, locator=locator)
-                       for identifier in source_ids]
+            encoding = _encoding_source(root, reader, report, locator)
+            current_encoding = reviewed_encoding_profile(encoding) == "current"
+            support_ids = (
+                ("CA-D-494", "CA-D-440", "CA-D-441", "CA-D-442", "CA-R-1308", "CA-R-1313",
+                 "CA-D-324", "CA-D-466", "CA-D-461", "CA-R-1283")
+                if current_encoding else _SUPPORT_IDS
+            )
+            source_ids = (*(identifier for identifier in _REGISTRY_IDS if identifier != "CA-D-276"),
+                          *(identifier for identifier in support_ids if identifier not in _DEFERRED_SUPPORT_IDS))
+            sources = [encoding, *[_source(root, identifier, reader, report, locator=locator)
+                                   for identifier in source_ids]]
     except (OSError, RuntimeError, UnicodeError, ValueError) as error:
         raise ProposedCarrierError("required Project context is unreadable") from error
     inputs: Record = {
@@ -331,8 +371,40 @@ def _operations_placement(
         raise ProposedCarrierError("Operations containment authority or parent carrier is unavailable") from error
 
 
+def _current_type_source(context: VerifiedSourceContext, metadata: Record) -> Record:
+    """Resolve the actual Type definition, including newly allocated identities."""
+    from current_atom_locator import CurrentAtomLocator
+
+    coordinate = metadata.get("content_role"), metadata.get("type")
+    locator = CurrentAtomLocator(context.root, reader=context._reader)
+    report: Record = {"bindings": {}, "coverage": {"gaps": []}}
+    matches = []
+    with bind_selection(context._selection):
+        # Reuse the locator's bounded registered Requirement-family inventory;
+        # path order and references never declare a Type or its authority.
+        for path, _, carried, _ in locator._index("04_requirement"):
+            if (not isinstance(carried, dict) or carried.get("type") != "Entity Definition"
+                    or declared_type_coordinate(carried) != coordinate):
+                continue
+            source = load_source(path, None, context._reader, report)
+            if source is None or not _verified(source, {}):
+                raise ProposedCarrierError("Current Type owner is unreadable or inactive")
+            locator.assert_unique_current_claim(source["binding"]["atom_id"], path)
+            matches.append(source)
+        locator.revalidate()
+    if len(matches) != 1:
+        raise ProposedCarrierError("Current qualified Type requires exactly one Active Entity Definition owner")
+    return matches[0]
+
+
 def _type_inputs(context: VerifiedSourceContext, metadata: Record) -> Record:
     """Load only the additional authority required by the actual proposed Type."""
+    if any(reviewed_encoding_profile(row) == "current" for row in context.inputs["sources"]):
+        source = _current_type_source(context, metadata)
+        inputs = dict(context.inputs)
+        known = {row["binding"]["atom_id"] for row in inputs["sources"]}
+        inputs["sources"] = [*inputs["sources"], *([] if source["binding"]["atom_id"] in known else [source])]
+        return inputs
     if (metadata.get("content_role"), metadata.get("type")) == ("Requirement", "Goal"):
         identifiers = ("CA-R-924", "CA-R-925", "CA-R-926", "CA-R-947", "CA-R-1392",
                        "CA-R-1389", "CA-R-1390", "CA-R-1391")

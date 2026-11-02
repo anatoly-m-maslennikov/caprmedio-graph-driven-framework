@@ -1,33 +1,30 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type
-version: 28
-updated_at: 2026-10-27 20:00:13 +0400
+  active: Scope Unit.Label
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Type
+version: 32
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-972
+  - CA-R-2528
 atom_id: CA-R-982
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Let the Operator Override Scope Unit Label
 
-## Scope
+## Claim scope
 
 Scope Unit Labels.
 
 ## Claim
 
 the Operator **may** replace the default Label independently for **every** Scope Unit **without** changing its Type.
-
-## Details

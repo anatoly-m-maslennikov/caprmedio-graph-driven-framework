@@ -1,0 +1,117 @@
+{
+  "review_scope": "coherence and impact of one actual external Scope Unit Declaration, one or more external Goals, internal Tier-0 Scope Contract Atoms, and eventual project_structure.toml authority retirement",
+  "decision_basis": [
+    ".caprmedio_tmp/scope-unit-declaration-review-20261031/latest-input.md",
+    ".caprmedio_caprmedio/02_analysis/done/CA-A-1313-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md"
+  ],
+  "actual_conflicts": [
+    {
+      "severity": "high",
+      "finding": "Do not reuse the generic CORE_META_MODEL Declaration as the Project's actual declaration. It declares the Scope Unit kind and containment model, not an instance declaration for each real unit.",
+      "evidence": [
+        "latest-input.md:14",
+        "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md:16-34"
+      ],
+      "disposition": "easy_fix",
+      "required_boundary": "Create exactly one separate external declaration for the actual Project Scope Unit; retain the generic kind declaration without copying generic semantics into the instance."
+    },
+    {
+      "severity": "high",
+      "finding": "The prior Scope Definition/Goal-replacement trial is superseded. A per-unit Scope Definition would duplicate the rejected Definition layer and conflict with separate external Goals.",
+      "evidence": [
+        "CA-A-1313-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md:25-35",
+        "scope-trial-100/CA-R-draft-CORE_META_MODEL-ENTITY-DEFINITION--define-a-scope-definition-requirement-for-one-target-scope-unit.md:29-35",
+        "latest-input.md:6-8"
+      ],
+      "disposition": "easy_fix",
+      "required_boundary": "Use the actual Declaration plus its Contracts; keep one or more Goals as separate Atoms and link them rather than copying Goal content into the Declaration."
+    },
+    {
+      "severity": "high",
+      "finding": "Project-root external ownership and physical carrier location are not decided. 'External' is relative to the governed Scope Unit; it does not itself select an owner, folder, or Operator-owned declaration.",
+      "evidence": [
+        "latest-input.md:7-9",
+        "CA-A-1313-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md:43-47",
+        "scope-trial-100/CA-R-draft-CORE_META_MODEL-RULE--preserve-operator-ownership-and-ordering-for-the-project-scope-definition.md:28-34"
+      ],
+      "disposition": "operator_question",
+      "question": "Who owns the Project Declaration, and in which authoritative carrier is it stored, given that the Project has no parent Scope Unit and the Operator Actor is not a Scope Unit?",
+      "safe_draft_position": "State the Declaration is external to the Project and leave its owner/location unresolved; do not assert Operator ownership."
+    },
+    {
+      "severity": "high",
+      "finding": "A Declaration may cover ID, Name, ordered/unordered, Label, Navigation Number, and connections, but no mandatory per-field cardinality, format, or derivation rule was authorized. The generic drafts currently contain per-property cardinality syntax and structural-level derivation, so they cannot be silently treated as the actual-instance schema.",
+      "evidence": [
+        "latest-input.md:5",
+        "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md:22-30",
+        "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md:20-25",
+        "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-name.md:20-25"
+      ],
+      "disposition": "easy_fix",
+      "required_boundary": "Keep the instance declaration descriptive of the selected Project facts; do not import or create new mandatory field/cardinality/derivation rules."
+    },
+    {
+      "severity": "medium",
+      "finding": "Internal foundation is plural and RMEDO-as-applicable, not one R and not all five Roles. Treating Contracts as a single Definition or demanding a full five-Role set would contradict both the latest direction and A1313.",
+      "evidence": [
+        "latest-input.md:7-8",
+        "CA-A-1313-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md:21-27"
+      ],
+      "disposition": "easy_fix",
+      "required_boundary": "Specify zero or more applicable Tier-0 Contract Atoms per admitted RMEDO role, independently of the separate external Goal count."
+    }
+  ],
+  "cutover_dependencies": [
+    {
+      "severity": "high",
+      "finding": "project_structure.toml is currently labeled authoritative and contains the live per-unit structural records (parent, type, label, navigation/order, authority and delivery paths). A future replacement therefore needs an explicit source-of-truth cutover, not two independently maintained authorities.",
+      "evidence": [
+        "project_structure.toml:1-9",
+        "project_structure.toml:11-18",
+        "project_structure.toml:75-84",
+        "latest-input.md:4"
+      ],
+      "disposition": "easy_fix_before_adoption",
+      "required_boundary": "Draft-only work must make no TOML change. The adoption packet must name the new governing declaration set, the derivation/compatibility relationship, the cutover instant, and retirement of TOML as governing authority."
+    },
+    {
+      "severity": "high",
+      "finding": "The new actual Project Declaration alone cannot replace every current TOML record. The file lists many non-Project Scope Units and includes fields beyond the currently decided declaration examples, so a one-instance Draft can establish no project-wide TOML retirement by itself.",
+      "evidence": [
+        "project_structure.toml:11-18",
+        "project_structure.toml:75-84",
+        "project_structure.toml:141-166",
+        "latest-input.md:14"
+      ],
+      "disposition": "operator_question",
+      "question": "Is the intended future cutover limited to the Project record first, or does it require a complete declared replacement inventory before TOML loses governing status?",
+      "safe_draft_position": "Do not claim TOML retirement or derived compatibility until the replacement inventory and consumer migration are explicit."
+    },
+    {
+      "severity": "medium",
+      "finding": "Ordering has two live TOML representations: scope_unit_type plus local_order/navigational_order_number. Latest input permits ordered/unordered and navigation number but decides no format/derivation rules; it does not resolve their relationship or sibling-order source of truth.",
+      "evidence": [
+        "project_structure.toml:75-84",
+        "project_structure.toml:85-105",
+        "latest-input.md:5"
+      ],
+      "disposition": "operator_question",
+      "question": "For ordered Scope Units, which declaration fact governs sibling order: navigation number, local order, both, or a later relation?",
+      "safe_draft_position": "Record existing observed values without declaring equivalence, derivation, or a new ordering grammar."
+    }
+  ],
+  "non_conflicts": [
+    "Separate external Goals are coherent with A1313 when their target is the governed Project and their content is not duplicated in the Declaration.",
+    "A Project Goal may remain Operator-owned and Tier -1; this does not establish ownership of the Project Declaration.",
+    "The generic declaration's Project root model supports a root with no containment parent, but it is Draft-only and does not decide physical carrier location or adoption."
+  ],
+  "scope_guardrails": [
+    "No Current methodology, project_structure.toml, code/runtime, projections, promotion, or automatic declaration synthesis is authorized in this Draft task.",
+    "No new GFEL syntax, functions, relation names, control/status machinery, or per-field rules should be introduced to resolve these gaps."
+  ],
+  "verification": {
+    "read_only_inputs_checked": 7,
+    "source_edits": "none",
+    "report_only_output": ".caprmedio_tmp/scope-unit-declaration-review-20261031/impact.json"
+  }
+}

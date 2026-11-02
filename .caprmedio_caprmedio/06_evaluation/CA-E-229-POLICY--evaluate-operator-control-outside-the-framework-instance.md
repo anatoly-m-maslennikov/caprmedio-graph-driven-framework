@@ -1,33 +1,34 @@
 ---
-version: 21
-updated_at: 2026-10-27 19:59:30 +0400
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-827
   evaluation_for:
   - CA-R-827
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  active: Project
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Project
+  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  - Atom/(.Role := Evaluation)
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-229
 status: Active
-content_role: Evaluation
-author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-type: Policy
 tier: 5
+role: Evaluation
+form: Eval Policy
 ---
-# Evaluate Operator control outside the framework instance
+## Summary
 
-## Claim checked
+Evaluate Operator control outside the framework instance
+
+## Claim
 
 the Operator controls **every** governed Project part outside the CAPRMEDIO Framework Instance, **and** **every** material change **to** those parts is observable, steerable, interruptible, **and** recoverable under the Operator's current authority.
 

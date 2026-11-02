@@ -1,37 +1,36 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-version: 20
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Atom.Content.Summary
+  passive:
+  - Atom
+  - Atom.ID
+  - Atom.Content
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-1464
-  - CA-R-1465
+  - CA-R-2499
   - CA-R-1273
 atom_id: CA-E-463
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate Summary identity preservation
 
-## Scope
+## Claim scope
 
 candidate Atom Revisions and their Summary Property.
 
 ## Claim
 
-the Evaluation **must** reject a candidate Atom Revision **if** its Summary differs from the Summary established for that Atom identity, even **when** its Claim is unchanged. it **must** reject treating Summary as an independently identified, versioned, **or** timestamped Artifact; Summary belongs **to** its Atom under CA-R-1465.
+the Evaluation **must** reject a candidate Atom Revision **if** its Summary differs from the Summary established for that Atom identity, even **when** its Claim is unchanged. it **must** reject treating Summary as an independently identified, versioned, **or** timestamped Artifact; Summary belongs **to** its Atom under CA-R-2499.
 
 ## Details
 

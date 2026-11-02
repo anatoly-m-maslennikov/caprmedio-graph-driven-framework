@@ -1,0 +1,23 @@
+---
+atom_id: CA-R-2487@2
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+subjects:
+  active: CFEL
+version: 2
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+tier: 3
+role: Requirement
+form: Entity Definition
+---
+## Summary
+
+Define CFEL
+
+## Claim
+
+CFEL (CAPRMEDIO Formal Expression Language) defines the syntax and meaning of graph expressions used in Subject addresses and Formal Claims.
+
+CFEL is a model component alongside Graph and Carrier. The Graph contains Nodes and Relations; CFEL expresses them.

@@ -8,23 +8,22 @@ status: Active
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
-version: 46
-updated_at: 2026-10-27 20:00:11 +0400
+version: 47
+updated_at: "2026-10-30 17:34:50 +0400"
 relations: {}
 tier: 3
 type: Rule
 ---
-# Summary
+## Summary
 
 Update CAPRMEDIO Markdown Atoms
 
-## Scope
+## Claim scope
 
 Same-identity updates of exact selected Markdown Atom Carriers by the ATOM_UPDATE Tool.
 
@@ -55,7 +54,7 @@ Logical Property edits additionally support explicit add, replace and remove; li
 
 Subject-only preview **must** select a complete original Atom Carrier with a stable Atom ID, excluding Draft and archived carriers by both carried Status and placement. Both the pinned source and proposed result **must** pass existing complete-carrier validation, including the applicable Content Role/Type Status model and correct Carrier placement. Preserve the carried Status byte-for-byte; do not activate the source or perform a lifecycle transition. Missing, ambiguous, unsupported, or stale validation authority **must** fail closed.
 
-Omitted `subject_profile` selects `legacy`; `approved` is explicit; unknown or malformed supplied profiles **must** fail. Subject patches apply only to direct structured `subjects.governs` and `subjects.depends_on` fields, and the selected profile validates both the source and resulting scalar Subjects. Legacy uses `/` bearer qualification and `:` allowed values with literal dots and rejects every `atom(...)` selector. Approved uses `/` broader-to-narrower, `.` bearer-to-dependent, and `:` Property-to-allowed-value, and accepts only the exact initial lowercase selector forms registered by CA-R-1321. `Atom` and `atom` remain distinct; both profiles reject `@`, escapes, every other selector construction, conjunctions, wildcards, evaluation, aliases, and profile inference in Subject syntax. This is syntax validation only and does not enumerate selector instances, admit a target, or add an apply path.
+Omitted `subject_profile` selects `legacy`; `approved` is explicit; unknown or malformed supplied profiles **must** fail. Subject patches apply only to direct structured `subjects.governs` and `subjects.depends_on` fields, and the selected profile validates both the source and resulting scalar Subjects. Legacy uses `/` bearer qualification and `:` allowed values with literal dots and rejects every `atom(...)` selector. Approved syntax is governed by the actual Current CA-R-1931, CA-R-1321, CA-R-1324, CA-M-228 and CA-E-383 definitions, resolved with their exact positive Versions, canonical paths and SHA-256 at the operation's Scope epoch. Preserve the case, references, grouping, escaping, operators and selector restrictions declared by those definitions; this consumer does not substitute an older descriptive grammar or infer a profile. Unsupported syntax, source drift or unavailable authority fails closed. Syntax validation does not establish Entity admission or instance resolution. This is syntax validation only and does not enumerate selector instances, admit a target, or add an apply path.
 
 Subject patches **must** reject a malformed or nested legacy Subjects shape, an
 absent or ambiguous current value, a stale pin, an escaped or symlink target, or a
@@ -75,7 +74,7 @@ The local wrapper **may** provide opt-in `run --stage-preview` for this same clo
 
 Staging **must** independently read back exact candidate bytes and SHA-256, run real complete-carrier validation against each original logical source path and applicable Status, then recheck source/identity/grammar pins using the same illustrative time. Return CA-D-425's separate closed manifest only after the whole batch passes; source drift must refuse success rather than refresh a preview. On failure report retained partial artifacts without a success seal or unsafe cleanup. Staged files are point-in-time review evidence, never effect approval.
 
-CA-M-371 defines the same-profile preview method. The historical
+CA-M-371 defines the ordinary same-profile preview and the explicit batch-only transition method below. The historical
 `@<version>` archive filename convention remains a Delivery concern and is not
 a Subject operator. CA-O-030 defines the operational Action. CA-E-304 supplies
 its automated conformance cases **without** duplicating them **in** this
@@ -105,7 +104,7 @@ CA-D-446's explicitly source-pinned edit draft is the full proposed next Revisio
 
 For promotion, bind the exact Draft bytes to an explicit target and expected state. An existing marker such as `CA-R-123@4-draft` requires target `CA-R-123`, an exact current predecessor at Version 3, and a proposed Version 4; legacy `CA-R-123@draft` supplies the same binding explicitly in the request. Archive the exact current predecessor bytes, materialize the canonical target at the proposed Version with its original admitted Status, and remove the Draft carrier. An ID-free or `CA-R-draft` Draft uses an explicitly admitted fresh next-unreused canonical ID. Any target, Version, digest, marker, placement or destination drift refuses before effects. No retained Draft history, lineage or Journal append is a gate; Journal records observations after the independent effect.
 
-The existing `atom_update` Tool accepts `{operation: "stage_subject_batch", subject_batch: {path, digest}, limit?}` under CA-D-531. `limit` is a strict integer 1..10, default 10. Each call creates at most that many drafts with normal safe create-only/no-follow file checks and readback, changes no canonical/history files, and returns compact actual progress: `operation`, `state: "staging"|"staged"|"stopped"`, `count`, `completed`, `remaining`, `stage_run_id`, and `reviewed_packet: {path, digest}|null`, plus actual failure evidence. Only completed staging returns the final schema1 packet pinning every draft. Preserve truthful partial artifacts; never report partial work as completed.
+The existing `atom_update` Tool accepts `{operation: "stage_subject_batch", subject_batch: {path, digest}, limit?}` under CA-D-531. `limit` is a strict integer 1..10, default 10. Each call creates at most that many drafts with normal safe create-only/no-follow file checks and readback, changes no canonical/history files, and returns compact actual progress: `operation`, `state: "staging"|"staged"|"stopped"`, `count`, `completed`, `remaining`, `stage_run_id`, and `reviewed_packet: {path, digest}|null`, plus actual failure evidence. Only completed staging returns the final packet pinning every draft, preserving its schema1 or schema2 version and exact declared profiles. Preserve truthful partial artifacts; never report partial work as completed.
 
 For this batch, local carrier parsing, exact descriptors, explicit old-value patches, selected grammar, safe layout, deterministic byte materialization and conditional-write/readback are the normal checks; do not repeatedly revalidate unchanged body content or build a global reference inventory for every member. The existing final graph operation remains separate.
 
@@ -140,3 +139,19 @@ The by-current-value, Property and section contracts state required behavior; pr
 ATOM_UPDATE also admits CA-D-425's direct MCP preview_subjects and stage_subjects operations. They are preparation Tool calls, not actual Atom-update Action Runs: preview writes nothing; explicit stage writes only fresh derived candidates and their manifest in the fixed Project scratch layout. They create no Session, Action Run, canonical Journal, authoritative Carrier or history effect. Actual enclosing-Step Tool-call recording and the existing Workflow semantic policy owner remain unchanged.
 
 Direct input uses explicit logical Atom ID, Version, SHA-256 and selected profile. Support only implemented scalar/by-current-value replacement and complete dependency-set replacement; reject add/remove, generic edits, indexes and physical selectors. Preserve full selected-source/result validation, eligibility, identity/grammar/currentness and byte-preservation safeguards. Preparation supplies review evidence for later assessment without requiring or claiming completed O067/O145 assessment. Native staging must compare its own preview with the requested reviewed seal before any scratch creation, retaining same-time final revalidation. No supplied hash, candidate or manifest grants source-effect permission. Actual publication's source-effect admission guards remain unchanged; Journal recording is plain observation, not an admission or completion gate.
+
+### Explicit batch-only source-profile transition
+
+The instructed Subjects-only batch admits `source_subject_profile: "legacy"` with target `subject_profile: "approved"` only for the exact active packet member and its bound request.
+
+An existing schema1 packet has no `source_subject_profile` field and keeps the selected-profile validation of both source and result. A transition schema2 packet requires the exact string `"legacy"`; missing, `null`, empty, unknown and every other value are rejected. No profile is inferred and no parser fallback is permitted.
+
+The existing closed schema1 batch packet is unchanged and rejects `source_subject_profile`. The explicit transition uses a separate closed packet with exactly `schema_version: 2`, `subject_profile: "approved"`, `source_subject_profile: "legacy"`, `git_checkpoint` and `atoms`; existing member and draft descriptors are unchanged. The outer `{subject_batch: {path, digest}}` request and every ordinary public preview, direct preparation and singleton request remain unchanged; those ordinary requests reject `source_subject_profile`.
+
+The exact active batch context must bind the packet digest, selected target, ordered patches, request and both declared profiles before the planner may validate source Subjects under `legacy`. Every resulting governs and depends_on value must validate under `approved`, including values left unchanged by the patches. Preserve final complete-carrier validation and all existing eligibility, identity, placement, Status, unrelated-byte and effect checks.
+
+Retain separate source and target grammar evidence. Each evidence object contains exactly `grammar_pins` and `native_admission: "not_performed"`; every pin contains `atom_id`, positive `version`, canonical Project-relative `path` and `sha256`. The source profile binds the five existing historical legacy grammar definitions; the target profile binds the five actual Current approved grammar definitions at that operation's Scope epoch. Reopen and revalidate both sets at staging, materialization and effect; drift or unavailable authority refuses the attempt without rebinding or fallback.
+
+For this explicit transition only, the private Subject intent uses `schema_version: 2`: the existing schema1 fields plus exactly `source_subject_profile` and `source_subject_profile_evidence`. Its `subject_profile` and `subject_profile_evidence` remain the approved target pair. Seal both pairs and every existing intent field in the same canonical-JSON SHA-256 calculation. The ordinary same-profile path continues to produce the unchanged closed schema1 intent. Reject unknown fields, mixed versions, a mismatched profile pair or reuse outside the exact active packet member and request.
+
+Recognize this permission only from this operative section in the uniquely resolved Current M371, R866 and O030 authority carriers, each with its actual positive Version, canonical path and SHA-256 bound to the operation. A Draft, historical citation, prohibition, keyword mention or unknown clause is not permission. The delivery bindings in D425 and D531 must also agree with these closed shapes. Source authoring alone does not activate the route or establish implementation acceptance.

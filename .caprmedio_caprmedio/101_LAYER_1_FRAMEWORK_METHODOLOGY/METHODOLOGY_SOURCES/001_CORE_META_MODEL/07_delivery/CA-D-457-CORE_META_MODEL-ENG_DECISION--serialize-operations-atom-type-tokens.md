@@ -1,29 +1,28 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - Subject/CAPRMEDIO/Carrier
-version: 22
-updated_at: 2026-10-27 19:59:25 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type'
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - Carrier
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-457
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize Operations Atom Type tokens
 
-## Scope
+## Claim scope
 
 Operations Atom File Carriers and their Type filename tokens.
 
@@ -36,5 +35,3 @@ an Operations Atom File Carrier **must** serialize its Type using this filename-
 | Action | `ACTION` |
 | Workflow | `WORKFLOW` |
 | Step | `STEP` |
-
-## Details

@@ -1,30 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name
-version: 27
-updated_at: 2026-10-27 20:00:13 +0400
+  active: Scope Unit.Name
+version: 31
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-962
 atom_id: CA-R-971
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Keep Readable Scope Unit Name Renderings Nonauthoritative
 
-## Scope
+## Claim scope
 
 readable renderings derived from Scope Unit Names.
 
 ## Claim
 
 a readable rendering derived from a Scope Unit Name **must not** become an independent Scope Unit property **or** authority.
-
-## Details

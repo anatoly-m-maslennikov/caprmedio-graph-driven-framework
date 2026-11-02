@@ -1,0 +1,8 @@
+{
+  "result": "Pass",
+  "cases": 38,
+  "keys_unique": true,
+  "nonblank": true,
+  "output_sha256": "7376eac58e048664800a8d37633f52c4178e12b013ba8702e3bbc2dec221db8a",
+  "comparison_sha256": "a3245c2a1d5b373dd6f17646ec57a659720c4e1297d5e02e4308aa0c5314b51f"
+}

@@ -1,31 +1,28 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  depends_on: []
-version: 16
-updated_at: 2026-10-27 19:59:56 +0400
+  active: Projection
+  passive: []
+version: 20
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-1746
+  - CA-R-2535
 atom_id: CA-R-1493
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Identify how each Projection is rebuilt
 
-## Scope
+## Claim scope
 
 Projection generators, generation procedures, and declared configurations.
 
 ## Claim
 
 a Projection's governed generator **or** generation procedure **and** declared configuration **must** identify how **to** rebuild that Projection.
-
-## Details

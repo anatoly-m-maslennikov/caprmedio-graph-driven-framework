@@ -9,8 +9,8 @@ author: Anatoly Maslennikov
 status: Done
 subjects:
   governs: Subject
-version: 15
-updated_at: 2026-10-28 00:02:56 +0400
+version: 17
+updated_at: 2026-10-29 21:51:04 +0400
 relations: {}
 tier: 3
 ---
@@ -24,7 +24,7 @@ Prepare, review and adopt Candidate #10, migrate the selected Current RMEDO Subj
 
 ## Details
 
-Candidate: [A1218 — Subject model Candidate #10](../02_analysis/CA-A-1218-SPECIFICATION_PROPOSAL--subject-model-candidate-10.md).
+Candidate: [A1218 — Subject model Candidate #10](../02_analysis/done/CA-A-1218-SPECIFICATION_PROPOSAL--subject-model-candidate-10.md).
 
 The Candidate belongs in an Analysis Atom of Type Specification Proposal. P Atoms hold tasks and progress. Each accepted review decision has its own A / Specification Proposal file; P Atoms link to it instead of copying decision text or the Candidate.
 
@@ -88,3 +88,7 @@ The Operator replaced the main-only deliverable with a full source-backed graph,
 - [Dependency-only Subjects](../_projection/CA-PROJ-013-CAPRMEDIO--Subject-Graph-Dependency-only-Subjects--Current-RMEDO.md).
 
 All four artifacts carry exact versioned source lists and bare definition IDs in the body. Dependency-only is evaluated within the selected sources. Isolated renderer/selection fixtures and actual publication/source checks pass, including Core-plus-Relation selection. The local scratch generator supports the selectors; production Tools/MCP/runtime remain unchanged. Existing unrelated Drafts remain untouched.
+
+## Formal Model migration follow-up
+
+[P2683 — Migrate Formal Model syntax and Claims](CA-P-2683-EPIC--migrate-formal-model-syntax-and-claims.md) owns the newly authorized syntax, Format, Relation, Claim-layout and formalization work. It is a separate Active follow-up; this Epic and its completed Candidate #10 tasks remain Done. No new migration result is implied by this link.

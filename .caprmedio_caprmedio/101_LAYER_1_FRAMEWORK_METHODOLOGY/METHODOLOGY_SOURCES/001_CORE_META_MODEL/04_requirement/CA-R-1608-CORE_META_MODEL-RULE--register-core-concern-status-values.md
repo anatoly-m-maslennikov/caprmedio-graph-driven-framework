@@ -1,31 +1,28 @@
 ---
 atom_id: CA-R-1608
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern.Status'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
-version: 17
-updated_at: 2026-10-27 19:59:59 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Status'
+  passive:
+  - Atom/(.Role := Concern)
+  - Atom.Status
+version: 21
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Register Core Concern Status Values
 
-## Scope
+## Claim scope
 
 the Core Concern Status model.
 
 ## Claim
 
 the Core Concern Status model **must** inherit the allowed values of Atom.Status and add (Resolved, Canceled).
-
-## Details

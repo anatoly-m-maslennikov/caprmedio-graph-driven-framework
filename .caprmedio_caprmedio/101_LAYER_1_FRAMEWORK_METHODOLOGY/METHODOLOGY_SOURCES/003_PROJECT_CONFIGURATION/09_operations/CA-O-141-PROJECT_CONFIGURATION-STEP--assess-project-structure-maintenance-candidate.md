@@ -15,8 +15,8 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
-version: 13
-updated_at: 2026-10-27 19:59:46 +0400
+version: 14
+updated_at: 2026-10-29 22:26:57 +0400
 relations:
   depends_on:
   - CA-R-1510
@@ -35,7 +35,7 @@ Project Structure Maintenance Candidate Assessment Step **means** the node **in*
 | Required input or parameter | Bound source |
 | --- | --- |
 | Bounded candidate and its stated checks | CA-O-140's returned proposal, expected effects, validation conditions and affected-source frontier. |
-| Applicable authority and current selected source state | The same Workflow Run's current authority, Goal/Principles and CA-O-139's retained source identities/Revisions; the candidate is assessed against that exact frontier. |
+| Applicable authority and current selected source state | The same Workflow Run's current authority, Goal/Project-owned Tier 0 Atoms and CA-O-139's retained source identities/Revisions; the candidate is assessed against that exact frontier. |
 
 For an invocation whose actual bound Action is Agentic, bind **=1** Integrated **or** Isolated context under CA-R-1527 from the admitted invocation's supplied `agentic_execution_context` runtime parameter **before** dispatch. Missing, ambiguous **or** unsupported values, **or** unavailable required context/capability, block that Agentic invocation; do **not** default **or** silently substitute. A Programmatic invocation does **not** acquire an Agent context. Applicable authority, permissions and remaining retry allowance come from the same Workflow Run; the binding grants no additional authority.
 

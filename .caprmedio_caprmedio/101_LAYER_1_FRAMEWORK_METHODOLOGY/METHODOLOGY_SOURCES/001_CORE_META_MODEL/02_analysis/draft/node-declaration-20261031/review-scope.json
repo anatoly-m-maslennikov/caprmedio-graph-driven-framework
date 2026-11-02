@@ -1,0 +1,6 @@
+{
+  "current_phase": "model declarations, notation and constraints",
+  "deferred": "actual Workflow/Step/Substep/Action instance review and migration",
+  "examples": "illustrative; not an actual instance audit",
+  "not_completion_of": "adoption, runtime or deferred instance migration"
+}

@@ -1,27 +1,26 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
-  - Subject/CAPRMEDIO/Carrier/File
-  - Subject/CAPRMEDIO/Carrier/Directory
-version: 21
-updated_at: 2026-10-27 19:59:25 +0400
+  active: Atom/(.Role := Plan)
+  passive:
+  - Atom/(.Role := Plan)
+  - Carrier/File
+  - Carrier/Directory
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-460
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize Plan Atom Carrier Bundles
 
-## Scope
+## Claim scope
 
 Plan Atom Carrier Bundles.
 
@@ -33,5 +32,3 @@ a Plan Atom Carrier Bundle **must** consist of **`=1`** Markdown File Carrier **
 - a matching directory organizes related Plan Carriers; it neither creates another Atom **nor** replaces the mandatory Markdown file.
 - the file **and** optional directory represent the same identity, Summary, Label, **and** Status, checked under CA-D-480-CORE_META_MODEL-DELIVERY--keep-atom-addresses-consistent-with-carried-properties.
 - related Plan files carry independent Atoms; they are **not** additional Carriers of the Hub's Claim.
-
-## Details

@@ -1,0 +1,44 @@
+{
+  "status": "research_options_only",
+  "reviewed": {"primary_declarations": 23, "rules_and_relation_definitions": 20, "other_forms": 9, "property_declarations": "excluded, separate review"},
+  "principles": ["Use existing GFEL where sufficient; propose no operator merely to suppress meaningful prose.", "Examples below are conceptual sketches, not accepted grammar or runnable GFEL.", "No expression creates extra authored inverse facts, invents Relation names, or treats a multi-valued binding as scalar.", "Do not conflate : value cases, = tests, == conclusions or >> delivery."],
+  "options": [
+    {
+      "pattern": "General set exclusion in selectors",
+      "recommendation": "Most promising bounded extension: generalize the already proposed !(selectors) exclusion from delivery selections to ordinary typed GFEL selectors, with an explicit base and evaluation order.",
+      "sketch": "(Scope Unit// !(Project//)) ...; (Package// !(selected root)) ...",
+      "source_cases": [
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md", "line": 23, "observation": "Each non-root Package has one immediate Package parent; the exact root selector still needs authority."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md", "line": 26, "observation": "Project has zero containing Scope Units; the wider Scope Unit kind has a different bound."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--deliver-objects-to-carriers.md", "line": 27, "observation": "Existing proposed !(selectors) operator is scoped to Object delivery selections."}
+      ],
+      "guards": ["Do not infer a new one-parent requirement for every non-Project Scope Unit from the Project exception alone.", "Specify kind-versus-instance selection, local relative base, inheritance and an empty result before use.", "Use an independently established Package root; do not invent one."],
+      "alternatives": ["Keep existing prose when a source does not identify the complement set.", "Use existing IF/THEN once the actual root predicate is already expressible; no extension if that suffices."]
+    },
+    {
+      "pattern": "Source-backed derived mapping over relations and values",
+      "recommendation": "Investigate only if several source-bound derivations cannot use HAS_INVERSE or existing IF/THEN. Consider a general directed derived-from construct, with explicit binding variables and set-valued projection; retain HAS_INVERSE for inverse relations.",
+      "sketch": "derived edge set <~ source field or relation set (illustrative only; <~ not admitted)",
+      "source_cases": [
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-active-subject-link.md", "line": 22, "observation": "HAS_ACTIVE_SUBJECT derives from subjects.active, which may represent a set."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-has-inverse.md", "line": 22, "observation": "The inverse link set derives from direct links with endpoints swapped; HAS_INVERSE already models this special case."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md", "line": 35, "observation": "Subject and relation values bind to derived active links and inverse containment views; delivery is separate from derivation."}
+      ],
+      "guards": ["Define variable scope, direction, provenance, equality of sets, invalid sources and many-to-many multiplicity.", "A derived result is not separately authored and is not an instruction to mutate the source or repair contradictions.", "Do not confuse a field-to-edge derivation with >> carrier placement, == required value, or HAS_INVERSE metadata.", "Do not replace an existing construct solely to increase the formal-only count."],
+      "alternatives": ["Retain prose and HAS_INVERSE; this is the smallest present contract.", "Use two existing IF/THEN constraints only after binding and source-provenance semantics are defined."]
+    },
+    {
+      "pattern": "General relation-path reachability",
+      "recommendation": "Research later, not a priority adoption proposal. A reusable relation-path closure could express reachability and self-reachability constraints without introducing a one-off ACYCLIC predicate.",
+      "sketch": "hypothetical generic transitive relation closure plus identity comparison; exact tokens and precedence deliberately undecided",
+      "source_cases": [
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md", "line": 23, "observation": "Property bearing must be acyclic, including self-loops."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2149-CORE_META_MODEL-RULE--constrain-governing-rmed-relation-targets-by-numeric-tier-and-scope-ancestry.md", "line": 30, "observation": "Stored governing links can target a strict ancestor Scope Unit; immediate versus transitive reachability matters."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md", "line": 23, "observation": "A Scope Unit cannot contain itself; immediate and indirect self-containment are distinct questions."}
+      ],
+      "guards": ["Do not introduce ACYCLIC or another single-use predicate.", "Do not assume an immediate no-self constraint alone forbids all indirect cycles.", "Do not use Node//**; recursion of Relation paths must not be confused with Node/Property recursive selectors.", "Specify strict vs reflexive closure, domains, direction, empty paths and cost before any syntax."]
+    }
+  ],
+  "keep_as_prose": ["GFEL operator definitions and their precedence explain the language itself; translating them into that language is circular.", "Meaning of Node, Object, Projection, Journal, Role, Form and Carrier is not necessarily a mechanical constraint.", "Projection authority, Journal append-only history, execution evidence and source-provenance obligations require event, authority and identity models not established by the inspected Drafts; do not invent a broad event DSL.", "Acyclic IS_PROPERTY_OF remains in Claim prose until a genuinely reusable and reviewed path algebra exists."],
+  "limits": "Candidate syntax only. No Draft changes, new grammar admission, implementation, migration or runtime claim."
+}

@@ -1,0 +1,23 @@
+---
+atom_id: CA-R-2532@3-draft
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: Project.Settings
+version: 3
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+## Summary
+
+Declare Project.Settings
+
+## Claim
+
+```CFEL
+Project.Settings{:1}: []{:0};
+Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Extension Selections, Implementation Retry Limit, Tool Selections, RMED Review)]{:3..13}
+```

@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-01",
+  "decision": "Keep exactly two Journal prose points: ordered accepted Event Records; immutable accepted Event Records",
+  "supersedes_wording": "journal-prose-retention-decision-20261101.json",
+  "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+  "before_sha256": "9b00a90c62f503a35fce5a53b0b140c8256c1a3dfc4bbc5a9f9b0a2d94fb977d",
+  "after_sha256": "fa3cc333bbd71a3eb2cd5b7be8ff01084e1b7c16d8853b843b99ef2f720fd6c4",
+  "claim_prose": "- A Journal is an ordered table of accepted Event Records.\n- Accepted Event Records are immutable.",
+  "formal_block_unchanged": true,
+  "removed": [
+    "Authority prose",
+    "Correction process prose",
+    "Atom Claim authority prose",
+    "Storage independence prose already supplied by Node/Carrier separation",
+    "Views are Projections prose about another topic"
+  ],
+  "semantics": "A Journal preserves accepted event history.",
+  "authoring_method": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-positive-claims-about-the-active-subject.md",
+  "style_rule": "Prefer positive wording, stay on the active Subject, and reuse shared rules",
+  "new_syntax": false,
+  "prose_count_effect": 0
+}

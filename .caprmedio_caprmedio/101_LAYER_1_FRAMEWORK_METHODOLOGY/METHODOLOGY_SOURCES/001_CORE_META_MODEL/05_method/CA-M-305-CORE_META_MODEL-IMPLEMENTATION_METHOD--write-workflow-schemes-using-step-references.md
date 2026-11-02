@@ -1,28 +1,27 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-version: 16
-updated_at: 2026-10-27 19:59:41 +0400
+  active: Atom/(.Role:=Operations)/Workflow
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - Atom/(.Role:=Operations)/Action
+version: 22
+updated_at: 2026-11-02 08:06:47 +0400
 relations:
   method_for:
   - CA-R-1570
 atom_id: CA-M-305
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Write Workflow schemes using Step references
 
-## Scope
+## Claim scope
 
 Workflow schemes using Step references.
 
@@ -34,5 +33,3 @@ Workflow schemes using Step references.
 - state the entry, declared Step order and structural Relations, Conditional Step routing, **and** terminal outcomes against those nodes.
 - place Action references **and** parameter/input bindings **in** leaf Step Atoms rather than reproducing them **in** the scheme; a containing Step carries its nested substeps and no own Action launch.
 - reference reusable Action behavior from the Steps; do **not** paste it into either the Step **or** graph Claim.
-
-## Details

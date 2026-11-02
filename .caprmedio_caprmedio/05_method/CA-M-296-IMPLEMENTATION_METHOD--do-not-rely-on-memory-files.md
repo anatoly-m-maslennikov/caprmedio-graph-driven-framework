@@ -2,31 +2,34 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-version: 15
-updated_at: 2026-10-27 19:59:41 +0400
+  active: Project
+  passive:
+  - Project
+  - Entity/Object/Continuant/Term//Artifact
+  - Atom
+  - Journal
+  - Projection
+  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - Entity/Object/Continuant/Actor/Operator
+version: 21
+updated_at: 2026-11-02 00:18:22 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   child_of:
-  - CA-R-1490
+  - CA-R-2448
 atom_id: CA-M-296
 status: Active
-content_role: Method
-author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-type: Implementation Method
 tier: 1
+role: Method
+form: Implementation Method
 ---
-# Do not rely on memory files
+## Summary
+
+Do not rely on memory files
+
+## Claim
 
 **to** preserve valuable information while developing caprmedio, keep that information recoverable from its proper Project Artifacts **without** depending on Agent memory **or** session continuity.
 

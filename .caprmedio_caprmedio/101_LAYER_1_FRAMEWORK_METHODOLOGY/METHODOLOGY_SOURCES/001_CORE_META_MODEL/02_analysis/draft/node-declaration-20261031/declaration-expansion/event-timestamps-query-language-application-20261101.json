@@ -1,0 +1,13 @@
+{
+  "status": "Reviewed generic CFEL language Draft; final review PASS",
+  "rule": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md",
+  "review_clarifications": [
+    "Kind includes narrower kinds",
+    "Outer variable binding explicit; unresolved variables error"
+  ],
+  "timestamp_declarations_changed": false,
+  "event_schema_changed": false,
+  "creation_event_policy": "Resolved: select create and update events",
+  "runtime_changed": false,
+  "final_review": "event-timestamps-query-language-final-review-20261101.json"
+}

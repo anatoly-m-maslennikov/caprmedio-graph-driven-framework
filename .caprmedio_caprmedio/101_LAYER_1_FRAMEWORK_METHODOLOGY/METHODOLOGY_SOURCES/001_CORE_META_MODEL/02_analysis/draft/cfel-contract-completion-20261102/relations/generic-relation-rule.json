@@ -1,0 +1,13 @@
+{
+  "source_id": "CA-R-2486",
+  "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+  "source_version": 2,
+  "source_sha256": "d1614746ca3bd8585167a19aa40529369fbb4f3b89092934a7a45c7af391a924",
+  "summary": "Declare Relation endpoints",
+  "draft_id": "CA-R-2486@3-draft",
+  "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2486@3-draft-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+  "draft_sha256": "f380aa61381beb73bfb7d010a4d0609980d1840ffc32f4aaef0c22efb1a9a35d",
+  "disposition": "N+1 successor; Summary preserved",
+  "source_change": "Replaces old no-separate-inverse Definition clause with the user-approved Declaration requirement, and specifies untyped endpoint-signature binding over the declared Entity universe.",
+  "implementation_limit": "Draft model contract only; existing parser and evaluator support are not asserted."
+}

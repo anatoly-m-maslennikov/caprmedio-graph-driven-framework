@@ -1,28 +1,27 @@
 ---
 atom_id: CA-E-588
-content_role: Evaluation
-type: Eval Case
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: FPF Analysis Report'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-  - Subject/CAPRMEDIO/Carrier
-version: 11
-updated_at: 2026-10-27 19:59:37 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: FPF Analysis Report'
+  passive:
+  - Entity/Aspect/Engineering/Traceability
+  - Carrier
+version: 15
+updated_at: 2026-11-02 00:55:09 +0400
 relations:
   evaluation_for:
   - CA-R-1889
 tier: 3
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Check FPF Analysis Report Imports
 
-## Scope
+## Claim scope
 
 content-preserving migration of existing reports into FPF Analysis Report Carriers.
 
@@ -30,7 +29,7 @@ content-preserving migration of existing reports into FPF Analysis Report Carrie
 
 an FPF Analysis Report import **must** pass all of the following checks before the original Carrier is retired:
 
-- the exact Type and filename token are admitted, the carried Atom ID is unique, and the declared Content Role, owning Scope Unit, tier, Author, Status and Revision metadata match the selected authority;
+- the exact Type and filename token are admitted, the carried Atom ID is unique, and the declared Role, owning Scope Unit, tier, Status and Version metadata match the selected authority;
 - exactly one Summary and the ordered Question, Scope, Approach, Results and TLDR sections occur outside the quoted source content, with nonempty values;
 - removing only the quotation wrapper recovers every original source byte, including Unicode, line endings, nested headings, code fences and terminal-newline state; its SHA-256 and byte length match the frozen source;
 - every selected source has exactly one destination, no existing destination is overwritten, stale inputs and destination collisions stop the batch, and a failed batch does not retire an unverified source;

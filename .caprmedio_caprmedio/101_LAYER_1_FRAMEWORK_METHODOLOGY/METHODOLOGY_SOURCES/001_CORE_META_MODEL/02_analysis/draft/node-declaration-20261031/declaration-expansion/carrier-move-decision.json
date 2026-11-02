@@ -1,0 +1,32 @@
+{
+  "operator": ">>",
+  "meaning": "move",
+  "target": "@Carrier//Markdown file",
+  "frontmatter": "delimited YAML at beginning",
+  "metadata_selector": "Atom.**!(.Content, .Content.**)",
+  "content_selector": "Atom.Content.**",
+  "filename": "Carrier property",
+  "location": "Carrier property, repository-relative directory path",
+  "formula_expressions": "not invented; equality remains condition",
+  "renamed_drafts": {
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--map-model-data-to-carriers.md": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--move-model-data-to-carriers.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--represent-atoms-in-markdown-files.md": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--move-atoms-to-markdown-files.md"
+  },
+  "node_selector": "Node/**, .**",
+  "root_inclusive_selector": "Node, Node/**, .**",
+  "selector_changed_paths": [
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-GFEL--use-node-graph-notation.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-narrowing.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-instantiation.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-classification.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-composition.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-active-subject-link.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/node-declaration-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--admit-container-classification.md"
+  ],
+  "current_changed": false
+}

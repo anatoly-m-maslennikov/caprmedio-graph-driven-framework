@@ -1,0 +1,29 @@
+---
+subjects:
+  governs: Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  depends_on: []
+version: 25
+updated_at: 2026-10-29 10:13:49 +0400
+relations:
+  child_of:
+  - CA-R-047
+atom_id: CA-R-1734@25
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
+---
+## Summary
+
+Preserve self-improvement stage meanings
+
+## Claim scope
+
+governed self-improvement stages.
+
+## Claim
+
+**every** governed self-improvement stage **must** retain the canonical Content-role meaning of the artifact that represents it **without** absorbing the meaning of an earlier **or** later stage.

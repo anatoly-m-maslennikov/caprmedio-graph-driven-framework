@@ -36,6 +36,7 @@ from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
     validate_proposed_carrier,
 )
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError, parse_carrier
+from VALIDATE_ATOMS.validate_atoms_workers.check_sections import _headings
 
 SCHEMA_VERSION = 1
 SETTINGS_PATH = Path(".caprmedio_caprmedio/caprmedio_project_settings.toml")
@@ -515,14 +516,23 @@ def _with_atom_id(frontmatter: str, atom_id: str | None, *, allow_draft_marker: 
 def frontmatter_scalar(frontmatter: str, name: str) -> str | None:
     """Read one simple top-level scalar without reserializing the carrier."""
 
-    matches = re.findall(rf"(?m)^{re.escape(name)}:\s*(.*?)\s*$", frontmatter)
-    if len(matches) > 1:
-        raise ToolError("atom-frontmatter-invalid", f"Atom has duplicate {name} values")
-    if not matches:
-        return None
-    value = matches[0].strip()
-    if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
-        value = value[1:-1]
+    aliases = {"content_role": "role", "type": "form"}
+    def read(key: str) -> str | None:
+        matches = re.findall(rf"(?m)^{re.escape(key)}:\s*(.*?)\s*$", frontmatter)
+        if len(matches) > 1:
+            raise ToolError("atom-frontmatter-invalid", f"Atom has duplicate {key} values")
+        if not matches:
+            return None
+        value = matches[0].strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
+            value = value[1:-1]
+        return value
+    value = read(name)
+    if name in aliases:
+        alternate = read(aliases[name])
+        if value is not None and alternate is not None and value != alternate:
+            raise ToolError("atom-frontmatter-invalid", f"Atom has conflicting {name} and {aliases[name]} values")
+        return value if value is not None else alternate
     return value
 
 
@@ -539,9 +549,12 @@ def _draft_marker_from_filename(filename: str) -> str | None:
 
     head = Path(filename).stem.split("--", 1)[0]
     head = re.sub(r"^[0-9]+-", "", head)
-    if _DRAFT_MARKER_VALUE.fullmatch(head):
-        return head
-    if "@" in head and re.search(r"draft$", head):
+    match = re.fullmatch(rf"(?P<marker>{_DRAFT_MARKER_VALUE.pattern})(?:-[A-Z0-9_]+)*", head)
+    if match is not None:
+        if CURRENT_FILENAME.fullmatch(filename) is None:
+            raise ValueError("filename contains a malformed Draft marker carrier")
+        return match.group("marker")
+    if "@" in head or re.search(r"-draft(?:-|$)", head):
         raise ValueError("filename contains a malformed Draft marker")
     return None
 
@@ -588,11 +601,37 @@ def _without_promotion_metadata(frontmatter: str) -> str:
     return re.sub(r"(?m)^(?:atom_id|status|version|updated_at):[^\n]*(?:\n|$)", "", frontmatter).rstrip("\n")
 
 
-def _draft_summary(content: str) -> str:
-    match = re.search(r"(?ms)^# Summary\s*\n+(.+?)(?=^#|\Z)", content)
-    if match is None:
-        raise ToolError("summary-missing", "# Summary must carry a non-empty value")
-    return match.group(1).strip()
+def _draft_summary(content: str, *, content_role: str | None = None) -> str:
+    """Read one first unfenced Summary; schema validation still owns candidate layout."""
+    headings = _headings(content)
+    summaries = [row for row in headings if row[1].strip().casefold() == "summary"]
+    if not summaries:
+        raise ToolError("summary-missing", "Summary must carry a non-empty value")
+    allowed = {1} if content_role in {"Concern", "Analysis", "Plan", "Operations"} else {1, 2}
+    if (len(summaries) != 1 or summaries[0] != headings[0]
+            or summaries[0][0] not in allowed or summaries[0][1] != "Summary"):
+        raise ToolError("summary-ambiguous", "Summary must be the one first applicable unfenced heading")
+    start = summaries[0][2]
+    lines = content.splitlines()
+    end = next((index for _, _, index in headings if index > start), len(lines))
+    value = "\n".join(lines[start + 1:end]).strip()
+    if not value:
+        raise ToolError("summary-missing", "Summary must carry a non-empty value")
+    return value
+
+
+def _canonical_source_summary(atom: Atom) -> str:
+    """Read one canonical source Summary, including the legacy identified Plan H2 form."""
+    content_role = frontmatter_scalar(atom.frontmatter, "content_role")
+    if (atom.atom_id is not None and atom.lifecycle == "active" and atom.role_directory == "03_plan"
+            and content_role == "Plan"):
+        headings = _headings(atom.content)
+        summaries = [row for row in headings if row[1].strip().casefold() == "summary"]
+        if len(summaries) == 1 and summaries[0] == headings[0] and summaries[0][:2] == (2, "Summary"):
+            lines = atom.content.splitlines(keepends=True)
+            lines[summaries[0][2]] = lines[summaries[0][2]].replace("## Summary", "# Summary", 1)
+            return _draft_summary("".join(lines), content_role=content_role)
+    return _draft_summary(atom.content, content_role=content_role)
 
 
 def _bind_existing_draft_marker(
@@ -625,7 +664,8 @@ def _existing_draft_preserves_canonical(draft: Atom, canonical_target: Atom) -> 
         raise ToolError("atom-role-changed", "existing Draft promotion must retain the canonical Content Role")
     if frontmatter_scalar(draft.frontmatter, "type") != frontmatter_scalar(canonical_target.frontmatter, "type"):
         raise ToolError("atom-type-changed", "existing Draft promotion must retain the canonical Type")
-    if _draft_summary(draft.content) != _draft_summary(canonical_target.content):
+    if (_draft_summary(draft.content, content_role=frontmatter_scalar(draft.frontmatter, "content_role"))
+            != _canonical_source_summary(canonical_target)):
         raise ToolError("summary-changed", "existing Draft promotion must retain the canonical Summary")
     return _normalized_promotion_candidate_matches(draft.frontmatter, draft.content, canonical_target)
 
@@ -1625,6 +1665,26 @@ def demote_atom_to_draft(root: Path, atom: Atom, frontmatter: str, content: str,
     return observed
 
 
+def _draft_promotion_filename(atom: Atom, atom_id: str, marker: DraftMarker | None) -> str:
+    """Replace only the validated identity segment, retaining mutable filename tokens."""
+    identity = re.fullmatch(r"([A-Za-z0-9]+-[A-Z]+)-[0-9]+", atom_id)
+    role_prefix = marker.value.removesuffix("-draft") if marker is not None else None
+    if marker is not None:
+        if _draft_marker_from_filename(atom.filename) != marker.value:
+            raise ToolError("draft-promotion-invalid", "Draft filename and marker differ")
+        filename = re.sub(rf"^(\d+-)?{re.escape(marker.value)}(?=-)",
+                          lambda match: (match.group(1) or "") + atom_id, atom.filename, count=1)
+    else:
+        match = re.fullmatch(r"([A-Za-z0-9]+-[A-Z]+)--(.+)", atom.filename)
+        if match is None:
+            raise ToolError("draft-promotion-invalid", "Draft filename has no admitted role prefix")
+        role_prefix, summary = match.groups()
+        filename = atom_id + ("-" if "--" in summary else "--") + summary
+    if identity is None or role_prefix != identity.group(1):
+        raise ToolError("draft-promotion-invalid", "Draft filename and assigned identity do not share one role prefix")
+    return filename
+
+
 def prepare_draft_promotion(root: Path, atom: Atom, atom_id: str, frontmatter: str, content: str, *,
                             relative_path: str | None = None) -> tuple[Path, str, bytes]:
     """Derive exact identified output bytes without consuming the Draft carrier."""
@@ -1636,19 +1696,12 @@ def prepare_draft_promotion(root: Path, atom: Atom, atom_id: str, frontmatter: s
     marker = _draft_marker_identity(root, atom.path, atom.frontmatter)
     if marker is not None and marker.canonical_id is not None:
         raise ToolError("draft-promotion-marker-unsupported", "carried Draft markers require their admitted source-bound promotion effect")
-    match = (re.fullmatch(rf"{re.escape(marker.value)}--(.+)", atom.filename) if marker is not None
-             else re.fullmatch(r"([A-Za-z0-9]+-[A-Z]+)--(.+)", atom.filename))
-    identity = re.fullmatch(r"([A-Za-z0-9]+-[A-Z]+)-(\d+)", atom_id)
-    role_prefix = marker.value.removesuffix("-draft") if marker is not None else match.group(1) if match else None
-    if match is None or identity is None or role_prefix != identity.group(1):
-        raise ToolError("draft-promotion-invalid", "Draft filename and assigned identity do not share one role prefix")
+    filename = _draft_promotion_filename(atom, atom_id, marker)
     role_name = _role_directory(atom.path, control)
     if role_name is None:
         raise ToolError("archive-location-missing", "Draft has no content-role location")
     role = next(parent for parent in atom.path.parents if parent.name == role_name)
-    summary = match.group(1) if marker is not None else match.group(2)
-    separator = "-" if "--" in summary else "--"
-    target = (role / f"{identity.group(1)}-{identity.group(2)}{separator}{summary}").resolve()
+    target = (role / filename).resolve()
     if relative_path is not None:
         target = safe_path(root, relative_path)
     if target.exists() or atom_id_has_preserved_history_evidence(root, atom_id):

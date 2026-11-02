@@ -1,34 +1,40 @@
 ---
 atom_id: CA-R-1992
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step.Enabled Relations.Contains'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Enabled Relations.Contains
+  active: Atom/(.Role := Operations)/Step
+  passive:
+  - Atom/(.Role := Operations)/Substep
+  - Atom/(.Role := Operations)/Action
+  - CFEL <+ Relation//IS_CONTAINED_BY
 relations:
   child_of:
-  - CA-R-1945
-version: 10
-updated_at: 2026-10-27 20:00:07 +0400
+  - CA-R-2478
+version: 15
+updated_at: 2026-11-02 08:06:47 +0400
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Enable containment for Step Atoms
 
-## Scope
+## Claim scope
 
-Containment capability of Step Atoms, including nested substeps.
+the declared Relation whitelist of the Step model kind, including nested Substeps.
 
 ## Claim
 
-`Atom/Content Role: Operations/Type: Step.Enabled Relations.Contains` **must** be True. a Step Atom **may** contain other Step Atoms. a containing Step with substeps has no own Action launch.
+a Step declaration **must** whitelist the canonical direct `IS_CONTAINED_BY` Relation from a Substep model kind to that Step. It **must not** introduce `Enabled Relations.Contains` as a Property. `CONTAINS` remains the derived inverse declared by CA-R-2478 and **must not** be authored as a second containment fact.
 
 ## Details
 
-A substep is a nested Step, not a separate Type. a leaf Step, including a leaf substep, launches **exactly one** referenced reusable Action with its parameters **and** input bindings; a containing Step owns its nested substeps and launches no Action of its own. Containment is optional and can nest. This permission does not change a Step's Action reference or input bindings, prescribe how internal tool calls are modeled, or introduce a storage layout or execution protocol.
+the Step declaration permits the following exclusive model alternatives:
+
+- one or more Substep model-kind children and no RUN relation to an Action model kind; **or**
+- no Substep model-kind child and exactly **`1`** RUN relation to an Action model kind.
+
+the direct containment fact is written once, with `Substep +> Step` denoting the part-to-whole form and `Step <+ Substep` the same fact read whole-to-part. Any written named relation follows `A((R))B` forward or `B<((R))A` reverse, with the count attached to the written end. This rule does not introduce a storage layout, execution protocol, or actual Workflow-instance constraint.

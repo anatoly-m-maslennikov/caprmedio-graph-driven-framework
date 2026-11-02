@@ -1,50 +1,51 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Carrier
-version: 19
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Carrier/File.Main Content
+  passive:
+  - Carrier
+  - Journal
+  - Event Record
+  - Atom.ID
+  - Carrier
+version: 25
+updated_at: 2026-11-02 08:06:47 +0400
 relations:
   evaluation_for:
   - CA-D-435
   - CA-D-339
 atom_id: CA-E-465
-content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate replacement Event schema encoding
 
-## Scope
+## Claim scope
 
-the selected schema-version `3` replacement Event Carrier.
+the Main Content of the selected schema-version `3` replacement Journal Event Carrier.
 
 ## Claim
 
-the selected schema-version `3` replacement Event Carrier satisfies CA-D-435-PROJECT_CONFIGURATION-DELIVERY--serialize-atom-replacement-event-references **without** treating Project conformance as storage integrity.
-
-## Details
+the Main Content of the selected schema-version `3` replacement Journal Event Carrier **must** support evaluation of CA-D-435-PROJECT_CONFIGURATION-DELIVERY--serialize-atom-replacement-event-references without treating Project conformance as storage integrity.
 
 ## Cases
 
-- case 1: encode a completed File Carrier `MOVE` event with paired string predecessor **and** array-of-string successor fields; preserve the supplied successor order.
+- case 1: encode a completed File Carrier `MOVE` Event Record with paired string predecessor **and** array-of-string successor fields; preserve the supplied successor order.
 - case 2: keep that envelope valid **and** vary the observed IDs: canonical, legacy, nonconforming, duplicate, self-referencing, **or** an empty successor array. also vary the result filename **or** archive placement independently of the safe Event path encoding.
 - case 3: omit **only** one paired field, supply null **or** the wrong storage type, use a schema **or** Event kind that does **not** define the pair, **or** change the payload **without** updating its digest.
-- case 4: replay an identical sealed Event; **then** submit a different payload under the same Event identity.
-- case 5: validate an ordinary historical record **without** replacement fields.
+- case 4: replay an identical sealed Event Record; **then** submit a different payload under the same Event identity.
+- case 5: validate an ordinary historical Event Record without replacement fields.
 
 ## Acceptance
 
+the Main Content evaluation **must** report that:
+
 - cases 1 **and** 2 remain recordable with the supplied values unchanged. case 2 **may** fail CA-E-462-CORE_META_MODEL-POLICY--validate-atom-replacement-event-evidence independently; its conformance verdict **must not** prevent recording under CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.
-- case 3 fails the selected encoding **or** integrity check **without** changing accepted history.
-- the identical replay reuses the existing receipt **without** a duplicate record; an identity collision with a different payload fails **without** overwriting history.
+- case 3 fails the selected encoding **or** integrity check without changing accepted history.
+- the identical replay reuses the existing receipt without a duplicate record; an identity collision with a different payload fails without overwriting history.
 - case 5 retains its selected historical schema. passing this Evaluation does **not** prove active successors, exact archive preservation, valid Project identifiers, valid placement, **or** a correctly performed replacement.

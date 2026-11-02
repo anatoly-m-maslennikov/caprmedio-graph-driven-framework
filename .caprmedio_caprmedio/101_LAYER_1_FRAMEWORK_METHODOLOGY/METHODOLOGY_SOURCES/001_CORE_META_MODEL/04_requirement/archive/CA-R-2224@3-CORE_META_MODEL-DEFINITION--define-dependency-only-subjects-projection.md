@@ -1,0 +1,27 @@
+---
+atom_id: CA-R-2224@3
+content_role: Requirement
+type: Entity Definition
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+subjects:
+  governs: 'Entity/Object/Continuant/Projection/Type: Subject Graph Dependency-only Subjects'
+  depends_on:
+  - Entity/Object/Continuant/Projection
+  - Entity/Object/Continuant/Selection
+relations:
+  depends_on:
+  - CA-R-2150
+tier: 2
+version: 3
+updated_at: 2026-10-29 07:45:28 +0400
+---
+## Summary
+
+Define Dependency-only Subjects Projection
+
+## Claim
+
+A Subject Graph Dependency-only Subjects Projection **means** the exact canonical Subject paths occurring in subjects.depends_on but not in subjects.governs within the same selected Current RMEDO source set. Apply the declared Subject-branch filter to those targets. List each path once with its referring Atom IDs, alphabetically. Governs references outside the selected sources do not remove a path from this view. Its entries describe selection-relative coverage, not proof of a project-wide missing definition.

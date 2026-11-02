@@ -1,0 +1,33 @@
+{
+  "result": "fix_required",
+  "findings": [
+    {
+      "file": "CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-active-subject-link.md",
+      "issue": "Formal endpoint `Atom// ((HAS_ACTIVE_SUBJECT)) Node/` restricts every Atom active Subject to Node/, although the selected one-to-one restriction applies only to Declaration-to-Node links and Subjects can address free topics.",
+      "repair": "Resolve the general active-Subject endpoint set without asserting all Subjects are Nodes; retain the Declaration-scoped one-to-one rule. If no admitted endpoint syntax can express it, explicitly gate that signature instead of inventing grammar."
+    },
+    {
+      "file": "CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-run.md",
+      "issue": "The endpoint signature and inverse identify permitted participants but do not define RUN as an execution binding or say it is not evidence of observed execution.",
+      "repair": "State the established general meaning once in this Definition, as prose if necessary, retaining the formal endpoint and HAS_INVERSE clauses."
+    }
+  ],
+  "checks": [
+    "30 registered Draft hashes match.",
+    "No separate inverse Definition carrier found in register.",
+    "Eight Relation Definitions have Formal claim endpoint signatures.",
+    "IS_CONTAINED_BY / CONTAINS is the direct/inverse composition pair.",
+    "Node acyclicity is prose Claim without a new predicate.",
+    "Declaration is Requirement/Form."
+  ],
+  "limits": [
+    "Endpoint signature grammar and its application are not admitted parser/runtime behavior.",
+    "No Current, Git or runtime edits."
+  ],
+  "root_closure": {
+    "run_meaning": "one concise Claim states execution binding; endpoints and inverse stay formal",
+    "active_subject": "general topics allowed in prose; formal endpoint clause explicitly scoped to Declaration cohort, no invented Subject intermediary kind",
+    "latest_containment": "IS_CONTAINED_BY / CONTAINS",
+    "single_use_syntax": "none introduced"
+  }
+}

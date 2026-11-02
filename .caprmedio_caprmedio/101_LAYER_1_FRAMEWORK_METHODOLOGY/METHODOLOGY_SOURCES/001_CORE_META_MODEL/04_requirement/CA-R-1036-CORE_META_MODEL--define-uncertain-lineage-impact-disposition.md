@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: Subject
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Relation
-version: 21
-updated_at: 2026-10-27 19:59:49 +0400
+  active: Atom
+  passive:
+  - CFEL > Relation
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1036
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Definition
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Define uncertain Lineage Impact disposition
 
-## Scope
+## Claim scope
 
 `uncertain` Lineage Impact dispositions.
 
 ## Claim
 
-`uncertain` **means** a blocking Question **or** Problem is required **and** traversal stops on that branch **until** resolution.
 
-## Details
+When a Lineage Impact analysis addresses an Atom, `uncertain` must mean a blocking Question or Problem is required and traversal stops until resolution.
+

@@ -1,0 +1,77 @@
+{
+  "status": "implemented in owned Draft files only; no runtime, register, Current, or Git mutation",
+  "files": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive.md",
+      "before_sha256": "13b435b58d09b2a3a617213728a8d24eeee2d378bba1fe52a4b2a50b25064cb8",
+      "after_sha256": "739c560a7ed8bf658a9f28b747a5c364ead10be10c91606d023c7a8db428605e",
+      "before": "Passive Subjects identify distinct direct contextual dependencies. Atom.Subjects.Passive{:0..1}: [string]{:0+}; Atom.Subjects.Passive.*[]{:0}",
+      "after": "Passive Subjects identify direct contextual dependencies. Atom.Subjects.Passive{:0..1}: [string]{:0+}; Atom.Subjects.Passive.*[]{:0}; COUNT(Atom.Subjects.Passive: $) = COUNT(DISTINCT Atom.Subjects.Passive: $)"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--count-property-values-and-distinct-values.md",
+      "before": "absent",
+      "after_sha256": "81cdf9affdacde92944edcef903a5320dacdf14fc1b882b370c7fe499f570d2e",
+      "purpose": "Defines per-bearer direct-value occurrence selection, COUNT, and COUNT(DISTINCT ...) using Format equality."
+    }
+  ],
+  "model_cases": [
+    {
+      "case": "two-different-passive-values",
+      "values": [
+        "A",
+        "B"
+      ],
+      "counts": "COUNT = 2; COUNT(DISTINCT) = 2",
+      "result": "pass"
+    },
+    {
+      "case": "duplicate-direct-value",
+      "values": [
+        "A",
+        "A"
+      ],
+      "counts": "COUNT = 2; COUNT(DISTINCT) = 1",
+      "result": "fail"
+    },
+    {
+      "case": "known-absent-optional-property",
+      "values": [],
+      "counts": "COUNT = 0; COUNT(DISTINCT) = 0",
+      "result": "pass; normal optional occurrence contract remains applicable"
+    },
+    {
+      "case": "case-and-whitespace-not-coerced",
+      "values": [
+        "A",
+        "a",
+        "A "
+      ],
+      "counts": "COUNT = 3; COUNT(DISTINCT) = 3 under string equality",
+      "result": "pass; no trim or case folding"
+    },
+    {
+      "case": "per-bearer-not-global",
+      "values": "Atom one has A; Atom two has A.",
+      "counts": "Each current bearer has COUNT = COUNT(DISTINCT) = 1",
+      "result": "pass; values are not compared across Atoms"
+    },
+    {
+      "case": "dependent-name-not-selected",
+      "values": "A Property child is named A but direct Passive values are B.",
+      "counts": "Only direct values B are selected",
+      "result": "child names do not affect the equality"
+    },
+    {
+      "case": "malformed-value-population",
+      "values": "The effective bearer/property population cannot be resolved.",
+      "counts": "undefined",
+      "result": "error, not empty selection"
+    }
+  ],
+  "preserved": [
+    "Passive remains optional with zero-or-more [string] direct values and no children.",
+    "The direct contextual-dependency meaning prose remains.",
+    "Legacy literal and Format uses of `p:` are unchanged outside COUNT selection."
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "changed": [
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "sha256": "42d8d0b923cafe6f63058c5af6f829d510c7054a59d2d4824e3285406ef8aad6"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "699418c13e2685a45e5cf3841306b464402e35b222f5ad83745f023fc95a4899"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "c1c93e855eb141e805c7bbedb9ef7b6fcd11f471c1e56fd09f30f0308413b231"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "sha256": "8c1edff8284e9dd6570010c2dcdbf72a3f586c8ba923411996151b315b0bdef0"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "6f4f9d549d8dc93fd11c2bbb33fa156226ddb4d6a8886ffecf1cdc00d8ea5bbe"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-form-registration.md",
+      "sha256": "ea99ad35894ca06b69c571fb4a6ec3bd9c522f3d3b4fdec32498f67b99f7e017"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/node-declaration-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "sha256": "389f69b772218ad5a689048947dd1588764702bb9193eda85bc1d77ddb13d6e5"
+    }
+  ],
+  "reviewed_unchanged": [
+    "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+    "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md"
+  ],
+  "current_semantics_evidence": [
+    {
+      "atom": "CA-R-1530",
+      "use": "Operations meaning"
+    },
+    {
+      "atom": "CA-R-1563",
+      "use": "Workflow graph"
+    },
+    {
+      "atom": "CA-R-1509",
+      "use": "Step within Workflow"
+    },
+    {
+      "atom": "CA-R-2242",
+      "use": "Substep as leaf within Step"
+    },
+    {
+      "atom": "CA-R-1452",
+      "use": "Action as reusable building block"
+    }
+  ],
+  "checks": [
+    "GFEL formal structural rules preserved; no new notation.",
+    "Semantics added only to the five Primary Operations Nodes; no Property Semantics added.",
+    "Property direct values and dependent children specified separately; inherited Properties use their original Declaration.",
+    "Declaration remains Requirement/Form and other Atoms are excluded from its ownership count.",
+    "Actual Operations instance review remains deferred; no runtime admission."
+  ]
+}

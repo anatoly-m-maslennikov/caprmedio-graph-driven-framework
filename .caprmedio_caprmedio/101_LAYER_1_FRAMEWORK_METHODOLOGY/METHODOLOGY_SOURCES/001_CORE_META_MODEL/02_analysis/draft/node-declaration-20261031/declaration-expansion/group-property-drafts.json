@@ -1,0 +1,101 @@
+{
+  "drafts": [
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Tier",
+      "form": "Declaration",
+      "sha256": "be69cb2c1d1f87f4f3d99d0a36eea10663e1a024fe890fdbb0d4f02cb968fca2",
+      "source_pins": [
+        {
+          "id": "CA-R-2124",
+          "version": 14,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2124-CORE_META_MODEL-ENTITY-DEFINITION--define-numeric-tier-as-an-atom-property.md",
+          "sha256": "02f2a33b4fb2450026353c106ea63b070f838c2d22dc5a69e1d2fe587c916947"
+        }
+      ],
+      "slots": "value domain and count; immediate dependent domain and count stated"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier-label.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Tier.Label",
+      "form": "Declaration",
+      "sha256": "4fef68ffa4e2939ed9bf5a20c10b107d17f351dfac2a8dc0a9c5daa479de0227",
+      "source_pins": [
+        {
+          "id": "CA-R-2274",
+          "version": 2,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2274-CORE_META_MODEL-ENTITY-DEFINITION--define-atom-tier-label.md",
+          "sha256": "6c671520877f8dc8cc715be2944b75207bedca9c16e2ee1b2a8872f29da6cfa3"
+        }
+      ],
+      "slots": "value domain and count; immediate dependent domain and count stated"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Subjects.Passive",
+      "form": "Declaration",
+      "sha256": "1653ecfaeddd94b0cf8ea250f297fdd2b2fec4ac2457bc86b11ec09db6187e13",
+      "source_pins": [
+        {
+          "id": "CA-R-1198",
+          "version": 29,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-DEFINITION--define-atom-subjects.md",
+          "sha256": "49a6997f18420036ae28a69e10ba850c274901ac8ba1c895be1410741fbfcb3b"
+        },
+        {
+          "id": "CA-R-1278",
+          "version": 22,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1278-CORE_META_MODEL--allow-zero-or-more-dependency-subjects.md",
+          "sha256": "00c89b148e75626d03eb9de9d871f68c6c0994d172fba4cf2d9bf094ce7dd6bf"
+        }
+      ],
+      "slots": "value domain and count; immediate dependent domain and count stated"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Relations",
+      "form": "Declaration",
+      "sha256": "ec29991069006ab9e7d2c00458e6c5b07b113f795d7f25e47680a0ce95cdc00b",
+      "source_pins": [
+        {
+          "id": "CA-R-2281",
+          "version": 1,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2281-CORE_META_MODEL-ENTITY_DEFINITION--define-atom-relations.md",
+          "sha256": "283ae860c9e0f3c2cf48bea1df3c57018c84c7ca55e29ddec1a37f7ae05a6786"
+        },
+        {
+          "id": "CA-D-657",
+          "version": 1,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "sha256": "34d889b05d5a0167960c9c63d435f3ba7f6595f2629eeb210a6051eb32539ad8"
+        }
+      ],
+      "slots": "value domain and count; immediate dependent domain and count stated"
+    }
+  ],
+  "open_slots": [
+    {
+      "subject": "Atom.Subjects",
+      "issue": "Grouping has no direct value and known Active/Passive children, but exact total immediate child cardinality for incomplete Drafts is not established. Do not assume a minimum or maximum without source review."
+    },
+    {
+      "subject": "Atom.Subjects.Active",
+      "issue": "Exactly one active Subject is established for complete Current Atoms; cardinality of an incomplete Draft is not fully specified. An unconditional {1} would incorrectly apply the Current-only rule to all Drafts. The exact conditional GFEL expression remains to review."
+    }
+  ],
+  "checks": [
+    "No inherited Property is redeclared.",
+    "Absent known children use the latest explicit zero-dependent default.",
+    "Tier Label is preserved as a known optional child.",
+    "Atom.Relations uses Relation// for its immediate dependent domain; individual relation keys and Author/Target mapping are not invented.",
+    "No Property Semantics or runtime instance migration."
+  ],
+  "notes": [
+    "Subject/cardinality and reference selector syntax require admitted GFEL review.",
+    "The source inventory predates the user decision on the no-dependent default; that latest decision applies here."
+  ]
+}

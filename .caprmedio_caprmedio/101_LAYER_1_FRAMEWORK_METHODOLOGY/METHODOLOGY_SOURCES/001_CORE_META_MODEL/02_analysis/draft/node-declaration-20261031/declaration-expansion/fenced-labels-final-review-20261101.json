@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checked": [
+    "One selected label per parsed fenced block, per bearer; duplicates retained",
+    "Only CFEL label and at most one fence; empty allowed, unlabelled/non-CFEL rejected",
+    "Indented blocks excluded; unavailable parse or ambiguous labels error",
+    "No raw info-string/case policy or graph properties added; body validation separate"
+  ],
+  "limits": [
+    "Parsed label binding and runtime parser remain implementation gates"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "status": "read_only_candidates",
+  "files": [
+    {
+      "subject": "Atom.Tier",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+      "before": "Project Goals use Tier -1. Ordinary Scope Unit-owned Atoms use Tier 0 or higher.",
+      "action": "keep",
+      "after": "Project Goals use Tier -1. Ordinary Scope Unit-owned Atoms use Tier 0 or higher.",
+      "rationale": "The general >= -1 constraint does not establish either conditional rule. No equivalent inherited rule was found in the reviewed packet."
+    },
+    {
+      "subject": "Atom.Subjects.Passive",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive.md",
+      "before": "Passive Subjects identify direct contextual dependencies.",
+      "action": "keep",
+      "after": "Passive Subjects identify direct contextual dependencies.",
+      "rationale": "The parent declares the group and counts; the child string/count/uniqueness clauses do not define the referenced targets. No equivalent shared meaning found. Do not delete solely because it sounds descriptive."
+    },
+    {
+      "subject": "Atom/(.Role := Requirement)/(.Form := Relation Definition).Content.notation_for_subject",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md",
+      "before": "When a short subject notation is admitted for the Relation, this Property is required.",
+      "action": "keep",
+      "after": "When a short subject notation is admitted for the Relation, this Property is required.",
+      "rationale": "The optional presence count does not express this conditional requirement. No identical shared conditional was found."
+    },
+    {
+      "subject": "Scope Unit.Path",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "before": "The path records the ordered ancestry of Scope Unit identities.",
+      "action": "keep",
+      "after": "The path records the ordered ancestry of Scope Unit identities.",
+      "rationale": "A nonempty string list does not impose ancestry, order, or identity. No equivalent ancestor Claim was found."
+    },
+    {
+      "subject": "Journal",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "before": "- A Journal is an ordered table of accepted Event Records.\n- Accepted Event Records are immutable.",
+      "action": "move_and_remove",
+      "after": "Delete both prose bullets from Journal. Add “Accepted Event Records are immutable.” to the Event Record Claim. Retain the Journal CONTAINS CFEL and its existing Semantics.",
+      "rationale": "User explicitly removed ordered-table wording and placed immutability on Event Record. Current Event Record Claim does not yet state immutability; removing both without moving it would lose the constraint."
+    },
+    {
+      "subject": "Projection.Source.Atoms",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-atoms.md",
+      "before": "Each value is an Atom ID with an explicit Version.",
+      "action": "keep",
+      "after": "Each value is an Atom ID with an explicit Version.",
+      "rationale": "The [string] format does not constrain either Atom identity or Version; parent Source only states allowed children and count. No registered typed Format was found."
+    },
+    {
+      "subject": "MODEL",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-model.md",
+      "before": "- A Project uses CAPRMEDIO's MODEL.\n- A Project may define a local MODEL.\n- A local MODEL inherits CAPRMEDIO's MODEL.\n- It may override any inherited rule.",
+      "action": "edit",
+      "after": "- A Project uses CAPRMEDIO’s MODEL.\n- A local MODEL inherits CAPRMEDIO’s MODEL.\n- A local MODEL admits an override of any inherited rule.",
+      "rationale": "Omit the isolated “may define” sentence: the following conditional local-MODEL rule covers the case without imposing a local-model requirement. Keep explicit project use and local inheritance; no equivalent relation/signature was found. The shared inheritance Rule already states override replacement and base preservation, but does not explicitly state that every inherited rule is overridable. Keep that broad permission in positive form. Avoid duplicating shared one-owner resolution."
+    }
+  ],
+  "shared_evidence": [
+    "RULE--declaration-one-owner-per-node states one effective Current Declaration per Node per selected MODEL.",
+    "RULE--declaration-inheritance-and-relation-whitelist states explicit local override replacement, reuse of unchanged Declarations, and preservation of base MODEL.",
+    "Atom.Subjects parent specifies Active/Passive children and cardinalities, not passive dependency meaning.",
+    "Projection.Source parent specifies Named Selection/Atoms children and counts, not identity/version of each Atom reference."
+  ],
+  "blocking_questions": [],
+  "limitations": [
+    "Absence of an equivalent was checked in the relevant live packet, not a full audit of all Current sources.",
+    "Candidates require integration and source review; no Drafts changed."
+  ]
+}

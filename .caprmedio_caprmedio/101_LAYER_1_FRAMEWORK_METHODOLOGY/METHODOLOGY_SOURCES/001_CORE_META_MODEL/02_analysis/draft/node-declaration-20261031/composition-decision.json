@@ -1,0 +1,13 @@
+{
+  "canonical_direct": "IS_CONTAINED_BY",
+  "derived_inverse": "CONTAINS",
+  "supersedes": "IS_PART_OF / HAS_PART naming choice",
+  "reason": "Containment is more specific than generic parts",
+  "notation": [
+    "+>",
+    "<+"
+  ],
+  "classification": "Container: yes/no",
+  "carrier_key": "relations.contained_by",
+  "current_changed": false
+}

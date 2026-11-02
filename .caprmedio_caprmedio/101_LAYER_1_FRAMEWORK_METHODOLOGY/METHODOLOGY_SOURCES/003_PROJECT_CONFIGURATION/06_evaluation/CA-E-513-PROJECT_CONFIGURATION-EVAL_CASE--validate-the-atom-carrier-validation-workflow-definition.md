@@ -1,32 +1,31 @@
 ---
 atom_id: CA-E-513
-content_role: Evaluation
-type: Eval Case
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-version: 19
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Carrier
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - Atom/(.Role := Evaluation)
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-O-080
   - CA-O-087
   - CA-O-088
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate the Atom Carrier Validation Workflow definition
 
-## Scope
+## Claim scope
 
 the Atom Carrier Validation Workflow definition.
 
@@ -39,5 +38,3 @@ the Atom Carrier Validation definition check **must** reject a graph **or** bind
 - verify that this graph is acyclic, contains no implicit retry **or** repair, **and** does **not** duplicate Action behavior inside its Step bindings **or** graph.
 - verify that findings do **not** prevent assessment of independent targets, while missing authority **or** changed inputs cannot become proof of conformance.
 - reference current self-sufficiency **and** source-binding Evaluations for the checked conditions; definition conformance **must not** be reported as a successful Tool execution.
-
-## Details

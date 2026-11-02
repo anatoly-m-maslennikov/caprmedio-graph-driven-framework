@@ -1,0 +1,22 @@
+{
+  "Object": "Node instance",
+  "operator": ">>",
+  "meaning": "deliver Object to Carrier",
+  "target": "@Carrier//Markdown file",
+  "filename": "Carrier property",
+  "location": "repository-relative directory property",
+  "restores_Object_taxonomy": false,
+  "renamed_drafts": {
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--move-model-data-to-carriers.md": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--deliver-objects-to-carriers.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--move-atoms-to-markdown-files.md": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md"
+  },
+  "Node_instance_reference_repairs": [
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-instantiation.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--admit-container-classification.md"
+  ],
+  "current_changed": false,
+  "Object_kind": "Term",
+  "instance_notation": "Node//",
+  "Object_classification": false,
+  "introduce_Node_double_slash_recursive_selector": false
+}

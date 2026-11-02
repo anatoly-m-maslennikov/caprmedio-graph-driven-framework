@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
-  - Subject/CAPRMEDIO/Carrier
-version: 27
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Entity/Aspect/Engineering/Execution Control/Decision Confidence
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Term//Property
+  - Atom/(.Role := Concern)
+  - Carrier
+version: 32
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-1587
   - CA-R-1044
   - CA-R-1045
-  - CA-R-1427
+  - CA-R-1427@17
   - CA-R-1428
   - CA-M-271
   - CA-R-1591
@@ -23,19 +23,18 @@ relations:
   - CA-D-485
   - CA-R-1713
 atom_id: CA-E-443
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate confidence-threshold precedence **and** inheritance
 
-## Scope
+## Claim scope
 
 the confidence-threshold Evaluation.
 
@@ -53,5 +52,3 @@ the confidence-threshold Evaluation **must** preserve CA-M-271-CORE_META_MODEL-I
 - confidence below the effective value requests Operator disposition; equal **or** greater confidence grants no additional authority.
 
 report the selected source, context, expected value, **and** failed condition **without** mutating source values.
-
-## Details

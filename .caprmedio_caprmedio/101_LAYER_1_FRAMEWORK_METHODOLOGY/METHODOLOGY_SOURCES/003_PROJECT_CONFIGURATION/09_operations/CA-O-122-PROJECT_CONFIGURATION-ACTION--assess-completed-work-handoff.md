@@ -17,8 +17,8 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-version: 15
-updated_at: 2026-10-27 19:59:46 +0400
+version: 16
+updated_at: 2026-10-29 22:26:57 +0400
 relations:
   depends_on:
   - CA-R-1583
@@ -37,7 +37,7 @@ This optional read-only Action assesses a completed bounded Plan's actual result
 ### Inputs and preconditions
 
 - the admitted assessment request, selected predecessor Plan identity and current Revision, bounded actual outputs, and references to existing completion, check and performed-effect evidence. Include non-implementation work; a supplied Done value or historical test/save report alone is not completion proof.
-- applicable current authority and Project Principles, the predecessor's own work, Plan containment and Definition of Done, and any unresolved completion obligations under CA-R-1583 and CA-R-1599.
+- applicable current authority and Project-owned Tier 0 Atoms, the predecessor's own work, Plan containment and Definition of Done, and any unresolved completion obligations under CA-R-1583 and CA-R-1599.
 - the declared complete universe of candidate next Plans, its scope and exclusions, each candidate's exact current Revision, Claim boundary, inputs, required checks, prerequisites, declared consumption bindings and explicit blocking Relations. Folder order, sibling location and mere mentions are not dependency evidence.
 - the assessor's authorized read context and applicable permission limits. If separately authorized reconciliation has already occurred, provide its exact CA-O-079 outcome, before/current Revisions and recoverable effect evidence; do not assume or replay an effect.
 

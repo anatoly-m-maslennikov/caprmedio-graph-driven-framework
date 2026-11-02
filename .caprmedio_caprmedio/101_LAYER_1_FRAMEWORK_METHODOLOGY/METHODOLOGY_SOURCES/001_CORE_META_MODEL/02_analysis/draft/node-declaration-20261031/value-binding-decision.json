@@ -1,0 +1,7 @@
+{
+  "decision": "Property values on instances remain literals; HAS_VALUE is a value binding, not a Node-to-Node Relation",
+  "example": "CA-P-123.version = 1",
+  "impact": "No Declaration for literal 1; property declarations constrain instance values; no Property HAS_INSTANCE edge",
+  "pending": "Exact formal spelling for countable binding constraints",
+  "current_changed": false
+}

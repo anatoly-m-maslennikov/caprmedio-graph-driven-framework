@@ -1,29 +1,26 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Parent
-  depends_on: []
-version: 27
-updated_at: 2026-10-27 20:00:00 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
+  passive: []
+version: 31
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1658
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Prohibit skipped Scope Unit ownership
 
-## Scope
+## Claim scope
 
 Scope Unit ownership through a stored structural-parent relation.
 
 ## Claim
 
 a Scope Unit **must not** own a descendant Scope Unit through a stored structural-parent relation **when** another active Scope Unit lies between them.
-
-## Details

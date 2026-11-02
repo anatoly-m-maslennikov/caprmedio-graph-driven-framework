@@ -1,27 +1,26 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation/Type'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation/Type'
-version: 16
-updated_at: 2026-10-27 19:59:56 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation/Type'
+  passive:
+  - Atom/(.Role := Evaluation)
+  - Entity/Aspect/Engineering/Verification
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation/Type'
+version: 19
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1506
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Separate check mechanism labels from Evaluation Atom Types
 
-## Scope
+## Claim scope
 
 mechanism labels and admitted Type values for Evaluation Atoms.
 

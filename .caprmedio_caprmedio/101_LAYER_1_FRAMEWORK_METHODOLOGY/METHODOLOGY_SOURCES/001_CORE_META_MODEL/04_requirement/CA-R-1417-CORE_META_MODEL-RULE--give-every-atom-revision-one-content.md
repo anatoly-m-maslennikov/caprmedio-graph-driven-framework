@@ -1,26 +1,25 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-version: 25
-updated_at: 2026-10-27 19:59:54 +0400
+  active: Atom.Content
+  passive:
+  - Atom
+  - Atom.Content
+version: 31
+updated_at: 2026-11-02 00:55:09 +0400
 relations: {}
 atom_id: CA-R-1417
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Give Every Atom Revision One Content
 
-## Scope
+## Claim scope
 
 The Content of each Atom version.
 
@@ -30,14 +29,6 @@ Each Atom version **must** have exactly one Content portion.
 
 ## Semantics
 
-Content is the natural-language portion whose meaning generally requires
-interpretation, represented by Markdown under the applicable D rules. Tools
-can extract sections and check structure; that does not prove their meaning.
-Structured YAML properties and operative formal rules are separate. A formal
-Graph Rule can have only Summary in its Markdown Content, with optional
-Semantics and Details; its fully formal Claim stays in its YAML `claim.*`
-mapping. That does not require a duplicate `atom.content.claim`. Content does
-not introduce another generic Substance field. The retained Summary's word
-Revision refers to an Atom version, not a separate Revision entity.
+Content is the Markdown portion whose natural-language meaning generally needs interpretation. Metadata properties use YAML. A complete RMED Content portion has its Claim as a direct Markdown value. A fenced CFEL expression may provide that value without prose. Do not create a separate Formal Claim child. Tools can extract sections or parse the supported formal syntax without proving all prose meaning.
 
-## Details
+One Content portion is a structured group with zero direct scalar values and independently counted child properties. This introduces no generic Substance field. The retained Summary's word Revision means an Atom version, not a separate Revision entity.

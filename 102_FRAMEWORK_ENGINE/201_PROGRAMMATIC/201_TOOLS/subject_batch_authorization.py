@@ -17,6 +17,16 @@ from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 from workflow_run_support import RunExecutionSession, _canonical_digest
 
 _ACTIVE: ContextVar[Any] = ContextVar("subject_batch_admission", default=None)
+_OPERATIVE_CLAUSE = "The instructed Subjects-only batch admits `source_subject_profile: \"legacy\"` with target `subject_profile: \"approved\"` only for the exact active packet member and its bound request."
+_INTENT_DELIVERY_CLAUSE = "The transition intent is exactly `{schema_version: 2, target, subject_profile: \"approved\", subject_profile_evidence, source_subject_profile: \"legacy\", source_subject_profile_evidence, subject_patches, proposal, execution_metadata, predecessorArchive, noop}`."
+_PACKET_DELIVERY_CLAUSE = "The existing closed schema1 packet and ordinary singleton request above remain unchanged and reject `source_subject_profile`. A separately instructed legacy-to-approved batch uses exactly `{schema_version: 2, subject_profile: \"approved\", source_subject_profile: \"legacy\", git_checkpoint, atoms}`."
+_TRANSITION_AUTHORITY = (
+    (".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/CA-M-371-TOOL_WORKFLOWS-ENG_DECISION--preview-exact-subject-patches-for-valid-atom-carriers.md", _OPERATIVE_CLAUSE),
+    (".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-866-TOOL_WORKFLOWS-RULE--update-caprmedio-markdown-atoms.md", _OPERATIVE_CLAUSE),
+    (".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-030-TOOL_WORKFLOWS-ACTION--update-sealed-caprmedio-atom-carriers.md", _OPERATIVE_CLAUSE),
+    (".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/07_delivery/CA-D-659-TOOL_WORKFLOWS-DECISION--deliver-atom-update-tool.md", _INTENT_DELIVERY_CLAUSE),
+    (".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-660-TOOLS-DECISION--deliver-sealed-lifecycle-dispatch-interface.md", _PACKET_DELIVERY_CLAUSE),
+)
 
 
 @dataclass
@@ -29,6 +39,20 @@ class BatchAdmission:
     completed: dict[str, str] = field(default_factory=dict)
 
 
+def require_subject_profile_transition_authority(root: Path) -> None:
+    """Admit mixed-profile packets only after all three live contracts say so."""
+    for path, clause in _TRANSITION_AUTHORITY:
+        if path is None:
+            raise ValueError("Subject profile transition delivery authority is unbound")
+        source = capture_source(root, path)
+        try:
+            raw = source.read_bytes().decode("utf-8")
+        except Exception:
+            raise ValueError("Subject profile transition authority is unavailable")
+        if clause not in raw:
+            raise ValueError("Subject profile transition authority is not active")
+
+
 def capture_batch_admission(root: Path, frozen: Mapping[str, Any]) -> dict[str, Any]:
     """Bind the selected packet and finite governing sources without a review round."""
     root = Path(root).resolve(strict=True)
@@ -37,6 +61,8 @@ def capture_batch_admission(root: Path, frozen: Mapping[str, Any]) -> dict[str, 
 
     execution = frozen["request"]["execution"]
     packet = load_subject_batch(root, execution["parameters"])
+    if packet.get("source_subject_profile") == "legacy":
+        require_subject_profile_transition_authority(root)
     require_subject_batch_frontier(packet, execution, root=root)
     require_git_checkpoint(root, packet)
     control = operations.control_root(root)
@@ -51,6 +77,9 @@ def capture_batch_admission(root: Path, frozen: Mapping[str, Any]) -> dict[str, 
     paths.update(item["definition"]["path"] for item in execution["requested_runs"])
     paths.update(pin["path"] for pin in SOURCE_PINS)
     paths.update(pin.path for pin in get_profile("approved").grammar_pins)
+    if packet.get("source_subject_profile") == "legacy":
+        paths.update(pin.path for pin in get_profile("legacy").grammar_pins)
+        paths.update(path for path, _ in _TRANSITION_AUTHORITY if path is not None)
     paths.add(execution["definition_manifest"]["manifest_ref"])
     paths.add(execution["parameters"]["subject_batch"]["path"])
     pins = {path: capture_source(root, path).sha256 for path in sorted(paths)}
@@ -92,6 +121,18 @@ def active_batch_target(root: Path, target: Mapping[str, Any]) -> bool:
     )
 
 
+def active_batch_transition(
+    root: Path, target: Mapping[str, Any], source_profile: str, subject_profile: str
+) -> bool:
+    """Only the admitted packet may change Subject notation profiles."""
+    state = _ACTIVE.get()
+    return (
+        active_batch_target(root, target)
+        and state.packet.get("source_subject_profile") == source_profile
+        and state.packet.get("subject_profile") == subject_profile
+    )
+
+
 def validate_batch_carrier(root: Path, path: Path, frontmatter: str, body: str) -> bool:
     state = _ACTIVE.get()
     if state is None:
@@ -119,6 +160,7 @@ def validate_batch_action(
         or request.get("target") != item["target"]
         or request.get("subject_patches") != item["subject_patches"]
         or request.get("subject_profile") != "approved"
+        or request.get("source_subject_profile") != state.packet.get("source_subject_profile")
     ):
         raise ValueError("Subject effect differs from the exact admitted batch mapping")
     if session is not None:

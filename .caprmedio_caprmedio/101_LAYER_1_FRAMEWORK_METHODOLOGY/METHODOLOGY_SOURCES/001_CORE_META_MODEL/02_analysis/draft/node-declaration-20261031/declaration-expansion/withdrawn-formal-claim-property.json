@@ -1,0 +1,7 @@
+{
+  "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-formal-claim.md",
+  "id": "CA-R-draft",
+  "sha256": "ad0cc9c42338f45a8bce1cfd9aa80e797bb69f62a3ca6c2e0dc50dd65c371051",
+  "reason": "Formal content is a GFEL fenced block inside Claim; no separate Formal Claim heading/Property",
+  "current_source_unchanged": "CA-R-2389"
+}

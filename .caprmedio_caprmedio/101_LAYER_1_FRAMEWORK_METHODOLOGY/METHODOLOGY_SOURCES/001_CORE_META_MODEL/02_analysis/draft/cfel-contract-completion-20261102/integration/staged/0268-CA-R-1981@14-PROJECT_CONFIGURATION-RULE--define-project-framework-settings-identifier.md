@@ -1,0 +1,37 @@
+---
+atom_id: CA-R-1981@14
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Archived
+subjects:
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Identifier
+relations:
+  child_of:
+  - CA-R-1176
+version: 14
+updated_at: 2026-11-02 00:18:22 +0400
+tier: 3
+role: Requirement
+form: Entity Definition
+---
+## Summary
+
+Define Project.Framework Settings.Identifier
+
+## Claim scope
+
+the identifier of the Project's authoritative Framework Settings configuration.
+
+## Claim
+
+Framework Settings Identifier identifies the Project's authoritative Framework Settings configuration, **not** an Atom.
+
+### Formal claim
+
+```text
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Identifier[string]{1}
+```
+
+## Details
+
+Evidence: CA-R-1402@27 defines the owning configuration; CA-R-1404 keeps it outside the Atom type; CA-D-358 supplies its concrete identifier. Candidate #6 decision 11 places Project under Continuant; concrete CAPRMEDIO identity encodings belong in Project Configuration. This definition does not duplicate the concrete identifier spelling or create an Atom ID.

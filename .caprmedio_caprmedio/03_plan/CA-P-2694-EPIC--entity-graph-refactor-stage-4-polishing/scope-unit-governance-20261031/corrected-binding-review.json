@@ -1,0 +1,13 @@
+{
+  "reviewer": "scope_fresh_coherence_review",
+  "corrected_binding": "coherent",
+  "actionable_gap": "Logical Role/Form/active-Subject names need explicit Carrier mapping.",
+  "resolution": "Reuse the existing proposed encode-node-declarations-in-yaml Delivery Draft: Role -> role, Form -> form, active Subject -> subjects.active. Do not create parallel fields or silently map the new Role property to both role and content_role.",
+  "legacy_note": "This packet currently has legacy control headers. Normalizing them to the proposed Carrier is an adoption preparation, not a claim that Current readers support it.",
+  "deferred_parser_checks": [
+    "Per-specific-Scope-Unit evaluation and exact Subject identity",
+    "Scope Unit Declaration Form uses the Declaration template",
+    "subjects.active is distinct from Atom.Status"
+  ],
+  "current_sources_changed": false
+}

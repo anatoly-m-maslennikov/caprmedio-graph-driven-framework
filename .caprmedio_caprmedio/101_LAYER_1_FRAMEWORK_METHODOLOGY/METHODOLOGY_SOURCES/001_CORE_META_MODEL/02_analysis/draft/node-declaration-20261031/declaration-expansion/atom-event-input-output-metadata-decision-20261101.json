@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-01",
+  "user_input": "input: atom id, version, updated_at; output: the same; atom id can change in process; Atom.Content.* excluded for now",
+  "input_fields": [
+    "Atom.ID",
+    "Atom.Version",
+    "Atom.Updated At"
+  ],
+  "output_fields": [
+    "Atom.ID",
+    "Atom.Version",
+    "Atom.Updated At"
+  ],
+  "equality_between_input_and_output_ids_required": false,
+  "capture": "Historical metadata values, not complete Atom content",
+  "excluded": "Atom.Content and its recursive descendants, including Summary and Claim",
+  "rules": [
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--capture-atom-input-and-output-metadata.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--record-business-property-changes-in-one-update-event.md"
+  ],
+  "projection_descriptor": "Pending: current Projection has ID/Updated At but no Version declaration",
+  "new_object_property_declarations": false,
+  "runtime_changed": false,
+  "review": "PASS",
+  "review_file": "atom-event-input-output-metadata-review-20261101.json",
+  "timestamp_target": "Output/result ID and Version, not input ID"
+}

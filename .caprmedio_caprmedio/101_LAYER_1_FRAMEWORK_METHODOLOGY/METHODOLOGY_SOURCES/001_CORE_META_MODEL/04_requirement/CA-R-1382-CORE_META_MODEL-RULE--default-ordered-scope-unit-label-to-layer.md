@@ -1,30 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type: Ordered'
-version: 20
-updated_at: 2026-10-27 19:59:54 +0400
+  active: Scope Unit.Label
+  passive:
+  - 'Entity/Object/Continuant/Structural Unit/Scope Unit/Type: Ordered'
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1382
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Default Ordered Scope Unit Label to Layer
 
-## Scope
+## Claim scope
 
 Ordered Scope Unit Labels.
 
 ## Claim
 
 **every** Ordered Scope Unit **must** use Layer as its default Label.
-
-## Details

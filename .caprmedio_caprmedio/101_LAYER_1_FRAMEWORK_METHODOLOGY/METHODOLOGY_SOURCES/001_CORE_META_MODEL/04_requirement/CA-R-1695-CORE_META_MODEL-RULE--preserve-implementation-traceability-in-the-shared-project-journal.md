@@ -1,33 +1,32 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-version: 33
-updated_at: 2026-10-27 20:00:01 +0400
+  active: Entity/Aspect/Engineering/Traceability
+  passive:
+  - Journal
+  - Scope Unit
+  - Atom
+  - Projection
+  - Atom/(.Role := Evaluation)
+version: 36
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-1682
   - CA-R-1697
   - CA-R-1720
 atom_id: CA-R-1695
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Preserve Implementation traceability in the shared Project Journal
 
-## Scope
+## Claim scope
 
 structural Scope Units that realize RMED Atoms.
 

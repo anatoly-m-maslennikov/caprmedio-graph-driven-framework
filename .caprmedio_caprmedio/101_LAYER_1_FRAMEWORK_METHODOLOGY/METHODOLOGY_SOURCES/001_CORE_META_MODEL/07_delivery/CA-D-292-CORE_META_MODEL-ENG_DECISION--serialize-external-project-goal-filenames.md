@@ -1,27 +1,26 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Project Goal'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Project Name
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-version: 29
-updated_at: 2026-10-27 19:59:23 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Project Goal)'
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Project.Settings.Name
+  - Project
+version: 34
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-292
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize External Project Goal Filenames
 
-## Scope
+## Claim scope
 
 external Project Goal filenames.
 
@@ -29,6 +28,8 @@ external Project Goal filenames.
 
 **every** external Project Goal filename **must** begin with the unqualified canonical Atom ID prefix `<CANONICAL_ATOM_ID>-` for a Current Project Goal or the once-qualified canonical Atom ID prefix `<CANONICAL_ATOM_ID>@<VERSION>-` for an Archived Project Goal, followed by `<OPERATOR_NAMES>-DEFINES_GOAL_FOR-<PROJECT_SCOPE>--<SUMMARY_SLUG>.<EXT>`.
 
-The `<OPERATOR_NAMES>` filename token **must** identify the registered Operator; `<PROJECT_SCOPE>` **must** preserve the exact registered Project Name. The canonical current ID or once-qualified archived ID is the identity prefix; no additional Project prefix, Content Role letter or unrelated number may be inserted into the preserved segment.
+The `<OPERATOR_NAMES>` filename token **must** identify the registered Operator; `<PROJECT_SCOPE>` **must** preserve the exact registered Project Settings Name. The canonical current ID or once-qualified archived ID is the identity prefix; no additional Project Prefix, Content Role letter or unrelated number may be inserted into the preserved segment.
 
-## Details
+### Current source pin
+
+Proposed N+1 successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-292-CORE_META_MODEL-ENG_DECISION--serialize-external-project-goal-filenames.md`, CA-D-292@32, SHA-256 `244cc4f2eca9145cf1e314263f31c9e1cc3d4031a0059f1204d5de1f098c00ed`. Current bytes remain unchanged; this Draft performs no promotion or filename migration.

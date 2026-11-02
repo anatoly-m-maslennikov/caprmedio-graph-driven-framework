@@ -1,32 +1,31 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status: Done'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Work Sequence Number'
-version: 19
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Atom/(.Role := Plan)
+  passive:
+  - Atom/(.Role := Plan)
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done'
+  - Atom/(.Role := Plan).Work Sequence Number
+version: 22
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-1580
-  - CA-R-1583
+  - CA-R-1583@26
   - CA-R-1592
   - CA-D-471
 atom_id: CA-E-504
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate Plan blocking and parallel readiness
 
-## Scope
+## Claim scope
 
 Plan blocking **and** parallel readiness.
 

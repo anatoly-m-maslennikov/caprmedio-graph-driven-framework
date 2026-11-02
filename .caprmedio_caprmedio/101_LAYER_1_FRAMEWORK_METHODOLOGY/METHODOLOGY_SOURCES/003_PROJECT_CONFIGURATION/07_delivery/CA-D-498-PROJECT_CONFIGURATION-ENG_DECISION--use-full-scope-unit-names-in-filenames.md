@@ -1,31 +1,30 @@
 ---
 atom_id: CA-D-498
-version: 10
-updated_at: 2026-10-27 19:59:26 +0400
-content_role: Delivery
+version: 13
+updated_at: 2026-11-02 00:18:22 +0400
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier/File.Filename
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name
+  active: Carrier/File.Filename
+  passive:
+  - Atom
+  - Project
+  - Scope Unit
+  - Scope Unit.Name
 relations:
   depends_on:
   - CA-D-284
   - CA-D-302
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Use full Scope Unit names in filenames
 
-## Scope
+## Claim scope
 
 Scope Unit references serialized **in** Atom filenames **in** the CAPRMEDIO Project.
 

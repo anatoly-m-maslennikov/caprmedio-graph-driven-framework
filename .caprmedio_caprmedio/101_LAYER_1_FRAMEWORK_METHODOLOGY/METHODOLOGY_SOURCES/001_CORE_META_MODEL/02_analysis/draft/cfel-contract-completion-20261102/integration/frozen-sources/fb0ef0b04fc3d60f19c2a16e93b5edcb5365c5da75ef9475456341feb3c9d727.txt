@@ -1,0 +1,24 @@
+---
+atom_id: CA-R-draft
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: Project.Settings.Interaction.Reporting Mode
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Define Interaction Reporting Mode
+
+## Claim
+
+```CFEL
+Project.Settings.Interaction.Reporting Mode{:1}: [string]{:1};
+Project.Settings.Interaction.Reporting Mode.*[]{:0}
+```

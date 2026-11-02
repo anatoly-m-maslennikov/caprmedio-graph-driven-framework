@@ -1,0 +1,58 @@
+[
+  {
+    "deliverable": "admission and shared mapping",
+    "owner": "terra_node_relation_gaps",
+    "exclusive_edit_scope": "read-only map",
+    "dependencies": "none",
+    "acceptance": "49 rows pinned",
+    "status": "done"
+  },
+  {
+    "deliverable": "Primary mapping",
+    "owner": "terra_proposal_review",
+    "exclusive_edit_scope": "read-only map",
+    "dependencies": "none",
+    "acceptance": "28 rows pinned",
+    "status": "done"
+  },
+  {
+    "deliverable": "Property mapping",
+    "owner": "terra_declaration_consistency",
+    "exclusive_edit_scope": "read-only map",
+    "dependencies": "none",
+    "acceptance": "60 rows pinned",
+    "status": "done"
+  },
+  {
+    "deliverable": "Draft ID planning",
+    "owner": "luna_whitelist_alignment",
+    "exclusive_edit_scope": "tmp allocation plan",
+    "dependencies": "baseline",
+    "acceptance": "137 unique Drafts allocated and independently verified",
+    "status": "done"
+  },
+  {
+    "deliverable": "graph compatibility and CFEL extraction",
+    "owner": "terra_recursive_count_scope",
+    "exclusive_edit_scope": "GENERATE_ENTITY_GRAPH + subject_notation",
+    "dependencies": "accepted source syntax",
+    "acceptance": "334graph+21notationtestsreportedpassing;independentreviewPASS;Draftpreviewcreated",
+    "status": "done"
+  },
+  {
+    "deliverable": "shared reader compatibility",
+    "owner": "terra_proposal_native",
+    "exclusive_edit_scope": "reserved shared metadata reader files",
+    "dependencies": "accepted alias mapping",
+    "acceptance": "5rootalias-testsand137carrierreadchecksPASS;authoredschemaadmissionpending",
+    "status": "done"
+  },
+  {
+    "deliverable": "Current adoption and integration",
+    "owner": "root",
+    "exclusive_edit_scope": "Current lifecycle, register, proposal, Epic, projections, Git",
+    "dependencies": "Revised inventory retaining Continuant/Occurrent; distinguish concept removal from Definition replacement; authored-schema cutover",
+    "acceptance": "source/archive/reference + regenerated graph checks",
+    "status": "blocked"
+  }
+]

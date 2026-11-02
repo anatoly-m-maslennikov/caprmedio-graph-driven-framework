@@ -1,0 +1,49 @@
+---
+atom_id: CA-D-655
+content_role: Delivery
+type: Policy
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+author: Anatoly Maslennikov
+subjects:
+  governs: Entity/Object/Continuant/Governing Objects/Atom.Content
+  depends_on:
+  - Entity/Object/Continuant/Term
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Term Definition'
+version: 1
+updated_at: 2026-10-29 14:12:43 +0400
+relations: {}
+tier: 3
+---
+## Summary
+
+Carry Term Definition and staged review evidence
+
+## Claim scope
+
+Content of R/Term Definition Atoms and evidence returned by their well-formedness and staged usage checks.
+
+## Claim
+
+an R/Term Definition **must** carry its Term spelling **and** authoritative meaning **in** its registered Claim section, **and** its applicable meaning boundary **in** Claim scope **when** required by the existing applicability authority. carry supporting distinctions **and** examples **in** Semantics **or** Details **when** applicable under the registered body layout. a review result **must** identify the selected Term Definition Atom **and** revision, checked source boundary **and** coverage, checked stage, affected Atom **and** revision, exact field occurrence **and** relevant context, assessed condition **and** result, **and** any conflict **or** uncertainty. distinct results for definition well-formedness, meaning ownership, occurrence consistency **and** coverage **must not** be collapsed **into** an unqualified pass. this evidence **must not** require a dictionary Projection, lookup index, new storage format **or** synthetic graph entity.
+
+## Details
+
+Term Definition is the dedicated Requirement Type reserved by CA-R-2229, alongside Entity Definition. A Method explains how to write its content; Evaluation authority determines how to check well-formedness and usage consistency. Ordinary existing source carriers and ordinary review output carry the necessary content and evidence. This Policy governs their representation; it does not execute an Evaluation, create a Workflow, dispatch a Run, or manufacture validation evidence.
+
+### Body and review representation
+
+CA-D-479@25 supplies the current RMED body layout: sibling `## Summary` and `## Claim`, with optional `## Claim scope` before Claim and optional `## Semantics` and `## Details` afterward. CA-D-495 supplies applicability placement. This Policy does not introduce new mandatory headings, content fields, report carriers, file locations, schemas, generated dictionaries, or runtime publication.
+
+The ordered usage-review stages identify logical fields: entity names, Claim, Claim scope, Semantics, Details, then remaining authored content. Carry the actual reviewed stage and boundary in the result. Where a logical field is absent or inapplicable, record that fact rather than invent content or silently claim full coverage. A later stage remains unreviewed until checked; an earlier pass is not an overall pass. Unknown or incomplete source coverage remains explicit uncertainty.
+
+### Naming and evidence boundaries
+
+`atom.id` and `projection.id` are distinct complete qualified property names with the same reusable Term `ID` and the property operator `.`. The qualification belongs to the complete property reference; the shared component is not a full-name collision. This does not introduce case-folding, a parser rule, duplicate terminal labels as complete unqualified names, or a rule making every composite expression one entity name.
+
+ID means a unique identifier used to find an entity instance, applying to Continuant and Occurrent instances with uniqueness within matching prefix namespaces. Source examples are `CA-P-123`, `CA-P-123@1-draft`, and `CA-P-123@3`. Preserve the full source identifier, including prefix and any suffix. Identifier spelling alone does not decide whether those examples denote one entity, separate revisions, or separate instances; existing lifecycle authority remains separately applicable.
+
+Term meaning comes from the single applicable dedicated Term Definition, not inferred agreement among Entity Definitions or spelling alone. A source-supported lexical Term target, such as `Entity/Object/Continuant/Term//ID`, is distinct from the property entities addressed by `atom.id` and `projection.id`. Its defining Claim can introduce the lexical target under the existing defining-Atom authority; parsing alone does not create or admit it. A review may identify missing or conflicting authority without fabricating a definition or waiving admission rules. Reusable Terms such as `Package` and `Unit` do not automatically create similarly named Subject Graph entities.
+
+Rejecting a mandatory dictionary for these checks does not retire CA-M-114 or existing optional Terms Graph or Catalog capabilities. Representation rules and authoring instructions alone are not proof of runtime behavior, completed review, corrected naming conflicts, or a naming migration. No parser change or automatic code identifier, path, or quoted external source rewrite is authorized by this Policy.

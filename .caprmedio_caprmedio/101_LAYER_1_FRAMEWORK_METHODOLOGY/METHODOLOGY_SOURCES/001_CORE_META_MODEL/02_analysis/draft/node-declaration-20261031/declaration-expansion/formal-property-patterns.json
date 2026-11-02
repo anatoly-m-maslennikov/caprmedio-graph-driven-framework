@@ -1,0 +1,168 @@
+{
+  "scope": {
+    "checked_property_declarations": 46,
+    "source_root": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+    "status": "Research record with implemented numeric-comparison and omission-fallback Drafts; remaining syntax candidates are not adopted"
+  },
+  "already_formalized_in_current_drafts": [
+    {
+      "pattern": "static numeric lower bound",
+      "actual_cases": [
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-version.md:25",
+          "constraint": "Version Number >= 1"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md:27",
+          "constraint": "Tier >= -1"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md:27-28",
+          "constraint": "supplied Work Sequence Number > 0"
+        }
+      ],
+      "syntax_now_used": "p >= N and p > N",
+      "status": "not a residual proposal; reuse this comparator form rather than introduce a competing format facet"
+    }
+  ],
+  "recommended_minimal_set": [
+    {
+      "pattern": "value uniqueness under an explicit scope",
+      "actual_cases": [
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md:22",
+          "constraint": "unique among Plans in the same direct or top-level Plan container"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive.md:22",
+          "constraint": "distinct direct contextual dependencies"
+        }
+      ],
+      "candidate_syntax": "UNIQUE_VALUES p WITHIN selector",
+      "semantics": "For every resolved selector group, no two selected direct values of p are equal. `WITHIN SELF` means values of one property occurrence; another selector may group sibling instances.",
+      "examples": [
+        "UNIQUE_VALUES Atom.Subjects.Passive WITHIN SELF",
+        "UNIQUE_VALUES Atom/(.Role: Plan).Work Sequence Number WITHIN CONTAINER(Plan)"
+      ],
+      "ambiguity_to_close": "`same direct or top-level Plan container` needs one exact CONTAINER selector definition; decide whether equality is lexical, normalized, or reference identity."
+    }
+  ],
+  "reusable_patterns_needing_a_semantic_decision": [],
+  "defer_until_a_broader_model_is_defined": [
+    {
+      "pattern": "reference-domain direct values",
+      "actual_cases": [
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-sources.md:27",
+          "constraint": "source includes Atom Version"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-of-truth.md:27",
+          "constraint": "declared source-of-truth reference"
+        }
+      ],
+      "syntax_option": "`[ref selector]`, for example `[ref Actor//]`.",
+      "why_deferred": "These Properties currently use stored strings, registry names, and source references with different resolution times. Define whether a reference stores an ID, a canonical name, or a graph link before adding one format. Existing `[atom id]` and `[scope unit]` formats already cover two literal encodings."
+    },
+    {
+      "pattern": "admitted or registered dynamic value sets",
+      "actual_cases": [
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-form.md:27-28",
+          "constraint": "Form is admitted under Role and is not a placeholder or copied Role"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-type.md:27",
+          "constraint": "Catalog, Map, Hub are distinct registered values"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md:22",
+          "constraint": "short notation is required when admitted"
+        }
+      ],
+      "syntax_option": "`[member ValueSet]` and `IF admitted(p) THEN ...`.",
+      "why_deferred": "No governing ValueSet or whitelist binding is defined in this packet. Literal `in(...)` is already sufficient for closed sets; a dynamic admission reference without its authority would be an empty predicate."
+    }
+  ],
+  "non_patterns": [
+    "Claim fence rules and Scope Unit ancestry currently have one Property-specific occurrence each; do not add syntax solely for them.",
+    "Do not use transition syntax for static value cardinality, or effective-value syntax to manufacture stored values."
+  ],
+  "latest_decision": {
+    "Author": "deferred and removed from target artifacts",
+    "fallback": "p ?= expression; applied to Atom.Label",
+    "omission": "authored Property absent; not null/empty string/zero/false",
+    "inheritance": "existing declaration/constraint inheritance; no new value lookup stage",
+    "withdrawn_cases": [
+      {
+        "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-author.md:27-30",
+        "constraint": "resolved Author and admitting-Operator fallback"
+      },
+      {
+        "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-author.md:27-30",
+        "constraint": "serialized Author names a resolved Actor"
+      }
+    ],
+    "responsibility": "Operations describes process; RMED invariants remain. No extra Workflow Rules or before/after language now.",
+    "version_property": "Atom.Version replaces the previous Draft Property spelling Atom.Version Number",
+    "uniqueness": "Project-wide (Atom.ID, Atom.Version), including Drafts, Current and Archived"
+  },
+  "implemented_patterns": [
+    {
+      "pattern": "omission fallback",
+      "actual_cases": [
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-label.md:27",
+          "constraint": "absent stored Label derives effective Label from Form"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-confidence-threshold.md:22",
+          "constraint": "omission retains applicable inherited or default threshold"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-implementation-retry-limit.md:22",
+          "constraint": "explicit value overrides applicable retry limit"
+        }
+      ],
+      "candidate_syntax": "p ?= expression",
+      "semantics": "Resolve only when the selected bearer has no authored occurrence; inherit declarations/constraints normally. No Carrier write or authored-presence change. RHS must satisfy value Format/count.",
+      "example": "Atom.Label ?= Atom.Form",
+      "ambiguity_to_close": null,
+      "resolution": "Stored/effective dual syntax and Author admission-fill are not introduced. Author is deferred. Inheritance needs no new stage. Confidence/retry RHS policies are not invented."
+    }
+  ],
+  "routed_to_operations": [
+    {
+      "pattern": "revision or rebuild transition constraints",
+      "actual_cases": [
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md:22",
+          "constraint": "accepted edit refreshes, no-op and archived predecessor retain timestamp"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-version.md:28",
+          "constraint": "monotonic across successive versions"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md:27",
+          "constraint": "immutable accepted Atom identity"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md:23",
+          "constraint": "Summary change requires new ID"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md:27",
+          "constraint": "same/different rebuild inputs determine ID stability"
+        },
+        {
+          "source": "04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-status.md:22-27",
+          "constraint": "archiving preserves Version and Updated At and does not create a version"
+        }
+      ],
+      "syntax_option": "A transition context with `PREVIOUS(p)`, `CHANGED(p)`, and `SAME(p)`, e.g. `IF CHANGED(Atom.Content.Summary) THEN CHANGED(Atom.ID)`.",
+      "why_deferred": "It requires a first-class predecessor/successor or rebuild pairing, accepted-edit/no-op event semantics, and a clock definition. Without them, this would confuse static instance invariants with lifecycle rules.",
+      "status": "Deferred Operations work; not a planned GFEL extension in this pass"
+    }
+  ]
+}

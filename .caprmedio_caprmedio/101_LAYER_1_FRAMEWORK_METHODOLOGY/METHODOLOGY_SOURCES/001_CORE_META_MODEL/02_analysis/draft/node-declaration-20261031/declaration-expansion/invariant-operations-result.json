@@ -1,0 +1,34 @@
+{
+  "drafts": 100,
+  "formal_only_claims": 43,
+  "declaration_groups": {
+    "root": {
+      "total": 1,
+      "with_prose": 1
+    },
+    "primary_descendants": {
+      "total": 22,
+      "with_prose": 4
+    },
+    "properties": {
+      "total": 45,
+      "with_prose": 21
+    }
+  },
+  "node_descendants_and_properties_with_prose": 25,
+  "all_node_declarations_with_prose": 26,
+  "primary_semantics_unchanged": 23,
+  "author_metadata_present": 0,
+  "operator_registry_and_11_source_hashes": "unchanged",
+  "new_unique_constraint": "UNIQUE(Atom//, (.ID, .Version))",
+  "population": "Complete Project population across Draft, Current, Archived; containment-independent",
+  "field_rename": "Atom.Version Number -> Atom.Version in selected unpublished Drafts only",
+  "independent_review": "Prior invariant/process/tuple review passed. Latest promotion formula was then revised per Operator; four max(all same-ID versions) + 1 examples self-checked.",
+  "limits": [
+    "No extra Workflow Rs, Workflow instances or before/after grammar",
+    "No current key enforcement, parser or runtime test",
+    "Unnumbered preparation markers require allocated unique IDs before governed Draft admission",
+    "Current Author-required carrier rules remain unmigrated"
+  ],
+  "promotion_examples_checked": 4
+}

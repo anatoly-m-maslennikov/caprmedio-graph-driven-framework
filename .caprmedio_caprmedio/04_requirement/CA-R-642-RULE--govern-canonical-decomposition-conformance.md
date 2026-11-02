@@ -1,26 +1,29 @@
 ---
-version: 18
-updated_at: 2026-10-27 20:00:10 +0400
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   child_of:
-  - CA-M-001
+  - CA-M-447
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+  passive:
+  - Project
 cce_version: cce_1
 cce_form: obligation
-author: Anatoly Maslennikov
-content_role: Requirement
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-642
-type: Rule
 tier: 1
+role: Requirement
+form: Rule
 ---
-# Govern canonical decomposition conformance
+## Summary
+
+Govern canonical decomposition conformance
+
+## Claim
 
 **every** canonical decomposition **must** declare its bounded universe **and** one discriminating question per axis **and** assign **every** admissible member **to** **`=1`** value on **every** applicable axis.

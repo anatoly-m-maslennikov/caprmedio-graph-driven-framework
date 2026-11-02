@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-version: 20
-updated_at: 2026-10-27 19:59:35 +0400
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-E-001
@@ -10,25 +10,27 @@ relations:
   - CA-M-270
   - CA-M-262
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  active: Entity/Aspect/Engineering/Verification/Test Design
+  passive:
+  - Atom/(.Role := Requirement)
+  - Atom/(.Role := Method)
+  - Atom/(.Role := Evaluation)
+  - Atom/(.Role := Delivery)
+  - Entity/Aspect/Engineering/Verification/Test Design
+  - Project
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-442
 status: Active
-content_role: Evaluation
-author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-type: Policy
 tier: 3
+role: Evaluation
+form: Eval Policy
 ---
-# Evaluate refactoring verification readiness
+## Summary
+Evaluate refactoring verification readiness
+
+## Claim
 
 the refactoring-verification Evaluation **must** return `fail` **if**
 

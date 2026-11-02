@@ -1,0 +1,37 @@
+---
+atom_id: CA-R-1983@13
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Archived
+subjects:
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution
+relations:
+  child_of:
+  - CA-R-1176
+version: 13
+updated_at: 2026-11-02 00:18:22 +0400
+tier: 3
+role: Requirement
+form: Entity Definition
+---
+## Summary
+
+Define Project.Framework Settings.Parameter Resolution
+
+## Claim scope
+
+resolution of one framework parameter from explicit Framework Settings or Default Settings.
+
+## Claim
+
+Parameter Resolution **means** selecting the effective framework parameter value from explicit Framework Settings **or** Default Settings under the parameter's governing rules.
+
+### Formal claim
+
+```text
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution{0}
+```
+
+## Details
+
+Evidence: CA-M-279 defines the existing resolution method; CA-R-1402@27 and CA-R-1441 define its two configurations. Candidate #6 decisions 2 and 13 retain the governed setting and distinguish defaults from explicit selections. This definition adds no receipt, history-admission gate, stored result or fallback rule. Detailed precedence and invalid-value handling remain in the governing Method. The concrete CAPRMEDIO mechanism belongs in Project Configuration.

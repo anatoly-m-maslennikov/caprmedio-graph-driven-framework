@@ -34,7 +34,7 @@ class AtomConnectorTests(unittest.TestCase):
         self.view = AtomSourceView(self.root, self.control, {"CORE": self.owner, "OTHER": self.other},
                                    ("CORE",), ("active", "done", "resolved", "canceled"),
                                    "current", "approved", (), "fixture-source-view")
-        self.first = self.write("CA-R-1", "Thing/Part", ["Atom", "atom(atom_id=\"CA-R-1\")"], status="Backlog")
+        self.first = self.write("CA-R-1", "Thing/Part", ["Atom", "atom(content_role=\"Requirement\")"], status="Backlog")
         self.second = self.write("CA-R-2", "Other", ["Thing/Part"], placement="done", status="Done")
 
     def write(self, identity, governs, dependencies, *, placement="", status="Active", version=1, owner="CORE"):
@@ -223,6 +223,22 @@ class AtomConnectorTests(unittest.TestCase):
         self.assertIsNone(result["data"])
         self.assertEqual(self.first.read_bytes(), original + b"External change.\n")
         self.assertEqual(result["effects"], [])
+
+
+class SubjectPredicateTests(unittest.TestCase):
+    def test_approved_prefix_uses_parsed_path_boundaries(self):
+        separators = ("//", "/", ".", ":")
+        for value, criterion, expected in (
+            ("Thing.Property: Value", "Thing.Property", True),
+            ("Thing/(.Property:Value)", "Thing", True),
+            (r"Thing\.Property.Child", "Thing", False),
+            ("Things/Child", "Thing", False),
+            ("Thing +> Whole", "Thing", False),
+            ("Thing[Text]{2}", "Thing", False),
+            ("Thing.Property", "Thing.Property", True),
+        ):
+            with self.subTest(value=value, criterion=criterion):
+                self.assertEqual(subject_matches(value, criterion, "prefix", separators, subject_profile="approved"), expected)
 
 
 if __name__ == "__main__":

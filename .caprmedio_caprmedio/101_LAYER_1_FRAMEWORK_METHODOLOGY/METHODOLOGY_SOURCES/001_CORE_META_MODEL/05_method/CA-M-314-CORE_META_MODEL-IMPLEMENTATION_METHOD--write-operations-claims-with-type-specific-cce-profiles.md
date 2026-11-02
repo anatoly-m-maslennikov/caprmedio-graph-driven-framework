@@ -1,33 +1,32 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-version: 19
-updated_at: 2026-10-27 19:59:42 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type'
+  passive:
+  - Atom/(.Role := Operations)
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - Entity/Aspect/Engineering/Authoring/Controlled English
+version: 22
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-M-307
   depends_on:
   - CA-M-305
 atom_id: CA-M-314
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 6
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Write Operations Claims with Type-specific CCE Profiles
 
-## Scope
+## Claim scope
 
 Operations Claims written with their admitted Operations Type-specific CCE Profiles.
 

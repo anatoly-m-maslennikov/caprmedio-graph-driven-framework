@@ -1,0 +1,27 @@
+---
+subjects:
+  active: 'Projection/(.Form := Applicable Methodology)'
+  passive:
+  - Projection
+version: 28
+relations: {}
+atom_id: CA-R-1373@28-draft
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Draft
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Define Applicable Methodology Conflict
+
+## Claim scope
+
+Applicable Methodology candidate selections within one exact source frontier.
+
+## Claim
+
+For an Applicable Methodology, a Conflict is one compiler-detected incompatible candidate selection within one exact source frontier.
+

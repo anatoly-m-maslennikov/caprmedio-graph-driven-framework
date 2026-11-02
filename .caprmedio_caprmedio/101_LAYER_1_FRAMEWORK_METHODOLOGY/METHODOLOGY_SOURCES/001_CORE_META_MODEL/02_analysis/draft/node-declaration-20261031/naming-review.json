@@ -1,0 +1,75 @@
+{
+  "result": "reviewed_with_fixes",
+  "fixes": [
+    "Broadened naming method to metamodel and Project concepts, including generic value; retained useful compounds and rejected indiscriminate replacement.",
+    "Corrected Role/Form paths to whole-Primary Property qualification.",
+    "Replaced unsupported universal formal-Scope assertion with externally declared Scope Unit permissions and ENGINE restrictions.",
+    "Corrected YAML containment to a typed mapping and made passive Subjects conditional; preserved author, assignee and Target mapping gate."
+  ],
+  "checks": [
+    "Six assigned Drafts reviewed.",
+    "Declaration remains Requirement/Form; no Declaration Role.",
+    "Markdown lossless choices and HAS_VALUE/composition remain gated.",
+    "No native validation or admission."
+  ],
+  "files": [
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--name-model-concepts-with-canonical-terms.md",
+      "atom_id": "CA-M-draft",
+      "status": "Draft",
+      "summary": "Name Model Concepts with Canonical Terms",
+      "form": {
+        "content_role": "Method",
+        "type": "Implementation Method"
+      },
+      "sha256": "702989d4e4a164b66b50860746a9a8c19be1a920de2a8306b3b62335fb5fde1c"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--use-role-and-form.md",
+      "atom_id": "CA-R-draft",
+      "status": "Draft",
+      "summary": "Use Role and Form for Declaration Atoms",
+      "form": {
+        "content_role": "Requirement",
+        "type": "Rule"
+      },
+      "sha256": "781113a0599aebc642fac781155f398746f7de6c0084cae046c9f304b804c131"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declare-formal-scope.md",
+      "atom_id": "CA-R-draft",
+      "status": "Draft",
+      "summary": "Declare Formal Scope Independently of Scope Unit",
+      "form": {
+        "content_role": "Requirement",
+        "type": "Rule"
+      },
+      "sha256": "0eb2c56b6c7bc9aa5218ac0d6d707eeeb039af55cc02f8a35f6b4dbd7bb10b18"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+      "atom_id": "CA-D-draft",
+      "status": "Draft",
+      "summary": "Encode Node Declarations in YAML",
+      "form": {
+        "content_role": "Delivery",
+        "type": "Eng Decision"
+      },
+      "sha256": "81e53a1398d7e86a280b58981ba7c44a8af516694a4972a1ca3edebbe3119455"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/node-declaration-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "id": "CA-E-draft",
+      "summary": "Check Node Declaration migration readiness",
+      "form": "Eval Policy",
+      "sha256": "5990269c2a5a548b5f24a0efffed4788d7f319a9d42ab62e794f66b19c0dd57b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md",
+      "id": "CA-D-draft",
+      "summary": "Map Markdown headings to Property paths",
+      "form": "Eng Decision",
+      "sha256": "a770897d76939aaa3ac39558b0888b2b0c08415aececf7ba93197ff29620139c"
+    }
+  ]
+}

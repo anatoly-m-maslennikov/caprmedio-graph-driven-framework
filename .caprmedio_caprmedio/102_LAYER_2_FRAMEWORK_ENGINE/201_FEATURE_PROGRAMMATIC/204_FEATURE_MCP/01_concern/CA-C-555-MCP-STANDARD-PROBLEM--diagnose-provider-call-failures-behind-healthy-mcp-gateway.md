@@ -8,14 +8,16 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-21 04:12:27 +0400"
+version: 3
+updated_at: 2026-10-30 03:11:57 +0400
 priority: high
 subjects:
   governs: Entity/Node/Continuant/Implementation
   depends_on: []
 relations:
-  concern_about: [CA-R-1811, CA-R-2007]
+  concern_about:
+  - CA-R-1811
+  - CA-R-2446
 ---
 # Summary
 

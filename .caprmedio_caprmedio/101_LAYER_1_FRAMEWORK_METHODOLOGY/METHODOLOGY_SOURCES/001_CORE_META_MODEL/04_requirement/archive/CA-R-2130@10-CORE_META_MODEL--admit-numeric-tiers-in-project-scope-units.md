@@ -1,0 +1,33 @@
+---
+subjects:
+  governs: Entity/Object/Continuant/Governing Objects/Atom.Tier
+  depends_on:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project
+  - Entity/Object/Continuant/Governing Objects/Atom.Tier
+relations:
+  child_of:
+  - CA-R-917
+version: 10
+updated_at: 2026-10-29 10:13:49 +0400
+atom_id: CA-R-2130@10
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+type: Rule
+tier: 3
+status: Archived
+author: Anatoly Maslennikov
+---
+## Summary
+
+Admit Numeric Tiers in Project Scope Units
+
+## Claim scope
+
+ordinary Atoms owned by Project Scope Units.
+
+## Claim
+
+a Project Scope Unit **must** admit an integer Tier **>=0** for every ordinary Atom it owns. The explicit Project Goal case carries Tier `-1` under CA-R-2132. Higher integer Tiers remain admissible without an upper bound and may be assigned or raised when required by the approved governing-relation ordering.
+
+This range rule imposes no Content-Role or Type-to-Tier restriction.

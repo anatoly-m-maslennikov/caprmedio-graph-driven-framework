@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-version: 19
-updated_at: 2026-10-27 19:59:57 +0400
+  active: Entity/Object/Occurrent/Execution
+  passive:
+  - Entity/Object/Occurrent/Execution/Step Run
+  - Entity/Object/Occurrent/Execution/Workflow Run
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - Journal
+  - Entity/Object/Continuant/History/Journal > Event Record
+version: 22
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1528
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Rule
 tier: 2
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Record Tool calls within Step Runs
 
-## Scope
+## Claim scope
 
 Tool Calls that occur within Step Runs.
 

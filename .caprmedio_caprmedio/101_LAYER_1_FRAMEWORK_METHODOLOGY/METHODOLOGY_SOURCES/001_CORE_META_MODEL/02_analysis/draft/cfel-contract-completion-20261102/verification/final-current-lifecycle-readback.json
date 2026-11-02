@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "counts": {
+    "archive": 206,
+    "publish": 254
+  },
+  "frontier_count": 1137,
+  "frontier_unique_ids": 1137,
+  "question_ids": [
+    "CA-C-627",
+    "CA-C-629",
+    "CA-C-623",
+    "CA-C-624",
+    "CA-C-628",
+    "CA-C-620",
+    "CA-C-618",
+    "CA-C-626",
+    "CA-C-619",
+    "CA-C-622",
+    "CA-C-625",
+    "CA-C-621"
+  ],
+  "errors": [],
+  "limitations": [
+    "No runtime, parser or independent semantic conformance claimed."
+  ],
+  "journal_checked": 264,
+  "journal_mismatches": [],
+  "followup": {
+    "status": "PASS",
+    "checked_followup_writes": 3,
+    "checked_followup_archives": 3,
+    "checked_followup_journal_rows": 3,
+    "frontier_count": 1137,
+    "errors": []
+  },
+  "combined": {
+    "published": 257,
+    "archived": 209,
+    "source_journal_rows": 267
+  }
+}

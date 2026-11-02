@@ -1,0 +1,152 @@
+[
+  {
+    "case": "C1",
+    "role": "C",
+    "before": "Generated Step content violates the Workflow ordering boundary",
+    "after": "Generated Step content violates the Workflow boundary",
+    "before_words": 8,
+    "after_words": 7,
+    "before_chars": 62,
+    "after_chars": 53
+  },
+  {
+    "case": "C2",
+    "role": "C",
+    "before": "A Method Summary may appear to permit unnecessary mechanisms",
+    "after": "Method Summary may omit the new mechanism condition",
+    "before_words": 9,
+    "after_words": 8,
+    "before_chars": 60,
+    "after_chars": 51
+  },
+  {
+    "case": "P1",
+    "role": "P",
+    "before": "Plan standalone content-writing prompts for included roles",
+    "after": "Plan C, P, R, M, E, D and O content-writing prompts",
+    "before_words": 7,
+    "after_words": 11,
+    "before_chars": 58,
+    "after_chars": 51
+  },
+  {
+    "case": "P2",
+    "role": "P",
+    "before": "Plan independent Step Summary updates",
+    "after": "Update two Step Summaries",
+    "before_words": 5,
+    "after_words": 4,
+    "before_chars": 37,
+    "after_chars": 25
+  },
+  {
+    "case": "R1",
+    "role": "R",
+    "before": "PROGRAMMATIC owns all and only deterministic behavior of FRAMEWORK_ENGINE.",
+    "after": "PROGRAMMATIC owns all and only deterministic FRAMEWORK_ENGINE behavior",
+    "before_words": 9,
+    "after_words": 8,
+    "before_chars": 74,
+    "after_chars": 70
+  },
+  {
+    "case": "R2",
+    "role": "R",
+    "before": "Define the Atom Version Number property",
+    "after": "Atom Version Number has exactly one integer value at least 1",
+    "before_words": 6,
+    "after_words": 11,
+    "before_chars": 39,
+    "after_chars": 60
+  },
+  {
+    "case": "M1",
+    "role": "M",
+    "before": "DRY — Don’t repeat yourself",
+    "after": "DRY",
+    "before_words": 5,
+    "after_words": 1,
+    "before_chars": 27,
+    "after_chars": 3
+  },
+  {
+    "case": "M2",
+    "role": "M",
+    "before": "Add a new mechanism only when existing mechanisms cannot preserve the required outcome or a material distinction",
+    "after": "Add a new mechanism only when existing mechanisms cannot preserve the required outcome or a material distinction",
+    "before_words": 17,
+    "after_words": 17,
+    "before_chars": 112,
+    "after_chars": 112
+  },
+  {
+    "case": "E1",
+    "role": "E",
+    "before": "Check Atom Version Number validity",
+    "after": "Check Atom Version Number",
+    "before_words": 5,
+    "after_words": 4,
+    "before_chars": 34,
+    "after_chars": 25
+  },
+  {
+    "case": "E2",
+    "role": "E",
+    "before": "Evaluate leaf Step definition boundaries",
+    "after": "Check leaf Step definition",
+    "before_words": 5,
+    "after_words": 4,
+    "before_chars": 40,
+    "after_chars": 26
+  },
+  {
+    "case": "D1",
+    "role": "D",
+    "before": "Represent Atom.Status with the `status` key in Markdown YAML frontmatter",
+    "after": "`status` key represents Atom.Status in YAML frontmatter",
+    "before_words": 10,
+    "after_words": 7,
+    "before_chars": 72,
+    "after_chars": 55
+  },
+  {
+    "case": "D2",
+    "role": "D",
+    "before": "Minimal, governed YAML frontmatter for Markdown Atom Carriers",
+    "after": "Minimal, governed YAML frontmatter for Markdown Atom Carriers",
+    "before_words": 8,
+    "after_words": 8,
+    "before_chars": 61,
+    "after_chars": 61
+  },
+  {
+    "case": "O1",
+    "role": "O",
+    "before": "Review code in shared implementation context",
+    "after": "Review Code in shared implementation context",
+    "before_words": 6,
+    "after_words": 6,
+    "before_chars": 44,
+    "after_chars": 44
+  },
+  {
+    "case": "O2",
+    "role": "O",
+    "before": "Update Atom through draft, archive, and promotion",
+    "after": "Update Atom",
+    "before_words": 7,
+    "after_words": 2,
+    "before_chars": 49,
+    "after_chars": 11
+  },
+  {
+    "case": "O3",
+    "role": "O",
+    "before": "Prepare selected source content",
+    "after": "Prepare fetched source content",
+    "before_words": 4,
+    "after_words": 4,
+    "before_chars": 31,
+    "after_chars": 30
+  }
+]

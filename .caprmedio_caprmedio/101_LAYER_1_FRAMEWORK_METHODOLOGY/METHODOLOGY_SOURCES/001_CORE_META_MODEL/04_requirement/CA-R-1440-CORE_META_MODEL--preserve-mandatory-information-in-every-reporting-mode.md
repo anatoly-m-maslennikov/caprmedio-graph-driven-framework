@@ -1,28 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-version: 19
-updated_at: 2026-10-27 19:59:54 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction
+  passive:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode
+  - Entity/Object/Continuant/Actor/Operator
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-1402
+  - CA-R-1402@27
 atom_id: CA-R-1440
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Preserve mandatory information in every reporting mode
 
-## Scope
+## Claim scope
 
 mandatory information reported by **every** interaction reporting mode.
 
@@ -35,5 +34,3 @@ mandatory information reported by **every** interaction reporting mode.
 - permission **or** approval requests;
 - safety-critical information;
 - material deviations from the requested outcome.
-
-## Details

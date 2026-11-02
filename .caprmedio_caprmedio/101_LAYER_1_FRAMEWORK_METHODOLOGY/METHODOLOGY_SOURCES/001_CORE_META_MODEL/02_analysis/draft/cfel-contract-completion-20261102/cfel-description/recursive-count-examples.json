@@ -1,0 +1,12 @@
+{
+  "status": "candidate source examples; no evaluator claim",
+  "rule": "For p.**[name format]{:n}, n is the aggregate number of selected distinct descendant Property identities below p within one bearer.",
+  "examples": [
+    {"bearer":"B1","declared_properties":["p.a","p.b","p.a.c"],"claim":"p.**[]{:3}","outcome":"pass","reason":"Three descendant identities across two depths."},
+    {"bearer":"B1","declared_properties":["p.a","p.b","p.a.c"],"claim":"p.**[]{:2}","outcome":"fail","reason":"The count is aggregate, not one count per depth or recursive parent."},
+    {"bearer":"B1","declared_properties":["p.a","p.b","p.a.c"],"direct_values":{"p.a":["x","y"]},"claim":"p.**[]{:3}","outcome":"pass","reason":"Direct values are not dependent Property identities."},
+    {"bearer":"B1 and B2","declared_properties":{"B1":["p.a"],"B2":["p.b","p.b.c"]},"claim_on":"B1: p.**[]{:1}","outcome":"pass","reason":"Another bearer's descendants are outside B1's selection."},
+    {"bearer":"B1","declared_properties":["p.a","p.a.c","p.a.c.d"],"claim":"p.**[]{:3}","outcome":"pass","reason":"One identity at each selected descendant path is counted once."},
+    {"bearer":"B1","declared_properties":["p.a","p.a"],"claim":"p.**[]{:1}","outcome":"invalid_declaration","reason":"Sibling names are unique, so duplicate p.a cannot evade the count."}
+  ]
+}

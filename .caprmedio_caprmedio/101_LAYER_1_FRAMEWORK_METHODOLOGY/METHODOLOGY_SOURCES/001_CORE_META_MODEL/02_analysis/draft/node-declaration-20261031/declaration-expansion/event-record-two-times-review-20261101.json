@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checked": [
+    "happened_at and inserted_at each have exactly one datetime and no child Properties",
+    "Rule distinguishes event time from Journal insertion time and retains event time on delay",
+    "No ordering inequality or clock assumption introduced"
+  ],
+  "limits": [
+    "Updated At consumer, Event author and object field representation remain outside scope",
+    "No runtime or parser validation"
+  ]
+}

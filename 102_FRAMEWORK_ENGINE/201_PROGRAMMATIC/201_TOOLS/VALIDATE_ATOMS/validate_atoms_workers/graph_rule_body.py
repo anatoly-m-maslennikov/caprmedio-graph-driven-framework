@@ -12,7 +12,7 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from .check_support import Check
 from .parsing import CarrierError, UniqueSafeLoader, check_yaml_resources
 from .settings import CEILINGS
-from subject_notation import SubjectNotationError, parse_subject
+from subject_notation import SubjectNotationError, parse_subject_expression
 
 
 _RULE_TYPES = {
@@ -191,7 +191,7 @@ def _mapping(value: object) -> bool:
 def _valid_subjects(subjects: list[str]) -> bool:
     for subject in subjects:
         try:
-            parse_subject(subject, subject_profile="approved")
+            parse_subject_expression(subject, subject_profile="approved")
         except SubjectNotationError:
             return False
     return True

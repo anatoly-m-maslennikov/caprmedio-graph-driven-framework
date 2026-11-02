@@ -1,38 +1,37 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - Subject/CAPRMEDIO/Carrier
-version: 5
-updated_at: 2026-10-27 19:59:38 +0400
+  active: Atom.Role
+  passive:
+  - Entity/Object/Continuant/Selection
+  - Atom.Role
+  - Atom.Content
+  - Atom/(.Role:=Operations)/Action
+  - Atom/(.Role:=Operations)/Workflow
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - Carrier
+version: 11
+updated_at: 2026-11-02 08:06:47 +0400
 relations:
   evaluation_for:
   - CA-R-1548
-  - CA-R-1549
+  - CA-R-1549@21
   - CA-R-1550
-  - CA-R-1339
-  - CA-R-1340
-  - CA-R-1530
+  - CA-R-2512
+  - CA-R-2513
+  - CA-R-2463
   - CA-R-1569
 atom_id: CA-E-658
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 3
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 Validate Atom Content Role classification
 
-## Scope
+## Claim scope
 classification of an Atom by its Content Role.
 
 ## Claim
@@ -54,5 +53,3 @@ the classification Evaluation **must** fail **if** an Atom's Content Role does *
 
 
 reusing the specified content's role as the specification's role **must** fail this check. a long-lived Concern **or** reusable Workflow **must not** fail merely because its lifetime is long.
-
-## Details

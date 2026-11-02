@@ -1,25 +1,24 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Project Goal'
-  depends_on:
-  - Subject/CAPRMEDIO/Carrier/File.Filename
-version: 24
-updated_at: 2026-10-27 19:59:23 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
+  passive:
+  - Carrier/File.Filename
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-342
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize External Project Goal References
 
-## Scope
+## Claim scope
 
 references to Current and historical external Project Goal Atoms.
 
@@ -28,5 +27,3 @@ references to Current and historical external Project Goal Atoms.
 **every** Reference **to** a Current external Project Goal Atom **must** use its canonical Current Atom ID, not its current Carrier filename stem.
 
 A Reference **to** an Archived external Project Goal Atom **must** use its canonical Atom ID qualified once with its unchanged numeric Version when historical identity is required. A Current Project Goal reference **must not** omit the canonical ID or fall back to a filename stem; this Delivery creates no ID-less Current exception.
-
-## Details

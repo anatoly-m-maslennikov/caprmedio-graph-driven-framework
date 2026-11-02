@@ -1,33 +1,32 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Carrier
-version: 18
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Atom/(.Role:=Operations)/Workflow
+  passive:
+  - Entity
+  - Atom
+  - Atom.Role
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Type
+  - Atom.Status
+  - Scope Unit
+  - Carrier
+version: 23
+updated_at: 2026-11-02 08:06:47 +0400
 relations:
   evaluation_for:
   - CA-R-1521
 atom_id: CA-E-490
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 3
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate lifecycle Workflow adaptability
 
-## Scope
+## Claim scope
 
 a status-change Workflow **and** its target Entity's applicable model.
 

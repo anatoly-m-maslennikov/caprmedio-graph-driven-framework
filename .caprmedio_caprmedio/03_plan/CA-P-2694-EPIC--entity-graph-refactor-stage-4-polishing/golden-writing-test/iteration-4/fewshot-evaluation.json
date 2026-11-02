@@ -1,0 +1,65 @@
+{
+  "hashes": {
+    "repair-fewshot/input.jsonl": "8b0b629b781eeaf865aec1a9a8e19db416944ba3af0f532419a5a4b8f0f08aff",
+    "repair-fewshot/output.jsonl": "57e3c97a3d6e7425ca87f5b7b97894ee2c7cb064baabc20ca1a6ed3b28c7a2e4",
+    "repair-fewshot/examples.jsonl": "ff0debc25c7d9965d0d185a2869ea2e8e0df356987d2f7daeb8a5e89738ce4d3",
+    "comparison-input.jsonl": "1dc2228e689347189d76851ba340a64bef02ed6dc919025648decc6e2ba84615"
+  },
+  "counts": {
+    "total": 4,
+    "pass": 2,
+    "needs_changes": 2,
+    "needs_context": 0
+  },
+  "results": [
+    {
+      "key": "B03",
+      "generated_summary": "Keep all needed information retrievable; show only the justified task-sufficient set",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "source_quote": "keep **all** unexposed preserved information so it can be retrieved.",
+          "problem": "“All needed information” does not cover every unexposed preserved item; the recoverability obligation is narrowed.",
+          "minimal_fix": "Show what is needed; keep the rest"
+        }
+      ]
+    },
+    {
+      "key": "B08",
+      "generated_summary": "Provide bounded, read-only MCP /health diagnostics with recent Tool and Workflow observations",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B09",
+      "generated_summary": "Review code candidates, evidence and all applicable Method policy without editing",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "source_quote": "It assesses the complete bound applicable Method-policy set",
+          "problem": "“All applicable Method policy” omits the bound qualification and can expand the assessment beyond the bound set.",
+          "minimal_fix": "Review code-candidate evidence and bound applicable Method policy without editing"
+        }
+      ]
+    },
+    {
+      "key": "B10",
+      "generated_summary": "Review code in the shared implementation context without editing",
+      "verdict": "Pass",
+      "issues": []
+    }
+  ],
+  "verification": {
+    "frozen_content_matches": true,
+    "example_keys": [
+      "B06",
+      "B25",
+      "B32",
+      "B33",
+      "B35"
+    ],
+    "examples_disjoint": true,
+    "sources_and_outputs_unchanged": true
+  },
+  "scope": "Review is based on meaning and clarity, not exact wording; secondary details can remain in the body."
+}

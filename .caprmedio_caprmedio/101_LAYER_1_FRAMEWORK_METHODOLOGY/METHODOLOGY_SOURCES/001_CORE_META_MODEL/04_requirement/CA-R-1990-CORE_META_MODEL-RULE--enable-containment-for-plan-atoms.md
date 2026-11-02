@@ -1,27 +1,26 @@
 ---
 atom_id: CA-R-1990
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Enabled Relations.Contains'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Enabled Relations.Contains
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Enabled Relations.Contains'
+  passive:
+  - Entity/Object/Continuant/Governing Objects/Atom.Enabled Relations.Contains
 relations:
   child_of:
-  - CA-R-1945
-version: 9
-updated_at: 2026-10-27 20:00:07 +0400
+  - CA-R-2478
+version: 12
+updated_at: 2026-11-02 00:18:22 +0400
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Enable containment for Plan Atoms
 
-## Scope
+## Claim scope
 
 Containment capability of Plan Atoms.
 

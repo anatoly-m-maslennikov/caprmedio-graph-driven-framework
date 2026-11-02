@@ -1,47 +1,50 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-version: 17
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Carrier/File.Main Content
+  passive:
+  - Carrier
+  - Journal
+  - Step Run
+  - Workflow Run
+  - Atom/(.Role := Operations)/Workflow
+  - Atom/(.Role := Operations)/Step
+  - Atom/(.Role := Operations)/Action
+  - Projection
+version: 22
+updated_at: 2026-11-02 08:06:47 +0400
 relations:
   evaluation_for:
   - CA-R-1528
-  - CA-R-1511
+  - CA-R-1511@22
 atom_id: CA-E-496
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 3
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate nested Tool-call evidence
 
-## Scope
+## Claim scope
 
-Tool-call evidence within a Step Run.
+serialized Tool-call evidence within a Step Run.
 
 ## Claim
 
-the Evaluation **must** check Tool-call evidence within a Step Run under CA-R-1528.
+the Main Content of a Journal Carrier that encodes Tool-call evidence within a Step Run **must** undergo an actual Evaluation under CA-R-1528. Available wire evidence alone is **not** a passing result.
 
 ## Details
 
-- an Agentic Action makes several Tool calls inside a leaf Step Run: require their actual parent Step Run, Tool identities, inputs **or** admitted protected references, results **or** errors, **and** distinguishing call evidence.
-- a repeated attempt uses the same Tool **and** inputs: preserve distinct attempt identities **without** claiming a second effect **when** its outcome is unknown.
-- a Tool call fails **or** its effect cannot be confirmed: retain that outcome rather than recording successful completion.
-- a nested trace is rebuilt: require derivation from the canonical Journal **without** another source of execution history.
-- a Tool call automatically creates a Workflow Step, a Conditional Step route, **or** a new Action definition: reject that inference.
-- secret input is encountered: require its governed protected representation rather than plaintext duplication for trace completeness.
+the Evaluation of that Main Content **must** run and report a passing, failed, or unresolved result. It **must**:
 
-missing evidence **or** an unperformed check is **not** a passing result.
+- check whether several Tool calls by an Agentic Action inside a leaf Step Run carry their actual parent Step Run, Tool identities, inputs **or** admitted protected references, results **or** errors, **and** distinguishing call evidence; report failure when required wire evidence is absent;
+- check whether repeated attempts with the same Tool **and** inputs retain distinct attempt identities without claiming a second effect when its outcome is unknown; report unresolved when the supplied evidence cannot distinguish the effect;
+- check whether a failed Tool call or unconfirmed effect is recorded as that outcome rather than successful completion; report failure for a contradicted success claim;
+- check whether a rebuilt nested trace derives from the canonical Journal without another source of execution history; report failure when another source is claimed;
+- reject an inference that a Tool call automatically creates a Workflow Step, a Conditional Step route, **or** a new Action definition; and
+- check whether secret input uses a governed protected representation rather than plaintext duplication; report failure when plaintext is present.
+
+the Evaluation **must not** edit supplied wire evidence. Missing wire evidence **or** an unperformed Evaluation is **not** a passing result.

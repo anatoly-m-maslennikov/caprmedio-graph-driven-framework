@@ -1,0 +1,7 @@
+{
+  "status": "Five-helper candidate superseded by one-selector reviewed Draft",
+  "scope_decision": "Resolved: restrict fenced blocks only; indented blocks excluded.",
+  "root_review": "One FENCED_LABELS selector with finite literal Format/count; final review PASS.",
+  "consumer": "Atom.Content.Claim",
+  "current_prose_claims": 16
+}

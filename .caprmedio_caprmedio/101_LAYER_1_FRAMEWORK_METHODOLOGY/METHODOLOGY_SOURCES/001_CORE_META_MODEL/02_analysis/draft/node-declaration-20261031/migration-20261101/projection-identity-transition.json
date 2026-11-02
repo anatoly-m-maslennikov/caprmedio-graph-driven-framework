@@ -1,0 +1,51 @@
+{
+  "status": "Explicit source-pinned transition mapping for the three refreshed views",
+  "mappings": [
+    {
+      "projection_id": "CA-PROJ-014",
+      "old_carrier_sha256": "8928929d4e06ec986a89387f8563b048d003b82863dec2fd8cb86f2bad68b6fd",
+      "new_carrier_sha256": "b46bb15f00992741aa683aba725f3dfbbc2ddd0fbc96a5656c445b4c28166933",
+      "old_basis": {
+        "type": "Subject Graph Primary Subjects",
+        "named_selection": "Current-Methodology-and-Project-RMED"
+      },
+      "new_basis": {
+        "form": "Map",
+        "source.named_selection": "Named Selection//Current-MODEL-Primary-Nodes"
+      },
+      "disposition": "Preserve the view ID through the schema transition. The old specialized Type becomes part of the named view selection; Form states Map. Source.Atoms records the updated Current source vector.",
+      "carrier_filename": "Retained for existing links; CA-PROJ-016 is the named Relations view, not actual Operations instances."
+    },
+    {
+      "projection_id": "CA-PROJ-015",
+      "old_carrier_sha256": "0d92ac0a6f287231a8834dff87a02a07810592ec00048dce2e13c5faf1b97d29",
+      "new_carrier_sha256": "a03d1dd56d4fc09996487d536965ba27a027210671ae959d2fca1eabdd71e7d0",
+      "old_basis": {
+        "type": "Subject Graph Properties",
+        "named_selection": "Current-Methodology-and-Project-RMED"
+      },
+      "new_basis": {
+        "form": "Map",
+        "source.named_selection": "Named Selection//Current-MODEL-Properties"
+      },
+      "disposition": "Preserve the view ID through the schema transition. The old specialized Type becomes part of the named view selection; Form states Map. Source.Atoms records the updated Current source vector.",
+      "carrier_filename": "Retained for existing links; CA-PROJ-016 is the named Relations view, not actual Operations instances."
+    },
+    {
+      "projection_id": "CA-PROJ-016",
+      "old_carrier_sha256": "3c46db167e0cd08208c1b04ffeed913a004a4a1e23ff33a4b5821a7044ce69c5",
+      "new_carrier_sha256": "502b51a6684456c929d796116fd91c8b04cf71637cff3e01dd2c9fdb96b7cb00",
+      "old_basis": {
+        "type": "Subject Graph Instances",
+        "named_selection": "Current-Methodology-and-Project-RMED"
+      },
+      "new_basis": {
+        "form": "Map",
+        "source.named_selection": "Named Selection//Current-MODEL-Named-Relations"
+      },
+      "disposition": "Preserve the view ID through the schema transition. The old specialized Type becomes part of the named view selection; Form states Map. Source.Atoms records the updated Current source vector.",
+      "carrier_filename": "Retained for existing links; CA-PROJ-016 is the named Relations view, not actual Operations instances."
+    }
+  ],
+  "limit": "This is not project-wide or history-wide Projection functional-dependency validation."
+}

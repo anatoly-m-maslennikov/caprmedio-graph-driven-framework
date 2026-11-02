@@ -1,33 +1,30 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Confidence.Semantic Resolution Threshold
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
-version: 22
-updated_at: 2026-10-27 19:59:24 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Semantic Resolution Threshold
+  passive:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Aspect/Engineering/Execution Control/Decision Confidence
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-D-361
 atom_id: CA-D-369
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 6
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize the semantic-resolution confidence default
 
-## Scope
+## Claim scope
 
 an explicit semantic-resolution confidence default in the Framework Instance Settings TOML Carrier.
 
 ## Claim
 
 an explicit semantic-resolution confidence default **in** the Framework Instance Settings TOML Carrier **must** use the integer-percentage field `confidence.semantic_resolution_threshold_percent`.
-
-## Details

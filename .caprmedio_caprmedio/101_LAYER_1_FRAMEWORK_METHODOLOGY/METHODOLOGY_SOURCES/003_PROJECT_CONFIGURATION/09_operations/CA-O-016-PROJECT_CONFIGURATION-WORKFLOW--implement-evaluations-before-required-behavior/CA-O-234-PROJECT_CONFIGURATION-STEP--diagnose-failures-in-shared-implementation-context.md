@@ -16,8 +16,8 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-version: 9
-updated_at: 2026-10-27 19:59:48 +0400
+version: 11
+updated_at: 2026-10-30 03:11:58 +0400
 relations: {}
 tier: 3
 ---
@@ -29,7 +29,7 @@ Diagnose failures in shared implementation context
 
 Implementation Failure Diagnosis Step **means** the Workflow node invoking **=1** Action, CA-O-089, **in** Integrated context under CA-R-1527.
 
-- bind inputs from the same retained participating-session context, selected P/Plan, current candidate **and** phase, failure evidence from CA-O-094 or confirmed review findings from CA-O-230, test definitions, direct full `methods` rows **and** R/E/D, **and** applicable confidence **and** permission gates. An optional legacy `method_projection` may accompany those rows but is not required.
+- bind inputs from the same retained participating-session context, selected P/Plan, current candidate **and** phase, failure evidence from CA-O-094 or confirmed review findings from CA-O-239, test definitions, direct full `methods` rows **and** R/E/D, **and** applicable confidence **and** permission gates. An optional legacy `method_projection` may accompany those rows but is not required.
 - use the host's native session/subagent, file, **and** command capabilities; this binding has no MCP prerequisite. missing required context **or** capability returns a blocked invocation, **not** silent execution **in** another context.
 - retain exact Action/Step Revisions, source bindings, actual effects, **and** returned results. pass the Action's result **to** the Workflow **without** independently copying its behavior.
 

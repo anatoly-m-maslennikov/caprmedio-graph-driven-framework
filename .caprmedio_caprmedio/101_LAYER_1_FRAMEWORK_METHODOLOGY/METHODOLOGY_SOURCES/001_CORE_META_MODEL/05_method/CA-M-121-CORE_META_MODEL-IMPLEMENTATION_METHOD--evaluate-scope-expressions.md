@@ -1,23 +1,22 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-  depends_on: []
-version: 23
-updated_at: 2026-10-27 19:59:39 +0400
+  active: Entity/Object/Continuant/Selection
+  passive: []
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-M-121
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 Evaluate Scope Expressions
 
-## Scope
+## Claim scope
 evaluation of a Scope Expression.
 
 ## Claim
@@ -31,5 +30,3 @@ evaluation of a Scope Expression.
 6. interpret **where** as retention of **only** members whose field predicate evaluates **to** true according **to** `CA-M-122-CORE_META_MODEL-IMPLEMENTATION_METHOD--evaluate-condition-expressions`.
 7. evaluate the innermost parenthesized set function **before** its containing set function.
 8. use another Scope function **only** **when** an active CCE Method gives that function **`=1`** set meaning.
-
-## Details

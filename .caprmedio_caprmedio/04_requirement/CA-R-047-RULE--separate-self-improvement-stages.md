@@ -1,6 +1,6 @@
 ---
-version: 30
-updated_at: 2026-10-27 19:59:49 +0400
+version: 34
+updated_at: 2026-11-02 00:18:22 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -8,31 +8,34 @@ relations:
   child_of:
   - CA-R-1423
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  active: Project
+  passive:
+  - Atom/(.Role := Operations)
+  - Atom/(.Role := Analysis)
+  - Atom/(.Role := Plan)
+  - Entity/Object/Continuant/Package/Project Implementation
+  - Atom/(.Role := Delivery)
+  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  - Atom/(.Role := Requirement)
+  - Atom/(.Role := Method)
+  - Atom/(.Role := Evaluation)
+  - Project
+  - Journal
+  - Entity/Object/Continuant/History/Journal > Event Record
 cce_version: cce_1
 cce_form: obligation
-author: Anatoly Maslennikov
-content_role: Requirement
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-047
-type: Rule
 tier: 1
+role: Requirement
+form: Rule
 ---
-# Separate self-improvement stages
+## Summary
+
+Separate self-improvement stages
+
+## Claim
 
 a CAPRMEDIO self-improvement cycle **must** keep the following participating contributions distinct **and** traceably related:
 

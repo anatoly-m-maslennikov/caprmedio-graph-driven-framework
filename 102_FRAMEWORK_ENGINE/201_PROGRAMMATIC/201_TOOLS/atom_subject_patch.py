@@ -21,7 +21,8 @@ from typing import Any, Mapping, Sequence
 import yaml
 from yaml.nodes import MappingNode, Node, ScalarNode, SequenceNode
 
-from subject_notation import GrammarPin, SubjectNotationError, get_profile, parse_subject, profile_evidence
+from carrier_aliases import carrier_read_view
+from subject_notation import GrammarPin, SubjectNotationError, get_profile, parse_subject_expression, profile_evidence
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import LimitReached, ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import CarrierValidationScope
@@ -37,6 +38,9 @@ _TARGET_FIELDS = frozenset({
 _INTENT_FIELDS = frozenset({
     "schema_version", "target", "subject_profile", "subject_profile_evidence",
     "subject_patches", "proposal", "execution_metadata", "predecessorArchive", "noop",
+})
+_TRANSITION_INTENT_FIELDS = _INTENT_FIELDS | frozenset({
+    "source_subject_profile", "source_subject_profile_evidence",
 })
 
 
@@ -173,6 +177,7 @@ def prepare_subject_intent(
     subject_patches: list[object],
     *,
     subject_profile: str = "legacy",
+    source_subject_profile: str | None = None,
 ) -> dict[str, Any]:
     """Prepare one deterministic Subject intent without future effect metadata."""
 
@@ -181,11 +186,20 @@ def prepare_subject_intent(
         _fail(operations, "subject-target-invalid", "Subject target must contain exactly its complete carrier descriptor")
     try:
         profile = get_profile(subject_profile)
+        source_profile = get_profile(source_subject_profile or subject_profile)
     except SubjectNotationError as error:
         _fail(operations, error.code, str(error))
     project_root = Path(root).resolve()
+    transition = source_profile.name != profile.name
+    if transition:
+        from subject_batch_authorization import active_batch_transition
+        if not active_batch_transition(project_root, target_descriptor, source_profile.name, profile.name):
+            _fail(operations, "subject-profile-transition-unadmitted", "Subject profile transition requires its exact active batch")
     grammar = _capture_grammar(operations, project_root, profile)
     evidence = _captured_profile_evidence(operations, profile, grammar)
+    source_grammar = _capture_grammar(operations, project_root, source_profile) if transition else ()
+    source_evidence = (_captured_profile_evidence(operations, source_profile, source_grammar)
+                       if transition else None)
     identity_layout = _capture_identity_layout(operations, project_root)
     plan = _plan_item(operations, project_root, {
         "selector": target_descriptor["path"],
@@ -194,20 +208,23 @@ def prepare_subject_intent(
             "sha256": target_descriptor["digest"],
         },
         "subject_patches": subject_patches,
-    }, 0, set(), set(), profile.name)
+    }, 0, set(), set(), source_profile.name, result_subject_profile=profile.name,
+       validate_source_complete=not transition)
     if identity_layout is not None and plan["path"].is_relative_to(identity_layout[0]):
         _fail(operations, "subject-selector-delivered", "Subject selector cannot address an installed source copy")
-    prepared = _intent_from_plan(operations, project_root, plan, profile.name, evidence)
+    prepared = _intent_from_plan(operations, project_root, plan, profile.name, evidence,
+                                 source_profile_name=source_profile.name if transition else None,
+                                 source_evidence=source_evidence)
     if _canonical(operations, dict(target_descriptor)) != _canonical(operations, prepared["subject_intent"]["target"]):
         _fail(operations, "subject-target-stale", "Subject target descriptor does not match the captured carrier")
-    _validate_complete(operations, project_root, plan["path"], prepared["proposed"]["frontmatter"], prepared["proposed"]["content"])
+    _validate_complete(operations, project_root, plan["path"], prepared["proposed"]["frontmatter"], prepared["proposed"]["content"], require_full=transition)
     _assert_snapshot_current(operations, project_root, plan["snapshot"], plan["selector"])
     from subject_batch_authorization import active_batch_target
     if not active_batch_target(project_root, target_descriptor):
         _assert_original_identity_unique(operations, project_root, {plan["atom_id"]}, identity_layout)
-    _assert_grammar_current(operations, project_root, grammar)
+    _assert_grammar_current(operations, project_root, (*grammar, *source_grammar))
     _assert_identity_layout_current(operations, project_root, identity_layout)
-    plan["grammar_snapshots"] = grammar
+    plan["grammar_snapshots"] = (*grammar, *source_grammar)
     plan["identity_layout"] = identity_layout
     return prepared
 
@@ -225,10 +242,12 @@ def materialize_subject_intent(
     }:
         _fail(operations, "subject-intent-invalid", "prepared Subject intent has unsupported or missing fields")
     intent = prepared["subject_intent"]
-    if not isinstance(intent, Mapping) or set(intent) != _INTENT_FIELDS:
+    if (not isinstance(intent, Mapping) or set(intent) not in {_INTENT_FIELDS, _TRANSITION_INTENT_FIELDS}
+            or intent.get("schema_version") != (2 if set(intent) == _TRANSITION_INTENT_FIELDS else 1)):
         _fail(operations, "subject-intent-invalid", "Subject intent has unsupported or missing fields")
     fresh = prepare_subject_intent(
         root, intent["target"], intent["subject_patches"], subject_profile=intent["subject_profile"],
+        source_subject_profile=intent.get("source_subject_profile"),
     )
     if _canonical(operations, dict(intent)) != _canonical(operations, fresh["subject_intent"]):
         _fail(operations, "subject-intent-stale", "Subject intent differs from its freshly derived intent")
@@ -283,7 +302,7 @@ def _planned_atom(operations: Any, root: Path, plan: Mapping[str, Any]) -> Any:
     )
 
 
-def _intent_from_plan(operations: Any, root: Path, plan: dict[str, Any], profile_name: str, evidence: dict[str, Any]) -> dict[str, Any]:
+def _intent_from_plan(operations: Any, root: Path, plan: dict[str, Any], profile_name: str, evidence: dict[str, Any], *, source_profile_name: str | None = None, source_evidence: dict[str, Any] | None = None) -> dict[str, Any]:
     _ensure_non_overlapping(operations, plan["subject_replacements"])
     frontmatter = _apply_replacements(plan["frontmatter"], plan["subject_replacements"])
     intended = _replace_frontmatter(plan["text"], plan["frontmatter"], frontmatter)
@@ -304,7 +323,7 @@ def _intent_from_plan(operations: Any, root: Path, plan: dict[str, Any], profile
             "path": archive.relative_to(root).as_posix(), "sha256": plan["before_sha256"], "lifecycle": "archived",
         }
     intent = {
-        "schema_version": 1, "target": target, "subject_profile": profile_name,
+        "schema_version": 2 if source_profile_name is not None else 1, "target": target, "subject_profile": profile_name,
         "subject_profile_evidence": evidence, "subject_patches": patches,
         "proposal": {
             "frontmatter_digest": hashlib.sha256(frontmatter.encode("utf-8")).hexdigest(),
@@ -317,6 +336,9 @@ def _intent_from_plan(operations: Any, root: Path, plan: dict[str, Any], profile
         },
         "predecessorArchive": predecessor, "noop": plan["noop"],
     }
+    if source_profile_name is not None:
+        intent["source_subject_profile"] = source_profile_name
+        intent["source_subject_profile_evidence"] = source_evidence
     return {
         "subject_intent": intent,
         "subject_intent_sha256": hashlib.sha256(_canonical(operations, intent).encode("utf-8")).hexdigest(),
@@ -329,8 +351,9 @@ def _capture_grammar(operations: Any, root: Path, profile: Any) -> tuple[_Source
     for pin in profile.grammar_pins:
         try:
             snapshot = _read_source_snapshot(operations, root, root / pin.path, pin.path)
-            metadata = operations.parse_carrier(snapshot.raw, Path(pin.path)).metadata
-        except (operations.ToolError, operations.CarrierError) as error:
+            raw_metadata = operations.parse_carrier(snapshot.raw, Path(pin.path)).metadata
+            metadata = carrier_read_view(raw_metadata)
+        except (operations.ToolError, operations.CarrierError, ValueError) as error:
             code = "subject-grammar-pin-symlink" if getattr(error, "code", None) == "subject-selector-symlink" else "subject-grammar-pin-stale"
             raise operations.ToolError(code, "Subject grammar source cannot be read from its selected location") from error
         if (metadata.get("atom_id") != pin.atom_id or type(metadata.get("version")) is not int
@@ -489,7 +512,7 @@ def _validate_subject_values(operations: Any, values: Sequence[str], subject_pro
 
     for value in values:
         try:
-            parse_subject(value, subject_profile=subject_profile)
+            parse_subject_expression(value, subject_profile=subject_profile)
         except SubjectNotationError as error:
             _fail(operations, error.code, str(error))
 
@@ -515,6 +538,8 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
     atom_ids: set[str],
     subject_profile: str,
     *, validation_scope: CarrierValidationScope | None = None,
+    result_subject_profile: str | None = None,
+    validate_source_complete: bool = True,
 ) -> dict[str, Any]:
     if not isinstance(item, Mapping) or set(item) != {"selector", "expected", "subject_patches"}:
         _fail(operations, "subject-patch-item-invalid", "each Subject patch item has exactly selector, expected, and subject_patches")
@@ -596,11 +621,12 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
     _validate_subject_values(
         operations,
         [resulting_governs, *resulting_dependencies],
-        subject_profile,
+        result_subject_profile or subject_profile,
     )
     # A preview may never turn an invalid source into an apparently valid
     # proposal through its allowed Version/Updated At metadata changes.
-    _validate_complete(operations, root, path, frontmatter, body, validation_scope=validation_scope)
+    if validate_source_complete:
+        _validate_complete(operations, root, path, frontmatter, body, validation_scope=validation_scope)
 
     selectors.add(selector)
     atom_ids.add(atom_id)
@@ -1028,10 +1054,11 @@ def _replace_frontmatter(text: str, before: str, after: str) -> str:
 
 
 def _validate_complete(operations: Any, root: Path, path: Path, frontmatter: str, body: str,
-                       *, validation_scope: CarrierValidationScope | None = None) -> None:
+                       *, validation_scope: CarrierValidationScope | None = None,
+                       require_full: bool = False) -> None:
     from subject_batch_authorization import validate_batch_carrier
     try:
-        if validate_batch_carrier(root, path, frontmatter, body):
+        if not require_full and validate_batch_carrier(root, path, frontmatter, body):
             return
         if validation_scope is None:
             operations._validate_complete_carrier(root, path, frontmatter, body, creating=False)

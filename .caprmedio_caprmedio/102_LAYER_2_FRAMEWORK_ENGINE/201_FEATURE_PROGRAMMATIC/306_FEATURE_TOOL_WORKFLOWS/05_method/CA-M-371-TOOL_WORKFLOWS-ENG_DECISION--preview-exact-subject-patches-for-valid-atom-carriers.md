@@ -8,21 +8,20 @@ status: Active
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-version: 27
-updated_at: 2026-10-27 19:59:42 +0400
+version: 28
+updated_at: "2026-10-30 17:33:17 +0400"
 relations: {}
 type: Eng Decision
 tier: 3
 ---
-# Summary
+## Summary
 
 Preview exact Subject patches for valid Atom carriers
 
-## Scope
+## Claim scope
 
 The Subject-only preview, opt-in local candidate staging, and pure intended-proposal preparation method for ATOM_UPDATE.
 
@@ -32,8 +31,8 @@ ATOM_UPDATE **must** prepare a Subject-only preview from explicit, source-pinned
 replacements under one selected `subject_profile`: omission selects `legacy`,
 `approved` is explicit, and unknown or malformed supplied profiles fail. It
 validates each exact selector and its Atom ID, Version and SHA-256 before
-locating the stated direct Subject occurrence. It validates source and result
-syntax under that same profile, replaces only the stated scalar or
+locating the stated direct Subject occurrence. For ordinary preview and singleton preparation, it validates source and result
+syntax under that same profile. The exact batch-only transition below uses its explicitly sealed source and target profiles. It replaces only the stated scalar or
 uniquely current-value-selected dependency-list item, validates the complete resulting carrier, and returns the
 exact default preview without writing a Carrier. The pure planner remains free of filesystem writes; an opt-in local wrapper may export derived preview copies under CA-D-425 without updating any authoritative Carrier.
 
@@ -48,7 +47,7 @@ Accept only the closed root `{atoms, subject_profile?}` and an item exactly
 `expected = {atom_id, version, sha256}`; reject unknown root or item keys.
 Separate `subject_patches` from complete-frontmatter or body replacement. Reject
 duplicate selected files. For each patch, require `field`, `old`, and `new`;
-for `depends_on`, resolve exactly one existing entry by the exact current value `old`; reject a caller-supplied index. Legacy uses `/` bearer qualification and `:` allowed values with literal dots and rejects every `atom(...)` selector. Approved uses `/` broader-to-narrower, `.` bearer-to-dependent, and `:` Property-to-allowed-value, and accepts only the exact initial lowercase selector forms registered by CA-R-1321. Preserve `Atom`/`atom` case distinction; reject `@`, type-only or mixed-key selectors, duplicate or unknown keys, positional, nested, or later-position selectors, escaping, conjunctions, wildcards, evaluation, aliases, and inferred profile detection in Subject syntax. Reject invalid carrier shape, missing or ambiguous old values, stale pins, path escapes, symlink targets and duplicate resulting dependencies. Preserve all unrelated bytes and line endings. Selector syntax validates neither a selected Atom instance nor a relation, native admission, or source effect.
+for `depends_on`, resolve exactly one existing entry by the exact current value `old`; reject a caller-supplied index. Legacy uses `/` bearer qualification and `:` allowed values with literal dots and rejects every `atom(...)` selector. Approved syntax is governed by the actual Current CA-R-1931, CA-R-1321, CA-R-1324, CA-M-228 and CA-E-383 definitions, resolved with their exact positive Versions, canonical paths and SHA-256 at the operation's Scope epoch. Preserve the case, references, grouping, escaping, operators and selector restrictions declared by those definitions; this consumer does not substitute an older descriptive grammar or infer a profile. Unsupported syntax, source drift or unavailable authority fails closed. Syntax validation does not establish Entity admission or instance resolution. Reject invalid carrier shape, missing or ambiguous old values, stale pins, path escapes, symlink targets and duplicate resulting dependencies. Preserve all unrelated bytes and line endings. Selector syntax validates neither a selected Atom instance nor a relation, native admission, or source effect.
 
 Classify an actual Subject value change as a semantic revision with Version
 `N + 1`; a no-op creates no revision. The preview result returns the selected
@@ -87,4 +86,20 @@ Recheck actual definition/grammar and selected Project settings/structure proven
 
 ### Stage and promote the instructed edit drafts
 
-Follow the instructed sequence: commit current state, create full CA-D-446 edit drafts using existing `stage_subject_batch` bounded calls, commit drafts, archive/promote through the existing updater, then rebuild the entity graph after successful completion. Bind exact canonical target/source pins and actual draft path/digest in schema1; no mixed staged/unstaged packet is admitted. No further full-validation, content-review or form/confirmation round is required. At each operation reopen pinned bytes, normalize canonical ID/original Status and actual time, and keep normal Subjects-only patch/layout, archive, Version and conditional-write/readback checks. Preserve actual progress/failure evidence, stop first failure and retain completed members without automatic batch rollback/replay. For this batch, local carrier parsing, exact descriptors, explicit old-value patches, selected grammar, safe layout, deterministic byte materialization and conditional-write/readback are the normal checks; do not repeatedly revalidate unchanged body content or build a global reference inventory for every member. The existing final graph operation remains separate. After verified canonical output and any required predecessor readback, conditionally remove only that member's exact packet-pinned draft bytes. If draft cleanup fails or its bytes have drifted, stop and report the actual cleanup failure, preserving the published canonical Revision and archive; do not roll them back or remove another file. A separately instructed map-only batch remains available; existing scratch `stage_subjects` behavior stays separate.
+Follow the instructed sequence: commit current state, create full CA-D-446 edit drafts using existing `stage_subject_batch` bounded calls, commit drafts, archive/promote through the existing updater, then rebuild the entity graph after successful completion. Bind exact canonical target/source pins and actual draft path/digest in the selected schema1 or schema2 packet; no mixed staged/unstaged packet is admitted. No further full-validation, content-review or form/confirmation round is required. At each operation reopen pinned bytes, normalize canonical ID/original Status and actual time, and keep normal Subjects-only patch/layout, archive, Version and conditional-write/readback checks. Preserve actual progress/failure evidence, stop first failure and retain completed members without automatic batch rollback/replay. For this batch, local carrier parsing, exact descriptors, explicit old-value patches, selected grammar, safe layout, deterministic byte materialization and conditional-write/readback are the normal checks; do not repeatedly revalidate unchanged body content or build a global reference inventory for every member. The existing final graph operation remains separate. After verified canonical output and any required predecessor readback, conditionally remove only that member's exact packet-pinned draft bytes. If draft cleanup fails or its bytes have drifted, stop and report the actual cleanup failure, preserving the published canonical Revision and archive; do not roll them back or remove another file. A separately instructed map-only batch remains available; existing scratch `stage_subjects` behavior stays separate.
+
+### Explicit batch-only source-profile transition
+
+The instructed Subjects-only batch admits `source_subject_profile: "legacy"` with target `subject_profile: "approved"` only for the exact active packet member and its bound request.
+
+An existing schema1 packet has no `source_subject_profile` field and keeps the selected-profile validation of both source and result. A transition schema2 packet requires the exact string `"legacy"`; missing, `null`, empty, unknown and every other value are rejected. No profile is inferred and no parser fallback is permitted.
+
+The existing closed schema1 batch packet is unchanged and rejects `source_subject_profile`. The explicit transition uses a separate closed packet with exactly `schema_version: 2`, `subject_profile: "approved"`, `source_subject_profile: "legacy"`, `git_checkpoint` and `atoms`; existing member and draft descriptors are unchanged. The outer `{subject_batch: {path, digest}}` request and every ordinary public preview, direct preparation and singleton request remain unchanged; those ordinary requests reject `source_subject_profile`.
+
+The exact active batch context must bind the packet digest, selected target, ordered patches, request and both declared profiles before the planner may validate source Subjects under `legacy`. Every resulting governs and depends_on value must validate under `approved`, including values left unchanged by the patches. Preserve final complete-carrier validation and all existing eligibility, identity, placement, Status, unrelated-byte and effect checks.
+
+Retain separate source and target grammar evidence. Each evidence object contains exactly `grammar_pins` and `native_admission: "not_performed"`; every pin contains `atom_id`, positive `version`, canonical Project-relative `path` and `sha256`. The source profile binds the five existing historical legacy grammar definitions; the target profile binds the five actual Current approved grammar definitions at that operation's Scope epoch. Reopen and revalidate both sets at staging, materialization and effect; drift or unavailable authority refuses the attempt without rebinding or fallback.
+
+For this explicit transition only, the private Subject intent uses `schema_version: 2`: the existing schema1 fields plus exactly `source_subject_profile` and `source_subject_profile_evidence`. Its `subject_profile` and `subject_profile_evidence` remain the approved target pair. Seal both pairs and every existing intent field in the same canonical-JSON SHA-256 calculation. The ordinary same-profile path continues to produce the unchanged closed schema1 intent. Reject unknown fields, mixed versions, a mismatched profile pair or reuse outside the exact active packet member and request.
+
+Recognize this permission only from this operative section in the uniquely resolved Current M371, R866 and O030 authority carriers, each with its actual positive Version, canonical path and SHA-256 bound to the operation. A Draft, historical citation, prohibition, keyword mention or unknown clause is not permission. The delivery bindings in D425 and D531 must also agree with these closed shapes. Source authoring alone does not activate the route or establish implementation acceptance.

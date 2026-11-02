@@ -1,34 +1,33 @@
 ---
-version: 27
-updated_at: 2026-10-27 19:59:41 +0400
+version: 32
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-1489
   depends_on:
   - CA-M-279
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Implementation Retry Limit
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
-  - Subject/CAPRMEDIO/Carrier/File
+  active: Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit'
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - Carrier/File
 atom_id: CA-M-295
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 5
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Resolve implementation retry limits by source precedence
 
-## Scope
+## Claim scope
 
 an effective Implementation Retry Limit resolved from direct Operator input, a Plan, the nearest Hub, Framework Instance Settings, **or** Default Settings.
 
@@ -50,5 +49,3 @@ an effective Implementation Retry Limit resolved from direct Operator input, a P
 - do **not** copy inherited values **or** create separate Objective/settings files. retain explicit overrides even **when** equal **to** the inherited value.
 - use the same Plan identity for a Hub's file **and** folder.
 - resolution does **not** reset the consumed retry count governed by CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.
-
-## Details

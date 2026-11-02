@@ -1,37 +1,34 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action/Execution Kind'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Execution Context
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-version: 13
-updated_at: 2026-10-27 20:00:03 +0400
+  active: Entity/Object/Occurrent/Execution/Step Run
+  passive:
+  - Entity/Object/Occurrent/Execution/Step Run
+  - Entity/Object/Occurrent/Execution/Workflow Run
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind'
+  - Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  - Entity/Object/Continuant/Actor/Operator
+  - Journal
+version: 18
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1791
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Keep Invocation delivery distinct from Step completion
 
-## Scope
+## Claim scope
 
 requests for participation **or** prompt delivery for an Agentic Step Invocation.
 
 ## Claim
 
 requesting participation **or** returning a prompt **must not** itself complete a Step Run.
-
-## Details

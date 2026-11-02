@@ -1,0 +1,26 @@
+---
+atom_id: CA-A-1312@1
+content_role: Analysis
+type: Spec Proposal
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+status: Archived
+author: Anatoly Maslennikov
+tier: 3
+version: 1
+updated_at: 2026-10-29 17:07:33 +0400
+subjects:
+  governs: Entity
+relations: {}
+---
+## Summary
+
+Inherit base Definitions and state only differences
+
+## Proposal
+
+Definitions inherit through / specialization and // instantiation. A narrower kind reuses the broader Definition and states only its differences. An instance follows its kind Definition and states only instance facts. Common meaning, properties and constraints are reused, not copied. Containment > adds no inheritance. Atom/Content Role: Method is an Atom with Content Role Method; it does not repeat the Atom Definition.
+
+## Status
+
+Accepted Operator decision. P2696 applies it to the Definition template, ownership rule and seven Content Role Definitions. This adds no new notation or Type hierarchy.

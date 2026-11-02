@@ -1,0 +1,23 @@
+{
+  "event": {
+    "event_id": "0b09624b-0913-445a-84b4-b4e05dae7d7b",
+    "event": "epic_progress_updated",
+    "occurred_at": "2026-10-31T15:50:58.422508+04:00",
+    "atom_id": "CA-P-2694",
+    "previous_version": 37,
+    "version": 38,
+    "archive_path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@37-EPIC--entity-graph-refactor-stage-4-polishing.md",
+    "current_path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+    "session": "codex:01a0263a-7510-7672-bce4-58830bc4d184",
+    "details": "Record completed content-only restoration of 47 project Principle/Core Atoms."
+  },
+  "journal": [
+    {
+      "event_id": "0b09624b-0913-445a-84b4-b4e05dae7d7b",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/codex-methodology-2026-10-31-part-1.ndjson",
+      "line": 48
+    }
+  ]
+}

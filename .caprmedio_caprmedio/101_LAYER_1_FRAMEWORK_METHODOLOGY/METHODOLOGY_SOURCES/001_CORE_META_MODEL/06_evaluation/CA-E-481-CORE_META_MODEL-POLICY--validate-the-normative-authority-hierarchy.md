@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Relation
-version: 18
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Entity/Object/Continuant/Selection
+  passive:
+  - Project
+  - CFEL > Relation
+version: 22
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-833
   - CA-R-808
   - CA-R-879
 atom_id: CA-E-481
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 2
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Validate the normative-authority hierarchy
 
-## Scope
+## Claim scope
 
 the active normative-authority subgraph.
 

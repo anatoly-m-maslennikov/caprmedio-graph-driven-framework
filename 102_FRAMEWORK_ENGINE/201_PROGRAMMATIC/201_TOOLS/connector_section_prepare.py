@@ -9,6 +9,7 @@ from __future__ import annotations
 import hashlib
 import re
 
+from carrier_aliases import carrier_read_view
 from connector_atom_parse import IDENTITY, ROLES
 from connector_bindings import BoundRequest
 from connector_section_parse import SectionError, edit_section, parse_sections
@@ -65,7 +66,7 @@ def prepare_section(bound: BoundRequest, context: VerifiedSourceContext) -> byte
         parsed = parse_carrier(raw, path)
         if parsed.metadata.get("atom_id") != target["identity"]:
             raise SectionError("target_not_found", "The bound source does not carry the requested Atom identity.", "target")
-        if parsed.metadata.get("content_role") != ROLES[target["identity"].split("-")[1]]:
+        if carrier_read_view(parsed.metadata).get("content_role") != ROLES[target["identity"].split("-")[1]]:
             raise SectionError("schema_invalid", "Atom ID kind and Content Role disagree.", "target")
         observed = {"identity": parsed.metadata["atom_id"], "version": parsed.metadata.get("version"),
                     "source_token": hashlib.sha256(raw).hexdigest()}

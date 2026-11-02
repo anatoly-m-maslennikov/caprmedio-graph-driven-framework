@@ -1,0 +1,28 @@
+---
+atom_id: CA-C-628
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+subjects:
+  active: Carrier/File.Main Content
+  passive:
+  - Journal
+  - Event Record
+version: 1
+updated_at: 2026-11-02 07:52:54 +0400
+relations: {}
+tier: 3
+role: Concern
+form: Question
+---
+## Summary
+
+Decide whether Observation Phase becomes an Event Record model Property
+
+## Question
+
+Should the legacy Work Journal execution-observation labels (Started, Progressed, Completed, Failed, Interrupted, Abandoned, Recovered) later become an explicitly declared Event Record model Property, distinct from the accepted business Action values such as `create` and `update`?
+
+## Why this is non-blocking
+
+CA-R-1643 preserves the legacy labels only in serialized Journal Carrier Main Content. No new Event Record Property or business-action value is required to adopt this candidate packet.

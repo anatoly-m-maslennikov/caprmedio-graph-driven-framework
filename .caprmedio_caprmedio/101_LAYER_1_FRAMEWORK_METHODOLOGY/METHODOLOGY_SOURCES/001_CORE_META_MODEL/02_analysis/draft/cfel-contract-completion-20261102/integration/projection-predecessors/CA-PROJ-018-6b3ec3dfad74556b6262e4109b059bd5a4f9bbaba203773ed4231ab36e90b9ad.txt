@@ -1,0 +1,229 @@
+---
+artifact_form: Projection
+projection_id: CA-PROJ-018
+form: Map
+source:
+  named_selection: Named Selection//Current Subject Narrowing Tree
+  atoms:
+  - CA-R-1318@31
+  - CA-R-1948@12
+  - CA-R-1949@11
+  - CA-R-1950@12
+  - CA-R-1951@12
+  - CA-R-1952@12
+  - CA-R-1953@13
+  - CA-R-1954@12
+  - CA-R-1955@11
+  - CA-R-1956@11
+  - CA-R-1957@11
+  - CA-R-1958@15
+  - CA-R-1974@12
+  - CA-R-1975@12
+  - CA-R-1976@12
+  - CA-R-2198@5
+  - CA-R-2199@5
+  - CA-R-2200@5
+  - CA-R-2201@5
+  - CA-R-2202@5
+  - CA-R-2203@6
+  - CA-R-2243@5
+  - CA-R-2244@3
+  - CA-R-2345@2
+  - CA-R-2346@2
+  - CA-R-2347@2
+  - CA-R-2348@2
+  - CA-R-2349@2
+  - CA-R-2350@4
+  - CA-R-2351@2
+  - CA-R-2415@3
+  - CA-R-2456@3
+  - CA-R-2457@3
+  - CA-R-2462@2
+  - CA-R-2463@2
+  - CA-R-2464@2
+  - CA-R-2465@2
+  - CA-R-2466@2
+  - CA-R-2467@2
+  - CA-R-2487@2
+  - CA-R-2488@2
+  - CA-R-2489@2
+  - CA-R-2490@2
+  - CA-R-2491@2
+  - CA-R-2492@2
+  - CA-R-2493@2
+  - CA-R-2494@2
+  - CA-R-2495@2
+  - CA-R-2496@2
+  - CA-R-2497@2
+  - CA-R-2498@2
+  - CA-R-2499@2
+  - CA-R-2500@2
+  - CA-R-2501@2
+  - CA-R-2502@2
+  - CA-R-2503@2
+  - CA-R-2504@2
+  - CA-R-2505@2
+  - CA-R-2506@2
+  - CA-R-2507@2
+  - CA-R-2508@2
+  - CA-R-2509@2
+  - CA-R-2510@2
+  - CA-R-2511@2
+  - CA-R-2512@2
+  - CA-R-2513@2
+  - CA-R-2514@2
+  - CA-R-2515@2
+  - CA-R-2516@2
+  - CA-R-2517@2
+  - CA-R-2518@2
+  - CA-R-2519@2
+  - CA-R-2520@2
+  - CA-R-2521@2
+  - CA-R-2522@2
+  - CA-R-2523@2
+  - CA-R-2524@2
+  - CA-R-2525@2
+  - CA-R-2526@2
+  - CA-R-2527@2
+  - CA-R-2528@2
+  - CA-R-2529@2
+  - CA-R-2530@2
+  - CA-R-2531@2
+  - CA-R-2532@2
+  - CA-R-2533@2
+  - CA-R-2534@2
+  - CA-R-2535@2
+  - CA-R-2536@2
+  - CA-R-2537@2
+  - CA-R-2538@2
+  - CA-R-2539@2
+  - CA-R-2540@2
+  - CA-R-2541@2
+  - CA-R-2542@2
+  - CA-R-2543@2
+  - CA-R-2544@2
+  - CA-R-2545@2
+  - CA-R-2546@2
+  - CA-R-2547@2
+  - CA-R-2553@2
+  - CA-R-2554@2
+  - CA-R-2555@2
+  - CA-R-2557@2
+  - CA-R-2558@2
+  - CA-R-2559@2
+  - CA-R-2560@2
+  - CA-R-2564@2
+  - CA-R-2568@2
+  - CA-R-2569@2
+  - CA-R-2572@2
+  - CA-R-2573@2
+  - CA-R-2574@2
+  - CA-R-2575@2
+  - CA-R-2576@2
+  - CA-R-2577@2
+  - CA-R-2578@2
+  - CA-R-2579@2
+  - CA-R-2580@2
+  - CA-R-2581@2
+  - CA-R-2582@2
+  - CA-R-2586@2
+  - CA-R-2587@2
+  - CA-R-2589@2
+  - CA-R-2590@2
+updated_at: 2026-11-02 02:56:38 +0400
+---
+
+## Inherency tree
+
+Source selection: Current Methodology and project RMED; Declaration targets and retained CFEL/Carrier/Term Definitions. Only explicit NARROWER_THAN links form the tree.
+
+Display selection: supplied graph nodes and Inherency relations; dependent entities appear in detail sections.
+
+Notation: / NARROWER_THAN; // INSTANCE_OF; . IS_PROPERTY_OF; : IS_ALLOWED_VALUE_OF; <+ CONTAINS (derived reverse of IS_CONTAINED_BY); >| HAS_CLASSIFICATION. Relations are traversed from broader to narrower, kind to named instance (the source INSTANCE_OF direction is instance to kind), bearer to dependent, Entity to allowed value, whole to part, and Entity to classification.
+
+This is a derived Projection, not independent model authority.
+
+### Primary entities
+
+```text
+CFEL [CA-R-2244@3, CA-R-2487@2]
+Carrier [CA-R-1958@15]
+	/ Database [CA-R-1955@11]
+	/ Directory [CA-R-1956@11]
+	/ Docker Image [CA-R-2198@5]
+	/ File [CA-R-1957@11]
+		/ Markdown [CA-R-2456@3]
+			/ Markdown Atom Carrier [CA-R-2457@3]
+	/ Git Branch [CA-R-2200@5]
+	/ Git Commit [CA-R-2199@5]
+	/ Git Index [CA-R-2202@5]
+	/ Git Repository [CA-R-2203@6]
+	/ Pull Request [CA-R-2201@5]
+Event Record [CA-R-2557@2]
+Node [CA-R-2462@2]
+	/ Aspect [CA-R-2543@2]
+	/ Continuant [CA-R-2589@2]
+		/ Actor [CA-R-2542@2]
+		/ Atom [CA-R-2508@2]
+			/ (.Role:=Analysis) [CA-R-2510@2]
+			/ (.Role:=Concern) [CA-R-2509@2]
+			/ (.Role:=Delivery) [CA-R-2515@2]
+			/ (.Role:=Evaluation) [CA-R-2514@2]
+			/ (.Role:=Method) [CA-R-2513@2]
+			/ (.Role:=Operations) [CA-R-2463@2]
+				/ Action [CA-R-2467@2]
+				/ Step [CA-R-2465@2]
+				/ Substep [CA-R-2466@2]
+				/ Workflow [CA-R-2464@2]
+			/ (.Role:=Plan) [CA-R-2511@2]
+			/ (.Role:=Requirement) [CA-R-2512@2]
+				/ (.Form:=Declaration) [CA-R-2516@2]
+				/ (.Form:=Relation Definition) [CA-R-2517@2]
+		/ Journal [CA-R-2536@2]
+		/ Named Selection [CA-R-2587@2]
+		/ Package [CA-R-2525@2]
+			/ Implementation [CA-R-2553@2]
+		/ Projection [CA-R-2535@2]
+		/ Scope Unit [CA-R-2523@2]
+			/ Project [CA-R-2524@2]
+	/ MODEL [CA-R-2559@2]
+	/ Occurrent [CA-R-2590@2]
+	/ PROJECT STRUCTURE [CA-R-2560@2]
+Term [CA-R-1318@31]
+```
+
+Source limitations:
+
+- Native admission: not_performed.
+- No inherited facts were synthesized; unavailable source facts remain unavailable.
+- CA-R-1213@38: Entity Definition `Entity/Object/Continuant/Projection/Type: Applicable Methodology` is outside retained CFEL, Carrier, Term roots.
+- CA-R-1373@27: Entity Definition `Entity/Object/Continuant/Projection/Type: Applicable Methodology.Conflict` is outside retained CFEL, Carrier, Term roots.
+- CA-R-1616@21: Entity Definition `Entity/Object/Continuant/Projection/Type: Realization Graph` is outside retained CFEL, Carrier, Term roots.
+- CA-R-1889@15: Entity Definition `Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: FPF Analysis Report` is outside retained CFEL, Carrier, Term roots.
+- CA-R-1977@13: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Artifact Timestamp Timezone` is outside retained CFEL, Carrier, Term roots.
+- CA-R-1978@13: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Code-Root Locators` is outside retained CFEL, Carrier, Term roots.
+- CA-R-1979@13: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence` is outside retained CFEL, Carrier, Term roots.
+- CA-R-1980@13: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Framework Control-Root Locator` is outside retained CFEL, Carrier, Term roots.
+- CA-R-1981@14: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Identifier` is outside retained CFEL, Carrier, Term roots.
+- CA-R-1982@13: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction` is outside retained CFEL, Carrier, Term roots.
+- CA-R-1983@13: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution` is outside retained CFEL, Carrier, Term roots.
+- CA-R-2247@3: retained Entity Definition `CFEL > Relation` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2248@2: retained Entity Definition `CFEL > Format` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2249@3: retained Entity Definition `CFEL > Format/bool` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2250@3: retained Entity Definition `CFEL > Format/int` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2251@3: retained Entity Definition `CFEL > Format/float` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2252@3: retained Entity Definition `CFEL > Format/decimal` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2253@3: retained Entity Definition `CFEL > Format/string` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2254@3: retained Entity Definition `CFEL > Format/datetime` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2256@2: Entity Definition `Entity/Aspect/Product: CAPRMEDIO Framework` is outside retained CFEL, Carrier, Term roots.
+- CA-R-2257@2: retained Entity Definition `CFEL > Format/scalar` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2272@3: Entity Definition `Entity/Object/Continuant/Projection/Type: Canonical Signature` is outside retained CFEL, Carrier, Term roots.
+- CA-R-2277@2: Entity Definition `Entity/Object/Continuant/Selection//Extension Sources` is outside retained CFEL, Carrier, Term roots.
+- CA-R-2327@3: retained Entity Definition `CFEL > Entity/Cardinality` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2328@3: retained Entity Definition `CFEL > Entity/Format` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2329@3: retained Entity Definition `CFEL > Entity/Relation` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2352@2: retained Entity Definition `CFEL > Format.Data Type` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2353@2: retained Entity Definition `CFEL > Format.Uniqueness Selection` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2354@2: retained Entity Definition `CFEL > Relation.Meaning` is unsupported: unexpected reserved character or trailing expression.
+- CA-R-2355@2: retained Entity Definition `CFEL > Relation.Name` is unsupported: unexpected reserved character or trailing expression.
+- Event Record: no explicit NARROWER_THAN parent; rendered as a root.

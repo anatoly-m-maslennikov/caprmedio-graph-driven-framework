@@ -1,0 +1,25 @@
+---
+atom_id: CA-R-2256@3-draft
+current_scope_unit: caprmedio
+status: Draft
+tier: 1
+subjects:
+  active: Node/Continuant//CAPRMEDIO Framework
+relations: {}
+version: 3
+role: Requirement
+form: Declaration
+---
+## Summary
+
+Define the CAPRMEDIO Framework product
+
+## Claim
+
+```CFEL
+Node/Continuant//CAPRMEDIO Framework{:1}
+```
+
+## Semantics
+
+CAPRMEDIO Framework is the product produced by the caprmedio Project. It has required capabilities.

@@ -1,0 +1,8 @@
+{
+  "decision": "Journal//{:1}",
+  "meaning": "Exactly one Journal instance per Project, including narrower-kind instances; no separate Work Journal kind.",
+  "supersedes": "One authoritative Work Journal while allowing other Journals",
+  "updated_at": "2026-10-31T18:00:23.512948+04:00",
+  "journal_draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+  "limits": "Draft methodology only; no Current or runtime change"
+}

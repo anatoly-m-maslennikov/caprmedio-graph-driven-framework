@@ -1,31 +1,28 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis'
-  depends_on: []
-version: 22
-updated_at: 2026-10-27 20:00:02 +0400
+  active: Atom/(.Role := Analysis)
+  passive: []
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-1709
+  - CA-R-1709@38
 atom_id: CA-R-1725
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Review external Analysis before project adoption
 
-## Scope
+## Claim scope
 
 admitted external Analysis before Project adoption.
 
 ## Claim
 
 **every** admitted external Analysis is reviewed by one internal Analysis **before** it can produce project-owned Concern, Plan, Requirement, Method, Evaluation, **or** Delivery Atoms. the external Analysis remains authoritative **only** for what its external source reported; the internal Analysis owns the project's interpretation **and** dispositions, **and** **every** resulting Atom owns its independently accepted meaning.
-
-## Details

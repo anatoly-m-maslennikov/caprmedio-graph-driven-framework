@@ -1,0 +1,499 @@
+{
+  "status": "semantic_candidate_mapping_not_effects",
+  "scope": "28 registered Primary Declarations; no Current mutations or ID allocation",
+  "rules": [
+    "A changed Summary requires a new identity and predecessor disposition, not a same-ID revision.",
+    "A candidate source can cover multiple targets or retained non-Node concerns; do not retire it until every preserved obligation and reference has a reviewed destination.",
+    "Latest approved model decisions supersede conflicting legacy structures; actual instance migration remains separate."
+  ],
+  "rows": [
+    {
+      "target": "Node",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "draft_sha256": "0360986677a8d903eaf84c5d20ac73b026da7edb587ebcf0ec2e46c928f1d6b8",
+      "current_candidates": [
+        {
+          "id": "CA-R-1248",
+          "version": 24,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-DEFINITION--define-entity.md",
+          "sha256": "d9946790458fc48aaf349a2ab40d4b2d0cf4e82903e59dbb761cdf6fdb5129ca",
+          "summary": "Define Entity"
+        },
+        {
+          "id": "CA-R-1193",
+          "version": 23,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-DEFINITION--define-property.md",
+          "sha256": "9b18fb8b423e9944f16ef4d4862b8fa298e11b21ebf5e416086d7feda06f47cb",
+          "summary": "Define Property"
+        }
+      ],
+      "recommended_disposition": "split source; new ID",
+      "reason": "Node unifies modeled Primary and Property, while Entity also covers syntax, Carrier and Terms; preserve those boundaries.",
+      "confidence": "medium"
+    },
+    {
+      "target": "Operations",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "draft_sha256": "bd18b4465a0dd7ead038bf18399acc3e4c95f2cce9f86918a40e53682da49690",
+      "current_candidates": [
+        {
+          "id": "CA-R-1530",
+          "version": 27,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-DEFINITION--define-the-operations-content-role.md",
+          "sha256": "501e8ff45c8e88d9a30f3116f203f207badf9fcedc2479c3ddcc9903d6776af6",
+          "summary": "Define the Operations Content Role"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "Role-qualified Operations preserves reusable behavior meaning with revised model notation.",
+      "confidence": "high"
+    },
+    {
+      "target": "Workflow",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "draft_sha256": "2cda46e500b16c197c151371b89a8e29b86cc1caeaf954abb46b2f83a196620a",
+      "current_candidates": [
+        {
+          "id": "CA-R-1508",
+          "version": 28,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1508-CORE_META_MODEL-DEFINITION--define-workflow.md",
+          "sha256": "0ac735ab228105685a95fa3795cf755f1f10dddef3b2844ad30f2637e6e8d6aa",
+          "summary": "Define Workflow"
+        },
+        {
+          "id": "CA-R-1563",
+          "version": 24,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1563-CORE_META_MODEL-DEFINITION--define-the-workflow-operations-atom-type.md",
+          "sha256": "8b517018a7aaa3618595f1fb8accef1f4381d5d1c06760f45ac3b2c46e49ff75",
+          "summary": "Define the Workflow Operations Atom Type"
+        }
+      ],
+      "recommended_disposition": "new ID successor; reconcile sources",
+      "reason": "Both describe Operations Workflow; new sibling/containment model must preserve remaining applicable graph and execution constraints.",
+      "confidence": "high"
+    },
+    {
+      "target": "Step",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "draft_sha256": "be43cd211af5a8765e90dc8c7f8844c9fb57d55ce7a6828c45157e0a48dc07a1",
+      "current_candidates": [
+        {
+          "id": "CA-R-1509",
+          "version": 23,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1509-CORE_META_MODEL-DEFINITION--define-step.md",
+          "sha256": "1c230d81bcbf5f0056ef8a0250a36b8509cad3c467d6cfae15acf8549944d705",
+          "summary": "Define Step"
+        },
+        {
+          "id": "CA-R-1569",
+          "version": 22,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1569-CORE_META_MODEL-DEFINITION--define-the-step-operations-atom-type.md",
+          "sha256": "82ce692f631264a8a882a27c1fa3b871faf5f04b088320775db5ed524835faf8",
+          "summary": "Define the Step Operations Atom Type"
+        }
+      ],
+      "recommended_disposition": "new ID successor; reconcile sources",
+      "reason": "Both cover Step; current sources also allow Workflow invocation, superseded by user-selected Action-or-Substeps choice. Preserve other supported constraints.",
+      "confidence": "high"
+    },
+    {
+      "target": "Substep",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "draft_sha256": "d9e37c2b8740d343ca63b3d1eb3b6822f56369228b0a4d9ca90bbc1206a24ad8",
+      "current_candidates": [
+        {
+          "id": "CA-R-2242",
+          "version": 2,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2242-CORE_META_MODEL-ENTITY_DEFINITION--define-substep.md",
+          "sha256": "f034ad21b67a60e59e69ffe7052941c1a731418dbd5e328617d836ced498af7b",
+          "summary": "Define Sub-step"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "Current Sub-step is a leaf under one Step and calls one Action; new instance relation expression changes representation.",
+      "confidence": "high"
+    },
+    {
+      "target": "Action",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "draft_sha256": "a912b6f43e8cabfe50fd1aa8c5715d2b969290f92d8408511086e56cf7e9447b",
+      "current_candidates": [
+        {
+          "id": "CA-R-1452",
+          "version": 27,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL--define-action.md",
+          "sha256": "22f66357c3fb3abd33641de03cbd1df4f8268850ea606bdcc0ad95abf2c8cbb5",
+          "summary": "Define Action"
+        },
+        {
+          "id": "CA-R-1562",
+          "version": 24,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1562-CORE_META_MODEL-DEFINITION--define-the-action-operations-atom-type.md",
+          "sha256": "92d15be924dc18b31504c4043c2f6cdd1274d9897961b40246b9ed20cf223bc5",
+          "summary": "Define the Action Operations Atom Type"
+        }
+      ],
+      "recommended_disposition": "new ID successor; reconcile sources",
+      "reason": "Reusable Action meaning overlaps both sources; compare justified atomic boundary and other constraints before disposition.",
+      "confidence": "high"
+    },
+    {
+      "target": "Atom",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "draft_sha256": "8bf3f2270b3bb007771af15fda6e1aef7a053a538865d3d597ec8f0a2aac3f66",
+      "current_candidates": [
+        {
+          "id": "CA-R-655",
+          "version": 42,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-ENTITY-DEFINITION--define-atom-artifact-form.md",
+          "sha256": "ddf97b84cfef8829604bcf39b8b84f9f60d27c395fa93d64c981d7512c072327",
+          "summary": "Define Atom Artifact Form"
+        }
+      ],
+      "recommended_disposition": "new ID successor; split source",
+      "reason": "Smallest independently governed Artifact maps directly; R655 also contains extensive governing-relation constraints requiring separate disposition.",
+      "confidence": "high"
+    },
+    {
+      "target": "Atom/(.Role := Concern)",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-concern.md",
+      "draft_sha256": "b2b242bd5a56f0335eae8ea4f0a880bcf64aa252e958d7ee480cc74fcfe90c87",
+      "current_candidates": [
+        {
+          "id": "CA-R-1336",
+          "version": 28,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-DEFINITION--define-concern-content-role.md",
+          "sha256": "cc18b16d2e8b9dccd2334e69e5b6a5752a884627e7dd5fec6a89f7a23bceb7cd",
+          "summary": "Define Concern Content Role"
+        }
+      ],
+      "recommended_disposition": "new ID successor; split source",
+      "reason": "Concern role maps directly; Priority constraints also require Property disposition.",
+      "confidence": "high"
+    },
+    {
+      "target": "Atom/(.Role := Analysis)",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-analysis.md",
+      "draft_sha256": "137256803246b4f53ab81acdafc8991cc7139a8a396e368f65d915c3daeaa31e",
+      "current_candidates": [
+        {
+          "id": "CA-R-1337",
+          "version": 28,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-DEFINITION--define-analysis-content-role.md",
+          "sha256": "f40454ffa0a805ee2ab99c07346b929688a20382b85d862ec43a50a4fd959fde",
+          "summary": "Define Analysis Content Role"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "The Current role defines analysis finding or rationale, matching the qualified Atom kind.",
+      "confidence": "high"
+    },
+    {
+      "target": "Atom/(.Role := Plan)",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "draft_sha256": "361062b225ee15d969488114971a9ead27ae01f7822d9c7a42eebdf9acef3fd9",
+      "current_candidates": [
+        {
+          "id": "CA-R-1338",
+          "version": 31,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-DEFINITION--define-plan-content-role.md",
+          "sha256": "2ea39f094da5313bd3180dff774e5a0ff49c70b3c40661bf67dd44cfaa2eda2a",
+          "summary": "Define Plan Content Role"
+        }
+      ],
+      "recommended_disposition": "new ID successor; split source",
+      "reason": "Plan role maps directly; assignee, retry, confidence and BLOCKS rules need separate preservation.",
+      "confidence": "high"
+    },
+    {
+      "target": "Atom/(.Role := Requirement)",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "draft_sha256": "b5d393aca314e0297eb0b2d17894ee237fa2eb68ddefdf9f086c3734a092314a",
+      "current_candidates": [
+        {
+          "id": "CA-R-1339",
+          "version": 31,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-DEFINITION--define-requirement-content-role.md",
+          "sha256": "2d83baa44df9828f8103a34fe475d42bc8805d9b37be7a5f1733b09d1e4abad8",
+          "summary": "Define Requirement Content Role"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "The Current role defines requirement outcome or governed model.",
+      "confidence": "high"
+    },
+    {
+      "target": "Atom/(.Role := Method)",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "draft_sha256": "f97988d05131b8bb547e70df4d85da5e2ef126fc41d0495e37f5b7115900fa9f",
+      "current_candidates": [
+        {
+          "id": "CA-R-1340",
+          "version": 32,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-DEFINITION--define-method-content-role.md",
+          "sha256": "c0664f74a3aa7062aedb9499850d81c90648a91e34d6274a127ad3cedf08eadf",
+          "summary": "Define Method Content Role"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "The Current role defines means for achieving outcomes.",
+      "confidence": "high"
+    },
+    {
+      "target": "Atom/(.Role := Evaluation)",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "draft_sha256": "c61cde2a319735bda2ba062ccaff5977790a4175a0dbb756d23d7e8ad11921a5",
+      "current_candidates": [
+        {
+          "id": "CA-R-1341",
+          "version": 27,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-DEFINITION--define-evaluation-content-role.md",
+          "sha256": "ef5b991f7c6502b9eb9d6ae33efc4e5a48295ea80b5b5a1bee42005c95591b3b",
+          "summary": "Define Evaluation Content Role"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "The Current role defines checks or disposition rules.",
+      "confidence": "high"
+    },
+    {
+      "target": "Atom/(.Role := Delivery)",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "draft_sha256": "7e95d5c2fd9df9e751e08bc3c811b8129e17fd4bf64d907c1d65e44db2820eaa",
+      "current_candidates": [
+        {
+          "id": "CA-R-1342",
+          "version": 32,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-DEFINITION--define-delivery-content-role.md",
+          "sha256": "a3aa572d66e9f72a3e4670084cab0bf1413a8fef86f80f7c5dfbafeca111187b",
+          "summary": "Define Delivery Content Role"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "The Current role defines carrier representation and placement.",
+      "confidence": "high"
+    },
+    {
+      "target": "Atom/(.Role := Requirement)/(.Form := Declaration)",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration.md",
+      "draft_sha256": "f369536747cf380cd689e0b5605431a846b2affc7530de7e92a40f527ed49325",
+      "current_candidates": [
+        {
+          "id": "CA-R-2227",
+          "version": 3,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2227-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-entity-definition.md",
+          "sha256": "d6f7452f40366c6721a52c3c026df93f4b68a807096359ce4aadf578383a7dc5",
+          "summary": "Define Requirement Type Entity Definition"
+        }
+      ],
+      "recommended_disposition": "new ID partial successor; split source",
+      "reason": "Entity Definition shares one-owner governed definition role but also governs non-Node branches and requires prose; latest Node Declaration Form differs. Preserve non-Node duties separately.",
+      "confidence": "medium"
+    },
+    {
+      "target": "Atom/(.Role := Requirement)/(.Form := Relation Definition)",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-relation-definition.md",
+      "draft_sha256": "cfbf52ca20a40887f5c8c31d2e8bfb90e587c71771c7bbd2080449c90d3da905",
+      "current_candidates": [
+        {
+          "id": "CA-R-2228",
+          "version": 3,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2228-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-relation-definition.md",
+          "sha256": "394333dd8e76308571df9dd07cb13f8f0382c54972040ed3d1936a7b5218099d",
+          "summary": "Define Requirement Type Relation Definition"
+        }
+      ],
+      "recommended_disposition": "new ID successor; preserve shared syntax duties",
+      "reason": "Current Relation Definition establishes direct/inverse definition template; proposed Form keeps Relation meaning but latest HAS_INVERSE and endpoint rules change its expression.",
+      "confidence": "high"
+    },
+    {
+      "target": "Scope Unit",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "draft_sha256": "ba3a4c253fd0db1c696939c24375be2a906c2637996b7a2d5a8e752d8339780f",
+      "current_candidates": [
+        {
+          "id": "CA-R-1757",
+          "version": 34,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-ENTITY-DEFINITION--define-scope-unit.md",
+          "sha256": "37896e6cb91a2f868a1713bdd16763d08dd9a1e190c778a65245b45a02455a57",
+          "summary": "Define Scope Unit"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "Both define responsibility and ownership boundary and structural containment.",
+      "confidence": "high"
+    },
+    {
+      "target": "Project",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "draft_sha256": "e81873a478a374c08a003a0803291113bc157beb168336016b24ad8177c7dee7",
+      "current_candidates": [
+        {
+          "id": "CA-R-2220",
+          "version": 4,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2220-CORE_META_MODEL-DEFINITION--define-project.md",
+          "sha256": "362576452cfd2357086b9b4f4d39f32abbb07ef3743013fc49728689170782b4",
+          "summary": "Define Project"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "Both treat Project as whole and proposed root Scope Unit; preserve project/structure model choices.",
+      "confidence": "high"
+    },
+    {
+      "target": "Package",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "draft_sha256": "41c9c23b7ae5da24750ac876c59cf80b09175b24675e56bc86b8d4fc02626860",
+      "current_candidates": [
+        {
+          "id": "CA-R-2178",
+          "version": 5,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2178-CORE_META_MODEL-DEFINITION--define-package.md",
+          "sha256": "becf7ff7740a026156027caf0798d227dc06f807ad979e3622f44c2ecd2e1d15",
+          "summary": "Define Package"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "Current Package logical collection maps to new Package; preserve nested-package meaning and applicable constraints.",
+      "confidence": "high"
+    },
+    {
+      "target": "Projection",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "draft_sha256": "112f7fc1740de797a9833654b1918b83f6296e6f30b04b498b4f4ce1681302d6",
+      "current_candidates": [
+        {
+          "id": "CA-R-1746",
+          "version": 43,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL--define-projection-artifact-form.md",
+          "sha256": "62d932d646242619892aef5882a23ac430f30ff5f867a9076ca7e13d43a1c6ac",
+          "summary": "Define Projection Artifact form"
+        }
+      ],
+      "recommended_disposition": "new ID successor; split source",
+      "reason": "Current Projection is derived/non-authoritative and has source workflow/provenance restrictions; new minimalist claim does not alone preserve them.",
+      "confidence": "high"
+    },
+    {
+      "target": "Journal",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "draft_sha256": "d32ee6c1214fdc0b1d1e932588c011ed27b5eec0e9e170fbe345f62ab7be5e99",
+      "current_candidates": [
+        {
+          "id": "CA-R-1745",
+          "version": 34,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL--define-journal-artifact-form.md",
+          "sha256": "6a1cc6d2420477b3186a0a2d47e1fd4fd889cfb6c86aaa7b964458fa61c4cf17",
+          "summary": "Define Journal Artifact form"
+        }
+      ],
+      "recommended_disposition": "new ID successor; split source",
+      "reason": "Both cover Journal event history; latest user removed ordered-table claim and moved record immutability to Event Record, so preserve only applicable successor requirements.",
+      "confidence": "high"
+    },
+    {
+      "target": "Actor",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-actor.md",
+      "draft_sha256": "d95e7ada980d30d746d5b8e7f55321422ec93bcd302421255ebf48f5e1d1d1fd",
+      "current_candidates": [
+        {
+          "id": "CA-R-2218",
+          "version": 5,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2218-CORE_META_MODEL-DEFINITION--define-actor.md",
+          "sha256": "51af210d9cc892394255422af8f46e0b9c8871d7f80983be4e4ed1ce00d6572f",
+          "summary": "Define Actor"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "Current Actor is a participant performing work, providing input or exercising authority.",
+      "confidence": "high"
+    },
+    {
+      "target": "Aspect",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "draft_sha256": "44c5c4bc233a84c7c82ab48629b54b2fc195f2288a4f288d4915f0e0f16d6b62",
+      "current_candidates": [
+        {
+          "id": "CA-R-2210",
+          "version": 4,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2210-CORE_META_MODEL-DEFINITION--define-aspect.md",
+          "sha256": "4ddcf4417e589604d95ba8d03c300abc09a604c32f45e57ce6b92eaa0b486116",
+          "summary": "Define Aspect"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "Current Aspect is a topic addressing a thing; new approved Aspect Primary Node requires careful mapping of project-specific instances.",
+      "confidence": "medium"
+    },
+    {
+      "target": "Implementation",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+      "draft_sha256": "330f0e4c0bb63f04b009f46cbe5c540f90c77b1cdc0490e314c3823a89ae645f",
+      "current_candidates": [
+        {
+          "id": "CA-R-2173",
+          "version": 5,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2173-CORE_META_MODEL-DEFINITION--define-implementation.md",
+          "sha256": "ae5e6c604517d137fcf8e08a1f2545f0cab8cfaecccaa166f9adf924cf0b4406",
+          "summary": "Define Implementation"
+        }
+      ],
+      "recommended_disposition": "new ID successor; reconcile scope",
+      "reason": "Current Implementation denotes actual code/prompts/docs/resources; proposed Package/Implementation is root specialization, so preserve authority and coverage with semantic review.",
+      "confidence": "medium"
+    },
+    {
+      "target": "Event Record",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "draft_sha256": "8433208a44f82f16eba4d04fa758ba7dc6c1a5e46848f302c61c134414f00cf5",
+      "current_candidates": [
+        {
+          "id": "CA-R-2234",
+          "version": 1,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2234-CORE_META_MODEL-ENTITY_DEFINITION--define-event-record.md",
+          "sha256": "870eda2cc936436158e1bf891002f6f5ca3811187c9349bfc8cefff0588e6ab6",
+          "summary": "Define Event Record"
+        }
+      ],
+      "recommended_disposition": "new ID successor",
+      "reason": "Both describe persistent event records in one Journal; retain no implication of observed success.",
+      "confidence": "high"
+    },
+    {
+      "target": "MODEL",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-model.md",
+      "draft_sha256": "f78ba27468412df5d566211487fd2b57f23dd334a284e5d824eb729ab05d0f02",
+      "current_candidates": [],
+      "recommended_disposition": "new ID; no proven predecessor",
+      "reason": "No direct Current primary MODEL Definition established in selected Core inventory; model concept, inheritance and scoped override are new design.",
+      "confidence": "medium"
+    },
+    {
+      "target": "PROJECT STRUCTURE",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-structure.md",
+      "draft_sha256": "a33d1ff6df92a5bff208b29ef815774b09288daf1bf830b6ab74d0afead7ffb0",
+      "current_candidates": [],
+      "recommended_disposition": "new ID; possible split predecessor",
+      "reason": "Current Project and Scope Unit sources cover parts of structure but no verified same-identity Project Structure Definition; do not retire either as a whole.",
+      "confidence": "medium"
+    },
+    {
+      "target": "Named Selection",
+      "draft": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-named-selection.md",
+      "draft_sha256": "37f5d929dd74325d7c687422272b86cb81014e7703ffb3e7df42ef0ff9c5226a",
+      "current_candidates": [
+        {
+          "id": "CA-R-1966",
+          "version": 12,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1966-CORE_META_MODEL--define-entity-continuant-selection.md",
+          "sha256": "bdc2b2f12f61141bd7c8685e94ce30b0f77fcfa2b613df4adcd1c8ccb4652d47",
+          "summary": "Define Entity/Continuant/Selection"
+        }
+      ],
+      "recommended_disposition": "new ID successor; representation changed",
+      "reason": "Current Selection is criteria and named Selection is not a separate Object; latest approved Primary Named Selection changes identity and requires exact mapping.",
+      "confidence": "medium"
+    }
+  ]
+}

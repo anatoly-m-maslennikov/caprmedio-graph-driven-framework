@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Demand'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Local Order
-version: 34
-updated_at: 2026-10-27 19:59:30 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand'
+  passive:
+  - Scope Unit.Local Order
+version: 38
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
-  - CA-R-932
+  - CA-R-932@37
   - CA-R-933
   - CA-R-916
   - CA-R-944
@@ -15,19 +15,18 @@ relations:
   - CA-R-934
   - CA-R-954
 atom_id: CA-E-243
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 7
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate a Demand Atom
 
-## Scope
+## Claim scope
 
 Demand Atoms and their Consumer-owned Producer-result constraints.
 
@@ -46,5 +45,3 @@ create valid Demand Atoms with Consumer **and** Producer Scope Unit references *
 ### Failure disposition
 
 record a Concern naming the invalid Demand fact.
-
-## Details

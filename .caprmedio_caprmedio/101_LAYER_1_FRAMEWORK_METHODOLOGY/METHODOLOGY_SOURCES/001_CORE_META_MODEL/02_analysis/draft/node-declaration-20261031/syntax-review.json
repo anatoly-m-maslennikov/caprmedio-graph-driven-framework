@@ -1,0 +1,21 @@
+{
+  "status": "PASS_WITH_OPEN_GATES",
+  "reviewed": 10,
+  "changes": [
+    "Added CA-R-draft atom_id and updated_at to all 10 carriers.",
+    "Removed unconfirmed IS_NARROWER_THAN and IS_INSTANCE_OF identities; use HAS_NARROWER and HAS_INSTANCE as proposed derived views and leave named inverse identities for disposition.",
+    "Qualified the Declaration one-to-one restriction as Requirement/Form: Declaration."
+  ],
+  "checks": [
+    "All 10 YAML metadata agree with manifest and contain a Claim.",
+    "Notation distinguishes narrowing, composition, classification, value-case, condition and conclusion; relation direction reversal swaps cardinality positions.",
+    "Value and immediate-child domains and counts are independent; no full Formal Claim is embedded in a Subject.",
+    "Current Entity/Graph Syntax <+ Relation Subject paths follow existing Current syntax; proposed replacement namespace remains an adoption decision."
+  ],
+  "open_gates": [
+    "Canonical IS_PART_OF versus IS_CONTAINED_BY identity and migration remain unresolved.",
+    "HAS_VALUE endpoint representation and direct inverse identities for narrowing/instantiation remain unresolved.",
+    "Governed validation, parser support and complete Node whitelist adoption are not established."
+  ],
+  "manifest": "/tmp/node-declaration-proposal-20261030/syntax-drafts.json"
+}

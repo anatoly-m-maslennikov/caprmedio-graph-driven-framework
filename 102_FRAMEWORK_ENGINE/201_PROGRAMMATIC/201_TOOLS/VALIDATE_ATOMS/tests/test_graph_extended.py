@@ -256,6 +256,36 @@ class GraphExtendedTests(unittest.TestCase):
         result = check("subjects.resolution", atom(subjects={"governs": "Widget/Color"}), refs)
         self.assertFalse(result.findings + result.gaps)
 
+    def test_subject_declarations_normalize_notation_without_suffix_aliases(self) -> None:
+        refs = [reference(atom("X-R-1", "Requirement", subjects={"governs": "Widget.Color: Blue"}))]
+        result = check("subjects.resolution", atom(subjects={"governs": "Widget.Color:Blue"}), refs)
+        self.assertFalse(result.findings + result.gaps)
+        self.assertTrue(check("subjects.resolution", atom(subjects={"governs": "Color:Blue"}), refs).gaps)
+
+    def test_subject_references_resolve_any_full_declared_entity(self) -> None:
+        refs = [reference(atom("X-M-1", "Method", subjects={"governs": "Widget.Color"})),
+                reference(atom("X-M-2", "Method", subjects={"governs": "Widget.Description[Text]{2}"}))]
+        for expression in ("@(Widget.Color)", "@(Widget.Description[Text]{2})"):
+            with self.subTest(expression=expression):
+                result = check("subjects.resolution", atom(subjects={"governs": expression}), refs)
+                self.assertFalse(result.findings + result.gaps)
+        for expression in ("@Color", "@(Widget.Missing)", "Selection/@(Widget.Color)", "@(Widget.Color).Missing"):
+            with self.subTest(expression=expression):
+                self.assertTrue(check("subjects.resolution", atom(subjects={"governs": expression}), refs).gaps)
+
+    def test_reference_continuation_requires_declared_final_target(self) -> None:
+        refs = [reference(atom("X-M-1", "Method", subjects={"governs": "Widget.Color"})),
+                reference(atom("X-R-2", "Requirement", subjects={"governs": "Widget.Color.Value"}))]
+        result = check("subjects.resolution", atom(subjects={"governs": "@(Widget.Color).Value"}), refs)
+        self.assertFalse(result.findings + result.gaps)
+
+    def test_reference_mentions_do_not_declare_entities_and_bad_syntax_fails(self) -> None:
+        refs = [reference(atom("X-M-1", "Method", subjects={"governs": "@Widget"}))]
+        self.assertTrue(check("subjects.resolution", atom(subjects={"governs": "Widget"}), refs).gaps)
+        for expression in ("Widget -> Color", "Widget/(.Color)", 'atom(atom_id="X-R-1")'):
+            with self.subTest(expression=expression):
+                self.assertTrue(check("subjects.resolution", atom(subjects={"governs": expression}), refs).findings)
+
     def test_subject_dependency_mention_does_not_declare_entity(self) -> None:
         refs = [
             reference(

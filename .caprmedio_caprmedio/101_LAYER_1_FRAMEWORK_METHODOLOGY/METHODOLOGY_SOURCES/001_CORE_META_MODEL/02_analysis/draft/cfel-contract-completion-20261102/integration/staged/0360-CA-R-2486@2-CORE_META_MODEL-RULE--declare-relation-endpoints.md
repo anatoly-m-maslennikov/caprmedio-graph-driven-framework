@@ -1,0 +1,23 @@
+---
+atom_id: CA-R-2486@2
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+subjects:
+  active: Atom/(.Role := Requirement)/(.Form := Relation Definition)
+version: 2
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+tier: 3
+role: Requirement
+form: Rule
+---
+## Summary
+
+Declare Relation endpoints
+
+## Claim
+
+A Relation Definition states its allowed Host and Target in its Formal claim where existing notation expresses the selectors; otherwise use precise prose. An endpoint signature constrains admissible links; it does not assert links between every matching pair. Cardinality annotations constrain counts independently.
+
+Use HAS_INVERSE for a derived reverse view. Its endpoint sets are the direct Relation's sets swapped. State any displayed reverse signature consistently with that derivation; do not create a separate Definition for the inverse.

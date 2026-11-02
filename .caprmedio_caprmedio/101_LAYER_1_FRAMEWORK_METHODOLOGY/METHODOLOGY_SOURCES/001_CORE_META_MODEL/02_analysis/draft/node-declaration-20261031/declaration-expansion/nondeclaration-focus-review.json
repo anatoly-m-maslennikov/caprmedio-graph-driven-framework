@@ -1,0 +1,70 @@
+{
+  "scope": "all 34 registered non-Declaration Atoms, checked active Subject against Claim; relation endpoint semantics, target representation and necessary references allowed",
+  "registered_total": 105,
+  "reviewed_non_declarations": 34,
+  "findings": [
+    {
+      "classification": "potential_redundancy",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+      "line": 25,
+      "active_subject": "(Node, Node/**, .**)",
+      "claim": "Declaration// {:1}((HAS_ACTIVE_SUBJECT)){:1} Node selection",
+      "reason": "Node incoming ownership alone does not imply the Declaration source-degree restriction. However Atom.Subjects.Active already admits at most one occurrence and HAS_ACTIVE_SUBJECT derives from it; if that mapping is functional and multiplicity-preserving, the pre-count is redundant in the combined packet. The two-Node counterexample violates the shared Active Subject cap.",
+      "minimal_fix": "Keep the Node incoming count; remove the redundant pre-count after confirming the derived field-to-link binding. Do not create a duplicate Declaration degree rule."
+    },
+    {
+      "classification": "confirmed",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declare-formal-scope.md",
+      "line": 29,
+      "active_subject": "Atom/(.Role: Requirement)/(.Form: Declaration)",
+      "claim": "ENGINE may create permitted instances and implementation RMED; it may reference metamodel declarations passively but may not actively address or redefine them.",
+      "reason": "This directly regulates ENGINE permissions and its active/passive addressing, rather than merely specifying what the selected Declaration expresses.",
+      "minimal_fix": "Put ENGINE permission in the applicable ENGINE/Scope active-Subject Atom; retain Declaration requirements for expressing its formal Scope here."
+    },
+    {
+      "classification": "potential",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-form-registration.md",
+      "line": 29,
+      "active_subject": "Atom/(.Role: Requirement).Form",
+      "claim": "A Primary Node has brief Semantics. A Property has none.",
+      "reason": "Form value registration is the active Subject, while the sentence governs body requirements for Declarations based on the classified Node; it may be intended as a Declaration Form-specific contract rather than an independent cross-Subject rule.",
+      "minimal_fix": "Clarify that the constraints govern the Declaration Form body or move them to the Declaration-form active Subject; do not infer a rule about Semantics on every Node."
+    },
+    {
+      "classification": "potential",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--use-role-and-form.md",
+      "line": 27,
+      "active_subject": "Atom/(.Role: Requirement)/(.Form: Declaration)",
+      "claim": "The proposed Atom schema must distinguish Role from Form. The current Atom content_role field maps to the proposed role value, and the current type field maps to the proposed form value.",
+      "reason": "The unconditional Atom schema and field mapping apply across all Atom Forms, not only the selected Declaration; the Declaration-specific value case is within scope.",
+      "minimal_fix": "Own the general Atom schema/mapping under Atom or its relevant Property, and retain Declaration-specific Role/Form here if that broader mapping is an independent requirement."
+    },
+    {
+      "classification": "potential",
+      "path": ".caprmedio_caprmedio/04_requirement/draft/node-declaration-20261031/CA-R-draft-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "line": 25,
+      "active_subject": "PROJECT//CAPRMEDIO Framework",
+      "claim": "Terms provide reusable words or phrases in Node and Relation content; Terms are not graph Nodes. Primary Node and Property are derived Independence cases.",
+      "reason": "These read as universal statements about Terms and Node classification rather than facts limited to this particular Project or its Model; the surrounding Project structure constraints are in scope.",
+      "minimal_fix": "Move universal constraints to their existing general Term/Node authorities, or explicitly limit the statements to the Project model if that is their intended scope."
+    },
+    {
+      "classification": "potential",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "line": 33,
+      "active_subject": "Atom",
+      "claim": "@Carrier//Markdown file.filename{:1}: [string]{:1}; @Carrier//Markdown file.location{:1}: [string]{:1}; @Carrier//Markdown file.frontmatter.author{:0}",
+      "reason": "These three unbound Carrier expressions could apply to every referenced Markdown-file Carrier, rather than only a Carrier representing the selected Atom. Atom delivery representation may validly constrain its own target Carrier; the issue depends on how @ binds that target.",
+      "minimal_fix": "Clarify or bind these constraints to each selected Atom delivery target; do not remove valid constraints on the Atom representation."
+    }
+  ],
+  "priority_question": {
+    "question": "Does each authored Atom.Subjects.Active value derive at most one HAS_ACTIVE_SUBJECT link?",
+    "options": [
+      "Yes: remove the redundant source-degree count from the Node ownership Rule.",
+      "No: define the exceptional mapping and place the necessary independent source-degree restriction under the Declaration active Subject."
+    ],
+    "context": "The selected Atom.Subjects.Active declaration already limits occurrence to 0..1."
+  },
+  "limits": "Read-only semantic focus review, not parser, admission, runtime or instance audit; potential items require interpretation and do not establish defects."
+}

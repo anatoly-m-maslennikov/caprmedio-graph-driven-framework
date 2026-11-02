@@ -1,18 +1,18 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
-  - Subject/CAPRMEDIO/Carrier/File
-  - Subject/CAPRMEDIO/Carrier/Directory
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Work Sequence Number'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Definition of Done'
-version: 25
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Carrier
+  passive:
+  - Atom/(.Role := Plan)
+  - Carrier/File
+  - Carrier/Directory
+  - Atom.ID
+  - Atom.Content.Summary
+  - Atom/(.Role := Plan).Work Sequence Number
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-D-460
@@ -25,18 +25,17 @@ relations:
   - CA-R-1599
   - CA-R-997
 atom_id: CA-E-502
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 Validate Plan Carrier identity **and** placement
 
-## Scope
+## Claim scope
 Plan Carrier identity **and** placement.
 
 ## Claim
@@ -54,5 +53,3 @@ the Plan Carrier Evaluation **must** reject Carrier facts that create duplicate 
 - retain one identity **when** contained work is added, removed, **or** reordered; a changed Summary follows Atom replacement authority rather than independent filename editing.
 
 report the invalid Carrier Bundle, source fact, **and** violated Delivery rule.
-
-## Details

@@ -1,0 +1,95 @@
+{
+  "input_sha256": "f973428fc85ddf341e27dbc2bd73b503b66910d90757bf2bb64d304d3ecc3164",
+  "output_sha256": "fd71a953a6986b8bcf6c43833eb93eccee04f7ff7f8ee105edbf69ac28aa074c",
+  "comparison_input_sha256": "1dc2228e689347189d76851ba340a64bef02ed6dc919025648decc6e2ba84615",
+  "counts": {
+    "total": 8,
+    "pass": 3,
+    "needs_changes": 5,
+    "needs_context": 0
+  },
+  "results": [
+    {
+      "key": "B03",
+      "generated_summary": "Preserve all information needed for governed use; show only the complete, currently justified task-sufficient set.",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "source_quote": "keep **all** unexposed preserved information so it can be retrieved.",
+          "problem": "The title omits keeping unexposed information recoverable, a central part of the method.",
+          "minimal_correction": "Show what is needed; keep the rest"
+        }
+      ]
+    },
+    {
+      "key": "B08",
+      "generated_summary": "MCP /health browser diagnostic view with recent Tool and Workflow observations",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "source_quote": "A health GET reads the existing snapshot **only**.",
+          "problem": "The title names recent observations but loses the central read-only boundary and the bounded health view.",
+          "minimal_correction": "Expose bounded, read-only MCP health and call history"
+        }
+      ]
+    },
+    {
+      "key": "B09",
+      "generated_summary": "Read-only Code Candidate Semantic Review",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "source_quote": "It assesses the complete bound applicable Method-policy set",
+          "problem": "The generic Action name omits the central review of applicable Method policy and evidence.",
+          "minimal_correction": "Review code-candidate evidence and applicable Method policy without editing"
+        }
+      ]
+    },
+    {
+      "key": "B10",
+      "generated_summary": "Shared Implementation Review Step",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "source_quote": "that invokes exactly one Action",
+          "problem": "The bare Step name does not say that the Step reviews code in the shared implementation context; it is a topic label rather than a meaningful description.",
+          "minimal_correction": "Review code in shared implementation context"
+        }
+      ]
+    },
+    {
+      "key": "B14",
+      "generated_summary": "Project-wide foundation and Core set Evaluation",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B15",
+      "generated_summary": "MCP provider-neutral discovery, schema, and dispatch",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B17",
+      "generated_summary": "Project Layers in Local Order",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "source_quote": "exactly** the following five ordered Layers",
+          "problem": "The title omits the core fact that the Project has exactly five ordered Layers.",
+          "minimal_correction": "The Project has five Layers in Local Order"
+        }
+      ]
+    },
+    {
+      "key": "B23",
+      "generated_summary": "CAPRMEDIO Framework, Layer, and Feature Composition",
+      "verdict": "Pass",
+      "issues": []
+    }
+  ],
+  "limitations": [
+    "Meaning and readability judged against full supplied content, not exact matching. Secondary details may remain in the body.",
+    "The 30 accepted earlier titles were not re-evaluated. No sources or generated outputs were edited."
+  ]
+}

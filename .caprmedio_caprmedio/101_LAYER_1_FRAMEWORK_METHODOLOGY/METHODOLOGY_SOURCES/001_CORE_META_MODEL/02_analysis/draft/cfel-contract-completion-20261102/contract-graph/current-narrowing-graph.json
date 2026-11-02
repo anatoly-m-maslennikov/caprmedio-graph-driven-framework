@@ -1,0 +1,864 @@
+{
+  "kind": "current_declared_narrowing_tree",
+  "source_basis": "current_declared_carriers",
+  "native_admission": "not_performed",
+  "nodes": [
+    {
+      "id": "narrowing:b32b88b317c1aea315f87d31d6414ee222dacba97b229b31fd4c792b3bfd628b",
+      "identity": "Actor",
+      "display_name": "Actor",
+      "source_bindings": [
+        "CA-R-2542@2"
+      ]
+    },
+    {
+      "id": "narrowing:ff942ffd9aafaea7f46f53e381ca12e6817c9d84fd4fad002f5dca3c4f10ee98",
+      "identity": "Aspect",
+      "display_name": "Aspect",
+      "source_bindings": [
+        "CA-R-2543@2"
+      ]
+    },
+    {
+      "id": "narrowing:d2edefe445efb6a6c0cae022ab44ea949d17da8c8dfa80dcb72f3b6d6f86a4c3",
+      "identity": "Atom",
+      "display_name": "Atom",
+      "source_bindings": [
+        "CA-R-2508@2"
+      ]
+    },
+    {
+      "id": "narrowing:f36905e6cded97e5f7d9977cc5e795cf32de3852903c11aa40aef1ba3d92d0f2",
+      "identity": "Atom/(.Role:=Analysis)",
+      "display_name": "(.Role:=Analysis)",
+      "source_bindings": [
+        "CA-R-2510@2"
+      ]
+    },
+    {
+      "id": "narrowing:029b14ddb3f409cbf86ef33ca17869c474b50d41989e0e8576d15e9c50875a42",
+      "identity": "Atom/(.Role:=Concern)",
+      "display_name": "(.Role:=Concern)",
+      "source_bindings": [
+        "CA-R-2509@2"
+      ]
+    },
+    {
+      "id": "narrowing:478ae9048b5b159283fa588abe9cbd6f9ebfc9bb60373f491b14cf91c62750f4",
+      "identity": "Atom/(.Role:=Delivery)",
+      "display_name": "(.Role:=Delivery)",
+      "source_bindings": [
+        "CA-R-2515@2"
+      ]
+    },
+    {
+      "id": "narrowing:29d05c9b1f82f43b575e196eb6a47bd422bf023d337832b255adace6ed331441",
+      "identity": "Atom/(.Role:=Evaluation)",
+      "display_name": "(.Role:=Evaluation)",
+      "source_bindings": [
+        "CA-R-2514@2"
+      ]
+    },
+    {
+      "id": "narrowing:d18f5fada3f01e32426a2754dc10eec6c9118e2473546fc86311676d16f951f5",
+      "identity": "Atom/(.Role:=Method)",
+      "display_name": "(.Role:=Method)",
+      "source_bindings": [
+        "CA-R-2513@2"
+      ]
+    },
+    {
+      "id": "narrowing:515955aed4bcfd25722a94918f948f0d7ee30c7c1549d47447b81d67bff83bc1",
+      "identity": "Atom/(.Role:=Operations)",
+      "display_name": "(.Role:=Operations)",
+      "source_bindings": [
+        "CA-R-2463@2"
+      ]
+    },
+    {
+      "id": "narrowing:b2a7c79fab1cbb5b746ebddf292a560c089d29e6982def685a6f4d56b5519b2b",
+      "identity": "Atom/(.Role:=Operations)/Action",
+      "display_name": "Action",
+      "source_bindings": [
+        "CA-R-2467@2"
+      ]
+    },
+    {
+      "id": "narrowing:f302628fed122b3df6e52cb1622ab53c7e8ffd5716b39c17f6545e94497e325d",
+      "identity": "Atom/(.Role:=Operations)/Step",
+      "display_name": "Step",
+      "source_bindings": [
+        "CA-R-2465@2"
+      ]
+    },
+    {
+      "id": "narrowing:83107b08f803051b7ec0f7c45176574e0c1f0009ef55a4d538485cd88c259ce1",
+      "identity": "Atom/(.Role:=Operations)/Substep",
+      "display_name": "Substep",
+      "source_bindings": [
+        "CA-R-2466@2"
+      ]
+    },
+    {
+      "id": "narrowing:4e8432a0c216626be856f8f96afc32c302b328c218fd764e9fad89eea16b52f2",
+      "identity": "Atom/(.Role:=Operations)/Workflow",
+      "display_name": "Workflow",
+      "source_bindings": [
+        "CA-R-2464@2"
+      ]
+    },
+    {
+      "id": "narrowing:4fd242cce1d0e9cd91b8df66d017b73fc9e70967cc87b6235c8c2384c7d78ca1",
+      "identity": "Atom/(.Role:=Plan)",
+      "display_name": "(.Role:=Plan)",
+      "source_bindings": [
+        "CA-R-2511@2"
+      ]
+    },
+    {
+      "id": "narrowing:253cb6d66aebc3a70ec3742b94bf753825609bf4cb177b50bd8e1b9e47d2d792",
+      "identity": "Atom/(.Role:=Requirement)",
+      "display_name": "(.Role:=Requirement)",
+      "source_bindings": [
+        "CA-R-2512@2"
+      ]
+    },
+    {
+      "id": "narrowing:235b4d715ec2478204fc658e047397e8ea9f49142e384432692f968fc94ad024",
+      "identity": "Atom/(.Role:=Requirement)/(.Form:=Declaration)",
+      "display_name": "(.Form:=Declaration)",
+      "source_bindings": [
+        "CA-R-2516@4"
+      ]
+    },
+    {
+      "id": "narrowing:fab924225f02a0be5071185f8dca827850558edb618fa71861e8beb6c4932791",
+      "identity": "CFEL",
+      "display_name": "CFEL",
+      "source_bindings": [
+        "CA-R-2487@6"
+      ]
+    },
+    {
+      "id": "narrowing:44d133633e6c0e3e4dccc6fb8e4d82cf48769bad7ea7ce913e648b9529cfde66",
+      "identity": "Cardinality",
+      "display_name": "Cardinality",
+      "source_bindings": [
+        "CA-R-2327@5"
+      ]
+    },
+    {
+      "id": "narrowing:21b693459007bac21eab5fa886bd5e1fc8aa6eb11a293cf2a40f823a60ebcf35",
+      "identity": "Carrier",
+      "display_name": "Carrier",
+      "source_bindings": [
+        "CA-R-1958@15"
+      ]
+    },
+    {
+      "id": "narrowing:121cda6100b6ee2feec8e5fdbd2c7a764a7f81d7715ad59df4aacee1998f1fd6",
+      "identity": "Carrier/Database",
+      "display_name": "Database",
+      "source_bindings": [
+        "CA-R-1955@11"
+      ]
+    },
+    {
+      "id": "narrowing:faf6de4a72235d44ca6c1d0d81a18e50f3e4cf4a05f6730fe2247ecf0d4692a1",
+      "identity": "Carrier/Directory",
+      "display_name": "Directory",
+      "source_bindings": [
+        "CA-R-1956@11"
+      ]
+    },
+    {
+      "id": "narrowing:4f9ed903d2506c41e6539cc055d0fe4ce0faf361de286eef7cbee5829f686e25",
+      "identity": "Carrier/Docker Image",
+      "display_name": "Docker Image",
+      "source_bindings": [
+        "CA-R-2198@5"
+      ]
+    },
+    {
+      "id": "narrowing:7069a808c96399b3b254250e4cd12b70561e0a5d572f7ea04a0f5efdc1ce87ac",
+      "identity": "Carrier/File",
+      "display_name": "File",
+      "source_bindings": [
+        "CA-R-1957@11"
+      ]
+    },
+    {
+      "id": "narrowing:2cad961f93bdab3d4f5cae198f9c9bba37139fbd5228d81de2e8c1c5d554719b",
+      "identity": "Carrier/File/Markdown",
+      "display_name": "Markdown",
+      "source_bindings": [
+        "CA-R-2456@3"
+      ]
+    },
+    {
+      "id": "narrowing:9f49bb1cb51f9ea2da5abf4691f1b4329bf2ad819dfbe4f89307ac4a32684e06",
+      "identity": "Carrier/File/Markdown/Markdown Atom Carrier",
+      "display_name": "Markdown Atom Carrier",
+      "source_bindings": [
+        "CA-R-2457@3"
+      ]
+    },
+    {
+      "id": "narrowing:261e5da617e1ac50e759e7858acf2828f4d0060c9b17574b5826b019e3e4f323",
+      "identity": "Carrier/Git Branch",
+      "display_name": "Git Branch",
+      "source_bindings": [
+        "CA-R-2200@5"
+      ]
+    },
+    {
+      "id": "narrowing:946c90c22409f499ea53a937d6a26e7fdcef5d775d1d0d65941939ce9fcfcea7",
+      "identity": "Carrier/Git Commit",
+      "display_name": "Git Commit",
+      "source_bindings": [
+        "CA-R-2199@5"
+      ]
+    },
+    {
+      "id": "narrowing:c7d544aae870b050d97a3b8c1103abedbef640d10a5851c04825da1edb016c8a",
+      "identity": "Carrier/Git Index",
+      "display_name": "Git Index",
+      "source_bindings": [
+        "CA-R-2202@5"
+      ]
+    },
+    {
+      "id": "narrowing:f2a4211609c13d393a00e228e58907f21a7cd1c0379cd20612640a4a98536dfc",
+      "identity": "Carrier/Git Repository",
+      "display_name": "Git Repository",
+      "source_bindings": [
+        "CA-R-2203@6"
+      ]
+    },
+    {
+      "id": "narrowing:3ef5a88baf1cfa8dc928ba5fd4afe7f687b16f180af7438b90cadacb28127b12",
+      "identity": "Carrier/Pull Request",
+      "display_name": "Pull Request",
+      "source_bindings": [
+        "CA-R-2201@5"
+      ]
+    },
+    {
+      "id": "narrowing:0d95aaaf5441495c71ac928cb0258f595684ea034428c720c1212dd4e18f59f1",
+      "identity": "Event Record",
+      "display_name": "Event Record",
+      "source_bindings": [
+        "CA-R-2557@4"
+      ]
+    },
+    {
+      "id": "narrowing:cf36dd0bba1ca6bb4a247b2e5b016fb04ce3f32013f55615e14f1eb02c7dfe26",
+      "identity": "Format",
+      "display_name": "Format",
+      "source_bindings": [
+        "CA-R-2248@4"
+      ]
+    },
+    {
+      "id": "narrowing:124eaa804a96d56d868f0211d4ff897a19731cfa330b59c8687598b3493badd5",
+      "identity": "Format/bool",
+      "display_name": "bool",
+      "source_bindings": [
+        "CA-R-2249@5"
+      ]
+    },
+    {
+      "id": "narrowing:f93f2df95742e4d712f6f3897ee43d49cb3c9c563e8249231ba3e673010c442b",
+      "identity": "Format/datetime",
+      "display_name": "datetime",
+      "source_bindings": [
+        "CA-R-2254@5"
+      ]
+    },
+    {
+      "id": "narrowing:72ec2196a472ead884631f2370bb423f65fc039a895e7c3988d1c5a3c52fcb14",
+      "identity": "Format/decimal",
+      "display_name": "decimal",
+      "source_bindings": [
+        "CA-R-2252@5"
+      ]
+    },
+    {
+      "id": "narrowing:5ff7c3e377ed507a3d7b64150d1fcac5d0a68abb2ef6f4d08bfe4f7d97d7349a",
+      "identity": "Format/float",
+      "display_name": "float",
+      "source_bindings": [
+        "CA-R-2251@5"
+      ]
+    },
+    {
+      "id": "narrowing:ecc7fde75863e2ce78b9aa944c77d210989fe99dbeec0d04670452a1b0f76f91",
+      "identity": "Format/int",
+      "display_name": "int",
+      "source_bindings": [
+        "CA-R-2250@5"
+      ]
+    },
+    {
+      "id": "narrowing:7914dd39f16f57404f64e2ac7d8c6504d7b9d4a697708f662ae7a34340484cf1",
+      "identity": "Format/scalar",
+      "display_name": "scalar",
+      "source_bindings": [
+        "CA-R-2257@4"
+      ]
+    },
+    {
+      "id": "narrowing:8736a9e550f7839f7765b0e774b7c6ef8ade830932b21def1b8e0bad11161bb5",
+      "identity": "Format/string",
+      "display_name": "string",
+      "source_bindings": [
+        "CA-R-2253@5"
+      ]
+    },
+    {
+      "id": "narrowing:87fb85425ae8623d6ed2d262d065c5ad687a6339cb9a1b3736a1cd1c83b70c17",
+      "identity": "Journal",
+      "display_name": "Journal",
+      "source_bindings": [
+        "CA-R-2536@2"
+      ]
+    },
+    {
+      "id": "narrowing:84ae169e9a23dcf1ff450f71765c9e02ad701bd8cb2736d6e14a227884ba3488",
+      "identity": "MODEL",
+      "display_name": "MODEL",
+      "source_bindings": [
+        "CA-R-2559@2"
+      ]
+    },
+    {
+      "id": "narrowing:97f135db9b764d3595fc8fce9ae9855b68bf3a8f3db17a57f5b8255b96302439",
+      "identity": "Named Selection",
+      "display_name": "Named Selection",
+      "source_bindings": [
+        "CA-R-2587@2"
+      ]
+    },
+    {
+      "id": "narrowing:3ea44453fcd08a6ea6f69f628b82137b00ba6b42c7d1b9c3c7e66bca9e785b6b",
+      "identity": "Node",
+      "display_name": "Node",
+      "source_bindings": [
+        "CA-R-2462@2"
+      ]
+    },
+    {
+      "id": "narrowing:5828ca67ddd9c2bc8b3ffad570b1dd938808d58d96b1666346beed4437126ad2",
+      "identity": "Node/Continuant",
+      "display_name": "Continuant",
+      "source_bindings": [
+        "CA-R-2589@2"
+      ]
+    },
+    {
+      "id": "narrowing:4ebba00eaefae70315f4b1efb53a19c0494e36239017a0f08b77de6e2ed9963b",
+      "identity": "Node/Occurrent",
+      "display_name": "Occurrent",
+      "source_bindings": [
+        "CA-R-2590@2"
+      ]
+    },
+    {
+      "id": "narrowing:28bffd10bd1cd08380a669523c88b78596b12cdf6265b1999fc19d36f9e987cd",
+      "identity": "Operator",
+      "display_name": "Operator",
+      "source_bindings": [
+        "CA-R-2616@1"
+      ]
+    },
+    {
+      "id": "narrowing:ad9b9a57b9e5f6b983b9955be4b755d23a64e6243ea8ab7ea7dee644f6bdd515",
+      "identity": "PROJECT STRUCTURE",
+      "display_name": "PROJECT STRUCTURE",
+      "source_bindings": [
+        "CA-R-2560@2"
+      ]
+    },
+    {
+      "id": "narrowing:53f9f2eb37744492cddb59b2123941ea4fe2b45a37b53507bac81c076ee29988",
+      "identity": "Package",
+      "display_name": "Package",
+      "source_bindings": [
+        "CA-R-2525@2"
+      ]
+    },
+    {
+      "id": "narrowing:d17967678786a9281cced364a2eae69de10b051b5a7abb62de4f649d349ec9a8",
+      "identity": "Package/Implementation",
+      "display_name": "Implementation",
+      "source_bindings": [
+        "CA-R-2553@2"
+      ]
+    },
+    {
+      "id": "narrowing:6c6b7df3070f112f2b6d5f2b57cb7bc885e62f52497e4121bb79431d188c7982",
+      "identity": "Project",
+      "display_name": "Project",
+      "source_bindings": [
+        "CA-R-2524@2"
+      ]
+    },
+    {
+      "id": "narrowing:d01cd36d3939abab25211b1605fd0b93908b87c3e8ba829f2730ce9280b52f9b",
+      "identity": "Projection",
+      "display_name": "Projection",
+      "source_bindings": [
+        "CA-R-2535@2"
+      ]
+    },
+    {
+      "id": "narrowing:7a59fad8ae45b0633d9c3e5143ba60c250aed61870f728ac0855856d6bc229ec",
+      "identity": "Relation",
+      "display_name": "Relation",
+      "source_bindings": [
+        "CA-R-2247@5"
+      ]
+    },
+    {
+      "id": "narrowing:0abde7da6cb601b01cfe15664c7588d6c2c2107aab63672e242e8b2652de7e38",
+      "identity": "Scope Unit",
+      "display_name": "Scope Unit",
+      "source_bindings": [
+        "CA-R-2523@2"
+      ]
+    },
+    {
+      "id": "narrowing:ee57d08c32d04db0f6fce37079b8fd4324ae3a4911b364ea49e0fec529c29c26",
+      "identity": "Term",
+      "display_name": "Term",
+      "source_bindings": [
+        "CA-R-1318@31"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "narrowing-edge:067bc2a41b6e25009893f26492b614fff3c420fb75023580c7c01d87f4b52a0f",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:9f49bb1cb51f9ea2da5abf4691f1b4329bf2ad819dfbe4f89307ac4a32684e06",
+      "relation_target": "narrowing:2cad961f93bdab3d4f5cae198f9c9bba37139fbd5228d81de2e8c1c5d554719b",
+      "source_bindings": [
+        "CA-R-2457@3"
+      ]
+    },
+    {
+      "id": "narrowing-edge:0bc84aba9f428548db0469046291dd1b21e33bb073a9372de910d6295de64e27",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:7069a808c96399b3b254250e4cd12b70561e0a5d572f7ea04a0f5efdc1ce87ac",
+      "relation_target": "narrowing:21b693459007bac21eab5fa886bd5e1fc8aa6eb11a293cf2a40f823a60ebcf35",
+      "source_bindings": [
+        "CA-R-1957@11",
+        "CA-R-2456@3",
+        "CA-R-2457@3"
+      ]
+    },
+    {
+      "id": "narrowing-edge:0bcac9011e0a322ebeaed04ffb71d2a68aed5e24348fe9d470b0a3356e01244f",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:f93f2df95742e4d712f6f3897ee43d49cb3c9c563e8249231ba3e673010c442b",
+      "relation_target": "narrowing:cf36dd0bba1ca6bb4a247b2e5b016fb04ce3f32013f55615e14f1eb02c7dfe26",
+      "source_bindings": [
+        "CA-R-2254@5"
+      ]
+    },
+    {
+      "id": "narrowing-edge:10d8f04405618d928e30fd7b3cafb26351e5af5ad70e612a3962c8ef31deb45a",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:124eaa804a96d56d868f0211d4ff897a19731cfa330b59c8687598b3493badd5",
+      "relation_target": "narrowing:cf36dd0bba1ca6bb4a247b2e5b016fb04ce3f32013f55615e14f1eb02c7dfe26",
+      "source_bindings": [
+        "CA-R-2249@5"
+      ]
+    },
+    {
+      "id": "narrowing-edge:1af53966decf1ef50dee28912274a783b32c358260accb3ee706c32277bd95f1",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:478ae9048b5b159283fa588abe9cbd6f9ebfc9bb60373f491b14cf91c62750f4",
+      "relation_target": "narrowing:d2edefe445efb6a6c0cae022ab44ea949d17da8c8dfa80dcb72f3b6d6f86a4c3",
+      "source_bindings": [
+        "CA-R-2515@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:235bcd47b99c9122487978f560f3b2efd2306e0386a2f59c3755b27f48f371df",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:121cda6100b6ee2feec8e5fdbd2c7a764a7f81d7715ad59df4aacee1998f1fd6",
+      "relation_target": "narrowing:21b693459007bac21eab5fa886bd5e1fc8aa6eb11a293cf2a40f823a60ebcf35",
+      "source_bindings": [
+        "CA-R-1955@11"
+      ]
+    },
+    {
+      "id": "narrowing-edge:26e0fd81326c3aaf9d9a4629c81e08beec54952e3a98f1985ee9e13453cc5121",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:0abde7da6cb601b01cfe15664c7588d6c2c2107aab63672e242e8b2652de7e38",
+      "relation_target": "narrowing:5828ca67ddd9c2bc8b3ffad570b1dd938808d58d96b1666346beed4437126ad2",
+      "source_bindings": [
+        "CA-R-2523@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:28954992e8081cb4cf856a37e1a972f4d2d7afc5e9249fb9ea1f0d21402f5e43",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:ff942ffd9aafaea7f46f53e381ca12e6817c9d84fd4fad002f5dca3c4f10ee98",
+      "relation_target": "narrowing:3ea44453fcd08a6ea6f69f628b82137b00ba6b42c7d1b9c3c7e66bca9e785b6b",
+      "source_bindings": [
+        "CA-R-2543@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:35f0e34d4ad2609880be66d045d1aba17e06d9c6b945898eebd7378377291534",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:97f135db9b764d3595fc8fce9ae9855b68bf3a8f3db17a57f5b8255b96302439",
+      "relation_target": "narrowing:5828ca67ddd9c2bc8b3ffad570b1dd938808d58d96b1666346beed4437126ad2",
+      "source_bindings": [
+        "CA-R-2587@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:41cef55889ccbc6e266917ec35f9150e905c012d8c1d381745a50dc7c96c1be7",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:72ec2196a472ead884631f2370bb423f65fc039a895e7c3988d1c5a3c52fcb14",
+      "relation_target": "narrowing:cf36dd0bba1ca6bb4a247b2e5b016fb04ce3f32013f55615e14f1eb02c7dfe26",
+      "source_bindings": [
+        "CA-R-2252@5"
+      ]
+    },
+    {
+      "id": "narrowing-edge:4cea92f9ac28e4d030e96f471ffd464c60410b8720b75cca1c98e19f8d206add",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:4ebba00eaefae70315f4b1efb53a19c0494e36239017a0f08b77de6e2ed9963b",
+      "relation_target": "narrowing:3ea44453fcd08a6ea6f69f628b82137b00ba6b42c7d1b9c3c7e66bca9e785b6b",
+      "source_bindings": [
+        "CA-R-2590@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:4e7e509fd8e5ef72a8d58d25f64518db76b782c354a14c73aaaca0182f45a8cf",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:29d05c9b1f82f43b575e196eb6a47bd422bf023d337832b255adace6ed331441",
+      "relation_target": "narrowing:d2edefe445efb6a6c0cae022ab44ea949d17da8c8dfa80dcb72f3b6d6f86a4c3",
+      "source_bindings": [
+        "CA-R-2514@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:4f55e0a964700560abb714615b66108f38725b3cb8582c88a5322a5a7c2994e8",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:261e5da617e1ac50e759e7858acf2828f4d0060c9b17574b5826b019e3e4f323",
+      "relation_target": "narrowing:21b693459007bac21eab5fa886bd5e1fc8aa6eb11a293cf2a40f823a60ebcf35",
+      "source_bindings": [
+        "CA-R-2200@5"
+      ]
+    },
+    {
+      "id": "narrowing-edge:51d0e84f952622786cfc6dc1d4179fdf821f5a335d22af39b2a035383c9b363b",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:5828ca67ddd9c2bc8b3ffad570b1dd938808d58d96b1666346beed4437126ad2",
+      "relation_target": "narrowing:3ea44453fcd08a6ea6f69f628b82137b00ba6b42c7d1b9c3c7e66bca9e785b6b",
+      "source_bindings": [
+        "CA-R-2589@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:58b1d2c49b95ac17c7294c6eaa9170b564469cecfc76cc9d0539a0d769e1fff1",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:d01cd36d3939abab25211b1605fd0b93908b87c3e8ba829f2730ce9280b52f9b",
+      "relation_target": "narrowing:5828ca67ddd9c2bc8b3ffad570b1dd938808d58d96b1666346beed4437126ad2",
+      "source_bindings": [
+        "CA-R-2535@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:688ce601931dba1a2b194187e206f394a757194db58cc9b0492b53feb664ffe4",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:84ae169e9a23dcf1ff450f71765c9e02ad701bd8cb2736d6e14a227884ba3488",
+      "relation_target": "narrowing:3ea44453fcd08a6ea6f69f628b82137b00ba6b42c7d1b9c3c7e66bca9e785b6b",
+      "source_bindings": [
+        "CA-R-2559@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:6aaa11b1a3c1d2a424f4d7705533f3688eadbc207dfb7f31014959c956c655f7",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:253cb6d66aebc3a70ec3742b94bf753825609bf4cb177b50bd8e1b9e47d2d792",
+      "relation_target": "narrowing:d2edefe445efb6a6c0cae022ab44ea949d17da8c8dfa80dcb72f3b6d6f86a4c3",
+      "source_bindings": [
+        "CA-R-2512@2",
+        "CA-R-2516@4"
+      ]
+    },
+    {
+      "id": "narrowing-edge:73ded0477b3c539a233865c30040d352eac669246ee075a8343853d4eb073a9f",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:4e8432a0c216626be856f8f96afc32c302b328c218fd764e9fad89eea16b52f2",
+      "relation_target": "narrowing:515955aed4bcfd25722a94918f948f0d7ee30c7c1549d47447b81d67bff83bc1",
+      "source_bindings": [
+        "CA-R-2464@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:83c1dea4c14e488ab91da9f84c379b67d840a7e16297b79133b2e9ec722108ca",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:6c6b7df3070f112f2b6d5f2b57cb7bc885e62f52497e4121bb79431d188c7982",
+      "relation_target": "narrowing:0abde7da6cb601b01cfe15664c7588d6c2c2107aab63672e242e8b2652de7e38",
+      "source_bindings": [
+        "CA-R-2524@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:8656fcf77e84bc8abba80b238673caa303dbfb0ef87d5db270d7fa9d576ae683",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:d17967678786a9281cced364a2eae69de10b051b5a7abb62de4f649d349ec9a8",
+      "relation_target": "narrowing:53f9f2eb37744492cddb59b2123941ea4fe2b45a37b53507bac81c076ee29988",
+      "source_bindings": [
+        "CA-R-2553@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:89b1036a2a0c2d2de7951409f9e06b9c702c8024052560ffe137ed1377a125b9",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:0d95aaaf5441495c71ac928cb0258f595684ea034428c720c1212dd4e18f59f1",
+      "relation_target": "narrowing:5828ca67ddd9c2bc8b3ffad570b1dd938808d58d96b1666346beed4437126ad2",
+      "source_bindings": [
+        "CA-R-2557@4"
+      ]
+    },
+    {
+      "id": "narrowing-edge:930b44f19f07801b0578ee643e412de2ae21c82b4e78ef685bb3ff41e52eac90",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:3ef5a88baf1cfa8dc928ba5fd4afe7f687b16f180af7438b90cadacb28127b12",
+      "relation_target": "narrowing:21b693459007bac21eab5fa886bd5e1fc8aa6eb11a293cf2a40f823a60ebcf35",
+      "source_bindings": [
+        "CA-R-2201@5"
+      ]
+    },
+    {
+      "id": "narrowing-edge:987e3ce5f4b06963bc2fff58dc2924d53c6465ac57e4236bdecd6e1c9c9cc832",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:7914dd39f16f57404f64e2ac7d8c6504d7b9d4a697708f662ae7a34340484cf1",
+      "relation_target": "narrowing:cf36dd0bba1ca6bb4a247b2e5b016fb04ce3f32013f55615e14f1eb02c7dfe26",
+      "source_bindings": [
+        "CA-R-2257@4"
+      ]
+    },
+    {
+      "id": "narrowing-edge:9addead07861b37ca195cb40115f1ad66c3ed5b42174013cdf3df3eccf7e0992",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:d18f5fada3f01e32426a2754dc10eec6c9118e2473546fc86311676d16f951f5",
+      "relation_target": "narrowing:d2edefe445efb6a6c0cae022ab44ea949d17da8c8dfa80dcb72f3b6d6f86a4c3",
+      "source_bindings": [
+        "CA-R-2513@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:a0da36288f949e4225427b299bb5e163489c4b61544647aae31378f833a72fbd",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:8736a9e550f7839f7765b0e774b7c6ef8ade830932b21def1b8e0bad11161bb5",
+      "relation_target": "narrowing:cf36dd0bba1ca6bb4a247b2e5b016fb04ce3f32013f55615e14f1eb02c7dfe26",
+      "source_bindings": [
+        "CA-R-2253@5"
+      ]
+    },
+    {
+      "id": "narrowing-edge:a1186782f1e3392d43c6365f3026508cc8d2c9601ebb92ca73eefd8b1b5ba245",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:2cad961f93bdab3d4f5cae198f9c9bba37139fbd5228d81de2e8c1c5d554719b",
+      "relation_target": "narrowing:7069a808c96399b3b254250e4cd12b70561e0a5d572f7ea04a0f5efdc1ce87ac",
+      "source_bindings": [
+        "CA-R-2456@3",
+        "CA-R-2457@3"
+      ]
+    },
+    {
+      "id": "narrowing-edge:a1f76f12dca8454eb391d5370a9919126668e3cf7e8e27f4cc787f40e797bb0f",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:5ff7c3e377ed507a3d7b64150d1fcac5d0a68abb2ef6f4d08bfe4f7d97d7349a",
+      "relation_target": "narrowing:cf36dd0bba1ca6bb4a247b2e5b016fb04ce3f32013f55615e14f1eb02c7dfe26",
+      "source_bindings": [
+        "CA-R-2251@5"
+      ]
+    },
+    {
+      "id": "narrowing-edge:a8e2cc2cdd42a1f8745ecac84f7c8b2ae1930de5094f3a2174093f08e1b18e5a",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:515955aed4bcfd25722a94918f948f0d7ee30c7c1549d47447b81d67bff83bc1",
+      "relation_target": "narrowing:d2edefe445efb6a6c0cae022ab44ea949d17da8c8dfa80dcb72f3b6d6f86a4c3",
+      "source_bindings": [
+        "CA-R-2463@2",
+        "CA-R-2464@2",
+        "CA-R-2465@2",
+        "CA-R-2466@2",
+        "CA-R-2467@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:b00fc65c04078d015914f934d79020ec44d74e8ff95c01f99773ff91ab37a73e",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:53f9f2eb37744492cddb59b2123941ea4fe2b45a37b53507bac81c076ee29988",
+      "relation_target": "narrowing:5828ca67ddd9c2bc8b3ffad570b1dd938808d58d96b1666346beed4437126ad2",
+      "source_bindings": [
+        "CA-R-2525@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:b04b5071ae65629761208e264f2bc85414a779311da05f21b6d5150d1881b0e1",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:ecc7fde75863e2ce78b9aa944c77d210989fe99dbeec0d04670452a1b0f76f91",
+      "relation_target": "narrowing:cf36dd0bba1ca6bb4a247b2e5b016fb04ce3f32013f55615e14f1eb02c7dfe26",
+      "source_bindings": [
+        "CA-R-2250@5"
+      ]
+    },
+    {
+      "id": "narrowing-edge:bb7e472e21c290f537ae2a1067df79c9a1dbb37d93099240e6278bc105f46c87",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:87fb85425ae8623d6ed2d262d065c5ad687a6339cb9a1b3736a1cd1c83b70c17",
+      "relation_target": "narrowing:5828ca67ddd9c2bc8b3ffad570b1dd938808d58d96b1666346beed4437126ad2",
+      "source_bindings": [
+        "CA-R-2536@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:bba7b0de837a6c61663ade36a2e77d4153798503f44a8be54307574e13912cdb",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:029b14ddb3f409cbf86ef33ca17869c474b50d41989e0e8576d15e9c50875a42",
+      "relation_target": "narrowing:d2edefe445efb6a6c0cae022ab44ea949d17da8c8dfa80dcb72f3b6d6f86a4c3",
+      "source_bindings": [
+        "CA-R-2509@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:be297d52f877cb497c23669e7a9a0b2f93b3835e468787bda01e5f99a2138a17",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:946c90c22409f499ea53a937d6a26e7fdcef5d775d1d0d65941939ce9fcfcea7",
+      "relation_target": "narrowing:21b693459007bac21eab5fa886bd5e1fc8aa6eb11a293cf2a40f823a60ebcf35",
+      "source_bindings": [
+        "CA-R-2199@5"
+      ]
+    },
+    {
+      "id": "narrowing-edge:c233eaf908cf26e896b4ff42e71e826455bec6339fd4b3996adff35eb4a96477",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:4f9ed903d2506c41e6539cc055d0fe4ce0faf361de286eef7cbee5829f686e25",
+      "relation_target": "narrowing:21b693459007bac21eab5fa886bd5e1fc8aa6eb11a293cf2a40f823a60ebcf35",
+      "source_bindings": [
+        "CA-R-2198@5"
+      ]
+    },
+    {
+      "id": "narrowing-edge:c30aca9d80498cab0bdf42d78aca50df2bf544b7939dc0df05c04a97c79c595e",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:f302628fed122b3df6e52cb1622ab53c7e8ffd5716b39c17f6545e94497e325d",
+      "relation_target": "narrowing:515955aed4bcfd25722a94918f948f0d7ee30c7c1549d47447b81d67bff83bc1",
+      "source_bindings": [
+        "CA-R-2465@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:c7e2c3481e726e6f08b5883285c7415a6f18279c8fe342619f56dcaa55d0fd49",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:83107b08f803051b7ec0f7c45176574e0c1f0009ef55a4d538485cd88c259ce1",
+      "relation_target": "narrowing:515955aed4bcfd25722a94918f948f0d7ee30c7c1549d47447b81d67bff83bc1",
+      "source_bindings": [
+        "CA-R-2466@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:ce579533e0896625269e7bf22e87c4d81b520ba0c4ff93204b0df7b6541165f3",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:faf6de4a72235d44ca6c1d0d81a18e50f3e4cf4a05f6730fe2247ecf0d4692a1",
+      "relation_target": "narrowing:21b693459007bac21eab5fa886bd5e1fc8aa6eb11a293cf2a40f823a60ebcf35",
+      "source_bindings": [
+        "CA-R-1956@11"
+      ]
+    },
+    {
+      "id": "narrowing-edge:cf19410f39e15fb7bc3093420a8ea84670aa9aecc59e0d6c9ed0a1c1888d8892",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:ad9b9a57b9e5f6b983b9955be4b755d23a64e6243ea8ab7ea7dee644f6bdd515",
+      "relation_target": "narrowing:3ea44453fcd08a6ea6f69f628b82137b00ba6b42c7d1b9c3c7e66bca9e785b6b",
+      "source_bindings": [
+        "CA-R-2560@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:d3989dfa364b1c7f58a43b5f512319cf6b337c2fac73bffb157a04b40bb1ab59",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:b32b88b317c1aea315f87d31d6414ee222dacba97b229b31fd4c792b3bfd628b",
+      "relation_target": "narrowing:5828ca67ddd9c2bc8b3ffad570b1dd938808d58d96b1666346beed4437126ad2",
+      "source_bindings": [
+        "CA-R-2542@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:d55a8d2aaa06052004387732d0e0194fa191d04bcc1d5e2cad7bb0c3fba0727f",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:f2a4211609c13d393a00e228e58907f21a7cd1c0379cd20612640a4a98536dfc",
+      "relation_target": "narrowing:21b693459007bac21eab5fa886bd5e1fc8aa6eb11a293cf2a40f823a60ebcf35",
+      "source_bindings": [
+        "CA-R-2203@6"
+      ]
+    },
+    {
+      "id": "narrowing-edge:daaec7edb192bd806d40524ddcb19e49994f25ede56079fb7465ba3780a52e94",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:b2a7c79fab1cbb5b746ebddf292a560c089d29e6982def685a6f4d56b5519b2b",
+      "relation_target": "narrowing:515955aed4bcfd25722a94918f948f0d7ee30c7c1549d47447b81d67bff83bc1",
+      "source_bindings": [
+        "CA-R-2467@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:dd2a1b7664b301a36847ceb730b0e0a7a29c526a73bfb2fe473d85f19d5276e2",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:d2edefe445efb6a6c0cae022ab44ea949d17da8c8dfa80dcb72f3b6d6f86a4c3",
+      "relation_target": "narrowing:5828ca67ddd9c2bc8b3ffad570b1dd938808d58d96b1666346beed4437126ad2",
+      "source_bindings": [
+        "CA-R-2508@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:e059bae04977c57fe589df88ac50be5ff2bb21649c2ae482cb8882233a9f140b",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:c7d544aae870b050d97a3b8c1103abedbef640d10a5851c04825da1edb016c8a",
+      "relation_target": "narrowing:21b693459007bac21eab5fa886bd5e1fc8aa6eb11a293cf2a40f823a60ebcf35",
+      "source_bindings": [
+        "CA-R-2202@5"
+      ]
+    },
+    {
+      "id": "narrowing-edge:ebf321fbf413322eee10e56c31e528aeaba2f87865a95d4ff8bc0aca2e592901",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:f36905e6cded97e5f7d9977cc5e795cf32de3852903c11aa40aef1ba3d92d0f2",
+      "relation_target": "narrowing:d2edefe445efb6a6c0cae022ab44ea949d17da8c8dfa80dcb72f3b6d6f86a4c3",
+      "source_bindings": [
+        "CA-R-2510@2"
+      ]
+    },
+    {
+      "id": "narrowing-edge:ed2e5d457c6fff3bd0d1006b307380322b6dbcc6b9d7a4aee7e2654566562c1f",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:235b4d715ec2478204fc658e047397e8ea9f49142e384432692f968fc94ad024",
+      "relation_target": "narrowing:253cb6d66aebc3a70ec3742b94bf753825609bf4cb177b50bd8e1b9e47d2d792",
+      "source_bindings": [
+        "CA-R-2516@4"
+      ]
+    },
+    {
+      "id": "narrowing-edge:f2a3e8e9d1f2c33c98631fb8361fdc8901bdd03e468491616fa7cffc9b23b8d8",
+      "kind": "NARROWER_THAN",
+      "relation_source": "narrowing:4fd242cce1d0e9cd91b8df66d017b73fc9e70967cc87b6235c8c2384c7d78ca1",
+      "relation_target": "narrowing:d2edefe445efb6a6c0cae022ab44ea949d17da8c8dfa80dcb72f3b6d6f86a4c3",
+      "source_bindings": [
+        "CA-R-2511@2"
+      ]
+    }
+  ],
+  "diagnostics": []
+}

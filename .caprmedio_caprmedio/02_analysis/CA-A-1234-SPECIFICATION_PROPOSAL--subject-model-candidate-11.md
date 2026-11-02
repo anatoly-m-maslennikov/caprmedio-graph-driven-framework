@@ -8,8 +8,8 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: Subject
-version: 2
-updated_at: 2026-10-28 03:27:24 +0400
+version: 3
+updated_at: 2026-10-29 21:51:04 +0400
 relations: {}
 tier: 3
 ---
@@ -138,4 +138,4 @@ This proposal supplies the structural correction direction for SG3-I02. It does 
 
 ## Actor specialization decision
 
-[A1235](CA-A-1235-SPECIFICATION_PROPOSAL--use-direct-actor-kind-paths.md) records the Operator's correction: `Actor / AI Agent` and `Actor / Operator`. These are narrower Actor kinds, not contained parts or named instances. This supersedes the Actor/Type: notation in the previous candidate only; it does not remove other Type or Content Role qualifiers. Candidate editing is not adoption of new Subjects in Current RMED.
+[A1235](done/CA-A-1235-SPECIFICATION_PROPOSAL--use-direct-actor-kind-paths.md) records the Operator's correction: `Actor / AI Agent` and `Actor / Operator`. These are narrower Actor kinds, not contained parts or named instances. This supersedes the Actor/Type: notation in the previous candidate only; it does not remove other Type or Content Role qualifiers. Candidate editing is not adoption of new Subjects in Current RMED.

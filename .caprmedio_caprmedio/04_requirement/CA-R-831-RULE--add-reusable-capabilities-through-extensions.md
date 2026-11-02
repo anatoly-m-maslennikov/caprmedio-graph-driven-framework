@@ -1,27 +1,30 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-version: 22
-updated_at: 2026-10-27 20:00:11 +0400
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-1421
   - CA-M-005
   - CA-M-006
 subjects:
-  governs: 'Subject/caprmedio/Product: CAPRMEDIO Framework'
-  depends_on:
-  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  passive:
+  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-831
 status: Active
-content_role: Requirement
-author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-type: Rule
 tier: 1
+role: Requirement
+form: Rule
 ---
-# Add reusable capabilities through Extensions
+## Summary
+
+Add reusable capabilities through Extensions
+
+## Claim
 
 CAPRMEDIO **must** govern independently evolvable reusable capabilities as explicit Extensions whose extension points, authority boundaries, **and** compatibility conditions are declared.

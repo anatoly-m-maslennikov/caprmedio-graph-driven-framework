@@ -1,0 +1,892 @@
+{
+  "status": "read_only_preparation_not_complete_whitelists",
+  "approved_inventory": 23,
+  "source_scope": "23 approved Primary Declaration Drafts and their recorded source pins; no instance audit.",
+  "common": {
+    "not_an_edge_grant": "Primary classification implies zero IS_PROPERTY_OF via Node rule; inherited constraints require resolved ancestry.",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+    "source_ids": [
+      "CA-R-1248",
+      "CA-R-1193",
+      "CA-R-2003"
+    ],
+    "known_restrictions": [
+      "IS_PROPERTY_OF 0 for each Primary Node",
+      "No direct value for Primary Nodes"
+    ],
+    "whitelist_complete": false
+  },
+  "relation_definition_drafts": {
+    "define-active-subject-link": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-active-subject-link.md",
+      "sha256": "fd06c35a1fc483ec3f58244b4879106c820281b10e0536c21269b99066dfbc4a",
+      "id": "CA-R-draft",
+      "status": "Draft"
+    },
+    "define-classification": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-classification.md",
+      "sha256": "1afcc1e07b1659fc328a9e7ef19bc0f46f8c103333dc6e82ab27f32bdba1baab",
+      "id": "CA-R-draft",
+      "status": "Draft"
+    },
+    "define-composition": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-composition.md",
+      "sha256": "7a5e83c8d426616a5f5d3f3fc5c2bd8180fbe56bbd0a5d5928841c28114bc23c",
+      "id": "CA-R-draft",
+      "status": "Draft"
+    },
+    "define-has-inverse": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-has-inverse.md",
+      "sha256": "5d9c714da1503719e5da004ce36cfe76b553f404f9e101d7c959c64cd0e187af",
+      "id": "CA-R-draft",
+      "status": "Draft"
+    },
+    "define-instantiation": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-instantiation.md",
+      "sha256": "99190851d8ad825808ff9c710edfdabcc693c5def1947117fe06b3aba1273754",
+      "id": "CA-R-draft",
+      "status": "Draft"
+    },
+    "define-narrowing": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-narrowing.md",
+      "sha256": "5a15bb6b66159ddc6bff89f75fb30eb53cb4902141bf7a3b1513daeabc55e1b2",
+      "id": "CA-R-draft",
+      "status": "Draft"
+    },
+    "define-property-bearing": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md",
+      "sha256": "3854f201f3bcb848849c1f6b57c7a7de4d3d6f4f2d939babf18643a5fc2d54bb",
+      "id": "CA-R-draft",
+      "status": "Draft"
+    },
+    "define-run": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-run.md",
+      "sha256": "e529fe0011bd9567ea784de250b58ee647e79204a88924eb62ebbba87df9b931",
+      "id": "CA-R-draft",
+      "status": "Draft"
+    }
+  },
+  "matrix": [
+    {
+      "primary_node": "Node",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "declaration_sha256": "b1624d28a442009d42fc6bfb5f2564eac3a7222088b96ae07990e2c58791fcc8",
+      "source_pins": [
+        {
+          "id": "CA-R-1248",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-DEFINITION--define-entity.md",
+          "version": 24,
+          "sha256": "d9946790458fc48aaf349a2ab40d4b2d0cf4e82903e59dbb761cdf6fdb5129ca"
+        },
+        {
+          "id": "CA-R-1193",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-DEFINITION--define-property.md",
+          "version": 23,
+          "sha256": "9b18fb8b423e9944f16ef4d4862b8fa298e11b21ebf5e416086d7feda06f47cb"
+        },
+        {
+          "id": "CA-R-2003",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+          "version": 14,
+          "sha256": "4888c85d9c39d671588439e38c0f295d0fab37227206a2c989d068bdb32e952d"
+        }
+      ],
+      "known_relation_constraints": [
+        {
+          "relation": "IS_PROPERTY_OF",
+          "host": "Node/",
+          "target": "immediate bearer",
+          "count": "0..1; Primary case 0, Property case 1",
+          "basis": "Node common Draft",
+          "nature": "constraint, not blanket permission"
+        }
+      ],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Operations)",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "declaration_sha256": "520c4b9163d8745e52914a2a4b622c654795aa5e2583a5e5d741856f69275ca8",
+      "source_pins": [
+        {
+          "id": "CA-R-1530",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-DEFINITION--define-the-operations-content-role.md",
+          "version": 27,
+          "sha256": "501e8ff45c8e88d9a30f3116f203f207badf9fcedc2479c3ddcc9903d6776af6"
+        },
+        {
+          "id": "CA-R-1565",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1565-CORE_META_MODEL-RULE--admit-the-operations-atom-types.md",
+          "version": 20,
+          "sha256": "bd096703e14b016f7de75a708f5f670e6d44a4f37c2a7e40e48669f0c5c3e83d"
+        }
+      ],
+      "known_relation_constraints": [],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Operations)/Workflow",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "declaration_sha256": "1c0acc29a4a57c2c536cf2efbce54c9e53dd22af6eb6bdaa562645bad14ba113",
+      "source_pins": [
+        {
+          "id": "CA-R-1563",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1563-CORE_META_MODEL-DEFINITION--define-the-workflow-operations-atom-type.md",
+          "version": 24,
+          "sha256": "8b517018a7aaa3618595f1fb8accef1f4381d5d1c06760f45ac3b2c46e49ff75"
+        }
+      ],
+      "known_relation_constraints": [
+        {
+          "relation": "CONTAINS",
+          "host": "Workflow//",
+          "target": "Step//",
+          "count": "1+ per Workflow; 1 Workflow per Step",
+          "basis": "Operator-approved Workflow/Step model",
+          "nature": "derived inverse of IS_CONTAINED_BY"
+        }
+      ],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Operations)/Step",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "declaration_sha256": "bbe73248e6fca2892f385e285bbe12a4d2853634c406f55b37403ee10a0c734e",
+      "source_pins": [
+        {
+          "id": "CA-R-1569",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1569-CORE_META_MODEL-DEFINITION--define-the-step-operations-atom-type.md",
+          "version": 22,
+          "sha256": "82ce692f631264a8a882a27c1fa3b871faf5f04b088320775db5ed524835faf8"
+        }
+      ],
+      "known_relation_constraints": [
+        {
+          "relation": "IS_CONTAINED_BY",
+          "host": "Step//",
+          "target": "Workflow//",
+          "count": "1",
+          "basis": "Operator-approved Workflow/Step model",
+          "nature": "direct"
+        },
+        {
+          "relation": "CONTAINS",
+          "host": "Step//",
+          "target": "Substep//",
+          "count": "1+ if composite; 0 if direct action",
+          "basis": "Operator-approved exclusive Step execution forms",
+          "nature": "derived; each Substep has one Step"
+        },
+        {
+          "relation": "RUN",
+          "host": "Step//",
+          "target": "Action//",
+          "count": "1 if direct action; 0 if composite",
+          "basis": "Operator-approved exclusive Step execution forms",
+          "nature": "direct; not a Run event"
+        }
+      ],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Operations)/Substep",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "declaration_sha256": "85d1bfa38d3d4746b13a40bc8389a74ffe0fd884a3d0c09c2b5af7189f3e6643",
+      "source_pins": [
+        {
+          "id": "CA-R-1569",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1569-CORE_META_MODEL-DEFINITION--define-the-step-operations-atom-type.md",
+          "version": 22,
+          "sha256": "82ce692f631264a8a882a27c1fa3b871faf5f04b088320775db5ed524835faf8"
+        }
+      ],
+      "known_relation_constraints": [
+        {
+          "relation": "IS_CONTAINED_BY",
+          "host": "Substep//",
+          "target": "Step//",
+          "count": "1",
+          "basis": "Operator-approved Substep model",
+          "nature": "direct"
+        },
+        {
+          "relation": "RUN",
+          "host": "Substep//",
+          "target": "Action//",
+          "count": "1",
+          "basis": "Operator-approved Substep model",
+          "nature": "direct"
+        }
+      ],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Operations)/Action",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "declaration_sha256": "6cbe1ccbc3bc58f56ec25b65975701d7413b8e91fe7d87687e7ee40145b27355",
+      "source_pins": [
+        {
+          "id": "CA-R-1562",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1562-CORE_META_MODEL-DEFINITION--define-the-action-operations-atom-type.md",
+          "version": 24,
+          "sha256": "92d15be924dc18b31504c4043c2f6cdd1274d9897961b40246b9ed20cf223bc5"
+        }
+      ],
+      "known_relation_constraints": [
+        {
+          "relation": "IS_RUN_BY",
+          "host": "Action//",
+          "target": "Step// or Substep//",
+          "count": "0+ callers",
+          "basis": "Operator-approved Action caller constraint",
+          "nature": "derived inverse of RUN"
+        }
+      ],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "declaration_sha256": "51ca3339e7d8a92123774f6972f419c8227a20e1637b25d928340b42dd1a28e1",
+      "source_pins": [
+        {
+          "id": "CA-R-655",
+          "version": 42,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-ENTITY-DEFINITION--define-atom-artifact-form.md",
+          "sha256": "ddf97b84cfef8829604bcf39b8b84f9f60d27c395fa93d64c981d7512c072327"
+        }
+      ],
+      "known_relation_constraints": [
+        {
+          "relation": "active Subject",
+          "host": "Atom",
+          "target": "addressed thing/topic",
+          "count": "type-specific; no universal Node-only restriction",
+          "basis": "active-subject Relation Draft; CA-R-1198",
+          "nature": "derived; not an additional authored relation"
+        },
+        {
+          "relation": "Author, Assignee, Target Scope",
+          "host": "Atom",
+          "target": "respective referenced entity",
+          "count": "not mapped here",
+          "basis": "Current property and carrier sources; author/assignee mapping pending",
+          "nature": "value property/reference only; do not invent Relation names"
+        }
+      ],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Concern)",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-concern.md",
+      "declaration_sha256": "50e81e9f924180c1faadad672a112a9c53633f16cc1c5aad05ee805a273b76e7",
+      "source_pins": [
+        {
+          "id": "CA-R-1336",
+          "version": 28,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-DEFINITION--define-concern-content-role.md",
+          "sha256": "cc18b16d2e8b9dccd2334e69e5b6a5752a884627e7dd5fec6a89f7a23bceb7cd"
+        }
+      ],
+      "known_relation_constraints": [],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Analysis)",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-analysis.md",
+      "declaration_sha256": "dc7f07a98bc168623668235d8056aab84a35285d92cf6d6a2567dbe8e2a32a23",
+      "source_pins": [
+        {
+          "id": "CA-R-1337",
+          "version": 28,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-DEFINITION--define-analysis-content-role.md",
+          "sha256": "f40454ffa0a805ee2ab99c07346b929688a20382b85d862ec43a50a4fd959fde"
+        }
+      ],
+      "known_relation_constraints": [],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Plan)",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "declaration_sha256": "824e9023b03d836237cde2d6adee47228cfa2c9d041ee8882837adb063ae2b72",
+      "source_pins": [
+        {
+          "id": "CA-R-1338",
+          "version": 31,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-DEFINITION--define-plan-content-role.md",
+          "sha256": "2ea39f094da5313bd3180dff774e5a0ff49c70b3c40661bf67dd44cfaa2eda2a"
+        }
+      ],
+      "known_relation_constraints": [],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Requirement)",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "declaration_sha256": "f59f128db02ae5df4891200d242b15f1e63986ac2ec05f56d9b9940b06329fe7",
+      "source_pins": [
+        {
+          "id": "CA-R-1339",
+          "version": 31,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-DEFINITION--define-requirement-content-role.md",
+          "sha256": "2d83baa44df9828f8103a34fe475d42bc8805d9b37be7a5f1733b09d1e4abad8"
+        }
+      ],
+      "known_relation_constraints": [],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Method)",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "declaration_sha256": "e1f89c024d7ec3e7b2334ea92cb9e7ba67eb6f1dd3a934ec9df265f1f3656895",
+      "source_pins": [
+        {
+          "id": "CA-R-1340",
+          "version": 32,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-DEFINITION--define-method-content-role.md",
+          "sha256": "c0664f74a3aa7062aedb9499850d81c90648a91e34d6274a127ad3cedf08eadf"
+        }
+      ],
+      "known_relation_constraints": [],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Evaluation)",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "declaration_sha256": "8107f5b1b5b6f7d9a22291b0d7997461818c3c6a3bdb0bc76f2a0b0dbd56a916",
+      "source_pins": [
+        {
+          "id": "CA-R-1341",
+          "version": 27,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-DEFINITION--define-evaluation-content-role.md",
+          "sha256": "ef5b991f7c6502b9eb9d6ae33efc4e5a48295ea80b5b5a1bee42005c95591b3b"
+        }
+      ],
+      "known_relation_constraints": [],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Delivery)",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "declaration_sha256": "29ae0f4e237da4ec61587ea4c969de4c44e1387bc64bd027bf4cd2995ea6594b",
+      "source_pins": [
+        {
+          "id": "CA-R-1342",
+          "version": 32,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-DEFINITION--define-delivery-content-role.md",
+          "sha256": "a3aa572d66e9f72a3e4670084cab0bf1413a8fef86f80f7c5dfbafeca111187b"
+        }
+      ],
+      "known_relation_constraints": [],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Requirement)/(.Form: Declaration)",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration.md",
+      "declaration_sha256": "a0b33469b769b7a0be4ee231de96eebaca8fd848f78a1b0e7d0910a809609904",
+      "source_pins": [
+        {
+          "id": "CA-R-2227",
+          "version": 3,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2227-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-entity-definition.md",
+          "sha256": "d6f7452f40366c6721a52c3c026df93f4b68a807096359ce4aadf578383a7dc5"
+        }
+      ],
+      "known_relation_constraints": [
+        {
+          "relation": "HAS_ACTIVE_SUBJECT",
+          "host": "Declaration//",
+          "target": "Node/",
+          "count": "1 each direction restricted to matching Declaration links",
+          "basis": "one-owner Draft and active-subject relation Draft",
+          "nature": "derived from active Subject; other Atoms excluded from ownership count"
+        }
+      ],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Atom/(.Role: Requirement)/(.Form: Relation Definition)",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-relation-definition.md",
+      "declaration_sha256": "d26a3531974f8868e1388a0565c957a1fcfb97b18586c1ebc97a5cb52d8061f4",
+      "source_pins": [
+        {
+          "id": "CA-R-2228",
+          "version": 3,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2228-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-relation-definition.md",
+          "sha256": "394333dd8e76308571df9dd07cb13f8f0382c54972040ed3d1936a7b5218099d"
+        }
+      ],
+      "known_relation_constraints": [],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Scope Unit",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "declaration_sha256": "5eb366f95c7520ecb54aebf883589056cf46090c7fc8d0c2a5b7eeb27b14a390",
+      "source_pins": [
+        {
+          "id": "CA-R-1757",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-ENTITY-DEFINITION--define-scope-unit.md",
+          "version": 34,
+          "sha256": "37896e6cb91a2f868a1713bdd16763d08dd9a1e190c778a65245b45a02455a57"
+        },
+        {
+          "id": "CA-R-2402",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2402-CORE_META_MODEL-ENTITY_DEFINITION--define-scope-unit-parent.md",
+          "version": 1,
+          "sha256": "dbb32b2bfe812b7d6ebadd097dc2a4e5ff8dfb8f8fcba40b45b6b573e4dcf686"
+        },
+        {
+          "id": "CA-R-2400",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2400-CORE_META_MODEL-ENTITY_DEFINITION--define-scope-unit-children.md",
+          "version": 1,
+          "sha256": "daa347f64cdbac669e01cdeb40aa3e61fff8b65ea5df99708a9e1c98cae9438b"
+        }
+      ],
+      "known_relation_constraints": [
+        {
+          "relation": "IS_CONTAINED_BY",
+          "host": "Scope Unit//",
+          "target": "Scope Unit//",
+          "count": "0..1",
+          "basis": "CA-R-1757@34, CA-R-2402@1, selected Draft",
+          "nature": "outgoing, Project exception"
+        },
+        {
+          "relation": "CONTAINS",
+          "host": "Scope Unit//",
+          "target": "Scope Unit//, Atom//, Projection//",
+          "count": "not fully specified",
+          "basis": "CA-R-1757@34",
+          "nature": "derived incoming direct links; source kinds not unrestricted"
+        }
+      ],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Project",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "declaration_sha256": "f163e19b79552d02843aabb665d0e0976a915f1b0e4a1911b7abcc25cf2fa28f",
+      "source_pins": [
+        {
+          "id": "CA-R-2220",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2220-CORE_META_MODEL-DEFINITION--define-project.md",
+          "version": 4,
+          "sha256": "362576452cfd2357086b9b4f4d39f32abbb07ef3743013fc49728689170782b4"
+        },
+        {
+          "id": "CA-R-1757",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-ENTITY-DEFINITION--define-scope-unit.md",
+          "version": 34,
+          "sha256": "37896e6cb91a2f868a1713bdd16763d08dd9a1e190c778a65245b45a02455a57"
+        }
+      ],
+      "known_relation_constraints": [
+        {
+          "relation": "IS_CONTAINED_BY",
+          "host": "Project//",
+          "target": "Scope Unit//",
+          "count": "0",
+          "basis": "CA-R-2220@4 and CA-R-1757@34",
+          "nature": "root restriction"
+        }
+      ],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Package",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "declaration_sha256": "16b716e2e6c76395c4a9c1736ec9919e74de91ad3f8b131c90df046beec5dd79",
+      "source_pins": [
+        {
+          "id": "CA-R-2178",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2178-CORE_META_MODEL-DEFINITION--define-package.md",
+          "version": 5,
+          "sha256": "becf7ff7740a026156027caf0798d227dc06f807ad979e3622f44c2ecd2e1d15"
+        }
+      ],
+      "known_relation_constraints": [
+        {
+          "relation": "IS_CONTAINED_BY",
+          "host": "Package//",
+          "target": "Package//",
+          "count": "0..1; non-root exactly 1",
+          "basis": "CA-R-2178@5",
+          "nature": "outgoing; root identity deferred"
+        }
+      ],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Projection",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "declaration_sha256": "d2bad11264a0e222ba7b1cad0034e91d76f6b83f1c3fc72df5ee2b780fcc6614",
+      "source_pins": [
+        {
+          "id": "CA-R-1746",
+          "version": 43,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL--define-projection-artifact-form.md",
+          "sha256": "62d932d646242619892aef5882a23ac430f30ff5f867a9076ca7e13d43a1c6ac",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1406",
+          "version": 25,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL--keep-entity-identity-independent-of-graph-materialization.md",
+          "sha256": "d2b524b7342e2804907089042cad88fbd0860697fa4fa2748c36d126d751005c",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1460",
+          "version": 21,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1460-CORE_META_MODEL--separate-projection-derivation-from-carrier-materialization.md",
+          "sha256": "5f3861840b35e4d01e5580389da2d62792059dc5dab95ce4d7c7457e91b3ab1b",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1493",
+          "version": 19,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1493-CORE_META_MODEL-RULE--identify-how-each-projection-is-rebuilt.md",
+          "sha256": "079a29ca071a8af35d55107855e2df7b1a02dfdbcfc4b740917b939d63c0b1b6",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1494",
+          "version": 19,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1494-CORE_META_MODEL-RULE--record-projection-dependency-provenance-only-when-required.md",
+          "sha256": "99af2fa18bfd42c62ffdbd6649b406c2d39fda4905a49d0dbef26719517312d0",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1507",
+          "version": 18,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1507-CORE_META_MODEL-RULE--require-declared-source-atoms-before-projection-refresh.md",
+          "sha256": "08711f8a495d3b919614688fbe60cab42bccb129cfb1255e5474a5f0c22dd3d4",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1609",
+          "version": 21,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-RULE--distinguish-projected-representations-from-represented-entities.md",
+          "sha256": "6c276c8602c138fd25f3ff8188c327515bbfcdb23333e3d36c611ab87cdefcbd",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1634",
+          "version": 42,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+          "sha256": "a82803b9e90220dc959a9399bbc8cf3366bee01203b4d73992bfe958b1260e6f",
+          "subjects_governs": "Entity/Object/Continuant/Projection/Type"
+        },
+        {
+          "id": "CA-R-1749",
+          "version": 25,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL--preserve-source-scope-in-derived-views.md",
+          "sha256": "e12002ba84ef7b752c49a94029d56629b9b2321c057a8cef45c78094de84d05f",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1943",
+          "version": 14,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md",
+          "sha256": "bcaee12974f5eb918d402559d54fdd0ec3fad3590671b5d335691cca2f31fe03",
+          "subjects_governs": "Entity/Object/Continuant/Projection.ID"
+        },
+        {
+          "id": "CA-R-1495",
+          "version": 20,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1495-CORE_META_MODEL-RULE--projections-have-updated-at.md",
+          "sha256": "7a05de09b7c16929d3ef8b66a682ca7ef0c31e4d9d0cc4e2345213cc94aebcfe",
+          "subjects_governs": "Entity/Object/Continuant/Projection.Updated At"
+        },
+        {
+          "id": "CA-R-1470",
+          "version": 25,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1470-CORE_META_MODEL--define-single-source-of-truth.md",
+          "sha256": "41767469fb7e5915b4895636276d0dab5fe3b0aee1cc3a2c3aee8e936bd4c377",
+          "subjects_governs": "Entity"
+        }
+      ],
+      "known_relation_constraints": [
+        {
+          "relation": "source references",
+          "host": "Projection",
+          "target": "contributing sources incl. Atom Versions",
+          "count": "not established here",
+          "basis": "Projection Draft and source pins",
+          "nature": "value/reference; typed Relation mapping not inferred"
+        }
+      ],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Journal",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "declaration_sha256": "120c7012d2f465c209f046383f490e5b8c65228648b635183e1b7885322244bc",
+      "source_pins": [
+        {
+          "id": "CA-R-1745",
+          "version": 34,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL--define-journal-artifact-form.md",
+          "sha256": "6a1cc6d2420477b3186a0a2d47e1fd4fd889cfb6c86aaa7b964458fa61c4cf17",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal"
+        },
+        {
+          "id": "CA-R-1720",
+          "version": 37,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-RULE--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "fa4f09b43f5f15534aa44ab4a0504a0a76c2409e2c2eb93eb892ad8bcc125b00",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal"
+        },
+        {
+          "id": "CA-R-1684",
+          "version": 27,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL--separate-analysis-from-factual-execution-records.md",
+          "sha256": "90c450d860590000543e20e270393030dcfb67ae669cb6cd4d76f90a20ee5876",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal"
+        },
+        {
+          "id": "CA-R-1712",
+          "version": 26,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1712-CORE_META_MODEL-RULE--distinguish-enacted-release-and-runtime-facts-from-operations-authority.md",
+          "sha256": "754c68ba9ecf78fe84f53a6b3e57fcf4aa14f944878ffaae31821985d6e75395",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal"
+        },
+        {
+          "id": "CA-R-1491",
+          "version": 28,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md",
+          "sha256": "f835a4383542056bdc683a9d02ba20904106743caa8b58bb98eeeef26a2ac7bc",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal"
+        },
+        {
+          "id": "CA-R-1643",
+          "version": 37,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-RULE--register-type-values-for-work-journal-events.md",
+          "sha256": "d58885f822dc597161495017202fb2d4aece6c6119d8af85a7108187fe7d1c5d",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal > Event Record"
+        },
+        {
+          "id": "CA-R-1644",
+          "version": 34,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md",
+          "sha256": "21b32bd60cfda62b95d90af560184b1181092d90ec775981637ffd16b9599f4b",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal > Event Record"
+        },
+        {
+          "id": "CA-R-1743",
+          "version": 25,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL--record-recurrence-check-outcomes-in-the-journal.md",
+          "sha256": "2f475c36fec8592f91c0897df8c9d2a1a404922ea931ccd92da5e909f08760f3",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal"
+        },
+        {
+          "id": "CA-R-2234",
+          "version": 1,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2234-CORE_META_MODEL-ENTITY_DEFINITION--define-event-record.md",
+          "sha256": "870eda2cc936436158e1bf891002f6f5ca3811187c9349bfc8cefff0588e6ab6",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal > Event Record"
+        }
+      ],
+      "known_relation_constraints": [
+        {
+          "relation": "record association",
+          "host": "Journal",
+          "target": "admitted event records",
+          "count": "not established here",
+          "basis": "Journal Draft and source pins",
+          "nature": "structural meaning; typed Relation mapping not inferred"
+        }
+      ],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Actor",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-actor.md",
+      "declaration_sha256": "c2851c097fc0d5384e78c4310cb8383d02cc2c68f1164b6e7b805491455b1f83",
+      "source_pins": [
+        {
+          "id": "CA-R-2218",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2218-CORE_META_MODEL-DEFINITION--define-actor.md",
+          "sha256": "51af210d9cc892394255422af8f46e0b9c8871d7f80983be4e4ed1ce00d6572f"
+        }
+      ],
+      "known_relation_constraints": [],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    },
+    {
+      "primary_node": "Aspect",
+      "declaration_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "declaration_sha256": "501b5f8d6c960e4ac19d462679d55864956df6b271b96dfe956a57a546428702",
+      "source_pins": [
+        {
+          "id": "CA-R-2210",
+          "version": 4,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2210-CORE_META_MODEL-DEFINITION--define-aspect.md",
+          "sha256": "4ddcf4417e589604d95ba8d03c300abc09a604c32f45e57ce6b92eaa0b486116"
+        }
+      ],
+      "known_relation_constraints": [],
+      "inherited_common_constraints": "Node/ applies per node; specialization requires separately resolved inherited rules, not an assumed permission union",
+      "whitelist_complete": false,
+      "missing": "Effective permitted Relation names, endpoint and directional counts are not fully established by this bounded matrix."
+    }
+  ],
+  "decisions": [
+    "Enumerate each Node effective inherited plus local whitelist with endpoint and directional counts from applicable source, without a universal union.",
+    "Resolve which value-property references such as Author, Assignee and Target Scope become named Relations and their typed endpoints; do not invent names.",
+    "Decide unselected containment endpoint kinds and root/package exceptions before closing respective whitelists.",
+    "Confirm HAS_ACTIVE_SUBJECT endpoint and ownership scoping without restricting ordinary Atom Subjects to Node/.",
+    "Keep formal MODEL/Carrier representation >> rule pending; do not infer graph authority from carrier or source-instance examples."
+  ],
+  "interpretation": "Absent Relation name is forbidden only after complete effective whitelist is established; a missing matrix entry is an evidence gap, not a proven prohibition.",
+  "limits": "No Current source edits, instance audit, runtime or parser validation.",
+  "supporting_current_sources": {
+    "CA-R-1248": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-DEFINITION--define-entity.md",
+      "version": 24,
+      "sha256": "d9946790458fc48aaf349a2ab40d4b2d0cf4e82903e59dbb761cdf6fdb5129ca"
+    },
+    "CA-R-1193": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-DEFINITION--define-property.md",
+      "version": 23,
+      "sha256": "9b18fb8b423e9944f16ef4d4862b8fa298e11b21ebf5e416086d7feda06f47cb"
+    },
+    "CA-R-2003": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "version": 14,
+      "sha256": "4888c85d9c39d671588439e38c0f295d0fab37227206a2c989d068bdb32e952d"
+    },
+    "CA-R-1757": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-ENTITY-DEFINITION--define-scope-unit.md",
+      "version": 34,
+      "sha256": "37896e6cb91a2f868a1713bdd16763d08dd9a1e190c778a65245b45a02455a57"
+    },
+    "CA-R-2402": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2402-CORE_META_MODEL-ENTITY_DEFINITION--define-scope-unit-parent.md",
+      "version": 1,
+      "sha256": "dbb32b2bfe812b7d6ebadd097dc2a4e5ff8dfb8f8fcba40b45b6b573e4dcf686"
+    },
+    "CA-R-2400": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2400-CORE_META_MODEL-ENTITY_DEFINITION--define-scope-unit-children.md",
+      "version": 1,
+      "sha256": "daa347f64cdbac669e01cdeb40aa3e61fff8b65ea5df99708a9e1c98cae9438b"
+    },
+    "CA-R-2220": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2220-CORE_META_MODEL-DEFINITION--define-project.md",
+      "version": 4,
+      "sha256": "362576452cfd2357086b9b4f4d39f32abbb07ef3743013fc49728689170782b4"
+    },
+    "CA-R-2178": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2178-CORE_META_MODEL-DEFINITION--define-package.md",
+      "version": 5,
+      "sha256": "becf7ff7740a026156027caf0798d227dc06f807ad979e3622f44c2ecd2e1d15"
+    },
+    "CA-R-1198": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-DEFINITION--define-atom-subjects.md",
+      "version": 29,
+      "sha256": "49a6997f18420036ae28a69e10ba850c274901ac8ba1c895be1410741fbfcb3b"
+    },
+    "CA-R-655": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-ENTITY-DEFINITION--define-atom-artifact-form.md",
+      "version": 42,
+      "sha256": "ddf97b84cfef8829604bcf39b8b84f9f60d27c395fa93d64c981d7512c072327"
+    },
+    "CA-R-1563": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1563-CORE_META_MODEL-DEFINITION--define-the-workflow-operations-atom-type.md",
+      "version": 24,
+      "sha256": "8b517018a7aaa3618595f1fb8accef1f4381d5d1c06760f45ac3b2c46e49ff75"
+    },
+    "CA-R-1569": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1569-CORE_META_MODEL-DEFINITION--define-the-step-operations-atom-type.md",
+      "version": 22,
+      "sha256": "82ce692f631264a8a882a27c1fa3b871faf5f04b088320775db5ed524835faf8"
+    },
+    "CA-R-1530": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-DEFINITION--define-the-operations-content-role.md",
+      "version": 27,
+      "sha256": "501e8ff45c8e88d9a30f3116f203f207badf9fcedc2479c3ddcc9903d6776af6"
+    },
+    "CA-R-1565": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1565-CORE_META_MODEL-RULE--admit-the-operations-atom-types.md",
+      "version": 20,
+      "sha256": "bd096703e14b016f7de75a708f5f670e6d44a4f37c2a7e40e48669f0c5c3e83d"
+    },
+    "CA-R-1562": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1562-CORE_META_MODEL-DEFINITION--define-the-action-operations-atom-type.md",
+      "version": 24,
+      "sha256": "92d15be924dc18b31504c4043c2f6cdd1274d9897961b40246b9ed20cf223bc5"
+    }
+  },
+  "operator_decision_evidence": {
+    "path": "/tmp/node-declaration-proposal-20261030/human-instruction-evidence.json",
+    "scope": "earlier explicit Operations composition and exclusive forms; current conversation decisions remain authoritative over that snapshot"
+  }
+}

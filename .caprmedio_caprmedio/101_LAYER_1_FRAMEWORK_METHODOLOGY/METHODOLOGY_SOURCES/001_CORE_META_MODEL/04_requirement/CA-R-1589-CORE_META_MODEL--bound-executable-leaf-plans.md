@@ -1,33 +1,30 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label'
-version: 20
-updated_at: 2026-10-27 19:59:58 +0400
+  active: Atom/(.Role := Plan)
+  passive:
+  - Atom/(.Role := Plan)
+  - Entity/Object/Continuant/Actor/AI Agent
+  - Entity/Object/Continuant/Actor/Operator
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1589
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Bound executable leaf Plans
 
-## Scope
+## Claim scope
 
 executable Plans with **none** directly contained Plan Atoms.
 
 ## Claim
 
 **every** executable Plan with **none** directly contained Plan Atoms **must** bound its own work **to** an estimate of **<=15** minutes for **=1** assigned AI Agent, with sufficient inputs, required output, verification, **and** no unresolved Operator decision; a Plan with contained children **may** have a larger roll-up estimate. the rule applies independently of Label.
-
-## Details

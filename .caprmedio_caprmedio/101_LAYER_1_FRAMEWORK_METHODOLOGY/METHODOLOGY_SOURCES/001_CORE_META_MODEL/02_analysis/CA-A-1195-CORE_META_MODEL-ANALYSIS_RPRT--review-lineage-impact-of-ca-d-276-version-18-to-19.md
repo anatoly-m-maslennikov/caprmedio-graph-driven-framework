@@ -8,16 +8,17 @@ local_tier: Standard
 global_tier: 11
 status: Done
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-16 00:01:15 +0400"
+version: 3
+updated_at: 2026-10-30 03:11:58 +0400
 subjects:
-  governs: "Lineage Impact Analysis"
+  governs: Lineage Impact Analysis
   depends_on:
-    - "Entity/Continuant/Object/Atom"
-    - "Entity/Continuant/History/Revision/Type: Atom"
-    - "Entity/Continuant/Actor/Type: Operator"
+  - Entity/Continuant/Object/Atom
+  - 'Entity/Continuant/History/Revision/Type: Atom'
+  - 'Entity/Continuant/Actor/Type: Operator'
 relations:
-  relates_to: [CA-D-276]
+  relates_to:
+  - CA-D-657
 ---
 # Summary
 

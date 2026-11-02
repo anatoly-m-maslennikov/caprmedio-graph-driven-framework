@@ -1,0 +1,43 @@
+{
+  "result": "pass",
+  "review": "Independent scope_goal_coverage return; parent verified hashes again after provenance-only root text cleanup.",
+  "limits": [
+    "No promotion, runtime admission, parser acceptance, consumer cutover or Goal creation."
+  ],
+  "sources": {
+    "project_structure": "bc53259e9ecfac7a718fbccd0cd81c4ae9954640fb0e535f03c2acfba80547b4",
+    "project_settings": "654884d1580894159bbcae0a994bfd1f4b745d92bf4438c30d0297a261310ffa"
+  },
+  "original_45_unit_checks": {
+    "instance_drafts": 45,
+    "explicit_toml_rows": 44,
+    "implicit_project_root": 1,
+    "nested_subjects_active": 45,
+    "unique_active_subjects": true,
+    "local_order_bindings": 10,
+    "explicit_strict_overrides": 6,
+    "scope_navigation_fields": 0,
+    "invented_ids_or_goals": 0,
+    "goal_targets_covered_units": 18,
+    "goal_target_missing_units": 27
+  },
+  "checks": {
+    "retained_instance_drafts": 44,
+    "retained_non_root_units": 43,
+    "implicit_project_root": 1,
+    "withdrawn_scope_units": 1,
+    "local_order_bindings": 9,
+    "explicit_strict_overrides": 5,
+    "goal_targets_covered_units": 18,
+    "goal_target_missing_units": 26
+  },
+  "operator_disposition": "APPLICABLE_METHODOLOGY is a special Projection; separate Scope Unit Draft withdrawn; original inventory checks kept as evidence.",
+  "content_cleanup": {
+    "change": "Removed migration/review bookkeeping from all 44 instance Declaration bodies; source and ownership evidence stays in the existing manifest and tracking packet.",
+    "drafts_cleaned": 44,
+    "summary_and_claim": "unchanged",
+    "frontmatter_change": "updated_at only; Draft version and proposed identities unchanged",
+    "checked_at": "2026-11-01 00:59:08 +0400",
+    "promotion": false
+  }
+}

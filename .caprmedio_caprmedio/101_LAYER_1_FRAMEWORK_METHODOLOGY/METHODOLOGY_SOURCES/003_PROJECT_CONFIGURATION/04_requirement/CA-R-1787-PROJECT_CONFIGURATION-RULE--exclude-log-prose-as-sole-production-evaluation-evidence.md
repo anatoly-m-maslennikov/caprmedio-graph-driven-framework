@@ -1,24 +1,23 @@
 ---
 atom_id: CA-R-1787
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
-  depends_on: []
-version: 8
-updated_at: 2026-10-27 20:00:03 +0400
+  active: Entity/Aspect/Engineering/Verification
+  passive: []
+version: 11
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Exclude log prose as sole production-evaluation evidence
 
-## Scope
+## Claim scope
 
 production evaluation decisions.
 

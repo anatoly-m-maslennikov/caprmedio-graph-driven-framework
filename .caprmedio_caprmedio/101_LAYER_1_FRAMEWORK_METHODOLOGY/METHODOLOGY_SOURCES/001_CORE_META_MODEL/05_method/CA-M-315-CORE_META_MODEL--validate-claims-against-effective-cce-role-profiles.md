@@ -1,32 +1,31 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
-version: 20
-updated_at: 2026-10-27 19:59:42 +0400
+  active: Atom.Content
+  passive:
+  - Entity/Aspect/Engineering/Authoring/Controlled English
+  - Entity/Aspect/Engineering/Data Handling/Data Validation
+  - Atom.Content
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - Entity/Object/Continuant/Governing Objects/Atom.Type
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-M-307
   - CA-M-308
 atom_id: CA-M-315
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 7
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Validate Claims against Effective CCE Role Profiles
 
-## Scope
+## Claim scope
 
 Atom Claims against effective CCE Role Profiles.
 

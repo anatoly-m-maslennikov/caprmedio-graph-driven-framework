@@ -1,0 +1,101 @@
+{
+  "status": "read-only CFEL candidate; no Event Record schema, Declaration, workflow, or runtime change made",
+  "candidate_syntax": {
+    "filtered_record_selection": "Kind//(condition, ...).property",
+    "max_aggregate": "MAX(selection)",
+    "exact_rule_text": [
+      "`Kind//(c1, ...).p` selects p from the complete selected Kind instance population whose comma-separated conditions all hold. It is a filtered existing-record selection; it creates no record, relation, or Property.",
+      "A filter reference Property compared with a bound instance, such as `.object = $atom`, compares the resolved semantic target identity, never a raw ID, Carrier address, filename, or locator. The selected effective MODEL supplies that target-identity binding.",
+      "`MAX(selection)` accepts one typed timestamp scalar from each selected record and returns their latest instant. Compare instants after timezone/offset normalization; never lexically sort timestamp strings. Equal latest instants return that same instant and create no tie ambiguity.",
+      "MAX over an empty selection, an unknown/incomplete record population, a missing or multi-valued selected timestamp, or an invalid/non-timestamp value is an error. No such case is treated as a fallback value.",
+      "The query is a derived invariant only. It does not write or materialize Updated At, mutate Event Records, prescribe Workflow steps, or implement an Engine operation."
+    ]
+  },
+  "exact_claims": [
+    {
+      "subject": "Atom.Updated At",
+      "source": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md:19-26",
+      "claim": "```CFEL\nAtom.Updated At{:1}: [datetime]{:1};\nAtom.Updated At.*[]{:0};\nAtom//$atom.Updated At == MAX(Event Record//(.object = $atom, .action = update).timestamp)\n```",
+      "identity_binding": "For `.object = $atom`, Atom target identity is the resolved pair (Atom.ID, Atom.Version), not bare Atom.ID or Carrier identity."
+    },
+    {
+      "subject": "Projection.Updated At",
+      "source": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md:19-26",
+      "claim": "```CFEL\nProjection.Updated At{:1}: [datetime]{:1};\nProjection.Updated At.*[]{:0};\nProjection//$projection.Updated At == MAX(Event Record//(.object = $projection, .action = update).timestamp)\n```",
+      "identity_binding": "For `.object = $projection`, Projection target identity is resolved stable Projection.ID across rebuild representations, not a Carrier or rebuild-local identity."
+    }
+  ],
+  "schema_bindings_required_before_adoption": [
+    "Event Record.Object: exactly one resolved reference target, with an identity-binding contract for Atom version identity and Projection stable identity.",
+    "Event Record.Action: exactly one admitted action literal that can be tested as `update`.",
+    "Event Record.timestamp: exactly one typed timestamp instant.",
+    "A complete authoritative Event Record population in the explicit Project/Journal evaluation context; Journal containment alone does not yet bind that population to a Project.",
+    "A resolution rule for whether `action = update` means accepted completed updates, including Projection rebuilds, while excluding no-op, failed, and archive records."
+  ],
+  "model_cases": [
+    {
+      "name": "atom-two-updates",
+      "records": "Two matching accepted update records resolve to the same Atom (ID A, Version 3), at 2026-11-01T09:00:00Z and 2026-11-01T10:00:00+01:00.",
+      "result": "MAX is the same instant 09:00Z; Atom.Updated At must equal that instant."
+    },
+    {
+      "name": "atom-version-identity-not-bare-id",
+      "records": "A record targets Atom (ID A, Version 2) at 12:00Z; another targets Atom (ID A, Version 3) at 13:00Z.",
+      "result": "The Version-3 query selects only 13:00Z; the Version-2 event does not match by bare ID."
+    },
+    {
+      "name": "projection-carrier-migration",
+      "records": "Two update records reference rebuild representations with stable Projection.ID P-7 but different Carrier locations, at 09:00Z and 11:00Z.",
+      "result": "Both match the Projection query; Updated At is 11:00Z."
+    },
+    {
+      "name": "nonupdate-record-excluded",
+      "records": "A matching object has an update at 09:00Z and another event whose action is not update at 12:00Z.",
+      "result": "Only the update record contributes, subject to the pending action/outcome interpretation."
+    },
+    {
+      "name": "equal-latest-timestamp",
+      "records": "Two matching update records have the same normalized instant 10:00Z.",
+      "result": "MAX is 10:00Z; no tie-breaker is needed because the scalar result is equal."
+    },
+    {
+      "name": "empty-selection",
+      "records": "No matching update record exists for the target.",
+      "result": "error; required Updated At cannot be justified by an empty MAX."
+    },
+    {
+      "name": "invalid-timestamp",
+      "records": "A matching update record has a malformed timestamp or two timestamp values.",
+      "result": "error; invalid data is not skipped."
+    },
+    {
+      "name": "unknown-journal-population",
+      "records": "The evaluator cannot resolve the complete Project/Journal Event Record population.",
+      "result": "error; a partial Current-only or Carrier-local scan cannot satisfy the invariant."
+    }
+  ],
+  "pending_user_question": "Does `action = update` denote accepted completed updates, including Projection rebuilds, and exclude no-op, failed, and archive records; or is an explicit outcome filter required?",
+  "boundaries": [
+    "Core Requirement contracts remain Core; this query does not relocate them.",
+    "Workflow remains the process authority; this query does not describe execution steps.",
+    "Engine may implement evaluation but receives no implementation claim from this candidate."
+  ],
+  "live_evidence": [
+    {
+      "file": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md:19-26",
+      "fact": "Event Record currently has only Journal containment; it does not yet declare object/action/timestamp bindings."
+    },
+    {
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-id.md:19-26",
+      "fact": "ID is the only existing Event Record property declaration."
+    },
+    {
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md:19-26; property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md:19-27",
+      "fact": "Atom and Projection identity declarations exist, but the query still needs the specified semantic target-identity bindings."
+    }
+  ],
+  "mutations": {
+    "repository_files_changed": false,
+    "output": "/tmp/caprmedio-event-timestamps-20261101/query-candidate.json"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "review": "scope_fresh_coherence_review: three successor Drafts versus actual Current predecessors and latest decisions",
+  "result": "six concrete defects corrected; no Current publication",
+  "fixes": [
+    "R1484 remains Rule; counted Declaration Form is Scope Unit Declaration.",
+    "Root parentless and externally Operator-owned; final physical location remains pending.",
+    "Exact predecessor Summaries restored for same-ID successors.",
+    "D442 Carrier key mapping marked proposed; Current reader migration not claimed.",
+    "D442 table labels legacy source facts, not new frontmatter keys; root exempt.",
+    "Unrelated D442 Scope Unit/Type Subject change reverted."
+  ],
+  "limits": [
+    "No parser/runtime admission or TOML cutover.",
+    "Other TOML-centric sources, including D440/D441, require disposition before complete source adoption."
+  ],
+  "independent_readback": {
+    "reviewer": "scope_fresh_coherence_review",
+    "result": "pass",
+    "source_and_draft_hashes": "3/3 match",
+    "direct_contradictions": 0,
+    "checks": [
+      "All six fixes confirmed.",
+      "Exact predecessor Summaries preserved.",
+      "Field mapping and instance index agree."
+    ],
+    "not_checked": [
+      "Parser/schema admission",
+      "Runtime",
+      "TOML cutover",
+      "Other source amendments"
+    ]
+  }
+}

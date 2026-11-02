@@ -1,0 +1,33 @@
+---
+subjects:
+  active: 'Entity/Object/Continuant/Projection/Type: Applicable Methodology.Conflict'
+  passive:
+  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1373@27
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Archived
+tier: 1
+role: Requirement
+form: Entity Definition
+---
+## Summary
+
+Define Applicable Methodology Conflict
+
+## Claim scope
+
+Applicable Methodology candidate selections within one exact source frontier.
+
+## Claim
+
+an Applicable Methodology/Conflict **means** one compiler-detected incompatible candidate selection within one exact Applicable Methodology source frontier.
+
+### Formal claim
+
+```text
+Entity/Object/Continuant/Projection/Type: Applicable Methodology.Conflict{0}
+```

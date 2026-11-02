@@ -16,9 +16,9 @@
       ]
     },
     "CA-D-269": {
-      "version": 14,
-      "sha256": "f6506099d7c264c7901a772b707fc88102c77d607bcf930b5d9bd2fd2aad78cd",
-      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+      "version": 27,
+      "sha256": "17cf39248c9fd0e7f0ed861b42ed6bda99a88029e40efeebb26f8eb01150c7f6",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md",
       "required": true,
       "obligations": [
         "frontmatter.subjects",
@@ -48,9 +48,9 @@
       ]
     },
     "CA-D-274": {
-      "version": 19,
-      "sha256": "e0d850b0d10948bda665c8cfd850eb77e7a9a3b5525a4c2998f8237a99b62685",
-      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md",
+      "version": 30,
+      "sha256": "b62bc1cba9c35638e276e1e37069b4ca73fd78803933f04bbe884bfdd94a0b59",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-ENG_DECISION--serialize-explicit-atom-revision-author.md",
       "required": true,
       "obligations": [
         "frontmatter.author",
@@ -194,9 +194,9 @@
       ]
     },
     "CA-R-1283": {
-      "version": 13,
-      "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
-      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+      "version": 27,
+      "sha256": "6e9ccec56f3f466c9a9f93ce56acdaba42c843174db217d728d0a958fc9b3a1f",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-RULE--register-content-role-values.md",
       "required": false,
       "obligations": [
         "domain.content_role"
@@ -299,6 +299,19 @@
       "required": false,
       "obligations": [
         "domain.local_tier"
+      ]
+    },
+    "CA-D-657": {
+      "version": 1,
+      "sha256": "34d889b05d5a0167960c9c63d435f3ba7f6595f2629eeb210a6051eb32539ad8",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "required": false,
+      "obligations": [
+        "frontmatter.common_encoding",
+        "property.admission",
+        "owner.resolution",
+        "model.domains",
+        "tier.resolution"
       ]
     }
   }

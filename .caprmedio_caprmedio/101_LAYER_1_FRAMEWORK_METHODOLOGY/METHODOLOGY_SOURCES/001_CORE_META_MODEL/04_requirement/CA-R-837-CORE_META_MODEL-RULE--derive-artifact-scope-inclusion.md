@@ -1,25 +1,23 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author
-version: 30
-updated_at: 2026-10-27 20:00:11 +0400
+  active: Scope Unit
+  passive: []
+version: 35
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-837
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Derive Artifact scope inclusion
 
-## Scope
+## Claim scope
 
 Artifacts contained **in** a Scope Unit.
 
@@ -29,4 +27,4 @@ the resolver **must** resolve **`=1`** direct Scope Unit from the Atom's interna
 
 ## Details
 
-an Atom with no containing Scope Unit uses the external-Atom Author fallback under CA-D-276-CORE_META_MODEL-ENG_DECISION--use-economical-yaml-frontmatter; a failed Scope Unit resolution does **not** establish that no containing Scope Unit exists.
+an Atom with no containing Scope Unit uses the external-Atom Author fallback under CA-D-657-CORE_META_MODEL-ENG_DECISION--use-economical-yaml-frontmatter; a failed Scope Unit resolution does **not** establish that no containing Scope Unit exists.

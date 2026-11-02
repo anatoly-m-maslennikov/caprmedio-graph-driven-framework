@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import re
+from dataclasses import replace
 from pathlib import Path
 
 from atom_subject_lookup import _structured_subjects
-from subject_notation import get_profile, parse_subject
+from carrier_aliases import carrier_read_view
+from subject_notation import Path as SubjectPath, get_profile, parse_subject_expression, render_subject
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError, parse_carrier
 
 
@@ -21,7 +23,7 @@ LIFECYCLES = frozenset({"active", "done", "resolved", "canceled", "archived"})
 def parse_atom(raw: bytes):
     """Preserve the complete supplied text; perform no storage access."""
     parsed = parse_carrier(raw, Path("supplied.md"))
-    values = parsed.metadata
+    values = carrier_read_view(parsed.metadata)
     identity = values.get("atom_id")
     if not isinstance(identity, str) or IDENTITY.fullmatch(identity) is None:
         raise CarrierError("ATOM_INVALID", "A full logical Atom ID is required.")
@@ -64,11 +66,23 @@ def validate_filters(filters: object) -> None:
             raise ValueError("A Subject predicate requires explicit fields, match and value.")
 
 
-def subject_matches(value: str, criterion: str, mode: str, separators: tuple[str, ...]) -> bool:
+def subject_matches(value: str, criterion: str, mode: str, separators: tuple[str, ...], *, subject_profile: str | None = None) -> bool:
     if mode == "exact":
         return value == criterion
     if mode == "prefix":
-        return value == criterion or any(value.startswith(criterion + boundary) for boundary in separators)
+        profile = subject_profile or ("approved" if "." in separators else "legacy")
+        if profile == "legacy":
+            return value == criterion or any(value.startswith(criterion + boundary) for boundary in separators)
+        expression = parse_subject_expression(value, subject_profile=profile).expression
+        expected = render_subject(parse_subject_expression(criterion, subject_profile=profile))
+        if render_subject(expression) == expected:
+            return True
+        if not isinstance(expression, SubjectPath):
+            return False
+        return any(
+            render_subject(replace(expression, steps=expression.steps[:length], value_format=None, value_cardinality=None)) == expected
+            for length in range(len(expression.steps))
+        )
     if mode == "suffix":
         return value.endswith(criterion)
     return criterion in value
@@ -78,9 +92,9 @@ def matches(properties: dict, filters: dict, subject_profile: str) -> bool:
     profile = get_profile(subject_profile)
     values = tuple(_structured_subjects(properties, {"governs", "depends_on"}))
     for _, _, value in values:
-        parse_subject(value, subject_profile=profile.name)
+        parse_subject_expression(value, subject_profile=profile.name)
     for field, source in (("atom_ids", "atom_id"), ("statuses", "status"), ("content_roles", "content_role")):
         if field in filters and properties[source] not in filters[field]:
             return False
-    return all(any(field in predicate["fields"] and subject_matches(value, predicate["value"], predicate["match"], profile.separators)
+    return all(any(field in predicate["fields"] and subject_matches(value, predicate["value"], predicate["match"], profile.separators, subject_profile=profile.name)
                    for field, _, value in values) for predicate in filters["subjects"])

@@ -1,28 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
-  depends_on: []
-version: 36
-updated_at: 2026-10-27 19:59:59 +0400
+  active: Entity/Aspect/Engineering/Verification
+  passive: []
+version: 39
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   depends_on:
   - CA-R-1503
   - CA-R-1504
   - CA-R-1505
 atom_id: CA-R-1635
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Require production evaluation checklists
 
-## Scope
+## Claim scope
 
 production-relevant components and governed scopes.
 

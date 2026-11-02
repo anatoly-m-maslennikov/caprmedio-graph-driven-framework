@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-01",
+  "subject": "Atom/(.Role := Requirement)/(.Form := Relation Definition).Content.notation_for_subject",
+  "decision": "Keep the conditional requirement in prose for now; defer formalization",
+  "preserved_prose": "When a short subject notation is admitted for the Relation, this Property is required.",
+  "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md",
+  "draft_sha256": "e2cbafd2ca5d9da826a1df4faf0d9654d62eca57b08e365c34ac34522753967f",
+  "draft_changed": false,
+  "syntax_added": false,
+  "prose_count_effect": 0
+}

@@ -1,0 +1,259 @@
+{
+  "frontier_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/migration-20261101/current-source-frontier.json",
+  "frontier_sha256": "fadf6b7ef86a7f85fc88d63f8b0692c1aef0e3f254166b291d4cdafc4ba17fb7",
+  "status": "Frozen Current evidence, no references changed; review historical citations separately from operative links.",
+  "groups": {
+    "allowed_value_operator": [
+      {
+        "id": "CA-R-1245",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1245-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.md",
+        "sha256": "3fd67ece68c34dfed37229710073a90cd176355a2bc62102d95a1e66f1ee427f",
+        "references": [
+          {
+            "line": 5,
+            "text": "- CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+          },
+          {
+            "line": 28,
+            "text": "**in** a Subject Expression, `X:Y` **must** express only one IS_ALLOWED_VALUE_OF relation from value Y to target Entity X, irrespective of X's kind or path. This relation admits Y as a possible value in X's qualified context; it does not assign Y to an occurrence or determine direct-value cardinality."
+          }
+        ]
+      },
+      {
+        "id": "CA-R-1346",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+        "sha256": "1e1dd7db0ca41694871e41b5b8ba9e6614b4473b13093514e9b2b5387c017228",
+        "references": [
+          {
+            "line": 3,
+            "text": "active: CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+          }
+        ]
+      },
+      {
+        "id": "CA-R-1358",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1358-CORE_META_MODEL--consolidate-single-value-claims-as-one-value-set-claim.md",
+        "sha256": "86f11ef8b0c60bef2af074017d34a13de7e26d029fb11baba26358fb433cfec1",
+        "references": [
+          {
+            "line": 7,
+            "text": "- CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+          }
+        ]
+      },
+      {
+        "id": "CA-R-1359",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1359-CORE_META_MODEL-DEFINITION--define-claim-value-set.md",
+        "sha256": "701e365cf20162e1431c631dd5c535a64db8d7c7dc3a955278ee949903b6ace0",
+        "references": [
+          {
+            "line": 6,
+            "text": "- CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+          }
+        ]
+      },
+      {
+        "id": "CA-R-1405",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL--register-core-artifact-type-values.md",
+        "sha256": "9b34b024174793570b409ab5b725c7a55f05cbcc485acf4afaeb90792349283a",
+        "references": [
+          {
+            "line": 8,
+            "text": "- CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+          }
+        ]
+      },
+      {
+        "id": "CA-R-1436",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1436-CORE_META_MODEL--define-is-allowed-value-of.md",
+        "sha256": "b1b15356c9899a93b149e49cbc2731346dd18cde1c9954fa78bf188692b4093e",
+        "references": [
+          {
+            "line": 3,
+            "text": "active: CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+          },
+          {
+            "line": 11,
+            "text": "atom_id: CA-R-1436"
+          },
+          {
+            "line": 21,
+            "text": "Define IS_ALLOWED_VALUE_OF"
+          },
+          {
+            "line": 25,
+            "text": "the IS_ALLOWED_VALUE_OF Relation **in** the Entities Graph."
+          },
+          {
+            "line": 29,
+            "text": "an IS_ALLOWED_VALUE_OF Relation from value V **to** target Entity X **in** the Entities Graph **means** that governing authority admits V as a possible value of X **in** its qualified context, irrespective of X's kind or path. This Relation does **not** assign V **to** a particular occurrence **or** determine direct-value cardinality."
+          }
+        ]
+      },
+      {
+        "id": "CA-R-1456",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL--derive-entities-views-from-selected-authority.md",
+        "sha256": "64a67f76c08c33040e9757958afff446bbebd3043f960c0f0dfa3bb81ca79c86",
+        "references": [
+          {
+            "line": 12,
+            "text": "- CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+          },
+          {
+            "line": 48,
+            "text": "this selection reuses the Entities Graph under CA-R-1438@25-CORE_META_MODEL--define-entities-graph **without** another graph kind **or** independent model authority. a hierarchy display **must not** impose a tree constraint on the full graph, discard legitimate sharing, **or** introduce a global ordinal-position rule. display filtering **must not** change source bearer cardinalities, qualified identities, **or** allowed-value admission; IS_PROPERTY_OF **and** IS_ALLOWED_VALUE_OF retain their distinct governing authority."
+          },
+          {
+            "line": 66,
+            "text": "**Inherency tree:** use NARROWER_THAN, INSTANCE_OF, IS_PROPERTY_OF and IS_ALLOWED_VALUE_OF. Show a selected explicitly named instance under its kind using `//`, retaining the instance's existing identity; INSTANCE_OF is directed from instance to kind and is distinct from narrower-kind classification. The name is not automatically a Term. First show the primary-entity tree without Properties. Then show one detail tree for each primary entity with one or more Properties, including its Properties and further Properties. Show every source-backed allowed-value branch beneath the Entity to which its IS_ALLOWED_VALUE_OF facts apply, including a non-Property target; preserve that target's identity and do not reclassify it as a Property. Detail sections follow the primary entities' first-appearance order in the main tree."
+          }
+        ]
+      },
+      {
+        "id": "CA-M-237",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL-IMPLEMENTATION_METHOD--author-claim-value-sets.md",
+        "sha256": "a8cee63eb3fe71c37fc917b82d9a05167d6ef60da25ffe1a6e623ebfce17f9bb",
+        "references": [
+          {
+            "line": 8,
+            "text": "- CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+          },
+          {
+            "line": 38,
+            "text": "5. interpret `:` as Claim Value-Set syntax inside that Claim **and** as **`=1`** IS_ALLOWED_VALUE_OF relation **only** inside a Subject Expression."
+          }
+        ]
+      },
+      {
+        "id": "CA-M-385",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md",
+        "sha256": "256fe774825bdf17a217370b2f83fcea96290090680dcb155d7a4390c5c31630",
+        "references": [
+          {
+            "line": 37,
+            "text": "2. Select the admitted Inherency relation facts: NARROWER_THAN, INSTANCE_OF, IS_PROPERTY_OF and IS_ALLOWED_VALUE_OF. Atom Subjects depends_on is not IS_PROPERTY_OF. Traverse an explicit INSTANCE_OF fact from kind to its named instance for display, using `//`; retain the fact's instance-to-kind direction and existing target identity. Do not enumerate instances from syntax or classify an instance name as a Term."
+          }
+        ]
+      },
+      {
+        "id": "CA-E-383",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-POLICY--reject-invalid-subject-expressions.md",
+        "sha256": "5984d9d809f3e0ea63219d5002d4cacb56b17df225a56601213d32359b28a625",
+        "references": [
+          {
+            "line": 11,
+            "text": "- CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+          },
+          {
+            "line": 22,
+            "text": "- CA-R-1436"
+          },
+          {
+            "line": 62,
+            "text": "- `:` does **not** express an admitted allowed value of its preceding X under CA-R-1436-CORE_META_MODEL--define-is-allowed-value-of,"
+          }
+        ]
+      },
+      {
+        "id": "CA-E-402",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-402-CORE_META_MODEL-POLICY--reject-invalid-claim-value-sets.md",
+        "sha256": "04d9a4351dc57657e63bc5e9b8d778a09680d058e4a58ffbfa365e288a8bc9f2",
+        "references": [
+          {
+            "line": 7,
+            "text": "- CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+          }
+        ]
+      },
+      {
+        "id": "CA-E-403",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-POLICY--report-exact-claim-value-set-consolidation-candidates.md",
+        "sha256": "85a325f6bc86737493fc82523164ef34d85140ac1dbe1ccabda02924d5721be7",
+        "references": [
+          {
+            "line": 8,
+            "text": "- CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+          },
+          {
+            "line": 33,
+            "text": "the Evaluation **must** report **`=1`** Claim Value Set consolidation candidate **only** **if** **every** contributing active Atom has the same Atom Scope, Atom Governed Subject, Claim Target Scope Unit, textual Claim Scope, Property, **and** exact qualifiers, has **`=1`** mechanically parseable single-value Claim, **and** differs **only** by **`=1`** unique value proven through IS_ALLOWED_VALUE_OF for that Property; it **must not** mutate, merge, archive, replace, compile, **or** change a Source Atom by another operation, use semantic **or** LLM inference, **or** cause Applicable Methodology compilation **to** fail."
+          }
+        ]
+      },
+      {
+        "id": "CA-E-449",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-POLICY--validate-entities-graph.md",
+        "sha256": "eba903490bb4b21f3b9a9ee9593bcf9356fb80b57873ae44c2b7bce2fb1ed055",
+        "references": [
+          {
+            "line": 11,
+            "text": "- CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+          },
+          {
+            "line": 36,
+            "text": "- CA-R-1436"
+          },
+          {
+            "line": 66,
+            "text": "- an IS_ALLOWED_VALUE_OF Relation admits a value **without** governing authority for its qualified target Entity context under CA-R-1436-CORE_META_MODEL-CORE-REQUIREMENT--define-is-allowed-value-of."
+          },
+          {
+            "line": 115,
+            "text": "- the Inherency view uses only its selected NARROWER_THAN, IS_PROPERTY_OF and IS_ALLOWED_VALUE_OF relations;"
+          }
+        ]
+      }
+    ],
+    "active_subject_identity": [
+      {
+        "id": "CA-R-2469",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2469-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+        "sha256": "f4d096bd71ea8aef00c1fee5039e48d670a6884c1d9244c6600f12d7771945fe",
+        "references": [
+          {
+            "line": 27,
+            "text": "Atom/(.Role: Requirement)/(.Form: Declaration)// ((HAS_ACTIVE_SUBJECT)){:1} (Node, Node/**, .**)"
+          },
+          {
+            "line": 30,
+            "text": "The count uses only the effective Current Declaration-to-Node links in that MODEL. HAS_ACTIVE_SUBJECT is derived from the dedicated Subject field."
+          }
+        ]
+      },
+      {
+        "id": "CA-R-2479",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2479-CORE_META_MODEL-RELATION_DEFINITION--define-active-subject-link.md",
+        "sha256": "dc18a28d3aba4b913746d89092067dfcd8f3cbb1b264842c5e52183364234b1b",
+        "references": [
+          {
+            "line": 2,
+            "text": "atom_id: CA-R-2479"
+          },
+          {
+            "line": 7,
+            "text": "active: CFEL <+ Relation//HAS_ACTIVE_SUBJECT"
+          },
+          {
+            "line": 21,
+            "text": "HAS_ACTIVE_SUBJECT links an Atom to the thing or topic named by its active Subject. Derive it from subjects.active. A Declaration addresses a Node; other Atoms are not restricted to the Node branch."
+          },
+          {
+            "line": 24,
+            "text": "Atom/(.Role: Requirement)/(.Form: Declaration)// ((HAS_ACTIVE_SUBJECT)) (Node, Node/**, .**)"
+          }
+        ]
+      },
+      {
+        "id": "CA-D-662",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-662-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+        "sha256": "c37077ade6f4c05aa616069be8559168003444868b617b476a94407216ef611c",
+        "references": [
+          {
+            "line": 34,
+            "text": "- Derive HAS_ACTIVE_SUBJECT from subjects.active. Do not store it twice."
+          }
+        ]
+      }
+    ]
+  }
+}

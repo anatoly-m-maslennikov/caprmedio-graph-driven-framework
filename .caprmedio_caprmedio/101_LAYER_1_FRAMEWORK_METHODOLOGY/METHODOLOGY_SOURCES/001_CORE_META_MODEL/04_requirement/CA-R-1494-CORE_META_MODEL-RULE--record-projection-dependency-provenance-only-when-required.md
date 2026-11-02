@@ -1,30 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  depends_on: []
-version: 16
-updated_at: 2026-10-27 19:59:56 +0400
+  active: Projection
+  passive: []
+version: 20
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-1746
+  - CA-R-2535
 atom_id: CA-R-1494
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 Record Projection dependency provenance **only** **when** required
 
-## Scope
+## Claim scope
 Projections.
 
 ## Claim
 a Projection **must** record dependency provenance **only** **when** its registered job requires that information; no Projection is required **to** persist a blanket source frontier.
 
-this conditional recording obligation does **not** remove source traceability required by `CA-R-1746-CORE_META_MODEL-CORE-REQUIREMENT--define-projection-artifact-form` **or** a more specific admitted Projection specification.
-
-## Details
+this conditional recording obligation does **not** remove source traceability required by `CA-R-2535-CORE_META_MODEL-CORE-REQUIREMENT--define-projection-artifact-form` **or** a more specific admitted Projection specification.

@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-01",
+  "decision": "Projection.Source has Named Selection and Atoms children; concrete Atom IDs have explicit Versions",
+  "files": [
+    {
+      "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-sources.md",
+      "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-atoms.md",
+      "old_subject": "Projection.Sources",
+      "new_subject": "Projection.Source.Atoms",
+      "before_sha256": "bd1525551b6ae665e627fb64765ec803482a9a113211afe9fe93153b4f519303",
+      "after_sha256": "410022047e5080a5bb12a024f51d8563127b3614c19e90d4d8012d846a997520"
+    },
+    {
+      "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-named-selection.md",
+      "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-named-selection.md",
+      "old_subject": "Projection.Named Selection",
+      "new_subject": "Projection.Source.Named Selection",
+      "before_sha256": "58e27995ce4d6ef4a50c7effc047f0f91fbad4b42dcc2ad37182bc6ac2f7ecbe",
+      "after_sha256": "bcc3832bd7a21bc69ab6767608e57b813a52c862efdb852f17f5b7a72462b5f3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source.md",
+      "subject": "Projection.Source",
+      "after_sha256": "735818312c43b2b10f4f4ced72a93e3d312bbb6668228377a5e3d37a19cce8b1",
+      "new": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-named-selection.md",
+      "subject": "Named Selection",
+      "after_sha256": "37f5d929dd74325d7c687422272b86cb81014e7703ffb3e7df42ef0ff9c5226a",
+      "new": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "before_sha256": "cc51da1424dbc37d52ccf8dbedfbc6d9a06c1e49ba649a9a1dce1d4e6bf2d91a",
+      "after_sha256": "6e24de1df84d3227befb8a9e296629f1400ba9fd3665b56f587d942680c2d3a1",
+      "change": "Nested Named Selection path in both ID dependency directions; source Atom list remains outside ID basis"
+    }
+  ],
+  "cardinalities": {
+    "Source": "Required once; no direct value; exactly the declared child names Named Selection and optional Atoms",
+    "Named Selection": "Required once; one Named Selection instance reference; no dependents",
+    "Atoms": "Optional occurrence; zero or more Atom ID+Version string values; no dependents"
+  },
+  "reference_membership": "[Named Selection//] enforces the requested membership in Named Selection// through the existing reference Format pattern",
+  "new_primary_kind": "Named Selection; no actual instances created",
+  "mapping_gate": "Existing named-selection strings must resolve to instances of the declared Named Selection kind; this changes the old Current Selection wording that naming creates no separate Object and requires explicit adoption reconciliation",
+  "preserved": "Concrete Atoms cardinalities unchanged; no Source Of Truth, selection criteria DSL, workflow instance or new relation kind",
+  "projection_id_basis": [
+    "Form",
+    "Source.Named Selection"
+  ],
+  "counts_expected": {
+    "drafts": 135,
+    "primary": 28,
+    "property": 60,
+    "formal_only_claims": 82,
+    "node_descendant_prose_claims": 7
+  },
+  "runtime_changed": false,
+  "review_correction": "Generic Named Selection remains about members, without an Atom-only restriction; concrete Atom IDs with Versions remain constrained by Projection.Source.Atoms"
+}

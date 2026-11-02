@@ -1,0 +1,166 @@
+{
+  "status": "read-only selected-Draft reference/binding inventory",
+  "selection": {
+    "register_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/draft-register.json",
+    "register_sha256": "d23d870225ee26eac7f82cf2c35718738f9dffc72924a620c71b9691736111bb",
+    "registered_draft_count_at_read": 112,
+    "selected_rows": 12,
+    "scope_note": "Only selected confidence, containment, Project/Scope Unit, and fallback Drafts were read. No broad Current-source scan was performed."
+  },
+  "latest_decisions": {
+    "property_name": "AI Agent Confidence Threshold",
+    "project_default": "required, exactly one int value",
+    "retry_limit": "removed from selected model; not restored or included",
+    "resolution_order": [
+      "Use the Plan's authored local AI Agent Confidence Threshold when present.",
+      "Otherwise use the nearest applicable authored value on an ancestor reached by recursively following IS_CONTAINED_BY, if one exists.",
+      "Otherwise use the required Project.Settings.AI Agent Confidence Threshold from the unique Project in the current Project evaluation context."
+    ],
+    "project_path_independent_of_ancestry": true,
+    "provenance": "Explicit latest conversation decisions; not represented as repository-source hashes."
+  },
+  "live_plan_property": {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-ai-agent-confidence-threshold.md",
+    "register_sha256": "98965f89349a9f7ccf3aa4b372aba832ce658008525a95b60b8242dd706b35d5",
+    "claim_contract": "Atom/(.Role: Plan).AI Agent Confidence Threshold{:0..1}: [int]{:1}; Atom/(.Role: Plan).AI Agent Confidence Threshold.*[]{:0}",
+    "fallback_expression_in_live_draft": "Atom/(.Role: Plan).AI Agent Confidence Threshold ?= LOOKUP(IS_CONTAINED_BY, Atom/(.Role: Plan).AI Agent Confidence Threshold) ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold",
+    "contract_change": "None: optional local scalar int, zero dependent Properties. The effective fallback adds no authored occurrence."
+  },
+  "selected_draft_inventory": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-ai-agent-confidence-threshold.md",
+      "sha256": "98965f89349a9f7ccf3aa4b372aba832ce658008525a95b60b8242dd706b35d5",
+      "role": "Declaration",
+      "governs": "Atom/(.Role := Plan).AI Agent Confidence Threshold",
+      "relevant_contract": "Optional local direct value; [int] with one value; no dependent Properties; lookup and Project fallback chain now present."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "sha256": "4cb469c073ba139844d0ff4ea9ddddaa51d8d513cfc2b12828c6f4cd14b90520",
+      "role": "Declaration",
+      "governs": "Project.Settings.AI Agent Confidence Threshold",
+      "relevant_contract": "Required direct [int] scalar; no dependent Properties."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "c714777a6eef156a8c714549b2fa624636cb52511d7cd4bfbb0aedbedf03d2ed",
+      "role": "Declaration",
+      "governs": "Project.Settings",
+      "relevant_contract": "Required group with exactly the three registered child names Name, Prefix, and AI Agent Confidence Threshold."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "e380f357db963e857c5b6b31d124d5ba575b5eb02df854d4ecdc45810ce91df8",
+      "role": "Declaration",
+      "governs": "Project",
+      "relevant_contract": "Scope Unit/Project is selected with cardinality exactly one in the explicit Project context; Project is the root Scope Unit. This supports one bound `$project` default read."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "sha256": "c6401eaf05d8be0fbd4ace0d6d2b65214c8668803b555693401b324f5556b40d",
+      "role": "Declaration",
+      "governs": "Scope Unit",
+      "relevant_contract": "Non-Project Scope Units have one IS_CONTAINED_BY parent; Project is the root and has none. Scope Unit-to-Scope Unit ancestry can therefore lead to Project in the selected structure."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md",
+      "sha256": "76f42dc41dcd8598f80a35822d19f3810140c16f6000290b6217299eceb088e8",
+      "role": "Declaration",
+      "governs": "Atom.Relations.contained_by",
+      "relevant_contract": "Parent relation group is optional; if present, exactly one typed child leaf is required. Therefore a Plan's containment search can legitimately end before Project."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md",
+      "sha256": "bb9fbd25af59c3012af82ac334e914e0774df4609da652480adcb85b35fece1d",
+      "role": "Declaration",
+      "governs": "Atom.Relations.contained_by.atom",
+      "relevant_contract": "Optional single [atom id] reference; traversal may encounter Atom ancestors."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md",
+      "sha256": "85a81c1ae00f59c7539e322799fdb508e7429948c15827505b036c7feca936b1",
+      "role": "Declaration",
+      "governs": "Atom.Relations.contained_by.scope_unit",
+      "relevant_contract": "Optional single [scope unit] reference; traversal may enter the Scope Unit parent chain."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "62d372e9529d88e0c38176d52e7e867fe04de661449efe318fa8e18972ff6c16",
+      "role": "Declaration",
+      "governs": "Atom/(.Role := Plan)",
+      "relevant_contract": "Defines the Plan-qualified Atom target used by q; the confidence property must be read only when this Declaration applies."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "sha256": "31ccd51d29f6568d44aa12e9714fec7e6e825dad25bfcf70351b4dcc900611e7",
+      "role": "Rule",
+      "governs": "Entity/CFEL",
+      "relevant_contract": "Defines an ordered fallback chain, one-step relation traversal repeated recursively by LOOKUP, full Property identity/applicability checks, optional-value skip rules, explicit foreign-bearer binding, lazy resolution, and cycle/repeated-bearer failure."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "8bf3f2270b3bb007771af15fda6e1aef7a053a538865d3d597ec8f0a2aac3f66",
+      "role": "Declaration",
+      "governs": "Atom",
+      "relevant_contract": "Declares the Atom primary kind and logical-instance identity/version uniqueness; visited Atom ancestors are the possible bearers to test for the Plan-qualified q Property."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations.md",
+      "sha256": "6e68afe26e20171fe2ffbd97def772c040c0c4eb9c61b601f1ff279ea4a92e30",
+      "role": "Declaration",
+      "governs": "Atom.Relations",
+      "relevant_contract": "Atom.Relations is a required group whose members are Relation instances; contained_by is represented through this group and its typed reference leaves."
+    }
+  ],
+  "resolution_binding_analysis": {
+    "ancestor_relation": "IS_CONTAINED_BY is traversed outward from the Plan bearer, one actual direct parent link per step. The initial Plan bearer is excluded from LOOKUP because its authored local Property is the first fallback stage.",
+    "eligible_query": "q is the full Plan-qualified Declaration identity Atom/(.Role := Plan).AI Agent Confidence Threshold. It applies only to an ancestor Atom whose Role is Plan.",
+    "skip_behavior": [
+      "Skip an ancestor only when q is inapplicable to that ancestor kind/Role or its authored occurrence is absent.",
+      "Do not read an arbitrary same-name Property from a non-Plan Atom or Scope Unit.",
+      "If a compatible Plan ancestor has an invalid present value, fail; do not continue to a more distant value."
+    ],
+    "chain_kinds": [
+      "Atom ancestors through the typed Atom.Relations.contained_by.atom reference; only Plan-role Atoms can carry q.",
+      "Scope Unit ancestors through Atom.Relations.contained_by.scope_unit, followed by Scope Unit IS_CONTAINED_BY parent links; q is inapplicable there and is skipped.",
+      "A Plan may be parentless because the Atom.Relations.contained_by group is optional. A known chain end with no q value returns absence; it does not block the independent Project default."
+    ],
+    "terminal_binding": "Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold explicitly binds the Project kind instance in the current Project evaluation context. The Project Declaration selects exactly one Project, so the external read is unique and does not rely on LOOKUP reaching Project.",
+    "fallback_laziness": "Local authored value wins. If absent, use the nearest valid compatible ancestor value. Only when LOOKUP returns absence, read the required Project setting. Do not evaluate later branches after a value is found.",
+    "project_default_cardinality": "Required exactly one direct int value; missing/invalid binding is an error, not an optional-default case.",
+    "retry_limit": "Out of scope and removed from the selected model; no Retry Limit field or fallback is proposed."
+  },
+  "remaining_gaps_or_checks": [
+    {
+      "item": "Project evaluation context binding",
+      "status": "supported by selected Drafts",
+      "detail": "Project Declaration has Scope Unit/Project//{:1}; bound `$project` in the explicit context is unique. The default read is direct and independent of containment ancestry."
+    },
+    {
+      "item": "Required default",
+      "status": "settled and represented in selected Drafts",
+      "detail": "Project.Settings.AI Agent Confidence Threshold is a required single int; Project.Settings enumerates exactly three required settings names."
+    },
+    {
+      "item": "Optional parent chain",
+      "status": "handled by selected fallback rule; no Project-reach requirement",
+      "detail": "LOOKUP returns absence at a known end; the explicit bound Project setting remains the terminal fallback. The Project root is not required to appear on the Plan's traversed path."
+    },
+    {
+      "item": "Cycles or ambiguous links",
+      "status": "explicit error handling in fallback Rule and containment cardinalities",
+      "detail": "The rule rejects multiple outgoing targets and revisited bearers; the Atom parent group allows at most one typed parent."
+    },
+    {
+      "item": "Mapping typed Atom.Relations.contained_by leaves to LOOKUP relation edges",
+      "status": "confirm in integrated Model relation realization",
+      "detail": "The selected Drafts declare the Atom.Relations group and typed atom/scope_unit reference leaves, while Scope Unit declares IS_CONTAINED_BY parent links. Ensure the effective Model derives/exposes those Atom leaf references as outgoing IS_CONTAINED_BY edges so LOOKUP can traverse them; do not substitute Carrier paths or arbitrary fields."
+    }
+  ],
+  "mutations": {
+    "repository_files_changed": false,
+    "current_sources_changed": false,
+    "runtime_or_mcp_changed": false,
+    "output": "/private/tmp/caprmedio-confidence-fallback-20261101/reference-inventory.json"
+  }
+}

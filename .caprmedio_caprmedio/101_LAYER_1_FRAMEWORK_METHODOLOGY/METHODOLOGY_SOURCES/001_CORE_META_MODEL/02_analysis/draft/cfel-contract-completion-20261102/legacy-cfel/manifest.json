@@ -1,0 +1,123 @@
+{
+  "status": "DRAFT_CANDIDATES_READY_WITH_MERGED_DUPLICATE_DISPOSITIONS_AND_SEMANTIC_REPAIRS",
+  "scope": "The 16 retained CFEL legacy Definition diagnostics from CA-PROJ-018.",
+  "source_policy": "Current carriers are unchanged. Each candidate is an N+1 draft with the same canonical Atom ID and Summary lineage.",
+  "syntax_change": "Replace legacy HAS_PART spelling > with current whole-to-part containment <+. Retain / as narrowing; no / to // instance conversion is inferred.",
+  "form_policy": "These candidates retain Entity Definition because they repair the retained CFEL vocabulary. Relation Definition replacement by Requirement/Declaration is a separate lane authorized by the latest Operator decision.",
+  "blocking_questions": [],
+  "latest_human_decisions": [
+    {
+      "decision": "relation_endpoint_universe",
+      "statement": "A binary graph Relation connects any declared model entity or instance, including Carrier and CFEL. Literal values remain operands of CFEL operators, not Relation endpoints.",
+      "applied_to": ["CA-R-2247"],
+      "basis": "Latest user decision; this does not move Carrier or CFEL under Node and does not add an Entity root."
+    }
+  ],
+  "duplicate_dispositions": [
+    {
+      "duplicate_id": "CA-R-2328",
+      "canonical_id": "CA-R-2248",
+      "canonical_candidate": "CA-R-2248@3-draft",
+      "duplicate_candidate": "CA-R-2328@4-draft",
+      "disposition": "retire_duplicate_after_canonical_adoption",
+      "summary_preserved": "Define Format",
+      "merged_claim": "Format is CFEL notation for expressing the value domain of a direct Property value.",
+      "basis": "R2248 owns the complete Format contract and the duplicate contributes only the CFEL language-element sentence.",
+      "live_inbound_consumers": [],
+      "exact_reference_updates": [],
+      "historical_or_staging_references": [
+        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/CA-R-2328@2-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-format.md",
+        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-terms-to-entity-root-and-method-definitions.md"
+      ],
+      "blast_radius": "No live source consumer points to R2328. Retire its duplicate authority only after R2248@3 is adopted; preserve the R2328 Summary and predecessor lineage in archive records."
+    },
+    {
+      "duplicate_id": "CA-R-2329",
+      "canonical_id": "CA-R-2247",
+      "canonical_candidate": "CA-R-2247@4-draft",
+      "duplicate_candidate": "CA-R-2329@4-draft",
+      "disposition": "retire_duplicate_after_canonical_adoption",
+      "summary_preserved": "Define Relation",
+      "merged_claim": "Relation is CFEL notation for expressing a named directed connection; an optional declared derived counterpart can be represented.",
+      "basis": "R2247 owns the complete Relation Type contract and the duplicate contributes only the CFEL language-element sentence.",
+      "live_inbound_consumers": [],
+      "exact_reference_updates": [],
+      "historical_or_staging_references": [
+        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/CA-R-2329@2-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-terms-to-entity-root-and-method-definitions.md"
+      ],
+      "blast_radius": "No live source consumer points to R2329. Retire its duplicate authority only after R2247@4 is adopted; preserve the R2329 Summary and predecessor lineage in archive records."
+    }
+  ],
+  "live_reference_audit": {
+    "CA-R-2247": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md",
+        "line": 35,
+        "reference": "Source meaning: CA-R-2247.",
+        "action": "retain; canonical ID remains CA-R-2247 after successor adoption"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+        "line": 35,
+        "reference": "Source meaning: CA-R-2247.",
+        "action": "retain; canonical ID remains CA-R-2247 after successor adoption"
+      }
+    ],
+    "CA-R-2248": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2352-CORE_META_MODEL-ENTITY_DEFINITION--define-format-data-type.md",
+        "line": 35,
+        "reference": "Source meaning: CA-R-2248.",
+        "action": "retain; canonical ID remains CA-R-2248 after successor adoption"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2353-CORE_META_MODEL-ENTITY_DEFINITION--define-format-uniqueness-selection.md",
+        "line": 35,
+        "reference": "Source meaning: CA-R-2248.",
+        "action": "retain; canonical ID remains CA-R-2248 after successor adoption"
+      }
+    ],
+    "CA-R-2328": [],
+    "CA-R-2329": []
+  },
+  "lane_boundary": "CA-R-2247 and CA-R-2248 define CFEL language elements. The Relation lane separately replaces Relation Definition sources with Relation/Declaration atoms; this packet does not author or rename those Declarations.",
+  "semantic_restoration": {
+    "CA-R-2247": ["reusable_type_is_distinct_from_source_type_target_tuple", "direction_and_transitivity_describe_type", "optional_derived_counterpart", "no_separate_relation_id", "cfel_notation_is_distinct_from_graph_relation_and_operator", "endpoints_are_declared_model_entities_or_instances_including_carrier_and_cfel", "literal_values_are_operator_operands_not_relation_endpoints"],
+    "CA-R-2248": ["null_and_empty_string_count_as_one_direct_value", "carrier_representation_is_distinct_from_value_format", "provisional_scalar_vocabulary", "ref_uses_string_for_identification", "data_type_and_uniqueness_selection_have_distinct_meanings"],
+    "CA-R-2249": ["format_does_not_set_cardinality_default_nullability_or_carrier_representation"],
+    "CA-R-2250_to_CA-R-2252": ["format_does_not_set_source_specific_numeric_range_precision_cardinality_uniqueness_or_carrier_representation"],
+    "CA-R-2253": ["null_does_not_become_string", "format_does_not_set_cardinality_uniqueness_or_carrier_representation"],
+    "CA-R-2254": ["format_does_not_set_timezone_precision_cardinality_uniqueness_or_carrier_representation"],
+    "CA-R-2257": ["primitive_and_null_domain", "sequence_members_count_individually", "mapping_children_are_not_parent_direct_values"],
+    "CA-R-2327": ["direct_values_or_contained_parts_and_admitted_relation_instances"],
+    "CA-R-2354_and_CA-R-2355": ["direction_transitivity_and_optional_derived_inverse_are_type_meaning", "source_type_target_is_actual_edge_tuple", "no_separate_relation_id"]
+  },
+  "body_audit": {
+    "candidate_count": 16,
+    "legacy_subject_syntax_count": 0,
+    "legacy_entity_formal_path_count": 0,
+    "legacy_value_contract_syntax_count": 0,
+    "narrowing_paths_preserved_count": 7,
+    "merged_duplicate_claims": ["CA-R-2328 -> CA-R-2248", "CA-R-2329 -> CA-R-2247"],
+    "cfel_language_element_distinct_from_relation_declarations": true
+  },
+  "candidates": [
+    {"id":"CA-R-2247","current_version":3,"candidate":"CA-R-2247@4-draft","source_sha256":"6cddf842adf48115c1b7c1fc5dfebbd646e9598b1985b1db84c5e966d54420a8","subject_before":"CFEL > Relation","subject_after":"CFEL <+ Relation","candidate_path":"CA-R-2247@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md","merged_sources":["CA-R-2329"]},
+    {"id":"CA-R-2248","current_version":2,"candidate":"CA-R-2248@3-draft","source_sha256":"4fde9c5203ba7e7f6d55fe130b59248fe087f76fdc077cfa49ca20068fea2c89","subject_before":"CFEL > Format","subject_after":"CFEL <+ Format","candidate_path":"CA-R-2248@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md","merged_sources":["CA-R-2328"]},
+    {"id":"CA-R-2249","current_version":3,"candidate":"CA-R-2249@4-draft","source_sha256":"19aa7661ebcc6b8d0f177cfc60bdb643908d2f8bb647d1e4ab14c72010214ce8","subject_before":"CFEL > Format/bool","subject_after":"CFEL <+ Format/bool","candidate_path":"CA-R-2249@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-bool-value-format.md"},
+    {"id":"CA-R-2250","current_version":3,"candidate":"CA-R-2250@4-draft","source_sha256":"cc115190bc55f6311c853f44dcf6ed70f2556d4784b9cde9e3945b8dcebb323e","subject_before":"CFEL > Format/int","subject_after":"CFEL <+ Format/int","candidate_path":"CA-R-2250@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-int-value-format.md"},
+    {"id":"CA-R-2251","current_version":3,"candidate":"CA-R-2251@4-draft","source_sha256":"262442ba6bb975fbfc9b9d94264c3677e76947d38a9636a2860f204305412932","subject_before":"CFEL > Format/float","subject_after":"CFEL <+ Format/float","candidate_path":"CA-R-2251@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-float-value-format.md"},
+    {"id":"CA-R-2252","current_version":3,"candidate":"CA-R-2252@4-draft","source_sha256":"25dc2b9b2a1130d98fba2843787cf63fcdf038fbdc7b061dba8e11b8bbe71d57","subject_before":"CFEL > Format/decimal","subject_after":"CFEL <+ Format/decimal","candidate_path":"CA-R-2252@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-decimal-value-format.md"},
+    {"id":"CA-R-2253","current_version":3,"candidate":"CA-R-2253@4-draft","source_sha256":"aaed8b59458a28588753232d205d04cf6865089d759647f4767ce79620cce5b3","subject_before":"CFEL > Format/string","subject_after":"CFEL <+ Format/string","candidate_path":"CA-R-2253@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-string-value-format.md"},
+    {"id":"CA-R-2254","current_version":3,"candidate":"CA-R-2254@4-draft","source_sha256":"63199cb69f0cc5e91b5f7e315c566f32fd66954a1da0c85cf497f4df7819c5ea","subject_before":"CFEL > Format/datetime","subject_after":"CFEL <+ Format/datetime","candidate_path":"CA-R-2254@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-datetime-value-format.md"},
+    {"id":"CA-R-2257","current_version":2,"candidate":"CA-R-2257@3-draft","source_sha256":"d9e85af0d39ea7626406fe743405b327932853b4c44408b1d583e0c8dde01843","subject_before":"CFEL > Format/scalar","subject_after":"CFEL <+ Format/scalar","candidate_path":"CA-R-2257@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-scalar-value-format.md"},
+    {"id":"CA-R-2327","current_version":3,"candidate":"CA-R-2327@4-draft","source_sha256":"8dc7296195ec2e1bbd56485b872626d18205d330c7331c6d264021c314809b22","subject_before":"CFEL > Entity/Cardinality","subject_after":"CFEL <+ Cardinality","candidate_path":"CA-R-2327@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md"},
+    {"id":"CA-R-2328","current_version":3,"candidate":"CA-R-2328@4-draft","source_sha256":"817b7fcf9a7d7e4eb5346bcfa64f1ac7f395dd1fb1e182e519f91936678a5d16","subject_before":"CFEL > Entity/Format","subject_after":"CFEL <+ Format","candidate_path":"CA-R-2328@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-format.md","disposition":"retire_duplicate_after_canonical_adoption","canonical_candidate":"CA-R-2248@3-draft"},
+    {"id":"CA-R-2329","current_version":3,"candidate":"CA-R-2329@4-draft","source_sha256":"148536450fb3dc9bd9808c93f87247ba2125b0abbf5c9b0c0d9348acf01848df","subject_before":"CFEL > Entity/Relation","subject_after":"CFEL <+ Relation","candidate_path":"CA-R-2329@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md","disposition":"retire_duplicate_after_canonical_adoption","canonical_candidate":"CA-R-2247@4-draft"},
+    {"id":"CA-R-2352","current_version":2,"candidate":"CA-R-2352@3-draft","source_sha256":"a61727b5aa4fe51bcb9b01d5690ef367fb4a08a6efa828ae996fb8e8c5edc8ed","subject_before":"CFEL > Format.Data Type","subject_after":"CFEL <+ Format.Data Type","candidate_path":"CA-R-2352@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-format-data-type.md"},
+    {"id":"CA-R-2353","current_version":2,"candidate":"CA-R-2353@3-draft","source_sha256":"787cc066eda72c416f50bcbaa63c36d7ca19375a58ab69d2b6e2ea14730c95c8","subject_before":"CFEL > Format.Uniqueness Selection","subject_after":"CFEL <+ Format.Uniqueness Selection","candidate_path":"CA-R-2353@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-format-uniqueness-selection.md"},
+    {"id":"CA-R-2354","current_version":2,"candidate":"CA-R-2354@3-draft","source_sha256":"91e1dce9681c951ec8ea4be4e29193057b013fa0c0ddbf6769308a976a111db0","subject_before":"CFEL > Relation.Meaning","subject_after":"CFEL <+ Relation.Meaning","candidate_path":"CA-R-2354@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md"},
+    {"id":"CA-R-2355","current_version":2,"candidate":"CA-R-2355@3-draft","source_sha256":"6c5d808b3f1bfe1c7a1417e54f48fd71e0347767d3c3638f4f408e817957e9d1","subject_before":"CFEL > Relation.Name","subject_after":"CFEL <+ Relation.Name","candidate_path":"CA-R-2355@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md"}
+  ]
+}

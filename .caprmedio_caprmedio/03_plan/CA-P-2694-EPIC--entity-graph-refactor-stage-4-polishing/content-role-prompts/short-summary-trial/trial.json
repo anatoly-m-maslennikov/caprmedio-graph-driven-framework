@@ -1,0 +1,18 @@
+{
+  "cases": 15,
+  "summary_words_before": 111,
+  "summary_words_after": 85,
+  "summary_pass": 15,
+  "body_pass": 15,
+  "prompt_sha256": {
+    "C-concern.prompt.md": "7c5d50974f0fdea88cc2e0251274f68324c850ea1be54118db1228db791fa6d2",
+    "D-delivery.prompt.md": "31778af7a9a0ec51ff257e7602f01187ebf352e79cdbfd87dbd5286178747dd8",
+    "E-evaluation.prompt.md": "cd66698804f01f9df24d5955632c0c959d7422c6634eec001cf0d03d9048e685",
+    "M-method.prompt.md": "a1a8f960ab32d989f2f60462448b3b92283f783d1497ea7f198ee0596ff56d1d",
+    "O-operations.prompt.md": "6a67c2e53b8d6b7ca167ca2287b3902a8827810628da7239363dd0cb875e5170",
+    "P-plan.prompt.md": "84a86e2bec57e7a1d7ff9434d5664975926a3da74dbd15c96435c5ed5ded9237",
+    "R-requirement.prompt.md": "048398e7359cd6263b12db2ac9504303a49ce3187a928e3ae892e39db0153d9a"
+  },
+  "source_atom_edits": false,
+  "note": "Development trial with prompt refinement; final outputs not manually fixed. See README for protocol and limits."
+}

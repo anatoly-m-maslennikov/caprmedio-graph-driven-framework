@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "scope": "Applied Current CFEL/Relation source readback; no parser, evaluator, runtime, or deployment claim.",
+  "receipts": {
+    "publication": {
+      "path": "../../integration/publication-receipt.json",
+      "sha256": "cc142083b70809564c6053524077e2fcf5eae8fbed6c9357d9c3470b45a53b18",
+      "status": "APPLIED"
+    },
+    "source_cleanup": {
+      "path": "../../integration/source-cleanup-receipt.json",
+      "sha256": "027713ffe82f791e0da2f3fdc1cb6ff4b9216a6dda5af509dfd6245cebd64f96",
+      "status": "APPLIED",
+      "replacements": ["CA-R-2243@9", "CA-R-2472@6", "CA-R-2487@6"]
+    },
+    "current_source_frontier": {
+      "path": "../../integration/current-source-frontier.json",
+      "sha256": "488b6162abadbecc857a94b7cd1b6a09ce79113f08de2f7e39f9a8f4eddaaae4"
+    }
+  },
+  "checks": [
+    "The cleanup receipt candidate SHA-256 values equal all three Active Current carriers; their archived predecessors are recorded by the receipt.",
+    "CA-R-2243, CA-R-2472, and CA-R-2487 contain no candidate, review-pending, or staging-provenance language.",
+    "CA-R-2487 limits the generic endpoint signature to Relation Declarations and states declared Entity/instance endpoints including Carrier and CFEL; literals remain excluded.",
+    "Bare Host ((R)) Target remains forward and Target <((R)) Host remains the reverse written view; reverse writing does not grant an inverse Relation or a separate authored fact.",
+    "All 41 selected named Relation files remain Requirement/Declaration carriers with Claim and Semantics; the earlier publication receipt pins their bytes.",
+    "CFEL operators remain distinct from graph Relations; X:Y allowed-value and allowed-bound versus count-test/conclusion distinctions remain active.",
+    "CA-R-2243 remains the Cardinality Notation Rule, CA-R-2327 the Cardinality Entity Definition, and archived R2517/R2522 remain preserved under archive/."
+  ],
+  "blockers": [],
+  "limits": [
+    "This is an applied-source/receipt readback only."
+  ]
+}

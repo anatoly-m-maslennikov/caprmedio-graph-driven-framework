@@ -7,8 +7,8 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-version: 21
-updated_at: 2026-10-27 19:59:43 +0400
+version: 22
+updated_at: 2026-10-29 22:26:56 +0400
 relations: {}
 atom_id: CA-O-005
 content_role: Operations
@@ -27,10 +27,10 @@ Assess source conflicts
 
 Assess Source Conflicts **means** the reusable Action that assesses one exact selected source frontier against its applicable authority **and** returns the conflict assessment **without** changing sources.
 
-1. load the current accepted active authority **and** applicable Project Principles **before** relying on an earlier report **or** proposed fix.
+1. load the current accepted active authority **and** applicable Atoms expressing applicable Project-wide foundational commitments **before** relying on an earlier report **or** proposed fix.
 2. identify the conflicting Claims **and** their applicability. for RMEDO Atoms, collect Global Tier, exact Revision, **and** Updated At. distinguish an actual conflict from different permitted cases.
 3. for RMEDO conflicts, preserve higher-tier authority, whose Global Tier number is lower. within the applicable authority boundaries, prefer the freshest accepted active Claim over a conflicting older Claim; Updated At **must not** permit a lower-tier Claim **or** prohibited source override **to** defeat higher-tier authority.
-4. check **every** proposed disposition against the active Principles **and** retain the evidence for its effect on alignment. a conflict between active Principles requires the Operator under CA-R-1551.
+4. check **every** proposed disposition against the active Atoms expressing applicable Project-wide foundational commitments **and** retain the evidence for its effect on alignment. a conflict between active Atoms expressing applicable Project-wide foundational commitments requires the Operator under CA-R-2425.
 5. distinguish resolved, unresolved, **and** unevaluated conditions. report missing checks, uncertain applicability, equal **or** ambiguous timestamps, **and** unresolved authority **without** inventing precedence.
 6. verify required resolution evidence against the exact proposal **and** current source frontier. missing, stale, partial, ambiguous, **or** mismatched approval **or** delegation does **not** resolve a conflict.
 

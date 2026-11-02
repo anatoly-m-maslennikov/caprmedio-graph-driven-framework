@@ -1,0 +1,80 @@
+{
+  "comparison_sha256": "6558378f4e6830715087331d48b07c70957008ae90e5cac9f215a68f3165fff4",
+  "prompt_sha256": "4ac89c939a01eda47f66b02eb335267f280130b26b4f7f0e45a88f87c8bcbc6a",
+  "source_count": 12,
+  "results": [
+    {
+      "key": "B08",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "The entire source body is identical after removing the added Summary and outer whitespace."
+    },
+    {
+      "key": "B09",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "The entire source body is identical after removing the added Summary and outer whitespace."
+    },
+    {
+      "key": "B10",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "The entire source body is identical after removing the added Summary and outer whitespace."
+    },
+    {
+      "key": "B14",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "The entire source body is identical after removing the added Summary and outer whitespace."
+    },
+    {
+      "key": "B15",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "The entire source body is identical after removing the added Summary and outer whitespace."
+    },
+    {
+      "key": "B17",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "The entire source body is identical after removing the added Summary and outer whitespace."
+    },
+    {
+      "key": "B23",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "The entire source body is identical after removing the added Summary and outer whitespace."
+    },
+    {
+      "key": "B02",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "The entire source body is identical after removing the added Summary and outer whitespace."
+    },
+    {
+      "key": "B19",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "The entire source body is identical after removing the added Summary and outer whitespace."
+    },
+    {
+      "key": "B37",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "The entire source body is identical after removing the added Summary and outer whitespace."
+    },
+    {
+      "key": "B36",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "The entire source body is identical after removing the added Summary and outer whitespace."
+    },
+    {
+      "key": "B16",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "The entire source body is identical after removing the added Summary and outer whitespace."
+    }
+  ],
+  "scope": "Full body fidelity only; excludes Summary quality and business-model/runtime validation."
+}

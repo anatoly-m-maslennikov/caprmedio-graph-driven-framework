@@ -1,0 +1,38 @@
+{"key": "B01", "generated_summary": "FRAMEWORK_ENGINE provides `ca` as the primary Skill entry point for Operators and AI Agents to request methodology-defined Workflows and exchange current Step instructions and results through MCP.", "ambiguity": null}
+{"key": "B02", "generated_summary": "PROGRAMMATIC owns all and only deterministic behavior of FRAMEWORK_ENGINE.", "ambiguity": null}
+{"key": "B03", "generated_summary": "Keep all unexposed preserved information retrievable; show only the justified task-sufficient set", "ambiguity": null}
+{"key": "B04", "generated_summary": "Apply DRY (Don't repeat yourself).", "ambiguity": null}
+{"key": "B05", "generated_summary": "GRAPH_UI is the optional human-facing interface over GRAPH_SERVER, never a prerequisite for headless graph access, Tools, or MCP.", "ambiguity": null}
+{"key": "B06", "generated_summary": "FIELD collects feedback, questions, suggestions, and problem reports from other CAPRMEDIO users.", "ambiguity": null}
+{"key": "B07", "generated_summary": "COMMUNITY_EXTENSIONS catalogs externally maintained Extension packages without making them CAPRMEDIO-owned Scope Units.", "ambiguity": null}
+{"key": "B08", "generated_summary": "Provide bounded, read-only MCP /health diagnostics with recent Tool and Workflow observations", "ambiguity": null}
+{"key": "B09", "generated_summary": "Review code candidates, evidence and all bound applicable Method policy without editing", "ambiguity": null}
+{"key": "B10", "generated_summary": "Review code in the shared implementation context without editing", "ambiguity": null}
+{"key": "B11", "generated_summary": "Evaluation checks that RMEDO Conflict Resolution and its reused Actions follow CA-O-028 without losing required authority.", "ambiguity": null}
+{"key": "B12", "generated_summary": "Implementation provides a full traceable record for every RMED Atoms Base Revise Run, including partial, blocked, and empty Runs, in both its Markdown report and correlated Project Journal Records.", "ambiguity": null}
+{"key": "B13", "generated_summary": "The CAPRMEDIO Framework Instance keeps all valuable Project information recoverable across sessions, handoffs, context loss, and Implementation changes.", "ambiguity": null}
+{"key": "B14", "generated_summary": "Project-wide foundation and Core set Evaluation", "ambiguity": null}
+{"key": "B15", "generated_summary": "MCP provider-neutral discovery, schema, and dispatch", "ambiguity": null}
+{"key": "B16", "generated_summary": "YAML Frontmatter of a Markdown Atom Carrier uses the least syntax and nesting that preserves unambiguous deterministic parsing, validation, extensibility, and human readability.", "ambiguity": null}
+{"key": "B17", "generated_summary": "The Project has exactly five Layers in a fixed Local Order.", "ambiguity": null}
+{"key": "B18", "generated_summary": "PROMPTS owns prompt-based implementations for AI Agents or Operators; implemented Actions, Workflows, decision authority, and programmatic mechanics retain their existing owners.", "ambiguity": null}
+{"key": "B19", "generated_summary": "The caprmedio Project creates and evolves a working CAPRMEDIO Framework that, given enough resources, enables any Operator to use AI Agents to create, deliver, run, and maintain any feasible Project.", "ambiguity": null}
+{"key": "B20", "generated_summary": "Check every active Atom in the selected Scope against every active Project-wide foundational invariant before applying lower-tier authority.", "ambiguity": null}
+{"key": "B21", "generated_summary": "Every CAPRMEDIO Feature is an unordered_unit, owned by exactly one immediate Structural unit, and has no local_order.", "ambiguity": null}
+{"key": "B22", "generated_summary": "Keep Operator communication necessary and sufficient for informed decisions.", "ambiguity": null}
+{"key": "B23", "generated_summary": "CAPRMEDIO Framework, Layer, and Feature Composition", "ambiguity": null}
+{"key": "B24", "generated_summary": "The CAPRMEDIO Framework Instance and the Implementation form one connected Graph of Graphs.", "ambiguity": null}
+{"key": "B25", "generated_summary": "FRAMEWORK_ENGINE minimizes token consumption, AI Agent mistakes, and irrelevant or stale context while preserving required Project outcomes.", "ambiguity": null}
+{"key": "B26", "generated_summary": "CORE_EXTENSIONS provides CAPRMEDIO-maintained Extensions that add or specialize optional capabilities without modifying canonical Core Meta-Model authority.", "ambiguity": null}
+{"key": "B27", "generated_summary": "OPERATOR_DOCUMENTATION provides sufficient, readable information for the Operator to use a CAPRMEDIO Framework Instance efficiently to achieve Project Goals.", "ambiguity": null}
+{"key": "B28", "generated_summary": "The CAPRMEDIO Framework Instance must not require any Operator human participant to acquire specialist craft proficiency or personally perform specialist craft work for any feasible Project.", "ambiguity": null}
+{"key": "B29", "generated_summary": "Every Project Layer is an immediate child of CAPRMEDIO and does not own another Project Layer's scope.", "ambiguity": null}
+{"key": "B30", "generated_summary": "The CAPRMEDIO Framework Instance supports Configuration of available capabilities and addition of new capabilities through Extensions.", "ambiguity": null}
+{"key": "B31", "generated_summary": "CAPRMEDIO supports the Operator in producing and evaluating an improvement proposal for every material observed Project outcome, within the narrowest affected scope and current authority.", "ambiguity": null}
+{"key": "B32", "generated_summary": "FRAMEWORK_METHODOLOGY defines how Projects are represented and operated.", "ambiguity": null}
+{"key": "B33", "generated_summary": "RELEASES provides usable, evaluated CAPRMEDIO versions and release notes describing changes, compatibility, and known limitations.", "ambiguity": null}
+{"key": "B34", "generated_summary": "FRAMEWORK_ENGINE provides observability and transparency for the Operator to understand execution, inspect changes and evidence, recognize failures and limitations, and make informed decisions.", "ambiguity": null}
+{"key": "B35", "generated_summary": "Apply MECE to complete decompositions of a declared whole at one level.", "ambiguity": null}
+{"key": "B36", "generated_summary": "To govern the Project, keep Terms, Claims, rules, structure, and Implementation mutually coherent where they share authority or interact.", "ambiguity": null}
+{"key": "B37", "generated_summary": "Admit or retain a Project mechanism only when other admitted mechanisms cannot preserve a required outcome or material governed distinction.", "ambiguity": null}
+{"key": "B38", "generated_summary": "Governed commitments and results must be checkable when used to govern work or evaluate a result.", "ambiguity": null}

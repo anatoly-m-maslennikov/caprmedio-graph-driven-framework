@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "hash_mismatches": [],
+  "checked": [
+    "Per-bearer COUNT keeps duplicate direct-value occurrences; DISTINCT uses declared Format equality",
+    "Optional absent gives zero; unresolved data errors",
+    "Passive string equality is exact without alias canonicalization",
+    "Existing passive shape and direct-context meaning retained; : elsewhere unchanged"
+  ],
+  "limits": [
+    "Model cases only; no parser/runtime verification"
+  ]
+}

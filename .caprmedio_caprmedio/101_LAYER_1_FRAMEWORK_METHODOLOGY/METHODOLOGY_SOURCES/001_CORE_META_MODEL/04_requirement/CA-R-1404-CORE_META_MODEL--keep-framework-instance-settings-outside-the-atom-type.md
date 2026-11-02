@@ -1,32 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-version: 22
-updated_at: 2026-10-27 19:59:54 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  passive:
+  - Atom
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-1405
 atom_id: CA-R-1404
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Keep Framework Instance Settings Outside the Atom Type
 
-## Scope
+## Claim scope
 
 the Framework Instance Settings Artifact.
 
 ## Claim
 
 the Framework Instance Settings Artifact **must not** be an Atom.
-
-## Details

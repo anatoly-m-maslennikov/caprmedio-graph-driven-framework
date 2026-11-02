@@ -152,7 +152,7 @@ class PublicSubjectProfileTests(unittest.TestCase):
         self.copy_approved_pins()
         owner = 'atom(content_role="Plan",type="Plan")'
         subject = owner + ".Status: Active"
-        dependencies = ("Core/Atom.Dependent: Value", 'atom(atom_id="CA-O-135")', "Atom")
+        dependencies = ("Core/Atom.Dependent: Value", 'atom(content_role="Operations")', "Atom")
         self.write_subject(subject, depends_on=dependencies)
         source_before = self.source.read_bytes()
         for kind in ("entities", "terms"):
@@ -171,9 +171,31 @@ class PublicSubjectProfileTests(unittest.TestCase):
                     self.assertEqual([], namespace["native_properties"])
         self.assert_sources_preserved(source_before)
 
+    def test_approved_incidence_preserves_full_expressions_without_native_inference(self) -> None:
+        self.copy_approved_pins()
+        expressions = ("Part {1+}+>{2} Whole", "Entity >| Classification",
+                       "X/(.Property:Value)", "X:Value[Text]{1+}", "@(Root/X.Property)")
+        for expression in expressions:
+            with self.subTest(expression=expression):
+                self.write_subject(expression)
+                result = graph.build_graph(self.root, self.request(subject_profile="approved"))
+                self.assertEqual("incomplete", result["outcome"])
+                self.assertEqual(expression, result["entities_graph"]["incidence"][0]["subject_path"])
+                self.assertEqual([], result["entities_graph"]["native_relations"])
+
+    def test_approved_request_forwards_profile_to_fact_context(self) -> None:
+        import graph_fact_context
+        self.copy_approved_pins()
+        self.write_subject("Entity/Term//Term")
+        with patch.object(graph_fact_context, "prepare_fact_context", wraps=graph_fact_context.prepare_fact_context) as prepare:
+            result = graph.build_graph(self.root, self.request("terms", subject_profile="approved"))
+        self.assertEqual("incomplete", result["outcome"])
+        self.assertTrue(prepare.call_args_list)
+        self.assertTrue(all(call.kwargs.get("subject_profile") == "approved" for call in prepare.call_args_list))
+
     def test_approved_profile_reaches_descriptor_action_and_queue_adapters(self) -> None:
         self.copy_approved_pins()
-        self.write_subject('atom(atom_id="CA-O-135").Status: Active')
+        self.write_subject('atom(content_role="Operations").Status: Active')
         for kind, action in (("entities", "CA-O-134"), ("terms", "CA-O-137")):
             with self.subTest(graph_kind=kind):
                 request = self.request(kind, subject_profile="approved")
@@ -194,7 +216,8 @@ class PublicSubjectProfileTests(unittest.TestCase):
         for subject, code in (
             ('Atom(content_role="Plan").Status', "subject-selector-invalid"),
             ('atom(type="Plan").Status', "subject-selector-invalid"),
-            ("Atom@12", "subject-at-unsupported"),
+            ("Atom@12", "subject-malformed"),
+            ('atom(atom_id="CA-O-135")', "subject-selector-invalid"),
         ):
             with self.subTest(subject=subject):
                 self.write_subject(subject)
@@ -315,7 +338,12 @@ class PublicSubjectProfileTests(unittest.TestCase):
         published = json.loads(self.fixture.output.read_bytes())
         self.assertEqual(result["selection_evidence"], published["selection_evidence"])
         self.assertEqual(_check_current_approved_grammar_pins(self.root, subject_notation.get_profile("approved")), published["selection_evidence"]["subject_profile_evidence"])
-        self.assertEqual(legacy["source_fact_context_evidence"], result["source_fact_context_evidence"])
+        self.assertNotEqual(legacy["source_fact_context_evidence"]["provider"],
+                            result["source_fact_context_evidence"]["provider"])
+        self.assertEqual(legacy["source_fact_context_evidence"]["source_binding"],
+                         result["source_fact_context_evidence"]["source_binding"])
+        self.assertEqual(legacy["source_fact_context_evidence"]["coverage"],
+                         result["source_fact_context_evidence"]["coverage"])
         self.fixture.assert_awaiting_terminal(result)
         self.assert_sources_preserved(source_before)
 

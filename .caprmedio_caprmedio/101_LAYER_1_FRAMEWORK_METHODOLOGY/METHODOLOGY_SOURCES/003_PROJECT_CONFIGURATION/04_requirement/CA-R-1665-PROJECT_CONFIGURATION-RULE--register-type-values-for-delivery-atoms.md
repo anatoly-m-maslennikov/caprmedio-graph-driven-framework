@@ -1,31 +1,30 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery/Type'
-  depends_on: []
-version: 30
-updated_at: 2026-10-27 20:00:00 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type'
+  passive: []
+version: 34
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1665
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
-type: Rule
 tier: 3
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Register Type Values for Delivery Atoms
 
-## Scope
+## Claim scope
 
 `Atom/Content Role: Delivery/Type` values.
 
 ## Claim
 
-Eng Policy and Eng Decision **must** be registered as internal values of `Atom/Content Role: Delivery/Type`. Release Definition and Environment Definition remain registered outside PROGRAMMATIC and its descendants.
+Policy and Decision are the Delivery Type values for reusable delivery rules and bounded delivery choices. Release and Environment describe governed things or applicability; they do not require separate Delivery Types.
 
 ## Details
 
-Eng Policy and Eng Decision are defined by CA-R-2121 and CA-R-2122. Within PROGRAMMATIC and its descendants, Delivery Atoms use only those two Types. Existing specific Delivery Types remain valid outside that scope where their meanings apply. Registration does not constrain a Type value to a particular Tier.
+Policy and Decision are defined by CA-R-2267@2 and CA-R-2268@1. Delivery Atoms use these meanings independently of their Subjects. Registration does not constrain a Type value to a particular Tier.

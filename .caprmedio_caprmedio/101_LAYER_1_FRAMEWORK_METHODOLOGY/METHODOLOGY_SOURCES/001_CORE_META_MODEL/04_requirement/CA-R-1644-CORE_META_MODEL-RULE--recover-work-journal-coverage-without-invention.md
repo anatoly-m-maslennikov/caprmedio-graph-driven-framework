@@ -1,34 +1,33 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
-version: 31
-updated_at: 2026-10-27 19:59:59 +0400
+  active: Journal
+  passive:
+  - Event Record
+  - Carrier
+  - History
+  - Actor
+version: 37
+updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
 atom_id: CA-R-1644
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Recover Work Journal coverage without invention
 
-## Scope
+## Claim scope
 
-`recovered` Journal events.
+recovered observations retained by a Journal.
 
 ## Claim
 
-a `recovered` Journal event is admissible **only** for facts established by **any** of:
+a Journal **may** retain an Event Record recovered from evidence **only** for facts established by **any** of:
 
 - observed Carrier state;
 - preserved history;
@@ -37,6 +36,4 @@ a `recovered` Journal event is admissible **only** for facts established by **an
 - review records; **or**
 - bounded session state.
 
-unresolved Actor, time, intent, scope, **or** outcome **must** remain explicit uncertainty rather than fabricated history.
-
-## Details
+the Journal **must** preserve unresolved Actor, time, intent, scope, **or** outcome as explicit uncertainty rather than fabricated history.

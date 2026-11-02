@@ -1,0 +1,174 @@
+{
+  "reason": "Current Epic advanced from earlier observed37 to38 with a restoration record; refresh only unpublished successor",
+  "current_path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "observed_current_version": 38,
+  "observed_current_sha256": "8992808b485a25b9e7c50a4a0cf5d6c94a08e5ab6a8601f9831d4248cd8b863d",
+  "current_unchanged_by_this_refresh": true,
+  "archive37_sha256": "01d9349c496bc9187518fb3a333d9b09d866de540481f0394623b6852d53c2a3",
+  "old_draft": ".caprmedio_caprmedio/03_plan/draft/CA-P-2694@38-draft-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "new_draft": ".caprmedio_caprmedio/03_plan/draft/CA-P-2694@39-draft-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "new_draft_version": 39,
+  "old_draft_sha256": "0fd0c29429599fe42e297e69bb0141720df51be29c9df80436e7cccf04e3c219",
+  "current_body_addition_preserved": "Content-only restoration \u2014 31 October 2026",
+  "version_inventory": [
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 38
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/draft/CA-P-2694@38-draft-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 38
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@4-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 4
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@29-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@6-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 6
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@19-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 19
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@2-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 2
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@34-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 34
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@26-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 26
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@9-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 9
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@12-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 12
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@36-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 36
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@10-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 10
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@24-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 24
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@16-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 16
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@22-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 22
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@30-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 30
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@20-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 20
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@15-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 15
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@21-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 21
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@33-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 33
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@23-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 23
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@17-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 17
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@31-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 31
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@37-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 37
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@25-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 25
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@11-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 11
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@35-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 35
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@13-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 13
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@27-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 27
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@8-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 8
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@3-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 3
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@18-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 18
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@1-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 1
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@28-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 28
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@7-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 7
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@5-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 5
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@32-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 32
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@14-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 14
+    }
+  ],
+  "navigation_updated": [
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md"
+  ]
+}

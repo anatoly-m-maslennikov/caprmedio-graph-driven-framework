@@ -63,7 +63,7 @@ def run(
 
 def common(metadata: dict[str, Any]) -> Check:
     context = AuthorityContext([], 0, 0, 0, [], (), {}, False)
-    check = Check(Obligation("frontmatter.common_encoding", [], True, "test"), context)
+    check = Check(Obligation("frontmatter.common_encoding", [], True, "test"), context, {"sources": sources()})
     _common(metadata, BODY, check)
     return check
 

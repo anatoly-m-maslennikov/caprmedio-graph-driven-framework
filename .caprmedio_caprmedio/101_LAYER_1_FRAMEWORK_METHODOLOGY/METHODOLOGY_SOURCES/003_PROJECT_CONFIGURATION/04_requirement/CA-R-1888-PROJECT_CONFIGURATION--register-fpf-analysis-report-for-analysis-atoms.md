@@ -1,31 +1,30 @@
 ---
 atom_id: CA-R-1888
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis'
-version: 10
-updated_at: 2026-10-27 20:00:05 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type'
+  passive:
+  - Atom/(.Role := Analysis)
+version: 13
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Register FPF Analysis Report for Analysis Atoms
 
-## Scope
+## Claim scope
 
 the CAPRMEDIO Project Configuration contribution to `Atom/Content Role: Analysis/Type`.
 
 ## Claim
 
-the CAPRMEDIO Project Configuration **must** register FPF Analysis Report as an additional value of `Atom/Content Role: Analysis/Type` under CA-R-1286. this registration does **not** change the Core contribution under CA-R-1232 **or** create another Type Property.
+the CAPRMEDIO Project Configuration **must** register FPF Analysis Report as an additional value of `Atom/Content Role: Analysis/Type` under CA-R-1286. this registration does **not** change the Core contribution under CA-R-1232@28 **or** create another Type Property.
 
 ## Details
 

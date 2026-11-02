@@ -1,25 +1,24 @@
 ---
 atom_id: CA-R-1951
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier.ID
+  active: Carrier.ID
 relations:
   child_of:
   - CA-R-1174
-version: 8
-updated_at: 2026-10-27 20:00:06 +0400
+version: 12
+updated_at: 2026-11-02 00:18:22 +0400
 tier: 1
-type: Rule
+role: Requirement
+form: Entity Definition
 ---
-# Summary
+## Summary
 
 Define Carrier.ID
 
-## Scope
+## Claim scope
 
 Identifiers of individual Carriers.
 
@@ -27,8 +26,14 @@ Identifiers of individual Carriers.
 
 A Carrier ID identifies one Carrier. Its filename and path are **not** its ID.
 
+### Formal claim
+
+```text
+Carrier.ID[string]{1}
+```
+
 ## Details
 
 The Operator explicitly distinguished Carrier ID from filename and path. CA-D-507 separates Entity identity from Carrier format but does not define Carrier ID. This draft introduces no ID syntax, allocator or registry.
 
-Active CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.
+Active CA-R-2515 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.

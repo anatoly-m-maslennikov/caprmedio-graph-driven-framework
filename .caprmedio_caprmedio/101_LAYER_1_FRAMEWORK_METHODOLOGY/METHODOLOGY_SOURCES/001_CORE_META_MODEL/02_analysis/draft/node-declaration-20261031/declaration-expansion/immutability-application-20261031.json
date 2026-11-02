@@ -1,0 +1,27 @@
+{
+  "changed": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-scalar-immutability.md",
+      "before_sha256": null,
+      "after_sha256": "f6bef2b55a7726ec6001d457cdc16c06669037782d4234fd3aa33b909d7d3645"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "before_sha256": "3387259c0deb8948e496c0e37d83ae92bb8cc29d155b443dfd51324bffec03be",
+      "after_sha256": "123a3cf8718abd73913488280c2c8ab40737097e6e6769ae5e7fa50bf9a7ba2e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-id.md",
+      "before_sha256": "de5606c4ca1b7cd9f202248558ce232c07a5ebb54a6bc486f8e998d1195c08f5",
+      "after_sha256": "415480a04ee0a90c0716eea38099c5b4750e357f33eb08405b970a9a1121cbac"
+    }
+  ],
+  "atom_activation": "First Current or Archived applicable version freezes the value for the same logical Atom on all subsequent versions, including Drafts. Earlier preactivation Draft values are not treated as the first locked value.",
+  "event_record": "Unconditional IMMUTABLE(Event Record.ID); existing per-Project UNIQUE retained.",
+  "implementation_gates": [
+    "Supply authoritative same-logical-bearer lineage independent of mutable ID.",
+    "Resolve complete relevant version history and first applicable value; an unavailable or incomplete history must not pass.",
+    "Define and implement declared scalar-Format equality and guard history; no parser or runtime effect claimed."
+  ],
+  "status": "Draft syntax and consumer Claims only; requires independent review."
+}

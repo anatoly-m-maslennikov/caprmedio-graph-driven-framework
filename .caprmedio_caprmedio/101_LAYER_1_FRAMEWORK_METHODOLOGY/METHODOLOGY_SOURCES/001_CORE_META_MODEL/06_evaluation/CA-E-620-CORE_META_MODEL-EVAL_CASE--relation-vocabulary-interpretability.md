@@ -1,24 +1,23 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Relation
-  depends_on: []
-version: 28
-updated_at: 2026-10-27 19:59:38 +0400
+  active: CFEL <+ Relation
+  passive: []
+version: 33
+updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
 atom_id: CA-E-620
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 2
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Relation-vocabulary interpretability
 
-## Scope
+## Claim scope
 
 the case covers lineage, implementation, checking, evidence, resolution, conflict solution, override, replacement, recurrence, **and** generic relation.
 

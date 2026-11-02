@@ -1,0 +1,89 @@
+{
+  "status": "read_only_notation_review",
+  "confidence": "high for present syntax and gap; proposed interpretation requires user decision",
+  "existing_expressibility": {
+    "named_relation_signature": "Source {:f}((RELATION)){:r} Target expresses the specific Relation, directional endpoints and independent allowed counts when both counts are supplied. A signature describes admitted edges; it does not create every possible edge.",
+    "inverse": "HAS_INVERSE records the derived reverse; reverse endpoint sets and counts swap. Do not create separately authored inverse facts.",
+    "inheritance": "The selected MODEL resolves inherited and explicitly overridden rules. Existing Rule states absent effective-whitelist Relations are forbidden, and unresolved whitelist grants nothing.",
+    "limitation": "A positive signature does not by itself document whether its list is complete. CFEL documentation does not define a general wildcard Relation-name selector, closed-set literal, or how to distinguish a complete whitelist signature set from ordinary Relation constraints. `Event Record.Relations.*[Relation//]` constrains child Property names, not the effective graph Relation whitelist."
+  },
+  "minimal_candidate": {
+    "kind": "reuse_existing_named_signatures_with_explicit_semantic_rule_not_new_operator",
+    "decision_needed": "Define which existing unguarded named Relation endpoint/count signatures in a Node Declaration are whitelist entries, then treat their MODEL-resolved inherited/local set as closed; apply explicit MODEL overrides before closure. No new relation-selection syntax is required if this convention is accepted.",
+    "formal_shape": "Host {:f}((R)){:r} Target",
+    "requirements": [
+      "A complete entry must provide the applicable endpoint selectors, direction and both directional counts; omitted counts remain undefined, not zero or 0+.",
+      "A zero-count constraint is a prohibition, not a positive entry. Conditional or nested Relation references are constraints, not automatically unconditional whitelist grants.",
+      "The selected MODEL determines applicable inherited entries and explicit local replacements; no ancestor restatement and no automatic permission union from an unresolved base.",
+      "Classify authored direct facts and derived inverse views without requiring the inverse to be authored. A zero-count or closed whitelist must not accidentally prohibit an allowed derived view.",
+      "Name and close the effective set in each applicable Declaration whether its Claim contains prose or is formal-only. Unresolved endpoint, inherited entry or count means incomplete, never default-any.",
+      "A declared endpoint signature permits matching links and does not create cross-product facts."
+    ],
+    "unresolved": "Existing CFEL does not say whether top-level signatures carry whitelist membership or provide an explicit complete-list delimiter. If ordinary signature expressions can be incomplete drafts or conditional uses, automatic closure risks forbidding valid edges. This proposal is a semantic convention and needs explicit approval."
+  },
+  "source_backed_examples": [
+    {
+      "node": "Journal",
+      "existing": "Journal// {:0+}((CONTAINS)) Event Record//",
+      "what_it_establishes": "A selected outgoing CONTAINS constraint for Event Records; the converse count and all inherited or other local Relation permissions are not specified by this expression.",
+      "not_a_claim": "It is not a complete whitelist and does not authorize all Event Record relations."
+    },
+    {
+      "node": "Event Record",
+      "existing": "Event Record// {:1}((IS_CONTAINED_BY)) Journal//",
+      "what_it_establishes": "One outgoing direct containment to Journal; reverse count and other permissions need their own effective entries. The event-author signature and Actor reference do not alone establish a complete local whitelist.",
+      "not_a_claim": "Do not assign invented counts to IS_EVENT_AUTHOR_OF or assume all relation names from the record carrier group are graph permissions."
+    },
+    {
+      "node": "Property",
+      "existing": "((Node, Node/**, .**) >| Independence = Property) ((IS_PROPERTY_OF)) (Node, Node/**, .**)",
+      "what_it_establishes": "The Relation Definition specifies allowed Property-to-Node endpoints, with one bearer stated in its Claim and Node classification rules. It is not automatically each Property Declaration\u2019s complete whitelist.",
+      "not_a_claim": "Do not equate Property bearer syntax or Node.Relations.* with a generic dynamic Relation selector."
+    }
+  ],
+  "single_blocking_question": {
+    "question": "Should each Node Declaration\u2019s top-level CFEL Relation signatures, after selected-MODEL inheritance and explicit overrides, be the complete closed whitelist for that Node, with any needed conditional, zero-count and derived-inverse cases distinguished by rule?",
+    "option_a": "Yes: specify the signature-to-whitelist interpretation and completeness test in the reusable Rule; resolve missing counts and endpoints before adoption.",
+    "option_b": "No: decide an explicit general whitelist-set notation and its inheritance/override semantics before asserting formal completeness.",
+    "recommended": "Option A if ordinary endpoint signatures can be unambiguously classified as whitelist entries; otherwise Option B. Neither is already established as CFEL syntax."
+  },
+  "sources": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+      "sha256": "f33d4db8ee3c4ee2bcfd5a75bed1d708fbfb89f9287c9b29a8244ebb0397d962"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+      "sha256": "e0944d98e067faacc2ddfb9b5a9f4680013f450cdf3a5b0ef3eb181b13e70ab8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+      "sha256": "b3a06f11ad9385fc1a08fb53a2eda549687f74adb928d28b800c55e687899bcd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-composition.md",
+      "sha256": "a64a7e51cd82f1e6524ccf918c2a902d062334482e7b7b8b2673264be56643ee"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md",
+      "sha256": "ec4a924b5e8a5ba057d5e451a67c95f182e12496fbd361439de44d2217b80a84"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "d7f38688c4f8a88803319014ae826b5a2de89421978379f845b8a17bca8d3350"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "sha256": "fa3cc333bbd71a3eb2cd5b7be8ff01084e1b7c16d8853b843b99ef2f720fd6c4"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "sha256": "25f7d665aadd41bf7812dc5e7a1590ed8b88c143943d6d0a228497893620342a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-relations.md",
+      "sha256": "29bb6629cae3f7e43885a11a0904f21e59345c503d4598db17e7b1568312c1f9"
+    }
+  ],
+  "limits": "No draft edits, source adoption, parser implementation, instance audit or inferred default-all permissions."
+}

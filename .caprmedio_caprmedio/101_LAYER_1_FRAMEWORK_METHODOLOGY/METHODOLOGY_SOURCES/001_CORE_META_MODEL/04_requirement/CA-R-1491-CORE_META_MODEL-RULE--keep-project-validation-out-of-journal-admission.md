@@ -1,32 +1,31 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-version: 23
-updated_at: 2026-10-27 19:59:56 +0400
+  active: Journal
+  passive:
+  - Entity/Object/Continuant/History/Journal > Event Record
+  - Carrier
+  - Atom
+  - Project
+  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - Atom/(.Role := Evaluation)
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-1490
+  - CA-R-2448
 atom_id: CA-R-1491
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Keep Project validation out of Journal admission
 
-## Scope
+## Claim scope
 
 Plain append/read of observable Project events.
 
@@ -40,5 +39,3 @@ the Journal **must** preserve observable Project events independently of whether
 - later Project changes **must not** prevent recording historical observations **or** rebind them **to** current state.
 - each explicit append records its supplied data, including repeated data; do **not** suppress it as a duplicate **or** overwrite existing entries.
 - retain ordinary authorized Project/filesystem access **and** truthful I/O failure. the Journal grants no permission **to** mutate a source, perform a Git effect **or** bypass access controls. existing records remain readable as recorded **without** migration.
-
-## Details

@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "scope": "Bounded source and candidate review, not parser, runtime or adoption validation",
+  "counts": {
+    "declarations": 41,
+    "source_backed": 35,
+    "new_derived": 6,
+    "consumers": 14,
+    "retirements": 5
+  },
+  "checks": [
+    "manifest source and candidate hashes match",
+    "each declaration has Semantics, CFEL and Derivation classification",
+    "all Derived declarations bind source through IS_DERIVED_RELATION_OF",
+    "source Claim diff reviewed for losses",
+    "latest user canonical/view and broader endpoint decisions honored"
+  ],
+  "findings": [],
+  "limits": [
+    "No application, Current source, runtime, archive, or full graph validation claimed.",
+    "Future non-Property extension question is nonblocking per user decision."
+  ],
+  "closure": {
+    "scope": "Prior two findings only",
+    "result": "Container = yes restored on IS_CONTAINED_BY target and CONTAINS host; both historical references pinned to exact predecessor versions 1260@34 and 1243@27.",
+    "manifest_hash_checks": 128,
+    "hash_mismatches": 0
+  }
+}

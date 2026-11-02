@@ -1,0 +1,118 @@
+{
+  "status": "read-only candidate; no Draft, registry entity, Primary Node, or CFEL extension has been admitted or implemented",
+  "scope": {
+    "declarations": [
+      "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-form.md",
+      "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md"
+    ],
+    "goal": "Replace only the two admission-dependent prose constraints without inferring admissions from observed instance data."
+  },
+  "candidate_rule": {
+    "name": "Resolve admitted literal values",
+    "signature": "ADMITTED_VALUES(p)",
+    "exact_rule_text": [
+      "ADMITTED_VALUES(p) returns the complete explicit set of admitted literal values for logical Property p in the selected effective MODEL and current bearer context. It resolves local MODEL admissions before inherited admissions and applies the selected effective local override where one exists.",
+      "The query is defined for a logical Property even when that Property has no authored occurrence and has no value. It never derives admissions from observed Property values, Carrier content, filenames, paths, or actual instances.",
+      "For Atom.Form, the bearer context includes that Atom's resolved Role. For Relation Definition Content.notation_for_subject, it includes the Relation target resolved from that same Definition's Active Subject. A missing or ambiguous Role, Active Subject, Relation target, effective MODEL, or admission binding is an error, not an empty set.",
+      "The Evaluation Context explicitly supplies ModelCase, Source, and AuthoritativeEpoch bindings and the effective-MODEL/admission index. They are evaluation bindings, not authored Artifact fields or new graph entities. A known indexed Property with no admissions returns the known empty set; an unknown, incomplete, or ambiguous index errors and cannot pass.",
+      "ADMITTED_VALUES(p){=1+} tests the count of returned admitted values. Scalar `v in S` and `v not in S` test literal membership where S is ADMITTED_VALUES(p) or an explicit scalar value collection `(e1, ...)`. This does not alter existing instance-set membership, identity comparison, or selector semantics.",
+      "The function reads admissions only. It does not author a Property, assign a value, create a Node, promote a value, or make an observed literal admitted."
+    ],
+    "semantic_boundaries": {
+      "literal_only": "Results are admitted literals, not Nodes or implicit registry entities.",
+      "override": "A local effective-MODEL override replaces the inherited admission binding for the same logical Property; otherwise inherited admissions remain effective.",
+      "error_vs_empty": "Known empty means an authoritative resolved binding explicitly has zero values. Unknown or unresolved means error."
+    }
+  },
+  "claim_rewrites": [
+    {
+      "subject": "Atom.Form",
+      "source": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-form.md:21-27",
+      "replaces": [
+        "Form is an admitted atomic unit under the Atom's Role.",
+        "Do not invent a placeholder Form or copy a Role name as a Form."
+      ],
+      "after_claim": "```CFEL\nAtom.Form{:1}: [string]{:1};\nAtom.Form.*[]{:0};\nAtom.Form in ADMITTED_VALUES(Atom.Form);\nAtom.Form not in (Atom.Role)\n```",
+      "preservation": "The first membership rejects placeholders and every unregistered Form. The second is the supplied same-bearer Role-name anti-copy test. Shape, required value, and no-children constraints are unchanged.",
+      "counterexample_before": "Role Requirement with Form Placeholder satisfies the existing string shape; Role Requirement with Form Requirement also satisfies it.",
+      "counterexample_after": "Placeholder fails unless explicitly admitted for the resolved Requirement-role context; Requirement fails the explicit Atom.Role anti-copy test."
+    },
+    {
+      "subject": "Atom/(.Role := Requirement)/(.Form := Relation Definition).Content.notation_for_subject",
+      "source": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md:21-25",
+      "replaces": [
+        "When a short subject notation is admitted for the Relation, this Property is required."
+      ],
+      "after_claim": "```CFEL\nAtom/(.Role: Requirement)/(.Form: Relation Definition).Content.notation_for_subject{:0..1}: [string]{:1};\nAtom/(.Role: Requirement)/(.Form: Relation Definition).Content.notation_for_subject.*[]{:0};\nIF (ADMITTED_VALUES(Atom/(.Role: Requirement)/(.Form: Relation Definition).Content.notation_for_subject){=1+})\nTHEN (Atom/(.Role: Requirement)/(.Form: Relation Definition).Content.notation_for_subject{==1})\n```",
+      "preservation": "The guard requires the optional Property only when the resolved Relation has one or more admitted short notations. It deliberately does not assert that an authored notation value is a member of that set, because that would add a norm absent from the source clause.",
+      "counterexample_before": "A Relation with one admitted short notation may omit notation_for_subject while meeting the existing optional shape.",
+      "counterexample_after": "That omission fails; a known empty admission set leaves the Property optional as before."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Form-admitted-pass",
+      "context": "Effective MODEL resolves Role Requirement and explicitly admits Declaration for Atom.Form.",
+      "values": "Atom.Role = Requirement; Atom.Form = Declaration",
+      "result": "pass"
+    },
+    {
+      "name": "Unobserved-placeholder-fails",
+      "context": "The admission index for Requirement is complete and does not contain Placeholder.",
+      "values": "Atom.Role = Requirement; Atom.Form = Placeholder",
+      "result": "fail; occurrence of Placeholder in another Atom cannot make it admitted"
+    },
+    {
+      "name": "Relation-notation-required-only-on-nonempty-set",
+      "context": "The same Relation Definition's Active Subject resolves its Relation target. Its admission set for notation_for_subject is nonempty.",
+      "values": "notation_for_subject absent",
+      "result": "fail; with a known empty set, absence passes"
+    }
+  ],
+  "registry_authority_countercases": [
+    {
+      "case": "Unknown index",
+      "result": "error, not an empty set and not a pass"
+    },
+    {
+      "case": "Inherited set exists but the selected effective MODEL has an explicit local replacement",
+      "result": "use the local replacement; do not union it with the inherited set"
+    },
+    {
+      "case": "A literal appears in an authored Atom or Carrier but is absent from the authoritative admission index",
+      "result": "it remains unadmitted"
+    },
+    {
+      "case": "Relation Definition has no resolvable same-Definition Active Subject target",
+      "result": "error; do not use a similarly named Relation, a Carrier location, or a global default"
+    }
+  ],
+  "evidence": [
+    {
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-form.md:21-27",
+      "fact": "Atom.Form has one string value/no children and two admission-dependent prose clauses."
+    },
+    {
+      "file": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md:21-25",
+      "fact": "notation_for_subject is optional but required when short notation is admitted."
+    },
+    {
+      "file": "CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md:21-27, 38-47",
+      "fact": "Current CFEL distinguishes Subject `:=` from Formal Claim `:`/`=`, defines membership, and names RMED roles; the candidate confines the new function to Formal Claims."
+    },
+    {
+      "file": "CA-R-draft-CORE_META_MODEL-CFEL--separate-property-value-and-child-constraints.md:21-31",
+      "fact": "Existing occurrence, value, child-name, and cardinality rules are retained unchanged."
+    },
+    {
+      "file": "CA-R-draft-CORE_META_MODEL-CFEL--bind-instance-variables.md:21-30",
+      "fact": "Existing instance-set membership remains unchanged; the candidate adds only scalar membership dispatch."
+    }
+  ],
+  "policy_question": null,
+  "implementation_gates": [
+    "Bind ModelCase, Source, and AuthoritativeEpoch explicitly in Evaluation Context without adding Artifact fields.",
+    "Provide complete effective-MODEL and admission-index resolution, including local override precedence and known-empty versus unknown distinction.",
+    "Resolve a Relation Definition's Active Subject target from that same Definition before evaluating notation_for_subject admission."
+  ]
+}

@@ -14,6 +14,7 @@ from pathlib import Path
 
 from atom_operations import ATOM_ID, _lifecycle, _role_directory
 from atom_subject_lookup import _owner_for
+from carrier_aliases import carrier_read_view
 from connector_atom_parse import IDENTITY, LIFECYCLES, matches, parse_atom, validate_filters
 from subject_notation import SubjectNotationError
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError
@@ -114,11 +115,13 @@ def query_atoms(filters: dict, view: AtomSourceView, *, bound_sources=None) -> d
     data, states = [], []
     for _, _, parsed, state in _sources(view, bound_sources):
         try:
-            selected = matches(parsed.metadata, filters, view.subject_profile)
+            read_view = carrier_read_view(parsed.metadata)
+            selected = matches(read_view, filters, view.subject_profile)
         except (ValueError, SubjectNotationError) as error:
             raise AtomReadError("schema_invalid", "Source Subject syntax is unsupported by the supplied profile.", "context") from error
         if selected:
-            row = {field: parsed.metadata.get(field) for field in filters["result_fields"]}
+            row = {field: (parsed.metadata.get(field) if field == "subjects" else read_view.get(field))
+                   for field in filters["result_fields"]}
             row.update(atom_id=state["identity"], version=state["version"], current_scope_unit=parsed.metadata["current_scope_unit"])
             data.append(row)
             states.append(state)

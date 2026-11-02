@@ -1,0 +1,9 @@
+{
+  "settings_children": [
+    "Name",
+    "Prefix"
+  ],
+  "child_count": 2,
+  "framework_settings": "deferred",
+  "current_runtime": "unchanged"
+}

@@ -1,27 +1,26 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-version: 18
-updated_at: 2026-10-27 19:59:58 +0400
+  active: Atom/(.Role:=Operations)/Workflow
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - Atom/(.Role:=Operations)/Action
+  - Atom/(.Role:=Operations)/Workflow
+version: 24
+updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
 atom_id: CA-R-1570
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Keep Workflow graphs separate from Step bindings
 
-## Scope
+## Claim scope
 
 Workflow graph schemes and Step bindings.
 
@@ -32,5 +31,3 @@ a Workflow Atom **must** own **only** its graph scheme: Step references, declare
 - the referenced Step Atoms own Action references, parameters, **and** input bindings.
 - reusable Action Atoms own Action behavior.
 - the graph **must not** independently repeat those Step bindings **or** Action definitions; folder nesting **and** file order **must not** replace its declared control flow.
-
-## Details

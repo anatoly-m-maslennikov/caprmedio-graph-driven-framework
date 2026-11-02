@@ -1,0 +1,86 @@
+{
+  "status": "implemented in owned files only; no Current/runtime/schema/register/git mutation",
+  "files": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "before_sha256": "acdedca110359a2109f5ee3a5b8f86dec91e64a6d805dd1c14e0c44755b5af0c",
+      "after_sha256": "818a614365cd9a543c62477697000823e31f62bd45e4a1408e989bf5627471fe",
+      "exact_claim": "Atom.Updated At{:1}: [datetime]{:1}; Atom.Updated At.*[]{:0}; Atom//$atom.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=1}, .object_output.id = $atom.ID, .object_output.version = $atom.Version, (.action = create OR .action = update)).happened_at)"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+      "before_sha256": "d4380a25897ced421f7c301a7f72babead36bdfe1767c2fe11fa8357b7c31d9e",
+      "after_sha256": "98d6f9002c36b83b8820309795616d6841bf65240ab782665d4fa2c11cf9e2e9",
+      "exact_claim": "Projection.Updated At{:1}: [datetime]{:1}; Projection.Updated At.*[]{:0}; Projection//$projection.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=0}, .object_output.id = $projection.ID, (.action = create OR .action = update)).happened_at)"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md",
+      "before_sha256": "25e59f212fd45ae83eca138248d8687da2dec1e46b58d0b42cb70b597606f3ca",
+      "after_sha256": "4ffb3d5a4f7e5469579367551e0aed81633ea43d3f9990fdaef4aab1e373e179",
+      "change": "Clarifies left-to-right short-circuit evaluation for filter conditions and AND groups, while evaluated invalid values remain errors."
+    }
+  ],
+  "model_cases": [
+    {
+      "case": "atom-create-and-update",
+      "record_outputs": "Matching Atom output id/version at accepted create 09:00Z and update 10:00Z.",
+      "expected": "Atom.Updated At is 10:00Z from MAX(happened_at)."
+    },
+    {
+      "case": "atom-same-id-different-version",
+      "record_outputs": "id A/version 2 at 11:00Z, id A/version 3 at 12:00Z; selected Atom is A/version 3.",
+      "expected": "Only version 3 matches; literal ID plus version filters avoid an identity-tuple resolver."
+    },
+    {
+      "case": "atom-output-absent",
+      "record_outputs": "A record has no object_output.",
+      "expected": "The first output-presence guard is false; later output field reads are unevaluated and this record is excluded."
+    },
+    {
+      "case": "projection-output-version-absent",
+      "record_outputs": "Projection output has id P and no version.",
+      "expected": "It matches Projection after output and version-absence guards."
+    },
+    {
+      "case": "projection-output-version-present",
+      "record_outputs": "Output has id P and version 1.",
+      "expected": "It is excluded from Projection because the version-absence guard is false."
+    },
+    {
+      "case": "projection-rebuild",
+      "record_outputs": "An accepted completed business rebuild emits action update, output id P, version absent, happened_at 13:00Z.",
+      "expected": "It contributes 13:00Z to Projection MAX."
+    },
+    {
+      "case": "content-only-update",
+      "record_outputs": "An accepted content-only update emits metadata output id/version and happened_at 14:00Z; Content data itself is absent from the record.",
+      "expected": "It contributes 14:00Z to the matching Atom MAX."
+    },
+    {
+      "case": "no-op-failed-archive-carrier-only",
+      "record_outputs": "No-op, failed, archive, and carrier-only actions do not create accepted create/update records.",
+      "expected": "They contribute no happened_at value and prior MAX remains unchanged."
+    },
+    {
+      "case": "output-updated-at-not-aggregate-input",
+      "record_outputs": "A matching output contains updated_at 15:00Z while Event Record.happened_at is 14:00Z.",
+      "expected": "MAX reads happened_at only; object_output.updated_at is never selected."
+    },
+    {
+      "case": "evaluated-invalid-value",
+      "record_outputs": "Output/version guards hold but id or version is invalid or unresolved.",
+      "expected": "error, not a silently skipped record."
+    }
+  ],
+  "preserved_boundaries": [
+    "Updated At scalar datetime/no-children contracts stay first in both Claims.",
+    "Event Record.happened_at, not inserted_at or output.updated_at, is the aggregate source.",
+    "No Event Record fields were created in this lane; other workers own schema additions.",
+    "The Claims are derived invariants, not Workflow steps, Core Requirement relocation, or Engine implementation."
+  ],
+  "verification": [
+    "Both Claims contain no prose and reference lowercase .action.",
+    "Atom query guards object_output then version before nested reads; Projection query guards object_output then version absence before id.",
+    "MAX filters actions create OR update and uses happened_at only."
+  ]
+}

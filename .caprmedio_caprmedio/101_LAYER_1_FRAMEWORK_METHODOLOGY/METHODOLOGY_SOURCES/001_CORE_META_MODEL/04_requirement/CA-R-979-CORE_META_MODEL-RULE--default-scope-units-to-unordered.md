@@ -1,32 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type
-  depends_on: []
-version: 26
-updated_at: 2026-10-27 20:00:13 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Type
+  passive: []
+version: 30
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-1758
-  - CA-R-1761
+  - CA-R-1761@34
 atom_id: CA-R-979
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Default Scope Units to Unordered
 
-## Scope
+## Claim scope
 
 new Scope Units.
 
 ## Claim
 
 **every** new Scope Unit **must** use Unordered as its default Type value.
-
-## Details

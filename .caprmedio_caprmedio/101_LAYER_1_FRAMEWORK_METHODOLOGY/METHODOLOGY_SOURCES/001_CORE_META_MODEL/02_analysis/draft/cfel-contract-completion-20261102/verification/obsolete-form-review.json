@@ -1,0 +1,20 @@
+{
+  "status": "PASS_WITH_STALE_INDEX_PIN",
+  "scope": "obsolete form retirement and R2516/R2486 candidate mapping",
+  "findings": [
+    {
+      "severity": "integration bookkeeping",
+      "issue": "candidate_index_sha256 in obsolete-form-disposition.json is stale; refresh after integration index is finalized"
+    }
+  ],
+  "checks": [
+    "38 old form sources covered by replacement or retirement disposition",
+    "41 Relation Declaration candidates",
+    "R2516 broadens active subject while preserving Declaration contract",
+    "R2486 candidate has optional single nonempty short notation and generic manifest hash matches",
+    "source pins and R2516/R2486 candidate hashes match"
+  ],
+  "limitations": [
+    "Candidate review only; no runtime or adoption validation"
+  ]
+}

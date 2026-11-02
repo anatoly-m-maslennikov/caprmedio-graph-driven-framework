@@ -1,29 +1,26 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier/Directory
-  depends_on: []
-version: 19
-updated_at: 2026-10-27 19:59:23 +0400
+  active: Carrier/Directory
+  passive: []
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-331
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Keep Durable Hub Navigation at Folder Level
 
-## Scope
+## Claim scope
 
 durable Hub Carrier navigation.
 
 ## Claim
 
 a durable Hub Carrier **may** list stable child folders **and** their Hubs but **must not** enumerate individual Atom Carriers **or** Runtime State descendants.
-
-## Details

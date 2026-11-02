@@ -1,28 +1,25 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-version: 24
-updated_at: 2026-10-27 20:00:00 +0400
+  active: Scope Unit
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1656
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Require one parent Scope Unit
 
-## Scope
+## Claim scope
 
 Scope Units other than a Scope Unit root.
 
 ## Claim
 
 **every** Scope Unit except a Scope Unit root **must** have **`=1`** direct parent Scope Unit.
-
-## Details

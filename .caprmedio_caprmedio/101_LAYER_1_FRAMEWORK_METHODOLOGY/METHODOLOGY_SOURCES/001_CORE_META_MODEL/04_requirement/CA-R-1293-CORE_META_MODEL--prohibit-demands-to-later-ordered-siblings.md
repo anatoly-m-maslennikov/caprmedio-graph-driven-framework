@@ -1,31 +1,28 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Local Order
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type: Ordered'
-version: 24
-updated_at: 2026-10-27 19:59:53 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit'
+  passive:
+  - Scope Unit.Local Order
+  - 'Entity/Object/Continuant/Structural Unit/Scope Unit/Type: Ordered'
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1293
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Prohibit Demands to Later Ordered Siblings
 
-## Scope
+## Claim scope
 
 Demand Atoms owned by Ordered Scope Units.
 
 ## Claim
 
 a Demand Atom owned by an Ordered Scope Unit **must not** target a later Ordered sibling under the same direct parent.
-
-## Details

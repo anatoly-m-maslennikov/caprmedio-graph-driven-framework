@@ -1,41 +1,38 @@
 ---
 atom_id: CA-E-512
-content_role: Evaluation
-type: Eval Case
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Term
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
-  - Subject/CAPRMEDIO/Carrier/File.Main Content.CCE Operator
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name
-version: 21
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Term
+  passive:
+  - Atom
+  - Atom.Content
+  - Entity/Aspect/Engineering/Authoring/Controlled English
+  - Atom/(.Role := Concern)
+  - Carrier/File.Main Content.CCE Operator
+  - Scope Unit.Name
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-D-280
   - CA-M-229
   - CA-M-234
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate CCE lexical case
 
-## Scope
-
+## Claim scope
 CCE Claims evaluated for lexical case and Markdown operator representation.
 
 ## Claim
 
-### Claim checked
+**Claim checked.**
 
 **every** CCE Claim satisfies the lexical-case Method CA-M-229-CORE_META_MODEL-IMPLEMENTATION_METHOD--render-governed-terms-and-cce-operators-distinctly **and** the Markdown operator representation specified by CA-D-280-CORE_META_MODEL-ENG_DECISION--serialize-cce-operators-in-bold.
 

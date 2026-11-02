@@ -1,0 +1,149 @@
+{
+  "status": "read-only bounded schema/reference inventory",
+  "scope": "Event Record, Journal, target-object identity, action, event time, and existing Updated At declarations. Only selected registered Drafts and the known Current CA-R-2234 were inspected.",
+  "register": {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/draft-register.json",
+    "sha256": "2e32fba23cb605229d25aae71ed39af1ef4a8546d874bd14279d9478fa6c14bc",
+    "registered_drafts_at_read": 113
+  },
+  "known_schema": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "sha256": "25f7d665aadd41bf7812dc5e7a1590ed8b88c143943d6d0a228497893620342a",
+      "declares": "Event Record",
+      "existing_claim": "Event Record {:0}((IS_PROPERTY_OF)); Event Record// {:1}((IS_CONTAINED_BY)) Journal//",
+      "semantics": "Persistent description of an event and its recorded evidence; distinct from the event and does not prove outcome.",
+      "schema_limit": "Only the Journal container is declared here. No target-object relation, action field/relation, or event-time field is present."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-id.md",
+      "sha256": "415480a04ee0a90c0716eea38099c5b4750e357f33eb08405b970a9a1121cbac",
+      "declares": "Event Record.ID",
+      "existing_claim": "Required string scalar; unique among Event Records; immutable.",
+      "schema_limit": "Record identity does not identify the Atom or Projection affected by the event."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "sha256": "ea9a75cb97093f424bcf298908482fbe865ebd4981631e3b192bbc166d6b4010",
+      "declares": "Journal",
+      "existing_claim": "Exactly one Journal in the selected context; a Journal contains zero or more Event Records; accepted records are not edited, reordered or removed; corrections append new records.",
+      "schema_limit": "This defines a container and immutable admitted history, but not complete coverage of all qualifying update events."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "sha256": "123a3cf8718abd73913488280c2c8ab40737097e6e6769ae5e7fa50bf9a7ba2e",
+      "declares": "Atom.ID",
+      "existing_claim": "Required string scalar; immutable after first Current or Archived promotion.",
+      "identity_limit": "Atom.ID is stable across versions, so ID alone does not select one exact Atom version."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-version.md",
+      "sha256": "3781a7e1a82086cab0df7d0aa9f862170bed37c537c19b154bb2fbaf6081f83a",
+      "declares": "Atom.Version",
+      "existing_claim": "Required int scalar, >=1.",
+      "use": "Exact Atom instance identity is the (Atom.ID, Atom.Version) pair."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "8bf3f2270b3bb007771af15fda6e1aef7a053a538865d3d597ec8f0a2aac3f66",
+      "declares": "Atom",
+      "existing_claim": "UNIQUE(Atom//, (.ID, .Version))",
+      "use": "Confirms the exact-version identity pair. A target reference must resolve to an Atom instance with both ID and Version; a raw ID string can conflate versions."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "sha256": "d820f67cf931bbb69b6d1756e5c0e283e3167fe5f5ea2e24e268e43b5d830f47",
+      "declares": "Projection.ID",
+      "existing_claim": "ID functionally determines Projection.Form, Named Selection, and Source Of Truth, and those inputs determine ID.",
+      "use": "Projection.ID identifies the logical Projection across rebuilds; the event target should reference that logical instance, not make each rebuild a new Projection identity."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "sha256": "acdedca110359a2109f5ee3a5b8f86dec91e64a6d805dd1c14e0c44755b5af0c",
+      "declares": "Atom.Updated At",
+      "existing_claim": "Required datetime scalar; records Project-time instant of the accepted edit represented by the Atom; exact no-op retains prior timestamp.",
+      "schema_limit": "No Event Record timestamp field or target binding currently supports deriving this value."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+      "sha256": "d4380a25897ced421f7c301a7f72babead36bdfe1767c2fe11fa8357b7c31d9e",
+      "declares": "Projection.Updated At",
+      "existing_claim": "Required datetime scalar; identifies the latest completed rebuild represented by the Projection.",
+      "schema_limit": "No Event Record timestamp, target binding, or completed-rebuild event filter currently supports deriving this value."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "a912b6f43e8cabfe50fd1aa8c5715d2b969290f92d8408511086e56cf7e9447b",
+      "declares": "Action",
+      "existing_claim": "Reusable operational building block; declared execution relation connects it to Step/Substep.",
+      "schema_limit": "It is not an Event Record action field and does not establish an `update` event or its outcome."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-run.md",
+      "sha256": "50aeb0f71eb18631a16cd5e7449e078f10a25d0b74348623b17a1da39977415a",
+      "declares": "RUN",
+      "existing_claim": "RUN binds a Step or Substep to an Action for execution.",
+      "schema_limit": "This is workflow execution structure, not an Event Record-to-target or Event Record action/outcome field."
+    }
+  ],
+  "bounded_current_context": {
+    "atom_event_reference": {
+      "target_kind": "one existing Atom instance",
+      "identity_key": ["Atom.ID", "Atom.Version"],
+      "not_sufficient": "Atom.ID alone or an untyped raw identifier string"
+    },
+    "projection_event_reference": {
+      "target_kind": "one logical Projection instance",
+      "identity_key": "Projection.ID",
+      "rebuild_behavior": "Updated At describes the latest completed rebuild; a rebuild does not create a new Projection identity."
+    },
+    "registered_relation_support": "No registered Event Record Relation Definition or Event Record target binding is present among the inspected Event Record, Action, and RUN Drafts. Do not repurpose Current RECORDS as a canonical target relation without a separate decision."
+  },
+  "known_current_source": {
+    "atom_id": "CA-R-2234",
+    "version": 1,
+    "status": "Active",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2234-CORE_META_MODEL-ENTITY_DEFINITION--define-event-record.md",
+    "sha256": "870eda2cc936436158e1bf891002f6f5ca3811187c9349bfc8cefff0588e6ab6",
+    "relevant_claim": "Event Record is a persistent record in one Journal. It can RECORD an actual occurrence, including Workflow Run, and may preserve/describe an Execution.Result. The record is distinct from the occurrence.",
+    "limit": "This supports occurrence recording but gives no Event Record target Atom/Projection instance, event action, or timestamp. Its existing RECORDS relation target is Workflow Run, not the requested object target."
+  },
+  "minimal_missing_schema_surface": [
+    {
+      "need": "Target object reference",
+      "minimal_requirement": "A typed relation under Event Record Relations that resolves to one existing Node instance. For Atom it must resolve the exact (ID, Version) instance; for Projection it must resolve the stable logical Projection.ID.",
+      "open": "Canonical Relation name and endpoint declaration are not established by inspected sources. Do not invent a `.object` field or reuse RECORDS without authority."
+    },
+    {
+      "need": "Event action",
+      "minimal_requirement": "A declared action discriminator that distinguishes an update event from other records and supports the chosen accepted/completed outcome policy.",
+      "open": "No Event Record action field/relation or registered `update` value appears in inspected schema. Pending user question: is action=update alone sufficient, or must outcome/accepted-complete status also be filtered?"
+    },
+    {
+      "need": "Event time",
+      "minimal_requirement": "One required datetime per qualifying update/rebuild event, with explicit meaning as the event's Project-time instant.",
+      "open": "No Event Record time Property is declared. Do not infer it from Event Record Carrier metadata, Journal order, Atom.Updated At, or Projection.Updated At. Canonical Property name remains undecided."
+    },
+    {
+      "need": "Complete Journal coverage",
+      "minimal_requirement": "Specify that the selected Project-context Journal population contains every qualifying event needed by the max calculation and is complete for the target/action/time scope.",
+      "open": "Event Record is contained by one Journal and Journal is one ordered table, but neither selected Draft nor CA-R-2234 requires every relevant update/rebuild to be recorded. Max over an incomplete record set can understate Updated At."
+    },
+    {
+      "need": "Max/update invariant and evaluation",
+      "minimal_requirement": "Core authority states that target Updated At equals the maximum eligible Event Record time for the exact target identity; Workflow defines which completed/accepted updates are recorded; Engine serializes records and computes the value.",
+      "open": "Inspected CFEL Drafts do not define target/action filtering or datetime MAX aggregation. Do not claim runtime derivation exists."
+    }
+  ],
+  "layer_boundary": {
+    "Core_R": "Declare what an Event Record must identify and the invariant connecting qualifying record times to Atom/Projection Updated At.",
+    "Workflow": "Specify which mutation/rebuild outcomes produce an accepted qualifying update record; resolve the pending action=update versus outcome filter decision.",
+    "Engine": "Implement event capture, exact typed target-reference serialization, event timestamp capture, complete Journal query, and max computation. Implementation does not replace the Core invariant."
+  },
+  "mutations": {
+    "repository_files_changed": false,
+    "registered_drafts_changed": false,
+    "runtime_or_mcp_changed": false,
+    "output": "/private/tmp/caprmedio-event-timestamps-20261101/schema-inventory.json"
+  }
+}

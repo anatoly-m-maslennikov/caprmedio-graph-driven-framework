@@ -1,0 +1,20 @@
+{
+  "scope": "Direct container",
+  "population": "Status Active only",
+  "excluded": [
+    "Done",
+    "Canceled",
+    "Backlog",
+    "Draft",
+    "Archived"
+  ],
+  "number_domain": "Optional positive integer contract retained",
+  "known_container": "Required when an Active Plan supplies a number",
+  "group_keys": [
+    "Resolved direct Atom container + number",
+    "Resolved direct Scope Unit container + number"
+  ],
+  "execution_order": "Workflow for P execution; not the model Number Declaration",
+  "new_navigation_method_created": false,
+  "runtime_number_changes": false
+}

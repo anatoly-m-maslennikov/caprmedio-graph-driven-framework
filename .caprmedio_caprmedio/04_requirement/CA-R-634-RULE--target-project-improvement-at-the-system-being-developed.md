@@ -1,6 +1,6 @@
 ---
-version: 17
-updated_at: 2026-10-27 20:00:10 +0400
+version: 20
+updated_at: 2026-11-02 00:18:22 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -8,21 +8,23 @@ relations:
   child_of:
   - CA-R-632
 subjects:
-  governs: 'Subject/caprmedio/Product: CAPRMEDIO Framework'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  passive:
+  - Project
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - Entity/Object/Continuant/Package/Project Implementation
 cce_version: cce_1
 cce_form: obligation
-author: Anatoly Maslennikov
-content_role: Requirement
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-634
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Target Project improvement at the system being developed
+## Summary
+Target Project improvement at the system being developed
+
+## Claim
 
 a Project-improvement cycle **in** caprmedio **must** improve the CAPRMEDIO Framework being developed through changes **to** its PRMEDO authority, its Implementation, **or** their combination.

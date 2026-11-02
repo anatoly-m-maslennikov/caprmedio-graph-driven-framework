@@ -1,25 +1,25 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
-version: 18
-updated_at: 2026-10-27 19:59:52 +0400
+  active: Entity
+  passive:
+  - Entity/Property
+  - CFEL <+ Relation//HAS_PROPERTY
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1259
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Permit Zero or More Properties on Every Entity
 
-## Scope
+## Claim scope
 
 Property occurrences borne by every Entity.
 
@@ -27,4 +27,8 @@ Property occurrences borne by every Entity.
 
 **every** Entity **may** bear **`>=0`** Property occurrences.
 
-## Details
+### Formal claim
+
+```text
+Entity {0+}((HAS_PROPERTY)){1} Property
+```

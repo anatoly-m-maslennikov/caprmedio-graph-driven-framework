@@ -1,0 +1,40 @@
+---
+atom_id: CA-R-draft
+role: Requirement
+form: Declaration
+status: Draft
+version: 1
+updated_at: 2026-11-02 05:04:28 +0400
+current_scope_unit: CORE_META_MODEL
+tier: 3
+subjects:
+  active: CFEL <+ Relation//HAS_INSTANCE
+relations: {}
+---
+
+## Summary
+
+Declare HAS_INSTANCE
+
+## Claim
+
+A declared kind has an instance of that kind. HAS_INSTANCE is the derived inverse of INSTANCE_OF. It expresses the same fact and is not authored separately.
+
+```CFEL
+$kind ((HAS_INSTANCE)) $instance;
+((INSTANCE_OF)) ((HAS_INVERSE)) ((HAS_INSTANCE))
+```
+
+```CFEL
+((HAS_INSTANCE)) >| Derivation == Derived;
+((HAS_INSTANCE)) ((IS_DERIVED_RELATION_OF)) ((INSTANCE_OF))
+```
+
+## Semantics
+
+The Target is an instance of the Host declared kind; a Property kind is not independently instantiated.
+
+
+Forward `Host ((HAS_INSTANCE)) Target` and reverse `Target <((HAS_INSTANCE)) Host` are views of the same Relation fact.
+HAS_INSTANCE relates declared kind to instance of that kind. It is the derived inverse of INSTANCE_OF; it does not add a separately authored fact.
+

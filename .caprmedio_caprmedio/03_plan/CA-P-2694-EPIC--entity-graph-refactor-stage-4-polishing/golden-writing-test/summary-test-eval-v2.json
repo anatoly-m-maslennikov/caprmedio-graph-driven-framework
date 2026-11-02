@@ -1,0 +1,662 @@
+{
+  "comparison_sha256": "b179d5de718294977937f5cc77a0eee60936a8ab842ff155af414a348c109690",
+  "criteria": "Main meaning and clear concise Summary; not exact wording or exhaustive conditions. Accepted Current summaries are not renamed solely to match golden wording.",
+  "counts": {
+    "cases": 38,
+    "v1_acceptable": 28,
+    "v1_needs_changes": 10,
+    "v2_acceptable": 15,
+    "v2_needs_changes": 23
+  },
+  "results": [
+    {
+      "key": "B01",
+      "current_id": "CA-R-2442",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "vague",
+            "source_quote": "request Workflows defined by the methodology",
+            "generated_quote": "Make `ca` the Primary CAPRMEDIO Entry Point",
+            "problem": "Entry point for what is unspecified; the two central Workflow-request and Step-exchange functions disappear.",
+            "smallest_fix": "Describe the Workflow-request and MCP Step-exchange entry point."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B02",
+      "current_id": "CA-R-2430",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "changed meaning",
+            "source_quote": "PROGRAMMATIC owns all and only deterministic behavior of FRAMEWORK_ENGINE.",
+            "generated_quote": "PROGRAMMATIC Owns FRAMEWORK_ENGINE Determinism",
+            "problem": "“Owns determinism” omits the central all-and-only boundary and changes behavior ownership into an abstract quality.",
+            "smallest_fix": "Use the explicitly accepted all-and-only Summary."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B03",
+      "current_id": "CA-M-448",
+      "v1": {
+        "verdict": "NeedsChanges",
+        "issue": "Uses intended use instead of governed use, changing the preservation qualifier."
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B04",
+      "current_id": "CA-M-446",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B05",
+      "current_id": "CA-R-2443",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "incomplete main point",
+            "source_quote": "own the optional human-facing interface over GRAPH_SERVER",
+            "generated_quote": "Keep GRAPH_UI Optional for Graph Access",
+            "problem": "Making GRAPH_UI optional for graph access omits its central responsibility to provide the interface.",
+            "smallest_fix": "Describe the optional GRAPH_UI interface over GRAPH_SERVER."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B06",
+      "current_id": "CA-R-2444",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B07",
+      "current_id": "CA-R-2445",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "changed meaning",
+            "source_quote": "without** making those packages CAPRMEDIO-owned Scope Units",
+            "generated_quote": "Catalog External Extensions Without Taking Ownership",
+            "problem": "“Without Taking Ownership” can prohibit all ownership; the source only excludes treating packages as CAPRMEDIO-owned Scope Units.",
+            "smallest_fix": "Catalog externally maintained Extension packages."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B08",
+      "current_id": "CA-R-2446",
+      "v1": {
+        "verdict": "NeedsChanges",
+        "issue": "A multi-sentence inventory of implementation constraints is an abstract rather than a usable Summary."
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "incomplete main point",
+            "source_quote": "recent Tool calls",
+            "generated_quote": "Provide a Safe, Read-Only `/health` View",
+            "problem": "The title omits the call and Workflow history central to the diagnostic view; safe read-only health alone is too broad.",
+            "smallest_fix": "Expose bounded, read-only MCP health and call history."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B09",
+      "current_id": "CA-O-238",
+      "v1": {
+        "verdict": "NeedsChanges",
+        "issue": "A multi-sentence operational and outcome inventory is an abstract rather than a usable Summary."
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "incomplete main point",
+            "source_quote": "complete bound applicable Method-policy set",
+            "generated_quote": "Review Code Candidates Against Bound Evidence",
+            "problem": "The review of applicable Method policy is a central part, not merely bound evidence.",
+            "smallest_fix": "Review code-candidate evidence and applicable Method policy without editing."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B10",
+      "current_id": "CA-O-239",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B11",
+      "current_id": "CA-E-666",
+      "v1": {
+        "verdict": "NeedsChanges",
+        "issue": "A multi-sentence review and conflict-resolution inventory is an abstract rather than a usable Summary."
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "changed meaning",
+            "source_quote": "The Evaluation **must** check whether RMEDO Conflict Resolution follows",
+            "generated_quote": "Resolve RMEDO Conflicts Without Losing Authority",
+            "problem": "The Evaluation checks conflict resolution; “Resolve” makes the evaluation itself perform it.",
+            "smallest_fix": "Check gap-free RMEDO conflict resolution."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B12",
+      "current_id": "CA-R-2447",
+      "v1": {
+        "verdict": "NeedsChanges",
+        "issue": "A two-sentence evidence inventory is an abstract rather than a usable Summary."
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B13",
+      "current_id": "CA-R-2448",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "changed meaning",
+            "source_quote": "keep **all** valuable Project information recoverable",
+            "generated_quote": "Keep Project Information Recoverable",
+            "problem": "Project information without “valuable” can broaden the subject beyond the stated information.",
+            "smallest_fix": "Keep valuable Project information recoverable."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B14",
+      "current_id": "CA-E-667",
+      "v1": {
+        "verdict": "NeedsChanges",
+        "issue": "A multi-sentence evaluation criteria and procedure inventory is an abstract rather than a usable Summary."
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "changed meaning",
+            "source_quote": "Evaluation **must** return `fail`",
+            "generated_quote": "Require Complete Core Support Before Acceptance",
+            "problem": "“Require Complete Core Support Before Acceptance” replaces a multi-condition evaluation with an acceptance prerequisite and leaves out its broader foundation check.",
+            "smallest_fix": "Check the Project-wide foundation and Core set."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B15",
+      "current_id": "CA-R-2449",
+      "v1": {
+        "verdict": "NeedsChanges",
+        "issue": "A full claim and exclusion inventory is an over-detailed abstract rather than a Summary."
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "incomplete main point",
+            "source_quote": "discovery, schema, **and** dispatch interface",
+            "generated_quote": "MCP Owns Discovery and Dispatch, Not Domain Behavior",
+            "problem": "Schema is one of three explicitly named interface responsibilities and disappears from the title.",
+            "smallest_fix": "MCP owns provider-neutral discovery, schema and dispatch."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B16",
+      "current_id": "CA-D-657",
+      "v1": {
+        "verdict": "NeedsChanges",
+        "issue": "A multi-sentence field, draft and authority inventory is an abstract rather than a usable Summary."
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B17",
+      "current_id": "CA-R-2450",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B18",
+      "current_id": "CA-R-2451",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "vague",
+            "source_quote": "used by an AI Agent **or** presented to the Operator",
+            "generated_quote": "PROMPTS Owns Prompt-Based Implementations",
+            "problem": "“Prompt-Based Implementations” loses the two intended audiences and leaves the owned subject too broad.",
+            "smallest_fix": "PROMPTS owns agent and Operator prompt implementations."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B19",
+      "current_id": "CA-R-2452",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "incomplete main point",
+            "source_quote": "create **and** evolve a working CAPRMEDIO Framework",
+            "generated_quote": "Enable Any Operator to Manage Any Feasible Project with AI Agents",
+            "problem": "The Project’s primary create-and-evolve obligation disappears; managing a Project alone substitutes for the broader capability.",
+            "smallest_fix": "Create and evolve a working CAPRMEDIO Framework."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B20",
+      "current_id": "CA-E-668",
+      "v1": {
+        "verdict": "NeedsChanges",
+        "issue": "A multi-sentence evaluation procedure and outcomes inventory is an abstract rather than a usable Summary."
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "changed meaning",
+            "source_quote": "Evaluate **every** Atom against **every** Project-wide foundational invariant",
+            "generated_quote": "Align every active Atom with Project-wide foundational invariants",
+            "problem": "The Evaluation checks alignment; “Align” implies performing corrections rather than checking them.",
+            "smallest_fix": "Check the selected Scope against active Project-wide invariants."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B21",
+      "current_id": "CA-R-709",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B22",
+      "current_id": "CA-R-1420",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "vague",
+            "source_quote": "for the Operator **to** make informed decisions",
+            "generated_quote": "Keep Operator communication necessary and sufficient",
+            "problem": "Necessary and sufficient for what is omitted, so the purpose of the communication is unclear.",
+            "smallest_fix": "Support informed Operator decisions."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B23",
+      "current_id": "CA-R-705",
+      "v1": {
+        "verdict": "NeedsChanges",
+        "issue": "A two-sentence listing of all layer and feature identities is an over-detailed abstract rather than a Summary."
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "incomplete main point",
+            "source_quote": "are downstream Project Layers; COMMUNITY_EXTENSIONS **and** FIELD are direct Project Features",
+            "generated_quote": "Include all root Implementation Folder outputs",
+            "problem": "The title reduces Framework composition to one output inclusion and omits the other structural contribution.",
+            "smallest_fix": "Define Framework composition."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B24",
+      "current_id": "CA-R-1407",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B25",
+      "current_id": "CA-R-1178",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "changed meaning",
+            "source_quote": "token consumption;\n- AI Agent mistakes; **and**\n- irrelevant **or** stale context",
+            "generated_quote": "Make FRAMEWORK_ENGINE efficient while preserving Project outcomes",
+            "problem": "“Efficient” replaces three distinct outcomes, including mistakes and context quality, with an inadequate abstraction.",
+            "smallest_fix": "Reduce tokens, mistakes, and context clutter."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B26",
+      "current_id": "CA-R-1180",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "changed meaning",
+            "source_quote": "provide CAPRMEDIO-maintained Extensions",
+            "generated_quote": "Extend capabilities without changing Core Meta-Model authority",
+            "problem": "“Extend capabilities” describes the effect but omits the requirement to provide maintained optional Extensions.",
+            "smallest_fix": "Provide CAPRMEDIO-Maintained Optional Extensions."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B27",
+      "current_id": "CA-R-1179",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "changed meaning",
+            "source_quote": "use a CAPRMEDIO Framework Instance efficiently **to** achieve their Project Goals",
+            "generated_quote": "Give the Operator readable guidance for efficient Project use",
+            "problem": "“Project use” changes the thing used and leaves out achieving Project Goals.",
+            "smallest_fix": "Help Operators use CAPRMEDIO to achieve Project Goals."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B28",
+      "current_id": "CA-R-819",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "changed meaning",
+            "source_quote": "must not** require **any** of the Operator's human participants",
+            "generated_quote": "Remove specialist craft requirements from feasible Projects",
+            "problem": "Removing specialist craft requirements from Projects is broader than not requiring particular human participants to master or perform that work.",
+            "smallest_fix": "Do not require human participants to master or personally perform specialist work."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B29",
+      "current_id": "CA-R-712",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "incomplete main point",
+            "source_quote": "does **not** own another Project Layer's scope",
+            "generated_quote": "Keep Project Layers as direct CAPRMEDIO children",
+            "problem": "Being direct children does not itself state the separate no-ownership condition; the title weakens the sibling relationship.",
+            "smallest_fix": "Keep Project Layers as siblings."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B30",
+      "current_id": "CA-R-1421",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B31",
+      "current_id": "CA-R-1423",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B32",
+      "current_id": "CA-R-1486",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B33",
+      "current_id": "CA-R-1181",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "incomplete main point",
+            "source_quote": "usable, evaluated versions of CAPRMEDIO **and** their release notes",
+            "generated_quote": "Deliver usable, evaluated CAPRMEDIO RELEASES",
+            "problem": "The independently required release notes are missing.",
+            "smallest_fix": "Provide usable CAPRMEDIO versions and release notes."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B34",
+      "current_id": "CA-R-1426",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "changed meaning",
+            "source_quote": "provide observability **and** transparency sufficient for the Operator",
+            "generated_quote": "Make FRAMEWORK_ENGINE observable and transparent",
+            "problem": "The requirement concerns understanding Engine execution, not making the entire FRAMEWORK_ENGINE observable and transparent.",
+            "smallest_fix": "Make engine execution observable and transparent."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B35",
+      "current_id": "CA-M-447",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B36",
+      "current_id": "CA-M-006",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "NeedsChanges",
+        "issues": [
+          {
+            "category": "changed meaning",
+            "source_quote": "Terms;\n- Claims;\n- rules;\n- structure; **and**\n- Implementation",
+            "generated_quote": "Keep shared Project governance coherent",
+            "problem": "“Project governance” omits Implementation and narrows the coherence subject.",
+            "smallest_fix": "Keep the whole project coherent."
+          }
+        ]
+      }
+    },
+    {
+      "key": "B37",
+      "current_id": "CA-M-005",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    },
+    {
+      "key": "B38",
+      "current_id": "CA-E-001",
+      "v1": {
+        "verdict": "Pass",
+        "issue": null
+      },
+      "v2": {
+        "verdict": "Pass",
+        "issues": []
+      }
+    }
+  ],
+  "minimal_prompt_fixes": [
+    "Summarize the primary contribution in a short title, not a restatement of its procedure or details.",
+    "Keep the actual action and its central subject and outcome; do not replace checking with doing or a set of distinct outcomes with a vague abstraction.",
+    "Keep a qualifier when dropping it changes the main meaning, including all-and-only boundaries. If an existing Summary already does this clearly, retain it; do not change wording just to match an older source."
+  ],
+  "verification": {
+    "input_cases": 38,
+    "output_or_sources_edited": false
+  }
+}

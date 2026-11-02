@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "reviewer": "terra_settings_review",
+  "evidence_origin": "Independent completed read-only worker return; root repeated exact projection hash/vector/metadata assertions",
+  "source_frontier_count": 1137,
+  "projection_ids": [
+    "CA-PROJ-014",
+    "CA-PROJ-015",
+    "CA-PROJ-016",
+    "CA-PROJ-017",
+    "CA-PROJ-018",
+    "CA-PROJ-019"
+  ],
+  "tree_nodes": 54,
+  "tree_edges": 46,
+  "tree_diagnostics": 0,
+  "relation_contracts": 41,
+  "outside_model_evidence_sources": 367,
+  "normalized_source_paragraphs_preserved": 1513,
+  "display_coverage": "complete",
+  "structured_cfel": "partial",
+  "unsupported_formal_clauses_visible": 137,
+  "current_projections": [
+    {
+      "id": "CA-PROJ-014",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md",
+      "before_sha256": "b32c11b1c72e0a33cac9277ba4b06003b1b5ebdb570d587b492d80b7995f8f5d",
+      "sha256": "41f414282ea3062a792a3df86a065703fbb9d48d9979f6d8f74f4defc804adaa",
+      "source_count": 1137,
+      "updated_at": "2026-11-02 08:12:36 +0400",
+      "named_selection": "Named Selection//Current-MODEL-Primary-Nodes",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/projection-predecessors/CA-PROJ-014-b32c11b1c72e0a33cac9277ba4b06003b1b5ebdb570d587b492d80b7995f8f5d.txt"
+    },
+    {
+      "id": "CA-PROJ-015",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-015-CAPRMEDIO--Subject-Graph-Properties--Current-Methodology-and-Project-RMED.md",
+      "before_sha256": "efcf627f2b287df82e2e94c763f9a674925f5758cea70cbf2f3b190b4fe28c53",
+      "sha256": "ecd396d17fe180fbf7a4cc809907d937244e7a80b2227cf04675459c78844479",
+      "source_count": 1137,
+      "updated_at": "2026-11-02 08:12:36 +0400",
+      "named_selection": "Named Selection//Current-MODEL-Properties",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/projection-predecessors/CA-PROJ-015-efcf627f2b287df82e2e94c763f9a674925f5758cea70cbf2f3b190b4fe28c53.txt"
+    },
+    {
+      "id": "CA-PROJ-016",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-016-CAPRMEDIO--Subject-Graph-Instances--Current-Methodology-and-Project-RMED.md",
+      "before_sha256": "d24d4b9eecd3bcb157cea7a929c1bb8c7b3c39a7a62a08adaf09486fddef49a2",
+      "sha256": "e363292f34db9c59684f9c16c33239cc49adf3ba2ac95d68413a3cebb5e367ac",
+      "source_count": 1137,
+      "updated_at": "2026-11-02 08:12:36 +0400",
+      "named_selection": "Named Selection//Current-MODEL-Named-Relations",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/projection-predecessors/CA-PROJ-016-d24d4b9eecd3bcb157cea7a929c1bb8c7b3c39a7a62a08adaf09486fddef49a2.txt"
+    },
+    {
+      "id": "CA-PROJ-017",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-017-CAPRMEDIO--Model-Graph--Current-MODEL-Declarations.md",
+      "before_sha256": "ef8f53838b2fca5007063295f2e66ea8acd11354291619b6373b00f352dab0b8",
+      "sha256": "b389f5aae86452222b8929736da41af25c523ada69c234b63c5b16391a62dcda",
+      "source_count": 173,
+      "updated_at": "2026-11-02 08:06:55 +0400",
+      "named_selection": "Named Selection//Current Declared MODEL",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/projection-predecessors/CA-PROJ-017-ef8f53838b2fca5007063295f2e66ea8acd11354291619b6373b00f352dab0b8.txt"
+    },
+    {
+      "id": "CA-PROJ-018",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-018-CAPRMEDIO--Entities-Graph--Current-Subject-Narrowing-Tree.md",
+      "before_sha256": "e4590ecf4df8407159a44217f2b84c9c4f3861eb27b40570a735c52c4da88d40",
+      "sha256": "4c2b7bc0ebfdcabd9947b5fd25127296a5ff699ed0d7d636ca172a283c189636",
+      "source_count": 220,
+      "updated_at": "2026-11-02 08:12:36 +0400",
+      "named_selection": "Named Selection//Current Subject Narrowing Tree",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/projection-predecessors/CA-PROJ-018-e4590ecf4df8407159a44217f2b84c9c4f3861eb27b40570a735c52c4da88d40.txt"
+    },
+    {
+      "id": "CA-PROJ-019",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-019-CAPRMEDIO--MODEL-Formal-Contracts.md",
+      "before_sha256": "d1b145326edcfd9967ebe28b652524666b9bb1242387b25267b19a50fcc08f42",
+      "sha256": "9c312fda75068b3c51642583c9e00f3a19672923f0e5f61a1c7163f4bf3a36a7",
+      "source_count": 1137,
+      "updated_at": "2026-11-02 08:12:36 +0400",
+      "named_selection": "Named Selection//Current MODEL Formal Contracts",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/projection-predecessors/CA-PROJ-019-d1b145326edcfd9967ebe28b652524666b9bb1242387b25267b19a50fcc08f42.txt"
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "No full CFEL evaluator or general runtime execution"
+  ]
+}

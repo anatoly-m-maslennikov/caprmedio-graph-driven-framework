@@ -1,29 +1,28 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Expansion Boundary
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Extension Sources
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-version: 29
-updated_at: 2026-10-27 19:59:54 +0400
+  active: Scope Unit
+  passive:
+  - Scope Unit//CORE_META_MODEL
+  - Entity/Object/Continuant/Selection//Extension Sources
+  - Scope Unit//PROJECT_CONFIGURATION
+  - Atom.Content
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+version: 33
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1375
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Restrict Methodology Source Expansion to Core Permission
 
-## Scope
+## Claim scope
 
 Methodology source expansion by an Extension **or** Project Configuration.
 

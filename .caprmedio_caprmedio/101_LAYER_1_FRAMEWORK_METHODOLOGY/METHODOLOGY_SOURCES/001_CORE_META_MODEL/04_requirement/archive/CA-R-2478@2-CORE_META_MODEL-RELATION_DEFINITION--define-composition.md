@@ -1,0 +1,26 @@
+---
+atom_id: CA-R-2478@2
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+subjects:
+  active: CFEL <+ Relation//IS_CONTAINED_BY
+version: 2
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+tier: 3
+role: Requirement
+form: Relation Definition
+---
+## Summary
+
+Define composition and its inverse
+
+## Claim
+
+IS_CONTAINED_BY relates a contained Node to its immediate Container. Containment does not imply narrowing or inheritance.
+
+```CFEL
+(Node, Node/**, .**) ((IS_CONTAINED_BY)) ((Node, Node/**, .**) >| Container = yes);
+IS_CONTAINED_BY ((HAS_INVERSE)) CONTAINS
+```

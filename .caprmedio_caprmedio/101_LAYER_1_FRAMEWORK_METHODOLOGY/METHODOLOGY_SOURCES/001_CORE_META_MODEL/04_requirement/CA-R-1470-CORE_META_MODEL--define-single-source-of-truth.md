@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Rule
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-version: 22
-updated_at: 2026-10-27 19:59:55 +0400
+  active: Entity
+  passive:
+  - Atom
+  - Atom.Content
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+  - Carrier
+  - Journal
+  - Projection
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1470
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Definition
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Define Single Source of Truth
 
-## Scope
+## Claim scope
 
 the authority of independently maintained facts.
 

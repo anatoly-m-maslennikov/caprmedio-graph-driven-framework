@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-01",
+  "decision": "Honor active-Subject target resolution and the explicit no-extra-Tier-rule decision for other Goals",
+  "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+  "before_sha256": "363d26dcb51764c7d320ac3a54748629d0d5c8b8914e99ce346c320b29380412",
+  "after_sha256": "bbd93af2db9cbe39c56666f9b7ea956d25c2e8bd5f9bca055c483a65fee5db88",
+  "before": "Project Goals use Tier -1. Ordinary Scope Unit-owned Atoms use Tier 0 or higher.",
+  "after": "Goals whose active Subject resolves to the Project use Tier -1. Ordinary Scope Unit-owned non-Goal Atoms use Tier 0 or higher.",
+  "formal_block_unchanged": true,
+  "remaining_gap": "Exact active-Subject-to-Scope binding remains undeclared; scope-owned qualifier is retained, not replaced with an invented direct-container test"
+}

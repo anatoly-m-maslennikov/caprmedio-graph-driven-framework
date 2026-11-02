@@ -1,0 +1,13 @@
+key	atom_id	summary	body_fidelity	joint_style	generation
+B08	CA-R-2446	Show gateway health, recent Tool and Workflow observations, and safe errors	Pass	Pass	Single pass; no external fix
+B09	CA-O-238	Check code candidates against the complete applicable Method-policy set and current Evaluation and diagnosis evidence	Pass	Pass	Single pass; no external fix
+B10	CA-O-239	Review code candidate evidence and applicable Method policy during shared implementation of Evaluations before required behavior	Pass	Pass	Single pass; no external fix
+B14	CA-E-667	Check Project-wide foundation and Core commitments for valid ownership, support, and classification	Pass	Pass	Single pass; no external fix
+B15	CA-R-2449	MCP owns provider-neutral discovery, schema, and dispatch for Tools, Prompts, and Workflows	Pass	Pass	Single pass; no external fix
+B17	CA-R-2450	The Project has exactly five ordered Layers	Pass	Pass	Single pass; no external fix
+B23	CA-R-705	The CAPRMEDIO Framework includes all Project outputs delivered to root Implementation Folders; downstream Layers and direct Features have distinct Project roles	Pass	Pass	Single pass; no external fix
+B02	CA-R-2430	PROGRAMMATIC owns all and only deterministic behavior of FRAMEWORK_ENGINE	Pass	Pass	Single pass; no external fix
+B19	CA-R-2452	Create and evolve CAPRMEDIO so any Operator can create, deliver, run and maintain any feasible Project with AI Agents	Pass	Pass	Single pass; no external fix
+B37	CA-M-005	Admit or retain only mechanisms needed to preserve required outcomes or material governed distinctions	Pass	Pass	Single pass; no external fix
+B36	CA-M-006	Maintain coherence across Project governance and Implementation	Pass	Pass	Single pass; no external fix
+B16	CA-D-657	Minimal, governed YAML frontmatter for Markdown Atom Carriers	Pass	Pass	Single pass; no external fix

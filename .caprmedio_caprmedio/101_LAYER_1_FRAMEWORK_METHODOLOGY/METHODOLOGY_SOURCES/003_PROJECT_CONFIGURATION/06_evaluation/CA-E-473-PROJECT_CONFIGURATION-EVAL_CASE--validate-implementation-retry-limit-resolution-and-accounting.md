@@ -1,36 +1,35 @@
 ---
-version: 23
-updated_at: 2026-10-27 19:59:35 +0400
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
-  - CA-R-1488
+  - CA-R-1488@21
   - CA-R-1489
   - CA-M-295
   - CA-D-447
   - CA-O-024
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Implementation Retry Limit
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-  - Subject/caprmedio/Action//Implementation Retry Control
-  - Subject/caprmedio/Workflow//Implementation Workflow
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
+  active: Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Object/Continuant/Governing Objects/Governing Configuration
 atom_id: CA-E-473
-content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 6
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate implementation retry-limit resolution and accounting
 
-## Scope
+## Claim scope
 
 implementation retry-limit resolution and accounting.
 

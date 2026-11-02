@@ -1,0 +1,74 @@
+{
+  "status": "read-only minimal CFEL candidate; no Draft, parser, runtime, or Current source changed",
+  "scope": "Fenced blocks only; indented code blocks are outside this rule by explicit user decision.",
+  "new_selector": {
+    "name": "FENCED_LABELS",
+    "signature": "FENCED_LABELS(p)",
+    "exact_rule_text": [
+      "FENCED_LABELS(p) selects one parsed fence label for every fenced code-block occurrence in the complete recursive Markdown parse of the one scalar Markdown value denoted by p. Duplicate labels remain separate selected values.",
+      "Selection uses Markdown block boundaries from that parse, never a regular-expression match. It does not select indented code blocks, create Graph Nodes, or create dependent Properties.",
+      "p must resolve to exactly one Markdown scalar. Missing, multi-valued, incomplete, or unavailable Markdown parsing is an evaluation error; it is not an empty selection.",
+      "FENCED_LABELS(p){:n} uses the existing allowed-count notation for the selected fence labels. `FENCED_LABELS(p): L` uses the existing allowed-value notation: every selected label must be one of the stated literal labels. The allowed-value test over no selected labels passes vacuously.",
+      "For `: CFEL`, CFEL is the existing semantic label in the Formal content rule: a fenced block labelled CFEL carries formal content. This selector does not define whether a raw Markdown info string is whole-string or token parsed. The Markdown-format implementation must bind its parsed fence label to that existing CFEL-labelled-fence meaning before evaluation."
+    ],
+    "minimality": "One reusable parsed-Markdown selector only. It reuses existing count and allowed-value syntax; no COUNT, ALL, INFO_STRING, indented-block selector, block graph, or Claim-specific predicate is introduced."
+  },
+  "exact_claim_after": "```CFEL\nAtom/(.Role in RMED).Content.Claim{:1}: [markdown]{:1};\nAtom/(.Role in RMED).Content.Claim.*[]{:0};\nFENCED_LABELS(Atom/(.Role in RMED).Content.Claim){:0..1};\nFENCED_LABELS(Atom/(.Role in RMED).Content.Claim): CFEL\n```",
+  "constraint_trace": {
+    "source": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md:21-26",
+    "preserved": [
+      "At most one CFEL fenced block is present.",
+      "Other fenced blocks are not allowed in Claim.",
+      "Claim remains one required markdown scalar with no child Properties."
+    ],
+    "proof": "A non-CFEL fence fails `: CFEL`; two CFEL fences fail `{:0..1}`; zero fences pass; the required scalar and zero-child contract remain the first two expressions."
+  },
+  "governing_label_evidence": {
+    "source": "CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md:49-51",
+    "text": "A fenced block labelled CFEL carries formal content inside Claim.",
+    "handling": "The candidate preserves that semantic label. It deliberately does not add a whole-info-string, first-token, case-folding, or metadata policy."
+  },
+  "examples": [
+    {
+      "input": "ordinary Markdown prose with no fenced code block",
+      "labels": [],
+      "result": "pass"
+    },
+    {
+      "input": "one parsed fenced block whose label is CFEL",
+      "labels": ["CFEL"],
+      "result": "pass; its body is validated separately as CFEL syntax"
+    },
+    {
+      "input": "two parsed fenced blocks both labelled CFEL",
+      "labels": ["CFEL", "CFEL"],
+      "result": "fail; duplicates are retained and count is 2"
+    },
+    {
+      "input": "one parsed fenced block labelled yaml",
+      "labels": ["yaml"],
+      "result": "fail; yaml is not an allowed label"
+    },
+    {
+      "input": "one parsed fenced block with a resolved empty label",
+      "labels": [""],
+      "result": "fail; an empty fence label is not CFEL"
+    },
+    {
+      "input": "one four-space-indented code block and no fenced block",
+      "labels": [],
+      "result": "pass under the explicitly fence-only restriction"
+    },
+    {
+      "input": "Markdown scalar whose complete block parse is unavailable",
+      "labels": null,
+      "result": "evaluation error, not an empty-label pass"
+    }
+  ],
+  "application_guard": "This Claim has a required single markdown scalar. A future optional markdown Property must guard its occurrence before calling FENCED_LABELS; the selector does not treat absence as an empty value.",
+  "implementation_gate": "Before evaluation, bind parsed Markdown fence labels to the existing CFEL-labelled-fence meaning. This is a binding gate, not a new semantic rule about raw info-string encoding.",
+  "mutations": {
+    "repository_files_changed": false,
+    "output": "/tmp/caprmedio-markdown-structure-20261101/minimal.json"
+  }
+}

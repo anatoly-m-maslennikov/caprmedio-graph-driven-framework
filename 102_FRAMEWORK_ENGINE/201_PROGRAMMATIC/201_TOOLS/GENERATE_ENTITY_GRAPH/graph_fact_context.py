@@ -123,11 +123,11 @@ def context_evidence(context: DerivedFactContext) -> dict[str, object]:
 
 def verified_context(context: DerivedFactContext, repository: Path, graph_kind: str,
                      carriers: Sequence, selection: Mapping, source_frontier: Mapping,
-                     authority_sources: Sequence) -> DerivedFactContext:
+                     authority_sources: Sequence, *, subject_profile: str = "legacy") -> DerivedFactContext:
     """Reprepare current evidence and reject stale, foreign or caller contexts."""
     _trusted(context)
     current = prepare_fact_context(repository, graph_kind, carriers, selection,
-                                   source_frontier, authority_sources)
+                                   source_frontier, authority_sources, subject_profile=subject_profile)
     if context._bytes != current._bytes or context._provenance_bytes != current._provenance_bytes:
         _fail("context-binding-stale", "Fact context does not match current source, selection and profile bindings")
     return current
@@ -526,9 +526,11 @@ def _core_admission(repository: Path, graph_kind: str, carriers: Sequence,
 
 def prepare_fact_context(repository: Path, graph_kind: str, carriers: Sequence,
                          selection: Mapping, source_frontier: Mapping,
-                         authority_sources: Sequence) -> DerivedFactContext:
+                         authority_sources: Sequence, *, subject_profile: str = "legacy") -> DerivedFactContext:
     """Read and bind sources; keep unavailable semantic checks unresolved."""
     _check_loaded_profile()
+    if not isinstance(subject_profile, str) or subject_profile not in {"legacy", "approved"}:
+        _fail("context-subject-profile-invalid", "Fact context requires an explicit supported notation profile")
     from fact_context_contract import ContractError, implementation_sha256, validate_fact_context
     contract_digest = implementation_sha256()
     repository = Path(repository).resolve()
@@ -551,6 +553,11 @@ def prepare_fact_context(repository: Path, graph_kind: str, carriers: Sequence,
                                            "admission": "unavailable"})}
     details_bound = _details_assignment_bound(authorities)
     declared_core = _declared_core(repository, frontier, selected)
+    historical_core = declared_core and subject_profile == "legacy"
+    if subject_profile == "approved":
+        profile = {"id": profile["id"], "version": profile["version"],
+                   "profile_sha256": _digest({"base_profile": profile, "subject_profile": "approved",
+                                               "current_native_admission": "unavailable"})}
     sources: dict[tuple, dict] = {}
     candidates = []
     diagnostics = []
@@ -611,7 +618,11 @@ def prepare_fact_context(repository: Path, graph_kind: str, carriers: Sequence,
     admitted = []
     registry = []
     portfolio = []
-    if declared_core and selected["atom_ids"]:
+    if declared_core and subject_profile == "approved" and selected["atom_ids"]:
+        diagnostics.append({"code": "current-core-admission-profile-unavailable", "severity": "warning",
+                            "source_refs": [], "details": {"graph_kind": graph_kind,
+                                "subject_profile": "approved", "historical_profile": "not_applied"}})
+    if historical_core and selected["atom_ids"]:
         try:
             bundle = _core_admission(repository, graph_kind, carriers, selected, frontier)
         except FactContextError:
@@ -628,7 +639,7 @@ def prepare_fact_context(repository: Path, graph_kind: str, carriers: Sequence,
             diagnostics = [row for row in diagnostics if row["code"] != "semantic-profile-unavailable"]
             diagnostics.extend(bundle["diagnostics"])
             portfolio.append(bundle["provider"])
-    if declared_core:
+    if historical_core:
         from core_relation_registry import prepare_core_relation_registry
         registry_bundle = prepare_core_relation_registry(repository, carriers, frontier, selected)
         registry = [row for row in registry_bundle.records if row["kind"]["graph_kind"] == graph_kind]

@@ -1,0 +1,9 @@
+{
+  "status": "FIX",
+  "finding": "Update stale rule-text reference `For : CFEL` to `For [in (CFEL)]`; the expression no longer uses bare allowed-case syntax.",
+  "semantic_assessment": "Finite literal Format explicitly matches only CFEL and applies to each selected label; {:0..1} counts all occurrences. This preserves the two fence restrictions without redefining : L globally.",
+  "limits": [
+    "Markdown parsed-label-to-CFEL binding remains an implementation gate",
+    "No repository mutation or runtime verification"
+  ]
+}

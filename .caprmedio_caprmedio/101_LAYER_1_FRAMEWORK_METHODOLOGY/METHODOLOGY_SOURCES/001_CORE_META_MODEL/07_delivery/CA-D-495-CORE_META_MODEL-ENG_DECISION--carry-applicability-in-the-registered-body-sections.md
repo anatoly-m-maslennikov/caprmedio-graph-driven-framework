@@ -1,28 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
-  - Subject/CAPRMEDIO/Carrier/File
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-version: 20
-updated_at: 2026-10-27 19:59:25 +0400
+  active: Atom.Content
+  passive:
+  - Atom.Content
+  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - Carrier/File
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+version: 25
+updated_at: 2026-11-02 00:55:09 +0400
 relations: {}
 atom_id: CA-D-495
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Carry applicability in the registered body sections
 
-## Scope
+## Claim scope
 
 applicability restrictions of Claims carried by Markdown Atom Carriers.
 
@@ -31,10 +30,10 @@ applicability restrictions of Claims carried by Markdown Atom Carriers.
 a Markdown Atom Carrier **must** carry the Claim's applicability **in** the registered body sections, **not** as a duplicate frontmatter value:
 
 - for ordinary RMED layouts, carry applicability **in** Scope, followed by the qualified contribution **in** Claim **and** supporting information **in** Details, using the exact headings registered by CA-D-479.
-- for an R Atom expressing a formal Graph Rule, carry the operative applicability and restrictions once in the structured YAML under CA-D-637: `applies_to` selects the governed cases and `condition` carries their constraint. There is no Claim or Substance Property or section and no separate prose Scope. Semantics and Details are optional supporting sections under CA-D-637, not another copy of the operative applicability or constraint. Ordinary R/Type: Rule Atoms do not acquire this exception automatically.
+- carry formal content in a CFEL fence within the Claim under CA-D-479. The Claim may contain CFEL without prose. Do not create a Formal Claim child or an operative frontmatter Claim.
 - for other Content Roles, retain applicability **in** their registered primary content. this rule does **not** change their body-section layouts.
-- an ordinary RMED Scope section **must** contain an applicability description, **not** just a copy of `current_scope_unit` **or** `claim_target_scope_unit`. those fields remain the carried structural references under CA-D-482.
-- carry the applicability restrictions **=1** time. in the ordinary RMED layout, Claim **and** Details are read within Scope; do **not** maintain a second scope declaration **in** either section **or** frontmatter.
+- an ordinary RMED Claim scope section **must** contain an applicability description, **not** just a copy of `current_scope_unit` **or** `claim_target_scope_unit`. those fields remain the carried structural references under CA-D-482.
+- carry the applicability restrictions **=1** time. in the ordinary RMED layout, Claim **and** Details are read within Claim scope; do **not** maintain a second scope declaration **in** either section **or** frontmatter.
 
 ## Details
 

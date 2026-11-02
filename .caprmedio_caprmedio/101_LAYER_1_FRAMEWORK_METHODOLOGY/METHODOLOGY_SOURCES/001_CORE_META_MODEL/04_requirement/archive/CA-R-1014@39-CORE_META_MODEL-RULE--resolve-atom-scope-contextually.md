@@ -1,0 +1,34 @@
+---
+subjects:
+  governs: Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  depends_on:
+  - Entity/Object/Continuant/Governing Objects/Atom.Author
+  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs
+  - Entity/Object/Continuant/Governing Objects/Atom.Content
+version: 39
+updated_at: 2026-10-30 03:11:58 +0400
+relations:
+  child_of:
+  - CA-R-1596
+atom_id: CA-R-1014@39
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 3
+type: Rule
+---
+## Summary
+
+Resolve Atom Scope Contextually
+
+## Claim scope
+
+Atom Scope.
+
+## Claim
+
+an Atom Scope **must** include its current Scope Unit Scope **or** its Author's registered Operator fallback under CA-D-657-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim.

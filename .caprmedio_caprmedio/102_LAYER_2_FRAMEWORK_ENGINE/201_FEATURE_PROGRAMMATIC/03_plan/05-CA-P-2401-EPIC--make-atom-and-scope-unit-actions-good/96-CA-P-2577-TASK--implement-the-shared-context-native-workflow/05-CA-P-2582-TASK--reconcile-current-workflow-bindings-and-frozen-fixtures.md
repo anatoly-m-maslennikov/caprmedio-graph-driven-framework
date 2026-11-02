@@ -8,8 +8,8 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 status: Active
-version: 12
-updated_at: 2026-10-25 17:32:27 +0400
+version: 14
+updated_at: 2026-10-30 03:11:57 +0400
 subjects:
   governs: Subject/Graph Node/Engineering/Workflow Orchestration/Action Realization
   depends_on: []
@@ -22,7 +22,7 @@ relations:
   - CA-P-2581
   relates_to:
   - CA-O-016
-  - CA-O-230
+  - CA-O-239
   - CA-E-652
 tier: 3
 ---

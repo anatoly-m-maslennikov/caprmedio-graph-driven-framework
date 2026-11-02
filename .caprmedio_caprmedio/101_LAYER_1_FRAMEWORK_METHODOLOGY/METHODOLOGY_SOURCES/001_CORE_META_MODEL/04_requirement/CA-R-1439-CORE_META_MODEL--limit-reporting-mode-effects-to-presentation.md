@@ -1,32 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode.Effects
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode
-version: 18
-updated_at: 2026-10-27 19:59:54 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction
+  passive:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-1402
+  - CA-R-1402@27
 atom_id: CA-R-1439
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Limit reporting mode effects to presentation
 
-## Scope
+## Claim scope
 
 the effects of the interaction reporting mode.
 
 ## Claim
 
 the interaction reporting mode **must** affect presentation **only**, **without** changing authorization, Artifact creation, workflow routing, validation, **or** safety behavior.
-
-## Details

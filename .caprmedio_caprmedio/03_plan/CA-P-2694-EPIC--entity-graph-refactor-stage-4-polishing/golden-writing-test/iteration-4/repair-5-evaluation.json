@@ -1,0 +1,70 @@
+{
+  "hashes": {
+    "repair-5/input.jsonl": "a6ab0b4c57e60b6490361c64183df59bd2c6b37df84e2d2ad5ba759b7d95091d",
+    "repair-5/output.jsonl": "35f16b3170e0cde59e8e5e07fca2a1836c0ee32eab18e0c417be56b73e2e644f",
+    "comparison-input.jsonl": "1dc2228e689347189d76851ba340a64bef02ed6dc919025648decc6e2ba84615"
+  },
+  "counts": {
+    "total": 5,
+    "pass": 1,
+    "needs_changes": 4,
+    "needs_context": 0
+  },
+  "results": [
+    {
+      "key": "B03",
+      "verdict": "NeedsChanges",
+      "generated_summary": "Preserve all information needed for governed use and keep unexposed information retrievable; show only the complete, currently justified task-sufficient set.",
+      "issues": [
+        {
+          "source_quote": "keep **all** unexposed preserved information so it can be retrieved.",
+          "problem": "The title now keeps all three points, but restates the method’s detailed task-set conditions rather than providing a concise title.",
+          "minimal_fix": "Show what is needed; keep the rest"
+        }
+      ]
+    },
+    {
+      "key": "B08",
+      "verdict": "NeedsChanges",
+      "generated_summary": "Expose bounded, read-only MCP /health browser diagnostics; preserve machine readiness and keep gateway health distinct from Tool and Workflow execution success.",
+      "issues": [
+        {
+          "source_quote": "recent Tool calls;",
+          "problem": "The title still omits recent Tool and Workflow observation history, and adds readiness details without naming that central function.",
+          "minimal_fix": "Expose bounded, read-only MCP health and call history"
+        }
+      ]
+    },
+    {
+      "key": "B09",
+      "verdict": "NeedsChanges",
+      "generated_summary": "Read-only code-candidate review of all applicable bound Method policy and current evidence; preliminary clearance is not acceptance.",
+      "issues": [
+        {
+          "source_quote": "The optional `review_phase` is final by default",
+          "problem": "The title adds a preliminary-clearance condition that belongs in the operation rather than its title.",
+          "minimal_fix": "Review code-candidate evidence and applicable Method policy without editing"
+        }
+      ]
+    },
+    {
+      "key": "B10",
+      "verdict": "NeedsChanges",
+      "generated_summary": "The shared implementation Step invokes exactly one read-only code review Action with explicit Integrated context, phase and complete source-bound inputs, passing results directly to the Workflow.",
+      "issues": [
+        {
+          "source_quote": "Require explicit `review_phase` preliminary **or** final",
+          "problem": "The title retells the Step’s phase, exact call count, input bindings and result handoff instead of naming the review.",
+          "minimal_fix": "Review code in shared implementation context"
+        }
+      ]
+    },
+    {
+      "key": "B17",
+      "verdict": "Pass",
+      "generated_summary": "The Project has exactly five Layers in a fixed Local Order.",
+      "issues": []
+    }
+  ],
+  "scope": "Fresh semantic and readability review against full content; no exact-title requirement. No source or generated outputs edited."
+}

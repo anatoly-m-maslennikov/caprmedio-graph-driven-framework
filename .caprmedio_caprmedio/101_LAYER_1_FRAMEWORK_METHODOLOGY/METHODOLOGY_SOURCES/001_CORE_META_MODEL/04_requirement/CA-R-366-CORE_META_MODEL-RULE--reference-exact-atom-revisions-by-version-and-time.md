@@ -1,32 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
-version: 31
-updated_at: 2026-10-27 20:00:09 +0400
+  active: Atom
+  passive:
+  - Atom.ID
+  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - Atom.Updated At
+version: 35
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-366
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Reference exact Atom Revisions by version and time
 
-## Scope
+## Claim scope
 
 exact Atom Revision references.
 
 ## Claim
 
 **every** exact Atom Revision reference **must** identify Atom identity, Version, **and** Updated At.
-
-## Details

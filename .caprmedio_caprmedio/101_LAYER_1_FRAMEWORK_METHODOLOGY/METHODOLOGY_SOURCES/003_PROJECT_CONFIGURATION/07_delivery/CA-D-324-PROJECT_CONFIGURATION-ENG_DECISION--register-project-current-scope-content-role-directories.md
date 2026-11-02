@@ -1,29 +1,28 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Carrier/Directory
-version: 25
-updated_at: 2026-10-27 19:59:23 +0400
+  active: Carrier
+  passive:
+  - Project
+  - Scope Unit
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - Carrier
+  - Carrier/Directory
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-324
-content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Register Project Current-Scope Content Role Directories
 
-## Scope
+## Claim scope
 
 administrative Content Role directory placement at the CAPRMEDIO Project root **and** **in** **every** descendant Scope Unit, including `CORE_META_MODEL`, `INSTALLED_EXTENSIONS`, **and** `PROJECT_CONFIGURATION`.
 

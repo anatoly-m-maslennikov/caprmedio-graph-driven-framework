@@ -1,21 +1,21 @@
 ---
 subjects:
-  governs: Subject/caprmedio/Workflow//Release Readiness
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/caprmedio/Action//Assess Release Readiness
-  - Subject/caprmedio/Workflow//Implementation Workflow
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-version: 21
-updated_at: 2026-10-27 19:59:35 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Release Readiness'
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - Scope Unit//PROJECT_CONFIGURATION
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Release Readiness'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  - Entity/Object/Continuant/Actor/Operator
+  - Projection
+  - Entity/Object/Continuant/History/Journal > Event Record
+  - Entity/Aspect/Engineering/Traceability
+  - Project
+  - Entity/Object/Continuant/History/Release.ID
+  - Atom/(.Role := Operations)
+  - Atom/(.Role := Evaluation)
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-O-025
@@ -24,25 +24,25 @@ relations:
   - CA-R-1692
   - CA-R-1646
 atom_id: CA-E-474
-content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate configurable release readiness
 
-## Scope
-
+## Claim scope
 configurable release readiness.
 
 ## Claim
 
-## Cases
+Configurable release readiness is validated by the following cases.
+
+**Cases.**
 
 1. use a Project with no selected release-readiness Workflow; execute its admitted implementation mode under CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior.
 2. select CA-O-025 for a candidate with complete passing current evidence **and** required approvals; contrast it with failed, blocked, missing, **or** stale required checks.
@@ -65,5 +65,3 @@ configurable release readiness.
 ## Failure disposition
 
 report the failing source Revision, case, expected result, **and** observed result. do **not** execute release side effects **or** change source authority **to** make a fixture pass.
-
-## Details

@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-01",
+  "user_expression": "Atom.Role: [string]{:1}",
+  "effect": "Replace the closed literal Format with string; preserve required occurrence and zero dependents.",
+  "before_sha256": "8b5d91f4bde09b439e22542f219ab471aca3fcd080939e8696f6e29b0f1baafd",
+  "after_sha256": "fb308e6caa402b66d6c673604351dcd8a18cae61a036c2e62d69edf5429aaa5e",
+  "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-role.md",
+  "role_kind_declarations": "Existing Role cases and meanings unchanged",
+  "runtime_changed": false
+}

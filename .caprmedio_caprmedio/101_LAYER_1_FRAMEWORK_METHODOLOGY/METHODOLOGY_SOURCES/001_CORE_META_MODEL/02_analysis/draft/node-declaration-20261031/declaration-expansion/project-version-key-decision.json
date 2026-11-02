@@ -1,0 +1,60 @@
+{
+  "global_key": [
+    "Atom.ID",
+    "Atom.Version"
+  ],
+  "scope": "All logical Atom instances inside the Project, including Draft, Current and Archived, across containment branches",
+  "draft_scope_answer": "Supersedes earlier Current-and-Archived-only answer",
+  "new_grammar": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-GFEL--require-unique-property-tuples.md",
+  "consumer": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+  "promotion": "At promotion: max(Atom.Version) across all same-ID instances inside the Project, including the promoted Draft and all statuses, plus 1.",
+  "examples": [
+    {
+      "current": 5,
+      "drafts": [
+        6,
+        7
+      ],
+      "archived": [],
+      "selected": 7,
+      "result": 8
+    },
+    {
+      "current": 8,
+      "drafts": [
+        6
+      ],
+      "archived": [
+        5
+      ],
+      "selected": 6,
+      "result": 9
+    },
+    {
+      "current": 7,
+      "drafts": [
+        6,
+        8
+      ],
+      "archived": [],
+      "selected": 6,
+      "result": 9
+    },
+    {
+      "current": 7,
+      "drafts": [
+        6,
+        12
+      ],
+      "archived": [],
+      "selected": 6,
+      "result": 13
+    }
+  ],
+  "workflow_expansion": "Deferred; no new Workflow Rs, O instances or temporal grammar",
+  "preparation_limit": "Packet markers such as CA-R-draft are not allocated IDs; target key conformance is not claimed before governed Draft admission.",
+  "promotion_pseudocode": "$last_version = max(atom.version) where atom.id = X;\n$new_version = $last_version + 1;",
+  "superseded_promotion": "Keep proposed version if higher; otherwise smallest unused above last Active.",
+  "selected_draft_included_in_max": true,
+  "current_only_filter": false
+}

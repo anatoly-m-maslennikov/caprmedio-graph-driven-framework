@@ -1,0 +1,47 @@
+{
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-status.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Status",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "c46f44a00708e7479c7e641c634078e01feb6bfa3c00735c375c5b20b050365b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Updated At",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "20a903e91114beb0988da98afb72150f25234f7e32a0d077b31f7d073145a29b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Relations.contained_by",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "9ebc7ab40b585501348973f11913815c83c3961a3e80384adadae79110b9cd09"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Relations.contained_by.atom",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "0eaedff5e4e7b42857e3fedf375255c6d1b8352cd5d7a2158492b132ae7117b6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Relations.contained_by.scope_unit",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "76703eff75c6614a5d0b23c37bdfa3d13aba7f037cc0a2110627f7d4bf07e13e"
+    }
+  ],
+  "basis": "existing value constraints; explicit human Status/Updated At leaf constraints; typed containment contract",
+  "reference_formats": "refer to admitted instances, not new literal value Nodes",
+  "limits": "not complete Node coverage; reference selector admission remains to review"
+}

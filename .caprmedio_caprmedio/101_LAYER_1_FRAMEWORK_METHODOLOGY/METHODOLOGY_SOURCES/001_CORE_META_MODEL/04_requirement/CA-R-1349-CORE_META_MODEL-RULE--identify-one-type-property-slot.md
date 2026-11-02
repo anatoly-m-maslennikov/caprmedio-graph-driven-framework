@@ -1,31 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node
-  depends_on:
-  - Subject
-  - Subject/CAPRMEDIO/Graph/Node
-version: 17
-updated_at: 2026-10-27 19:59:53 +0400
+  active: Entity
+  passive:
+  - Entity
+version: 21
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1349
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Identify One Type Property Slot
 
-## Scope
+## Claim scope
 
 qualified Type Subjects of an Entity occurrence.
 
 ## Claim
 
 **all** qualified Type Subjects of **`=1`** Entity occurrence **must** identify the same Type Property.
-
-## Details

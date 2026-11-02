@@ -1,37 +1,36 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
-  - Subject/CAPRMEDIO/Carrier.Canonical Address
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-version: 25
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Atom.ID
+  passive:
+  - Atom.ID
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - Atom.Content
+  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - Atom
+  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - Carrier.Canonical Address
+  - Project
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Aspect/Engineering/Execution Control/Decision Confidence
+  - Journal
+version: 30
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-M-276
 atom_id: CA-E-448
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 5
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Validate accidental Atom ID reuse repair
 
-## Scope
+## Claim scope
 
 Atom ID collision repairs.
 
@@ -47,5 +46,3 @@ the Evaluation **must** reject completion of an Atom ID collision repair under C
 - legitimate same-Atom Revisions **or** derived copies are renumbered as accidental reuse, **or** lookup **or** compilation silently selects an identity winner.
 
 the Evaluation **must** distinguish a paused collision awaiting an Operator decision from a completed repair. its checks **must** cover the verified-original-owner case, reversed Carrier discovery order, an unknown original owner, an ambiguous incoming reference, **and** legitimate same-Atom Revisions **or** derived copies.
-
-## Details

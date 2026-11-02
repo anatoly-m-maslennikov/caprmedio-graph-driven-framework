@@ -1,0 +1,81 @@
+{
+  "status": "implemented in eight owned Drafts only",
+  "updated_at": "2026-11-01 19:01:28 +0400",
+  "files": [
+    {
+      "path": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "before_sha256": "c6401eaf05d8be0fbd4ace0d6d2b65214c8668803b555693401b324f5556b40d",
+      "after_sha256": "ba3a4c253fd0db1c696939c24375be2a906c2637996b7a2d5a8e752d8339780f",
+      "removed": [
+        "IF (Scope Unit//$contained ((IS_CONTAINED_BY)) Scope Unit//$container) THEN ($contained.structural_level = $container.structural_level + 1)"
+      ],
+      "preserved": ["Container yes", "IS_CONTAINED_BY 0..1", "CONTAINS 0+", "non-Project parent exactly one"]
+    },
+    {
+      "path": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "before_sha256": "aa78279859f486da639ce14ab9f2d9e7f449cd5206c7cffef9ee3a4e009755ad",
+      "after_sha256": "41c9c23b7ae5da24750ac876c59cf80b09175b24675e56bc86b8d4fc02626860",
+      "removed": [
+        "IF (Package//$contained ((IS_CONTAINED_BY)) Package//$container) THEN ($contained.structural_level = $container.structural_level + 1)"
+      ],
+      "preserved": ["Container yes", "IS_CONTAINED_BY 0..1", "CONTAINS 0+", "non-Implementation parent exactly one"]
+    },
+    {
+      "path": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "before_sha256": "13d1d96e622c2b67eb50ed9bee76f630f4cf2ec3d3a753cadf13cd4fe065c5f8",
+      "after_sha256": "e81873a478a374c08a003a0803291113bc157beb168336016b24ad8177c7dee7",
+      "removed": ["Scope Unit/Project//$project.structural_level = 0"],
+      "preserved": ["CAPRMEDIO MODEL statement", "Project singleton", "Container yes", "Project parent zero"]
+    },
+    {
+      "path": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+      "before_sha256": "60c9e4af45a9cbbd5da9f261bd2b5752d6d54524c5588414b3c727587d5b0020",
+      "after_sha256": "330f0e4c0bb63f04b009f46cbe5c540f90c77b1cdc0490e314c3823a89ae645f",
+      "removed": ["Package/Implementation//$implementation.structural_level = 0"],
+      "preserved": ["Implementation singleton", "Implementation parent zero"]
+    },
+    {
+      "path": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "before_sha256": "62d372e9529d88e0c38176d52e7e867fe04de661449efe318fa8e18972ff6c16",
+      "after_sha256": "361062b225ee15d969488114971a9ead27ae01f7822d9c7a42eebdf9acef3fd9",
+      "added": [
+        "IF ((Atom/(.Role: Plan).Status = Active) AND (Atom/(.Role: Plan).Work Sequence Number{=1})) THEN (Atom/(.Role: Plan).Relations.contained_by{==1})"
+      ]
+    },
+    {
+      "path": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md",
+      "before_sha256": "d477d86a5837973b89b0b08a246b47c08444422294cd60846cd7c8e4dbaf000f",
+      "after_sha256": "a6507428d29520b7ead0da5cd3bb769b7c964fd685fc3100a6bce18d1c42c45a",
+      "removed": [
+        "IF ((Atom/(.Role: Plan).Status = Active) AND (Atom/(.Role: Plan).Work Sequence Number{=1})) THEN (Atom/(.Role: Plan).Relations.contained_by{==1})"
+      ],
+      "preserved": ["optional int", "positive supplied value", "two Active direct-container UNIQUE constraints"]
+    },
+    {
+      "path": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+      "before_sha256": "72970a953dbd90197510e4af948685dae921a9416d634dc3c79a3388f3b4fd9e",
+      "after_sha256": "d5f1f1ffaa1a75846cf78aeca9d9ae63f0872ade6347d38e910baa0a7988a954",
+      "added": [
+        "Scope Unit/Project//$project.structural_level = 0",
+        "IF (Scope Unit//$contained ((IS_CONTAINED_BY)) Scope Unit//$container) THEN ($contained.structural_level = $container.structural_level + 1)"
+      ],
+      "preserved": ["required one int", "no children", "nonnegative"]
+    },
+    {
+      "path": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+      "before_sha256": "387a777f5d77876ff43ac32665e166177031e8dad4a947d78ea0f73d42b75a02",
+      "after_sha256": "d2372d038bb3b5b269ad23f08dd3065a247023c652e4eb573d5a3e169975087f",
+      "added": [
+        "Package/Implementation//$implementation.structural_level = 0",
+        "IF (Package//$contained ((IS_CONTAINED_BY)) Package//$container) THEN ($contained.structural_level = $container.structural_level + 1)"
+      ],
+      "preserved": ["required one int", "no children", "nonnegative"]
+    }
+  ],
+  "verification": {
+    "relocated_clauses_once_each": true,
+    "no_constraint_lost_or_duplicated": true,
+    "no_new_relation_or_grammar": true,
+    "only_owned_files_changed": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "status": "draft_clarified",
+  "draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md",
+  "draft_sha256": "e1c59321e552d3e15beea289b4d785c33f6b5bef7833b035bae02a9becd88559",
+  "evidence": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "finding": "Current Atom body-property contract specifies heading normalization, empty-key and same-parent duplicate rejection, and section hierarchy; general Markdown extension is proposed, not already adopted."
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py",
+      "finding": "Current artifact section reader excludes the selected heading, unlike the latest Operator-requested subtree retrieval that includes it; reconcile during migration. Its literal heading-path duplicate check does not implement the full normalized mapping."
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/connector_section_parse.py",
+      "finding": "Section editing separately rejects ambiguous title/level selection and preserves exact bytes; it is not a general Markdown-to-Property parser."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-482-CORE_META_MODEL-ENG_DECISION--carry-the-resolved-claim-target-scope-unit.md",
+      "finding": "Current authoring materializes claim_target_scope_unit as nonempty registered Scope Unit, choosing own Scope as authoring default; proposed fallback should distinguish logical default from current carrier encoding."
+    }
+  ],
+  "open_decisions": [
+    {
+      "topic": "Reserved-key collisions and precise Unicode normalization",
+      "options": [
+        "Reject a conflicting mapping with a diagnostic while retaining the original source.",
+        "Specify a reversible escape or qualified-key encoding before admitting the mapping."
+      ],
+      "recommendation": "No reserved-key encoding or rejection policy is selected; preserve the source and resolve the choice before parser adoption.",
+      "impact": "General Markdown-to-Property mapping and downstream lookup/adapters; does not alter existing raw Markdown."
+    }
+  ],
+  "yaml_observation": "YAML Draft correctly distinguishes authored subject sets and typed containment references; Author, Assignee and Target Scope mappings remain gated. It does not itself define the proposed omission fallback; reconcile it with current D482 authoring materialization rather than treating omission as current carrier behavior.",
+  "limits": "Latest Operator example governs selected-heading-included subtree retrieval; Current tool behavior differs. Draft-only edits, no parser/runtime change."
+}

@@ -1,0 +1,23 @@
+{
+  "decision": "In Subjects, := combines allowed value and condition",
+  "examples": [
+    "Atom/(.Role := Method)",
+    "Atom.Status := Draft"
+  ],
+  "formal_claims": {
+    ":": "allowed value",
+    "=": "condition",
+    "==": "required or derived conclusion"
+  },
+  "limits": [
+    "No instance-value write",
+    "Other allowed values remain admitted",
+    "No complete Formal Claims in Subjects",
+    "No Current or runtime migration"
+  ],
+  "verification": {
+    "drafts": 106,
+    "cfel_fences_unchanged": true,
+    "review": "PASS"
+  }
+}

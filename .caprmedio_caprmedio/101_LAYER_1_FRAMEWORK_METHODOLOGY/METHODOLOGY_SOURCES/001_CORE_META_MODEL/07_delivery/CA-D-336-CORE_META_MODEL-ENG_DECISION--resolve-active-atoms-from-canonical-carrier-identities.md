@@ -1,26 +1,25 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Carrier.Canonical Address
-version: 26
-updated_at: 2026-10-27 19:59:23 +0400
+  active: Atom
+  passive:
+  - Atom.ID
+  - Carrier.Canonical Address
+version: 30
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-336
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Resolve Active Atoms from Canonical Carrier Identities
 
-## Scope
+## Claim scope
 
 Active Atom Carrier discovery from selected Project-owned Markdown source frontiers.
 
@@ -31,5 +30,3 @@ Active Atom Carrier discovery **must** resolve requested Atom IDs from the ident
 - validate the associated canonical addresses against those internal values under CA-D-480.
 - report zero **or** multiple Active matches **and** missing **or** conflicting identity **or** Status; do **not** repair discovery by silently preferring a filename **or** directory.
 - a non-Active containing Hub does **not** change the Status of a nested Atom.
-
-## Details

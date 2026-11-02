@@ -1,0 +1,113 @@
+---
+atom_id: CA-R-2244
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+subjects:
+  active: CFEL
+  passive:
+  - CFEL <+ Relation
+  - CFEL <+ Format
+  - CFEL <+ Cardinality
+version: 3
+relations: {}
+tier: 1
+updated_at: 2026-11-02 00:18:22 +0400
+role: Requirement
+form: Entity Definition
+---
+## Summary
+
+Define Graph Syntax
+
+## Claim
+
+Graph Syntax defines how Entity Definitions express specialization,
+named-instance, dependent-property, allowed-value, containment, Classification
+axis, already-declared Entity reference, logical grouping, named-Relation,
+value-Format, and cardinality constructs. Its structural parts are Relation,
+Format, and Cardinality. Syntax neither executes a Workflow nor creates an
+Entity instance.
+
+`X: Y` declares Y as an allowed value of X, irrespective of X's kind or
+preceding path; it is not assignment. YAML null and an empty string are
+values for counting, while Format and prose decide admissibility. General
+formulas and bracketed conditions remain separate.
+
+### Formal claim
+
+```text
+CFEL <+ Relation
+CFEL <+ Format
+CFEL <+ Cardinality
+
+specialization: /
+named_instance: //
+dependent_property: .
+allowed_value: :
+containment: +>, <+
+classification_axis: >|, |<
+declared_entity_reference: @
+logical_grouping: ()
+relative_property_qualification: X/(.Y: Z)
+named_relation: Source ((RELATION_TYPE)) Target
+direct_values: X.Y[format]{count}
+relation_counts: Source {forward-count}RELATION{reverse-count} Target
+cardinality: {n}, {n+}, {n..m}
+inverse: declared and derived, never independently stored
+```
+
+## Semantics
+
+`/` supplies specialization and inheritance. `//` expresses a named instance
+of a kind. `.` addresses a dependent Property; `:` declares an allowed value
+without requiring its left operand to be a Property.
+
+`Part +> Whole` and `Whole <+ Part` express one containment fact. The pointer
+faces the Whole. IS_CONTAINED_BY is stored from Part to Whole; CONTAINS is
+its derived inverse. Containment supplies no inheritance.
+
+`X >| Y` and `Y |< X` express the same HAS_CLASSIFICATION fact. Entity Y is
+used as an applicable Classification axis; the pointer faces that endpoint.
+This introduces no separate Classification Entity kind or canonical inverse
+Relation Type. Axis applicability does not itself state group membership,
+structural containment, or inheritance.
+
+`X/(.Y: Z)` identifies X qualified by its own Property Y and admitted value Z.
+The leading dot addresses X.Y relative to X. The qualified X inherits X's
+applicable features and constraints; Y does not become a narrower kind of X.
+The Property and value still require their independent governing admission.
+
+`@` calls an already declared Entity, not only a kind, and declares no target.
+`()` provides logical grouping, including relative Property qualification.
+The compound `((RELATION_TYPE))` form remains distinct: a named Relation
+reads from its declared source to target, and its opposite view uses a
+declared derived inverse. Only direct facts are independently stored.
+
+`[format]` specifies the addressed Property's direct-value Format; a
+post-Property `{count}` counts its direct values. A Relation has two
+independent directional slots: the count before its token applies per
+written Source toward Target, while the count after it applies in reverse
+per Target toward Source. Reversing the writing swaps the slots. These
+slots count Relation instances, not distinct targets or Relation arity.
+An omitted slot remains unspecified. CA-R-2243 owns the count forms and
+their bounds; Relation counts do not change direct-value counts.
+
+The Status Group complement expression remains bounded by its governing
+mapping and CA-R-1931; it introduces no general formula language.
+
+Formal constraints belong in the Definition Claim. Semantics explains their
+meaning without adding a second Claim.
+
+## Details
+
+Named Relation Types require their own Requirement authority of Type Relation
+Definition. The fenced `content.notation_for_subject` property is used only
+where a Relation Type has a short Entity notation; no such short notation is
+invented for a Relation that uses the general named form. The selected
+operators and relative qualification follow CA-R-1931. This successor does
+not itself implement a parser, evaluator, Workflow, or runtime change.
+
+### Current source pin
+
+Proposed N+1 successor of `/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2244-CORE_META_MODEL-ENTITY_DEFINITION--define-graph-syntax.md`, Atom `CA-R-2244`, version `1`, SHA-256 `cefc8b8f83cf13f8815a331e4bbc8c4ddcf5d6815f2a173b52b756b9afa4138d`. Summary, Requirement Content Role, Entity Definition Type and base identity are preserved. The selected notation supersedes the predecessor's bare containment and kind-only reference spellings; no Current source, archive, parser or runtime is changed by this Draft.

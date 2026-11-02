@@ -18,7 +18,7 @@ from atom_subject_patch import (
 from atom_subject_stage import _check_candidate, _write_candidate
 from connector_bindings import FileSource
 from subject_batch import load_subject_batch
-from subject_batch_authorization import _ACTIVE, BatchAdmission
+from subject_batch_authorization import _ACTIVE, BatchAdmission, require_subject_profile_transition_authority
 from subject_batch_drafts import make_subject_edit_draft, subject_batch_draft_path
 
 
@@ -33,7 +33,8 @@ def _runner(root: Path) -> Any:
 
 def _stage_target(root: Path, state: BatchAdmission, item: Mapping[str, Any]) -> dict[str, Any]:
     prepared = prepare_subject_intent(
-        root, item["target"], item["subject_patches"], subject_profile="approved"
+        root, item["target"], item["subject_patches"], subject_profile="approved",
+        source_subject_profile=state.packet.get("source_subject_profile"),
     )
     candidate = materialize_subject_intent(root, prepared, current_timestamp(root))
     proposed_version = candidate["materialization"]["version"]
@@ -68,6 +69,8 @@ def stage_subject_batch(
         raise ValueError("Subject batch staging limit must be between 1 and 10")
     root = Path(root).resolve()
     packet = load_subject_batch(root, parameters)
+    if packet.get("source_subject_profile") == "legacy":
+        require_subject_profile_transition_authority(root)
     if any("draft" in item for item in packet["atoms"]):
         raise ValueError("Subject staging input must be the original map-only packet")
     runner = _runner(root)

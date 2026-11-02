@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-01",
+  "user_decisions": {
+    "retry_limit": "Remove from Plan model; Workflow responsibility",
+    "confidence_threshold": "Keep as Plan Property"
+  },
+  "withdrawn_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-implementation-retry-limit.md",
+  "snapshot": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/declaration-expansion/withdrawn-plan-retry-limit-20261101.json",
+  "confidence_declaration": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-confidence-threshold.md",
+  "confidence_sha256_unchanged": "9d203dcb41aa6dba285f3629ab26533fe7aebe35335b17acdc4118e9fa6c6bfc",
+  "new_workflow_instances": 0,
+  "new_workflow_parameters": 0,
+  "runtime_changed": false
+}

@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-01",
+  "user_decisions": {
+    "fields": [
+      "happened_at",
+      "inserted_at",
+      "author (who performs the event)",
+      "action",
+      "object_input (old)",
+      "object_output"
+    ],
+    "two_times": "Separate happened and inserted columns"
+  },
+  "new_drafts": [
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-happened-at.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-inserted-at.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--distinguish-event-time-from-record-insertion-time.md"
+  ],
+  "timestamp_contract": "Each is one required datetime, with no dependent Properties.",
+  "meaning": {
+    "happened_at": "Time of the recorded event",
+    "inserted_at": "Time added to Journal",
+    "author": "Actor who performs the event, not implicitly the record inserter"
+  },
+  "updated_at_source": "MAX(happened_at) over accepted create/update events; inserted_at is not that source",
+  "object_io_shape": "Declared metadata maps: id/updated_at plus optional version; required on Atom sides, absent on Projection sides.",
+  "atom_author_status": "Still deferred; this new Event Record author does not restore Atom.Author",
+  "new_actual_event_records": 0,
+  "runtime_changed": false,
+  "review": "PASS",
+  "review_file": "event-record-two-times-review-20261101.json"
+}

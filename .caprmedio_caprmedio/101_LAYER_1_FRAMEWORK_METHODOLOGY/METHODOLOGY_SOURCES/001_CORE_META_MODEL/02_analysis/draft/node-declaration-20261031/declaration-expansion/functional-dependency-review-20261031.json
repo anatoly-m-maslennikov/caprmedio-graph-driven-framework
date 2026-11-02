@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "hash_mismatches": [],
+  "checked": [
+    "FD directions preserve Summary and Projection ID statements",
+    "stable resolved reference identity and fail-closed missing bindings",
+    "complete history and single Project context",
+    "Projection.Form latest target spelling"
+  ],
+  "limits": [
+    "Reference identity and historical state bindings need adoption and implementation",
+    "Illustrative cases are not parser or runtime tests"
+  ]
+}

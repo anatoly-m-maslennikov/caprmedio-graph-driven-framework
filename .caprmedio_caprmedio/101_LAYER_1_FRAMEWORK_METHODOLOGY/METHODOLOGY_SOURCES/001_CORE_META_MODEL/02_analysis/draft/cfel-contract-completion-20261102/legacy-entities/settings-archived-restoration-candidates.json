@@ -1,0 +1,61 @@
+{
+  "status": "draft_candidates_not_adopted",
+  "files": [
+    {
+      "candidate": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--restore-settings-2403.md",
+      "sha256": "baecaf9b287a8d088998436ed7365b72411ff730d695786babe8359274985e52",
+      "archived_source": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2403@1-CORE_META_MODEL-ENTITY_DEFINITION--define-project-framework-settings-authority-modes.md",
+      "archived_source_sha256": "4dd575bd2e1a10aae8a8def8f9002f8b7eea7a6d2f7bad6909757d8b342b2ffc",
+      "evidence_status": "archived definition as intentional new Draft source, combined with Current R1430/D374 for modes or D447 for retry; not Current authority",
+      "identity": "unallocated new draft marker; no automatic revival of archived identity",
+      "scope_decision": "MODEL Property schema: CORE_META_MODEL; adjust native destination path as well as owner and Target Scope. Scope expansion is semantic_revision under CA-R-1432."
+    },
+    {
+      "candidate": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--restore-settings-2404.md",
+      "sha256": "68a6cbaab7feaacd8dc3517131425dcfa9cdb7d1818eb8c531311d2252e2a762",
+      "archived_source": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2404@1-CORE_META_MODEL-ENTITY_DEFINITION--define-default-scope-unit-authority-mode.md",
+      "archived_source_sha256": "19dce29bce54678fb616704ba2eb8f650704f87a80fe2490199cdfae4efcbd5a",
+      "evidence_status": "archived definition as intentional new Draft source, combined with Current R1430/D374 for modes or D447 for retry; not Current authority",
+      "identity": "unallocated new draft marker; no automatic revival of archived identity",
+      "scope_decision": "MODEL Property schema: CORE_META_MODEL; adjust native destination path as well as owner and Target Scope. Scope expansion is semantic_revision under CA-R-1432."
+    },
+    {
+      "candidate": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--restore-settings-2405.md",
+      "sha256": "46be1f1a696057c11a1700820fcd54c665aeee6fc1aa143e50dc54b753d7c994",
+      "archived_source": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2405@1-CORE_META_MODEL-ENTITY_DEFINITION--define-project-authority-mode.md",
+      "archived_source_sha256": "c36bd4fffba1d4d6ae5e8d81e720ca1afd66583389b041c2eb3f76ba24036a4b",
+      "evidence_status": "archived definition as intentional new Draft source, combined with Current R1430/D374 for modes or D447 for retry; not Current authority",
+      "identity": "unallocated new draft marker; no automatic revival of archived identity",
+      "scope_decision": "MODEL Property schema: CORE_META_MODEL; adjust native destination path as well as owner and Target Scope. Scope expansion is semantic_revision under CA-R-1432."
+    },
+    {
+      "candidate": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--restore-settings-2409.md",
+      "sha256": "0c39bd2cab3d2f741209212c3aa9836175829fcae625663901bfdc8bec82b571",
+      "archived_source": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2409@1-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-implementation-retry-limit.md",
+      "archived_source_sha256": "90283dc0f5804fb19320c455013d164752eee9dc7c9be3f952ec957164eec739",
+      "evidence_status": "archived definition as intentional new Draft source, combined with Current R1430/D374 for modes or D447 for retry; not Current authority",
+      "identity": "unallocated new draft marker; no automatic revival of archived identity",
+      "scope_decision": "MODEL Property schema: CORE_META_MODEL; adjust native destination path as well as owner and Target Scope. Scope expansion is semantic_revision under CA-R-1432."
+    }
+  ],
+  "gates": [
+    "Project Settings Implementation Retry Limit is distinct from the expressly withdrawn Plan property."
+  ],
+  "not_done": [
+    "No native validation or runtime effects.",
+    "No Project Form topic or Current source changed."
+  ],
+  "independent_review_fixes": [
+    "Carrier Identifier and derived parameter resolution are Rules, not stored Project Settings Properties.",
+    "Authority Modes requires both source-backed values when its group is authored.",
+    "Retry nonnegative/zero and no-permission semantics preserved.",
+    "Tool and Extension selection source constraints retained."
+  ],
+  "scope_applicability_review": {
+    "generic_model_scope": "CORE_META_MODEL",
+    "project_specific_behavior": "PROJECT_CONFIGURATION",
+    "mandatory_locator_choice": "Generic Properties optional; separate Project Configuration Rule retains caprmedio Framework Instance Settings 1+ code roots and exactly one control root.",
+    "principles_evidence": "../principles/active-principles.json",
+    "no_physical_carrier_changes": true
+  }
+}

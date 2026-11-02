@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-01",
+  "user_decision": "MAX over create and update events",
+  "selection": "Accepted completed create or update events matching the target object",
+  "initial_timestamp": "The create event supplies the initial Updated At",
+  "later_timestamp": "Later accepted update events may supply a greater timestamp",
+  "excluded": [
+    "No-ops",
+    "Failed attempts",
+    "Archiving"
+  ],
+  "additional_update_event_for_creation_required": false,
+  "event_schema_changed": false,
+  "timestamp_declarations_changed": false,
+  "runtime_changed": false
+}

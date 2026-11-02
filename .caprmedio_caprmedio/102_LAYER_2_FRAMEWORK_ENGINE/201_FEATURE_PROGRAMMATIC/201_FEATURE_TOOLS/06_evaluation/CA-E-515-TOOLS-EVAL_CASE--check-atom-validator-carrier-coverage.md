@@ -19,8 +19,8 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
   - Subject/CAPRMEDIO/Graph/Relation
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-version: 25
-updated_at: 2026-10-27 19:59:36 +0400
+version: 27
+updated_at: 2026-10-30 03:11:57 +0400
 relations:
   evaluation_for:
   - CA-M-316
@@ -61,7 +61,7 @@ the `VALIDATE_ATOMS` carrier coverage check **must** demonstrate faithful execut
 
 ### Explicit Property encoding cases
 
-- test every common field encoding under CA-D-276-CORE_META_MODEL-ENG_DECISION--use-economical-yaml-frontmatter with a valid value, an absent required value, null, **and** each wrong YAML value kind. include non-integer Version, Boolean tiers, invalid timestamps, unregistered names, unknown role-specific Types, **and** forbidden Draft identity.
+- test every common field encoding under CA-D-657-CORE_META_MODEL-ENG_DECISION--use-economical-yaml-frontmatter with a valid value, an absent required value, null, **and** each wrong YAML value kind. include non-integer Version, Boolean tiers, invalid timestamps, unregistered names, unknown role-specific Types, **and** forbidden Draft identity.
 - for an Atom established **to** be outside **every** Scope Unit, accept its Author's exact registered Operator name **in** `current_scope_unit`, with its separately carried target Scope Unit. reject a different registered name, a list even with **=1** item, multiple joined names, null, **and** an `operators` substitute. **if** external placement **or** registry context is unresolved, report incomplete coverage rather than treating an unknown Scope Unit name as external. an Atom inside a Scope Unit retains that Scope Unit **in** `current_scope_unit` independently of its Author.
 - exercise conditional Plan overrides, Concern Priority, generated Projection metadata, body-only Properties, **and** admitted extension fields. verify absent inherited overrides remain conforming **and** no body Property is silently recovered from a duplicate frontmatter copy.
 - remove a required source declaration for a recognized conditional Property: require an exact schema gap **and** incomplete coverage rather than an invented field contract.

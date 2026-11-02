@@ -1,0 +1,53 @@
+{
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-actor.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Actor",
+      "form": "Declaration",
+      "classification": "Primary Node",
+      "source_pins": [
+        {
+          "id": "CA-R-2218",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2218-CORE_META_MODEL-DEFINITION--define-actor.md",
+          "sha256": "51af210d9cc892394255422af8f46e0b9c8871d7f80983be4e4ed1ce00d6572f"
+        }
+      ],
+      "sha256": "56dd0d4a069ab41d5f8aa611a4193ac7348845d64a497f19595aec20bca0538d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Aspect",
+      "form": "Declaration",
+      "classification": "Primary Node",
+      "source_pins": [
+        {
+          "id": "CA-R-2210",
+          "version": 4,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2210-CORE_META_MODEL-DEFINITION--define-aspect.md",
+          "sha256": "4ddcf4417e589604d95ba8d03c300abc09a604c32f45e57ce6b92eaa0b486116"
+        }
+      ],
+      "sha256": "7797955ed555bf625c044621db59633cd83415b17108069dbe30676ae48c04f9"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-actor-name.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Actor.Name",
+      "form": "Declaration",
+      "classification": "Property",
+      "source_pins": [
+        {
+          "id": "CA-R-2218",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2218-CORE_META_MODEL-DEFINITION--define-actor.md",
+          "sha256": "51af210d9cc892394255422af8f46e0b9c8871d7f80983be4e4ed1ce00d6572f"
+        }
+      ],
+      "sha256": "4cb0cbba935656580b843e6eb82aca2f7f2af519f3a2045525f1863714545e46"
+    }
+  ],
+  "status": "Drafts for approved reduced inventory"
+}

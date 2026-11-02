@@ -1,39 +1,37 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Autonomous Confidence Threshold'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/caprmedio/Workflow//Implementation Workflow
-version: 20
-updated_at: 2026-10-27 19:59:57 +0400
+  active: Entity/Object/Continuant/Actor/AI Agent
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/Actor/AI Agent
+  - Entity/Aspect/Engineering/Execution Control/Decision Confidence
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+  - Atom
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - Atom/(.Role := Evaluation)
+  - Atom/(.Role := Requirement)
+  - Atom/(.Role := Method)
+  - Atom/(.Role := Delivery)
+  - Project
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-M-261
 atom_id: CA-R-1559
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Gate governing Atom changes during implementation
 
-## Scope
+## Claim scope
 
 changes to governing RMED Atoms during implementation.
 
@@ -46,7 +44,5 @@ authorization **to** change a governing RMED Atom during implementation **must**
 - request Operator disposition **before** changing an AI-authored Atom **when** confidence is below the threshold **or** an additional rule requires approval.
 - an AI-authored Atom **may** change autonomously **only** **when** confidence is at **or** above the threshold **and** **all** applicable permissions **and** Operator rules allow it.
 - a prohibition remains a prohibition; authorship **or** confidence **must not** create permission.
-- a missing **or** unresolved Author **must not** be treated as proof of AI authorship; apply the Author default under CA-R-1080.
+- a missing **or** unresolved Author **must not** be treated as proof of AI authorship; apply the Author default under CA-R-1080@29.
 - an authorized RMED change establishes a new baseline under CA-M-262, **and** the applicable work **and** Evaluations **must** be resolved again against it.
-
-## Details

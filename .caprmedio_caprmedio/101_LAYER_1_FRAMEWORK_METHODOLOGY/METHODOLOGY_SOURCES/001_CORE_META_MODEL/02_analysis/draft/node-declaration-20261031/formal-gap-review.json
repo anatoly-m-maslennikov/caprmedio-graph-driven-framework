@@ -1,0 +1,47 @@
+{
+  "status": "partial_design_gate",
+  "changes": [
+    "Clarified directional counts per source and target and same-selected-member binding.",
+    "Preserved Current CA-R-2243 omitted-count semantics: undefined, not implicit zero.",
+    "Specified inherited Node1 rules apply to Node2 and its instances without copied facts or redeclared Properties."
+  ],
+  "checks": [
+    "Declaration uses Requirement/Form: Declaration.",
+    "0..1 bearer and both classification cases are stated as proposed formal clauses.",
+    "Step formal branches explicitly require opposite zero counts.",
+    "Whitelist must fully resolve inherited names, direction, endpoints and cardinalities before admission; unresolved does not permit edges."
+  ],
+  "unresolved_design": [
+    "Acyclic IS_PROPERTY_OF has no accepted formal expression in the packet; it remains an adoption gate rather than a prose constraint posing as a complete formal Declaration.",
+    "Omitted value-domain behavior remains unresolved.",
+    "Node/ count grammar must distinguish constraints from edges with absent endpoints; integration and parser implementation are separate work."
+  ],
+  "recommended_next_question": {
+    "question": "How should a Node Declaration formally express that IS_PROPERTY_OF contains no cycles, including self-loops?",
+    "recommendation": "Adopt one explicit formal acyclicity predicate over the IS_PROPERTY_OF relation, with exact syntax and scope decided before admission; retain the existing 0..1 count and case rules.",
+    "impact": "The Node Declaration and any validator/graph admission must reject cyclic bearer chains; current 0..1 alone cannot do so. This does not require deciding omitted-domain behavior or implementing a parser now."
+  },
+  "source_evidence": "Current CA-R-2243@3 states an omitted cardinality annotation leaves cardinality undefined; this does not determine omitted-domain semantics.",
+  "files": [
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-GRAPH_SYNTAX--use-node-graph-notation.md",
+      "sha256": "0329f9123046dc58ab2d310bb16a36a267a6a7f24f5ec50906fcd362ab41c023"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-GRAPH_SYNTAX--separate-property-value-and-child-constraints.md",
+      "sha256": "f2c85991e4a4caa9a3366675dea21eebf40e42ab4b74fa1def6603dcf5b36749"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+      "sha256": "8ff866d8e055fcf884bf5ff10d041062ebda52f368590372e70adc4a2de4bec4"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "117e31aa188eb9af3bccae0fa25d5e08c1728265fa34cabebd1b1321e9bd3143"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "253a4394a43c9164b8ea1b539b6f9c8dcb0fa244eefe0b3d1571adf718f2ef2c"
+    }
+  ]
+}

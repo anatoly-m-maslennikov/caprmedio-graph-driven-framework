@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - Subject/caprmedio/Action//Assess Atom Update Identity
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-version: 20
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Atom/(.Role:=Operations)/Workflow
+  passive:
+  - Atom/(.Role:=Operations)/Action
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Atom Update Identity'
+  - Atom
+  - Atom.Content.Summary
+  - Entity/Object/Occurrent/Execution/Workflow Run
+  - Entity/Object/Continuant/Actor/Operator
+version: 25
+updated_at: 2026-11-02 08:06:47 +0400
 relations:
   evaluation_for:
   - CA-O-067
@@ -19,19 +19,18 @@ relations:
   - CA-R-1464
   - CA-R-1520
 atom_id: CA-E-491
-content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate update-to-replacement routing
 
-## Scope
+## Claim scope
 
 an update Workflow's routing of CA-O-067 assessment results.
 

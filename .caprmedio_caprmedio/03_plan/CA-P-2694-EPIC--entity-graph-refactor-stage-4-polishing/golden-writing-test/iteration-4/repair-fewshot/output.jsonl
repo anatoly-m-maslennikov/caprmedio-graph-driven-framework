@@ -1,0 +1,4 @@
+{"key": "B03", "generated_summary": "Keep all needed information retrievable; show only the justified task-sufficient set", "ambiguity": null}
+{"key": "B08", "generated_summary": "Provide bounded, read-only MCP /health diagnostics with recent Tool and Workflow observations", "ambiguity": null}
+{"key": "B09", "generated_summary": "Review code candidates, evidence and all applicable Method policy without editing", "ambiguity": null}
+{"key": "B10", "generated_summary": "Review code in the shared implementation context without editing", "ambiguity": null}

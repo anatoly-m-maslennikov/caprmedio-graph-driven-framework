@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-01",
+  "user_decision": "update records only accepted updates",
+  "qualifying": "Accepted completed updates, including completed Projection rebuilds",
+  "excluded": [
+    "No-ops",
+    "Failed attempts",
+    "Archiving"
+  ],
+  "outcome_filter": "No additional outcome filter is needed for this admitted update meaning",
+  "creation_timestamp_policy": "Pending: create+update selection or creation also emits update",
+  "event_schema_changed": false,
+  "timestamp_declarations_changed": false,
+  "runtime_changed": false
+}

@@ -1,0 +1,293 @@
+{
+  "packet": "journal-workflow-cleanup",
+  "status": "candidate-only; no Current, Git, Journal, or Projection carrier was edited",
+  "created_at": "2026-11-02 07:11:14 +0400",
+  "source_frontier": {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/migration-20261101/current-source-frontier.json",
+    "sha256": "fadf6b7ef86a7f85fc88d63f8b0692c1aef0e3f254166b291d4cdafc4ba17fb7"
+  },
+  "principles_evidence": {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/principles/active-principles.json",
+    "sha256": "42b6455fd4824c806471599bf18f78abc4de81608a0e8a4ac115863c3bcebb40",
+    "applied": [
+      "CA-R-007: derived inverse and aggregate relations are not independently authored",
+      "CA-M-005: retain only necessary mechanisms and distinctions",
+      "CA-R-686: do not silently transfer Core and Project Configuration meaning"
+    ]
+  },
+  "notation_basis": [
+    "CA-R-2478: IS_CONTAINED_BY is the canonical containment relation",
+    "CA-R-1040: CONTAINS is derived and cannot be separately authored",
+    "CA-R-1437: each relation fact has one authoritative source",
+    "CA-R-2556: every assertion belongs to the active Subject",
+    "CA-R-2347: Carrier/File.Main Content is the retained representation subject for serialized wire evidence"
+  ],
+  "candidates": [
+    {
+      "source_atom": "CA-R-1643",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-RULE--register-type-values-for-work-journal-events.md",
+      "source_sha256": "df0d7810fc8c141d9fdd2416ff8cabb1df3ddb2d404240c7ef3b58a0f55b3282",
+      "candidate_path": "04_requirement/CA-R-1643@39-draft-CORE_META_MODEL-RULE--register-type-values-for-work-journal-events.md",
+      "candidate_sha256": "528db39c74bba251d9fc67bd3ed7302705793f6c1368891d7d47b50a47621ef7",
+      "proposed_disposition": "semantic_revision_draft",
+      "retirement": "not eligible: retained type-value constraint has live consumers",
+      "summary_unchanged": true,
+      "role_unchanged": true,
+      "active_subject": "Carrier/File.Main Content",
+      "clause_coverage": [
+        "legacy execution-observation category values -> serialized Journal Carrier Main Content; no logical Event Record Property added"
+      ],
+      "current_consumers": [
+        "METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-104",
+        "METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-130",
+        "METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-131",
+        "102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS/04_requirement/CA-R-562"
+      ]
+    },
+    {
+      "source_atom": "CA-R-1644",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md",
+      "source_sha256": "ea75f16976ff8d44087551d5533e50db406a7c7bcd158ec92d76f1383c6b18c3",
+      "candidate_path": "04_requirement/CA-R-1644@36-draft-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md",
+      "candidate_sha256": "3dc15137ab47ab70058dc75956d488f23c7b129a3d519edaea267241e39e9eb0",
+      "proposed_disposition": "semantic_revision_draft",
+      "retirement": "not eligible: recovery admission and uncertainty retention are not fully mapped to a retained declaration",
+      "summary_unchanged": true,
+      "role_unchanged": true,
+      "active_subject": "Journal",
+      "clause_coverage": [
+        "six permitted evidence bases -> candidate Claim",
+        "unresolved Actor/time/intent/scope/outcome remains explicit uncertainty -> candidate Claim"
+      ],
+      "current_consumers": [
+        "01_concern/CA-C-205",
+        "METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360",
+        "METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365",
+        "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/04_requirement/CA-R-1823",
+        "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/04_requirement/CA-R-1824",
+        "102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS/04_requirement/CA-R-562"
+      ]
+    },
+    {
+      "source_atom": "CA-E-462",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-POLICY--validate-atom-replacement-event-evidence.md",
+      "source_sha256": "57f888238c485d6ab43ed4eae978c80b32dfee07d2a2cd9731e3512b2fc18f5c",
+      "candidate_path": "06_evaluation/CA-E-462@32-draft-CORE_META_MODEL-POLICY--validate-atom-replacement-event-evidence.md",
+      "candidate_sha256": "c8da544b51a2934e3385ac9286138079eb12fc87f048c5d5e76812041639c4de",
+      "proposed_disposition": "semantic_revision_draft",
+      "retirement": "not eligible: no retained evaluation owns the complete replacement-evidence check and failure disposition",
+      "summary_unchanged": true,
+      "role_unchanged": true,
+      "active_subject": "Event Record",
+      "clause_coverage": [
+        "replacement Event Record undergoes an actual CA-R-807 evaluation -> candidate Claim",
+        "identity failures -> candidate Checks",
+        "successor timing/archive preservation/prior revision/event evidence -> candidate Checks",
+        "Carrier representation is not correctness proof -> candidate Checks",
+        "repeated submission is not another record -> candidate Checks",
+        "failed or unresolved Event Record is not a conforming replacement -> candidate Failure disposition",
+        "no Git Commit or mandatory serialization; evidence availability alone cannot pass -> candidate final paragraph"
+      ],
+      "current_consumers": [
+        "01_concern/CA-C-113",
+        "METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-463",
+        "METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-465",
+        "METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-435"
+      ]
+    },
+    {
+      "source_atom": "CA-E-496",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-496-CORE_META_MODEL-EVAL_CASE--validate-nested-tool-call-evidence.md",
+      "source_sha256": "86f5c8425ce506c9a0fa19788a640037255c9e07db78008e2213a55ad90ffaae",
+      "candidate_path": "06_evaluation/CA-E-496@21-draft-CORE_META_MODEL-EVAL_CASE--validate-nested-tool-call-evidence.md",
+      "candidate_sha256": "0fac4db4d535a84bc7dc4d55b1997c6e490ca864706f56eb2a801e5ca4b72f4a",
+      "proposed_disposition": "semantic_revision_draft",
+      "retirement": "not eligible: no retained evaluation covers tool-call evidence, failed effects, and protected input together",
+      "summary_unchanged": true,
+      "role_unchanged": true,
+      "active_subject": "Carrier/File.Main Content",
+      "clause_coverage": [
+        "evaluation checks/reports parent, identity, input, result, and call wire evidence without editing it -> candidate Details",
+        "evaluation checks/reports repeated-attempt identity without a second-effect claim -> candidate Details",
+        "evaluation checks/reports failure or an unconfirmed effect -> candidate Details",
+        "evaluation checks/reports trace derivation from canonical Journal -> candidate Details",
+        "evaluation rejects tool-call inference of model definitions -> candidate Details",
+        "evaluation checks/reports protected secret representation -> candidate Details",
+        "actual evaluation must run/report, must not edit evidence, and cannot pass with missing wire evidence -> candidate Claim and final paragraph"
+      ],
+      "current_consumers": []
+    },
+    {
+      "source_atom": "CA-D-338",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-338-CORE_META_MODEL-ENG_DECISION--serialize-completed-projection-rebuild-results.md",
+      "source_sha256": "394142c0ad11ecaf854e326cb98c8f22e329f55cd1589604095f2de0724ca46c",
+      "candidate_path": "07_delivery/CA-D-338@28-draft-CORE_META_MODEL-ENG_DECISION--serialize-completed-projection-rebuild-results.md",
+      "candidate_sha256": "00f633ecde4a821f078ebea8a217633db00276924d4248534f5fd8ac5ae77b57",
+      "proposed_disposition": "semantic_revision_draft",
+      "retirement": "not eligible: the projection rebuild result fields have no full retained target",
+      "summary_unchanged": true,
+      "role_unchanged": true,
+      "active_subject": "Carrier/File.Main Content",
+      "clause_coverage": [
+        "encoded published Projection Updated At, output Carrier reference, and digest -> candidate Claim"
+      ],
+      "current_consumers": []
+    },
+    {
+      "source_atom": "CA-D-340",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-ENG_DECISION--serialize-work-journal-event-properties.md",
+      "source_sha256": "2c111d8968e14a4d78f4dc51787e9078211d6d5230bb73e876a2056577c75c87",
+      "candidate_path": "07_delivery/CA-D-340@32-draft-CORE_META_MODEL-ENG_DECISION--serialize-work-journal-event-properties.md",
+      "candidate_sha256": "1fe9d63a1e2c9d183ef56d284ac91f7adce6b7feb56bd6f8e7e6bdfce530b495",
+      "proposed_disposition": "semantic_revision_draft",
+      "retirement": "not eligible: observation preservation and non-admission constraints remain unique",
+      "summary_unchanged": true,
+      "role_unchanged": true,
+      "active_subject": "Carrier/File.Main Content",
+      "clause_coverage": [
+        "safe Main Content serialization and as-recorded reading -> candidate Claim",
+        "preserve supplied observation values without invention -> candidate bullet 1",
+        "payload data is not conformance proof -> candidate bullet 2",
+        "no append/read admission gates -> candidate bullet 3",
+        "retain historical bytes without migration or synthetic baseline -> candidate bullet 4"
+      ],
+      "current_consumers": [
+        "01_concern/CA-C-113",
+        "01_concern/CA-C-207",
+        "METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-476",
+        "METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-130",
+        "METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-131",
+        "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/01_concern/CA-C-583",
+        "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/01_concern/resolved/CA-C-585",
+        "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/03_plan/CA-P-2622",
+        "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/03_plan/CA-P-2623",
+        "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/03_plan/CA-P-2629",
+        "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/execution_evidence/p2613/semantic-review-report",
+        "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/09_operations/CA-O-222"
+      ]
+    },
+    {
+      "source_atom": "CA-E-465",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-465-PROJECT_CONFIGURATION-EVAL_CASE--validate-replacement-event-schema-encoding.md",
+      "source_sha256": "271849b6ca538cb95729bf70a9a5869dcf5c56770ffaec75d0dd33a335b95358",
+      "candidate_path": "06_evaluation/CA-E-465@24-draft-PROJECT_CONFIGURATION-EVAL_CASE--validate-replacement-event-schema-encoding.md",
+      "candidate_sha256": "656f181eb7aa25a53f1c79f07d52ac68fac2783dc728d13be1677a3c059ba839",
+      "proposed_disposition": "semantic_revision_draft",
+      "retirement": "not eligible: no retained evaluation owns the complete schema cases and their independent-conformance boundary",
+      "summary_unchanged": true,
+      "role_unchanged": true,
+      "active_subject": "Carrier/File.Main Content",
+      "clause_coverage": [
+        "Main Content schema integrity versus Project conformance -> candidate Claim",
+        "cases 1 through 5 -> candidate Cases",
+        "recordability, failed encoding, replay/collision, and historical schema outcomes -> candidate Acceptance"
+      ],
+      "current_consumers": [
+        "01_concern/CA-C-113"
+      ]
+    },
+    {
+      "source_atom": "CA-D-435",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-435-PROJECT_CONFIGURATION-ENG_DECISION--serialize-atom-replacement-event-references.md",
+      "source_sha256": "17f422e7e6b741dd3a51d96ecefe1f03657a6965d6b9a69b399f5dc984b51423",
+      "candidate_path": "07_delivery/CA-D-435@24-draft-PROJECT_CONFIGURATION-ENG_DECISION--serialize-atom-replacement-event-references.md",
+      "candidate_sha256": "1fd03f7b55fefeab8d5a8880e1302d1f475f63423f3730323c9edc3823bd8204",
+      "proposed_disposition": "semantic_revision_draft",
+      "retirement": "not eligible: replacement-reference preservation and its non-authority boundary remain unique",
+      "summary_unchanged": true,
+      "role_unchanged": true,
+      "active_subject": "Carrier/File.Main Content",
+      "clause_coverage": [
+        "preserve supplied predecessor and successor references in Main Content -> candidate Claim",
+        "preserve array order without priority semantics -> candidate bullet 1",
+        "no lookup, chain, digest, validation, or baseline gate -> candidate bullet 2",
+        "absence does not infer replacement -> candidate bullet 3",
+        "legacy records remain readable observations -> candidate bullet 4",
+        "replacement correctness remains independently governed -> candidate bullet 5"
+      ],
+      "current_consumers": [
+        "01_concern/CA-C-113",
+        "01_concern/CA-C-205",
+        "METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-465",
+        "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/09_operations/CA-O-222"
+      ]
+    },
+    {
+      "source_atom": "CA-R-1569",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1569-CORE_META_MODEL-DEFINITION--define-the-step-operations-atom-type.md",
+      "source_sha256": "1c1799a4316e9a003cb0991c126bce52494ac7968a05832ab97612a93c3d1138",
+      "candidate_path": "04_requirement/CA-R-1569@24-draft-CORE_META_MODEL-DEFINITION--define-the-step-operations-atom-type.md",
+      "candidate_sha256": "f0cda7b53a73ac6ff0bcc74d690a060660a40146d43e6a8c0264647fdb4a1f5e",
+      "proposed_disposition": "semantic_revision_draft",
+      "retirement": "not eligible: retained CA-R-2465/2466 do not cover all Linear/Conditional and binding clauses, and live consumers remain",
+      "summary_unchanged": true,
+      "role_unchanged": true,
+      "active_subject": "Atom/(.Role := Operations)/Step",
+      "partial_owner_mapping": [
+        "Step RUN-or-child exclusive choice -> CA-R-1569 candidate",
+        "Substep's direct containment and leaf constraints -> retained CA-R-2466; no assertion about a second active Subject is retained in the CA-R-1569 candidate"
+      ],
+      "clause_coverage": [
+        "leaf Step Action-or-Workflow call -> candidate Claim, revised by latest human decision to Action only",
+        "containing Step has no own Action -> candidate Claim",
+        "Substep nested/leaf status -> CA-R-2466 canonical owner; recorded as a partial-owner boundary",
+        "Linear Step definition -> candidate Details",
+        "Conditional Step definition and result routing -> candidate Details",
+        "shared Action with distinct parameter/input bindings -> candidate Details",
+        "actual instance review/migration -> explicitly deferred in candidate Details"
+      ],
+      "current_consumers": [
+        "METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-500",
+        "METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-658",
+        "METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467"
+      ]
+    },
+    {
+      "source_atom": "CA-R-1992",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1992-CORE_META_MODEL-RULE--enable-containment-for-step-atoms.md",
+      "source_sha256": "ca798afc46ba5d4b88df42c04dcaf509499ce0e09cb5c3e6a61b091b9c24a84b",
+      "candidate_path": "04_requirement/CA-R-1992@14-draft-CORE_META_MODEL-RULE--enable-containment-for-step-atoms.md",
+      "candidate_sha256": "f48c9d2fef9ba7f99c3c71a724b23177d844fe24bd82f12c15a2fbcacde1b4dd",
+      "proposed_disposition": "semantic_revision_draft",
+      "retirement": "not eligible: the legacy property translation and explicit no-storage/no-instance boundary are not fully represented by retained declarations",
+      "summary_unchanged": true,
+      "role_unchanged": true,
+      "active_subject": "Atom/(.Role := Operations)/Step",
+      "partial_owner_mapping": [
+        "Step Relation whitelist and exclusive branch -> CA-R-1992 candidate",
+        "Substep direct-relation source -> retained CA-R-2466 canonical owner"
+      ],
+      "clause_coverage": [
+        "Enabled Relations.Contains true -> candidate Claim as a Relation whitelist, not a new Property",
+        "Step may contain child Steps -> candidate Claim as canonical Substep-to-Step containment",
+        "containing Step has no own Action -> candidate Details",
+        "nested Substep kind -> retained CA-R-2466 canonical owner",
+        "leaf Substep runs one reusable Action -> retained CA-R-2466 canonical owner",
+        "optional containment / no recursive Substep containment -> candidate exclusive alternatives plus the retained Substep owner",
+        "no Action-binding/storage/execution-protocol expansion -> candidate final sentence"
+      ],
+      "current_consumers": []
+    }
+  ],
+  "non_blocking_questions": [
+    {
+      "path": "01_concern/CA-C-draft-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "sha256": "6a481109f2c38e3186aa5c3566769eb572c29526e757aa63f7f3cd2e1525d680",
+      "reason": "The latest instruction fixes the model-kind/instance boundary but does not choose the final owner for Linear/Conditional routing and binding details."
+    },
+    {
+      "path": "01_concern/CA-C-draft-CORE_META_MODEL-QUESTION--should-observation-phase-become-an-event-record-model-property.md",
+      "sha256": "7c1ed4f20ce5342112c945b741bba7b1fc82d3c249cba8367e92e9fbdba9fb6f",
+      "reason": "Legacy execution-observation labels remain representation data until an explicit Event Record model Property is adopted."
+    }
+  ],
+  "consumer_scan_scope": {
+    "roots": [
+      ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES",
+      ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE",
+      ".caprmedio_caprmedio/01_concern"
+    ],
+    "exclusions": ["archive", "archived", "draft", "_journal", "_projection"],
+    "source_carriers_excluded_from_consumer_lists": true
+  }
+}

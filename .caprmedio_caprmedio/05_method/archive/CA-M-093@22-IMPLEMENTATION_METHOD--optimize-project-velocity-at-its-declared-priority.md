@@ -1,0 +1,31 @@
+---
+version: 22
+updated_at: 2026-10-29 07:45:26 +0400
+relations:
+  child_of:
+  - CA-R-815
+  method_for:
+  - CA-R-815
+subjects:
+  governs: Entity/Object/Continuant/Structural Unit/Scope Unit/Project
+  depends_on:
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project
+cce_version: cce_1
+cce_form: method
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-093@22
+status: Archived
+content_role: Method
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Implementation Method
+tier: 5
+---
+## Summary
+Optimize project velocity at its declared priority
+
+## Claim
+
+choose among acceptable alternatives by minimizing elapsed time from an Operator-accepted change intent **to** an Operator-accepted result according **to** the current Operator-declared velocity priority.

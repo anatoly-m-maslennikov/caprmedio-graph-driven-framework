@@ -1,25 +1,24 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery/Type'
-  depends_on:
-  - Subject/CAPRMEDIO/Carrier
-version: 21
-updated_at: 2026-10-27 19:59:24 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type'
+  passive:
+  - Carrier
+version: 27
+updated_at: 2026-11-02 00:55:09 +0400
 relations: {}
 atom_id: CA-D-402
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize Delivery Type Tokens
 
-## Scope
+## Claim scope
 
 the serialization of Delivery Type tokens in a Delivery Atom File Carrier filename.
 
@@ -36,6 +35,6 @@ these mappings govern filename representation; they do **not** rename a Type, ad
 
 ## Details
 
-The YAML `type` field remains the single admitted Type value under CA-D-276; a filename Type token is only its carrier encoding, not a second Type or a Label. An explicit `label` field is the effective Label when present; when absent, the effective Label is derived from the Atom Type name under CA-R-1594. Do not infer Type from a filename token or from that derived Label.
+The YAML `form` field carries the Atom Form under CA-D-657; a filename Type token is only its carrier encoding, not a second Type or a Label. An explicit `label` field is the effective Label when present; when absent, the effective Label is derived from the Atom Type name under CA-R-2497. Do not infer Type from a filename token or from that derived Label.
 
 Release Definition and Environment Definition remain outside PROGRAMMATIC and its declared descendants under CA-R-1665; CA-R-2123 governs the Method and Delivery Type restriction in that scope.

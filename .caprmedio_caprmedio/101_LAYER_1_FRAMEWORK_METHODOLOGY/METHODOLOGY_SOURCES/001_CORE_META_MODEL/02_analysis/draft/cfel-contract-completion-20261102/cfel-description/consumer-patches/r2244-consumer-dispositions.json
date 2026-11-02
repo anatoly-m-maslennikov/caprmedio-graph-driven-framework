@@ -1,0 +1,51 @@
+{
+  "status": "candidate; no Current writes",
+  "canonical_replacement": "CA-R-2487",
+  "consumer_dispositions": [
+    {
+      "source": "04_requirement/CA-R-1321-CORE_META_MODEL--define-subject-expression.md",
+      "source_sha256": "b97d1ac9a3958a6f39dda03eb07e26042990afefbbe8b9a1009e643cf54a16b3",
+      "candidate": "consumer-patches/CA-R-1321@34-draft-CORE_META_MODEL--define-subject-expression.md",
+      "body_patches": [
+        {
+          "find": "CA-R-2244",
+          "replace": "CA-R-2487",
+          "meaning": "CFEL root reference only."
+        },
+        {
+          "find": "Source {forward-count}RELATION{reverse-count} Target; direct values use Property[format]{count}",
+          "replace": "Source {:forward}((RELATION)){:reverse} Target; direct values use Property{:occurrence}: [format]{:value count}",
+          "meaning": "Same independent Relation-count and direct-value-count concepts in the currently admitted count syntax."
+        }
+      ]
+    },
+    {
+      "source": "04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "source_sha256": "a81f68ddb41eff9724640443f6af2d69739ab1bb01014f838a0ae7d30cbc0f22",
+      "candidate": "consumer-patches/CA-R-2276@3-draft-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "body_patch": {
+        "find": "CA-R-2244",
+        "replace": "CA-R-2487",
+        "meaning": "CFEL root reference only; all surrounding grammar wording remains byte-for-byte from the source body before metadata staging."
+      }
+    },
+    {
+      "source": "04_requirement/CA-R-2327-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md",
+      "owner": "lane A",
+      "action": "candidate source-reference replacement CA-R-2244 -> CA-R-2487",
+      "reason": "Cardinality concept retains the same CFEL-root meaning."
+    },
+    {
+      "source": "04_requirement/CA-R-2328-CORE_META_MODEL-ENTITY_DEFINITION--define-format.md",
+      "owner": "lane A",
+      "action": "retire",
+      "reason": "legacy Format Definition disposition"
+    },
+    {
+      "source": "04_requirement/CA-R-2329-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "owner": "lane A",
+      "action": "retire",
+      "reason": "legacy Relation Definition disposition"
+    }
+  ]
+}

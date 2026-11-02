@@ -5,14 +5,14 @@ current_scope_unit: MCP
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
-version: 10
-updated_at: 2026-10-27 19:59:28 +0400
+version: 12
+updated_at: 2026-10-30 03:11:57 +0400
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation
   depends_on: []
 relations:
   delivery_for:
-  - CA-R-2007
+  - CA-R-2446
 type: Eng Decision
 tier: 5
 ---

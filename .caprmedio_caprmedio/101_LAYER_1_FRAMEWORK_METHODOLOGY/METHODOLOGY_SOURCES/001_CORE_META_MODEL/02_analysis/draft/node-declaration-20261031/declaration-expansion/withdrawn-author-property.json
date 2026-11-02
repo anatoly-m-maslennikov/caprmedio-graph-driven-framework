@@ -1,0 +1,7 @@
+{
+  "decision": "Author deferred; removed from proposed artifacts. Operator registry retained.",
+  "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-author.md",
+  "sha256": "b0c1dba43980a23d20d511ef2c3d1e13fc686988cda56bafcdce3337734cebaf",
+  "withdrawn_unpublished_text": "---\natom_id: CA-R-draft\ncontent_role: Requirement\ntype: Declaration\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Draft\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: 'Atom.Author'\nversion: 1\nupdated_at: \"2026-10-31 01:26:40 +0400\"\nrelations: {}\ntier: 3\n---\n## Summary\n\nDeclare Atom.Author\n\n## Claim\n\n```GFEL\nAtom.Author{1}: [string]{1};\nAtom.Author.*[]{0}\n```\n\n- Each Atom Revision has one resolved Actor as Author.\n- The string value names that Actor.\n- If no Author is supplied, the admitting Operator is the effective Author.\n- Serialize the resolved Author as a nonempty registry name.\n",
+  "status": "withdrawn unpublished Draft; not an archived Current Atom"
+}

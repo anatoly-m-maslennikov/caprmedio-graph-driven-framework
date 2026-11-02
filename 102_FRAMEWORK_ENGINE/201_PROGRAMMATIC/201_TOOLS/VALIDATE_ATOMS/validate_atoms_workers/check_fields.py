@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
+import hashlib
 import re
 from datetime import datetime
 from typing import Any
 
-from .authority import Record
+from subject_notation import SubjectNotationError, parse_subject_expression
+
+from .authority import Record, _verified
 from .check_support import Check, _integer, _string, _strings
 
 
@@ -112,8 +115,61 @@ def _check_non_draft_identity(metadata: Record, check: Check) -> None:
     check.forbid(metadata, "identifier")
 
 
+_ENCODING_BODIES = {
+    ("CA-D-276", "53f79083c0888316142f1f4d4543c9ee376aeb844b74d281f2305bb21ba0d6b4"): "legacy",
+    ("CA-D-657", "86fe401ab574041fb361f6b635348aa754b20de5faa6a88d65c27addeedfca4b"): "current",
+}
+
+
+def reviewed_encoding_profile(row: Record) -> str | None:
+    if not _verified(row, {}):
+        return None
+    body = row["text"].split("---", 2)[-1].strip()
+    return _ENCODING_BODIES.get((row["binding"]["atom_id"], hashlib.sha256(body.encode()).hexdigest()))
+
+
+def encoding_authority(check: Check) -> tuple[str, Record] | None:
+    """Bind the reviewed encoding contract, not an alias between retired and Current IDs."""
+    rows = [row for row in check.inputs.get("sources", [])
+            if row.get("binding", {}).get("atom_id") in {"CA-D-276", "CA-D-657"}]
+    if len(rows) == 1 and _verified(rows[0], {}):
+        row = rows[0]
+        profile = reviewed_encoding_profile(row)
+        if profile is not None:
+            return profile, row
+    elif not rows:
+        bound = [row for row in check.context.bindings if row.get("atom_id") == "CA-D-276"]
+        if len(bound) == 1 and bound[0].get("sha256") == "052efd2454be5fe51e60a57fafbc7b767d87bba4a37272615c95b2648583ac02":
+            return "legacy", {"binding": bound[0]}
+    check.gap("frontmatter", "Exactly one verified reviewed frontmatter encoding authority is required.")
+    return None
+
+
+def _current_common(metadata: Record, check: Check) -> None:
+    for field in ("content_role", "current_scope_unit", "type"):
+        check.require(metadata, field, _string)
+    check.require(metadata, "tier", _integer)
+    if metadata.get("type") == "Project Goal":
+        check.gap("tier", "Current Project Goal Tier needs its verified ownership and Tier authority.")
+    elif _integer(metadata.get("tier")) and metadata["tier"] < 0:
+        check.fail("PROPERTY_DOMAIN", "tier", "An ordinary Current Atom Tier must be nonnegative.")
+    for field in ("label", "tier_label"):
+        if field in metadata:
+            check.require(metadata, field, _string)
+    if "tier_label" in metadata:
+        check.gap("tier_label", "An explicit Tier Label requires its current governed numeric-to-label mapping.")
+    for field in ("local_tier", "global_tier", "operators", "identifier", "summary", "claim"):
+        check.forbid(metadata, field)
+
+
 def _common(metadata: Record, body: str, check: Check) -> None:
     del body
+    authority = encoding_authority(check)
+    if authority is None:
+        return
+    if authority[0] == "current":
+        _current_common(metadata, check)
+        return
     for field in ("content_role", "current_scope_unit"):
         check.require(metadata, field, _string)
     role = metadata.get("content_role")
@@ -205,6 +261,16 @@ def _subjects(metadata: Record, body: str, check: Check) -> None:
             "subjects.depends_on",
             "Subject dependencies must be unique nonempty strings.",
         )
+    values = [("subjects.governs", subjects.get("governs"))]
+    dependencies = subjects.get("depends_on", [])
+    if isinstance(dependencies, list):
+        values.extend(("subjects.depends_on", value) for value in dependencies)
+    for field, value in values:
+        if _string(value):
+            try:
+                parse_subject_expression(value, subject_profile="approved")
+            except SubjectNotationError as error:
+                check.fail("SUBJECT_INVALID", field, str(error))
     if set(subjects) - {"governs", "depends_on"}:
         check.fail("PROPERTY_UNADMITTED", "subjects", "Subjects contains an unadmitted nested key.")
 

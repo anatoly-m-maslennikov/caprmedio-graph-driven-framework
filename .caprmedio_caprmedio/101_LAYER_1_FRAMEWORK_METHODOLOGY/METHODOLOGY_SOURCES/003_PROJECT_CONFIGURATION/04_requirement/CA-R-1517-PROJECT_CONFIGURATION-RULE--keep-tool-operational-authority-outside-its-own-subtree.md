@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
-version: 15
-updated_at: 2026-10-27 19:59:56 +0400
+  active: Package
+  passive:
+  - Scope Unit
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - Atom/(.Role := Operations)
+  - Atom/(.Role := Evaluation)
+  - Entity/Object/Continuant/Selection//Methodology Sources
+version: 18
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1517
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Keep Tool operational authority outside its own subtree
 
-## Scope
+## Claim scope
 
 Tools' implementation references to methodology Action and Workflow definitions in the caprmedio Project.
 

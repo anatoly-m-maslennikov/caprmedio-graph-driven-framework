@@ -1,28 +1,27 @@
 ---
 atom_id: CA-D-581
-content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: FPF Analysis Report'
-  depends_on:
-  - Subject/CAPRMEDIO/Carrier/File.Filename
-  - Subject/CAPRMEDIO/Carrier
-version: 11
-updated_at: 2026-10-27 19:59:27 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: FPF Analysis Report'
+  passive:
+  - Carrier/File.Filename
+  - Carrier
+version: 14
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   delivery_for:
   - CA-R-1888
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize FPF Analysis Report Type Token
 
-## Scope
+## Claim scope
 
 the filename Type component of a project-owned FPF Analysis Report Markdown Carrier.
 

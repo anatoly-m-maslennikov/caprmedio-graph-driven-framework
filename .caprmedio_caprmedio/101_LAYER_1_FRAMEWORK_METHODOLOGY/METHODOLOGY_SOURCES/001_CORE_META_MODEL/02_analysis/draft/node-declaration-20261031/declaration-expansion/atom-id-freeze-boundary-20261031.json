@@ -1,0 +1,10 @@
+{
+  "trigger": "First promotion to Current or Archived",
+  "direct_draft_to_archived": true,
+  "prior_current_required": false,
+  "declaration": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+  "version_rules_changed": false,
+  "runtime_changes": false,
+  "scope": "All later versions of the same logical Atom, including Drafts",
+  "formal_predicate": "IMMUTABLE(Atom.ID)"
+}

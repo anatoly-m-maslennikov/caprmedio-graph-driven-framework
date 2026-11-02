@@ -1,34 +1,31 @@
 ---
 atom_id: CA-E-510
-content_role: Evaluation
-type: Eval Case
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/caprmedio/Action//Reconcile Navigation Numbers
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Navigational Order Number
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Local Order
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Carrier/Directory.Numeric Prefix
-  - Subject/CAPRMEDIO/Carrier/Directory
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
-version: 21
-updated_at: 2026-10-27 19:59:36 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Reconcile Navigation Numbers'
+  passive:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+  - Scope Unit
+  - Entity/Object/Continuant/Structural Unit/Scope Unit.Navigational Order Number
+  - Scope Unit.Local Order
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Type
+  - Scope Unit.Label
+  - Carrier
+  - Carrier/Directory.Numeric Prefix
+  - Carrier/Directory
+  - Entity/Object/Continuant/Actor/Operator
+  - Atom
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - Atom/(.Role := Evaluation)
+  - Atom/(.Role := Concern)
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-O-078
-  - CA-R-1483
+  - CA-R-1483@21
   - CA-R-976
   - CA-R-981
   - CA-R-983
@@ -37,12 +34,14 @@ relations:
   - CA-D-444
   - CA-D-445
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate Navigation Number Migration Evidence
 
-## Scope
+## Claim scope
 
 a navigation-migration result.
 

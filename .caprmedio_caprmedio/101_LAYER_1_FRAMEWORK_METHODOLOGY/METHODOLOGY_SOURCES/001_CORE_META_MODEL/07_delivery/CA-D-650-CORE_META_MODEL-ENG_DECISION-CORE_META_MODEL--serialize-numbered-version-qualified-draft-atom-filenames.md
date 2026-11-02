@@ -1,26 +1,25 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier/File.Filename
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
-version: 9
-updated_at: 2026-10-27 19:59:28 +0400
+  active: Carrier/File.Filename
+  passive:
+  - Atom.ID
+  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
+version: 12
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-650
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eng Decision
 tier: 3
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize numbered version-qualified Draft Atom filenames
 
-## Scope
+## Claim scope
 
 Project-owned Draft Atom filename identity segments.
 

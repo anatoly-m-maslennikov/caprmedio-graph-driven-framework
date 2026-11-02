@@ -1,32 +1,31 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Implementation Overview'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-version: 33
-updated_at: 2026-10-27 20:00:01 +0400
+  active: 'Entity/Object/Continuant/Projection/(.Type: Implementation Overview)'
+  passive:
+  - Projection
+  - Atom
+  - Term//Artifact
+  - Entity/Aspect/Engineering/Traceability
+  - Journal
+  - Entity/Object/Continuant/Package/Project Implementation
+  - Atom/(.Role := Evaluation)
+  - Entity/Object/Continuant/Governing Objects/Atom.Content Role
+version: 38
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1703
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Use Implementation Overview as a Projection
 
-## Scope
+## Claim scope
 
 Implementation Overview Projections.
 
@@ -38,8 +37,6 @@ it **may** report realization coverage, source-to-target bindings, relevant comm
 
 the presence of this Projection does **not** require an internal Implementation Atom. storage, retention, **and** whether the Projection is committed **or** generated at runtime remain governed separately.
 
-## Primary claim
+## Details
 
 CAPRMEDIO represents the current view of project realization through an Implementation Overview Projection rather than an Implementation Atom.
-
-## Details

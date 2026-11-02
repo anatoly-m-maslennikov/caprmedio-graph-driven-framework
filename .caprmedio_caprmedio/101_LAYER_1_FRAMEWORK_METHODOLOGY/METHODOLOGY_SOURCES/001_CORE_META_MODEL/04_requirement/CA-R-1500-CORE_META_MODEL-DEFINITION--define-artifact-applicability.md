@@ -1,33 +1,35 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - Subject/CAPRMEDIO/Graph/Node
-version: 14
-updated_at: 2026-10-27 19:59:56 +0400
+  active: Atom
+  passive:
+  - Term//Artifact
+  - Entity
+version: 21
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-M-001
+  - CA-M-447
 atom_id: CA-R-1500
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Definition
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Define Artifact Applicability
 
-## Scope
+## Claim scope
 
 Artifact governed meaning in a declared context.
 
 ## Claim
 
+
+
+The following interpretation is required when this governed concept is used:
+
 Applicability **means** whether an Artifact's governed meaning applies **in** a particular declared context, including structural scope, selected capability, environment, version, **or** time boundary.
 
-## Details

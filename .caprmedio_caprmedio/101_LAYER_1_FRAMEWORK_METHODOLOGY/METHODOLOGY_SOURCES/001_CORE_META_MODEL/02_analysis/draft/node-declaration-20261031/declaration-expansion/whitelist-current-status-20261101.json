@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-01",
+  "scope_audited": {
+    "existing_drafts": 136,
+    "primary_declarations": 28,
+    "property_declarations": 60,
+    "other_claims": 48,
+    "new_default_syntax_rule_reviewed": 1
+  },
+  "encoding": "Host {:0}((*)) wildcard fallback followed by applicable named constraints",
+  "layers": {
+    "model_entities": "(Node, Node.**)",
+    "instances_and_their_properties": "(Node//, (Node//).**)"
+  },
+  "allowed_value": "{:x} remains allowed-value notation; no new graph Relation",
+  "root_and_property_coverage": "Resolved by latest user scopes; narrower branch covered through inheritance",
+  "concrete_node_defaults": "Both wildcard defaults inserted once in Node Declaration",
+  "complete_effective_whitelists": false,
+  "subject_focus": "Ownership fixes reviewed; moved constraints retained; contextual endpoints/inputs remain legitimate",
+  "metrics": {
+    "drafts": 137,
+    "formal_only_claims": 82,
+    "node_descendant_claims_with_prose": 8,
+    "prose_by_classification": {
+      "Property": 5,
+      "Primary Node": 3
+    },
+    "node_claims_with_prose_including_root": 8
+  },
+  "runtime_enforcement": false,
+  "inverse_permission": "No automatic inverse permission; each direction is named explicitly and all own-endpoint bounds are checked across applicable specs",
+  "property_traversal": "(Node//).** selects dependent Properties recursively; no independent Property instantiation",
+  "remaining_work": "Review remaining local Relation entries and full semantic binding; parser/runtime not verified"
+}

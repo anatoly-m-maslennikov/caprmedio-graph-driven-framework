@@ -1,30 +1,29 @@
 ---
 atom_id: CA-R-1799
-content_role: Requirement
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
-author: Anatoly Maslennikov
-version: 15
-updated_at: 2026-10-27 20:00:03 +0400
+version: 18
+updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  governs: 'Subject/caprmedio/Product: CAPRMEDIO Framework'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Atom/(.Role := Requirement)
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
 relations:
   child_of:
   - CA-R-2157
 tier: 4
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Provide capabilities **without** forcing their execution
 
-## Scope
+## Claim scope
 
 capabilities provided by the CAPRMEDIO Framework Instance.
 

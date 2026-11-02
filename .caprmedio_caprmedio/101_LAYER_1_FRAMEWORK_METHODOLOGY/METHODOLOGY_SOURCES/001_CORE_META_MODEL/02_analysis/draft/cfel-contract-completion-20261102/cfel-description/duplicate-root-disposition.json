@@ -1,0 +1,33 @@
+{
+  "status": "complete candidate disposition; no Current mutation",
+  "canonical_root": {
+    "id": "CA-R-2487",
+    "source_sha256": "aaacfae64493c72d74af320e0878d2448be57cf16345bdfb5b9d4ce919c8f41d",
+    "candidate": "CA-R-2487@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+    "reason": "Its active Subject is CFEL and its Summary names the language rather than a legacy Graph Syntax presentation."
+  },
+  "duplicate": {
+    "id": "CA-R-2244",
+    "source_sha256": "5eec565a64375668698c4490667117373d61801ecbe46ccda6f9d53200f5b956",
+    "recommended_disposition": "adopt CA-R-2487 as the canonical CFEL root, apply the five staged consumer dispositions, then archive CA-R-2244",
+    "nonredundant_constraint_destinations": [
+      {"constraint":"allowed value is not assignment; no instance created","destination":"CA-R-2471 and the allowed-value operator candidate"},
+      {"constraint":"containment/classification are graph Relations, not inheritance or membership","destination":"CA-R-2471 and Relation lane"},
+      {"constraint":"canonical Relation versus derived view; no independently stored derived inverse fact","destination":"Relation lane; preserve separate HAS_INVERSE meaning"},
+      {"constraint":"direct values, dependent names and relation directional counts differ","destination":"CA-R-2243@6 candidate and CA-R-2472@3 candidate"},
+      {"constraint":"formal syntax does not create entities or execute a Workflow","destination":"CA-R-2487@3 candidate"}
+    ],
+    "freeze_conditions": [
+      "Apply the staged consumer dispositions in consumer-patches/r2244-consumer-dispositions.json: CA-R-1321 and CA-R-2276 redirect to CA-R-2487; lane A redirects CA-R-2327 and retires CA-R-2328 and CA-R-2329.",
+      "Adopt the canonical CFEL root and specialized operator/count authorities with source-to-destination traceability.",
+      "Preserve every Relation Semantics statement while the Relation lane applies the confirmed canonical-Relation-versus-derived-view policy and separate HAS_INVERSE meaning.",
+      "Do not infer a Format or Bool // instance binding while translating consumers."
+    ]
+  },
+  "cardinality_split": {
+    "CA-R-2327": "retain as the Cardinality concept Definition after Luna-owned legacy alignment; it must not repeat notation grammar.",
+    "CA-R-2243": "reclassify the successor as a Rule: it is the canonical Cardinality Notation authority and does not define a second Cardinality entity.",
+    "latest_surface": "{:n}; p{:occurrence}: [format]{:value count}; p.*[name format]{:child count}; p.**[name format]{:recursive count}"
+  },
+  "recursive_count_decision": "p.**[name format]{:recursive count} aggregates selected distinct descendant Property identities below p within each selected bearer. The candidate C/Question records context and the future-extension question."
+}

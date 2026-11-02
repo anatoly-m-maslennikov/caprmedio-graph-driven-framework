@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "scope": "10 revised Drafts and 2 nonblocking Concern questions, source vs candidate; no runtime or adoption validation",
+  "source_candidate_hashes": [
+    {
+      "id": "CA-R-1643",
+      "source_sha256": "df0d7810fc8c141d9fdd2416ff8cabb1df3ddb2d404240c7ef3b58a0f55b3282",
+      "candidate_sha256": "528db39c74bba251d9fc67bd3ed7302705793f6c1368891d7d47b50a47621ef7"
+    },
+    {
+      "id": "CA-R-1644",
+      "source_sha256": "ea75f16976ff8d44087551d5533e50db406a7c7bcd158ec92d76f1383c6b18c3",
+      "candidate_sha256": "3dc15137ab47ab70058dc75956d488f23c7b129a3d519edaea267241e39e9eb0"
+    },
+    {
+      "id": "CA-E-462",
+      "source_sha256": "57f888238c485d6ab43ed4eae978c80b32dfee07d2a2cd9731e3512b2fc18f5c",
+      "candidate_sha256": "6c5354344e166fc21edb018f2e3953eee7e4edb8711f4bf5219cefa9ddfe006f"
+    },
+    {
+      "id": "CA-E-496",
+      "source_sha256": "86f5c8425ce506c9a0fa19788a640037255c9e07db78008e2213a55ad90ffaae",
+      "candidate_sha256": "381b31d54480f41a383332c98b6e9d05205296c349a3ccb8598fc3c0620c8b79"
+    },
+    {
+      "id": "CA-D-338",
+      "source_sha256": "394142c0ad11ecaf854e326cb98c8f22e329f55cd1589604095f2de0724ca46c",
+      "candidate_sha256": "00f633ecde4a821f078ebea8a217633db00276924d4248534f5fd8ac5ae77b57"
+    },
+    {
+      "id": "CA-D-340",
+      "source_sha256": "2c111d8968e14a4d78f4dc51787e9078211d6d5230bb73e876a2056577c75c87",
+      "candidate_sha256": "1fe9d63a1e2c9d183ef56d284ac91f7adce6b7feb56bd6f8e7e6bdfce530b495"
+    },
+    {
+      "id": "CA-E-465",
+      "source_sha256": "271849b6ca538cb95729bf70a9a5869dcf5c56770ffaec75d0dd33a335b95358",
+      "candidate_sha256": "656f181eb7aa25a53f1c79f07d52ac68fac2783dc728d13be1677a3c059ba839"
+    },
+    {
+      "id": "CA-D-435",
+      "source_sha256": "17f422e7e6b741dd3a51d96ecefe1f03657a6965d6b9a69b399f5dc984b51423",
+      "candidate_sha256": "1fd03f7b55fefeab8d5a8880e1302d1f475f63423f3730323c9edc3823bd8204"
+    },
+    {
+      "id": "CA-R-1569",
+      "source_sha256": "1c1799a4316e9a003cb0991c126bce52494ac7968a05832ab97612a93c3d1138",
+      "candidate_sha256": "f0cda7b53a73ac6ff0bcc74d690a060660a40146d43e6a8c0264647fdb4a1f5e"
+    },
+    {
+      "id": "CA-R-1992",
+      "source_sha256": "ca798afc46ba5d4b88df42c04dcaf509499ce0e09cb5c3e6a61b091b9c24a84b",
+      "candidate_sha256": "f48c9d2fef9ba7f99c3c71a724b23177d844fe24bd82f12c15a2fbcacde1b4dd"
+    }
+  ],
+  "question_hashes": [
+    {
+      "path": "01_concern/CA-C-draft-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "sha256": "6a481109f2c38e3186aa5c3566769eb572c29526e757aa63f7f3cd2e1525d680"
+    },
+    {
+      "path": "01_concern/CA-C-draft-CORE_META_MODEL-QUESTION--should-observation-phase-become-an-event-record-model-property.md",
+      "sha256": "7c1ed4f20ce5342112c945b741bba7b1fc82d3c249cba8367e92e9fbdba9fb6f"
+    }
+  ],
+  "findings": [],
+  "all_pinned_hashes_match": true,
+  "limitations": [
+    "Read-only source comparison; no actual Workflow instance migration, runtime, or adoption claimed."
+  ],
+  "closure": {
+    "JW1": "PASS: predecessor Version and prior Updated At preserved",
+    "JW2-E462": "PASS: actual Evaluation and result required",
+    "JW2-E496": "PASS: checks evidence, reports outcomes, and does not edit evidence",
+    "hashes": "all 10 source/candidate and 2 Concern hashes match"
+  }
+}

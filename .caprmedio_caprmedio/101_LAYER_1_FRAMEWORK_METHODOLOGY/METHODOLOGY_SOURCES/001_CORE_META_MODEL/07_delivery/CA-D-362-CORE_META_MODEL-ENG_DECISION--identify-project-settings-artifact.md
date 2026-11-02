@@ -1,32 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Identifier
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-version: 22
-updated_at: 2026-10-27 19:59:23 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Identifier
+  passive:
+  - Project.Settings
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-1738
+  - CA-R-2532
 atom_id: CA-D-362
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Identify Project Settings Artifact
 
-## Scope
+## Claim scope
 
 Project Settings for a Project named `<project_name>`.
 
 ## Claim
 
 the Identifier of Project Settings for a Project named `<project_name>` **must** be `caprmedio_<project_name>_settings`.
-
-## Details

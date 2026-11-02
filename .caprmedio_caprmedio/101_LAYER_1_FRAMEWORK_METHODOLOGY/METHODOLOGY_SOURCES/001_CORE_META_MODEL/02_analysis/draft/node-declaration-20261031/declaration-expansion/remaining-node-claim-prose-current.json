@@ -1,0 +1,50 @@
+[
+  {
+    "subject": "Atom.Tier",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+    "classification": "Property",
+    "prose": "Goals whose active Subject resolves to the Project use Tier -1. Ordinary Scope Unit-owned non-Goal Atoms use Tier 0 or higher."
+  },
+  {
+    "subject": "Atom.Subjects.Passive",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive.md",
+    "classification": "Property",
+    "prose": "Passive Subjects identify direct contextual dependencies."
+  },
+  {
+    "subject": "Atom/(.Role := Requirement)/(.Form := Relation Definition).Content.notation_for_subject",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md",
+    "classification": "Property",
+    "prose": "When a short subject notation is admitted for the Relation, this Property is required."
+  },
+  {
+    "subject": "Project",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+    "classification": "Primary Node",
+    "prose": "A Project uses CAPRMEDIO's MODEL."
+  },
+  {
+    "subject": "Scope Unit.Path",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+    "classification": "Property",
+    "prose": "The Path lists Scope Unit identities along the complete declared containment chain from the root to the addressed Scope Unit."
+  },
+  {
+    "subject": "Projection.Source.Atoms",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-atoms.md",
+    "classification": "Property",
+    "prose": "Each value is an Atom ID with an explicit Version."
+  },
+  {
+    "subject": "Event Record",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+    "classification": "Primary Node",
+    "prose": "An Event Record is immutable."
+  },
+  {
+    "subject": "MODEL",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-model.md",
+    "classification": "Primary Node",
+    "prose": "- A local MODEL inherits CAPRMEDIO's MODEL.\n- MODEL inheritance is distinct from Node narrowing.\n- Local overrides replace matching inherited rules in the local MODEL.\n- Local overrides preserve the base MODEL's rules.\n- Unmodified inherited Declarations are reused."
+  }
+]

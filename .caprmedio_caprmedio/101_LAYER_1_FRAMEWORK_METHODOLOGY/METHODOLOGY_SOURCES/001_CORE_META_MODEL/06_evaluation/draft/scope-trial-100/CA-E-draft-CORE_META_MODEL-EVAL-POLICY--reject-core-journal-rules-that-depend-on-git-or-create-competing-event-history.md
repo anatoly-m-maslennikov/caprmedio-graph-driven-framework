@@ -1,0 +1,39 @@
+---
+subjects:
+  governs: Entity/Object/Continuant/History/Journal
+  depends_on:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit//CORE_META_MODEL
+  - Entity/Object/Continuant/Structural Unit/Scope Unit
+  - 'Entity/Object/Continuant/Projection/Type: Artifact Change Log'
+  - 'Entity/Object/Continuant/Projection/Type: Process Log'
+version: 1
+updated_at: 2026-10-29 20:32:25 +0400
+relations:
+  evaluation_for:
+  - CA-R-1466
+  - CA-R-1720
+  - CA-R-1463
+  - CA-R-1467
+  - CA-R-1468
+atom_id: CA-E-draft
+content_role: Evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+author: Anatoly Maslennikov
+type: Eval Policy
+tier: 4
+---
+## Summary
+
+Reject Core Journal rules that depend on Git or create competing event history
+
+## Claim scope
+
+Core Meta-Model rules concerning Journal recording, replacement evidence, and canonical log Projections.
+
+## Claim
+
+the Evaluation **must** reject a Core Meta-Model rule that makes Journal recording, replacement evidence, **or** either canonical log Projection depend on Git installation, commit topology, hooks, **or** commit messages.
+
+with no Git Extension selected, admitted Journal records **and** their Artifact Change Log **and** Process Log Projections **must** remain valid under their applicable authority. with the Git Extension selected, its commit references **may** add provenance but **must not** create a second authoritative event history. changing **or** removing secondary Git history **must not** destroy the recorded identity **and** evidence needed **to** rebuild the two logs. a missing **or** invalid authoritative Journal remains a failure **in** either case.

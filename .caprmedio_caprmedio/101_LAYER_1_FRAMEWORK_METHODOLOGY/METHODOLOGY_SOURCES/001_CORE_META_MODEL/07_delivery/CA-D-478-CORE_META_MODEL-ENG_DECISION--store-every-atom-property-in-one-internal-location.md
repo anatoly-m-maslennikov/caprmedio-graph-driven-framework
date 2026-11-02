@@ -1,41 +1,52 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  depends_on:
-  - Subject/CAPRMEDIO/Carrier/File
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - Subject/CAPRMEDIO/Graph/Relation
-version: 24
-updated_at: 2026-10-27 19:59:25 +0400
-relations:
-  delivery_for:
-  - CA-R-1598
 atom_id: CA-D-478
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
+subjects:
+  active: Atom
+  passive:
+  - Carrier/File
+  - Carrier/File.YAML Frontmatter
+  - Carrier/File.Main Content
+version: 31
+relations:
+  delivery_for:
+  - CA-R-1598
 tier: 2
-type: Eng Decision
+updated_at: 2026-11-02 00:55:09 +0400
+role: Delivery
+form: Policy
 ---
-# Summary
+## Summary
 
 Store every Atom Property in one internal location
 
-## Scope
+## Claim scope
 
-applicable Atom Properties and their canonical internal locations.
+Atom Property representation in an Atom Markdown File Carrier.
 
 ## Claim
 
-**every** applicable Atom Property **must** have **`=1`** canonical internal location assigned by its Delivery authority:
+Use YAML Frontmatter for an Atom's metadata properties. Use named Markdown
+Main Content sections for `content.*` properties. Each applicable Atom Property
+has one canonical internal location; its value is not duplicated between YAML
+and Markdown.
 
-- use YAML Frontmatter **unless** that Property is assigned **to** a named Main Content section.
-- use the named section as the sole value source **when** Main Content carries the Property; do **not** maintain the same Property again **in** frontmatter.
-- names, filename tokens, **and** placement are representations checked against the internal value under CA-D-480, **not** alternative authority.
-- Atom-to-Atom Relations follow their registered owning direction under CA-D-268; do **not** copy inverse **or** transitive Relations **to** make an Atom self-sufficient.
-- the retired top-level fields `cce_version`, `cce_form`, **and** `llm_session_ids` are **not** admitted Atom Properties **and** **must not** be serialized **in** an Atom Carrier. their absence is conforming; their presence is a retired-field finding, **not** a reason **to** select legacy authority. this rule does **not** remove session provenance from its separately governed Journal Carrier.
+This reusable Policy governs Atom representation. It does not create a Carrier
+or a CARRIES fact for each property or section, and it does not change the
+owning direction of an Atom-to-Atom Relation.
+
+Qualified classifications are carried as ordinary metadata properties. For example, `Atom/(.Role := Concern)` selects the Atom's `role` value, and a qualified Form selects its `form` value; neither creates a nested Role object. Use the property names and canonical value encodings registered by the applicable D policy, including CA-D-657, rather than inventing a new field from the display path.
+
+## Semantics
+
+YAML and Markdown are carrier locations for different Atom properties, not
+alternative authorities for the same value. A section's name identifies its
+`content.*` property; a metadata property remains a YAML value.
 
 ## Details
+
+This Policy incorporates
+the reusable placement boundary supported by CA-D-357 without creating a
+per-field representation entity.

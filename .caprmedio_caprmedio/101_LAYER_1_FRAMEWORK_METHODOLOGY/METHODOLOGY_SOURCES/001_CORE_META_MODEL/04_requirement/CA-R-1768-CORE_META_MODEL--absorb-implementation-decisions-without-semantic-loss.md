@@ -1,24 +1,23 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  depends_on: []
-version: 26
-updated_at: 2026-10-27 20:00:02 +0400
+  active: Atom/(.Role := Method)
+  passive: []
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1768
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Absorb Implementation Decisions without semantic loss
 
-## Scope
+## Claim scope
 
 Eng Decisions.
 
@@ -28,4 +27,4 @@ an Eng Decision **may** be archived as absorbed **only** **after** **`>=1`** act
 
 ## Details
 
-Absorption does not create artificial children or override actual-child ownership. If a Scope Unit loses its last actual child, review, relocate or reclassify any locally owned Eng Policy under CA-R-2119; do not infer an automatic runtime conversion.
+Absorption does not create artificial children or override actual-child ownership. If a Scope Unit loses its last actual child, review, relocate or reclassify any locally owned Eng Policy under CA-R-2119@8; do not infer an automatic runtime conversion.

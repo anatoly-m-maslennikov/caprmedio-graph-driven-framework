@@ -6,14 +6,14 @@ current_scope_unit: MCP
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
-version: 10
-updated_at: 2026-10-27 19:59:38 +0400
+version: 12
+updated_at: 2026-10-30 03:11:57 +0400
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation
   depends_on: []
 relations:
   evaluation_for:
-  - CA-R-2007
+  - CA-R-2446
 tier: 5
 ---
 # Summary
@@ -22,7 +22,7 @@ Verify MCP health history truth and isolation
 
 ## Scope
 
-The changed MCP health route, bounded Gateway observer and HTML representation under CA-R-2007.
+The changed MCP health route, bounded Gateway observer and HTML representation under CA-R-2446.
 
 ## Claim
 

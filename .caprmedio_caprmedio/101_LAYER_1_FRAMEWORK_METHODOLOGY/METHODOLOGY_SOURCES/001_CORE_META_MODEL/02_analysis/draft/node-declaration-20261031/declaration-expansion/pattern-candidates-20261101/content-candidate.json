@@ -1,0 +1,145 @@
+{
+  "status": "read-only candidate review complete; no repository changes",
+  "scope": ["Atom.Content.Claim", "Atom.Subjects.Passive", "Atom.Tier"],
+  "starting_evidence": [
+    "/private/tmp/caprmedio-zero-prose-20261031/content.json",
+    "/private/tmp/caprmedio-zero-prose-20261031/content-adjudication.json"
+  ],
+  "method": "Reopened the three live registered Drafts and bounded supporting CFEL / Rule evidence. Candidate Claims preserve current formal contracts and do not treat legacy Current Rules as a sufficient replacement for constraints that the migration will retire.",
+  "candidates": [
+    {
+      "subject": "Atom.Content.Claim",
+      "live_draft": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+        "sha256": "d845449e1f616dd550043558b3074071dc5df561a08289deab0481a5b332f71a"
+      },
+      "before_claim": "- Use prose only for constraints CFEL cannot express.\n- At most one CFEL block is present.\n- Other fenced blocks are not allowed in Claim.\n\n```CFEL\nAtom/(.Role in RMED).Content.Claim{:1}: [markdown]{:1};\nAtom/(.Role in RMED).Content.Claim.*[]{:0}\n```",
+      "safe_after_claim": "- At most one CFEL block is present.\n- Other fenced blocks are not allowed in Claim.\n\n```CFEL\nAtom/(.Role in RMED).Content.Claim{:1}: [markdown]{:1};\nAtom/(.Role in RMED).Content.Claim.*[]{:0}\n```",
+      "zero_claim_prose_candidate": "```CFEL\nAtom/(.Role in RMED).Content.Claim{:1}: [markdown]{:1};\nAtom/(.Role in RMED).Content.Claim.*[]{:0}\n```",
+      "zero_claim_prose_status": "conditional; do not apply unless a reusable authoring Rule/Method owns and preserves the two fence invariants",
+      "clause_disposition": [
+        {
+          "text": "Use prose only for constraints CFEL cannot express.",
+          "kind": "authoring Method guidance, not a Property invariant",
+          "candidate_action": "Remove from this Property Claim and retain in a shared authoring Method or general Claim rule. The currently inspected Declaration Form registration Rule limits this guidance to Declaration content and is not sufficient for all RMED Roles."
+        },
+        {
+          "text": "At most one CFEL block is present.",
+          "kind": "Claim serialization invariant",
+          "candidate_action": "Preserve in this Claim until a shared Rule/Method explicitly owns it. Current CFEL has no Markdown fence-count operator."
+        },
+        {
+          "text": "Other fenced blocks are not allowed in Claim.",
+          "kind": "Claim serialization invariant",
+          "candidate_action": "Preserve in this Claim until a shared Rule/Method explicitly owns it. Current CFEL has no Markdown fence-label exclusion operator."
+        }
+      ],
+      "why_no_new_syntax": "Fence counting has only this inspected consumer. The user requires reusable syntax for at least two consumers and prohibits an opaque single-use predicate. Route the serialization rule to shared authoring authority instead of inventing a Claim-specific operator.",
+      "supporting_pins": [
+        {
+          "source": "Draft CFEL notation rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+          "sha256": "f33d4db8ee3c4ee2bcfd5a75bed1d708fbfb89f9287c9b29a8244ebb0397d962",
+          "finding": "A CFEL-labelled fenced block carries formal content inside Claim, but this does not constrain the number of blocks or disallow other fence labels."
+        },
+        {
+          "source": "Draft Declaration Form registration Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-form-registration.md",
+          "sha256": "3e0eb887970b15243db5711679cfec9744f2014cc9892460a0513396dfc7dd52",
+          "finding": "Requires CFEL for expressible constraints and prose for remaining ones in Declaration content; not a general RMED Claim rule."
+        }
+      ]
+    },
+    {
+      "subject": "Atom.Subjects.Passive",
+      "live_draft": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive.md",
+        "sha256": "13b435b58d09b2a3a617213728a8d24eeee2d378bba1fe52a4b2a50b25064cb8"
+      },
+      "before_claim": "Passive Subjects identify distinct direct contextual dependencies.\n\n```CFEL\nAtom.Subjects.Passive{:0..1}: [string]{:0+};\nAtom.Subjects.Passive.*[]{:0}\n```",
+      "safe_after_claim": "Passive Subjects identify distinct direct contextual dependencies.\n\n```CFEL\nAtom.Subjects.Passive{:0..1}: [string]{:0+};\nAtom.Subjects.Passive.*[]{:0}\n```",
+      "zero_claim_prose_candidate": "```CFEL\nAtom.Subjects.Passive{:0..1}: [string]{:0+};\nAtom.Subjects.Passive.*[]{:0}\n```",
+      "zero_claim_prose_status": "not supported by existing CFEL; do not remove the direct-context or distinctness invariant",
+      "clause_disposition": [
+        {
+          "text": "Passive Subjects identify distinct direct contextual dependencies.",
+          "kind": "normative dependency and distinctness invariant",
+          "candidate_action": "Retain in the Claim or transfer intact to a shared governing Rule before removing it. The value/count clauses below only declare a list of strings and do not encode what they refer to or whether values repeat."
+        }
+      ],
+      "why_no_new_syntax": "Existing UNIQUE is cross-instance tuple uniqueness, not distinct values within one Property. A new intra-Property distinctness assertion would have only one identified consumer and would not by itself establish direct contextual-reference validity. Do not invent a parser predicate or weaken the direct dependency requirement.",
+      "supporting_pins": [
+        {
+          "source": "Draft separation of Property values and child constraints",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--separate-property-value-and-child-constraints.md",
+          "sha256": "68eba7f2e605076ea8643c0d2add0066f19c37ab349cb59840b096bd985d5de9",
+          "finding": "Property value cardinality and dependent-name constraints are separate; it does not define intra-list value uniqueness."
+        },
+        {
+          "source": "Draft CFEL UNIQUE rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-unique-property-tuples.md",
+          "sha256": "dd075f259d390c5231492ae4d7013ac6bce97127544888fd94b50aab583440e7",
+          "finding": "UNIQUE compares Property tuples across selected logical instances, not repeated scalar values on one bearer."
+        }
+      ]
+    },
+    {
+      "subject": "Atom.Tier",
+      "live_draft": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+        "sha256": "5f7274b51b9523e7eb6121e1b97b657663d9d5e0cc53ea03f9d8ccb26fdecf41"
+      },
+      "before_claim": "Project Goals use Tier -1 and Operator ownership. Ordinary Scope Unit-owned Atoms use Tier 0 or higher.\n\n```CFEL\nAtom.Tier{:1}: [int]{:1};\nAtom.Tier.*[in(Label)]{:0..1};\nAtom.Tier >= -1\n```",
+      "safe_after_claim": "Project Goals use Tier -1 and Operator ownership. Ordinary Scope Unit-owned Atoms use Tier 0 or higher.\n\n```CFEL\nAtom.Tier{:1}: [int]{:1};\nAtom.Tier.*[in(Label)]{:0..1};\nAtom.Tier >= -1\n```",
+      "zero_claim_prose_candidate": "```CFEL\nAtom.Tier{:1}: [int]{:1};\nAtom.Tier.*[in(Label)]{:0..1};\nAtom.Tier >= -1\n```",
+      "zero_claim_prose_status": "not safe until equivalent owner/purpose constraints are carried by target-model authority",
+      "clause_disposition": [
+        {
+          "text": "Project Goals use Tier -1 and Operator ownership.",
+          "kind": "normative value and ownership invariant",
+          "candidate_action": "Preserve the constraint. CFEL has numeric comparisons and Role/Form qualification, but the selected packet does not provide a settled Project Goal Form admission or a general Atom-to-Operator ownership binding. The inspected HAS_ACTIVE_SUBJECT Relation Draft is restricted to Requirement Declaration→Node, so it cannot establish Project Goal Operator ownership."
+        },
+        {
+          "text": "Ordinary Scope Unit-owned Atoms use Tier 0 or higher.",
+          "kind": "normative owner-scoped numeric invariant",
+          "candidate_action": "Preserve the constraint. The selected packet does not define a safe owner-kind binding that distinguishes Scope Unit ownership from the Project Goal Operator exception. Do not infer owner from storage, containment, or a Target Scope Unit."
+        }
+      ],
+      "formal_contract_preserved": "Atom.Tier{:1}: [int]{:1}; Atom.Tier.*[in(Label)]{:0..1}; Atom.Tier >= -1",
+      "why_no_new_syntax": "The formal integer domain, optional Label child and general lower bound are already expressible. The remaining clauses require owner/purpose classification and identity links, which are not declared for these cases. A single-purpose predicate would hide unresolved relations; use a reusable target-model Rule or settle those bindings first.",
+      "supporting_pins": [
+        {
+          "source": "Current CA-R-2132 Project Goal Tier and owner Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2132-CORE_META_MODEL-RULE--assign-project-goal-tier-minus-one.md",
+          "finding": "Project Goal is currently identified by Requirement Type Project Goal and requires Operator ownership plus Tier -1. This is legacy source evidence, not a replacement target-model declaration."
+        },
+        {
+          "source": "Current CA-R-2125 and CA-R-2131 ordinary owner Tier Rules",
+          "paths": [
+            ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2125-CORE_META_MODEL-RULE--give-every-non-project-goal-atom-one-numeric-tier.md",
+            ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2131-CORE_META_MODEL-RULE--admit-numeric-tiers-in-non-project-scope-units.md"
+          ],
+          "finding": "Ordinary/non-Project Goal Atoms owned by Scope Units use integer Tier >=0. These Current Rules are evidence for preservation, not sufficient replacement authority if the migration retires them."
+        },
+        {
+          "source": "Draft derived Active Subject relation",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-active-subject-link.md",
+          "sha256": "1c815761dabe669b3d2e8316159e376eca09eaa1a2e61b7a01aa7826352487c3",
+          "finding": "Its endpoint declaration is limited to Requirement Declaration Atoms linking to the Node branch; it is not a general Atom-to-Operator / Atom-to-Scope-Unit ownership relation."
+        }
+      ]
+    }
+  ],
+  "shared_or_method_disposition": {
+    "claim_authoring_guidance": "Move 'Use prose only for constraints CFEL cannot express' to a reusable authoring Method or general Rule; current Declaration-form rule is narrower.",
+    "claim_fence_invariants": "Keep the one-CFEL-fence/no-other-fence requirements in this Claim until a shared authoring Rule/Method owns them. No one-off CFEL operator is proposed.",
+    "passive_dependency_invariant": "Keep direct contextual dependency and within-list distinctness in the Claim or a shared Rule. Current CFEL cannot express them safely.",
+    "tier_owner_invariants": "Keep both owner-scoped Tier clauses in the Claim until the target-model Rule expresses Project Goal identity, Operator ownership, and Scope Unit ownership. The `>= -1` CFEL line does not replace them."
+  },
+  "unresolved_real_decisions": [
+    "Which shared authoring Rule/Method will own prose-vs-CFEL guidance and Claim fence constraints across RMED Roles? Until then, removing the fence clauses would weaken the invariant.",
+    "Which target-model declaration establishes Project Goal Form identity and general Atom-to-Operator / Atom-to-Scope-Unit ownership so the two Tier clauses can be formalized or transferred without relying on retiring Current Rules?",
+    "No new CFEL syntax is recommended in this lane: the missing pieces are content serialization, passive-reference semantics, and ownership bindings; the identified candidate operators would each be one-off or opaque."
+  ],
+  "repository_mutations": false
+}

@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-version: 23
-updated_at: 2026-10-27 19:59:35 +0400
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-E-001
@@ -15,27 +15,29 @@ relations:
   - CA-O-021
   - CA-M-239
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  active: Entity/Object/Occurrent/Execution
+  passive:
+  - Atom/(.Role := Requirement)
+  - Atom/(.Role := Method)
+  - Atom/(.Role := Evaluation)
+  - Atom/(.Role := Delivery)
+  - Entity/Aspect/Engineering/Verification
+  - Atom.ID
+  - Project
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-439
 status: Active
-content_role: Evaluation
-author: Anatoly Maslennikov
 current_scope_unit: PROJECT_CONFIGURATION
-type: Policy
 tier: 4
 claim_target_scope_unit: caprmedio
+role: Evaluation
+form: Eval Policy
 ---
-# Evaluate the Evaluation-first implementation loop
+## Summary
+Evaluate the Evaluation-first implementation loop
+
+## Claim
 
 within the caprmedio Project, the implementation-loop Evaluation **must** return `fail` **if**
 

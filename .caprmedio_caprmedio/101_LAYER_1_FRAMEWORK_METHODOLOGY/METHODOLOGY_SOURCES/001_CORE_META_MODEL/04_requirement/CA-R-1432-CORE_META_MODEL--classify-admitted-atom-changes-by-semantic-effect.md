@@ -1,29 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Rule
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-version: 22
-updated_at: 2026-10-27 19:59:54 +0400
+  active: Atom
+  passive:
+  - Atom
+  - Atom.Content.Summary
+  - Carrier
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1432
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-type: Rule
-author: Anatoly Maslennikov
 tier: 2
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Classify admitted Atom changes by semantic effect
 
-## Scope
+## Claim scope
 
 the classification of admitted Atom changes by semantic effect.
 
@@ -45,5 +43,3 @@ For an existing Atom, only a Summary **or** Content Role change creates a new ba
 this classification concerns changes **to** the Atom's own bytes, metadata, direct ownership **or** local placement. moving an ancestor **only** changes a descendant's repository locator **when** that descendant's own bytes, metadata, direct owner **and** placement relative **to** that owner remain unchanged; this is **not** an Atom update **and** **must** retain that descendant's Version **and** Updated At. this boundary applies **to** **all** Atoms, including Plans nested under a moved Plan **and** Atoms whose owning Scope Unit moves. an actual change **to** the Atom itself, including its Status, filename, direct owner **or** local placement, still follows the classification **and** revision rules above. Exact pre-change bytes remain available through Git history.
 
 Tools **may** propose a class but **must** fail closed **when** the distinction between refinement, semantic revision, **and** replacement is uncertain.
-
-## Details

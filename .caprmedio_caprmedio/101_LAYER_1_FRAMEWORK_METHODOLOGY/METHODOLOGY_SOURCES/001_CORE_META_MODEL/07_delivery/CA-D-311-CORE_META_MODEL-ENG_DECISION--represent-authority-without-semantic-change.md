@@ -1,29 +1,26 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on: []
-version: 22
-updated_at: 2026-10-27 19:59:23 +0400
+  active: Carrier
+  passive: []
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-311
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Represent Authority without Semantic Change
 
-## Scope
+## Claim scope
 
 governed Carrier representations.
 
 ## Claim
 
 **every** governed Carrier **must** represent its carried Artifact Revision deterministically **and** human-readably **without** adding, removing, duplicating, **or** changing authoritative content.
-
-## Details

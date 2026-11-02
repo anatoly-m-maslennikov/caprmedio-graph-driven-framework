@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-01",
+  "user_decision": "Restrict fenced blocks only",
+  "scope": "Atom.Content.Claim",
+  "required": [
+    "At most one fenced code block",
+    "Its label must be CFEL"
+  ],
+  "outside_this_restriction": [
+    "Indented code blocks"
+  ],
+  "unchanged": "Other rules still determine which content is formal CFEL; an indented block is not made a formal Claim by this decision.",
+  "language_candidate": "Reduce the five-helper candidate to one general parsed-fence label selector plus existing cardinality and allowed-value constraints. No candidate is applied before review."
+}

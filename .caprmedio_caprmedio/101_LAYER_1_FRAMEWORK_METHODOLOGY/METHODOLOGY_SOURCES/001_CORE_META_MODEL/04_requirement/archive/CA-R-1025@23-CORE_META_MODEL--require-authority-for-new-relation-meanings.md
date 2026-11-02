@@ -1,0 +1,28 @@
+---
+subjects:
+  governs: Entity/Graph Syntax > Relation
+version: 23
+updated_at: 2026-10-29 07:45:26 +0400
+relations: {}
+atom_id: CA-R-1025@23
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 1
+type: Rule
+---
+## Summary
+
+Require authority for new relation meanings
+
+## Claim scope
+
+additional direct relation meanings.
+
+## Claim
+
+**every** additional direct relation meaning **must** have separate owning Requirement authority instead of reusing a registered relation with a different meaning.
+
+## Details

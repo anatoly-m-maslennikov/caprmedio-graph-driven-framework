@@ -1,0 +1,25 @@
+Entity	R/Entity Definition candidates	Count	Status
+Entity	CA-R-1033; CA-R-1035; CA-R-1036; CA-R-1194; CA-R-1248; CA-R-1275; CA-R-1284; CA-R-1321; CA-R-1408; CA-R-1409; CA-R-1499; CA-R-1500; CA-R-1501; CA-R-1709; CA-R-1994; CA-R-2003	16	Needs ownership review
+Entity/Aspect/Engineering/Execution Control/Decision Confidence	CA-R-1044; CA-R-1427	2	Needs ownership review
+Entity/Carrier/File	CA-R-1957; CA-R-2269	2	Needs ownership review
+Entity/Graph Syntax	CA-R-1931; CA-R-2244	2	Needs ownership review
+Entity/Graph Syntax > Relation	CA-R-1034; CA-R-2247; CA-R-945	3	Needs ownership review
+Entity/Object/Continuant/Governing Objects/Atom	CA-R-1448; CA-R-1449; CA-R-1578; CA-R-655; CA-R-922; CA-R-923	6	Needs ownership review
+Entity/Object/Continuant/Governing Objects/Atom.Subjects	CA-R-1198; CA-R-2004	2	Needs ownership review
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Eng Decision	CA-R-2120; CA-R-1668	2	Needs ownership review
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action	CA-R-1452; CA-R-1562	2	Needs ownership review
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	CA-R-1508; CA-R-1563	2	Needs ownership review
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step	CA-R-1509; CA-R-1569	2	Needs ownership review
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	CA-R-1338; CA-R-1542	2	Needs ownership review
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label	CA-R-1576; CA-R-1577	2	Needs ownership review
+Entity/Object/Continuant/Governing Objects/Governing Configuration	CA-R-1441; CA-R-1962	2	Needs ownership review
+Entity/Object/Continuant/Package	CA-R-2174; CA-R-2178	2	Needs ownership review
+Entity/Object/Continuant/Package/Project Implementation	CA-R-2173; CA-R-2239	2	Needs ownership review
+Entity/Object/Continuant/Projection	CA-R-1593; CA-R-1746	2	Needs ownership review
+Entity/Object/Continuant/Projection/Type: Realization Graph	CA-R-1616; CA-R-1620	2	Needs ownership review
+Entity/Object/Continuant/Selection	CA-R-1447; CA-R-1548; CA-R-1966; CA-R-942; CA-R-999	5	Needs ownership review
+Entity/Object/Continuant/Structural Unit/Scope Unit	CA-R-705; CA-R-707; CA-R-709; CA-R-775; CA-R-1217; CA-R-1219; CA-R-1757; CA-R-960; CA-R-964	9	Needs ownership review
+Entity/Object/Continuant/Structural Unit/Scope Unit.Path	CA-R-1764; CA-R-2133; CA-R-2134	3	Needs ownership review
+Entity/Object/Continuant/Structural Unit/Scope Unit.Project Boundary Position	CA-R-844; CA-R-975; CA-R-961	3	Needs ownership review
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	CA-R-1402; CA-R-2271	2	Needs ownership review
+Entity/Object/Continuant/Term	CA-R-1318; CA-R-1319; CA-R-1320; CA-R-1347	4	Needs ownership review

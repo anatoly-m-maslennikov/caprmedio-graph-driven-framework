@@ -1,0 +1,185 @@
+{
+  "audit_scope": "Read-only inventory of registered 99-Draft packet, current Core Author/Operator sources, A/Spec proposal and selected Epic Task. Current files were not modified.",
+  "observed_at_local_date": "2026-10-31",
+  "draft_packet": {
+    "register_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/draft-register.json",
+    "register_sha256": "6f018993c96d382c63ccdc72ebf08313faf28dab08db8de1fbfbc5ab748fe471",
+    "registered_drafts": 99,
+    "draft_frontmatter_author_present": 99,
+    "draft_frontmatter_author_value_counts": {
+      "Anatoly Maslennikov": 99
+    },
+    "draft_body_author_mentions": [
+      {
+        "id": "CA-R-draft",
+        "summary": "Declare Atom.Author",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-author.md",
+        "body_author_mentions": 7
+      }
+    ],
+    "register_hash_mismatches": [
+      {
+        "id": "CA-R-draft",
+        "summary": "Declare Atom.Label",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-label.md",
+        "register_sha256": "528357c86e9870acb34114a4116199527669c0e271916b2336682cce73f781b6",
+        "actual_sha256": "6aa3b9c518c082e51fe30f8e050458d9c81cad98957dc5dbab16feac72412600"
+      }
+    ]
+  },
+  "author_property_contract": {
+    "id": "CA-R-draft",
+    "summary": "Declare Atom.Author",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-author.md",
+    "sha256": "b0c1dba43980a23d20d511ef2c3d1e13fc686988cda56bafcdce3337734cebaf",
+    "claim": "Atom.Author{1}: [string]{1}; Atom.Author.*[]{0}",
+    "prose": [
+      "Each Atom Revision has one resolved Actor as Author.",
+      "The string value names that Actor.",
+      "If no Author is supplied, the admitting Operator is the effective Author.",
+      "Serialize the resolved Author as a nonempty registry name."
+    ]
+  },
+  "proposal_and_epic": [
+    {
+      "kind": "atom_author_draft",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-author.md",
+      "sha256": "b0c1dba43980a23d20d511ef2c3d1e13fc686988cda56bafcdce3337734cebaf",
+      "author_word_count": 9,
+      "operator_word_count": 1
+    },
+    {
+      "kind": "proposal",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md",
+      "sha256": "88ac2ebe08cb50c17df54076b862814e6f15a6ae364466778099a1d7277fe24a",
+      "author_word_count": 6,
+      "operator_word_count": 3
+    },
+    {
+      "kind": "epic_task",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/03-CA-P-2697-TASK--review-combined-entity-definitions-for-coherence-and-conflicts.md",
+      "sha256": "ac96d80d10387c59314cf3f0db77dc8c1fc9a981345ac10c9c57f124c5022455",
+      "author_word_count": 1,
+      "operator_word_count": 2
+    }
+  ],
+  "current_sources": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-ENTITY-DEFINITION--define-atom-artifact-form.md",
+      "sha256": "ddf97b84cfef8829604bcf39b8b84f9f60d27c395fa93d64c981d7512c072327",
+      "atom_id": "CA-R-655",
+      "version": "42",
+      "content_role": "Requirement",
+      "type": "Entity Definition",
+      "status": "Active"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-RULE--give-every-atom-revision-one-author.md",
+      "sha256": "d399c39aa77ed0a5a2f909d90808bd6eac0aba42e2e3b4b0853210c8d481d814",
+      "atom_id": "CA-R-1078",
+      "version": "31",
+      "content_role": "Requirement",
+      "type": "Rule",
+      "status": "Active"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1080-CORE_META_MODEL-RULE--default-atom-revision-author-to-the-operator.md",
+      "sha256": "c5a0e4b107484745c46649f3c9bb57dedc189dc7ffd36346ce8a18c71157b753",
+      "atom_id": "CA-R-1080",
+      "version": "29",
+      "content_role": "Requirement",
+      "type": "Rule",
+      "status": "Active"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md",
+      "sha256": "1d1ebd5b32983f7a26cc0c745af1f66c37d2ade5cf3824ad86c6f6a31dbb266b",
+      "atom_id": "CA-R-2102",
+      "version": "13",
+      "content_role": "Requirement",
+      "type": "Rule",
+      "status": "Active"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2356-CORE_META_MODEL-ENTITY_DEFINITION--define-atom-author.md",
+      "sha256": "f72d8806e2524f05cd23510056b29ea87b12bf0a78110d630091aeb8d03fd28e",
+      "atom_id": "CA-R-2356",
+      "version": "1",
+      "content_role": "Requirement",
+      "type": "Entity Definition",
+      "status": "Active"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL--define-the-operator-as-the-collective-human-actor.md",
+      "sha256": "68ff36fbe42e463990abbd523f231f65a594478541f822ee640cf98a5f0f7791",
+      "atom_id": "CA-R-1422",
+      "version": "22",
+      "content_role": "Requirement",
+      "type": "Entity Definition",
+      "status": "Active"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1944-CORE_META_MODEL-DEFINITION--define-actor-name.md",
+      "sha256": "c4ef69ee46edb48e773c22d894b50ca7e2250705540a47fd64fb6c8c8f464077",
+      "atom_id": "CA-R-1944",
+      "version": "11",
+      "content_role": "Requirement",
+      "type": "Entity Definition",
+      "status": "Active"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1984-CORE_META_MODEL-DEFINITION--define-project-operator-registry.md",
+      "sha256": "de9dee5b3c873b72da4ced1dd313c59d49977f7aad448b23e1078b10e4c28be1",
+      "atom_id": "CA-R-1984",
+      "version": "12",
+      "content_role": "Requirement",
+      "type": "Entity Definition",
+      "status": "Active"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-ENG_DECISION--serialize-explicit-atom-revision-author.md",
+      "sha256": "b62bc1cba9c35638e276e1e37069b4ca73fd78803933f04bbe884bfdd94a0b59",
+      "atom_id": "CA-D-274",
+      "version": "30",
+      "content_role": "Delivery",
+      "type": "Decision",
+      "status": "Active"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-ENG_DECISION--give-every-atom-revision-one-authoritative-carrier-bundle.md",
+      "sha256": "119875c5513f7e803382cab28f8f767ebed0b4990dad65fea6647e337dce4e3b",
+      "atom_id": "CA-D-463",
+      "version": "25",
+      "content_role": "Delivery",
+      "type": "Decision",
+      "status": "Active"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-494-CORE_META_MODEL-ENG_DECISION--store-operator-registry-in-project-root.md",
+      "sha256": "659ead25a1822ffb35845f63fc769519b5a09a6f75edae28160b6882d6ff1fe4",
+      "atom_id": "CA-D-494",
+      "version": "16",
+      "content_role": "Delivery",
+      "type": "Decision",
+      "status": "Active"
+    }
+  ],
+  "operator_registry_artifact": {
+    "path": ".caprmedio_caprmedio/operators_registry.toml",
+    "sha256": "831bfc781b5c59c37d251659f17cddd70451156d4da737bd517cbf8866059846",
+    "content": "One [[operators]] entry: name Anatoly Maslennikov; role project owner; journal_author anatoly-m-maslennikov.",
+    "reason_to_keep": "CA-R-1984 defines the Project.Operator Registry as the authoritative registry of Operators and identifying information; CA-D-494 requires operators_registry.toml in the Project authority root. It supplies Project Operator identities/roles and the existing Author-resolution/registry checks; removing registry data would erase Operator ownership, not just Atom.Author metadata."
+  },
+  "recommendations": [
+    "Remove the proposed Atom.Author Declaration/property if the user is dropping Author from the model; do not globally remove Operator, authorship, or authority language.",
+    "Keep Project Operator Registry structure and operators_registry.toml; it is a distinct identity/ownership authority.",
+    "Distinguish current Atom Author requirement from the new Draft proposal: R-2102 requires Author on every complete Current Atom and R-1078 requires one per Atom Revision; D-274 requires top-level author as one nonempty registry-name string on Markdown Atom Carriers. Removing author from Draft frontmatter would conflict with these active delivery rules unless explicitly treated as a knowingly nonconforming proposal artifact or deferred to a future rule revision.",
+    "If only dropping the modeled Atom.Author property while keeping draft carrier metadata for now, do not delete author frontmatter from the 99 registered Drafts. Their frontmatter metadata is distinct from the Atom.Author property contract.",
+    "Proposal body still has unresolved Author/Assignee/Target reference mappings (proposal line 58, 196); remove only Author portions if their mapping is no longer part of scope, and retain legitimate Assignee/Target decisions.",
+    "The selected primary-node inventory has one explicit Author property target: Atom.Author. No other primary root has a separately declared Author property in this packet; Operator remains a legitimate Actor/registry concept."
+  ],
+  "limits": [
+    "Inventory only; no artifact changes made.",
+    "One registered draft SHA mismatch was observed: Declare Atom.Label; the current file differs from draft-register.json. Root should refresh/review that carrier hash before final packet acceptance."
+  ]
+}

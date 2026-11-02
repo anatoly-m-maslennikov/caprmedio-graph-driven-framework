@@ -1,31 +1,30 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method.Content.Claim'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-version: 20
-updated_at: 2026-10-27 19:59:41 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method.Content.Claim'
+  passive:
+  - Atom/(.Role := Method)
+  - Entity/Aspect/Engineering/Authoring/Controlled English
+  - Atom.Content
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-M-307
   method_for:
-  - CA-R-1340
+  - CA-R-2513
 atom_id: CA-M-311
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 6
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Write Method Claims with the Method CCE Profile
 
-## Scope
+## Claim scope
 
 Method Claims with the Method CCE Role Profile.
 
@@ -33,7 +32,7 @@ Method Claims with the Method CCE Role Profile.
 
 **to** write a Method Claim with the Method CCE Role Profile, the Author **must** perform **all** of:
 
-1. state the primary contribution as one reusable authorship, construction, **or** Implementation choice **or** convention for satisfying accepted Spec authority under CA-R-1340.
+1. state the primary contribution as one reusable authorship, construction, **or** Implementation choice **or** convention for satisfying accepted Spec authority under CA-R-2513.
 2. use **to** for the governed method purpose. identify the applicable inputs, construction **or** selection choices, dependencies, produced result, **and** unresolved-choice handling necessary for reuse. include a performer, order, repetition, **or** stopping condition **only when** the convention requires it; do **not** invent an operational Action **or** Workflow **to** fill a Method template.
 3. use condition, temporal, quantification, logical, restriction, predicate, **and** comparison Operators **only** with explicit scope over the affected method content.
 4. use modality **only** to constrain correct performance of the Method; the Method **must not** create an independently governed product outcome **or** permission that belongs **in** Requirement authority.

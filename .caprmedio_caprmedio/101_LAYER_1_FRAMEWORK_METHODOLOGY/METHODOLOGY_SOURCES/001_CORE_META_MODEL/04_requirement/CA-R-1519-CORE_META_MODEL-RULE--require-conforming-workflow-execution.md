@@ -1,31 +1,30 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
-version: 20
-updated_at: 2026-10-27 19:59:57 +0400
+  active: Atom/(.Role:=Operations)/Workflow
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - Atom/(.Role:=Operations)/Action
+  - Entity/Object/Occurrent/Execution/Workflow Run
+  - Entity/Object/Occurrent/Execution/Step Run
+  - Atom
+  - Entity/Object/Continuant/Actor/Operator
+  - Projection/(.Form:=Applicable Methodology)
+version: 25
+updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
 atom_id: CA-R-1519
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Require conforming Workflow execution
 
-## Scope
+## Claim scope
 
 Workflow execution.
 
@@ -36,7 +35,7 @@ an executor of a Workflow **must** conform **to** the applicable methodology exe
 ## Details
 
 - resolve the Workflow, referenced Actions, Step bindings, declared Step structure, terminal outcomes, **and** applicable execution rules **before** their use. bind definition Revisions **and** revalidate definition changes under CA-R-1525 rather than silently resolving a different Revision during the same Run.
-- preserve supplied inputs, returned results, **and** actual Run identities under CA-R-1509, CA-R-1510, **and** CA-R-1511.
+- preserve supplied inputs, returned results, **and** actual Run identities under CA-R-2465, CA-R-1510@18, **and** CA-R-1511@22.
 - admit work **only** within the applicable authorization, Operator-approval, retry, waiting, **and** recovery conditions. a missing capability **or** unresolved rule blocks the affected execution rather than granting permission. a well-formed definition remains valid **when** a selected executor lacks a required capability; definition validation **and** execution admission are distinct checks.
 - a Workflow **may** assume these declared capabilities; it **must not** require a particular executor product merely **to** define its behavior.
 

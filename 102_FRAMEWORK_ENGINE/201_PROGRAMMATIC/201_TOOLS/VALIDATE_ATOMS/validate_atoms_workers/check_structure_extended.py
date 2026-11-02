@@ -10,6 +10,7 @@ from __future__ import annotations
 from dataclasses import replace
 from functools import lru_cache
 import json
+import hashlib
 from pathlib import Path, PurePosixPath
 import re
 
@@ -72,7 +73,7 @@ def _value(metadata: Record, field: str, check: Check) -> str | None:
     return metadata.get(field) if _string(metadata.get(field)) else None
 
 
-def _validate_structure_row(row: Record) -> None:
+def _validate_structure_row(row: Record, *, current: bool = False) -> None:
     required = {
         "scope_unit_name",
         "parent",
@@ -83,6 +84,8 @@ def _validate_structure_row(row: Record) -> None:
         "authority_path",
         "delivery_path",
     }
+    if current:
+        required.remove("structural_level")
     optional = {"local_order", "authority_mode"}
     if not isinstance(row, dict) or not required <= row.keys() or row.keys() - required - optional:
         raise ValueError
@@ -95,7 +98,7 @@ def _validate_structure_row(row: Record) -> None:
         "Unordered",
     ):
         raise ValueError
-    if not _integer(row["structural_level"]) or row["structural_level"] < 1:
+    if not current and (not _integer(row["structural_level"]) or row["structural_level"] < 1):
         raise ValueError
     if not _integer(row["navigational_order_number"]) or row["navigational_order_number"] < 0:
         raise ValueError
@@ -106,6 +109,11 @@ def _validate_structure_row(row: Record) -> None:
         raise ValueError
     if "authority_mode" in row and row["authority_mode"] not in ("strict", "casual"):
         raise ValueError
+    if current:
+        field_order = ("scope_unit_name", "parent", "scope_unit_type", "scope_unit_label", "local_order",
+                       "navigational_order_number", "authority_path", "delivery_path", "authority_mode")
+        if list(row) != [field for field in field_order if field in row]:
+            raise ValueError
     _validate_paths(row)
 
 
@@ -115,6 +123,7 @@ def _validate_paths(row: Record) -> None:
         path = PurePosixPath(value)
         if (
             path.is_absolute()
+            or re.match(r"^[A-Za-z]:", value)
             or ".." in path.parts
             or "\\" in value
             or "\x00" in value
@@ -123,7 +132,7 @@ def _validate_paths(row: Record) -> None:
             raise ValueError
 
 
-def _validate_parentage(units: dict[str, Record]) -> None:
+def _validate_parentage(units: dict[str, Record], *, current: bool = False) -> None:
     for name, row in units.items():
         seen, cursor, depth = set(), name, 0
         while cursor != "PROJECT":
@@ -132,13 +141,41 @@ def _validate_parentage(units: dict[str, Record]) -> None:
             seen.add(cursor)
             depth += 1
             cursor = units[cursor]["parent"]
-        if depth != row["structural_level"]:
+        if not current and depth != row["structural_level"]:
             raise ValueError
+
+
+_STRUCTURE_LAYOUT_CLAIMS = {
+    "7cc69b0bc4796ecbb979d883f62a962fc959847c0a7baced4c8ea5c583c84c72": "legacy",
+    "6cdcb25806e56b9a8f71eff73c1ee942c2ce66ad16033fd9cb4bd3ec776134c2": "current",
+}
+
+
+def _structure_layout(check: Check) -> str | None:
+    rows = [row for row in _inputs(check).get("sources", [])
+            if row.get("binding", {}).get("atom_id") == "CA-D-442"]
+    if len(rows) == 1 and _verified(rows[0], {}):
+        body = rows[0]["text"].split("---", 2)[-1]
+        lines, headings = body.splitlines(), _headings(body)
+        claims = [row for row in headings if row[:2] == (2, "Claim")]
+        if len(claims) == 1:
+            start = claims[0][2]
+            end = next((row[2] for row in headings if row[2] > start and row[0] <= 2), len(lines))
+            claim = "\n".join(lines[start + 1:end]).strip()
+            layout = _STRUCTURE_LAYOUT_CLAIMS.get(hashlib.sha256(claim.encode()).hexdigest())
+            if layout is not None:
+                return layout
+    check.gap("project_structure", "The exact loaded CA-D-442 Claim has no reviewed structure-layout adapter.")
+    return None
 
 
 def _structure(check: Check) -> dict[str, Record] | None:
     if not _authority(check, "CA-D-440", "CA-D-441", "CA-D-442"):
         return None
+    layout = _structure_layout(check)
+    if layout is None:
+        return None
+    current = layout == "current"
     document = _inputs(check).get("structure")
     try:
         if not isinstance(document, dict) or set(document) != {"schema_version", "scope_units"}:
@@ -149,12 +186,12 @@ def _structure(check: Check) -> dict[str, Record] | None:
             raise ValueError
         units: dict[str, Record] = {}
         for row in document["scope_units"]:
-            _validate_structure_row(row)
+            _validate_structure_row(row, current=current)
             name = row["scope_unit_name"]
             if name in units or name == _project_name(check):
                 raise ValueError
             units[name] = row
-        _validate_parentage(units)
+        _validate_parentage(units, current=current)
         return units
     except KeyError, TypeError, ValueError:
         check.gap(

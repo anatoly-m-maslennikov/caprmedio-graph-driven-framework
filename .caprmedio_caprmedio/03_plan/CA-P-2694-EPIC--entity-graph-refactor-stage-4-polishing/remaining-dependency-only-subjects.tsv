@@ -1,0 +1,21 @@
+Subject	Consumer IDs	Coverage
+Entity/Aspect/Engineering/Data Handling/Output Publication	CA-D-346; CA-D-559	Shared formal definition: CA-R-2214
+Entity/Aspect/Engineering/Data Handling/Parsing	CA-M-122; CA-M-240; CA-R-1360; CA-R-1361	Shared formal definition: CA-R-2214
+Entity/Aspect/Engineering/Data Handling/Serialization	CA-D-339; CA-D-361; CA-D-372; CA-D-388	Shared formal definition: CA-R-2214
+Entity/Aspect/Engineering/Verification/Dynamic Testing	CA-E-230	Shared formal definition: CA-R-2214
+Entity/Carrier/File.Format: Markdown	CA-D-330	Inherited format/value: CA-R-1950; CA-R-1958; CA-D-262
+Entity/Carrier/File.Format: TOML	CA-D-330	Inherited format/value: CA-R-1950; CA-R-1958; CA-D-262
+Entity/Carrier/File.Format: YAML	CA-D-330	Inherited format/value: CA-R-1950; CA-R-1958; CA-D-262
+Entity/Object/Continuant/Governing Objects/Atom.Tier.Label: Principle	CA-E-477	Applied: CA-R-2274
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: Analysis Report	CA-R-1556; CA-R-1889	Covered: CA-R-1232
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind: Agentic	CA-M-304	Covered: CA-R-1526
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Atom Update Identity	CA-E-491; CA-M-303	Instance: CA-O-067; kind CA-R-1452
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Release Readiness	CA-E-474	Instance: CA-O-027; kind CA-R-1452
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Active	CA-R-1541	Inherited: CA-R-1989; CA-R-1947
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done	CA-E-504; CA-R-1580; CA-R-1592	Covered: CA-R-1583
+Entity/Object/Continuant/Governing Objects/Atom/Type	CA-D-483	Classification axis: CA-R-2002; CA-R-655
+Entity/Object/Continuant/Projection/Type: Hub	CA-R-1634	Covered: CA-R-1746; CA-R-1634
+Entity/Object/Continuant/Projection/Type: Map	CA-R-1634	Covered: CA-R-1746; CA-R-1634
+Entity/Object/Continuant/Selection//Dependent Entity Occurrences	CA-R-2003	Covered: CA-R-2003; CA-R-1966
+Entity/Object/Continuant/Structural Unit/Scope Unit//INSTALLED_EXTENSIONS	CA-R-1206; CA-R-1220	Registered instance: project_structure.toml; CA-R-1757; CA-R-1175
+Entity/Object/Continuant/Structural Unit/Scope Unit//METHODOLOGY_SOURCES	CA-R-1173; CA-R-1217; CA-R-1722	Registered instance: project_structure.toml; CA-R-1757; CA-R-1173

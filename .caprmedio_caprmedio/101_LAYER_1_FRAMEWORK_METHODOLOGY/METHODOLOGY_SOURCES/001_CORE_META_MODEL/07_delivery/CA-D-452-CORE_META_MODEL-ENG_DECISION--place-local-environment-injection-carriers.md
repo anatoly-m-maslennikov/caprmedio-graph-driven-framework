@@ -1,26 +1,25 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier/File
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Carrier/Directory
-version: 16
-updated_at: 2026-10-27 19:59:25 +0400
+  active: Carrier/File
+  passive:
+  - Project
+  - Carrier/Directory
+version: 19
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-452
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Place Local Environment Injection Carriers
 
-## Scope
+## Claim scope
 
 secret values and local environment injection Carriers.
 

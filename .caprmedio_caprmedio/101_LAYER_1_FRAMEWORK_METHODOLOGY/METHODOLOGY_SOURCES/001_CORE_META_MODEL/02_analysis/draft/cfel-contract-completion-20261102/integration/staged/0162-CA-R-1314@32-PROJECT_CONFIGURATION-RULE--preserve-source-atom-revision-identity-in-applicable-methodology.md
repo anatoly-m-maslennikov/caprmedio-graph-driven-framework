@@ -1,0 +1,28 @@
+---
+subjects:
+  active: 'Entity/Object/Continuant/Projection/Type: Applicable Methodology.Member'
+  passive:
+  - Atom
+  - CFEL > Relation//DERIVED_FROM
+version: 32
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1314@32
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Archived
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Preserve Source Atom Revision Identity in Applicable Methodology
+
+## Claim scope
+
+Applicable Methodology members and their source Atom Revisions.
+
+## Claim
+
+**every** Applicable Methodology member **must** retain **`=1`** direct DERIVED_FROM relation **to** its exact source Atom Revision.

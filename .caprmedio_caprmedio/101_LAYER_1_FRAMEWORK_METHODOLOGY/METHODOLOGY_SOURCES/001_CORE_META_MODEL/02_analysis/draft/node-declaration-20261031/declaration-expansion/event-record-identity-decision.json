@@ -1,0 +1,14 @@
+{
+  "decision": "Event Record has its own ID",
+  "property": "Event Record.ID",
+  "contract": [
+    "Exactly one Property occurrence",
+    "Exactly one string value",
+    "No dependent Properties",
+    "UNIQUE(Event Record//, (.ID)) in the Project context"
+  ],
+  "alternative_rejected": "Journal and Sequence Number as record key",
+  "draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-id.md",
+  "scope": "Draft methodology; no Current, allocator, parser or runtime changes",
+  "updated_at": "2026-10-31 18:40:46 +0400"
+}

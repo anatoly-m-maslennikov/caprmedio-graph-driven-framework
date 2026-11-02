@@ -1,37 +1,37 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
-  depends_on:
-  - Subject
+  active: Atom.Subjects
+  passive:
+  - Entity
 atom_id: CA-R-2004
-content_role: Requirement
-type: Definition
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-version: 8
-updated_at: 2026-10-27 20:00:07 +0400
-author: Anatoly Maslennikov
+version: 14
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 1
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Define Subject Target
 
-## Scope
+## Claim scope
 
 a direct GOVERNS or DEPENDS_ON target in an Atom's Subjects.
 
 ## Claim
 
-a Subject Target **means** the topic addressed by a canonical Subject expression. its full path starts at Subject and retains its namespace. a Subject can identify a kind, a classification axis, a dependent property, an allowed value or a named instance; it need not identify an independently carried object.
+
+A direct GOVERNS or DEPENDS_ON target in Atom.Subjects must be the topic addressed by a canonical Entity-rooted Subject expression and may identify a kind, axis, property, allowed value, or named instance.
 
 ## Details
 
 Subject says what an Atom concerns. Content Role says what its content does. They are independent by definition. An Atom of any RMED Role can govern a topic in any declared Subject branch. A topic about how work is performed does not require a separate Method root.
 
-`Subject/CAPRMEDIO/...` identifies shared framework vocabulary; `Subject/<Project Name>/...` identifies project-specific concepts. These namespaces are not entity kinds or Scope Units. An Atom's owning Scope Unit does not determine which namespace its target uses.
+Entity is the canonical expression root. Its four sibling branches are Object, Aspect, Graph Syntax and Carrier under CA-R-2462. Object specializes into Continuant and Occurrent. A source path retains the declared operators and full qualification; a short display label is not another identity or alias.
 
 The Subject does not repeat or assign the Atom's Local Scope Unit, folder or Carrier. Topic meanings come from source use and Semantics; the Terms Graph derives definitions from those cases rather than creating another authority layer.
 

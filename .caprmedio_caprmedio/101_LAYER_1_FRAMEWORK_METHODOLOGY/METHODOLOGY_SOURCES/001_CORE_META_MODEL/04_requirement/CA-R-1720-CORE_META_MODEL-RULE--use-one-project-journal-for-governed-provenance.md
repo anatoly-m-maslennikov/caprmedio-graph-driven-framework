@@ -1,37 +1,36 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Carrier
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-version: 34
-updated_at: 2026-10-27 20:00:02 +0400
+  active: Journal
+  passive:
+  - Entity/Object/Occurrent/Execution/Step Run
+  - Entity/Object/Occurrent/Execution/Workflow Run
+  - Project
+  - Term//Artifact
+  - Entity/Object/Continuant/Package/Project Implementation
+  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
+  - Entity/Object/Continuant/History/Journal <+ Event Record
+  - Projection
+  - Carrier
+  - Atom/(.Role := Delivery)
+version: 38
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-007
 atom_id: CA-R-1720
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Use one Project Journal for governed provenance
 
-## Scope
+## Claim scope
 
 CAPRMEDIO-governed provenance events in a Project.
 

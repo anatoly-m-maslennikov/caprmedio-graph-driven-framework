@@ -1,33 +1,30 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  depends_on:
-  - Subject/CAPRMEDIO/Carrier/File
-  - Subject/CAPRMEDIO/Carrier/File.Format
-version: 24
-updated_at: 2026-10-27 19:59:23 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  passive:
+  - Carrier/File
+  - Carrier/File.Format
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-D-358
 atom_id: CA-D-359
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 4
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Bind Framework Settings to Its Authoritative TOML Carrier
 
-## Scope
+## Claim scope
 
 the Framework Instance Settings Artifact for a Project named `<project_name>`.
 
 ## Claim
 
 the Framework Instance Settings Artifact for a Project named `<project_name>` **must** use `.caprmedio_<project_name>/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml` as its **`=1`** authoritative TOML File Carrier.
-
-## Details

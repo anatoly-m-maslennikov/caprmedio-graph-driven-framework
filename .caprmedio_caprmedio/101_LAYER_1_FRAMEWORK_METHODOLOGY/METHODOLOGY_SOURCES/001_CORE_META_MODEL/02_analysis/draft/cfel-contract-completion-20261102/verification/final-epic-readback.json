@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "epic_id": "CA-P-2694",
+  "version": 40,
+  "state": "Done",
+  "current_sha256": "27ee11395485d86b778d28bf7290c0703b91fcadb742bb231f8924d2478df23c",
+  "archive_preserved": true,
+  "completed_children_preserved": 8,
+  "journal_records": 1,
+  "runtime_boundary": "Actual Workflow-instance migration and full CFEL evaluation remain deferred"
+}

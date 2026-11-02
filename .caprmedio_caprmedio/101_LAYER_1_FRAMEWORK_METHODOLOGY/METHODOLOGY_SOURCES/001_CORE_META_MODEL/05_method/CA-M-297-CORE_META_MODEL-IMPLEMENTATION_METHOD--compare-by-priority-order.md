@@ -1,31 +1,30 @@
 ---
-version: 17
-updated_at: 2026-10-27 19:59:41 +0400
+version: 21
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-1487
   method_for:
   - CA-R-1487
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_LEXICOGRAPHIC
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
+  active: Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - Atom/(.Role := Method)
 atom_id: CA-M-297
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 4
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Compare by priority order
 
-## Scope
+## Claim scope
 
 priority-order comparison of admissible alternatives.
 
@@ -40,5 +39,3 @@ priority-order comparison of admissible alternatives.
 - an incomplete criterion order **or** an incomparable result at the current deciding criterion leaves the comparison unresolved; a later criterion **must not** bypass that gap.
 
 this Method defines the comparison technique, **not** priority activation, alternative-selection execution, **or** escalation.
-
-## Details

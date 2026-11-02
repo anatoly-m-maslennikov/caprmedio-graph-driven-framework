@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "findings": [],
+  "checked": [
+    "Atom and Projection version distinction",
+    "output rather than input identity matching",
+    "happened_at rather than inserted_at",
+    "typed children and Actor author inverse"
+  ],
+  "limits": [
+    "Other Event types and creation input remain optional as specified",
+    "Model-level validation only; parser/runtime and adoption unverified"
+  ],
+  "closed": [
+    "Atom and Projection creation/update Event Records require object_output; absence violates those Rules independently of MAX filtering.",
+    "create/update action cases require accepted completed business events, excluding failed, unaccepted, no-op, archive and Carrier-only cases independently of MAX.",
+    "Atom and Projection update records require input as well as output; creation input remains optional."
+  ]
+}

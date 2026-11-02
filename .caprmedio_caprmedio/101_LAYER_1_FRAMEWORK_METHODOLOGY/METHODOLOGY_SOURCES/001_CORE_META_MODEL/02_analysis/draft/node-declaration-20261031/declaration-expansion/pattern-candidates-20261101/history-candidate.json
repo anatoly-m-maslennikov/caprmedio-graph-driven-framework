@@ -1,0 +1,79 @@
+{
+  "status": "one_model_binding_decision_needed_no_safe_zero_prose_rewrite",
+  "scope": "Atom.Status, Atom.Updated At, Projection.Updated At and Journal; read-only, actual live Drafts",
+  "sources": {
+    "Atom.Status": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-status.md",
+      "sha256": "2c8ab6d7b3b28d8c19b1d19edf7c6f3e58ccf208be439df3264153f6a94220a0",
+      "exact_current_claim": "Archiving preserves:\n\n- Version.\n- Updated At.\n\nArchiving alone does not create a new version.\n\n```CFEL\nAtom.Status{:1}: [string]{:1};\nAtom.Status.*[]{:0};\nAtom.Status: Draft;\nAtom.Status: Active;\nAtom.Status: Archived\n```",
+      "safe_exact_rewrite_now": "Archiving preserves:\n\n- Version.\n- Updated At.\n\nArchiving alone does not create a new version.\n\n```CFEL\nAtom.Status{:1}: [string]{:1};\nAtom.Status.*[]{:0};\nAtom.Status: Draft;\nAtom.Status: Active;\nAtom.Status: Archived\n```",
+      "why_not_zero_prose": "Archive must preserve prior Version and Updated At, and create no new Version; a current Archived value is not an observed archive transition."
+    },
+    "Atom.Updated At": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "sha256": "15c0ceeb9c443a2c5878b3eae3250a754c75dbdc49f7fed53fe8919a699bd359",
+      "exact_current_claim": "Updated At records the actual Project-time instant of the accepted edit represented by the Atom. An exact no-op and an archived predecessor retain the prior timestamp.\n\n```CFEL\nAtom.Updated At{:1}: [datetime]{:1};\nAtom.Updated At.*[]{:0}\n```",
+      "safe_exact_rewrite_now": "Updated At records the actual Project-time instant of the accepted edit represented by the Atom. An exact no-op and an archived predecessor retain the prior timestamp.\n\n```CFEL\nAtom.Updated At{:1}: [datetime]{:1};\nAtom.Updated At.*[]{:0}\n```",
+      "why_not_zero_prose": "The actual accepted edit time, no-op and archived predecessor require the correct event and state pair."
+    },
+    "Journal": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "sha256": "ea9a75cb97093f424bcf298908482fbe865ebd4981631e3b192bbc166d6b4010",
+      "exact_current_claim": "```CFEL\nJournal {:0}((IS_PROPERTY_OF));\nJournal//{:1};\nJournal >| (Container == yes);\nJournal// {:0+}((CONTAINS)) Event Record//\n```\n\n- A Journal is authoritative for one logically ordered table of admitted event records.\n- Accepted records are not edited, reordered, or removed. Corrections append new traceable records.\n- Journal authority does not redefine governing Atom Claims.\n- A Journal is a logical Artifact, not a required storage format. Views of a Journal are Projections.",
+      "safe_exact_rewrite_now": "```CFEL\nJournal {:0}((IS_PROPERTY_OF));\nJournal//{:1};\nJournal >| (Container == yes);\nJournal// {:0+}((CONTAINS)) Event Record//\n```\n\n- A Journal is authoritative for one logically ordered table of admitted event records.\n- Accepted records are not edited, reordered, or removed. Corrections append new traceable records.\n- Journal authority does not redefine governing Atom Claims.\n- A Journal is a logical Artifact, not a required storage format. Views of a Journal are Projections.",
+      "why_not_zero_prose": "Append-only ordered history, record identity and content preservation, correction provenance, and authority are stronger than static containment."
+    },
+    "Projection.Updated At": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+      "sha256": "d4380a25897ced421f7c301a7f72babead36bdfe1767c2fe11fa8357b7c31d9e",
+      "exact_current_claim": "```CFEL\nProjection.Updated At{:1}: [datetime]{:1};\nProjection.Updated At.*[]{:0}\n```\n\nUpdated At identifies the latest completed rebuild represented by the Projection.",
+      "safe_exact_rewrite_now": "```CFEL\nProjection.Updated At{:1}: [datetime]{:1};\nProjection.Updated At.*[]{:0}\n```\n\nUpdated At identifies the latest completed rebuild represented by the Projection.",
+      "why_not_zero_prose": "The most recent completed rebuild requires an ordered, complete set of applicable rebuild results and an authenticated completion time."
+    }
+  },
+  "shared_candidate": {
+    "name": "generic observation-pair context for state-preservation invariants",
+    "suggested_shape": "An evaluated transition has one source-bound logical bearer, a before-state and an after-state; a CFEL equality may compare the same declared Property in those two states. Exact surface syntax is deliberately not selected.",
+    "two_genuine_uses": [
+      "For the observed archive transition, compare Atom.Version and Atom.Updated At before and after; separately ensure the transition does not create a new Version.",
+      "For an observed exact no-op, compare Atom.Updated At before and after."
+    ],
+    "candidate_semantics": [
+      "Evaluation observes already-established transition evidence; it does not cause or schedule a change.",
+      "Bind both snapshots to the same logical bearer through authoritative lineage, never by assuming a mutable ID proves identity.",
+      "Retain event-specific applicability and evaluate a complete set of required observations; an unresolved event class, missing predecessor, missing value or incomplete history must not count as pass.",
+      "Compare values under their declared Format without implicit normalization. An archive may be carrier/status movement and must not be mistaken for an accepted edit.",
+      "This state-pair facility does not itself implement the Operations, assign event times, generate transitions or establish ordering of event histories."
+    ],
+    "not_a_claim": "This is a typed semantic direction for at least two real uses, not an admitted CFEL grammar, an accepted independent predicate or an executable exact rewrite."
+  },
+  "remaining_not_solved_by_pair": [
+    "Actual Project-time at an accepted edit requires source-bound event completion time, timezone and actual-result identity, not merely equality of two states.",
+    "Projection Updated At requires complete ordered completed rebuild observations and an unambiguous latest result; an archive/no-op pair does not define latest.",
+    "Journal no deletion/reorder and append-only correction requires identity-preserving ordered collection comparisons and correction provenance, plus authority; scalar before/after equality alone does not express them.",
+    "Journal logical Artifact and Projection view meaning cannot be reduced to transition comparisons without separately admitted semantic relations."
+  ],
+  "counterexamples": [
+    "Using IMMUTABLE(Atom.Updated At) after first Current would forbid a legitimate later accepted edit that changes its timestamp.",
+    "DETERMINES over equal ID/Version can constrain duplicate states but cannot prove which event was an exact no-op, establish an archive did not create a Version, or bind the recorded time to a real edit.",
+    "Two Journal snapshots may contain the same number of records while an accepted record is replaced or reordered.",
+    "An otherwise valid timestamp can point to an older rebuild or a failed later rebuild."
+  ],
+  "one_blocking_decision": {
+    "question": "Should CFEL evaluation receive source-bound, complete transition/event observations with same-bearer before/after states as explicit evaluation context, so reusable state-pair invariants can refer to them without declaring new authored fields?",
+    "option_a": "Yes: specify admitted event categories and their Operations-supplied, auditable bindings before designing surface syntax; retain all current prose until verified equivalent.",
+    "option_b": "No: retain these history requirements as prose until independently governed Operations contracts can own and validate them; do not claim zero-prose coverage.",
+    "why_this_is_discriminating": "Without a shared, trustworthy observation and lineage binding, apparent equality syntax cannot tell an archive, no-op, accepted edit or completed rebuild from any other pair of states. This decision does not itself resolve Journal authority, latest selection, or syntax."
+  },
+  "supporting_rules": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-functional-dependencies.md",
+      "sha256": "4be59336b716d1f9b4c21b02b3b6e06fd8c9b3a036fdf665b88e771c1ac1c931"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-scalar-immutability.md",
+      "sha256": "f6bef2b55a7726ec6001d457cdc16c06669037782d4234fd3aa33b909d7d3645"
+    }
+  ],
+  "limits": "No Draft edits, invented event types or workflow execution. Exact current Claims retained until supported full equivalence; Primary Semantics unchanged."
+}

@@ -1,25 +1,24 @@
 ---
 atom_id: CA-D-504
-content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-version: 11
-updated_at: 2026-10-27 19:59:26 +0400
+  active: Carrier
+  passive:
+  - Journal
+version: 14
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Use the governed production logging platform
 
-## Scope
+## Claim scope
 
 production technical and business runtime log Journal Carriers.
 

@@ -1,26 +1,25 @@
 ---
 atom_id: CA-R-2156
-content_role: Requirement
-type: Rule
 current_scope_unit: caprmedio
-author: Anatoly Maslennikov
 status: Active
 tier: 3
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-version: 5
-updated_at: 2026-10-27 20:00:08 +0400
+  active: Actor
+  passive:
+  - Actor
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/Actor/AI Agent
+version: 10
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-2155
+  - CA-R-2452
 cce_version: cce_1
 cce_form: classification
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Distinguish human Operators from AI Agents
 

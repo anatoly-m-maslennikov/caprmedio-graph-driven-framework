@@ -1,74 +1,33 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-version: 9
-updated_at: 2026-10-27 20:00:07 +0400
+  active: Atom
+version: 14
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-2102
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Rule
 tier: 1
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Require the base properties of every Current Atom
 
-## Scope
+## Claim scope
 
-Every Current Atom.
+Every complete Current Atom, with applicable Role and Form conditions.
 
 ## Claim
 
-Every Current Atom **must** carry exactly one of each following base Property:
-Content Role, Type, Atom ID (`atom_id`), Status, Updated At (`updated_at`),
-Version Number (serialized as `version`), Author (`author`), numeric Tier
-(`tier`), effective Label and Summary. Version Number is an integer **>=1**;
-Tier follows CA-R-2125, CA-R-2130 and CA-R-2131; Updated At is a datetime with
-timezone; Author is an Actor reference. D governs the actual representation.
-Effective Label is the explicit Label when present, otherwise the Type name
-under CA-R-1594. Do not require a redundant stored Label.
+For every complete Current Atom, require one Role, Form, ID, Status, Updated At, Version, Tier, effective Label and Summary, subject to their applicable individual Declarations. Version is a positive integer; Updated At is a datetime with timezone. The effective Label is the explicit Label when present and otherwise the Form name. Author is not an Atom Property.
 
-An ordinary Current Atom **must** have exactly one Local Scope Unit. A
-Project Goal instead has its registered Operator owner and targets the
-Project, with Tier -1 under CA-R-2132. That exception does not waive the
-other base Properties or invent an Operator Scope Unit.
+Subjects is a grouping Property with no direct value. Its active Subject has one reference and its passive Subjects have zero or more references. Resolve the target Scope from the active Subject under the applicable model rules. Carrier compatibility fields do not override that resolution. Encode direct Node-instance Relation facts under Relations.
 
-Required Content follows the Atom's Content Role and applicable Type:
+For RMED, require one Claim as its direct Markdown value. CFEL may provide that value without prose. Do not create a Formal Claim child. Apply the respective content rules for Concern, Analysis, Plan and Operations, and preserve their established primary content headings.
 
-- R/M/E/D use Content.Claim; an ordinary Current RMED Atom has exactly one
-  Claim. A formal R/Type: Graph Rule instead has its operative YAML under
-  CA-D-637 and no Claim. Its Summary remains required; Semantics and Details
-  remain optional.
-- O uses Content.Operation; C uses Content.Concern; P uses Content.Objective.
-- A uses Content.Question and Content.Analysis as required by its Type.
+A Draft may be incomplete but carries exactly one Atom ID; report missing required Properties and check the complete applicable Current contract before promotion. Each Property's own values and dependent Properties are counted independently.
 
-The applicable Type defines its precise content contract and may specialize
-the Role default. These are logical content names, not a requirement to copy
-the same text into redundant physical sections or add empty placeholders.
-Their actual Markdown layout remains governed by D. Do not carry a generic
-Substance field or invent a duplicate Content-level Substance parent.
-
-Each of these optional base Properties occurs zero or one time: Target Scope
-Unit (`claim_target_scope_unit`), the authored Relations collection
-(`relations`), the Subjects collection (`subjects`), Content Scope, Details
-and Semantics. A Project Goal's required Project target is the stated Type
-exception. An optional collection can contain many entries with their own
-cardinalities; Subjects has at most one GOVERNS and any number of DEPENDS_ON.
-Optional does not waive the applicable Scope or Type conditions.
-
-Content Scope is Content.Scope: the exact applicability boundary of the
-role-specific Content. It is not another Local or Target Scope Unit. Keep
-useful topic meaning from the retired Atom.Entity property in Subjects and
-its applicability boundary in Content Scope; do not recreate Atom.Entity.
-
-A Draft may be incomplete in other required Properties or Content, but
-**must** have exactly one Atom ID. Report missing required Properties and
-enforce its complete applicable Current contract before promotion. This
-rule does not extend the formal Graph Rule YAML schema or replace the
-separate per-Property Delivery rules.
-
-## Details
+Legacy carrier spellings remain readable during migration. This transition does not assert additional Atom Properties.

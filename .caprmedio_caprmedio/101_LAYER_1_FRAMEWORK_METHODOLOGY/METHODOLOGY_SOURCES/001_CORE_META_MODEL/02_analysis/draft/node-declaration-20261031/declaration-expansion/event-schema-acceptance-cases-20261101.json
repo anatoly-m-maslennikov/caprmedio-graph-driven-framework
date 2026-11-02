@@ -1,0 +1,81 @@
+{
+  "status": "model acceptance cases, not runtime tests",
+  "baseline_capture": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "sha256": "acdedca110359a2109f5ee3a5b8f86dec91e64a6d805dd1c14e0c44755b5af0c",
+      "text": "---\natom_id: CA-R-draft\ncontent_role: Requirement\ntype: Declaration\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Draft\nsubjects:\n  governs: Atom.Updated At\nversion: 1\nupdated_at: 2026-10-31 01:21:17 +0400\nrelations: {}\ntier: 3\n---\n## Summary\n\nDeclare Atom.Updated At\n\n## Claim\n\nUpdated At records the actual Project-time instant of the accepted edit represented by the Atom. An exact no-op retains the prior timestamp.\n\n```CFEL\nAtom.Updated At{:1}: [datetime]{:1};\nAtom.Updated At.*[]{:0}\n```\n"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+      "sha256": "d4380a25897ced421f7c301a7f72babead36bdfe1767c2fe11fa8357b7c31d9e",
+      "text": "---\natom_id: CA-R-draft\ncontent_role: Requirement\ntype: Declaration\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Draft\nsubjects:\n  governs: 'Projection.Updated At'\nversion: 1\nupdated_at: \"2026-10-31 01:40:56 +0400\"\nrelations: {}\ntier: 3\n---\n## Summary\n\nDeclare Projection.Updated At\n\n## Claim\n\n```CFEL\nProjection.Updated At{:1}: [datetime]{:1};\nProjection.Updated At.*[]{:0}\n```\n\nUpdated At identifies the latest completed rebuild represented by the Projection.\n"
+    }
+  ],
+  "cases": [
+    {
+      "case": "changed_ids",
+      "scenario": "input Atom A@1 -> output Atom B@1",
+      "expected": "Capture each side identity separately; match updated-at events on output identity, never input."
+    },
+    {
+      "case": "promotion",
+      "scenario": "accepted promotion modifies Version and Status",
+      "expected": "One update event; include changed business properties; match output Atom ID and Version."
+    },
+    {
+      "case": "creation_without_input",
+      "scenario": "accepted Atom create has output A@1 and no input",
+      "expected": "Valid absent input; timestamp includes accepted create for output."
+    },
+    {
+      "case": "projection_no_version",
+      "scenario": "accepted Projection create or rebuild includes output P with ID and Updated At",
+      "expected": "Require no Projection Version and use Projection ID for output binding."
+    },
+    {
+      "case": "versions_not_conflated",
+      "scenario": "Atom A@1 and A@2 have independent accepted event histories",
+      "expected": "Each Atom version uses event matching its output ID and Version."
+    },
+    {
+      "case": "late_insert",
+      "scenario": "event happened at 09:00 inserted after another happened at 10:00",
+      "expected": "Use happened_at maximum, not insertion time; late insertion does not itself advance Updated At."
+    },
+    {
+      "case": "noop_failed_archive_carrier",
+      "scenario": "no-op, failed, archive alone, or carrier-only move",
+      "expected": "No matching accepted business create/update event; Updated At remains unchanged."
+    },
+    {
+      "case": "content_only",
+      "scenario": "accepted Atom.Content-only business update",
+      "expected": "One update Event Record, without Atom.Content or descendants in record."
+    },
+    {
+      "case": "absent_output_guard",
+      "scenario": "Event has no output or output for another object",
+      "expected": "Exclude from target MAX without evaluating missing output fields."
+    },
+    {
+      "case": "invalid_present",
+      "scenario": "Event declares matching output but a required field or timestamp is malformed",
+      "expected": "Evaluation error rather than treating invalid present value as absence."
+    },
+    {
+      "case": "author_action",
+      "scenario": "Event author Actor performed event; action names accepted business operation",
+      "expected": "Resolve canonical HAS_EVENT_AUTHOR; action is required string with admitted cases, not a closed domain."
+    },
+    {
+      "case": "update_missing_input",
+      "scenario": "An accepted Atom or Projection update Event Record has an output but no input descriptor.",
+      "expected": "Invalid: the applicable capture Rule requires object_input for updates independently of the MAX query; creation input remains optional."
+    }
+  ],
+  "limits": [
+    "No authoritative source or runtime implementation asserted",
+    "Root must confirm acceptance bindings and complete matching population in integrated review"
+  ]
+}

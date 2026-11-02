@@ -1,0 +1,93 @@
+{
+  "status": "read-only patch specification; no repository files changed",
+  "baseline": {
+    "path": "/tmp/caprmedio-cardinality-ownership-20261031/before.json",
+    "declarations_reviewed": 71,
+    "inventory": "24 Primary and 47 Property Declarations, per task scope"
+  },
+  "ownership_rule": "A Node Declaration constrains relation degree only where its selected Node is the relation host. A target kind may be named, but a target-side degree belongs in that target Node's own Declaration. Inverse views constrain the same logical link and do not require a second authored inverse fact.",
+  "proposals": [
+    {
+      "file": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "old_clause": "@Workflow// {1+}<+{1} Step//",
+      "after_claim": "```GFEL\nAtom/(.Role: Operations)/Workflow;\nWorkflow//{:1+}((CONTAINS)) Step//\n```",
+      "change": "Move Workflow-to-Step degree onto Workflow's outgoing CONTAINS relation and normalize it to `{:1+}`."
+    },
+    {
+      "file": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "old_clause": "Atom/(.Role: Operations)/Step;\n@Workflow// {1+}<+{1} Step//;\n((Step// {1+}((CONTAINS)){1} Substep//)\nAND (Step// {0}((RUN)) Action//))\nOR\n((Step// {0}((CONTAINS)) Substep//)\nAND (Step// {1}((RUN)) Action//))",
+      "after_claim": "```GFEL\nAtom/(.Role: Operations)/Step;\nStep//{:1}((IS_CONTAINED_BY)) Workflow//;\n((Step//{:1+}((CONTAINS)) Substep//)\nAND (Step//{:0}((RUN)) Action//))\nOR\n((Step//{:0}((CONTAINS)) Substep//)\nAND (Step//{:1}((RUN)) Action//))\n```",
+      "change": "Replace the foreign Workflow degree with Step's own one-parent inverse view. Preserve the exclusive Step alternatives while normalizing each outgoing degree."
+    },
+    {
+      "file": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "old_clause": "Atom/(.Role: Operations)/Substep;\n@Step// {0+}<+{1} Substep//;\nSubstep// {1}((RUN)) Action//",
+      "after_claim": "```GFEL\nAtom/(.Role: Operations)/Substep;\nSubstep//{:1}((IS_CONTAINED_BY)) Step//;\nSubstep//{:1}((RUN)) Action//\n```",
+      "change": "Replace the foreign Step degree with Substep's own one-parent inverse view and normalize RUN."
+    },
+    {
+      "file": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "old_clause": "Atom/(.Role: Operations)/Action;\nAction// {0+}((IS_RUN_BY)) (in (Step, Substep))//",
+      "after_claim": "```GFEL\nAtom/(.Role: Operations)/Action;\nAction//{:0+}((IS_RUN_BY)) (in (Step, Substep))//\n```",
+      "change": "Normalize the Action-hosted caller degree; the target union is a permitted target-kind reference."
+    },
+    {
+      "file": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "old_clause": "Scope Unit// {0..1}((IS_CONTAINED_BY)){0+} Scope Unit//",
+      "after_claim": "```GFEL\nScope Unit >| (Container == yes);\nScope Unit//{:0..1}((IS_CONTAINED_BY)) Scope Unit//;\nScope Unit//{:0+}((CONTAINS)) Scope Unit//;\nIF (Scope Unit//$unit not in (Scope Unit/Project//))\nTHEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//);\nIF (Scope Unit//$child ((IS_CONTAINED_BY)) Scope Unit//$parent)\nTHEN ($child.structural_level = $parent.structural_level + 1)\n```",
+      "change": "Split the previous source/target count into its owning outgoing parent and outgoing contains directions. Preserve Container, Project-root exception, and structural-level equation."
+    },
+    {
+      "file": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "old_clause": "Package// {0..1}((IS_CONTAINED_BY)){0+} Package//",
+      "after_claim": "```GFEL\nPackage >| (Container == yes);\nPackage//{:0..1}((IS_CONTAINED_BY)) Package//;\nPackage//{:0+}((CONTAINS)) Package//;\nIF (Package//$package not in (Package/Implementation//))\nTHEN ($package {==1}((IS_CONTAINED_BY)) Package//);\nIF (Package//$child ((IS_CONTAINED_BY)) Package//$parent)\nTHEN ($child.structural_level = $parent.structural_level + 1)\n```",
+      "change": "Split the previous source/target count into its owning outgoing parent and outgoing contains directions. Preserve Container, Implementation-root exception, and structural-level equation."
+    }
+  ],
+  "rule_mapping": [
+    {
+      "logical_link": "Workflow CONTAINS Step / Step IS_CONTAINED_BY Workflow",
+      "outgoing_constraints": [
+        "Workflow CONTAINS Step {:1+}",
+        "Step IS_CONTAINED_BY Workflow {:1}"
+      ],
+      "authorship": "Two inverse views of one composition link; do not author duplicate inverse facts."
+    },
+    {
+      "logical_link": "Step CONTAINS Substep / Substep IS_CONTAINED_BY Step",
+      "outgoing_constraints": [
+        "Step CONTAINS Substep {:1+} in the containment branch",
+        "Substep IS_CONTAINED_BY Step {:1}"
+      ],
+      "authorship": "The Step branch and Substep inverse view constrain the same containment link."
+    },
+    {
+      "logical_link": "Step or Substep RUN Action / Action IS_RUN_BY caller",
+      "outgoing_constraints": [
+        "Step RUN Action {:1} only in its action branch",
+        "Substep RUN Action {:1}",
+        "Action IS_RUN_BY (Step, Substep) {:0+}"
+      ],
+      "authorship": "Action caller count is Action-hosted; no separate inverse fact is required."
+    },
+    {
+      "logical_link": "same-kind Scope Unit or Package containment",
+      "outgoing_constraints": [
+        "IS_CONTAINED_BY {:0..1}",
+        "CONTAINS {:0+}"
+      ],
+      "authorship": "Each direction is declared on its own host, replacing the old target-side reverse cardinality."
+    }
+  ],
+  "non_violations": [
+    "Node-wide property-bearing constraints select their declared Node branch rather than a foreign Node host.",
+    "Property RHS reads such as `$parent.structural_level` read a target value; they do not constrain target relation degree.",
+    "Qualified broader-Atom Property constraints and conditional selected Role definitions remain valid where the declared subject is the selected host class.",
+    "Target kind references, including `(in (Step, Substep))//`, are allowed when no opposite-node count is attached."
+  ],
+  "residual_issues": [
+    "`Project//{1}` and `Package/Implementation//{1}` are singleton selector forms, not relation-degree suffixes; no change is proposed in this ownership pass.",
+    "Relation Definitions or global invariants may retain two-end count schematics outside Node Declarations.",
+    "The proposal assumes concurrent canonical `{:n}` notation and binding/membership rules are accepted before application."
+  ]
+}

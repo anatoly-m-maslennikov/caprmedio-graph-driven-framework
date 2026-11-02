@@ -1,0 +1,19 @@
+{
+  "status": "PREREQUISITE",
+  "findings": [
+    "Named Selection// requires a declared Primary kind; none exists in selected packet.",
+    "The prior named Selection is a string; moving to a typed reference requires source-to-reference binding during adoption."
+  ],
+  "suggested_declaration": {
+    "subject": "Named Selection",
+    "claim": "Named Selection {:0}((IS_PROPERTY_OF))",
+    "semantics": "A Named Selection names criteria for choosing members; it does not copy or materialize those members."
+  },
+  "reference_format": "[Named Selection//] follows the existing [Actor//] reference-Format precedent.",
+  "preservation": [
+    "Named Selection remains required, single valued, childless",
+    "Projection.Source.Atoms retains optional 0..1 Property, 0+ ID+Version values, no children",
+    "Update Projection.ID dependency paths to .Source.Named Selection"
+  ],
+  "boundary": "CA-R-1966 says naming does not create another Object or member copies; reconcile ontology and references before adoption. No criteria DSL, instances, Workflow, relation kinds or Source Of Truth introduced."
+}

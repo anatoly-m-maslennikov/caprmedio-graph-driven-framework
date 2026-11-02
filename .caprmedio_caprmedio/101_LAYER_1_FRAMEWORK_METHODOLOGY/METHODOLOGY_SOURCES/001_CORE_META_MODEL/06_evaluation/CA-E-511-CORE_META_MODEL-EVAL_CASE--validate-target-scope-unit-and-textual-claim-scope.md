@@ -1,58 +1,55 @@
 ---
 atom_id: CA-E-511
-content_role: Evaluation
-type: Eval Case
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-version: 20
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  passive:
+  - Atom.Content
+  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - Atom.Subjects
+  - Atom
+  - Entity/Object/Continuant/Actor/Operator
+  - Scope Unit
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-D-482
   - CA-D-495
   - CA-R-1271
   - CA-R-1588
-  - CA-R-1595
+  - CA-R-1595@21
   - CA-R-1596
   - CA-R-922
   - CA-R-923
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate Target Scope Unit **and** textual Claim Scope
 
-## Scope
-
+## Claim scope
 the distinction between an Atom's Claim Target Scope Unit **and** its textual applicability.
 
 ## Claim
 
-### Claim checked
+**Claim checked.**
 
-**every** Atom resolves **`=1`** Claim Target Scope Unit; its Claim Scope remains applicability restrictions **in** the body sections registered by CA-D-495, including Scope for RMED, **not** another structural target **or** frontmatter Property.
+**every** Atom resolves **`=1`** GOVERNS Subject and zero **or** one Claim Target Scope Unit; applicable Goal and Demand rules, including the Operator-owned Project Goal, retain their required target conditions. Claim Scope remains applicability restrictions **in** the body sections registered by CA-D-495, including Claim scope for RMED, **not** another structural target **or** frontmatter Property.
 
 ## Details
 
 ### Test case
 
-create a Current-scope Atom with its own Scope Unit explicitly carried as target **and** a Claim restricted **to** Python files; repeat with a composite restriction. for RMED, carry those restrictions **in** Scope **and** the qualified contribution **in** Claim. create a permitted Demand with a different explicit target, a parent-owned Goal for its direct child, an external Project Goal with its Author's registered Operator name **and** an explicit Project target, **and** a Plan inside nested Hubs. **then** omit the internally required target even **when** filename **or** placement identifies its owner, provide two targets, use a Hub as a target, leave the target unresolved, duplicate textual applicability **in** frontmatter, **or** infer a target **or** ownership change from the textual restriction alone.
+create a Current-scope Atom with its own Scope Unit explicitly carried as target **and** a Claim restricted **to** Python files; repeat with a composite restriction. for RMED, carry those restrictions **in** Claim scope **and** the qualified contribution **in** Claim. create a permitted Demand with a different explicit target, a parent-owned Goal for its direct child, an external Project Goal with its Author's registered Operator name **and** an explicit Project target, **and** a Plan inside nested Container Atoms. **then** omit the internally required target even **when** filename **or** placement identifies its owner, provide two targets, use a Container Atom as a target, leave the target unresolved, duplicate textual applicability **in** frontmatter, **or** infer a target **or** ownership change from the textual restriction alone.
 
 ### Acceptance criteria
 
-valid targets resolve **to** **`=1`** Scope Unit. authoring defaults select **and** carry the current Scope Unit **where** one exists; reading does **not** repair an omitted target from placement; external Project Goals retain their explicit target. narrower **or** composite applicability alone leaves a Current-scope Atom Current-scope. a different permitted target yields a Relational Atom **without** transferring ownership **or** changing Scope Unit ancestry. Hub nesting does **not** create another target. **every** invalid fixture fails with the exact missing, unresolved, duplicate, misclassified, **or** independently duplicated fact identified.
+valid Atoms resolve **to** **`=1`** GOVERNS Subject and zero **or** one Claim Target Scope Unit. authoring defaults select **and** carry the current Scope Unit as target **where** applicable; reading does **not** repair a required omitted target from placement; external Project Goals retain their explicit Project target. narrower **or** composite applicability alone leaves a Current-scope Atom Current-scope. a different permitted target yields an Atom with a distinct Target Scope Unit **without** transferring ownership **or** changing Scope Unit ancestry. Container Atom nesting does **not** create another target. **every** invalid fixture fails with the exact missing, unresolved, duplicate, misclassified, **or** independently duplicated fact identified.
 
 ### Failure disposition
 

@@ -1,0 +1,264 @@
+{
+  "status": "read_only_review",
+  "primary_count": 28,
+  "items": [
+    {
+      "subject": "Declare Node",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "d7f38688c4f8a88803319014ae826b5a2de89421978379f845b8a17bca8d3350",
+      "classification": "review_candidates",
+      "findings": [
+        {
+          "type": "other_subject_and_duplicate",
+          "clause": "IS_PROPERTY_OF must be acyclic, including no self-loop.",
+          "recommendation": "Relation-level acyclicity is already in the IS_PROPERTY_OF Definition. Remove the Node-level restatement after confirming its shared applicability; retain the single authoritative constraint."
+        },
+        {
+          "type": "other_subject_and_duplicate",
+          "clause": "Property values on instances are literals governed by the Property declaration.",
+          "recommendation": "Keep value-binding semantics in the existing direct-Property-value Rule; remove duplicate from Node Claim after confirming exact scope."
+        },
+        {
+          "type": "explicit_descendant_scope_needs_placement",
+          "clause": "(Node, Node/**, .**) bearer/classification conditional rules",
+          "recommendation": "These deliberately constrain the root and descendants, not only root Node. Reconcile with the expressly approved Node/** model-wide layer and its distinction from Node/**// instance layer; place general classifying constraints in a shared governing Rule if the new rule disallows them in the Node Declaration. Preserve all cases and counts."
+        }
+      ]
+    },
+    {
+      "subject": "Declare Operations",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "sha256": "bd18b4465a0dd7ead038bf18399acc3e4c95f2cce9f86918a40e53682da49690",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Workflow",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "2cda46e500b16c197c151371b89a8e29b86cc1caeaf954abb46b2f83a196620a",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Step",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "be43cd211af5a8765e90dc8c7f8844c9fb57d55ce7a6828c45157e0a48dc07a1",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Substep",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "sha256": "d9e37c2b8740d343ca63b3d1eb3b6822f56369228b0a4d9ca90bbc1206a24ad8",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Action",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "a912b6f43e8cabfe50fd1aa8c5715d2b969290f92d8408511086e56cf7e9447b",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Atom",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "8bf3f2270b3bb007771af15fda6e1aef7a053a538865d3d597ec8f0a2aac3f66",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Atom/(.Role := Concern)",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-concern.md",
+      "sha256": "b2b242bd5a56f0335eae8ea4f0a880bcf64aa252e958d7ee480cc74fcfe90c87",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Atom/(.Role := Analysis)",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-analysis.md",
+      "sha256": "137256803246b4f53ab81acdafc8991cc7139a8a396e368f65d915c3daeaa31e",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Atom/(.Role := Plan)",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "62d372e9529d88e0c38176d52e7e867fe04de661449efe318fa8e18972ff6c16",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Atom/(.Role := Requirement)",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "sha256": "b5d393aca314e0297eb0b2d17894ee237fa2eb68ddefdf9f086c3734a092314a",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Atom/(.Role := Method)",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "sha256": "f97988d05131b8bb547e70df4d85da5e2ef126fc41d0495e37f5b7115900fa9f",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Atom/(.Role := Evaluation)",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "sha256": "c61cde2a319735bda2ba062ccaff5977790a4175a0dbb756d23d7e8ad11921a5",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Atom/(.Role := Delivery)",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "sha256": "7e95d5c2fd9df9e751e08bc3c811b8129e17fd4bf64d907c1d65e44db2820eaa",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Atom/(.Role := Requirement)/(.Form := Declaration)",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration.md",
+      "sha256": "f369536747cf380cd689e0b5605431a846b2affc7530de7e92a40f527ed49325",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Atom/(.Role := Requirement)/(.Form := Relation Definition)",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-relation-definition.md",
+      "sha256": "cfbf52ca20a40887f5c8c31d2e8bfb90e587c71771c7bbd2080449c90d3da905",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Scope Unit",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "sha256": "c6401eaf05d8be0fbd4ace0d6d2b65214c8668803b555693401b324f5556b40d",
+      "classification": "review_candidates",
+      "findings": [
+        {
+          "type": "property_subject_candidate",
+          "clause": "IF contained Scope Unit has container THEN contained.structural_level = container.structural_level + 1",
+          "recommendation": "This constrains a Scope Unit’s structural_level Property using the parent as context. Review relocating the value derivation to the Scope Unit.structural_level Declaration or an applicable shared Rule, preserving conditions and endpoints. The containment cardinality clauses constrain Scope Unit instances and their targets are context."
+        }
+      ]
+    },
+    {
+      "subject": "Declare Project",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "13d1d96e622c2b67eb50ed9bee76f630f4cf2ec3d3a753cadf13cd4fe065c5f8",
+      "classification": "review_candidates",
+      "findings": [
+        {
+          "type": "inherited_duplicate_candidate",
+          "clause": "Project >| (Container == yes)",
+          "recommendation": "Scope Unit already declares Container == yes and Project narrows Scope Unit. Remove only if effective inheritance retains this classification; do not remove if classification intentionally does not inherit."
+        },
+        {
+          "type": "property_subject_candidate",
+          "clause": "Project instance structural_level = 0",
+          "recommendation": "Review placing this root-specific value in the structural_level Property Declaration or a shared rule with a Project guard, without asserting a separate inherited Property."
+        }
+      ]
+    },
+    {
+      "subject": "Declare Package",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "sha256": "aa78279859f486da639ce14ab9f2d9e7f449cd5206c7cffef9ee3a4e009755ad",
+      "classification": "review_candidates",
+      "findings": [
+        {
+          "type": "property_subject_candidate",
+          "clause": "IF contained Package has container THEN contained.structural_level = container.structural_level + 1",
+          "recommendation": "Review relocating the value derivation to Package.structural_level or an applicable shared Rule; retain the containment rules on Package."
+        }
+      ]
+    },
+    {
+      "subject": "Declare Projection",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "sha256": "112f7fc1740de797a9833654b1918b83f6296e6f30b04b498b4f4ce1681302d6",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Journal",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "sha256": "d32ee6c1214fdc0b1d1e932588c011ed27b5eec0e9e170fbe345f62ab7be5e99",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Actor",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-actor.md",
+      "sha256": "d95e7ada980d30d746d5b8e7f55321422ec93bcd302421255ebf48f5e1d1d1fd",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Aspect",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "sha256": "44c5c4bc233a84c7c82ab48629b54b2fc195f2288a4f288d4915f0e0f16d6b62",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Implementation",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+      "sha256": "60c9e4af45a9cbbd5da9f261bd2b5752d6d54524c5588414b3c727587d5b0020",
+      "classification": "review_candidates",
+      "findings": [
+        {
+          "type": "inherited_duplicate_candidate",
+          "clause": "Package/Implementation// {:0}((IS_CONTAINED_BY)) Package//",
+          "recommendation": "Check whether the root-specific zero parent count is independently required; Package alone allows 0..1 and exempts Implementation from the nonroot requirement, so it does not imply zero. Do not delete as duplicate."
+        },
+        {
+          "type": "property_subject_candidate",
+          "clause": "Implementation instance structural_level = 0",
+          "recommendation": "Review placing this root-specific value in Package.structural_level or a shared rule with an Implementation guard; preserve the base Property identity."
+        }
+      ]
+    },
+    {
+      "subject": "Declare Event Record",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "sha256": "8433208a44f82f16eba4d04fa758ba7dc6c1a5e46848f302c61c134414f00cf5",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare MODEL",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-model.md",
+      "sha256": "4b9a315df49683e8809764372dfb8d6bffdc224a625f265f39a97b65df0d6fde",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare PROJECT STRUCTURE",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-structure.md",
+      "sha256": "a33d1ff6df92a5bff208b29ef815774b09288daf1bf830b6ab74d0afead7ffb0",
+      "classification": "active_subject_or_context",
+      "findings": []
+    },
+    {
+      "subject": "Declare Named Selection",
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-named-selection.md",
+      "sha256": "37f5d929dd74325d7c687422272b86cb81014e7703ffb3e7df42ef0ff9c5226a",
+      "classification": "active_subject_or_context",
+      "findings": []
+    }
+  ],
+  "interpretation": [
+    "A Relation constraint on active-subject instances may name a target Node or target instance as endpoint without constraining that target in isolation.",
+    "Workflow CONTAINS Step, Step containment/RUN, Substep parent/RUN, Action inverse caller set and Journal CONTAINS Event Record all constrain their active Subject; the other Node is a target or context, not automatic cross-subject writing.",
+    "UNIQUE(Atom//, (.ID, .Version)) constrains Atom instance identity; inherited Property references are part of the Atom uniqueness test, not standalone ID/Version declarations.",
+    "Node/** is the model-entity layer; Node/**// is the instance layer. Do not use superseded Node//** or conflate their wildcard denials.",
+    "No whitelist completeness is inferred; a zero-wildcard must be paired with explicit permits in the correct layer."
+  ],
+  "limits": [
+    "Conditional structural_level placement is a proposed ownership decision, not an automatic deletion; exact binding semantics remain to be agreed.",
+    "Inheritance of classification is not assumed.",
+    "No Draft modifications, parser verification or runtime admission."
+  ]
+}

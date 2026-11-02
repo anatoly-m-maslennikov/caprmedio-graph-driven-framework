@@ -1,0 +1,55 @@
+{
+  "status": "candidate",
+  "owned_scope": [
+    "CA-R-2487 CFEL overview candidate",
+    "CA-R-2243 Cardinality alignment candidate",
+    "coverage matrix"
+  ],
+  "source_pins": [
+    {
+      "source": "04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "aaacfae64493c72d74af320e0878d2448be57cf16345bdfb5b9d4ce919c8f41d",
+      "candidate": "cfel-description/CA-R-2487@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md"
+    },
+    {
+      "source": "04_requirement/CA-R-2243-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality-notation.md",
+      "sha256": "5cb106cf38d43db322b1a036c0d6140d8991ee647bc4b1905147d8db3072d4de",
+      "candidate": "cfel-description/CA-R-2243@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality-notation.md"
+    },
+    {
+      "source": "04_requirement/CA-R-2471-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+      "sha256": "8bef9eb36fa4577adc344e505ca5f438db6cbf020666e3e1d29b0fe23e3dbcaa",
+      "used_as": "adopted Node-notation authority; no successor is needed because the R2487 candidate owns the new generic named-Relation direction and declared-entity endpoint-universe language"
+    },
+    {
+      "source": "04_requirement/CA-R-2472-CORE_META_MODEL-CFEL--separate-property-value-and-child-constraints.md",
+      "sha256": "ac46573baa3df390f285bcdece3f84f4abb65eca4ec5580b4cbabe1debe556b1",
+      "candidate": "cfel-description/CA-R-2472@3-draft-CORE_META_MODEL-CFEL--separate-property-value-and-child-constraints.md"
+    },
+    {
+      "source": "04_requirement/CA-R-2244-CORE_META_MODEL-ENTITY_DEFINITION--define-graph-syntax.md",
+      "sha256": "5eec565a64375668698c4490667117373d61801ecbe46ccda6f9d53200f5b956",
+      "used_as": "frozen duplicate-root source pending lossless retirement"
+    }
+  ],
+  "checks": [
+    "all requested operator and count families appear in coverage-matrix.json",
+    "one base and 25 uniquely addressed non-graph operator Declaration candidates are separately described",
+    "Relation metadata uses existing CFEL tokens only",
+    "no Relation Definition source or any of the 16 excluded legacy CFEL Definitions was edited",
+    "no parser or evaluator conformance is claimed",
+    "R2472 candidate states the approved undeclared-child default and aggregate recursive-count scope",
+    "R2243 successor is a Rule for Cardinality Notation; R2327 remains the sole Cardinality concept Definition",
+    "operator candidates contain active CFEL<+Operator addresses and Semantics",
+    "each narrower operator candidate has a CFEL descriptor-to-quoted-notation metadata binding and substantive Semantics; source pins remain in manifests",
+    "Relation metadata template is outside a CFEL fence and cannot be read as executable syntax",
+    "named Relation direction is a reusable CFEL operator and preserves written-endpoint count normalization",
+    "the CFEL root defines the declared-entity-or-instance Relation endpoint universe without placing Carrier or CFEL under Node/**",
+    "the five CA-R-2244 consumer dispositions are explicit; the two owned consumer candidates contain no stale count syntax"
+  ],
+  "blockers": [
+    "CA-R-2244 archival remains a root lifecycle action after the five explicit candidate dispositions are adopted; it is not a language-contract blocker.",
+    "Direct/Derived is settled as canonical Relation versus derived view; Relation-lane source mapping still preserves the separate HAS_INVERSE meaning.",
+    "The aggregate recursive-count default is recorded in CA-C-draft-CORE_META_MODEL-QUESTION--should-recursive-property-counts-aggregate-descendant-identities.md; a future per-recursive-parent operator requires separate admission."
+  ]
+}

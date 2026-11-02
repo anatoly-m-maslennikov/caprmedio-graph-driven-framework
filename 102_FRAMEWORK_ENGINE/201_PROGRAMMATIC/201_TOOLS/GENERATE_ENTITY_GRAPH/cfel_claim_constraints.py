@@ -1,0 +1,450 @@
+"""Extract a deliberately small, non-evaluating CFEL constraint inventory.
+
+This is a projection aid, not a CFEL parser or validator. Every expression
+outside the few shape-stable forms below remains visible as an unsupported
+diagnostic rather than being guessed or silently discarded.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import re
+from collections.abc import Iterable, Mapping
+from pathlib import Path
+from typing import Any
+
+
+Record = dict[str, Any]
+_FENCE_LINE = re.compile(r"^[ \t]*(?P<marker>`{3,}|~{3,})(?P<label>[^\r\n]*)\r?$")
+_COUNT = r"(?P<minimum>0|[1-9][0-9]*)(?P<tail>\+|\.\.(?P<maximum>0|[1-9][0-9]*))?"
+_PROPERTY = re.compile(
+    rf"^(?P<property>.+?)(?P<descendants>\.\*\*|\.\*)?"
+    rf"(?:\[(?P<name_format>[^\]]*)\])?"
+    rf"\{{:{_COUNT}\}}"
+    rf"(?:\s*:\s*\[(?P<value_format>[^\]]*)\]\{{:(?P<value_minimum>0|[1-9][0-9]*)(?P<value_tail>\+|\.\.(?P<value_maximum>0|[1-9][0-9]*))?\}})?$"
+)
+_PROPERTY_VALUE = re.compile(
+    rf"^(?P<property>.+?)\s*:\s*\[(?P<value_format>[^\]]*)\]"
+    rf"\{{:{_COUNT}\}}$"
+)
+_RELATION = re.compile(
+    rf"^(?P<source>.+?)\s*(?:\{{:(?P<forward_minimum>0|[1-9][0-9]*)(?P<forward_tail>\+|\.\.(?P<forward_maximum>0|[1-9][0-9]*))?\}}\s*)?"
+    rf"(?:<\(\((?P<reverse_relation>[^()]+)\)\)|\(\((?P<relation>[^()]+)\)\)|(?P<relation_notation>\+>|<\+))\s*"
+    rf"(?:\{{:(?P<reverse_minimum>0|[1-9][0-9]*)(?P<reverse_tail>\+|\.\.(?P<reverse_maximum>0|[1-9][0-9]*))?\}}\s*)?"
+    rf"(?P<target>.+)$"
+)
+_RELATION_WITHOUT_TARGET = re.compile(
+    rf"^(?P<source>.+?)\s*\{{:(?P<forward_minimum>0|[1-9][0-9]*)(?P<forward_tail>\+|\.\.(?P<forward_maximum>0|[1-9][0-9]*))?\}}\s*"
+    rf"(?:\(\((?P<relation>[^()]+)\)\)|(?P<relation_notation>\+>|<\+)|(?P<bare_relation>[A-Z][A-Z0-9_]*))$"
+)
+_FORWARD_CLASSIFICATION = re.compile(
+    r"^(?P<subject>.+?)\s*>\|\s*(?P<axis>.+?)\s*(?P<operator>==|=)\s*(?P<value>.+)$"
+)
+_REVERSE_CLASSIFICATION = re.compile(
+    r"^(?P<axis>.+?)\s*\|<\s*(?P<subject>.+?)\s*(?P<operator>==|=)\s*(?P<value>.+)$"
+)
+_FORWARD_GROUPED_CLASSIFICATION = re.compile(
+    r"^(?P<subject>.+?)\s*>\|\s*\(\s*(?P<axis>.+?)\s*(?P<operator>==|=)\s*(?P<value>.+?)\s*\)$"
+)
+_REVERSE_GROUPED_CLASSIFICATION = re.compile(
+    r"^\(\s*(?P<axis>.+?)\s*(?P<operator>==|=)\s*(?P<value>.+?)\s*\)\s*\|<\s*(?P<subject>.+)$"
+)
+_ALLOWED_LITERAL = re.compile(r"^(?P<property>.+?)\s*:\s*(?P<literal>[^\[\]{}]+)$")
+_CONTROL = re.compile(r"\b(?:IF|THEN|AND|OR)\b")
+_HEADING = re.compile(r"^(?P<hashes>#{1,6})[ \t]+(?P<name>[^\n#][^\n]*?)[ \t]*$", re.M)
+
+
+def _count(minimum: str | None, tail: str | None, maximum: str | None) -> Record | None:
+    if minimum is None:
+        return None
+    return {
+        "minimum": int(minimum),
+        "maximum": None if tail == "+" else int(maximum) if maximum else int(minimum),
+    }
+
+
+def _record(source: Mapping[str, Any], expression: str, kind: str, **fields: Any) -> Record:
+    return {"kind": kind, "expression": expression, "source": dict(source), **fields}
+
+
+def _property_selector(value: str) -> str | None:
+    """Accept only a plain Property path; functions and expressions stay opaque."""
+
+    selector = value.strip()
+    if not selector or any(token in selector for token in ("(", ")", "+", "=", "<", ">", "|", "@", "*", ";", ":", "[", "]", "{", "}", "'", '"')):
+        return None
+    return selector
+
+
+def _fences(body: str) -> list[tuple[int, int, int | None, str]]:
+    """Read top-level backtick/tilde fences with their actual marker width."""
+
+    result: list[tuple[int, int, int | None, str]] = []
+    active: tuple[str, int, int, int, str] | None = None
+    offset = 0
+    for line in body.splitlines(keepends=True):
+        match = _FENCE_LINE.match(line)
+        if active is None:
+            if match is not None:
+                marker = match.group("marker")
+                active = (marker[0], len(marker), offset, offset + len(line), match.group("label").strip())
+        elif match is not None:
+            marker = match.group("marker")
+            character, width, opening, content_start, label = active
+            if marker[0] == character and len(marker) >= width and not match.group("label").strip():
+                result.append((opening, content_start, offset, label))
+                active = None
+        offset += len(line)
+    if active is not None:
+        _, _, opening, content_start, label = active
+        result.append((opening, content_start, None, label))
+    return result
+
+
+def _section_ranges(body: str, section_name: str) -> list[tuple[int, int]]:
+    """Return named Markdown-section bodies, ignoring headings inside fences."""
+
+    headings: list[tuple[int, int, int, str]] = []
+    fenced = [(opening, closing if closing is not None else len(body)) for opening, _, closing, _ in _fences(body)]
+    offset = 0
+    for line in body.splitlines(keepends=True):
+        if not any(opening <= offset < closing for opening, closing in fenced):
+            match = _HEADING.match(line)
+            if match is not None:
+                headings.append((offset, offset + len(line), len(match.group("hashes")), match.group("name").strip()))
+        offset += len(line)
+    ranges = []
+    for index, (_, content_start, level, heading_name) in enumerate(headings):
+        if heading_name.casefold() != section_name.casefold():
+            continue
+        end = len(body)
+        for next_start, _, next_level, _ in headings[index + 1:]:
+            if next_level <= level:
+                end = next_start
+                break
+        ranges.append((content_start, end))
+    return ranges
+
+
+def _claim_ranges(body: str) -> list[tuple[int, int]]:
+    """Return Markdown Claim bodies, ignoring headings written inside fences."""
+
+    return _section_ranges(body, "claim")
+
+
+def section_text(carrier: Mapping[str, Any], name: str) -> str:
+    """Return exact named-section text; this does not interpret its Markdown."""
+
+    body = carrier.get("body")
+    if not isinstance(body, str):
+        return ""
+    return "\n".join(body[start:end].strip() for start, end in _section_ranges(body, name) if body[start:end].strip())
+
+
+def _split_expressions(block: str) -> list[str]:
+    """Split only unquoted semicolons; unsupported quoted syntax stays whole."""
+
+    values: list[str] = []
+    start = 0
+    quote: str | None = None
+    escaped = False
+    for index, character in enumerate(block):
+        if quote is not None:
+            if escaped:
+                escaped = False
+            elif character == "\\":
+                escaped = True
+            elif character == quote:
+                quote = None
+            continue
+        if character in {"'", '"'}:
+            quote = character
+        elif character == ";":
+            value = block[start:index].strip()
+            if value:
+                values.append(value)
+            start = index + 1
+    value = block[start:].strip()
+    if value:
+        values.append(value)
+    return values
+
+
+def _expressions(body: str) -> tuple[list[str], list[Record]]:
+    """Read CFEL fences inside Claim; retain skipped fences as diagnostics."""
+
+    values: list[str] = []
+    diagnostics: list[Record] = []
+    claim_ranges = _claim_ranges(body)
+    for opening, content_start, closing, label in _fences(body):
+        if label.casefold() != "cfel":
+            continue
+        in_claim = any(start <= opening < end for start, end in claim_ranges)
+        if closing is None:
+            diagnostics.append({
+                "code": "cfel-fence-unclosed" if in_claim else "cfel-fence-outside-claim",
+                "message": (
+                    "CFEL fence has no closing fence; its contents were not interpreted."
+                    if in_claim else "CFEL fence is outside Claim; its contents were not interpreted."
+                ),
+                "offset": opening,
+            })
+            continue
+        if in_claim:
+            values.extend(_split_expressions(body[content_start:closing]))
+        else:
+            diagnostics.append({
+                "code": "cfel-fence-outside-claim",
+                "message": "CFEL fence is outside Claim; its contents were not interpreted.",
+                "offset": opening,
+            })
+    return values, diagnostics
+
+
+def claim_cfel_blocks(carrier: Mapping[str, Any]) -> list[Record]:
+    """Return complete CFEL Claim blocks without interpreting their clauses."""
+
+    source, body = carrier.get("source"), carrier.get("body")
+    if not isinstance(source, Mapping) or not isinstance(body, str):
+        return []
+    ranges = _claim_ranges(body)
+    return [
+        {"source": dict(source), "block": body[content_start:closing]}
+        for opening, content_start, closing, label in _fences(body)
+        if label.casefold() == "cfel" and closing is not None and any(start <= opening < end for start, end in ranges)
+    ]
+
+
+def claim_fenced_blocks(carrier: Mapping[str, Any]) -> list[Record]:
+    """Return every fenced Claim block with its original language label.
+
+    Only blocks labelled ``CFEL`` are structurally extracted elsewhere.  Other
+    labels, including no label, remain source evidence rather than being
+    relabelled or interpreted as CFEL.
+    """
+
+    source, body = carrier.get("source"), carrier.get("body")
+    if not isinstance(source, Mapping) or not isinstance(body, str):
+        return []
+    ranges = _claim_ranges(body)
+    return [
+        {"source": dict(source), "block": body[content_start:closing if closing is not None else len(body)],
+         "label": label, "closed": closing is not None}
+        for opening, content_start, closing, label in _fences(body)
+        if any(start <= opening < end for start, end in ranges)
+    ]
+
+
+def claim_prose(carrier: Mapping[str, Any]) -> str:
+    """Return Claim text after removing fenced blocks, without parsing prose."""
+
+    body = carrier.get("body")
+    if not isinstance(body, str):
+        return ""
+    pieces = []
+    for start, end in _claim_ranges(body):
+        removed = []
+        for opening, _, closing, _ in _fences(body):
+            if not start <= opening < end:
+                continue
+            if closing is None:
+                removed.append((opening, end))
+                continue
+            newline = body.find("\n", closing)
+            removed.append((opening, len(body) if newline < 0 else newline + 1))
+        cursor = start
+        for opening, closing in removed:
+            pieces.append(body[cursor:opening])
+            cursor = closing
+        pieces.append(body[cursor:end])
+    return "\n".join(piece.strip() for piece in pieces if piece.strip())
+
+
+def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record], list[Record]]:
+    """Return recognized constraints and explicit unsupported CFEL diagnostics."""
+
+    source = carrier.get("source")
+    body = carrier.get("body")
+    if not isinstance(source, Mapping) or not isinstance(body, str):
+        return [], []
+    expressions, diagnostics = _expressions(body)
+    records: list[Record] = []
+    for expression in expressions:
+        if _CONTROL.search(expression):
+            diagnostics.append({
+                "code": "cfel-expression-unsupported",
+                "message": "CFEL control expression is outside the bounded projection extractor.",
+                "expression": expression,
+                "source": dict(source),
+            })
+            continue
+        relation = _RELATION.fullmatch(expression)
+        if relation is not None:
+            reverse_named = relation.group("reverse_relation") is not None
+            written_source = relation.group("source").strip()
+            written_target = relation.group("target").strip()
+            written_forward = _count(
+                relation.group("forward_minimum"), relation.group("forward_tail"), relation.group("forward_maximum"),
+            )
+            written_reverse = _count(
+                relation.group("reverse_minimum"), relation.group("reverse_tail"), relation.group("reverse_maximum"),
+            )
+            records.append(_record(
+                source, expression, "relation_cardinality",
+                source_selector=written_target if reverse_named else written_source,
+                relation=(relation.group("reverse_relation") or relation.group("relation")).strip()
+                if (relation.group("reverse_relation") or relation.group("relation")) else None,
+                relation_notation=relation.group("relation_notation"),
+                target_selector=written_source if reverse_named else written_target,
+                source_cardinality=written_reverse if reverse_named else written_forward,
+                target_cardinality=written_forward if reverse_named else written_reverse,
+                written_direction="reverse" if reverse_named else "forward",
+                written_source_selector=written_source,
+                written_target_selector=written_target,
+                written_source_cardinality=written_forward,
+                written_target_cardinality=written_reverse,
+            ))
+            continue
+        relation_without_target = _RELATION_WITHOUT_TARGET.fullmatch(expression)
+        if relation_without_target is not None:
+            relation_name = (
+                relation_without_target.group("relation")
+                or relation_without_target.group("bare_relation")
+            )
+            records.append(_record(
+                source, expression, "relation_cardinality",
+                source_selector=relation_without_target.group("source").strip(),
+                relation=relation_name,
+                relation_notation=relation_without_target.group("relation_notation"),
+                target_selector=None,
+                source_cardinality=_count(
+                    relation_without_target.group("forward_minimum"),
+                    relation_without_target.group("forward_tail"),
+                    relation_without_target.group("forward_maximum"),
+                ),
+                target_cardinality=None,
+                selection="all_relations" if relation_name == "*" else "named_relation",
+            ))
+            continue
+        classification = (
+            _FORWARD_GROUPED_CLASSIFICATION.fullmatch(expression)
+            or _REVERSE_GROUPED_CLASSIFICATION.fullmatch(expression)
+            or _FORWARD_CLASSIFICATION.fullmatch(expression)
+            or _REVERSE_CLASSIFICATION.fullmatch(expression)
+        )
+        if classification is not None:
+            records.append(_record(
+                source, expression, "classification_condition",
+                subject_selector=classification.group("subject").strip(),
+                axis=classification.group("axis").strip(),
+                operator=classification.group("operator"),
+                value=classification.group("value").strip(),
+            ))
+            continue
+        property_constraint = _PROPERTY.fullmatch(expression)
+        # The direct-value form is a different constraint: the count applies
+        # to values per Property, not to Property occurrences.  Keep it out
+        # of the broader Property matcher, whose path token may otherwise
+        # absorb the colon.
+        property_selector = _property_selector(property_constraint.group("property")) if property_constraint is not None else None
+        if property_constraint is not None and property_selector is not None and not (
+            property_constraint.group("descendants") is None
+            and property_constraint.group("property").rstrip().endswith(":")
+        ):
+            selection = {None: "property", ".*": "immediate_dependents", ".**": "recursive_dependents"}[
+                property_constraint.group("descendants")
+            ]
+            records.append(_record(
+                source, expression, "property_constraint",
+                property_selector=property_selector,
+                selection=selection,
+                name_format=property_constraint.group("name_format"),
+                occurrence_cardinality=_count(
+                    property_constraint.group("minimum"), property_constraint.group("tail"), property_constraint.group("maximum"),
+                ),
+                value_format=property_constraint.group("value_format"),
+                value_cardinality=_count(
+                    property_constraint.group("value_minimum"), property_constraint.group("value_tail"), property_constraint.group("value_maximum"),
+                ),
+            ))
+            continue
+        property_value = _PROPERTY_VALUE.fullmatch(expression)
+        value_selector = _property_selector(property_value.group("property")) if property_value is not None else None
+        if property_value is not None and value_selector is not None:
+            records.append(_record(
+                source, expression, "property_constraint",
+                property_selector=value_selector,
+                selection="values",
+                name_format=None,
+                occurrence_cardinality=None,
+                value_format=property_value.group("value_format"),
+                value_cardinality=_count(
+                    property_value.group("minimum"), property_value.group("tail"), property_value.group("maximum"),
+                ),
+            ))
+            continue
+        allowed_literal = _ALLOWED_LITERAL.fullmatch(expression)
+        literal_selector = _property_selector(allowed_literal.group("property")) if allowed_literal is not None else None
+        if allowed_literal is not None and literal_selector is not None and not any(
+            token in expression for token in (":=", ": =", "(", ")", "'", '"', ">|", "|<", "((")
+        ):
+            records.append(_record(
+                source, expression, "allowed_literal",
+                property_selector=literal_selector,
+                literal=allowed_literal.group("literal").strip(),
+            ))
+            continue
+        diagnostics.append({
+            "code": "cfel-expression-unsupported",
+            "message": "CFEL expression is outside the bounded projection extractor.",
+            "expression": expression,
+            "source": dict(source),
+        })
+    return records, diagnostics
+
+
+def constraints_for(carriers: Iterable[Mapping[str, Any]]) -> tuple[list[Record], list[Record]]:
+    """Collect deterministic records from supplied Carriers without writing them."""
+
+    records: list[Record] = []
+    diagnostics: list[Record] = []
+    for carrier in carriers:
+        selected, unresolved = extract_claim_constraints(carrier)
+        records.extend(selected)
+        diagnostics.extend(unresolved)
+    key = lambda row: (str(row.get("kind", "")), str(row.get("expression", "")), str(row.get("source", {})))
+    return sorted(records, key=key), sorted(diagnostics, key=key)
+
+
+def preview_constraints_from_paths(
+    paths: Iterable[Path], *, repository: Path | None = None,
+) -> tuple[list[Record], list[Record]]:
+    """Read exactly supplied Markdown Carriers for a no-write CFEL preview.
+
+    Unlike the current-source reader, this deliberately does not filter Draft
+    or Archived paths. Callers choose the exact preview frontier; this helper
+    only reads it and returns the same records/diagnostics as ``constraints_for``.
+    """
+
+    from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
+
+    base = repository.absolute() if repository is not None else None
+    carriers: list[Record] = []
+    for path in paths:
+        raw = path.read_bytes()
+        parsed = parse_carrier(raw, path)
+        atom_id = parsed.metadata.get("atom_id")
+        version = parsed.metadata.get("version")
+        if not isinstance(atom_id, str) or not atom_id.strip() or isinstance(version, bool) or not isinstance(version, int):
+            raise ValueError(f"{path}: CFEL preview requires text atom_id and integer version")
+        display_path = path.relative_to(base).as_posix() if base is not None else path.as_posix()
+        carriers.append({
+            "source": {
+                "atom_id": atom_id,
+                "version": version,
+                "path": display_path,
+                "sha256": hashlib.sha256(raw).hexdigest(),
+            },
+            "body": parsed.body,
+        })
+    return constraints_for(carriers)

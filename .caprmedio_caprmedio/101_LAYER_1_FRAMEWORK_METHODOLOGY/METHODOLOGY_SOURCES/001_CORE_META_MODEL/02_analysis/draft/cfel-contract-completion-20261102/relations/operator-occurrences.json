@@ -1,0 +1,270 @@
+{
+  "frontier_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/migration-20261101/current-source-frontier.json",
+  "frontier_sha256": "fadf6b7ef86a7f85fc88d63f8b0692c1aef0e3f254166b291d4cdafc4ba17fb7",
+  "method": "Non-overlapping lexical scan of Subject values and CFEL code-fence lines; examples and counts are evidence, not parser classification.",
+  "operator_category": "User decided graph Relations and other CFEL operators are distinct; only source-supported graph Relation notation is mapped in Relation Declarations.",
+  "tokens": [
+    {
+      "token": ":=",
+      "matching_lines": 270,
+      "meaning_evidence": "Subject-address allowed-value plus condition; category pending.",
+      "examples": [
+        {
+          "id": "CA-R-024",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-024-CAPRMEDIO-RULE--govern-requirement-conflicts-by-tier.md",
+          "context": "subject",
+          "text": "Atom/(.Role := Requirement)"
+        },
+        {
+          "id": "CA-R-024",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-024-CAPRMEDIO-RULE--govern-requirement-conflicts-by-tier.md",
+          "context": "subject",
+          "text": "Atom/(.Role := Concern)"
+        },
+        {
+          "id": "CA-R-029",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-029-RULE--govern-each-scope-by-authority-mode.md",
+          "context": "subject",
+          "text": "Atom/(.Role := Requirement)"
+        }
+      ]
+    },
+    {
+      "token": "==",
+      "matching_lines": 21,
+      "meaning_evidence": "Required/derived conclusion or set condition; may occur in cardinalities.",
+      "examples": [
+        {
+          "id": "CA-R-2462",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+          "context": "cfel",
+          "text": "THEN ((Node, Node.**) >| (Independence == Primary Node));"
+        },
+        {
+          "id": "CA-R-2462",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+          "context": "cfel",
+          "text": "THEN ((Node, Node.**) >| (Independence == Property))"
+        },
+        {
+          "id": "CA-R-2462",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+          "context": "cfel",
+          "text": "AND ((Node, Node.**) {==0}((HAS_NARROWER)))"
+        }
+      ]
+    },
+    {
+      "token": "+>",
+      "matching_lines": 0,
+      "meaning_evidence": "Direct composition written Part +> Whole.",
+      "examples": []
+    },
+    {
+      "token": "<+",
+      "matching_lines": 93,
+      "meaning_evidence": "Reverse composition written Whole <+ Part.",
+      "examples": [
+        {
+          "id": "CA-R-1026",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL--register-depends-on-and-required-by-relation-pair.md",
+          "context": "subject",
+          "text": "CFEL <+ Relation//depends_on"
+        },
+        {
+          "id": "CA-R-1026",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL--register-depends-on-and-required-by-relation-pair.md",
+          "context": "subject",
+          "text": "CFEL <+ Relation"
+        },
+        {
+          "id": "CA-R-1026",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL--register-depends-on-and-required-by-relation-pair.md",
+          "context": "subject",
+          "text": "CFEL <+ Relation//required_by"
+        }
+      ]
+    },
+    {
+      "token": ">|",
+      "matching_lines": 19,
+      "meaning_evidence": "Classification written Host >| Axis.",
+      "examples": [
+        {
+          "id": "CA-R-2462",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+          "context": "cfel",
+          "text": "THEN ((Node, Node.**) >| (Independence == Primary Node));"
+        },
+        {
+          "id": "CA-R-2462",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+          "context": "cfel",
+          "text": "THEN ((Node, Node.**) >| (Independence == Property))"
+        },
+        {
+          "id": "CA-R-2473",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md",
+          "context": "cfel",
+          "text": "((Node, Node/**, .**) >| Independence = Property) {:1}((IS_PROPERTY_OF)) (Node, Node/**, .**);"
+        }
+      ]
+    },
+    {
+      "token": "|<",
+      "matching_lines": 0,
+      "meaning_evidence": "Reverse written classification view.",
+      "examples": []
+    },
+    {
+      "token": "//",
+      "matching_lines": 372,
+      "meaning_evidence": "Primary-kind instance selection; not independent Property instantiation.",
+      "examples": [
+        {
+          "id": "CA-R-1424",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-1424-GOAL--provide-tools-to-maintain-methodology-alignment.md",
+          "context": "subject",
+          "text": "Entity/Object/Continuant/Term//Artifact"
+        },
+        {
+          "id": "CA-R-686",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-686-RULE--separate-core-extension-and-project-configuration-authority.md",
+          "context": "subject",
+          "text": "Scope Unit//PROJECT_CONFIGURATION"
+        },
+        {
+          "id": "CA-R-815",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-815-GOAL--follow-the-operator-s-priorities.md",
+          "context": "subject",
+          "text": "Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL"
+        }
+      ]
+    },
+    {
+      "token": ":",
+      "matching_lines": 720,
+      "meaning_evidence": "Allowed-value format; may also appear within other notation.",
+      "examples": [
+        {
+          "id": "CA-R-004",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-004-RULE--keep-the-framework-under-operator-control.md",
+          "context": "subject",
+          "text": "Entity/Aspect/Product: CAPRMEDIO Framework"
+        },
+        {
+          "id": "CA-R-007",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-007-RULE--full-minimal-traceability.md",
+          "context": "subject",
+          "text": "Entity/Aspect/Product: CAPRMEDIO Framework"
+        },
+        {
+          "id": "CA-R-024",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-024-CAPRMEDIO-RULE--govern-requirement-conflicts-by-tier.md",
+          "context": "subject",
+          "text": "Entity/Aspect/Product: CAPRMEDIO Framework"
+        }
+      ]
+    },
+    {
+      "token": "=",
+      "matching_lines": 38,
+      "meaning_evidence": "Condition/equality test; may occur in cardinality comparisons.",
+      "examples": [
+        {
+          "id": "CA-R-2462",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+          "context": "cfel",
+          "text": "IF ((Node, Node.**) {=0}((IS_PROPERTY_OF)))"
+        },
+        {
+          "id": "CA-R-2462",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+          "context": "cfel",
+          "text": "IF ((Node, Node.**) {=1}((IS_PROPERTY_OF)))"
+        },
+        {
+          "id": "CA-R-2473",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md",
+          "context": "cfel",
+          "text": "((Node, Node/**, .**) >| Independence = Property) {:1}((IS_PROPERTY_OF)) (Node, Node/**, .**);"
+        }
+      ]
+    },
+    {
+      "token": "/",
+      "matching_lines": 2017,
+      "meaning_evidence": "Narrower selection; raw lexical count may include path separators.",
+      "examples": [
+        {
+          "id": "CA-R-001",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-001-RULE--keep-nesting-sibling-order-and-navigation-distinct.md",
+          "context": "subject",
+          "text": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure"
+        },
+        {
+          "id": "CA-R-004",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-004-RULE--keep-the-framework-under-operator-control.md",
+          "context": "subject",
+          "text": "Entity/Aspect/Product: CAPRMEDIO Framework"
+        },
+        {
+          "id": "CA-R-004",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-004-RULE--keep-the-framework-under-operator-control.md",
+          "context": "subject",
+          "text": "Entity/Object/Continuant/Actor/Operator"
+        }
+      ]
+    },
+    {
+      "token": ".",
+      "matching_lines": 1489,
+      "meaning_evidence": "Property traversal or punctuation; raw lexical count may include names/decimals.",
+      "examples": [
+        {
+          "id": "CA-R-001",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-001-RULE--keep-nesting-sibling-order-and-navigation-distinct.md",
+          "context": "subject",
+          "text": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure"
+        },
+        {
+          "id": "CA-R-001",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-001-RULE--keep-nesting-sibling-order-and-navigation-distinct.md",
+          "context": "subject",
+          "text": "Scope Unit.Local Order"
+        },
+        {
+          "id": "CA-R-024",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-024-CAPRMEDIO-RULE--govern-requirement-conflicts-by-tier.md",
+          "context": "subject",
+          "text": "Atom/(.Role := Requirement)"
+        }
+      ]
+    },
+    {
+      "token": "@",
+      "matching_lines": 22,
+      "meaning_evidence": "Existing-reference notation; raw lexical count may include identities.",
+      "examples": [
+        {
+          "id": "CA-D-662",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-662-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+          "context": "cfel",
+          "text": "Atom.Role >> @Carrier//Markdown file.frontmatter.role;"
+        },
+        {
+          "id": "CA-D-662",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-662-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+          "context": "cfel",
+          "text": "Atom.Form >> @Carrier//Markdown file.frontmatter.form;"
+        },
+        {
+          "id": "CA-D-662",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-662-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+          "context": "cfel",
+          "text": "Atom.Subjects.Active >> @Carrier//Markdown file.frontmatter.subjects.active;"
+        }
+      ]
+    }
+  ]
+}

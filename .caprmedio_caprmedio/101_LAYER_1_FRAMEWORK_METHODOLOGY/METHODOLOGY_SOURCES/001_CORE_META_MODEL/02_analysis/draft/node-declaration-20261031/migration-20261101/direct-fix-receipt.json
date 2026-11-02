@@ -1,0 +1,495 @@
+{
+  "status": "APPLIED",
+  "fixes": [
+    {
+      "id": "CA-R-1417",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1417-CORE_META_MODEL-RULE--give-every-atom-revision-one-content.md",
+      "before_sha256": "3e50bc24a227864df54aa1529cbf10735f65c0d11fae8362a8af10aae9162940",
+      "sha256": "e6e35d0653b097a70724dbc378f1a1b6358eef1da8e4c6373d8fabdad79a3dbf",
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1417@30-CORE_META_MODEL-RULE--give-every-atom-revision-one-content.md",
+      "archive_sha256": "9eac4671e40b257aa7d37e7b711cb4dba5f5a1ab550bee5106b98068de54d212",
+      "old_version": 30,
+      "new_version": 31,
+      "reason": "Direct repair of already-agreed Claim/Role/Form rules"
+    },
+    {
+      "id": "CA-R-2243",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality-notation.md",
+      "before_sha256": "dd9c0c932d87fd3dd85a90e9c4dbdfffcb05f5b879a4524502f220f633a3dd69",
+      "sha256": "5cb106cf38d43db322b1a036c0d6140d8991ee647bc4b1905147d8db3072d4de",
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2243@4-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality-notation.md",
+      "archive_sha256": "808f8ec9a75e7994701a14a6d8a099a9dec5f1a73c3a6eea63ad8ac024137c5b",
+      "old_version": 4,
+      "new_version": 5,
+      "reason": "Direct repair of already-agreed Claim/Role/Form rules"
+    },
+    {
+      "id": "CA-M-228",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "before_sha256": "f3c53b6f3cc92659b3ade8e40a62f16b0e3840b18cfdf3a750b344a7839d828f",
+      "sha256": "dd15e25612e54417fbc8b1d1f0f072ae73d4b015a7b908cd6febf2c822d2b4bd",
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/archive/CA-M-228@33-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "archive_sha256": "5a3a79bd194c504766e82a78913923132637f18e69fb2e39dba6e03def4097db",
+      "old_version": 33,
+      "new_version": 34,
+      "reason": "Direct repair of already-agreed Claim/Role/Form rules"
+    },
+    {
+      "id": "CA-D-495",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-ENG_DECISION--carry-applicability-in-the-registered-body-sections.md",
+      "before_sha256": "006c067758e9ab74db8c8681a64afa9fb2f5655348acfceda6bbcb2d883a1e7d",
+      "sha256": "96fd508962c9ee5e8788a6096cf212ad534ab674b15fbcff3f3acde643a3df73",
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archive/CA-D-495@24-CORE_META_MODEL-ENG_DECISION--carry-applicability-in-the-registered-body-sections.md",
+      "archive_sha256": "e2727c8961d547f6927596f6798278070b974cb88f0390d04240ae8dbc363feb",
+      "old_version": 24,
+      "new_version": 25,
+      "reason": "Direct repair of already-agreed Claim/Role/Form rules"
+    },
+    {
+      "id": "CA-R-1700",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1700-CORE_META_MODEL-RULE--admit-atoms-only-where-a-role-has-an-atomic-unit.md",
+      "before_sha256": "077a7ddb48ca2e1e328e17d6deaf25dddcef441da6783912f3ce25d05c2f76ca",
+      "sha256": "5f2f14a441759335ed9f05a6a66ed5ac77a5533d726a7c029718aa792fd8d09c",
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1700@31-CORE_META_MODEL-RULE--admit-atoms-only-where-a-role-has-an-atomic-unit.md",
+      "archive_sha256": "87ee49bfa95bfe4f7bc3f3a8ed9a17f9b665ab5c93f304b41e3259a05912c603",
+      "old_version": 31,
+      "new_version": 32,
+      "reason": "Direct repair of already-agreed Claim/Role/Form rules"
+    },
+    {
+      "id": "CA-R-1284",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md",
+      "before_sha256": "9a125d96bd580ae86baec83af8f558bca67f1f89109cad7631b258c01fd397c9",
+      "sha256": "f4323611d7fd1efbb9a5ad52b73b50dce1c8e851dd37d4b038ca147f34633b68",
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1284@25-CORE_META_MODEL--define-type.md",
+      "archive_sha256": "7203c146aa3aec06d933aed42b8abbcbcf1e9794d328cabd23935a5abf876d7d",
+      "old_version": 25,
+      "new_version": 26,
+      "reason": "Direct repair of already-agreed Claim/Role/Form rules"
+    },
+    {
+      "id": "CA-D-402",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-402-CORE_META_MODEL-ENG_DECISION--serialize-delivery-type-tokens.md",
+      "before_sha256": "928d5b32394e69d684937cab850baee39e32c07b4b41060cd5f4b25c11192b33",
+      "sha256": "7ae92efaa0554a86511e79a4c1f34a3a6cf0c3b8fb4ae5a6487b62e2d412431f",
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archive/CA-D-402@26-CORE_META_MODEL-ENG_DECISION--serialize-delivery-type-tokens.md",
+      "archive_sha256": "51f53ad426f3f2e4b1fce348e6e04114a0b598ad8965b83c7044faeeb8b17254",
+      "old_version": 26,
+      "new_version": 27,
+      "reason": "Direct repair of already-agreed Claim/Role/Form rules"
+    },
+    {
+      "id": "CA-D-404",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-404-CORE_META_MODEL-ENG_DECISION--serialize-method-type-tokens.md",
+      "before_sha256": "28ecae2a0ad9d8d101c545cd69e439e20be56b94d5f9882f2b4db906c7c2d586",
+      "sha256": "fb705bc04df0f6c0a23d591ca8d16eb49a6a5b9cc2936af74a0f92cd1fa8bbd6",
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archive/CA-D-404@27-CORE_META_MODEL-ENG_DECISION--serialize-method-type-tokens.md",
+      "archive_sha256": "254fe660215601ae88d9103fa060d4fcc208b6361941d3926c718e4baf0ac3c7",
+      "old_version": 27,
+      "new_version": 28,
+      "reason": "Direct repair of already-agreed Claim/Role/Form rules"
+    },
+    {
+      "id": "CA-D-478",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md",
+      "before_sha256": "aec8b860b2e52f72c2109fb694448f03b36db4a472fcfa83fe76b37f3645a167",
+      "sha256": "5bb3c2c3d0e70aa492ff729dc87e75b8ea0f614c91c755fcf8350ee3cba536a6",
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archive/CA-D-478@30-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md",
+      "archive_sha256": "bd0db213d159c1e9ce3a9eaa3e5940cc0e585000b50df9c8edea715da5580f23",
+      "old_version": 30,
+      "new_version": 31,
+      "reason": "Direct repair of already-agreed Claim/Role/Form rules"
+    },
+    {
+      "id": "CA-M-345",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "before_sha256": "d0ba1d636ead19072acf40b290df6e1146208165db7c9638c1d604e247bae8f6",
+      "sha256": "64696b9984077df4e9f0902e2a709a8ff1b90c0632113ddee76c780b3a246faf",
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/archive/CA-M-345@14-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "archive_sha256": "fd1ad51acc3c00be4f483da6f762bc9ec7b05a32499e8bce2d1e7a11b503c438",
+      "old_version": 14,
+      "new_version": 15,
+      "reason": "Direct repair of already-agreed Claim/Role/Form rules"
+    },
+    {
+      "id": "CA-E-588",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "before_sha256": "f7d437cfe7e7c1f6e77258826198859566c30de3d87d5154a8e421c5a1c4fb73",
+      "sha256": "37126aceacf424d0c14f60e5622ddc9b5efa636c09fe39a99e52698f0fd9f49f",
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/archive/CA-E-588@14-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "archive_sha256": "71a5cfd80f35e4cdce982fd262aabde42c38d53efeab9b4ec91326b2aec8b160",
+      "old_version": 14,
+      "new_version": 15,
+      "reason": "Direct repair of already-agreed Claim/Role/Form rules"
+    },
+    {
+      "id": "CA-R-2452",
+      "path": ".caprmedio_caprmedio/CA-R-2452-ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-caprmedio--create-and-evolve-a-working-caprmedio-framework.md",
+      "before_sha256": "91b07317d669387b8245ae107b41df9a0a5acbc73307fe347e69a6ae9a4dfd95",
+      "sha256": "a0562baccfa0a2ad73adf477dd381cebd312dec45f2537d6bf46da795b880ff5",
+      "archive": ".caprmedio_caprmedio/archive/CA-R-2452@1-ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-caprmedio--create-and-evolve-a-working-caprmedio-framework.md",
+      "archive_sha256": "cd48dab98656e17774d20a7aa903f1a00d290a98ff2b05d671ebefe4ffd3202f",
+      "old_version": 1,
+      "new_version": 2,
+      "reason": "Include the original projection selection\u2019s external Project Goal in the field migration; preserve its Claim"
+    }
+  ],
+  "unapplied_gaps": [
+    {
+      "id": "CA-R-1352",
+      "issue": "Claim classifies Term Type as narrower than Property, while the adopted model separates Terms from Nodes and Atom.Form is a Property. The active Subject and Summary both refer to Type; replacing it with Atom.Form changes the target and may duplicate its Declaration.",
+      "recommendation": "Do not rewrite in place; select a successor/disposition and repair references through the existing lifecycle."
+    },
+    {
+      "id": "CA-R-1014",
+      "issue": "Requires Author-based Operator fallback for Atom Scope, but Author is not an Atom Property.",
+      "recommendation": "Reconcile with explicit Actor-owned external Project Goal Scope policy; a blind fallback replacement could change authority."
+    },
+    {
+      "id": "CA-R-837",
+      "issue": "Requires external-Atom Author fallback when no containing Scope Unit.",
+      "recommendation": "Resolve actual external owner encoding against adopted Scope and Goal rules before a byte-level replacement."
+    },
+    {
+      "id": "CA-D-482",
+      "issue": "States external Project Goal owner via Author fallback.",
+      "recommendation": "Reconcile its external owner encoding with the Actor/Scope rules; do not invent a carrier key."
+    },
+    {
+      "id": "CA-R-1559",
+      "issue": "Calls for resolving Atom effective Author and Author default for authorship-based governing change gates.",
+      "recommendation": "Preserve the authorization boundary and reconcile with Journal/Actor action provenance rather than deleting gates or guessing author defaults."
+    },
+    {
+      "id": "CA-D-494",
+      "issue": "Defines membership of an Atom-carried author string against Operator registry.",
+      "recommendation": "Reconcile registry use with Actor/action provenance; do not make an invented Atom author field."
+    },
+    {
+      "id": "CA-R-2243",
+      "issue": "Other Current cardinality examples retain older GFEL spelling and prior metadata paths.",
+      "recommendation": "The staged changes remove only the direct Formal Claim child conflict; broader syntax reconciliation remains separate."
+    },
+    {
+      "id": "CA-M-228",
+      "issue": "Other Current example and syntax instructions use legacy names and forms.",
+      "recommendation": "The staged sentence only fixes direct prose requirement; retain an explicit notation migration followup."
+    }
+  ],
+  "events": [
+    {
+      "event_id": "5568e5c9-137e-49bc-af08-77040db3b4cd",
+      "happened_at": "2026-11-02 00:55:09 +0400",
+      "inserted_at": "2026-11-02T00:55:12.377923+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-R-1417",
+        "version": 30,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      },
+      "object_output": {
+        "id": "CA-R-1417",
+        "version": 31,
+        "updated_at": "2026-11-02 00:55:09 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "b6779034-0f14-451c-897e-7da368a35d9e",
+      "happened_at": "2026-11-02 00:55:09 +0400",
+      "inserted_at": "2026-11-02T00:55:12.378031+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-R-2243",
+        "version": 4,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      },
+      "object_output": {
+        "id": "CA-R-2243",
+        "version": 5,
+        "updated_at": "2026-11-02 00:55:09 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "3672f6fe-d96a-49a7-b344-81574fb0c612",
+      "happened_at": "2026-11-02 00:55:09 +0400",
+      "inserted_at": "2026-11-02T00:55:12.378135+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-M-228",
+        "version": 33,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      },
+      "object_output": {
+        "id": "CA-M-228",
+        "version": 34,
+        "updated_at": "2026-11-02 00:55:09 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "8c2f8681-59b4-4fd9-ad83-7f7a85642192",
+      "happened_at": "2026-11-02 00:55:09 +0400",
+      "inserted_at": "2026-11-02T00:55:12.378217+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-D-495",
+        "version": 24,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      },
+      "object_output": {
+        "id": "CA-D-495",
+        "version": 25,
+        "updated_at": "2026-11-02 00:55:09 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "0c0d4d53-8698-4ef3-8d04-baf3f76683d1",
+      "happened_at": "2026-11-02 00:55:09 +0400",
+      "inserted_at": "2026-11-02T00:55:12.378296+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-R-1700",
+        "version": 31,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      },
+      "object_output": {
+        "id": "CA-R-1700",
+        "version": 32,
+        "updated_at": "2026-11-02 00:55:09 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "44e261e3-194b-4c6f-a44b-f86cc51f4c92",
+      "happened_at": "2026-11-02 00:55:09 +0400",
+      "inserted_at": "2026-11-02T00:55:12.378374+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-R-1284",
+        "version": 25,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      },
+      "object_output": {
+        "id": "CA-R-1284",
+        "version": 26,
+        "updated_at": "2026-11-02 00:55:09 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "e6c1429e-2df2-4d78-8d28-9912c674f95d",
+      "happened_at": "2026-11-02 00:55:09 +0400",
+      "inserted_at": "2026-11-02T00:55:12.378447+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-D-402",
+        "version": 26,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      },
+      "object_output": {
+        "id": "CA-D-402",
+        "version": 27,
+        "updated_at": "2026-11-02 00:55:09 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "ed1e53dc-2100-4aea-9c5a-55cf51dca68a",
+      "happened_at": "2026-11-02 00:55:09 +0400",
+      "inserted_at": "2026-11-02T00:55:12.378519+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-D-404",
+        "version": 27,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      },
+      "object_output": {
+        "id": "CA-D-404",
+        "version": 28,
+        "updated_at": "2026-11-02 00:55:09 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "0948fedb-e533-417d-a2bb-756b33da3552",
+      "happened_at": "2026-11-02 00:55:09 +0400",
+      "inserted_at": "2026-11-02T00:55:12.378601+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-D-478",
+        "version": 30,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      },
+      "object_output": {
+        "id": "CA-D-478",
+        "version": 31,
+        "updated_at": "2026-11-02 00:55:09 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "824bb1a9-6684-4b8d-918c-72a2351dd0b2",
+      "happened_at": "2026-11-02 00:55:09 +0400",
+      "inserted_at": "2026-11-02T00:55:12.378683+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-M-345",
+        "version": 14,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      },
+      "object_output": {
+        "id": "CA-M-345",
+        "version": 15,
+        "updated_at": "2026-11-02 00:55:09 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "f2f25710-f313-48d5-aa45-4330c98574c6",
+      "happened_at": "2026-11-02 00:55:09 +0400",
+      "inserted_at": "2026-11-02T00:55:12.378764+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-E-588",
+        "version": 14,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      },
+      "object_output": {
+        "id": "CA-E-588",
+        "version": 15,
+        "updated_at": "2026-11-02 00:55:09 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "37f30257-6df1-4f2b-981c-ecb4d44511a1",
+      "happened_at": "2026-11-02 00:55:09 +0400",
+      "inserted_at": "2026-11-02T00:55:12.378820+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-R-2452",
+        "version": 1,
+        "updated_at": "2026-10-30 03:11:57 +0400"
+      },
+      "object_output": {
+        "id": "CA-R-2452",
+        "version": 2,
+        "updated_at": "2026-11-02 00:55:09 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    }
+  ],
+  "journal_receipts": [
+    {
+      "event_id": "5568e5c9-137e-49bc-af08-77040db3b4cd",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 403
+    },
+    {
+      "event_id": "b6779034-0f14-451c-897e-7da368a35d9e",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 404
+    },
+    {
+      "event_id": "3672f6fe-d96a-49a7-b344-81574fb0c612",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 405
+    },
+    {
+      "event_id": "8c2f8681-59b4-4fd9-ad83-7f7a85642192",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 406
+    },
+    {
+      "event_id": "0c0d4d53-8698-4ef3-8d04-baf3f76683d1",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 407
+    },
+    {
+      "event_id": "44e261e3-194b-4c6f-a44b-f86cc51f4c92",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 408
+    },
+    {
+      "event_id": "e6c1429e-2df2-4d78-8d28-9912c674f95d",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 409
+    },
+    {
+      "event_id": "ed1e53dc-2100-4aea-9c5a-55cf51dca68a",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 410
+    },
+    {
+      "event_id": "0948fedb-e533-417d-a2bb-756b33da3552",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 411
+    },
+    {
+      "event_id": "824bb1a9-6684-4b8d-918c-72a2351dd0b2",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 412
+    },
+    {
+      "event_id": "f2f25710-f313-48d5-aa45-4330c98574c6",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 413
+    },
+    {
+      "event_id": "37f30257-6df1-4f2b-981c-ecb4d44511a1",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 414
+    }
+  ]
+}

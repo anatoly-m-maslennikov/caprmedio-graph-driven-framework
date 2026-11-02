@@ -12,6 +12,7 @@ from yaml.nodes import MappingNode
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from artifact_metadata import split_frontmatter  # type: ignore[import-not-found]
+from carrier_aliases import carrier_read_view
 
 
 _SAFE_LOADER = getattr(yaml, "CSafeLoader", yaml.SafeLoader)
@@ -70,6 +71,10 @@ def parse_carrier(raw: bytes, path: Path) -> ParsedCarrier:
         metadata = yaml.load(frontmatter, Loader=UniqueSafeLoader)
         if not isinstance(metadata, dict):
             raise CarrierError("YAML_INVALID", "Frontmatter must contain one mapping.")
+        try:
+            carrier_read_view(metadata)
+        except ValueError as error:
+            raise CarrierError("CARRIER_ALIAS_CONFLICT", str(error)) from error
         return ParsedCarrier(text, frontmatter, body, metadata)
     except CarrierError:
         raise

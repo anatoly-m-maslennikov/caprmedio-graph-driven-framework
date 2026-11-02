@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "independent post-allocation protected-source verification",
+  "current_core_r_pins": 750,
+  "current_core_r_mismatches": [],
+  "current_epic_38": {
+    "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+    "expected_sha256": "8992808b485a25b9e7c50a4a0cf5d6c94a08e5ab6a8601f9831d4248cd8b863d",
+    "actual_sha256": "8992808b485a25b9e7c50a4a0cf5d6c94a08e5ab6a8601f9831d4248cd8b863d",
+    "matches": true
+  },
+  "limits": [
+    "This proves protected Current carrier bytes and Current Epic bytes only.",
+    "Pre-allocation Draft bodies are not retained for independent byte-by-byte body comparison after in-place identity allocation."
+  ]
+}

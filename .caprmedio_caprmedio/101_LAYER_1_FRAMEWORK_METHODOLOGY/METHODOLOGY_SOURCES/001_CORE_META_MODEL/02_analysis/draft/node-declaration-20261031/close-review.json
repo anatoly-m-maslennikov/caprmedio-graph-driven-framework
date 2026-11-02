@@ -1,0 +1,19 @@
+{
+  "result": "fix_required",
+  "findings": [
+    {
+      "file": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+      "issue": "Claim says canonical identity of containment remains an adoption gate although IS_PART_OF/HAS_PART is decided.",
+      "repair": "State canonical relation identity is IS_PART_OF with derived HAS_PART; retain the exact carrier key mapping and migration as an explicit unresolved gate, and label contained_by as a provisional Current-key example."
+    }
+  ],
+  "checked": "Composition, Container classification, literal value rule, Workflow/Step and actual proposal decisions; deferred instance review remains explicit.",
+  "remaining_gates": [
+    "Formal acyclicity predicate remains unanswered.",
+    "HAS_VALUE exact binding grammar remains open.",
+    "Effective whitelist and Container eligibility for actual declarations need resolution before adoption."
+  ],
+  "register_count": 27,
+  "register_hash_mismatches": [],
+  "root_closure": "Fixed YAML identity contradiction: canonical names settled; carrier key mapping explicitly provisional."
+}

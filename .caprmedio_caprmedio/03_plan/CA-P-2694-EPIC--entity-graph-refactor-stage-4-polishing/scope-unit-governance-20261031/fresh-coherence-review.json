@@ -1,0 +1,43 @@
+{
+  "reviewer": "scope_fresh_coherence_review (terra_reviewer)",
+  "recording": "Parent recorded the independently returned findings. See adjudication for disposition.",
+  "findings": [
+    {
+      "id": "F1",
+      "kind": "substantive_underspecification",
+      "quote": "For each declared Scope Unit, keep exactly one Declaration; the Declaration may state its ID.",
+      "location": [
+        "Spec Proposal:21,25,31",
+        "R Scope governance:24-30",
+        "E Claim:23"
+      ],
+      "problem": "No required unambiguous binding from a Declaration to the Scope Unit it declares, distinct from the Declaration Atom ID, owner and Carrier. Exactly-one counting is therefore underspecified.",
+      "recommendation": "Decide the binding using an existing Scope Unit identity/reference, then require it for counting."
+    },
+    {
+      "id": "F2",
+      "kind": "identity_collision_claim",
+      "quote": "Both Requirement Drafts use atom_id: CA-R-draft",
+      "location": [
+        "R Declaration form frontmatter",
+        "R Scope governance frontmatter",
+        "drafts.json"
+      ],
+      "problem_reported": "An Atom-ID keyed consumer cannot distinguish them.",
+      "recommendation_reported": "Allocate distinct provisional Draft IDs before linking/consuming them."
+    }
+  ],
+  "deferred_checks": [
+    "TOML governed-field/source-discovery/consumer coverage",
+    "Technical Type-to-Form migration"
+  ],
+  "reviewed_sha256": {
+    ".caprmedio_caprmedio/02_analysis/draft/CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md": "cc59bd06da35b451fed4c23ac0e2b51417213c391deb53d56c418a619779d126",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration-form.md": "63874c727b3c80c09350b6eb0011c3701d36e7640f1c6913f181ac4d0241b410",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-governance.md": "fd59dd8cde5791b5b50d192f1e6c89e53f6f14952124fd89c468fbdf4fd319f5",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/scope-unit-governance-20261031/CA-M-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md": "3779b3cf41335e29c191ec416db68ba138c72ef617f1893a6d2c4d31af40f344",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/scope-unit-governance-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md": "d3954fd4fa046bd9760af7a45ce44fe96782045d407b27d5e58fe14eca86d38f",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/scope-unit-governance-20261031/CA-D-draft-CORE_META_MODEL-DECISION--carry-scope-unit-declarations-as-governing-atoms.md": "d4d71bf329d949be140aa05b08e8d81c5773e34cca8c9a929f641e587f05d353"
+  },
+  "scope": "Six Drafts only; no Current methodology, schema, consumer or runtime audit."
+}

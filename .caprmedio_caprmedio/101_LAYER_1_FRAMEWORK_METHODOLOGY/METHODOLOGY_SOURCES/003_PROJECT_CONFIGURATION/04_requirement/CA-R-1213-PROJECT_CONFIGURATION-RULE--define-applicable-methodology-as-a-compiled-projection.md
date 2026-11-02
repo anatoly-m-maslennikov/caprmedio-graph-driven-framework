@@ -1,39 +1,41 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Reconciled Projection'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Goal'
-  - Subject/CAPRMEDIO/Carrier
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-version: 33
-updated_at: 2026-10-27 19:59:52 +0400
+  active: Projection/(.Form := Applicable Methodology)
+  passive:
+  - Scope Unit
+  - Atom
+  - Projection
+  - 'Entity/Object/Continuant/Projection/Type: Reconciled Projection'
+  - Atom.Content
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - Carrier
+  - Atom/(.Role := Delivery)
+version: 40
 relations: {}
 atom_id: CA-R-1213
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
+updated_at: 2026-11-02 08:06:47 +0400
 ---
-# Summary
+## Summary
 
 Define Applicable Methodology as a Compiled Projection
 
-## Scope
+## Claim scope
 
 Compilation of Applicable Methodology from selected Methodology Source Scope Units.
 
 ## Claim
 
+Member identifies a projected Atom member by its source identity and Version; these references identify the members without changing their content or making the Projection authoritative. Each projected member retains the exact source relation required by CA-R-1314.
+
 the Applicable Methodology **must** be a non-authoritative Reconciled Projection compiled by direct, content-preserving derivation from current active Atom Revisions **in** selected Methodology Source Scope Units, preserving the selected source Atoms **and** their final selected Revisions unchanged. Applicable Methodology is **not** a Scope Unit **and** **must not** be the Claim Target Scope Unit of a Goal Atom.
 
 direct **and** content-preserving describe this derivation, **not** a Carrier persistence strategy; its Reconciled Projection classification does **not** select such a strategy. trace metadata **may** be added **to** projected Carriers **only** as governed by applicable Delivery authority, **without** changing the source Atom Revision **or** its Claim authority.
 
-## Details
+Member carries zero or more string references.
+

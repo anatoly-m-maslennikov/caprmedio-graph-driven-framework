@@ -1,32 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-version: 37
-updated_at: 2026-10-27 19:59:59 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode
+  passive:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+version: 41
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-1402
+  - CA-R-1402@27
 atom_id: CA-R-1628
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Allow silent and verbose reporting modes
 
-## Scope
+## Claim scope
 
 the framework-instance interaction reporting setting.
 
 ## Claim
 
 the framework-instance interaction reporting setting **must** have **`=1`** value **in** (`silent`, `verbose`).
-
-## Details

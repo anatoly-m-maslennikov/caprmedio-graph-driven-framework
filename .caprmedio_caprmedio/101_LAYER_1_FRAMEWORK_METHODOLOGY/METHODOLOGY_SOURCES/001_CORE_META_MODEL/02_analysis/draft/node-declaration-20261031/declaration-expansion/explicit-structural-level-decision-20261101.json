@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-01",
+  "user_decision": "Choose a value written once in the Declaration instead of deriving it from the containment chain.",
+  "applies_to": [
+    "Scope Unit.structural_level",
+    "Package.structural_level"
+  ],
+  "explicit_value": "Written once in the applicable Declaration; no new per-consumer copy or runtime computation is introduced.",
+  "retained_constraints": [
+    "Required single integer",
+    "Zero nested Properties",
+    "Nonnegative",
+    "Project and Implementation roots equal 0",
+    "Contained level equals container level plus 1 for each IS_CONTAINED_BY link"
+  ],
+  "changes": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+      "before_sha256": "eb33c5504864354f675d46489beee0c49ff3b28493297ab67c9e59be1359c4c4",
+      "after_sha256": "72970a953dbd90197510e4af948685dae921a9416d634dc3c79a3388f3b4fd9e",
+      "formal_block_preserved": true,
+      "removed": "Sole-derivation provenance requirement superseded by explicit-value decision."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+      "before_sha256": "e7dc01b59c0993e8caa319f67cf3f9c442a1de6dbaecc75c043932fe6822843c",
+      "after_sha256": "387a777f5d77876ff43ac32665e166177031e8dad4a947d78ea0f73d42b75a02",
+      "formal_block_preserved": true,
+      "removed": "Sole-derivation provenance requirement superseded by explicit-value decision."
+    }
+  ],
+  "new_syntax": false,
+  "rejected_candidate": "DERIVED_FROM is unnecessary and remains unadopted.",
+  "runtime_changed": false
+}

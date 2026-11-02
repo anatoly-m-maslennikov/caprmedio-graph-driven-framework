@@ -43,19 +43,105 @@ class SubjectProfile:
 
 
 @dataclass(frozen=True)
+class Span:
+    """Half-open character offsets in the supplied Subject text."""
+
+    start: int
+    end: int
+
+
+@dataclass(frozen=True)
 class InitialAtomSelector:
     """The syntax-only initial ``atom(...)`` component of an approved Subject."""
 
     literal: str
     selector: Mapping[str, str]
     entity_type_term: str = "Atom"
+    span: Span | None = None
+
+
+@dataclass(frozen=True)
+class Name:
+    value: str
+    span: Span
+
+
+@dataclass(frozen=True)
+class ValueLiteral:
+    value: str
+    span: Span
+
+
+@dataclass(frozen=True)
+class FormatReference:
+    value: str
+    span: Span
+
+
+@dataclass(frozen=True)
+class Cardinality:
+    minimum: int
+    maximum: int | None
+    span: Span
+
+
+@dataclass(frozen=True)
+class Qualification:
+    relative_path: Path
+    span: Span
+
+
+@dataclass(frozen=True)
+class DeclaredReference:
+    entity: Name | Path
+    span: Span
+
+
+@dataclass(frozen=True)
+class PathStep:
+    operator: str
+    operand: Name | ValueLiteral | Qualification | DeclaredReference | Path | RelationChain
+    span: Span
+
+
+@dataclass(frozen=True)
+class Path:
+    head: Name | InitialAtomSelector | DeclaredReference | Path | RelationChain
+    steps: tuple[PathStep, ...]
+    value_format: FormatReference | None
+    value_cardinality: Cardinality | None
+    span: Span
+
+
+@dataclass(frozen=True)
+class RelationLink:
+    operator: str
+    relation_type: Name | None
+    forward_cardinality: Cardinality | None
+    reverse_cardinality: Cardinality | None
+    span: Span
+
+
+@dataclass(frozen=True)
+class RelationChain:
+    endpoints: tuple[Path, ...]
+    links: tuple[RelationLink, ...]
+    span: Span
+
+
+@dataclass(frozen=True)
+class ParsedSubject:
+    source: str
+    expression: Path | RelationChain
+    span: Span
 
 
 class SubjectNotationError(ValueError):
     """A bounded Subject-notation failure with a stable machine code."""
 
-    def __init__(self, code: str, message: str) -> None:
+    def __init__(self, code: str, message: str, span: Span | None = None) -> None:
         self.code = code
+        self.span = span
         super().__init__(message)
 
 
@@ -96,23 +182,23 @@ _LEGACY_PINS = (
 _APPROVED_SOURCES = (
     GrammarSource(
         "CA-R-1931",
-        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
     ),
     GrammarSource(
         "CA-R-1321",
-        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
     ),
     GrammarSource(
         "CA-R-1324",
-        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-RULE--reserve-subject-expression-separators.md",
     ),
     GrammarSource(
         "CA-M-228",
-        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
     ),
     GrammarSource(
         "CA-E-383",
-        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
     ),
 )
 
@@ -126,7 +212,7 @@ _PROFILES = MappingProxyType(
         ),
         "approved": SubjectProfile(
             name="approved",
-            separators=("//", "/", ".", ":"),
+            separators=("//", "/", ".", ":", "+>", "<+", ">|", "|<", "<((", "(("),
             bearer_separator=".",
             grammar_pins=_APPROVED_SOURCES,
         ),
@@ -134,7 +220,6 @@ _PROFILES = MappingProxyType(
 )
 
 _UNSUPPORTED_EXPRESSION_MARKERS = frozenset("\\[]{}&|?*")
-_NON_SELECTOR_COMPONENT_MARKERS = frozenset('(),"')
 _LEGACY_UNSUPPORTED_COMPONENT_MARKERS = frozenset("(),")
 _UNSUPPORTED_SELECTOR_LITERAL_MARKERS = frozenset("\\[]{}&|?*@$")
 _SELECTOR_KEYWORD = "atom"
@@ -198,55 +283,28 @@ def parse_initial_atom_selector(
 
 
 def parse_subject(value: str, *, subject_profile: str = "legacy") -> list[tuple[str, str | None]]:
-    """Parse a Subject string into component and preceding-separator tuples.
+    """Parse archived legacy syntax into its unchanged flat tuple contract.
 
-    Components are whitespace-normalized at their boundaries only.  Internal
-    whitespace remains literal.  In the approved profile alone, the initial
-    component can be one exact lowercase ``atom(...)`` selector.  The parser
-    deliberately does not resolve that selector, determine a Subject target,
-    or admit a native endpoint.
+    Approved expressions require the typed API because tuples cannot preserve
+    grouping, qualification binding, or Relation cardinality slots.
     """
 
     profile = get_profile(subject_profile)
+    if profile.name != "legacy":
+        raise SubjectNotationError(
+            "subject-flat-adapter-unsupported",
+            "approved Subjects require parse_subject_expression and its typed expression",
+        )
     if not isinstance(value, str):
         raise SubjectNotationError("subject-invalid", "subject must be text")
     if "@" in value:
-        raise SubjectNotationError("subject-at-unsupported", "@ is not a Subject notation operator")
-    if any(marker in value for marker in _UNSUPPORTED_EXPRESSION_MARKERS):
-        raise SubjectNotationError(
-            "subject-form-unsupported",
-            "Subject selectors, conjunctions, wildcards, and escapes are unsupported",
-        )
-
+        raise SubjectNotationError("subject-at-unsupported", "@ is not a legacy Subject notation operator")
+    if any(marker in value for marker in _UNSUPPORTED_EXPRESSION_MARKERS | _LEGACY_UNSUPPORTED_COMPONENT_MARKERS):
+        raise SubjectNotationError("subject-form-unsupported", "unsupported legacy Subject form")
     value = value.strip()
     if not value:
         raise SubjectNotationError("subject-empty", "subject must contain one non-empty component")
-
-    if profile.name == "legacy":
-        if any(marker in value for marker in _LEGACY_UNSUPPORTED_COMPONENT_MARKERS):
-            raise SubjectNotationError(
-                "subject-form-unsupported",
-                "Subject selectors, conjunctions, wildcards, and escapes are unsupported",
-            )
-        return _split_subject_components(value, profile)
-
-    selector, position = _initial_selector_prefix(value)
-    if selector is None:
-        if _looks_like_selector(value):
-            raise SubjectNotationError(
-                "subject-selector-invalid",
-                "Subject selector keyword must be exact lowercase atom",
-            )
-        return _split_subject_components(value, profile)
-
-    parsed: list[tuple[str, str | None]] = [(selector.literal, None)]
-    if position == len(value):
-        return parsed
-    separator = _separator_at(value, position, profile)
-    if separator is None:
-        raise SubjectNotationError("subject-selector-invalid", "selector must be followed by a Subject separator")
-    parsed.extend(_split_subject_components(value[position + len(separator) :], profile, preceding_separator=separator))
-    return parsed
+    return _split_subject_components(value, profile)
 
 
 def _split_subject_components(
@@ -285,35 +343,7 @@ def _ordinary_component(component: list[str], profile: SubjectProfile) -> str:
     text = "".join(component).strip()
     if not text:
         raise SubjectNotationError("subject-malformed", "Subject separators require non-empty components")
-    if profile.name == "approved" and (_looks_like_selector(text) or text == _SELECTOR_KEYWORD):
-        raise SubjectNotationError("subject-selector-position", "atom selector may occur only as the initial component")
-    if profile.name == "approved" and any(marker in text for marker in _NON_SELECTOR_COMPONENT_MARKERS):
-        raise SubjectNotationError("subject-form-unsupported", "selector punctuation is unsupported outside atom(...)")
     return text
-
-
-def _initial_selector_prefix(value: str) -> tuple[InitialAtomSelector | None, int]:
-    """Parse an approved selector at byte zero and return its separator index."""
-
-    if value == _SELECTOR_KEYWORD:
-        raise SubjectNotationError("subject-selector-invalid", "bare atom is not a Subject selector")
-    if not value.startswith(f"{_SELECTOR_KEYWORD}("):
-        return None, 0
-    selector, end = _parse_selector_literal(value)
-    literal = value[:end]
-    position = end
-    while position < len(value) and value[position].isspace():
-        position += 1
-    if position < len(value) and _separator_at(value, position, get_profile("approved")) is None:
-        raise SubjectNotationError("subject-selector-invalid", "selector must be followed by a Subject separator")
-    return (
-        InitialAtomSelector(
-            literal=literal,
-            selector=MappingProxyType(selector),
-            entity_type_term=_SELECTOR_ENTITY_TYPE_TERM,
-        ),
-        position,
-    )
 
 
 def _parse_selector_literal(value: str) -> tuple[dict[str, str], int]:
@@ -365,11 +395,11 @@ def _parse_selector_literal(value: str) -> tuple[dict[str, str], int]:
         position += 1
 
     keys = tuple(selector)
-    if keys == ("atom_id",) or keys == ("content_role",) or keys == ("content_role", "type"):
+    if keys == ("content_role",) or keys == ("content_role", "type"):
         return selector, position
     raise SubjectNotationError(
         "subject-selector-invalid",
-        "selector must use atom_id or content_role followed by optional type",
+        "selector must use content_role followed by optional type",
     )
 
 
@@ -383,6 +413,306 @@ def _looks_like_selector(value: str) -> bool:
     return value[:4].casefold() == _SELECTOR_KEYWORD and (
         value == _SELECTOR_KEYWORD or (len(value) > 4 and value[4] == "(")
     )
+
+
+# Every reserved character is either syntax or explicitly escaped in a name.
+_RESERVED = frozenset('\\/.:@()[]{}+<>|*&?,="\'')
+_RELATION_OPERATORS = ("+>", "<+", ">|", "|<", "<((", "((")
+# ``:=`` keeps the authored qualification marker.  It has the same endpoint
+# shape as ``:`` in a Subject address, but callers can retain the distinction
+# between an allowed value and the condition used to select the address.
+_PATH_OPERATORS = ("//", "/", ".", ":=", ":")
+
+
+class _ExpressionParser:
+    def __init__(self, source: str) -> None:
+        self.source = source
+        self.position = 0
+
+    def whitespace(self) -> None:
+        self.position = _skip_whitespace(self.source, self.position)
+
+    def at(self, token: str) -> bool:
+        return self.source.startswith(token, self.position)
+
+    def fail(self, message: str, start: int | None = None, code: str = "subject-malformed") -> None:
+        position = self.position if start is None else start
+        raise SubjectNotationError(code, message, Span(position, min(len(self.source), position + 1)))
+
+    def name(self, node_type: type = Name) -> Name | ValueLiteral | FormatReference:
+        self.whitespace()
+        start = self.position
+        characters: list[str] = []
+        literal_length = 0
+        last_end = start
+        while self.position < len(self.source):
+            character = self.source[self.position]
+            escaped = character == "\\"
+            if escaped:
+                self.position += 1
+                if self.position == len(self.source):
+                    self.fail("a name escape requires a following character", self.position - 1)
+                character = self.source[self.position]
+            elif character in _RESERVED:
+                break
+            if ord(character) < 32 or ord(character) == 127:
+                self.fail("names require printable characters")
+            characters.append(character)
+            self.position += 1
+            if escaped or not character.isspace():
+                literal_length = len(characters)
+                last_end = self.position
+        value = "".join(characters[:literal_length])
+        if not value:
+            self.fail("expected a non-empty name", start)
+        return node_type(value, Span(start, last_end))
+
+    def cardinality(self) -> Cardinality:
+        self.whitespace()
+        start = self.position
+        end = self.source.find("}", start + 1)
+        if end < 0:
+            self.fail("unterminated cardinality", start)
+        literal = self.source[start + 1:end]
+        match = re.fullmatch(r"(0|[1-9][0-9]*)(?:(\+)|\.\.(0|[1-9][0-9]*))?", literal)
+        if match is None:
+            self.fail("cardinality must be {n}, {n+}, or {n..m}", start)
+        minimum = int(match[1])
+        maximum = None if match[2] else int(match[3]) if match[3] else minimum
+        if maximum is not None and maximum < minimum:
+            self.fail("cardinality minimum exceeds its maximum", start)
+        self.position = end + 1
+        return Cardinality(minimum, maximum, Span(start, self.position))
+
+    def reference(self) -> DeclaredReference:
+        start = self.position
+        self.position += 1
+        self.whitespace()
+        grouped = self.at("(")
+        if grouped:
+            self.position += 1
+            entity = self.path()
+        else:
+            entity = self.name()
+        self.whitespace()
+        if grouped:
+            if not self.at(")"):
+                self.fail("declared reference requires one complete Entity path")
+            self.position += 1
+        return DeclaredReference(entity, Span(start, self.position))
+
+    def head(self, *, initial: bool) -> Name | InitialAtomSelector | DeclaredReference | Path | RelationChain:
+        self.whitespace()
+        start = self.position
+        if self.at("@"):
+            return self.reference()
+        if self.at("(") and not self.at("(("):
+            self.position += 1
+            expression = self.expression(initial=False)
+            self.whitespace()
+            if not self.at(")"):
+                self.fail("unterminated logical group", start)
+            self.position += 1
+            return expression
+        if self.at("atom("):
+            if not initial:
+                self.fail("atom selector may occur only as the initial component", start, "subject-selector-position")
+            try:
+                selector, end = _parse_selector_literal(self.source[start:])
+            except SubjectNotationError as error:
+                if error.span is None:
+                    error.span = Span(start, len(self.source))
+                raise
+            self.position = start + end
+            return InitialAtomSelector(self.source[start:self.position], MappingProxyType(selector), span=Span(start, self.position))
+        if self.source[start:start + 5].casefold() == "atom(":
+            self.fail("Subject selector keyword must be exact lowercase atom", start, "subject-selector-invalid")
+        name = self.name()
+        if initial and name.value == _SELECTOR_KEYWORD:
+            self.fail("bare atom is not a Subject selector", start, "subject-selector-invalid")
+        return name
+
+    def path(self, *, initial: bool = False, relative: bool = False) -> Path:
+        self.whitespace()
+        start = self.position
+        if relative:
+            if not self.at("."):
+                self.fail("qualification requires a relative Property path")
+            self.position += 1
+        head = self.head(initial=initial and not relative)
+        steps: list[PathStep] = []
+        while True:
+            self.whitespace()
+            step_start = self.position
+            operator = next((token for token in _PATH_OPERATORS if self.at(token)), None)
+            if operator is None:
+                break
+            self.position += len(operator)
+            self.whitespace()
+            if operator == "/" and self.at("(") and not self.at("(("):
+                after_open = _skip_whitespace(self.source, self.position + 1)
+                if self.source.startswith(".", after_open):
+                    qualification_start = self.position
+                    self.position += 1
+                    operand_path = self.path(relative=True)
+                    if not isinstance(operand_path.head, Name) or not any(
+                        step.operator in {":", ":="} for step in operand_path.steps
+                    ):
+                        self.fail("qualification requires a relative Property and its allowed value", qualification_start)
+                    self.whitespace()
+                    if not self.at(")"):
+                        self.fail("unterminated relative qualification", qualification_start)
+                    self.position += 1
+                    operand = Qualification(operand_path, Span(qualification_start, self.position))
+                else:
+                    operand = self.head(initial=False)
+            elif operator in {":", ":="}:
+                operand = self.name(ValueLiteral)
+            else:
+                operand = self.head(initial=False)
+            steps.append(PathStep(operator, operand, Span(step_start, self.position)))
+        value_format = None
+        value_cardinality = None
+        if self.at("["):
+            format_start = self.position
+            self.position += 1
+            value_format = self.name(FormatReference)
+            self.whitespace()
+            if not self.at("]"):
+                self.fail("unterminated value Format", format_start)
+            self.position += 1
+            self.whitespace()
+        if self.at("{"):
+            count_start = self.position
+            count = self.cardinality()
+            self.whitespace()
+            if any(self.at(operator) for operator in _RELATION_OPERATORS):
+                self.position = count_start
+            else:
+                value_cardinality = count
+        end = self.position
+        while end > start and self.source[end - 1].isspace():
+            end -= 1
+        return Path(head, tuple(steps), value_format, value_cardinality, Span(start, end))
+
+    def expression(self, *, initial: bool = False) -> Path | RelationChain:
+        first = self.path(initial=initial)
+        endpoints = [first]
+        links: list[RelationLink] = []
+        while True:
+            self.whitespace()
+            start = self.position
+            forward = self.cardinality() if self.at("{") else None
+            self.whitespace()
+            operator = next((token for token in _RELATION_OPERATORS if self.at(token)), None)
+            if operator is None:
+                if forward is not None:
+                    self.fail("directional cardinality requires a Relation operator", start)
+                break
+            self.position += len(operator)
+            relation_type = None
+            if operator in {"((", "<(("}:
+                relation_type = self.name()
+                self.whitespace()
+                if not self.at("))"):
+                    self.fail("named Relation requires matching double parentheses", start)
+                self.position += 2
+            self.whitespace()
+            reverse = self.cardinality() if self.at("{") else None
+            self.whitespace()
+            link_end = self.position
+            endpoint = self.path()
+            links.append(RelationLink(operator, relation_type, forward, reverse, Span(start, link_end)))
+            endpoints.append(endpoint)
+        if not links:
+            return first
+        return RelationChain(tuple(endpoints), tuple(links), Span(first.span.start, endpoints[-1].span.end))
+
+
+def parse_subject_expression(text: str, *, subject_profile: str = "approved") -> ParsedSubject:
+    """Parse syntax without resolving names, declarations, or native graph facts."""
+
+    profile = get_profile(subject_profile)
+    if not isinstance(text, str):
+        raise SubjectNotationError("subject-invalid", "subject must be text")
+    if profile.name == "legacy":
+        components = parse_subject(text, subject_profile="legacy")
+        position = 0
+        nodes = []
+        for value, operator in components:
+            start = text.find(value, position)
+            end = start + len(value)
+            node = Name(value, Span(start, end))
+            nodes.append((node, operator))
+            position = end
+        head = nodes[0][0]
+        expression = Path(head, tuple(PathStep(operator, node, node.span) for node, operator in nodes[1:]), None, None, Span(head.span.start, nodes[-1][0].span.end))
+        return ParsedSubject(text, expression, expression.span)
+    parser = _ExpressionParser(text)
+    parser.whitespace()
+    if parser.position == len(text):
+        raise SubjectNotationError("subject-empty", "subject must contain one non-empty component", Span(0, len(text)))
+    expression = parser.expression(initial=True)
+    parser.whitespace()
+    if parser.position != len(text):
+        parser.fail("unexpected reserved character or trailing expression")
+    return ParsedSubject(text, expression, expression.span)
+
+
+def _escaped_name(value: str) -> str:
+    return "".join(
+        "\\" + character if character in _RESERVED or (character.isspace() and index in (0, len(value) - 1)) else character
+        for index, character in enumerate(value)
+    )
+
+
+def render_subject(parsed: ParsedSubject | Path | RelationChain) -> str:
+    """Render a canonical, idempotent Subject while preserving written direction."""
+
+    if isinstance(parsed, ParsedSubject):
+        return render_subject(parsed.expression)
+    if isinstance(parsed, RelationChain):
+        result = render_subject(parsed.endpoints[0])
+        for link, endpoint in zip(parsed.links, parsed.endpoints[1:], strict=True):
+            operator = (
+                ("<((" if link.operator == "<((" else "((")
+                + _escaped_name(link.relation_type.value) + "))"
+                if link.relation_type else link.operator
+            )
+            result += " " + _render_cardinality(link.forward_cardinality) + operator + _render_cardinality(link.reverse_cardinality) + " " + render_subject(endpoint)
+        return result
+    head = parsed.head
+    if isinstance(head, (Path, RelationChain)):
+        result = "(" + render_subject(head) + ")"
+    else:
+        result = _render_operand(head)
+    for step in parsed.steps:
+        result += step.operator + _render_operand(step.operand)
+    if parsed.value_format is not None:
+        result += "[" + _escaped_name(parsed.value_format.value) + "]"
+    return result + _render_cardinality(parsed.value_cardinality)
+
+
+def _render_operand(node: Name | ValueLiteral | InitialAtomSelector | Qualification | DeclaredReference | Path | RelationChain) -> str:
+    if isinstance(node, InitialAtomSelector):
+        return "atom(" + ",".join(key + '="' + value + '"' for key, value in node.selector.items()) + ")"
+    if isinstance(node, Qualification):
+        return "(." + render_subject(node.relative_path) + ")"
+    if isinstance(node, DeclaredReference):
+        if isinstance(node.entity, Path):
+            return "@(" + render_subject(node.entity) + ")"
+        return "@" + _escaped_name(node.entity.value)
+    if isinstance(node, (Path, RelationChain)):
+        return "(" + render_subject(node) + ")"
+    return _escaped_name(node.value)
+
+
+def _render_cardinality(cardinality: Cardinality | None) -> str:
+    if cardinality is None:
+        return ""
+    minimum, maximum = cardinality.minimum, cardinality.maximum
+    value = str(minimum) + ("+" if maximum is None else "" if minimum == maximum else ".." + str(maximum))
+    return "{" + value + "}"
 
 
 def profile_evidence(
@@ -410,6 +740,10 @@ def profile_evidence(
 
 
 __all__ = [
+    "Span", "Name", "ValueLiteral", "FormatReference", "Cardinality",
+    "Qualification", "DeclaredReference", "PathStep", "Path",
+    "RelationLink", "RelationChain", "ParsedSubject",
+    "parse_subject_expression", "render_subject",
     "GrammarSource",
     "GrammarPin",
     "InitialAtomSelector",

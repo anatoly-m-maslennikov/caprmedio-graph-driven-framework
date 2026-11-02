@@ -1,0 +1,55 @@
+{
+  "status": "implemented; deferred Operations relocation required",
+  "scope": "Only three Property Declaration Claims were changed. Existing GFEL shape expressions are unchanged.",
+  "deferred_operations_relocation": [
+    {
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-version-number.md",
+      "source_sha256_before": "f0a96b48ab1e7cddda43c2ef18e008d2e0f0e972bbdcbd49f4f5739c0e971d65",
+      "source_sha256_after": "dcfb5e930a0610fac6cce1ddfbc93cdaed48355aee7a32fbc16c4de220822e8b",
+      "removed_clause_exact": "- It increases monotonically across successive versions of the same Atom.",
+      "relocation_reason": "Version change belongs to Operations under the accepted responsibility principle."
+    },
+    {
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "source_sha256_before": "b6e38ff7670b348f60c57f6cb9538ce65e214ffff3cfcfd52b5115e82883ac95",
+      "source_sha256_after": "2a312d8289afed5c4d01c2015b56485cf407d0bfd977447a4526a2be89726b90",
+      "removed_clause_exact": "Select the inputs before either is created:\n\n- The first Project Atom.\n- The root Package.",
+      "relocation_reason": "Input-selection sequencing is an Operations concern."
+    }
+  ],
+  "retained_or_rephrased_invariants": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-version-number.md",
+      "retained": [
+        "Atom.Version Number{1}: [int]{1}",
+        "Atom.Version Number.*[]{0}",
+        "Atom.Version Number >= 1"
+      ],
+      "equivalence": "Required one positive integer and no-child Property shape remain; only cross-version process behavior moved."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "source_sha256_after": "890c532cce3ba733ded2cbb11999eb4eac38d0355d361de5af7fd1eb0532947f",
+      "before": "An accepted edit refreshes Updated At to the actual Project-time edit instant. An exact no-op retains it. An archived predecessor retains its prior timestamp.",
+      "after": "Updated At records the actual Project-time instant of the accepted edit represented by the Atom. An exact no-op and an archived predecessor retain the prior timestamp.",
+      "equivalence": "Preserves the represented accepted-edit instant and both no-op and archive-retention guarantees while removing imperative refresh wording.",
+      "retained_gfel": [
+        "Atom.Updated At{1}: [datetime]{1}",
+        "Atom.Updated At.*[]{0}"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "retained": [
+        "Project.Settings{1}: []{0}",
+        "Project.Settings.*[in (Name, Prefix)]{2}"
+      ],
+      "equivalence": "Required Settings container shape and exactly two named children remain; only creation-time input selection moved."
+    }
+  ],
+  "out_of_scope_preserved": [
+    "The Status Declaration's archive-preserves-Version/Updated At guarantee was not edited.",
+    "No immutable-identity, permission, Current, register, proposal, report, metadata, Workflow, Rule, or Action source was edited."
+  ],
+  "no_new_transition_language": true
+}

@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-01",
+  "scope": "Four bounded candidate lanes; no new language or consumer edits adopted",
+  "registered_drafts": 132,
+  "registered_hashes": "all match",
+  "current_core_r_sources_unchanged": 750,
+  "current_epic_38_unchanged": true,
+  "remaining_node_prose_claims": 10,
+  "candidates": {
+    "history": "State-pair comparisons need source-bound transition context and do not alone solve authentic event time or Journal ordering/authority.",
+    "structure": "Resolved by explicit-value decision; no DERIVED_FROM added.",
+    "content": "Fence invariants, distinct direct passive dependencies, and Tier ownership are not implied by shape alone. Retained.",
+    "admission_defaults": "Admission sources and inherited/default bindings need explicit grounding. Same-name Role/Form prohibition stays removed."
+  },
+  "pending_question": {
+    "subject": "Target Scope Unit binding for Tier conditional",
+    "question": "Resolve from active Subject or add a Target Scope Unit Property?",
+    "dependent_changes": "Tier conditional and old prose replacement; no undefined property added"
+  },
+  "limits": [
+    "Design candidates only; no CFEL parser/runtime implementation",
+    "No promotion, source retirement or instance migration",
+    "Unallocated Draft markers remain an adoption gate"
+  ],
+  "latest_correction": "Use contained/container bound by IS_CONTAINED_BY, not child/parent terminology.",
+  "resolved_decision": "Explicit value written once in Declaration; keep numeric containment validation; remove sole-derivation requirement.",
+  "latest_completed_action": "Role string contract applied; Project Goal Tier and no-other-Goal rule recorded pending target binding.",
+  "latest_resolved_decision": "Restrict fenced blocks only; indented code outside this restriction."
+}

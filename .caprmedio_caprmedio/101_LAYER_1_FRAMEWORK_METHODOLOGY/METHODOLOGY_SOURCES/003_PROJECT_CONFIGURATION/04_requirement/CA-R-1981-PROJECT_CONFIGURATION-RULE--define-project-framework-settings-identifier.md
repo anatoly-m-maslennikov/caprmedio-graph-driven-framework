@@ -1,32 +1,31 @@
 ---
 atom_id: CA-R-1981
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Identifier
+  active: Carrier.ID
 relations:
   child_of:
   - CA-R-1176
-version: 9
-updated_at: 2026-10-27 20:00:06 +0400
+version: 16
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
+updated_at: 2026-11-02 08:06:47 +0400
 ---
-# Summary
+## Summary
 
 Define Project.Framework Settings.Identifier
 
-## Scope
+## Claim scope
 
-the identifier of the Project's authoritative Framework Settings configuration.
+the Identifier of the Project’s authoritative Framework Instance Settings Carrier.
 
 ## Claim
 
-Framework Settings Identifier identifies the Project's authoritative Framework Settings configuration, **not** an Atom.
+The Identifier of the Project’s authoritative Framework Instance Settings Carrier is `caprmedio_framework_settings`.
 
 ## Details
 
-Evidence: CA-R-1402 defines the owning configuration; CA-R-1404 keeps it outside the Atom type; CA-D-358 supplies its concrete identifier. Candidate #6 decision 11 places Project under Continuant; concrete CAPRMEDIO identity encodings belong in Project Configuration. This definition does not duplicate the concrete identifier spelling or create an Atom ID.
+Evidence: CA-R-1402@27 defines the owning configuration; CA-R-1404 keeps it outside the Atom type; CA-D-358 supplies its concrete identifier. Candidate #6 decision 11 places Project under Continuant; concrete CAPRMEDIO identity encodings belong in Project Configuration. This definition does not duplicate the concrete identifier spelling or create an Atom ID.

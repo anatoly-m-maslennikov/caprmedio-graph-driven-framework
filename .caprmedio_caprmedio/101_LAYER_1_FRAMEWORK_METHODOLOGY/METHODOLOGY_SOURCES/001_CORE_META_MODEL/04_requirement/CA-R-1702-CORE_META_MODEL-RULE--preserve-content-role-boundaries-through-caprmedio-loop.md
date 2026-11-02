@@ -1,34 +1,33 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - Subject/CAPRMEDIO/Graph/Relation
-version: 41
-updated_at: 2026-10-27 20:00:01 +0400
+  active: Atom.Role
+  passive:
+  - Atom.Role
+  - Package/Implementation
+  - Atom/(.Role:=Operations)/Action
+  - Atom/(.Role:=Operations)/Workflow
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - Actor
+  - Entity/Object/Continuant/History/Journal > Event Record
+  - CFEL <+ Relation
+version: 48
+updated_at: 2026-11-02 08:06:47 +0400
 relations:
   child_of:
-  - CA-M-001
+  - CA-M-447
 atom_id: CA-R-1702
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Preserve content role boundaries through CAPRMEDIO loop
 
-## Scope
+## Claim scope
 
 transitions through the CAPRMEDIO loop across Content Roles.
 
@@ -46,5 +45,3 @@ transitions through the CAPRMEDIO loop across Content Roles.
 - Operations owns specific reusable Action behavior, Workflow graph, **and** Step invocation binding; Actor participation **and** authorization remain Requirement rules. actual executions **and** their Journal Records carrying execution evidence **and** state changes are distinct from those definitions **and** from RMED Spec.
 
 Relations carry meaning between roles while **every** related Artifact retains its own identity, authority, lifecycle, **and** owning role.
-
-## Details

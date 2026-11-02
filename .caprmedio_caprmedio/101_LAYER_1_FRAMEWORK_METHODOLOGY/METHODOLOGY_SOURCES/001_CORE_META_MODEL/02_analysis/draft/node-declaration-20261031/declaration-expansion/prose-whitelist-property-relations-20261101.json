@@ -1,0 +1,105 @@
+{
+  "status": "read-only audit; 60 registered Property Declarations inspected",
+  "coverage": {
+    "register": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/draft-register.json",
+    "property_declarations": 60,
+    "method": "Read each register entry classified Property; scanned its Claim for graph endpoint expressions; reviewed Node common Rules and Relation Definitions."
+  },
+  "subject_focus": "A Declaration constrains its active Subject's outgoing degree only. Inverse outgoing degree belongs to the counterpart Declaration. Omitted foreign endpoint bounds are not local gaps.",
+  "effective_common_constraints": [
+    {
+      "relation": "IS_PROPERTY_OF",
+      "owning_subject": "Property Node",
+      "direction_target": "Property -> immediate Node bearer; HAS_PROPERTY is derived inverse.",
+      "evidence": "04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md:21-25",
+      "formal_status": "Endpoint is formal but exact-one is not: declare-node.md:25-32 permits {:0..1}, while the definition says one bearer.",
+      "action": "Add one shared exact-one bearing constraint, inherited by all 60; do not repeat it locally."
+    },
+    {
+      "relation": "HAS_PROPERTY",
+      "owning_subject": "Bearer Node",
+      "direction_target": "Bearer -> Property, derived from IS_PROPERTY_OF.",
+      "formal_status": "No Property-local reverse degree is needed. Nested Properties use the same shared bearing rule."
+    },
+    {
+      "relation": "NARROWER_THAN / HAS_NARROWER",
+      "owning_subject": "Primary Node only",
+      "evidence": "define-narrowing.md:21-25; declare-node.md:29-32",
+      "formal_status": "Property Nodes are prohibited: the one-bearing-link branch requires HAS_NARROWER zero."
+    },
+    {
+      "relation": "INSTANCE_OF / HAS_INSTANCE",
+      "owning_subject": "Node instance / Primary Node",
+      "evidence": "define-instantiation.md:21-24",
+      "formal_status": "Property Nodes are prohibited from instances by HAS_INSTANCE zero."
+    },
+    {
+      "relation": "HAS_VALUE",
+      "owning_subject": "Property value binding",
+      "evidence": "RULE--bind-direct-property-values.md:21-23",
+      "formal_status": "Literal binding, not a Node-to-Node relation; it grants no graph endpoint, inverse, instance, or bearer."
+    },
+    {
+      "relation": "HAS_CLASSIFICATION / membership",
+      "owning_subject": "Node -> applicable Axis / scalar value test",
+      "evidence": "RELATION_DEFINITION--define-classification.md:21-25; CFEL--use-node-graph-notation.md:21-27",
+      "formal_status": "Independence classification is used by common Node rules. `in (...)` is scalar membership, not a graph edge; neither grants generic Property relations."
+    }
+  ],
+  "approved_positive_grants": [
+    {
+      "grant": "Property bearing",
+      "scope": "Property -> immediate bearer, with derived reverse.",
+      "caveat": "Needs the common exact-one cardinality repair."
+    },
+    {
+      "grant": "Event Record HAS_EVENT_AUTHOR endpoint",
+      "scope": "Event Record -> Actor; inverse IS_EVENT_AUTHOR_OF.",
+      "evidence": "RELATION_DEFINITION--define-event-author-link.md:21-25",
+      "caveat": "Its own outgoing degree belongs in the Event Record Declaration, not Event Record.Relations.HAS_EVENT_AUTHOR Property."
+    }
+  ],
+  "value_not_edge_findings": [
+    {
+      "declarations": [
+        "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-event-author.md:21-23",
+        "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md:21-23",
+        "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md:21-23"
+      ],
+      "finding": "Formats [Actor//], [atom id], and [scope unit] constrain direct values only. They do not grant HAS_EVENT_AUTHOR or IS_CONTAINED_BY edges."
+    },
+    {
+      "declarations": [
+        "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations.md:21-23",
+        "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-relations.md:21-23"
+      ],
+      "finding": "`.*[Relation//]{:0+}` permits relation-named child Property names; it is not a graph-relation whitelist and grants no edge."
+    }
+  ],
+  "actionable_gaps": [
+    {
+      "severity": "high",
+      "scope": "shared common Rule",
+      "problem": "Property bearing has prose exact-one semantics but only formal {:0..1}.",
+      "counterexample": "A zero-bearing-link Node follows the Primary branch even though the Property-bearing definition describes every Property as having one bearer.",
+      "smallest_fix": "One shared Property -> bearer {:1} constraint; no 60-file expansion."
+    },
+    {
+      "severity": "decision",
+      "scope": "Event Record and Atom Primary relation-whitelist design",
+      "problem": "The relation-named Property values do not formally map to graph edges. The HAS_EVENT_AUTHOR endpoint definition alone neither establishes a Property mapping nor selects the whitelist encoding.",
+      "counterexample": "A Property can hold an Actor reference with no edge, or an endpoint can permit an edge without that value Property.",
+      "required_choice": "Choose signature-based closed whitelists or a separate explicit whitelist expression. Then place each actual edge's outgoing signature/cardinality on its active Primary subject (Event Record or Atom), not on the child Property."
+    }
+  ],
+  "local_additions_assessment": {
+    "all_60": "No Property-local graph relation is justified solely by a Property path, prose mention, relation-like child name, or typed reference format.",
+    "inheritance": "Effective whitelist resolution reuses inherited constraints; it must not redeclare inherited Properties or actual facts.",
+    "evidence": "RULE--declaration-inheritance-and-relation-whitelist.md:22-33",
+    "pending_architecture": "Signature-based closed whitelist versus separate explicit whitelist expression is an open user choice; this report assumes neither."
+  },
+  "mutations": {
+    "repository_files_changed": false,
+    "output": "/tmp/caprmedio-prose-whitelists-20261101/property-relations.json"
+  }
+}

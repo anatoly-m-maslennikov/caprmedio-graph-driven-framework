@@ -105,6 +105,29 @@ class GraphFactContextTests(unittest.TestCase):
         self.assertEqual([], diagnostics)
         return carriers
 
+    def test_approved_profile_never_runs_historical_native_admission_or_registry(self) -> None:
+        carriers, frontier, selection = self.inputs()
+        with patch.object(graph_fact_context, "_declared_core", return_value=True), \
+             patch.object(graph_fact_context, "_core_admission") as historical_admission, \
+             patch("core_relation_registry.prepare_core_relation_registry") as historical_registry:
+            context = graph_fact_context.prepare_fact_context(
+                self.repository, "terms", carriers, selection, frontier, carriers,
+                subject_profile="approved",
+            )
+            historical_admission.assert_not_called()
+            historical_registry.assert_not_called()
+        data = context.as_dict()
+        self.assertEqual([], data["relation_registry"])
+        self.assertEqual([], data["admitted_facts"])
+        self.assertIn("current-core-admission-profile-unavailable", {row["code"] for row in data["diagnostics"]})
+        self.assertTrue(all(row["disposition"] == "unknown" for row in data["coverage"]))
+        with patch.object(graph_fact_context, "_declared_core", return_value=True):
+            verified = graph_fact_context.verified_context(
+                context, self.repository, "terms", carriers, selection, frontier, carriers,
+                subject_profile="approved",
+            )
+        self.assertEqual(context.as_dict(), verified.as_dict())
+
     def test_canonical_bytes_are_exact_and_reject_noncanonical_values(self) -> None:
         self.assertEqual(
             b'{"a":"\xce\xbb","z":[1,true,null]}',

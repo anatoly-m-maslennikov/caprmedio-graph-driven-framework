@@ -1,0 +1,27 @@
+{
+  "status": "APPLIED:Definitionsreplaced;conceptsretained",
+  "replacements": [
+    {
+      "old_definition": "CA-R-1967",
+      "old_version": 10,
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1967@10-CORE_META_MODEL--define-entity-continuant.md",
+      "new_declaration": "CA-R-2589",
+      "current_version": 2,
+      "current": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2589-CORE_META_MODEL-DECLARATION--declare-continuant.md",
+      "concept": "Continuant",
+      "concept_retained": true,
+      "basis": "Latest correction retains both concepts; original request replaces Node Definitions with Declarations; subsequent continue authorizes this corrected migration."
+    },
+    {
+      "old_definition": "CA-R-1972",
+      "old_version": 11,
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1972@11-CORE_META_MODEL--define-entity-occurrent.md",
+      "new_declaration": "CA-R-2590",
+      "current_version": 2,
+      "current": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2590-CORE_META_MODEL-DECLARATION--declare-occurrent.md",
+      "concept": "Occurrent",
+      "concept_retained": true,
+      "basis": "Latest correction retains both concepts; original request replaces Node Definitions with Declarations; subsequent continue authorizes this corrected migration."
+    }
+  ]
+}

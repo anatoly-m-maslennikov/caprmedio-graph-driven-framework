@@ -1,0 +1,38 @@
+{
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-action.md",
+      "subject": "Event Record.action",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Event Record.action",
+      "sha256": "ca906eaa7654afae8bfc00766fb45371aadd17ec6d66ccd4e0fa8abcd71ca5e2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-relations.md",
+      "subject": "Event Record.Relations",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Event Record.Relations",
+      "sha256": "29bb6629cae3f7e43885a11a0904f21e59345c503d4598db17e7b1568312c1f9"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-event-author.md",
+      "subject": "Event Record.Relations.HAS_EVENT_AUTHOR",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Event Record.Relations.HAS_EVENT_AUTHOR",
+      "sha256": "c95fca9b64ec2a39637ded454b10904b7738dcbb93170350f95c4588a14cc512"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-event-author-link.md",
+      "subject": "Entity/CFEL <+ Relation//HAS_EVENT_AUTHOR",
+      "id": "CA-R-draft",
+      "form": "Relation Definition",
+      "summary": "Define HAS_EVENT_AUTHOR",
+      "sha256": "2fa7046bac95b9e4388bc7243d6d8218b3e189298f3a0ea6278b3ea9bbbdbabe"
+    }
+  ],
+  "constraints": "create/update/archive are admitted cases, not an exhaustive value domain; inverse is derived, not independently authored.",
+  "limits": "No Current, actual Actor instances, carrier schema or runtime changes."
+}

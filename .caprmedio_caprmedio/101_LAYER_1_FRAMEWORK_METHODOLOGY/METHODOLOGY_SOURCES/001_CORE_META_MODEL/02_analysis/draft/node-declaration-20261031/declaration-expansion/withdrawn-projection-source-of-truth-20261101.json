@@ -1,0 +1,7 @@
+{
+  "status": "Withdrawn preparation Draft; not selected for adoption",
+  "original_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-of-truth.md",
+  "original_sha256": "fabbfae6d05101bf4c2e3ced5e8d5ede38ff7f13e45fc5f0f89cd034861a635b",
+  "reason": "Operator: Sources already exists; remove the separate Projection.Source Of Truth Property",
+  "original_text": "---\natom_id: CA-R-draft\ncontent_role: Requirement\ntype: Declaration\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Draft\nsubjects:\n  governs: 'Projection.Source Of Truth'\nversion: 1\nupdated_at: \"2026-10-31 01:40:56 +0400\"\nrelations: {}\ntier: 3\n---\n## Summary\n\nDeclare Projection.Source Of Truth\n\n## Claim\n\n```CFEL\nProjection.Source Of Truth{:1}: [string]{:1};\nProjection.Source Of Truth.*[]{:0}\n```\n\nSource Of Truth identifies the declared source-of-truth reference for a Projection. Authority remains assigned per fact.\n"
+}

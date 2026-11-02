@@ -15,8 +15,8 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-version: 13
-updated_at: 2026-10-27 19:59:46 +0400
+version: 14
+updated_at: 2026-10-29 22:26:57 +0400
 relations: {}
 tier: 3
 ---
@@ -32,7 +32,7 @@ Scoped Operator-choice Applicability Assessment **means** the optional read-only
 
 - literal Operator input or annotation with actual provenance, its applicable target and prospective scope; distinguish it from assistant reports, copied wrappers and inferred approval.
 - exact question, proposal and alternative versions, including later explicit corrections and the current relevant source state.
-- the caller-bounded independent-choice list and its declared completeness, existing settled decisions and delegation, and current applicable Goal, Project Principles, authority and effective confidence requirements. Unknown antecedent or list completeness remains unknown.
+- the caller-bounded independent-choice list and its declared completeness, existing settled decisions and delegation, and current applicable Goal, Project-owned Tier 0 Atoms, authority and effective confidence requirements. Unknown antecedent or list completeness remains unknown.
 
 ### Assessment
 

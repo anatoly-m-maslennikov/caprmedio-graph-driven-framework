@@ -1,0 +1,53 @@
+{
+  "status": "BLOCKED_BY_SOURCE_FIDELITY",
+  "scope": "Applied Current CFEL/Relation carriers selected by integration/current-source-frontier.json; no runtime claim.",
+  "evidence": {
+    "publication_receipt": {
+      "path": "../../integration/publication-receipt.json",
+      "sha256": "cc142083b70809564c6053524077e2fcf5eae8fbed6c9357d9c3470b45a53b18",
+      "status": "APPLIED"
+    },
+    "current_source_frontier": {
+      "path": "../../integration/current-source-frontier.json",
+      "sha256": "4f3b85699cbba237c794c704b5e9c6f35fad86dd6b715f018f2293d91f9ba794"
+    }
+  },
+  "passed": [
+    "CA-R-2487 states any declared model Entity or its instance, including Carrier and CFEL; literals are excluded from Relation endpoints.",
+    "CA-R-2487 and CA-R-2486 define bare Host ((R)) Target as forward and Target <((R)) Host as the reverse written view without automatic inverse permission.",
+    "41 selected named Relation Current files have role Requirement, form Declaration, Claim, and Semantics; all 41 bytes match their publication-receipt candidate SHA-256 values.",
+    "CA-R-2486 requires exactly one Requirement/Declaration per named Relation plus Semantics, Host/Target signature, Derivation classification, and applicable counterpart/inverse bindings.",
+    "CFEL operators remain distinct from graph Relations; CA-R-2487 preserves X:Y allowed-value semantics and the allowed-bound versus test/conclusion count distinction.",
+    "CA-R-2243 is an Active Rule while CA-R-2327 is the sole Active Cardinality Entity Definition; archived CA-R-2517 and CA-R-2522 remain preserved only under archive/."
+  ],
+  "blockers": [
+    {
+      "severity": "high",
+      "path": "04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md:58",
+      "evidence": "Active Rule says 'This candidate aligns'.",
+      "minimal_fix": "Replace candidate staging wording with active-rule wording; preserve the cardinality clauses."
+    },
+    {
+      "severity": "high",
+      "path": "04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md:52",
+      "evidence": "Active Rule says 'This candidate preserves'.",
+      "minimal_fix": "Replace candidate staging wording with active-rule wording; preserve the separation/default clauses."
+    },
+    {
+      "severity": "high",
+      "path": "04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md:96",
+      "evidence": "Active Definition calls the Relation endpoint binding 'a candidate language binding'.",
+      "minimal_fix": "State it as the admitted language binding while retaining the no-parser-conformance limitation."
+    },
+    {
+      "severity": "high",
+      "path": "04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md:132",
+      "evidence": "Active Definition says it supersedes only after review.",
+      "minimal_fix": "State the completed supersession and retain the archived predecessor/source trace."
+    }
+  ],
+  "limits": [
+    "This is a source and receipt readback, not parser, evaluator, runtime, or deployment verification.",
+    "No Current carrier was edited by this review."
+  ]
+}

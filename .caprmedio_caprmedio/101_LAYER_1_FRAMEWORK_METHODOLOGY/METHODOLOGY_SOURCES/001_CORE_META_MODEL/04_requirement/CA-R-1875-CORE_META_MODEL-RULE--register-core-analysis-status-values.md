@@ -1,29 +1,28 @@
 ---
 atom_id: CA-R-1875
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis.Status'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Extension Sources
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-version: 15
-updated_at: 2026-10-27 20:00:05 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis.Status'
+  passive:
+  - Atom/(.Role := Analysis)
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type'
+  - Atom.Status
+  - Entity/Object/Continuant/Selection//Extension Sources
+  - Scope Unit//PROJECT_CONFIGURATION
+version: 19
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Register Core Analysis Status Values
 
-## Scope
+## Claim scope
 
 the default Status value domain of Analysis Atoms with Type Analysis Report or Rationale.
 
@@ -33,5 +32,4 @@ the Core Analysis Status model **must** inherit the allowed values of Atom.Statu
 
 ## Details
 
-this Status belongs to the Analysis Atom itself. It does **not** define a Status transition, carrier placement, setting, or a Workflow, Step, or Action Run outcome, receipt, retry state, result, or completion state. CA-R-1727 defines the meanings of Draft and Done for Analysis and the meaning of its archival.
-
+this Status belongs to the Analysis Atom itself. It does **not** define a Status transition, carrier placement, setting, or a Workflow, Step, or Action Run outcome, receipt, retry state, result, or completion state. CA-R-1727@30 defines the meanings of Draft and Done for Analysis and the meaning of its archival.

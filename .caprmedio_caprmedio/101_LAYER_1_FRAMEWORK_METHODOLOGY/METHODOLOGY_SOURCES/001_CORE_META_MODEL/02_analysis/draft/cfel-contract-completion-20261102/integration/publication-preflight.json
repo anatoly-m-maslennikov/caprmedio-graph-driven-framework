@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "plan_sha256": "3a0b25dcf6072f0fcfc4a1d0460a155fa1615af64e2a2c6a911d6a0fae2be1da",
+  "index_sha256": "c54424cc015a7fbb2bfc0b83dd2f105958587c52d8451c6d0acfff6ddd13c967",
+  "errors": [],
+  "checks": [
+    "reviewed input hashes",
+    "exact predecessor archival",
+    "stable Summary and Role",
+    "Current metadata/Claim structure",
+    "unique destination and publication identities",
+    "complete selected contract display",
+    "Relations have single owners, Semantics and metadata",
+    "narrowing-only tree without diagnostics"
+  ],
+  "publication_count": 254,
+  "archive_count": 206,
+  "coverage": {
+    "candidate_sources": 1137,
+    "bound_sources": 770,
+    "declared_entity_targets": 136,
+    "declared_component_targets": 43,
+    "declared_relation_targets": 41,
+    "shared_sources": 550,
+    "fenced_claim_blocks": 222,
+    "cfel_blocks": 195,
+    "recognized_clauses": 345,
+    "unsupported_clauses": 137,
+    "coverage_gaps": 0,
+    "outside_model_scope_sources": 367,
+    "duplicate_declarations": 0,
+    "missing_relation_semantics": 0,
+    "instance_kind_gaps": 0,
+    "inheritance_diagnostics": 0
+  },
+  "limits": [
+    "Bounded CFEL extraction; unsupported clauses remain visible, not evaluated",
+    "Runtime and actual Operations instances remain outside this Epic"
+  ]
+}

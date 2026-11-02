@@ -1,0 +1,155 @@
+{
+  "hashes": {
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/C/inputs.jsonl": "a59c14f750e5bdc26053db2a9bf5dc7c6fa4e7e63c7e52db6b9ba4116e63cf2a",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/C/outputs.jsonl": "61632320afc94753a6a270d4f08c2f223abb5d6b5152b35c25e193fdc0974eb3",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/round-2/P/inputs.jsonl": "727ba010bd35ee2512c92cfe41bdf1d9dfc4249514ff2ccd5d1c506510386923",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/round-2/P/outputs.jsonl": "2e4701b34e8e1f27666ae6a5d6b6cd407bd18d6b3d023e2e8106eb9526ff4e74",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/R/inputs.jsonl": "77af8f4e840b7ef17fc409dcc571771c1fc6e6abbac5a16d15b57f0bc67034c2",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/R/outputs.jsonl": "26bb4e197b35a6620043d23a4c4a3329b71b70ed30578d19b0fbe6055f15d8e5",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/round-2/M/inputs.jsonl": "9b472f1896f3571415d072a8e975b5b24b681bd49b884280c13dd60be0d07648",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/round-2/M/outputs.jsonl": "a636ac00d90033dbfb42e09657848f33a0dbe1cfd51d12fb29f803c9110cd3a4",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/round-2/E/inputs.jsonl": "3891916d71f6302dffd8a1ae1232e94a9d25b542301514302a9b7a6e0191de59",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/round-2/E/outputs.jsonl": "caa00b2cce27612eef10e171a68eac4886148a9b6bb9bf9025094dbf0e5df8cf",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/D/inputs.jsonl": "bdb68e8e6ffe7272184baf76e7b9de0c52870b2c9909f4391849910612ee38ff",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/D/outputs.jsonl": "2ea42882c05bd91728307f7c9eea0ed27f25eb7b1b7e32e97672a7362e8da1cf",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/O/inputs.jsonl": "575cd22f0726c32e7c768b9f59e86a6c7ce439ec87d6a8ad3dba61ff02fde7c5",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/O/outputs.jsonl": "b72d4f074941c539894f3626e2588f358858a4fc05cd01088cd0d3fe78f79726",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/P-plan.prompt.md": "84a86e2bec57e7a1d7ff9434d5664975926a3da74dbd15c96435c5ed5ded9237",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/M-method.prompt.md": "a1a8f960ab32d989f2f60462448b3b92283f783d1497ea7f198ee0596ff56d1d",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/E-evaluation.prompt.md": "cd66698804f01f9df24d5955632c0c959d7422c6634eec001cf0d03d9048e685",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/prompts/C-concern.prompt.md": "7c5d50974f0fdea88cc2e0251274f68324c850ea1be54118db1228db791fa6d2",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/prompts/R-requirement.prompt.md": "048398e7359cd6263b12db2ac9504303a49ce3187a928e3ae892e39db0153d9a",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/prompts/D-delivery.prompt.md": "31778af7a9a0ec51ff257e7602f01187ebf352e79cdbfd87dbd5286178747dd8",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/prompts/O-operations.prompt.md": "6a67c2e53b8d6b7ca167ca2287b3902a8827810628da7239363dd0cb875e5170"
+  },
+  "counts": {
+    "total": 15,
+    "summary_pass": 15,
+    "summary_needs_changes": 0,
+    "body_pass": 15,
+    "body_needs_changes": 0
+  },
+  "results": [
+    {
+      "case": "C1",
+      "role": "C",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Prior review, unchanged input and output hashes"
+    },
+    {
+      "case": "C2",
+      "role": "C",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Prior review, unchanged input and output hashes"
+    },
+    {
+      "case": "P1",
+      "role": "P",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Independent round-2 review"
+    },
+    {
+      "case": "P2",
+      "role": "P",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Independent round-2 review"
+    },
+    {
+      "case": "R1",
+      "role": "R",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Prior review, unchanged input and output hashes"
+    },
+    {
+      "case": "R2",
+      "role": "R",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Prior review, unchanged input and output hashes"
+    },
+    {
+      "case": "M1",
+      "role": "M",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Independent round-2 review"
+    },
+    {
+      "case": "M2",
+      "role": "M",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Independent round-2 review"
+    },
+    {
+      "case": "E1",
+      "role": "E",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Independent round-2 review"
+    },
+    {
+      "case": "E2",
+      "role": "E",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Independent round-2 review"
+    },
+    {
+      "case": "D1",
+      "role": "D",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Prior review, unchanged input and output hashes"
+    },
+    {
+      "case": "D2",
+      "role": "D",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Prior review, unchanged input and output hashes"
+    },
+    {
+      "case": "O1",
+      "role": "O",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Prior review, unchanged input and output hashes"
+    },
+    {
+      "case": "O2",
+      "role": "O",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Prior review, unchanged input and output hashes"
+    },
+    {
+      "case": "O3",
+      "role": "O",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "issues": [],
+      "review_basis": "Prior review, unchanged input and output hashes"
+    }
+  ],
+  "scope": "Six updated P/M/E cases reviewed independently; nine unchanged C/R/D/O cases retain prior results after hash verification. Summary is read with body. No source or output edits."
+}

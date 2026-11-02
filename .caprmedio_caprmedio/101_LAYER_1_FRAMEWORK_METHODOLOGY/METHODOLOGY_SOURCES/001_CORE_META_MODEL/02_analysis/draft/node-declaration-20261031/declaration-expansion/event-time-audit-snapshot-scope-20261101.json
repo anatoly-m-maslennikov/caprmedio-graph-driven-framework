@@ -1,0 +1,14 @@
+{
+  "reason": "A stored historical audit value must not be compared with a later object timestamp after more updates or delayed insertion.",
+  "meaning": "Captured new Updated At is derived as of the recorded change happened_at; current object Updated At still uses the latest matching create/update happened_at.",
+  "case": {
+    "first_event_happened_at": "10:00",
+    "first_event_inserted_at": "10:05",
+    "later_event_happened_at": "11:00",
+    "historical_audit_new_value": "10:00",
+    "current_object_updated_at": "11:00"
+  },
+  "rule": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--record-business-property-changes-in-one-update-event.md",
+  "sha256": "ef544c4d5bc302763a0fbc842262e066c0cda91c5e7d9a09c0859bb8cb2dc09c",
+  "runtime_changed": false
+}

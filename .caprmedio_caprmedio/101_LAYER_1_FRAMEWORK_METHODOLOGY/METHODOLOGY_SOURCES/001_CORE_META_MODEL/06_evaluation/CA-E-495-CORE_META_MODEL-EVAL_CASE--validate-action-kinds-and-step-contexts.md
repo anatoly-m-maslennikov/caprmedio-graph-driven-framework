@@ -1,34 +1,33 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action/Execution Kind'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-version: 16
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - Entity/Object/Occurrent/Execution/Step Run
+  - Entity/Object/Continuant/Actor/Operator
+version: 19
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
-  - CA-R-1526
-  - CA-R-1527
-  - CA-R-1509
+  - CA-R-2521
+  - CA-R-1527@21
+  - CA-R-2465
 atom_id: CA-E-495
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 3
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate Action kinds and Step contexts
 
-## Scope
+## Claim scope
 
 Action Execution Kind **and** Agentic Step Execution Context.
 

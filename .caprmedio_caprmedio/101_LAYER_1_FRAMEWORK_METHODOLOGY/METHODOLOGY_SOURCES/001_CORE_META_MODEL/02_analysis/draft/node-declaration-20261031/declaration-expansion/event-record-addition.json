@@ -1,0 +1,17 @@
+{
+  "decision": "Add Event Record Primary Node to reduced Draft inventory",
+  "approved_claim": "Event Record// {:1}((IS_CONTAINED_BY)) Journal//",
+  "inverse_view": "Journal// {:0+}((CONTAINS)) Event Record//",
+  "endpoint_requirement": "Journal >| (Container == yes)",
+  "new_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+  "source": {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2234-CORE_META_MODEL-ENTITY_DEFINITION--define-event-record.md",
+    "sha256": "870eda2cc936436158e1bf891002f6f5ca3811187c9349bfc8cefff0588e6ab6",
+    "coverage": "Record meaning and exactly-one-Journal containment; occurrence and execution-result relations remain outside this inventory addition"
+  },
+  "pending": [
+    "Record identity",
+    "Append-only constraints"
+  ],
+  "updated_at": "2026-10-31 18:16:35 +0400"
+}

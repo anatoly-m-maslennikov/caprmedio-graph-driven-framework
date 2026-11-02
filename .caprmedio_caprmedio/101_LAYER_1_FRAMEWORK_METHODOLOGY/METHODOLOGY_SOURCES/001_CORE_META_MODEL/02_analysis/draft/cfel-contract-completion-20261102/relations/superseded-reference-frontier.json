@@ -1,0 +1,155 @@
+{
+  "frontier_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/migration-20261101/current-source-frontier.json",
+  "frontier_sha256": "fadf6b7ef86a7f85fc88d63f8b0692c1aef0e3f254166b291d4cdafc4ba17fb7",
+  "status": "Frozen evidence for review; no source rewrite or automatic alias mapping.",
+  "records": [
+    {
+      "id": "CA-R-1243",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1243-CORE_META_MODEL-RULE--derive-bears-as-the-inverse-of-is-borne-by.md",
+      "sha256": "19650a80fa9c90a501dbcbb354387f13d0ef356711cc91b3eae717af5a3827b9",
+      "references": [
+        {
+          "line": 5,
+          "text": "- CFEL > Relation//IS_BORNE_BY"
+        },
+        {
+          "line": 21,
+          "text": "Derive BEARS as the Inverse of IS_BORNE_BY"
+        },
+        {
+          "line": 25,
+          "text": "BEARS and IS_BORNE_BY in the Entities Graph."
+        },
+        {
+          "line": 29,
+          "text": "BEARS **must** be the derived inverse view of IS_BORNE_BY **in** the Entities Graph **and** **must not** be another primitive Relation Kind of that graph."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1260",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-DEFINITION--define-is-borne-by.md",
+      "sha256": "165bb662af1aef02a344f20c9f82c94d3b83ec83c0640a57ad6877a9da64394d",
+      "references": [
+        {
+          "line": 3,
+          "text": "active: CFEL > Relation//IS_BORNE_BY"
+        },
+        {
+          "line": 11,
+          "text": "atom_id: CA-R-1260"
+        },
+        {
+          "line": 21,
+          "text": "Define IS_BORNE_BY"
+        },
+        {
+          "line": 25,
+          "text": "an IS_BORNE_BY Relation from Entity A **to** Entity B **in** the Entities Graph."
+        },
+        {
+          "line": 29,
+          "text": "an IS_BORNE_BY Relation from Entity A **to** Entity B **in** the Entities Graph **means** that A is a Dependent Entity whose identity requires B as its immediate bearer."
+        },
+        {
+          "line": 34,
+          "text": "CFEL > Relation//IS_BORNE_BY"
+        },
+        {
+          "line": 35,
+          "text": "CFEL > Relation//BEARS"
+        },
+        {
+          "line": 40,
+          "text": "Primary means that identity does not require another Entity occurrence as bearer. Dependent means that identity requires an immediate bearer, as expressed by IS_BORNE_BY. These describe bearer dependence, not additional taxonomy branches. An absent edge in an incomplete view does not establish independence."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1456",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL--derive-entities-views-from-selected-authority.md",
+      "sha256": "64a67f76c08c33040e9757958afff446bbebd3043f960c0f0dfa3bb81ca79c86",
+      "references": [
+        {
+          "line": 60,
+          "text": "CA-R-1260-CORE_META_MODEL-DEFINITION--define-is-borne-by and CA-R-1243-CORE_META_MODEL-RULE--derive-bears-as-the-inverse-of-is-borne-by remain historical provenance for the superseded names only; neither authorizes IS_PROPERTY_OF or HAS_PROPERTY."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2416",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2416-CORE_META_MODEL-RELATION_DEFINITION--define-bears-relation.md",
+      "sha256": "a3aae113a8348ee32e2cb06fe3e58b2cbe6d9e050b183665da2fda63ebb8598f",
+      "references": [
+        {
+          "line": 2,
+          "text": "atom_id: CA-R-2416"
+        },
+        {
+          "line": 7,
+          "text": "active: CFEL > Relation//BEARS"
+        },
+        {
+          "line": 17,
+          "text": "Define BEARS Relation"
+        },
+        {
+          "line": 21,
+          "text": "BEARS is the declared derived inverse of IS_BORNE_BY; its full bearer-dependence meaning remains in CA-R-1260. No independently stored reverse fact is introduced."
+        },
+        {
+          "line": 26,
+          "text": "CFEL > Relation//BEARS"
+        }
+      ]
+    },
+    {
+      "id": "CA-E-449",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-POLICY--validate-entities-graph.md",
+      "sha256": "eba903490bb4b21f3b9a9ee9593bcf9356fb80b57873ae44c2b7bce2fb1ed055",
+      "references": [
+        {
+          "line": 108,
+          "text": "CA-R-1260-CORE_META_MODEL-DEFINITION--define-is-borne-by and CA-R-1243-CORE_META_MODEL-RULE--derive-bears-as-the-inverse-of-is-borne-by remain historical provenance for the superseded names only; neither authorizes IS_PROPERTY_OF or HAS_PROPERTY."
+        }
+      ]
+    }
+  ],
+  "post_retirement_historical_citations": {
+    "status": "frozen version-qualified provenance; not aliases or active authority",
+    "references": [
+      {
+        "atom_id": "CA-R-1260",
+        "version": 34,
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-DEFINITION--define-is-borne-by.md",
+        "source_sha256": "165bb662af1aef02a344f20c9f82c94d3b83ec83c0640a57ad6877a9da64394d"
+      },
+      {
+        "atom_id": "CA-R-1243",
+        "version": 27,
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1243-CORE_META_MODEL-RULE--derive-bears-as-the-inverse-of-is-borne-by.md",
+        "source_sha256": "19650a80fa9c90a501dbcbb354387f13d0ef356711cc91b3eae717af5a3827b9"
+      }
+    ],
+    "candidate_consumers": [
+      {
+        "consumer_id": "CA-R-1456",
+        "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1456@38-draft-CORE_META_MODEL--derive-entities-views-from-selected-authority.md",
+        "draft_sha256": "16af2fa6e040a513b7c64cf309321c4fa3ae593d16cb793d52732a195e52496b",
+        "historical_references": [
+          "CA-R-1260@34",
+          "CA-R-1243@27"
+        ]
+      },
+      {
+        "consumer_id": "CA-E-449",
+        "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/relation-consumers/CA-E-449@43-draft-CORE_META_MODEL-POLICY--validate-entities-graph.md",
+        "draft_sha256": "d29f7663989aae2a9c0002c95700cfecb7506d6794dd21a0c982548df83c94a6",
+        "historical_references": [
+          "CA-R-1260@34",
+          "CA-R-1243@27"
+        ]
+      }
+    ]
+  }
+}

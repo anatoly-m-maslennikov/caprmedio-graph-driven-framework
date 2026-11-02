@@ -1,0 +1,29 @@
+---
+subjects:
+  governs: Entity/Carrier
+  depends_on:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations'
+  - Entity/Object/Continuant/Structural Unit/Scope Unit
+version: 1
+updated_at: 2026-10-29 20:32:25 +0400
+relations: {}
+atom_id: CA-D-draft
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+author: Anatoly Maslennikov
+tier: 3
+type: Decision
+---
+## Summary
+
+Place current Operations Atom carriers under their owning Scope Unit
+
+## Claim scope
+
+the placement of a current authoritative Operations Atom File Carrier.
+
+## Claim
+
+a current authoritative Operations Atom File Carrier **must** reside **in** the `09_operations/` Content Role Directory directly under its owning Scope Unit. first-artifact directory materialization remains governed by CA-D-296-CORE_META_MODEL--materialize-content-role-directories-on-first-artifact; this placement does **not** replace the separately governed placement of projected copies **or** archived Revisions.

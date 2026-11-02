@@ -1,0 +1,2 @@
+{"case":"E1","markdown":"## Summary\n\nCheck Atom Version Number\n\n## Claim\n\nPass only when exactly one non-Boolean integer Version Number at least 1 is present. Missing, multiple, Boolean, fractional and below-1 values fail."}
+{"case":"E2","markdown":"## Summary\n\nCheck leaf Step definition\n\n## Claim\n\nCheck a leaf Step definition for its call, parameters, required inputs and returned results. Flag previous/next-Step claims and assignments of which sibling supplies an input, because the Workflow owns that information. Return findings only."}

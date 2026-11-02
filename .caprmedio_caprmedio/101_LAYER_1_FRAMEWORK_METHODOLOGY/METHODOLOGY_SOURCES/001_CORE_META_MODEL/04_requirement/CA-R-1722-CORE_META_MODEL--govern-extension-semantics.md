@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//METHODOLOGY_SOURCES
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-version: 28
-updated_at: 2026-10-27 20:00:02 +0400
+  active: Scope Unit
+  passive:
+  - Scope Unit//METHODOLOGY_SOURCES
+  - Scope Unit//CORE_META_MODEL
+  - Scope Unit//PROJECT_CONFIGURATION
+version: 31
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-831
   - CA-R-686
 atom_id: CA-R-1722
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Govern extension semantics
 
-## Scope
+## Claim scope
 
 Extension semantics within the Core Meta-Model.
 

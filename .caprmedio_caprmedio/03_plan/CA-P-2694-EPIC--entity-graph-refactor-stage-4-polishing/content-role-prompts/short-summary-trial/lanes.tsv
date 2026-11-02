@@ -1,0 +1,10 @@
+lane	owner	scope	acceptance	status
+C generation	role_prompt_c	C/outputs.jsonl	full content once per source	done
+P generation	role_prompt_p	P/outputs.jsonl	full content once per source	done
+R generation	role_prompt_r	R/outputs.jsonl	full content once per source	done
+M generation	role_prompt_m	M/outputs.jsonl	full content once per source	done
+E generation	role_prompt_e	E/outputs.jsonl	full content once per source	done
+D generation	role_prompt_d	D/outputs.jsonl	full content once per source	done
+O generation	role_prompt_o	O/outputs.jsonl	full content once per source	done
+independent review	scope_trial_engine_goals	final-review.json	meaning and brevity	done
+integration	root	report and comparison	word counts, links and hashes	done

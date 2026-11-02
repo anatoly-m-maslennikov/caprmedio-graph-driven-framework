@@ -1,27 +1,26 @@
 ---
 atom_id: CA-R-1779
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Logging
-  depends_on:
-  - Subject/CAPRMEDIO/Carrier
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog'
-version: 12
-updated_at: 2026-10-27 20:00:03 +0400
+  active: Entity/Aspect/Engineering/Observability/Logging
+  passive:
+  - Carrier
+  - Atom/(.Role := Evaluation)
+  - 'Entity/Object/Continuant/Projection/Type: Catalog'
+version: 15
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Require production Logging Policies
 
-## Scope
+## Claim scope
 
 production-relevant components **and** their Logging Policies.
 

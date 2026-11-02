@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-01",
+  "latest_user_input": [
+    "DRY",
+    "or we can add it, why not"
+  ],
+  "interpretation": "Permit changed Updated At as a derived audit entry; do not require another independently authored timestamp.",
+  "authoritative_source": "Accepted matching create/update Event Record timestamps; Updated At follows their MAX.",
+  "delta_inclusion": "Allowed only if the Property value changes; previous omission suggestion is superseded.",
+  "no_recursion": "The captured copy is not input to MAX and does not constitute another business update.",
+  "new_field_encoding": "Not chosen",
+  "rule": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--record-business-property-changes-in-one-update-event.md",
+  "before_sha256": "2c7562241088c57c2cbe05ffeaf31e297c631204933cb9fae0637f68c939c10e",
+  "after_sha256": "81076f015cb9d5ee7bc45ff5c30810b41d69a71137cae31779c55fc1b54e6b0e",
+  "timestamp_declarations_changed": false,
+  "runtime_changed": false,
+  "review": "PASS"
+}

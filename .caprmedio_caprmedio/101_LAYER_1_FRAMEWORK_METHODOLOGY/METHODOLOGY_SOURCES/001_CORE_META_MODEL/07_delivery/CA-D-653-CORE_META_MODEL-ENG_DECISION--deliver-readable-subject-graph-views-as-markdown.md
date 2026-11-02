@@ -1,44 +1,43 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
-  - Subject/CAPRMEDIO/Carrier
-version: 11
-updated_at: 2026-10-27 23:53:05 +0400
+  active: Projection
+  passive:
+  - Projection
+  - Entity/Object/Continuant/Projection/Type
+  - Entity/Object/Continuant/Selection
+  - Atom
+  - Atom.ID
+  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - Carrier
+version: 16
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   delivery_for:
-  - CA-R-2150
-  - CA-R-2221
-  - CA-R-2222
-  - CA-R-2223
-  - CA-R-2224
+  - CA-R-2150@15
+  - CA-R-2221@3
+  - CA-R-2222@3
+  - CA-R-2223@4
+  - CA-R-2224@3
   - CA-R-2225
 atom_id: CA-D-653
-content_role: Delivery
-type: Eng Decision
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 tier: 3
 status: Active
-author: Anatoly Maslennikov
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Deliver readable Subject Graph views as Markdown
 
-## Scope
+## Claim scope
 
 Markdown Carriers for the combined and focused Subject Graph Projection Types, under their declared Current RMEDO selections.
 
 ## Claim
 
-Deliver each selected Subject Graph as a UTF-8 Markdown Projection Carrier under the Project's declared Projection root. The Carrier reuses the existing Projection identity, filename, timestamp, and source-list format while rendering the content defined by its exact registered Projection Type. This Delivery is Tier 3 in CORE_META_MODEL and delivers the Tier 1 definition CA-R-2150 in that same Scope Unit.
+Deliver each selected Subject Graph as a UTF-8 Markdown Projection Carrier under the Project's declared Projection root. The Carrier reuses the existing Projection identity, filename, timestamp, and source-list format while rendering the content defined by its exact registered Projection Type. This Delivery is Tier 3 in CORE_META_MODEL and delivers the Tier 1 definition CA-R-2150@15 in that same Scope Unit.
 
 ## Details
 
@@ -50,13 +49,13 @@ The Carrier frontmatter must carry:
 - updated_at as the actual latest completed rebuild time with an explicit offset.
 - sources as the complete sorted, deduplicated list of contributing Current RMEDO Atom IDs with Versions in CA-N@M form. This YAML source list is the full provenance; the Markdown body does not repeat it as per-Atom link rows.
 
-The named selection is Current RMEDO: current Requirement, Method, Evaluation, Delivery, and Operations source Atoms after approved missing-Status normalization. Concern, Analysis, Plan, Draft, Archived, and derived Projection material are excluded. Unresolved, malformed, inaccessible, or conflicting source claims remain visible as explicit limitations; none is silently converted into authority.
+Declare the exact named source selection, including Scope Units, Roles and statuses. Current RMEDO is an available default, not a requirement to expand a narrower requested selection. Draft, Archived, derived Projection material and unselected scopes are excluded. Unresolved, malformed, inaccessible, or conflicting source claims remain visible as explicit limitations; none is silently converted into authority.
 
 The combined Subject Graph Type has four main sections:
 
 1. ## Primary subjects: one literal-tab hierarchy rooted at Subject, showing kinds and source-backed classification-axis topics with their namespace and branch context. Exclude named instances, dependent properties, allowed property values and their descendants. A value-qualified narrower kind such as `Atom/Content Role: Plan` remains a kind, not a named Atom instance. Within CAPRMEDIO, keep Graph/Node, Graph/Relation and Graph/Rule as sibling branches beneath Graph; show Node/Project Model and Node/Aspect, and keep Carrier outside Graph. Retain selected project-specific namespaces. Namespace and classification-axis segments are context or topics, not extra entity kinds. Keep the bare `Atom/Content Role` axis visible and distinguish its meaning from role-qualified narrower Atom kinds. Named Relation Type declarations belong in section 3, not the primary tree.
 2. ## Properties: one property detail section for every displayed primary with direct or inherited properties, following its first appearance in section 1. Keep source-backed classification-axis detail with that Subject; do not hide the bare `Atom/Content Role` Subject or collapse its identity into Atom. An axis does not acquire bearer Atom properties merely by occupying an intermediate path segment. Keep role-qualified narrower Atom kinds such as `Atom/Content Role: Plan` as separate sections where properties are present; those kinds inherit Atom properties. Show direct properties and additive source-backed inherited properties and allowed values. Mark inherited display entries as `[inherited]` only. Keep full source origins internally and retain all origins for equal-name entries; report conflicts without silently overriding a source. Preserve actual bearer Atom properties and role-specific descendants. Do not copy inherited properties into source Atoms.
-3. ## Instances: show the selected named instances separately from their kinds, including Workflow instances, named Relation Type declarations and concrete Graph Rule Atoms. Retain the instance's defining kind, actual name and source-backed detail. Concrete Graph Rule declarations show their source-backed kind/name and bare defining CA-R ID. Their operative Claims remain in the source Atoms; the view does not copy their claim.* YAML, Claim text or file citations. This section is the named declaration level, not the actual Atom-to-Atom Relation tuples. Explicitly report unavailable or unsupported declaration details rather than guessing or omitting them.
+3. ## Instances: show only the selected named Relation Type declarations with their bare defining R IDs and source-backed names. Do not enumerate Workflow instances, actual endpoint tuples or a retired Graph Rule catalogue. Constraints remain in the corresponding model definitions.
 
 4. ## Dependency-only subjects: list each exact canonical Subject path that occurs in subjects.depends_on and never explicitly in subjects.governs within this view's selected source Atoms. Use exact complete-string equality, including namespaces, without propagating ancestors or descendants. Show each path once with its sorted, deduplicated referring Atom IDs, sorting paths alphabetically. Keep the other sections intact; this report does not move or remove their targets or infer a missing-definition violation.
 

@@ -1,0 +1,247 @@
+{
+  "status": "unallocated candidate declarations",
+  "decision": "Non-graph CFEL operators are distinct from graph Relations and Relation Declarations.",
+  "graph_relation_operators": [
+    "+>",
+    "<+",
+    ">|",
+    "|<",
+    "((RELATION))"
+  ],
+  "deferred_to_relation_lane": [
+    "canonical and derived Relation semantics",
+    "HAS_INVERSE is separate from canonical-versus-derived-view",
+    "counterpart direction and source mapping"
+  ],
+  "operator_declarations": [
+    {
+      "slug": "addition",
+      "token": "+",
+      "meaning": "Return the numeric sum of two resolved numeric operands.",
+      "authority": "CA-R-2549",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-addition.md",
+      "active_subject": "CFEL<+Operator//Addition",
+      "source_binding": "CA-R-2549"
+    },
+    {
+      "slug": "allowed-value",
+      "token": ":",
+      "meaning": "Admit an allowed value in a Formal Claim; it is not assignment.",
+      "authority": "CA-R-2471",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-allowed-value.md",
+      "active_subject": "CFEL<+Operator//AllowedValue",
+      "source_binding": "CA-R-2471"
+    },
+    {
+      "slug": "conclusion",
+      "token": "==",
+      "meaning": "State a required or derived conclusion.",
+      "authority": "CA-R-2471",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-conclusion.md",
+      "active_subject": "CFEL<+Operator//Conclusion",
+      "source_binding": "CA-R-2471"
+    },
+    {
+      "slug": "condition",
+      "token": "=",
+      "meaning": "Test equality in a Formal Claim or IF condition; it is not assignment.",
+      "authority": "CA-R-2471; CA-R-2549",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-condition.md",
+      "active_subject": "CFEL<+Operator//Condition",
+      "source_binding": "CA-R-2471; CA-R-2549"
+    },
+    {
+      "slug": "declared-reference",
+      "token": "@",
+      "meaning": "Reference an already declared target without copying or reparenting it.",
+      "authority": "CA-R-2471",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-declared-reference.md",
+      "active_subject": "CFEL<+Operator//DeclaredReference",
+      "source_binding": "CA-R-2471"
+    },
+    {
+      "slug": "delivery",
+      "token": ">>",
+      "meaning": "Deliver an Object or selection to a referenced Carrier or Carrier part.",
+      "authority": "CA-R-2548",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-delivery.md",
+      "active_subject": "CFEL<+Operator//Delivery",
+      "source_binding": "CA-R-2548"
+    },
+    {
+      "slug": "expression-separator",
+      "token": ";",
+      "meaning": "Separate complete CFEL expressions; a line break is layout only.",
+      "authority": "CA-R-2471; CA-R-2472",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-expression-separator.md",
+      "active_subject": "CFEL<+Operator//ExpressionSeparator",
+      "source_binding": "CA-R-2471; CA-R-2472"
+    },
+    {
+      "slug": "fallback",
+      "token": "?=",
+      "meaning": "Resolve a nonwriting ordered fallback when a Property is absent.",
+      "authority": "CA-R-2550",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-fallback.md",
+      "active_subject": "CFEL<+Operator//Fallback",
+      "source_binding": "CA-R-2550"
+    },
+    {
+      "slug": "greater-or-equal",
+      "token": ">=",
+      "meaning": "Test that the left numeric value is greater than or equal to the right numeric value.",
+      "authority": "CA-R-2549",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-greater-or-equal.md",
+      "active_subject": "CFEL<+Operator//GreaterOrEqual",
+      "source_binding": "CA-R-2549"
+    },
+    {
+      "slug": "greater-than",
+      "token": ">",
+      "meaning": "Test that the left numeric value is greater than the right numeric value.",
+      "authority": "CA-R-2549",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-greater-than.md",
+      "active_subject": "CFEL<+Operator//GreaterThan",
+      "source_binding": "CA-R-2549"
+    },
+    {
+      "slug": "grouping",
+      "token": "()",
+      "meaning": "Group one CFEL expression; parentheses do not create a Node or Relation.",
+      "authority": "CA-R-2471",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-grouping.md",
+      "active_subject": "CFEL<+Operator//Grouping",
+      "source_binding": "CA-R-2471"
+    },
+    {
+      "slug": "immediate-wildcard",
+      "token": "*",
+      "meaning": "Select immediate dependent Properties in p.*.",
+      "authority": "CA-R-2471; CA-R-2472",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-immediate-wildcard.md",
+      "active_subject": "CFEL<+Operator//ImmediateWildcard",
+      "source_binding": "CA-R-2471; CA-R-2472"
+    },
+    {
+      "slug": "inequality",
+      "token": "!=",
+      "meaning": "Test inequality between resolved values.",
+      "authority": "CA-R-2552; CA-R-2549",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-inequality.md",
+      "active_subject": "CFEL<+Operator//Inequality",
+      "source_binding": "CA-R-2552; CA-R-2549"
+    },
+    {
+      "slug": "instance",
+      "token": "//",
+      "meaning": "Select an existing instance of a Primary Node.",
+      "authority": "CA-R-2471; CA-R-2552",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-instance.md",
+      "active_subject": "CFEL<+Operator//Instance",
+      "source_binding": "CA-R-2471; CA-R-2552"
+    },
+    {
+      "slug": "instance-binding",
+      "token": "$",
+      "meaning": "Bind an existing selected instance or read its bound Property; it creates nothing.",
+      "authority": "CA-R-2552",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-instance-binding.md",
+      "active_subject": "CFEL<+Operator//InstanceBinding",
+      "source_binding": "CA-R-2552"
+    },
+    {
+      "slug": "less-or-equal",
+      "token": "<=",
+      "meaning": "Test that the left numeric value is less than or equal to the right numeric value.",
+      "authority": "CA-R-2549",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-less-or-equal.md",
+      "active_subject": "CFEL<+Operator//LessOrEqual",
+      "source_binding": "CA-R-2549"
+    },
+    {
+      "slug": "less-than",
+      "token": "<",
+      "meaning": "Test that the left numeric value is less than the right numeric value.",
+      "authority": "CA-R-2549",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-less-than.md",
+      "active_subject": "CFEL<+Operator//LessThan",
+      "source_binding": "CA-R-2549"
+    },
+    {
+      "slug": "membership",
+      "token": "in / not in",
+      "meaning": "Test membership or non-membership in a selected set.",
+      "authority": "CA-R-2471; CA-R-2552",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-membership.md",
+      "active_subject": "CFEL<+Operator//Membership",
+      "source_binding": "CA-R-2471; CA-R-2552"
+    },
+    {
+      "slug": "named-relation-direction",
+      "token": "((R)) / <((R))",
+      "meaning": "Bare forward and prefix-reverse notation for one canonical named Relation.",
+      "authority": "latest user decision; concrete IS_CONTAINED_BY example",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+      "active_subject": "CFEL<+Operator//NamedRelationDirection",
+      "source_binding": "latest user decision; concrete IS_CONTAINED_BY example"
+    },
+    {
+      "slug": "relation-endpoint-signature",
+      "token": "$host ((RELATION)) $target",
+      "meaning": "Within a Relation Declaration only, bind generic endpoints over declared model entities or instances; it creates no Relation fact.",
+      "authority": "latest user endpoint-universe decision; CA-R-2552 is separate Kind//$x binding authority",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-relation-endpoint-signature.md",
+      "active_subject": "CFEL<+Operator//RelationEndpointSignature",
+      "source_binding": "latest user endpoint-universe decision"
+    },
+    {
+      "slug": "narrowing",
+      "token": "/",
+      "meaning": "Select a narrower Primary Node.",
+      "authority": "CA-R-2471",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-narrowing.md",
+      "active_subject": "CFEL<+Operator//Narrowing",
+      "source_binding": "CA-R-2471"
+    },
+    {
+      "slug": "property",
+      "token": ".",
+      "meaning": "Address a Property on its bearer.",
+      "authority": "CA-R-2471; CA-R-2472",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-property.md",
+      "active_subject": "CFEL<+Operator//Property",
+      "source_binding": "CA-R-2471; CA-R-2472"
+    },
+    {
+      "slug": "recursive-wildcard",
+      "token": "**",
+      "meaning": "Select dependent Properties recursively in p.**.",
+      "authority": "CA-R-2471; CA-R-2472",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-recursive-wildcard.md",
+      "active_subject": "CFEL<+Operator//RecursiveWildcard",
+      "source_binding": "CA-R-2471; CA-R-2472"
+    },
+    {
+      "slug": "selection-exclusion",
+      "token": "!()",
+      "meaning": "Exclude selected branches from a delivery selection.",
+      "authority": "CA-R-2548",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-selection-exclusion.md",
+      "active_subject": "CFEL<+Operator//SelectionExclusion",
+      "source_binding": "CA-R-2548"
+    },
+    {
+      "slug": "subject-value-selection",
+      "token": ":=",
+      "meaning": "In a Subject, combine an admitted Property value with selection; it is not assignment.",
+      "authority": "CA-R-2471",
+      "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-subject-value-selection.md",
+      "active_subject": "CFEL<+Operator//SubjectValueSelection",
+      "source_binding": "CA-R-2471"
+    }
+  ],
+  "base_operator_declaration": {
+    "active_subject": "CFEL<+Operator",
+    "candidate": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md"
+  }
+}

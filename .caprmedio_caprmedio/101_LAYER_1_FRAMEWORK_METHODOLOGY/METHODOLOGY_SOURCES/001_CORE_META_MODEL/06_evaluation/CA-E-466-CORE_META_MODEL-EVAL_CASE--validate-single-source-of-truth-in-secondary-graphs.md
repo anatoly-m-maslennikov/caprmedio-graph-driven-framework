@@ -1,35 +1,33 @@
 ---
 subjects:
-  governs: Subject
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Relation
-  - Subject/CAPRMEDIO/Graph/Relation/Type
-version: 24
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Entity
+  passive:
+  - Projection
+  - Atom
+  - Atom.Content
+  - Entity
+  - Journal
+  - CFEL > Relation
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-1437
   - CA-R-1470
   - CA-R-1471
-  - CA-R-1746
+  - CA-R-2535
 atom_id: CA-E-466
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 3
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 Validate Single Source of Truth in secondary graphs
 
-## Scope
+## Claim scope
 source authority **in** secondary graph representations.
 
 ## Claim
@@ -49,5 +47,3 @@ the Evaluation **must** distinguish authoritative source facts from their second
 | a projected fact corrected independently while its source **and** governing derivation remain unchanged | fail |
 
 passing this source-authority Evaluation does **not** establish graph-specific Relation validity, completeness, **or** the truth of a recorded outcome; those remain subject **to** their applicable Evaluations.
-
-## Details

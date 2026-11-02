@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-01",
+  "decision": "Projection.Sources values are only Atom IDs with explicit Versions",
+  "property_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-sources.md",
+  "before_sha256": "4e07b28ea03abbec22134312a5f1a44dad91ec17c56cfd4c48638a88bac36bb7",
+  "after_sha256": "bd1525551b6ae665e627fb64765ec803482a9a113211afe9fe93153b4f519303",
+  "preserved_contract": "Optional Property; zero or more string values; no dependent Properties",
+  "formalization": "Existing string Format plus short prose constraint; no new Format name or CFEL syntax introduced",
+  "primary_projection": {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection.md",
+    "before_sha256": "84a40ad43e5bb503f826e9ac1013baf9bcb86d655498471f8ea5e26fbc903d37",
+    "after_sha256": "c96a1a9d609871ef3f996089328d16cd5cf175572c18cc17bf318de2e5ebede5",
+    "change": "Remove duplicate, broader source-reference bullet; Sources Declaration owns the constraint"
+  },
+  "current_sources_changed": false
+}

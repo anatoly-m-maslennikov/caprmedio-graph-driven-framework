@@ -18,6 +18,7 @@ for parent in SCRIPT.parents:
         break
 sys.path.insert(0, str(TOOLS))
 
+from carrier_aliases import carrier_read_view
 from atom_operations import ToolError, cli
 from atom_subject_lookup import run_subject_search
 from operation_error_boundary import FailureRecord, emit_failure_diagnostic
@@ -173,7 +174,7 @@ def _contract_reader(root: Path) -> ReadContext:
     reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
     for pin in SOURCE_PINS:
         raw = reader.read(root / pin["path"])
-        metadata = parse_carrier(raw, root / pin["path"]).metadata
+        metadata = carrier_read_view(parse_carrier(raw, root / pin["path"]).metadata)
         role = {"R": "Requirement", "O": "Operations", "M": "Method", "E": "Evaluation", "D": "Delivery"}[pin["atom_id"][3:4]]
         if (metadata.get("atom_id") != pin["atom_id"] or type(metadata.get("version")) is not int
                 or metadata["version"] < 1 or metadata.get("content_role") != role

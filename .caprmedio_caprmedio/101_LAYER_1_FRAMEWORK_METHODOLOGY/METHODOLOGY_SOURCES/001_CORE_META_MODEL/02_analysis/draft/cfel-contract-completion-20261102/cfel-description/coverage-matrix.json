@@ -1,0 +1,36 @@
+{
+  "status": "candidate",
+  "scope": "Description alignment only; no parser or evaluator conformance claim.",
+  "constructs": [
+    {"construct":"/ narrowing","authority":"CA-R-2471","evidence":"X/Y"},
+    {"construct":"// instance","authority":"CA-R-2471; CA-R-2552","evidence":"Kind// and Kind//$x"},
+    {"construct":". Property","authority":"CA-R-2471; CA-R-2472","evidence":"X.p; p.*; p.**"},
+    {"construct":"Subject qualification :=","authority":"CA-R-2471","evidence":"X/(.p := V); Subjects only"},
+    {"construct":"+> and <+ containment","authority":"CA-R-2471","evidence":"opposite written views"},
+    {"construct":">| and |< classification","authority":"CA-R-2471","evidence":"opposite written views"},
+    {"construct":"@ reference and () grouping","authority":"CA-R-2471","evidence":"existing target; grouping"},
+    {"construct":":, =, !=, ==","authority":"CA-R-2471; CA-R-2549","evidence":"allowed value; condition; inequality; conclusion"},
+    {"construct":"numeric comparison and addition","authority":"CA-R-2549","evidence":">, >=, <, <= and + remain distinct from Relation operators"},
+    {"construct":"counts","authority":"CA-R-2243; CA-R-2471; CA-R-2472","evidence":"occurrence, value, child-name and relation slots"},
+    {"construct":"; expression separation","authority":"CA-R-2471; CA-R-2472","evidence":"complete expressions"},
+    {"construct":"Relation metadata","authority":"candidate CFEL description; Relation lane canonical authority","evidence":"metadata templates are documentation only; concrete directional notation is Step ((IS_CONTAINED_BY)) Workflow or Workflow <((IS_CONTAINED_BY)) Step"},
+    {"construct":"named Relation direction","authority":"candidate named-Relation-direction operator","evidence":"bare ((R)) is forward and prefix <((R)) is reverse for one canonical fact"},
+    {"construct":"generic Relation endpoint signature","authority":"candidate RelationEndpointSignature operator","evidence":"$host ((RELATION)) $target is limited to Relation Declarations and ranges over declared entities or instances, including Carrier and CFEL"},
+    {"construct":">> delivery and ! exclusion","authority":"CA-R-2548","evidence":"Object to Carrier selection and excluded branches"},
+    {"construct":"instance binding","authority":"CA-R-2552","evidence":"Kind//$x, $x.p, identity comparison and guarded link tests"},
+    {"construct":"?= and LOOKUP","authority":"CA-R-2550","evidence":"nonwriting ordered fallback"},
+    {"construct":"IF/THEN, UNIQUE, DETERMINES, COUNT, MAX, FENCED_LABELS","authority":"CA-R-2471; CA-R-2551; CA-R-2562; CA-R-2585; CA-R-2566; CA-R-2563","evidence":"named Rule contracts"}
+  ],
+  "unsupported_claim": "No complete parser, evaluator, or exhaustive grammar conformance is claimed by these candidates.",
+  "duplicate_root_disposition": "candidate mapping complete: CA-R-2487 is the canonical root; consumer-patches/r2244-consumer-dispositions.json gives the exact five consumer actions required before CA-R-2244 archives.",
+  "operator_classification": "resolved: non-graph CFEL operators have distinct Declarations; graph Relations remain distinct and belong to the Relation lane.",
+  "semantic_checks": [
+    "Every Relation Declaration supplies Semantics; standalone Relation metadata stays in the Relation lane.",
+    "The Relation metadata illustration is text only; no placeholder or alternative is labelled executable CFEL.",
+    "Named Relation directional notation swaps canonical endpoints and written count slots on reverse normalization; it does not grant inverse permission.",
+    "A graph Relation may connect any declared model entity or declared instance, including Carrier and CFEL; literals and non-graph CFEL operators are not graph endpoints.",
+    "No CFEL overview converts a Format or Bool value into a // instance without a source binding.",
+    "Existing source constraints are preserved by explicit destination or frozen until their consumer mapping is complete.",
+    "A recursive p.** count aggregates selected distinct descendant Property identities within each bearer; recursive examples cover depth, direct values, bearers, and duplicate siblings."
+  ]
+}

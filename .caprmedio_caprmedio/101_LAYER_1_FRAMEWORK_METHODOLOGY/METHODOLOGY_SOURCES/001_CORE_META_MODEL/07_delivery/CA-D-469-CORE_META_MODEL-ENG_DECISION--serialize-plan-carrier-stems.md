@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier/File.Filename
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Work Sequence Number'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Carrier
-version: 20
-updated_at: 2026-10-27 19:59:25 +0400
+  active: Carrier/File.Filename
+  passive:
+  - Atom/(.Role := Plan)
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - Atom/(.Role := Plan).Work Sequence Number
+  - Atom.Content.Summary
+  - Atom.ID
+  - Carrier
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-469
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize Plan Carrier stems
 
-## Scope
+## Claim scope
 
 identified Plan Carrier stems.
 
@@ -36,5 +35,3 @@ identified Plan Carrier stems.
 - render the Summary under CA-D-282.
 - **by default**, direct Plans decomposing the same Hub use unique leading Work Sequence Numbers **before** their Atom IDs, under CA-D-381 **and** CA-R-997.
 - a same-bundle Directory Carrier **and** File Carrier use the same stem; number **or** Label changes preserve Atom identity **and** do **not** declare `BLOCKS`.
-
-## Details

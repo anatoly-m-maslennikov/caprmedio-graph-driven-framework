@@ -1,68 +1,100 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Definition'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Terms Graph'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Graph/Relation
-  - Subject/CAPRMEDIO/Graph/Relation/Type
-version: 29
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Atom
+  passive:
+  - Package
+  - Entity/Object/Continuant/Package/Eval Package
+  - Entity/Object/Continuant/Package/Runtime Package
+  - Entity/Object/Continuant/Package <+ Module
+  - Entity/Object/Continuant/Package <+ Module <+ Code Unit
+  - Term//Entity
+  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - Atom.Subjects
+  - Term
+  - Project
+  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Entity Definition)'
+  - Atom.Content
+  - Entity
+  - 'Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
+  - Atom/(.Role := Concern)
+  - Term//Artifact
+  - Scope Unit
+  - Actor
+  - Projection
+  - CFEL <+ Relation
+version: 34
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-1318
   - CA-R-1319
   - CA-R-1320
   - CA-M-125
+  - CA-M-113
 atom_id: CA-E-444
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate Project-specific Term meaning
 
-## Scope
+## Claim scope
 
-a Catalog used as a vocabulary diagnostic index for Project-specific Term meaning and direct Subject use.
+Project-specific Terms, complete canonical entity names **and** their authored occurrences **in** the selected source Atoms. Ordinary vocabulary without established Project-specific use does **not** require a Term Definition. The check reads source Atoms directly; no dictionary, lookup service **or** generated Projection is a prerequisite.
 
 ## Claim
 
-a Catalog used as a vocabulary diagnostic index **must** keep its assessment of Project-specific Term meaning **and** direct Subject use faithful **to** the governing definitions **and** exact source context, including the required consistency across **all** source uses covered by the assessment. its diagnostic judgments preserve source evidence **and** uncertainty under CA-R-1455. the relevant built Terms Graph, **when** available, **and** original Atom Claims **or** reference contexts supply evidence for this assessment; graph topology alone does **not** establish meaning, defining authority, **or** consistency of source use.
+the Evaluation **must** check selected authoritative Method Atoms of Type Term Definition for well-formedness **and** exactly-one defining authority, **then** check the authored sources **in** this order: entity names, Claim, Claim Scope, Semantics, Details, **and** other authored fields. It **must** compare Term occurrences with the meaning established by their explicit authoritative Term Definition **and** compare complete entity names with their source-backed canonical entities. Agreement between several Semantics sections **must not** substitute for a Term Definition. The results **must** distinguish well-formedness, source consistency **and** checked coverage, preserve source Atom, Revision **and** exact field occurrence for **every** finding, **and** leave insufficient identity, authority **or** coverage evidence unresolved rather than passed.
 
 ## Details
 
-### Test case
+### Source preparation and ordered stages
 
-create an active Definition Atom that gives a word **or** phrase a Project-specific meaning, **and** use that meaning consistently **in** several Claims. create an ordinary English word used consistently **without** a Project-specific definition. create a definition that merely repeats ordinary dictionary meaning, a Term used with conflicting Project-specific meanings, a Term's wording substituted for a direct Subject reference, and a complete composite Subject Path classified as a Term.
+Before the authored-field stages, read the exact selected Method Atoms of Type Term Definition **and** the governing name/entity authority. A Term Definition is a Method Type for lexical meaning; Entity Definition remains a Requirement Type for entity structure; an Entity Definition **or** repeated descriptive wording alone does **not** own a reusable Term's meaning. Local well-formedness **and** cross-source defining-authority uniqueness are separate checks.
 
-add a source occurrence with evidence of Project-specific use but no active defining authority **in** the declared applicable source authority boundary with complete checked definition coverage; two incompatible active definitions; duplicate active defining authority; **and** a case whose context **or** source coverage cannot settle classification. include sentence-initial ordinary vocabulary, Scope Unit **and** Actor names, identifiers, paths, and syntax tokens with no evidence of Project-specific vocabulary meaning. include a definition excluded by a filtered selection, source occurrences of the same spelling with different evidenced contexts, an entry lacking an exact occurrence **or** Revision, and invented edges between indexed entries.
+1. Entity names: check complete canonical name-to-entity **and** entity-to-complete-name binding against the explicitly evidenced entity population. Check full Entity expressions in admitted `/`, `//`, `.`, `:`, `+>`, `<+`, `>|` **and** `|<` constructs, calls `@(...)` to already declared Entities, **and** registered direct Relation tokens inside `((...))`. A token resolves through the Relation registry to one admitted Relation Type; its bare spelling is not the Relation Type entity's full canonical expression, which is compared separately. The reference marker refers to an already declared Entity **without** declaring another target; parsing **does not** infer target **or** Relation admission.
+2. Claim: compare its authored Term occurrences with the selected Term Definitions **and** its entity mentions with their complete canonical names.
+3. Claim Scope: perform the same checks on applicability text carried under `## Claim scope` **when** present **or** another admitted representation; do **not** invent another Property **or** heading.
+4. Semantics: check the field **when** present. Its explanations cannot redefine a Term **or** replace its explicit Term Definition. An absent optional field is recorded as absent, **not** invented.
+5. Details: check its authored occurrences **without** allowing explanatory examples to silently establish another meaning **or** name.
+6. Other authored fields: check remaining authored content, including Summary **and** applicable reference fields, **without** skipping them because earlier stages passed. Preserve literal source quotations **and** code identifiers under their governing boundaries; do **not** silently rename them.
 
-include `Method/Decomposition` as a direct Subject target. validate that it is a Method Topic admitted by an accepted source Method Atom's exact GOVERNS path and Substance or Semantics; reject treating it as an Entity Object, a Scope Unit, or a separately defined Term merely because its words occur in a folder or carrier name.
+Keep each stage's coverage visible. A later conflict remains a finding even **when** an earlier stage passed. A missing required field fails its applicable well-formedness check; the remaining accessible content can still be reviewed **without** claiming that the field exists.
 
-### Acceptance criteria
+### Test cases
 
-the consistently used Project-specific Term satisfies the checked source-meaning condition **and** resolves **to** its active Definition Atom. the ordinary word remains valid general language **without** being classified as a Term. consistent use **or** capitalization alone does **not** establish a Term. **in** a Subject Path, **every** named component is a Term reference that requires validation; its occurrence does **not** establish the referenced Term's defining authority. a dictionary-only definition does **not** qualify for a Catalog's governed-definition entries; it **may** be retained as diagnostic source evidence under CA-R-1455. conflicting meanings fail the checked source-meaning condition with the defining Atom **and** conflicting uses identified. a Subject is the direct GOVERNS **or** DEPENDS_ON Relation connecting an Atom **to** its canonical Subject Target; the target is **not** the Subject Relation. substituting the Term's wording for a direct Subject reference **or** classifying a complete composite Subject Path as a Term fails the checked Subject-reference condition. terminology entries retain their source references **without** independent authority.
+- provide one well-formed authoritative Term Definition **and** consistent authored uses; one source with a different Content Role **or** Method Type; a missing Term Definition; two active Term Definitions for the same Term with agreeing meanings; **and** two with conflicting meanings. distinguish the local Atom-shape result from the cross-source authority result.
+- place a contradictory Term use separately **in** entity names, Claim, Claim Scope, Semantics, Details **and** another authored field. Keep the other fields correct **so** each ordered stage is exercised. Include an error **in** a later field after earlier fields pass.
+- include ordinary vocabulary **without** evidence of Project-specific meaning; a dictionary-only restatement of ordinary meaning; sentence-initial capitalization; names, identifiers, paths **and** syntax tokens; **and** a case whose classification **or** source coverage is uncertain. Include a missing definition outside a filtered source selection. Neither capitalization **nor** absence from that filter establishes missing defining authority.
+- include two distinct complete canonical entity names for one evidenced entity; one complete canonical name for two distinct entities; an exact one-to-one mapping; repeated references to one name/entity binding; **and** a known entity with zero complete canonical names under complete naming-source coverage. Keep missing naming separate from missing Entity Definition **and** missing Term Definition.
+- use full Entity expressions `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package/Eval Package`, and `Entity/Object/Continuant/Package/Runtime Package` with one consistent reusable Term `Package`; use `Entity/Object/Continuant/Structural Unit/Scope Unit` and `Entity/Object/Continuant/Package <+ Module <+ Code Unit` with one consistent reusable Term `Unit`. Outside the Term branch, only the root `Entity` may be expressed by one Term alone.
+- use `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module`, and `Entity/Object/Continuant/Package <+ Module <+ Code Unit`: three connected entities with their three full expressions in graph Subjects and all authored mentions. Calling the same Module entity `component` merely for stylistic variation fails; a separately defined Component entity stays distinct.
+- accept `Entity` as the complete expression only for the Subject root Entity, and keep its distinct lexical Term target `Term//Entity` separate when that Term is explicitly defined. Reject a single Term component such as `Package` as the complete expression for another Entity outside the Term branch.
+- use the qualified Atom segment `Atom/(.Content Role: X)/(.Type: X)` as a fixture: component reuse passes only when governing authority independently admits exact `X` as the Content Role and as the Type in that qualified context. A companion fixture with missing Type-in-Content-Role admission fails. The fixture text itself neither admits an `X` entity nor supplies either value's authority.
+- use a registered direct Relation token inside `((...))`, an unregistered alternate token asserted to name that same Relation Type, **and** readable syntax for an unadmitted Relation. Verify the registered token's registry resolution separately from the Relation Type entity's full canonical expression. Do **not** infer Relation admission **or** endpoint permissions from the notation.
+- use `atom.id` **and** `projection.id` as contextual topic/code spellings for distinct ID Properties with the explicitly defined ID meaning. They are not alternative complete canonical Subject names; authored Subjects use their full admitted expressions. The dot is syntax. The check **must not** require `atom.atom_id` **or** `projection.projection_id`, invent another entity for the dot **or** the component Term, **or** apply unspecified case folding.
+- check an explicit ID Term Definition whose meaning is a unique identifier used to find an entity instance, including Continuant **and** Occurrent instances. Apply uniqueness **only** within matching identifier prefixes. Use `CA-P-123`, `CA-P-123@1-draft` **and** `CA-P-123@3` as carried strings **without** inventing their version-identity relationships. If such relationships **or** a prefix equivalence are needed but undeclared, retain an unresolved condition.
+- include an exact source occurrence missing its Atom Revision, unsupported semantic certainty, an invented graph edge, **and** a faithful optional diagnostic that reports a source conflict. No graph **or** diagnostic is required to run these source checks.
+- select one Current Method Atom **and** record its source Atom, exact Revision **and** actual GOVERNS target as the direct Subject-target fixture. Verify that exact target against its governing admission **and** classification evidence separately from component-Term meaning. The Method Role, carrier name **or** folder spelling **must not** establish the target's category **or** an independent lexical definition. Include a Term's wording substituted for an actual Subject reference **and** a complete composite Subject Path classified as one Term.
 
-the diagnostic index distinguishes supported ordinary English use, missing defining authority, conflicting defining authority **or** uses, and explicitly uncertain cases. **every** judgment retains the exact occurrence, surrounding Claim **or** reference context, Artifact Revision, source selection, and checked definition coverage. ordinary vocabulary requires no Project-specific definition; a source occurrence's capitalization does **not** become evidence of missing authority. outside a named Subject Path component, names, identifiers, paths, and syntax tokens do **not** become unresolved Project-specific candidates **without** contextual evidence of that use. use as a named Subject Path component establishes a required Term-reference context; an unresolved reference stays visible, **without** the diagnostic inventing its definition. a missing-authority judgment requires complete checked definition coverage for its declared applicable source authority boundary; absence from incomplete **or** filtered coverage alone cannot establish that judgment. duplicate active defining authority fails uniqueness even **when** the definitions agree; the diagnostic identifies an authority conflict **without** inventing a meaning conflict. an evidence-backed candidate remains diagnostic **without** a fabricated definition; a case whose evidence is insufficient remains reviewable as uncertain **without** an established Term classification. spelling alone does **not** transfer classification across source contexts. missing occurrence **or** revision traceability, hidden uncertainty, unsupported semantic certainty, **or** invented graph edges fail. a source-backed uncertain result passes the diagnostic-index check while the underlying meaning **or** authority remains unresolved.
+### Acceptance criteria and outcomes
 
-the Evaluation **must** distinguish the correctness of the diagnostic Projection from the source conditions it reports. a faithful diagnostic **may** pass its Projection-correctness checks while identifying a failed source-meaning, defining-authority, **or** Subject-reference condition; an unresolved source condition remains unresolved. a Projection omission, unsupported judgment, lost source traceability, or concealed uncertainty fails the diagnostic check. passing that check **must not** become an unqualified claim that the represented source model is valid **or** complete beyond the declared checked coverage.
+A well-formed Term Definition with exactly one active authoritative owner supports the checked Term meaning. Duplicate active Term Definitions fail defining-authority uniqueness even **when** their Claims agree; conflicting meanings additionally fail source consistency. Agreement among Semantics sections, consistent use, spelling **or** capitalization alone does **not** establish a Term Definition. An evidence-backed Project-specific use with missing defining authority fails **only** with complete checked definition coverage for its declared authority boundary; incomplete **or** filtered coverage leaves that claim unresolved. Ordinary vocabulary is **not** failed merely because it lacks a Term Definition.
+
+Consistent reuse of component Terms passes. Source evidence of two full names for one entity **or** one full name for distinct entities fails canonical naming; property, value, bearer **or** context qualification does **not** excuse reuse of the same complete name for distinct entities. Repeated references to one established entity are **not** collisions. A known entity with no complete canonical name fails missing naming **when** population **and** naming-source coverage are established. Unknown population, entity identity **or** required coverage remains unresolved. Do **not** fabricate a Term, name, Definition **or** entity distinction to obtain a pass.
+
+`Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module`, and `Entity/Object/Continuant/Package <+ Module <+ Code Unit` identify three entities. Operators, delimiters and selector syntax are not Terms. Under CA-R-1325, a complete composite Subject Expression is not one lexical Term; this does not prohibit an explicitly admitted qualified Entity expression. Outside the Term branch, only root `Entity` may be expressed by one Term alone. Parsing an arbitrary composite expression does not automatically establish a complete Entity expression or another Entity. The three-target chain introduces no fourth Entity or fourth complete expression. Naming checks must not reify component labels or shared words into new graph entities. The respective ID Properties distinguished by the contextual topic/code spellings `atom.id` and `projection.id` stay distinct and retain the explicitly defined ID meaning; these spellings do not substitute for full admitted Subject expressions. An Atom Content Role/Type expression requires independent source admission of both exact values. A Term occurrence is checked against its dedicated Term Definition, not inferred agreement of other fields.
+
+A direct GOVERNS **or** DEPENDS_ON Subject Relation **must** resolve its canonical source-backed target; the Relation **and** its target remain distinct. Term wording cannot substitute for that exact reference. The selected Method fixture preserves its actual GOVERNS target **and** exact source Revision; target classification follows governing target authority, **not** the Method Role **or** carrier spelling. A source target's admission does **not** by itself establish a component Term's meaning authority; these checks retain their separate outcomes.
+
+Every finding identifies source Atom, exact Revision, logical field, occurrence span **or** exact passage, governing Term Definition **and** relevant compared source. A missing required source **or** unperformed stage is a coverage gap, **not** a pass. Well-formedness, source consistency **and** coverage remain separate; the combined result cannot pass **if** a required check fails **or** remains unresolved. A faithful optional diagnostic **may** accurately report failed **or** unresolved source conditions, but its fidelity does **not** establish source validity. No independent generated vocabulary authority, extra lookup operation **or** special Projection is needed.
 
 ### Failure disposition
 
-record a Concern identifying the affected wording, defining Atom, conflicting use, direct Subject reference, **or** Catalog entry, together with its exact source occurrence **and** Revision. distinguish a failed index check from a faithfully reported failed **or** unresolved source condition; do **not** fabricate authority **to** make either pass.
+retain the precise conflicting **or** missing source evidence **and** report the affected Term, canonical entity name, source Atom, Revision **and** authored field. distinguish a malformed Term Definition, duplicate defining authority, a conflicting use, missing naming **and** incomplete coverage. Do **not** rename sources, merge entities, invent a definition **or** treat a diagnostic's faithful output as a source pass.
+

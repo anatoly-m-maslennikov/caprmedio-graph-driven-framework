@@ -1,33 +1,32 @@
 ---
 atom_id: CA-D-506
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-version: 13
-updated_at: 2026-10-27 19:59:26 +0400
-author: Anatoly Maslennikov
+version: 18
+updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node
-  depends_on:
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  active: Entity
+  passive:
+  - Carrier
+  - Term//Property
 relations: {}
 tier: 1
-type: Eng Decision
+role: Delivery
+form: Policy
 ---
-# Summary
+## Summary
 
 Give every non-ephemeral Entity a Carrier
 
-## Scope
+## Claim scope
 
 non-ephemeral Entities.
 
 ## Claim
 
-**every** non-ephemeral Entity **must** have **`>=1`** Carrier through its Entity/Carrier binding.
+Every represented non-ephemeral Entity has at least one declared Carrier or a location within a shared Carrier. Reusable D Policies may define that binding for an entire Object kind and its dependent properties; individual D Decisions govern bounded exceptions. The governed Subject names the represented entity, not an extra representation node.
 
 ## Details
 
-a binding **may** use a shared Carrier **or** a location within it. a carried Property does **not** require a separate file merely because it is an Entity.
+a binding **may** use a shared Carrier **or** a location within it. A carried Property does not require a separate file or authored CARRIES edge. Its representation follows the applicable owner/property Policy. A derived property can be represented in a Projection without making the Projection authoritative for its source. Occurrents themselves are excluded; retained information about them follows CA-D-654.

@@ -1,27 +1,25 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Relation
-  depends_on: []
-version: 29
-updated_at: 2026-10-27 20:00:01 +0400
+  active: CFEL <+ Relation
+  passive: []
+version: 35
+updated_at: 2026-11-02 08:06:47 +0400
 relations:
   child_of:
   - CA-R-007
-  - CA-E-002
 atom_id: CA-R-1697
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Bind traceability to exact claims and revisions
 
-## Scope
+## Claim scope
 
 CAPRMEDIO traceability assertions.
 

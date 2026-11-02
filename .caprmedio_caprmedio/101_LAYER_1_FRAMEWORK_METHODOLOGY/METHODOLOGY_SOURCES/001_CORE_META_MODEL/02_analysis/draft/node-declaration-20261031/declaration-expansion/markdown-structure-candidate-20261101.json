@@ -1,0 +1,135 @@
+{
+  "status": "read-only reusable-CFEL proposal; not adopted and not a runtime/parser result",
+  "scope": "Formalize the existing Atom.Content.Claim rules for at most one CFEL fenced block and no other fenced blocks. A user decision remains pending on four-space-indented code blocks.",
+  "live_claim": {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+    "before": "- At most one CFEL block is present.\n- Other fenced blocks are not allowed in Claim.\n\n```CFEL\nAtom/(.Role in RMED).Content.Claim{:1}: [markdown]{:1};\nAtom/(.Role in RMED).Content.Claim.*[]{:0}\n```",
+    "sha256": "d845449e1f616dd550043558b3074071dc5df561a08289deab0481a5b332f71a",
+    "unchanged_contract": "Atom/(.Role in RMED).Content.Claim{:1}: [markdown]{:1}; Atom/(.Role in RMED).Content.Claim.*[]{:0}"
+  },
+  "reusable_markdown_structure_rule_candidate": {
+    "title": "Select parsed Markdown code blocks",
+    "rule_text": [
+      "For a Property value p in Format [markdown], MARKDOWN_FENCED_BLOCKS(p) selects the fenced code-block structures in the complete parse of that scalar value. MARKDOWN_INDENTED_BLOCKS(p) selects indentation-based code-block structures. These selections are parsed Markdown value structures, not CAPRMEDIO Graph Nodes and not authored dependent Properties.",
+      "INFO_STRING(b) returns the exact info string attached to fenced block b, including the empty string when no info string is present. It does not inspect or validate the block's contents.",
+      "COUNT(selection) returns the number of selected parsed blocks. ALL(b IN selection, predicate) holds when the predicate holds for every selected block; it holds for an empty selection.",
+      "The parser must provide a complete parse of the entire Markdown scalar value. Missing, incomplete, or unresolved parsed structure is an evaluation error and cannot satisfy a constraint by being treated as an empty selection.",
+      "These operations inspect block boundaries and fenced-block info strings only. CFEL syntax inside a CFEL-labelled block is checked separately by the CFEL syntax rules. Other block languages and ordinary Markdown text are not interpreted as CFEL."
+    ],
+    "candidate_notation": "COUNT(MARKDOWN_FENCED_BLOCKS(p)) <= n; ALL(b IN MARKDOWN_FENCED_BLOCKS(p), INFO_STRING(b) = \"label\")",
+    "scope_guards": [
+      "Each invocation receives one scalar Markdown Property value; it does not bind or recurse through the Property's dependent Properties.",
+      "COUNT and ALL are generic parsed-value operations, not a Claim-specific VALID_CLAIM predicate.",
+      "No graph Node, Atom field, or recursive Property binding is introduced.",
+      "Atom.Content.Claim.*[]{:0} remains unchanged."
+    ],
+    "implementation_boundary": "This is a candidate CFEL capability. It does not claim that a parser exists, has been selected, or is used by runtime validation."
+  },
+  "consumer_policy_variants": [
+    {
+      "variant": "fenced_blocks_only",
+      "user_answer_required": "If four-space-indented code blocks are allowed and only fenced blocks are restricted.",
+      "formal_candidate": "COUNT(MARKDOWN_FENCED_BLOCKS(Atom/(.Role in RMED).Content.Claim)) <= 1; ALL(b IN MARKDOWN_FENCED_BLOCKS(Atom/(.Role in RMED).Content.Claim), INFO_STRING(b) = \"CFEL\")",
+      "result": "Zero fenced blocks are allowed. If a fenced block exists, there can be at most one and its exact info string must be CFEL. Indented code blocks are outside this selection and remain allowed.",
+      "proposed_after_claim_if_rule_is_adopted": "```CFEL\nAtom/(.Role in RMED).Content.Claim{:1}: [markdown]{:1};\nAtom/(.Role in RMED).Content.Claim.*[]{:0};\nCOUNT(MARKDOWN_FENCED_BLOCKS(p)) <= 1;\nALL(b IN MARKDOWN_FENCED_BLOCKS(p), INFO_STRING(b) = \"CFEL\")\n```",
+      "p_binding": "For this declaration, p is each selected Atom.Content.Claim scalar value; each invocation parses that one value only."
+    },
+    {
+      "variant": "fenced_and_indented_blocks",
+      "user_answer_required": "If four-space-indented code blocks are also forbidden.",
+      "formal_candidate": "COUNT(MARKDOWN_FENCED_BLOCKS(Atom/(.Role in RMED).Content.Claim)) <= 1; ALL(b IN MARKDOWN_FENCED_BLOCKS(Atom/(.Role in RMED).Content.Claim), INFO_STRING(b) = \"CFEL\"); COUNT(MARKDOWN_INDENTED_BLOCKS(Atom/(.Role in RMED).Content.Claim)) = 0",
+      "result": "Zero or one fenced block is allowed and it must have exact info string CFEL; no indentation-based code block is allowed.",
+      "proposed_after_claim_if_rule_is_adopted": "```CFEL\nAtom/(.Role in RMED).Content.Claim{:1}: [markdown]{:1};\nAtom/(.Role in RMED).Content.Claim.*[]{:0};\nCOUNT(MARKDOWN_FENCED_BLOCKS(p)) <= 1;\nALL(b IN MARKDOWN_FENCED_BLOCKS(p), INFO_STRING(b) = \"CFEL\");\nCOUNT(MARKDOWN_INDENTED_BLOCKS(p)) = 0\n```",
+      "p_binding": "For this declaration, p is each selected Atom.Content.Claim scalar value; each invocation parses that one value only."
+    }
+  ],
+  "reusable_value_consumers": [
+    {
+      "subject": "Atom/(.Role in RMED).Content.Claim",
+      "format_contract": "Required single Markdown value.",
+      "policy_in_this_candidate": "The two alternatives above; apply only after the indentation question is answered."
+    },
+    {
+      "subject": "Atom/(.Role in RMED).Content.Claim Scope",
+      "format_contract": "Optional single Markdown value.",
+      "policy_in_this_candidate": "No new restriction. It is an example of another scalar Markdown value the generic block selector can inspect if later governed."
+    },
+    {
+      "subject": "Atom/(.Role in RMED).Content.Details",
+      "format_contract": "Optional single Markdown value.",
+      "policy_in_this_candidate": "No new restriction. It is an example of another scalar Markdown value the generic block selector can inspect if later governed."
+    },
+    {
+      "subject": "Atom/(.Role in RMED).Content.Semantics",
+      "format_contract": "Optional single Markdown value.",
+      "policy_in_this_candidate": "No new restriction. It is an example of another scalar Markdown value the generic block selector can inspect if later governed."
+    },
+    {
+      "subject": "Atom.Content.Summary",
+      "format_contract": "Required single Markdown value.",
+      "policy_in_this_candidate": "No new restriction. It is an example of another scalar Markdown value the generic block selector can inspect if later governed."
+    }
+  ],
+  "counterexamples": [
+    {
+      "input_shape": "A fenced block with no info string: ```\\ntext\\n```",
+      "fenced_blocks_only": "fails: the empty exact info string is not CFEL",
+      "fenced_and_indented": "fails: the empty exact info string is not CFEL"
+    },
+    {
+      "input_shape": "Two fenced blocks, each with exact info string CFEL",
+      "fenced_blocks_only": "fails: fenced-block count is 2, exceeding 1",
+      "fenced_and_indented": "fails: fenced-block count is 2, exceeding 1"
+    },
+    {
+      "input_shape": "One fenced block labelled yaml",
+      "fenced_blocks_only": "fails: exact info string is not CFEL",
+      "fenced_and_indented": "fails: exact info string is not CFEL"
+    },
+    {
+      "input_shape": "One four-space-indented code block and no fences",
+      "fenced_blocks_only": "passes these fence-only constraints: the indented block is not selected",
+      "fenced_and_indented": "fails: indented-block count is not zero"
+    },
+    {
+      "input_shape": "Ordinary prose with no code blocks",
+      "fenced_blocks_only": "passes: zero fences and the universal label condition is vacuously true",
+      "fenced_and_indented": "passes: zero fences and zero indented code blocks"
+    },
+    {
+      "input_shape": "The selected Markdown scalar cannot be completely parsed or its block structure is unavailable",
+      "fenced_blocks_only": "evaluation error; it does not pass as an empty selection",
+      "fenced_and_indented": "evaluation error; it does not pass as an empty selection"
+    },
+    {
+      "input_shape": "One well-formed fenced block labelled CFEL whose body contains invalid CFEL syntax",
+      "fenced_blocks_only": "passes the Markdown structure checks; fails separately under CFEL syntax validation",
+      "fenced_and_indented": "passes the Markdown structure checks if no indented blocks are present; fails separately under CFEL syntax validation"
+    },
+    {
+      "input_shape": "One fenced block whose exact info string is `CFEL extra`",
+      "fenced_blocks_only": "fails: the exact info string is not CFEL",
+      "fenced_and_indented": "fails: the exact info string is not CFEL"
+    }
+  ],
+  "evidence_and_boundaries": {
+    "existing_cfelfence_rule": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+      "sha256": "f33d4db8ee3c4ee2bcfd5a75bed1d708fbfb89f9287c9b29a8244ebb0397d962",
+      "evidence": "A CFEL-labelled fence carries formal content inside RMED Claim. It does not currently count fences or constrain info strings."
+    },
+    "existing_value_child_rule": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--separate-property-value-and-child-constraints.md",
+      "sha256": "68eba7f2e605076ea8643c0d2add0066f19c37ab349cb59840b096bd985d5de9",
+      "evidence": "Markdown values and dependent Property-name constraints are separate; Claim.* remains zero."
+    },
+    "pending_user_question": "Should four-space-indented code blocks also be forbidden in Claim values, or are only fenced blocks restricted?",
+    "no_decision_assumed": true
+  },
+  "mutations": {
+    "repository_files_changed": false,
+    "drafts_changed": false,
+    "runtime_or_mcp_changed": false,
+    "output": "/private/tmp/caprmedio-markdown-structure-20261101/candidate.json"
+  }
+}

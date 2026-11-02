@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "counts": {
+    "main_archives": 1263,
+    "main_current_verified_or_overlay": 1100,
+    "followup_currents": 12,
+    "followup_archives": 12,
+    "final_term_retirement": 1,
+    "register_entries": 139,
+    "selected_declarations": 90,
+    "inventory_primary": 30,
+    "inventory_property": 60
+  },
+  "errors": [],
+  "limits": [
+    "Retained C/O replacements and archived predecessor dispositions confirmed mechanically; semantic authorization and equivalence are not re-adjudicated",
+    "CA-R-2452 follow-up was outside the main publication; its before SHA was not independently reconstructed",
+    "Projection preparation, native validation and runtime are outside scope"
+  ]
+}

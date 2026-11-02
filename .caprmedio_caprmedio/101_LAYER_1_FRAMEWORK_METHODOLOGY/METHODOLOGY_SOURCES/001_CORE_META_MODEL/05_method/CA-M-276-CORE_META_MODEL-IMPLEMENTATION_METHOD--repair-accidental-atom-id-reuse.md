@@ -1,38 +1,37 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
-  - Subject/CAPRMEDIO/Carrier.Canonical Address
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-version: 25
-updated_at: 2026-10-27 19:59:41 +0400
+  active: Atom.ID
+  passive:
+  - Atom.ID
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - Atom.Content
+  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - Atom
+  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - Carrier.Canonical Address
+  - Project
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/Actor/AI Agent
+  - Entity/Aspect/Engineering/Execution Control/Decision Confidence
+  - Journal
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   method_for:
-  - CA-R-728
+  - CA-R-2493
 atom_id: CA-M-276
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 4
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Repair accidental Atom ID reuse
 
-## Scope
+## Claim scope
 
 repair of accidental reuse of assigned Project Atom IDs.
 
@@ -47,5 +46,3 @@ repair of accidental reuse of assigned Project Atom IDs.
 5. resolve **every** affected current reference against its intended Atom using the reference's context **and** recorded history. update references **only** **when** their intended targets are established; request an Operator decision for unresolved references. do **not** replace the ambiguous ID indiscriminately.
 6. verify that the repaired active identities resolve uniquely **and** **every** affected current reference still identifies its intended Claim **before** declaring the collision repaired. keep unrelated Claims **and** identities unchanged.
 7. perform repair as an explicitly authorized source change, **not** as an automatic side effect of lookup **or** compilation. preserve CA-D-336-CORE_META_MODEL-DELIVERY--resolve-active-atoms-from-canonical-carrier-identities's failure on ambiguous lookup **until** source repair is complete, **and** regenerate affected Projections from their corrected sources through their existing governed workflows.
-
-## Details

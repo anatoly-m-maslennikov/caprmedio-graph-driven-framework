@@ -1,34 +1,33 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-version: 18
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Atom/(.Role:=Operations)/Workflow
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - Atom/(.Role:=Operations)/Action
+  - Entity/Object/Occurrent/Execution/Workflow Run
+  - Entity/Object/Occurrent/Execution/Step Run
+  - Entity/Object/Continuant/History/Journal > Event Record
+version: 23
+updated_at: 2026-11-02 08:06:47 +0400
 relations:
   evaluation_for:
-  - CA-R-1508
-  - CA-R-1509
-  - CA-R-1510
-  - CA-R-1511
+  - CA-R-2464
+  - CA-R-2465
+  - CA-R-1510@18
+  - CA-R-1511@22
 atom_id: CA-E-486
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 3
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate Workflow Steps and Runs
 
-## Scope
+## Claim scope
 
 Workflow Steps **and** Runs.
 

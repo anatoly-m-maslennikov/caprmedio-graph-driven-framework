@@ -1,0 +1,170 @@
+{
+  "hashes": {
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/baseline.jsonl": "d8b704021f3a699822fd06f3749ce7f0d6b487c522e5b09e226699b6a53513bc",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/C/inputs.jsonl": "a59c14f750e5bdc26053db2a9bf5dc7c6fa4e7e63c7e52db6b9ba4116e63cf2a",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/C/outputs.jsonl": "61632320afc94753a6a270d4f08c2f223abb5d6b5152b35c25e193fdc0974eb3",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/P/inputs.jsonl": "727ba010bd35ee2512c92cfe41bdf1d9dfc4249514ff2ccd5d1c506510386923",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/P/outputs.jsonl": "502cb2438424d65957978ac5a741c99337b19f2b87a3c351162419afb2156f06",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/R/inputs.jsonl": "77af8f4e840b7ef17fc409dcc571771c1fc6e6abbac5a16d15b57f0bc67034c2",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/R/outputs.jsonl": "26bb4e197b35a6620043d23a4c4a3329b71b70ed30578d19b0fbe6055f15d8e5",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/M/inputs.jsonl": "9b472f1896f3571415d072a8e975b5b24b681bd49b884280c13dd60be0d07648",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/M/outputs.jsonl": "f617f7f96d2472a438bac99273d7473d3ee77919acd8abb1130daa632aeab3c9",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/E/inputs.jsonl": "3891916d71f6302dffd8a1ae1232e94a9d25b542301514302a9b7a6e0191de59",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/E/outputs.jsonl": "d3761b9faf560f2ec30ea155b29b008035cbe8802a1cebb34a820e61c33de989",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/D/inputs.jsonl": "bdb68e8e6ffe7272184baf76e7b9de0c52870b2c9909f4391849910612ee38ff",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/D/outputs.jsonl": "2ea42882c05bd91728307f7c9eea0ed27f25eb7b1b7e32e97672a7362e8da1cf",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/O/inputs.jsonl": "575cd22f0726c32e7c768b9f59e86a6c7ce439ec87d6a8ad3dba61ff02fde7c5",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/O/outputs.jsonl": "b72d4f074941c539894f3626e2588f358858a4fc05cd01088cd0d3fe78f79726",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/prompts/C-concern.prompt.md": "7c5d50974f0fdea88cc2e0251274f68324c850ea1be54118db1228db791fa6d2",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/prompts/D-delivery.prompt.md": "31778af7a9a0ec51ff257e7602f01187ebf352e79cdbfd87dbd5286178747dd8",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/prompts/E-evaluation.prompt.md": "407b544b83b74d5e34f62b9eabc6c1a445f592bf7dd664b03443394ef0322f6f",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/prompts/M-method.prompt.md": "f0c4e539312259b371848acc0013e99452fb54e1a74ee6460d2c3d6eb89868f9",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/prompts/O-operations.prompt.md": "6a67c2e53b8d6b7ca167ca2287b3902a8827810628da7239363dd0cb875e5170",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/prompts/P-plan.prompt.md": "7c6c7bcb09af42ffec37890ea97c35e33406b000a5ab56d413f30369c7e7a824",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/short-summary-trial/prompts/R-requirement.prompt.md": "048398e7359cd6263b12db2ac9504303a49ce3187a928e3ae892e39db0153d9a"
+  },
+  "counts": {
+    "total": 15,
+    "summary_pass": 14,
+    "summary_needs_changes": 1,
+    "body_pass": 15,
+    "body_needs_changes": 0
+  },
+  "brevity_comparison": {
+    "shorter": 11,
+    "same_length": 3,
+    "longer": 1,
+    "note": "Character comparisons describe this sample only, not a rule or quality score. R2 is longer but directly states the definition; this is not by itself a meaning defect."
+  },
+  "results": [
+    {
+      "case": "C1",
+      "role": "C",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "shorter",
+      "issues": []
+    },
+    {
+      "case": "C2",
+      "role": "C",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "shorter",
+      "issues": []
+    },
+    {
+      "case": "P1",
+      "role": "P",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "shorter",
+      "issues": []
+    },
+    {
+      "case": "P2",
+      "role": "P",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "shorter",
+      "issues": []
+    },
+    {
+      "case": "R1",
+      "role": "R",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "shorter",
+      "issues": []
+    },
+    {
+      "case": "R2",
+      "role": "R",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "longer",
+      "issues": []
+    },
+    {
+      "case": "M1",
+      "role": "M",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "shorter",
+      "issues": []
+    },
+    {
+      "case": "M2",
+      "role": "M",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "same_length",
+      "issues": []
+    },
+    {
+      "case": "E1",
+      "role": "E",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "shorter",
+      "issues": []
+    },
+    {
+      "case": "E2",
+      "role": "E",
+      "summary_verdict": "NeedsChanges",
+      "body_verdict": "Pass",
+      "baseline_comparison": "shorter",
+      "issues": [
+        {
+          "area": "Summary",
+          "source_quote": "Flag previous/next-Step claims and assignments of which sibling supplies an input",
+          "output_quote": "Check leaf Step definition",
+          "problem": "The title names only the thing checked; it does not indicate the distinctive Step boundary that the Evaluation checks.",
+          "minimal_fix": "Check leaf Step definition boundaries"
+        }
+      ]
+    },
+    {
+      "case": "D1",
+      "role": "D",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "shorter",
+      "issues": []
+    },
+    {
+      "case": "D2",
+      "role": "D",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "same_length",
+      "issues": []
+    },
+    {
+      "case": "O1",
+      "role": "O",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "same_length",
+      "issues": []
+    },
+    {
+      "case": "O2",
+      "role": "O",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "shorter",
+      "issues": []
+    },
+    {
+      "case": "O3",
+      "role": "O",
+      "summary_verdict": "Pass",
+      "body_verdict": "Pass",
+      "baseline_comparison": "shorter",
+      "issues": []
+    }
+  ],
+  "scope": "Read Summary together with its body. Shortening overrides the old keep-Summary request, while supplied terms and meaning remain. Optional polish is not a defect; no prompt/output edits."
+}

@@ -1,0 +1,10 @@
+{
+  "issue": "The registered APPLICABLE_METHODOLOGY Scope Unit lacks a separately targeted Goal. R1213 defines the similarly named Projection and excludes treating the Projection itself as a Scope Unit.",
+  "scope": "One instance Declaration Draft; future Scope Unit source migration. Engine Goal gaps are separate.",
+  "question": "Retain a distinct hosting Scope Unit, or retire that Scope Unit and retain only the Projection?",
+  "status": "Resolved; preparation updated; Current structure unchanged.",
+  "operator_answer": "yes, it's a special projection",
+  "decision": "Applicable Methodology remains a special Projection. Withdraw its Scope Unit Declaration Draft and plan retirement of the separate APPLICABLE_METHODOLOGY Scope Unit; no separate Scope Unit Goal is needed.",
+  "withdrawn_draft_snapshot": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/withdrawn-applicable-methodology-scope-declaration.md",
+  "current_structure_changed": false
+}

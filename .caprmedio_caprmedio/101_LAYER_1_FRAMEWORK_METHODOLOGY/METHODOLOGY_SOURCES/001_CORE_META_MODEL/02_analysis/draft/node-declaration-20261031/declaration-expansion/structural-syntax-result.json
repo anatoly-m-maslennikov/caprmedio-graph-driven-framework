@@ -1,0 +1,26 @@
+{
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-GFEL--bind-instance-variables.md",
+      "id": "CA-R-draft",
+      "form": "Rule",
+      "sha256": "ef9c2b093244f607bdb9359779d8993e1eef1a6905de9b4fd24715c4f040d77c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-GFEL--compare-numeric-values.md",
+      "id": "CA-R-draft",
+      "form": "Rule",
+      "sha256": "92051aa5406656a3a83d6c94f13fe0a2b9cf0e83d7fbc08523b34204f9fb9096"
+    }
+  ],
+  "binding_semantics": [
+    "Typed instance-property reads and repeated variable references use the same matched existing instance.",
+    "IF link conditions test actual or legitimately derived links; THEN applies only to linked bindings, with no Cartesian existence obligation.",
+    "Membership is instance-set identity; = and != on bound instances compare identity."
+  ],
+  "numeric_semantics": [
+    "Binary + returns a numeric sum, exact integer for two integer operands; it precedes comparisons unless parenthesized.",
+    "Existing single numeric operand, invalid missing/multiple, no string coercion and non-assignment rules remain."
+  ],
+  "status": "Draft rules only; review required; no runtime change."
+}

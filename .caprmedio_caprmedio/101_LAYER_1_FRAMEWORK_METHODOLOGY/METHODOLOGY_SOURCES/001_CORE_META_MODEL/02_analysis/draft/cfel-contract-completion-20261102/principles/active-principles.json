@@ -1,0 +1,866 @@
+{
+  "captured_at": "2026-11-02 06:08:16 +0400",
+  "selection": "Live Active Project Scope Contracts and applicable Core rules identified by the independent researcher; no commit/admission claim",
+  "principles": [
+    {
+      "id": "CA-R-001",
+      "version": 25,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-001-RULE--keep-nesting-sibling-order-and-navigation-distinct.md",
+      "sha256": "d5c368a15ac57c2da6c10a4505f005d2940a9bbd0183d27abe1b580e78011d0b",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure",
+        "passive": [
+          "Project",
+          "Scope Unit",
+          "Scope Unit.Local Order"
+        ],
+        "governs": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure",
+        "depends_on": [
+          "Project",
+          "Scope Unit",
+          "Scope Unit.Local Order"
+        ]
+      },
+      "body": "## Summary\n\nKeep nesting, sibling order, and navigation distinct\n\n## Claim\n\nthe Project Scope Unit topology **must** distinguish Structural Level as nesting depth, Local Order as the order of ordered siblings under the same parent, **and** Navigational Order Number as presentation; dependency permission **must** follow its relation-family authority **and** **must not** be created by a filename number, nesting position, **or** the assumption that **every** Scope Unit is a Layer.\n"
+    },
+    {
+      "id": "CA-R-007",
+      "version": 31,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-007-RULE--full-minimal-traceability.md",
+      "sha256": "96d21407108071bb8fa15ac0ef15b5c2b7c5acb8c6c4b9bdef2e48feb5692eb4",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Aspect/Product: CAPRMEDIO Framework",
+        "passive": [
+          "Entity/Aspect/Engineering/Traceability"
+        ],
+        "governs": "Entity/Aspect/Product: CAPRMEDIO Framework",
+        "depends_on": [
+          "Entity/Aspect/Engineering/Traceability"
+        ]
+      },
+      "body": "## Summary\n\nFull minimal traceability\n\n## Claim\n\nCAPRMEDIO **must** record **all** **and** **only** the direct typed relations necessary **to** trace **every** governed authority **to** its real Implementation **and** material dependents; inverse, transitive, **and** aggregate relations **must** be derived.\n"
+    },
+    {
+      "id": "CA-R-029",
+      "version": 34,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-029-RULE--govern-each-scope-by-authority-mode.md",
+      "sha256": "db1fb0a8c19ffcf5f6a0efcf54be5b23b7f07ef337a5de91e6d9445ddd955895",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes",
+        "passive": [
+          "Project",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "Atom/(.Role := Requirement)",
+          "Atom/(.Role := Method)",
+          "Atom/(.Role := Evaluation)",
+          "Atom/(.Role := Delivery)",
+          "Atom/(.Role := Plan)",
+          "Atom/(.Role := Operations)",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure",
+          "Scope Unit"
+        ],
+        "governs": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes",
+        "depends_on": [
+          "Project",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "Atom/(.Role := Requirement)",
+          "Atom/(.Role := Method)",
+          "Atom/(.Role := Evaluation)",
+          "Atom/(.Role := Delivery)",
+          "Atom/(.Role := Plan)",
+          "Atom/(.Role := Operations)",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure",
+          "Scope Unit"
+        ]
+      },
+      "body": "## Summary\n\nGovern each scope by authority mode\n\n## Claim\n\nthe caprmedio Project **must** use the effective Authority Mode for the Project **and** **every** configured Scope Unit under CA-R-1430:\n\n- Framework Instance Settings selects the Project mode **and** the default Scope Unit mode.\n- a Scope Unit's explicit override comes **only** from its authoritative Project Structure declaration; an omitted override uses the effective Framework Instance setting.\n\nmode selection **must not** weaken active-authority consistency.\n"
+    },
+    {
+      "id": "CA-R-1178",
+      "version": 26,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-1178-CAPRMEDIO-SCOPE_CONTRACT-GOAL--reduce-tokens-mistakes-and-context-clutter.md",
+      "sha256": "156a9333511f0ab4d4f49299808eb08ecf45e1d60e6417bfe022f7c49d1c7860",
+      "tier": 0,
+      "role": "Requirement",
+      "form": "Goal",
+      "subjects": {
+        "active": "Entity/Aspect/Engineering",
+        "passive": [
+          "Entity/Object/Continuant/Actor/AI Agent",
+          "Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "Project"
+        ],
+        "governs": "Entity/Aspect/Engineering",
+        "depends_on": [
+          "Entity/Object/Continuant/Actor/AI Agent",
+          "Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "Project"
+        ]
+      },
+      "body": "## Summary\n\nReduce tokens, mistakes, and context clutter\n\n## Claim\n\nFRAMEWORK_ENGINE **must** minimize token consumption, AI Agent mistakes, **and** irrelevant **or** stale context **when** applying the Applicable Methodology, while preserving required Project outcomes.\n"
+    },
+    {
+      "id": "CA-R-1407",
+      "version": 26,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-1407-CAPRMEDIO-SCOPE_CONTRACT-RULE--the-caprmedio-instance-and-the-implementation-form-a-graph-of-graphs.md",
+      "sha256": "9574874a9d374fd168f4874bd1b7f50676dea48a0887df422ea7313ef5fd89c2",
+      "tier": 0,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Aspect/Engineering",
+        "passive": [
+          "Project",
+          "Entity/Aspect/Engineering/Architecture/Component Structure",
+          "Entity/Object/Continuant/Package/Project Implementation",
+          "Entity"
+        ],
+        "governs": "Entity/Aspect/Engineering",
+        "depends_on": [
+          "Project",
+          "Entity/Aspect/Engineering/Architecture/Component Structure",
+          "Entity/Object/Continuant/Package/Project Implementation",
+          "Entity"
+        ]
+      },
+      "body": "## Summary\n\nThe CAPRMEDIO instance and the Implementation form a graph of graphs\n\n## Claim\n\nthe CAPRMEDIO Framework Instance **and** the Implementation **must** form one connected Graph of Graphs.\n"
+    },
+    {
+      "id": "CA-R-1420",
+      "version": 25,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-1420-CAPRMEDIO-SCOPE_CONTRACT-GOAL--support-informed-operator-decisions.md",
+      "sha256": "ef8f76bdfe3111aae403447b806950d5be00f1d6b1815cc36c575e93e36ee7eb",
+      "tier": 0,
+      "role": "Requirement",
+      "form": "Goal",
+      "subjects": {
+        "active": "Entity/Object/Continuant/Actor/Operator",
+        "passive": [
+          "Entity/Object/Continuant/Actor/Operator",
+          "Entity/Aspect/Product: CAPRMEDIO Framework",
+          "Entity/Object/Continuant/Actor/AI Agent"
+        ],
+        "governs": "Entity/Object/Continuant/Actor/Operator",
+        "depends_on": [
+          "Entity/Object/Continuant/Actor/Operator",
+          "Entity/Aspect/Product: CAPRMEDIO Framework",
+          "Entity/Object/Continuant/Actor/AI Agent"
+        ]
+      },
+      "body": "## Summary\n\nSupport informed Operator decisions\n\n## Claim\n\nthe CAPRMEDIO Framework Instance **and** AI Agents **must** keep communication with the Operator necessary **and** sufficient for the Operator **to** make informed decisions.\n"
+    },
+    {
+      "id": "CA-R-1423",
+      "version": 25,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-1423-CAPRMEDIO-SCOPE_CONTRACT-GOAL--support-improvement-from-observed-outcomes.md",
+      "sha256": "342c259328fd6aba6c618557958f3ac13a799345ba59d0042245d4bc37f5751a",
+      "tier": 0,
+      "role": "Requirement",
+      "form": "Goal",
+      "subjects": {
+        "active": "Entity/Aspect/Product: CAPRMEDIO Framework",
+        "passive": [
+          "Entity/Object/Continuant/Actor/Operator"
+        ],
+        "governs": "Entity/Aspect/Product: CAPRMEDIO Framework",
+        "depends_on": [
+          "Entity/Object/Continuant/Actor/Operator"
+        ]
+      },
+      "body": "## Summary\n\nSupport improvement from observed outcomes\n\n## Claim\n\nCAPRMEDIO **must** support the Operator **in** producing **and** evaluating an improvement proposal for **every** material observed Project outcome, with the proposal limited **to** the narrowest scope affected by that outcome **and** kept within the Operator's current authority.\n"
+    },
+    {
+      "id": "CA-R-1426",
+      "version": 23,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-1426-CAPRMEDIO-SCOPE_CONTRACT-GOAL--make-engine-execution-observable-and-transparent.md",
+      "sha256": "cca1721a50bcbeddb949a59e041f1c86b4f8805c0178a41b827eddc323c072bc",
+      "tier": 0,
+      "role": "Requirement",
+      "form": "Goal",
+      "subjects": {
+        "active": "Entity/Aspect/Engineering/Observability",
+        "passive": [
+          "Entity/Object/Continuant/Actor/Operator"
+        ],
+        "governs": "Entity/Aspect/Engineering/Observability",
+        "depends_on": [
+          "Entity/Object/Continuant/Actor/Operator"
+        ]
+      },
+      "body": "## Summary\n\nMake engine execution observable and transparent\n\n## Claim\n\nFRAMEWORK_ENGINE **must** provide observability **and** transparency sufficient for the Operator **to** understand execution, inspect changes **and** evidence, recognize failures **and** limitations, **and** make informed decisions.\n"
+    },
+    {
+      "id": "CA-R-2448",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2448-CAPRMEDIO-SCOPE_CONTRACT-GOAL--keep-valuable-project-information-recoverable.md",
+      "sha256": "4087b7eca3f33fb99595310dcb184460617952e1c4052c9694e4fe917e30419f",
+      "tier": 0,
+      "role": "Requirement",
+      "form": "Goal",
+      "subjects": {
+        "active": "Project",
+        "passive": [
+          "Project",
+          "Entity/Aspect/Product: CAPRMEDIO Framework",
+          "Entity/Object/Continuant/Package/Project Implementation"
+        ],
+        "governs": "Project",
+        "depends_on": [
+          "Project",
+          "Entity/Aspect/Product: CAPRMEDIO Framework",
+          "Entity/Object/Continuant/Package/Project Implementation"
+        ]
+      },
+      "body": "## Summary\n\nPreserve valuable information\n\n## Claim\n\nthe CAPRMEDIO Framework Instance **must** keep **all** valuable Project information recoverable across sessions, handoffs, context loss, **and** Implementation changes.\n"
+    },
+    {
+      "id": "CA-R-642",
+      "version": 23,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-642-RULE--govern-canonical-decomposition-conformance.md",
+      "sha256": "be2f54979d781162a20d5ef59cc96dbefb87cc39d5515c5c554e90544807b62f",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure",
+        "passive": [
+          "Project"
+        ],
+        "governs": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure",
+        "depends_on": [
+          "Project"
+        ]
+      },
+      "body": "## Summary\n\nGovern canonical decomposition conformance\n\n## Claim\n\n**every** canonical decomposition **must** declare its bounded universe **and** one discriminating question per axis **and** assign **every** admissible member **to** **`=1`** value on **every** applicable axis.\n"
+    },
+    {
+      "id": "CA-R-644",
+      "version": 25,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-644-RULE--admit-necessary-materialized-representations.md",
+      "sha256": "8c03ca52a5e3320fbce53b9bbde7ca7c9f1ab79a2479ff0652235eb70d9930f5",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Carrier",
+        "passive": [
+          "Atom/(.Role := Requirement)",
+          "Project"
+        ],
+        "governs": "Carrier",
+        "depends_on": [
+          "Atom/(.Role := Requirement)",
+          "Project"
+        ]
+      },
+      "body": "## Summary\n\nAdmit necessary materialized representations\n\n## Claim\n\nCAPRMEDIO **may** admit a materialized representation **only** **when** an explicit Requirement establishes that the representation is necessary **to** preserve a required outcome **or** a material governed distinction under CA-M-005.\n\npossible justifications include:\n\n- an external contract;\n- portability;\n- performance;\n- availability;\n- an audit snapshot; **or**\n- independently usable publication.\n\nthese examples do **not** close the set of justifications; another justification still requires the explicit Requirement **and** demonstrated necessity.\n"
+    },
+    {
+      "id": "CA-R-686",
+      "version": 30,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-686-RULE--separate-core-extension-and-project-configuration-authority.md",
+      "sha256": "3d77ba778db00bc686c11c254c39467268daa1e9b96b28908bc94d1869d194a1",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Scope Unit",
+        "passive": [
+          "Scope Unit",
+          "Project",
+          "Scope Unit//PROJECT_CONFIGURATION",
+          "Entity/Aspect/Product: CAPRMEDIO Framework"
+        ],
+        "governs": "Scope Unit",
+        "depends_on": [
+          "Scope Unit",
+          "Project",
+          "Scope Unit//PROJECT_CONFIGURATION",
+          "Entity/Aspect/Product: CAPRMEDIO Framework"
+        ]
+      },
+      "body": "## Summary\n\nSeparate core, Extension, and Project Configuration authority\n\n## Claim\n\nCAPRMEDIO **must** govern core methodology authority, reusable Extension authority, **and** Project-specific Project Configuration authority as distinct strata **without** copying **or** silently transferring meaning among them.\n"
+    },
+    {
+      "id": "CA-R-881",
+      "version": 31,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-881-RULE--use-relation-specific-cross-unit-ownership.md",
+      "sha256": "079fb0c85362e87298e915a6b7a2dc7331bcfa06dab7d5fededd5c1286a216e2",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "CFEL > Relation",
+        "passive": [
+          "Project",
+          "Scope Unit",
+          "CFEL > Relation",
+          "Atom.Content",
+          "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand"
+        ],
+        "governs": "CFEL > Relation",
+        "depends_on": [
+          "Project",
+          "Scope Unit",
+          "CFEL > Relation",
+          "Atom.Content",
+          "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand"
+        ]
+      },
+      "body": "## Summary\n\nUse relation-specific cross-unit ownership\n\n## Claim\n\ncross-unit relation ownership **must** follow the applicable relation-family authority rather than a universal common-ancestor rule; a Demand **must** be owned by its Consumer Scope Unit under CA-R-932@37 **and** **must** constrain **only** the Producer result that Consumer is permitted **to** depend on, with the applicable ancestry **and** ordered-sibling restrictions preserved.\n"
+    },
+    {
+      "id": "CA-M-005",
+      "version": 28,
+      "path": ".caprmedio_caprmedio/05_method/CA-M-005-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--add-complexity-only-when-necessary.md",
+      "sha256": "9ad7b22ef4f3d2b0c930ab282d6213b48495a4724dd140840f3d47334a4d5799",
+      "tier": 0,
+      "role": "Method",
+      "form": "Eng Policy",
+      "subjects": {
+        "active": "Project",
+        "passive": [
+          "Project"
+        ],
+        "governs": "Project",
+        "depends_on": [
+          "Project"
+        ]
+      },
+      "body": "## Summary\n\nAdd complexity only when necessary\n\n## Claim\n\n**to** govern the Project's mechanisms, admit **or** retain a mechanism **only** **when** the other admitted mechanisms cannot preserve a required outcome **or** a material governed distinction.\n"
+    },
+    {
+      "id": "CA-M-006",
+      "version": 31,
+      "path": ".caprmedio_caprmedio/05_method/CA-M-006-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--keep-the-whole-project-coherent.md",
+      "sha256": "d448aae456de6b7607de49a78dce7497199437356181f9dd529a54342b5ca0cf",
+      "tier": 0,
+      "role": "Method",
+      "form": "Eng Policy",
+      "subjects": {
+        "active": "Project",
+        "passive": [
+          "Entity/Object/Continuant/Term",
+          "Atom.Content",
+          "Entity/Object/Continuant/Package/Project Implementation"
+        ],
+        "governs": "Project",
+        "depends_on": [
+          "Entity/Object/Continuant/Term",
+          "Atom.Content",
+          "Entity/Object/Continuant/Package/Project Implementation"
+        ]
+      },
+      "body": "## Summary\n\nKeep the whole project coherent\n\n## Claim\n\n**to** govern the Project, keep its Terms, Claims, rules, structure, **and** Implementation mutually coherent **where** they share authority **or** interact.\n"
+    },
+    {
+      "id": "CA-M-446",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/05_method/CA-M-446-CAPRMEDIO-SCOPE_CONTRACT-ENG_POLICY--dry-don-t-repeat-yourself.md",
+      "sha256": "68c5bc597470c69b6e5e8b10b75be9b6f8719ce74a3fba10b39bd4475da770c3",
+      "tier": 0,
+      "role": "Method",
+      "form": "Eng Policy",
+      "subjects": {
+        "active": "Project",
+        "passive": [
+          "Project"
+        ],
+        "governs": "Project",
+        "depends_on": [
+          "Project"
+        ]
+      },
+      "body": "## Summary\n\nDRY: Don't repeat yourself\n\n## Claim\n\n**to** govern the Project, reuse existing authority **and** canonical representations **without** independently maintaining duplicates for the same purpose **in** the same context.\n"
+    },
+    {
+      "id": "CA-M-447",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/05_method/CA-M-447-CAPRMEDIO-SCOPE_CONTRACT-ENG_POLICY--mece-mutually-exclusive-collectively-exhaustive.md",
+      "sha256": "dc7cc54f9788a5fe1b3cf5db6bc391b426694ac3c773ff1355b6e25fa9f94a74",
+      "tier": 0,
+      "role": "Method",
+      "form": "Eng Policy",
+      "subjects": {
+        "active": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure",
+        "passive": [
+          "Project"
+        ],
+        "governs": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure",
+        "depends_on": [
+          "Project"
+        ]
+      },
+      "body": "## Summary\n\nMECE: Cover the whole with non-overlapping parts\n\n## Claim\n\n**to** construct a canonical decomposition that claims **to** cover a declared universe at one abstraction level, use parts drawn **only** from that universe that together cover the full declared universe **and** have no overlap between **any** two distinct parts at that level.\n"
+    },
+    {
+      "id": "CA-M-448",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/05_method/CA-M-448-CAPRMEDIO-SCOPE_CONTRACT-ENG_POLICY--show-what-is-needed-keep-the-rest.md",
+      "sha256": "93f111ad9b9352d366c75e3a04f7fe20de12c4dc8ca83cce8f019fca0351b796",
+      "tier": 0,
+      "role": "Method",
+      "form": "Eng Policy",
+      "subjects": {
+        "active": "Project",
+        "passive": [
+          "Project"
+        ],
+        "governs": "Project",
+        "depends_on": [
+          "Project"
+        ]
+      },
+      "body": "## Summary\n\nShow what is needed; keep the rest\n\n## Claim\n\n**to** expose information for a task, preserve **all** information necessary for governed use, expose the complete currently justified sufficient information set for that task from the preserved information **and** nothing outside that set, **and** keep **all** unexposed preserved information recoverable.\n"
+    },
+    {
+      "id": "CA-R-1051",
+      "version": 34,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1051-CORE_META_MODEL-RULE--separate-active-authority-from-preserved-history.md",
+      "sha256": "c92b91426754616f9d16860ad4a4082a3ece755b3f3725364f7e750159459b1d",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Object/Continuant/History",
+        "passive": [],
+        "governs": "Entity/Object/Continuant/History",
+        "depends_on": []
+      },
+      "body": "## Summary\n\nSeparate active authority from preserved history\n\n## Claim scope\n\nthe active RMED authority graph and preserved historical states and transitions.\n\n## Claim\n\nthe active RMED authority graph represents **only** current governed state. historical states **and** transitions are excluded from that graph **and** preserved through canonical lifecycle placement **and** append-only Journals; generated Projections **may** render history **without** making it active RMED authority.\n"
+    },
+    {
+      "id": "CA-R-1207",
+      "version": 31,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1207-CORE_META_MODEL-RULE--separate-project-configuration-rules-from-current-settings.md",
+      "sha256": "37562199a712c40adaf0d844d2bbcfe95666142d3f0642a0f14e4933c440db67",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Scope Unit//PROJECT_CONFIGURATION",
+        "passive": [
+          "Project",
+          "Entity/Object/Continuant/Selection//Extension Sources",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings"
+        ],
+        "governs": "Scope Unit//PROJECT_CONFIGURATION",
+        "depends_on": [
+          "Project",
+          "Entity/Object/Continuant/Selection//Extension Sources",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings"
+        ]
+      },
+      "body": "## Summary\n\nSeparate Project Configuration Rules from Current Settings\n\n## Claim scope\n\nOwnership of Project-specific expansion rules, constraints, defaults, current Extension activation, and selected Extension revisions.\n\n## Claim\n\nthe Project Configuration **must** own Project-specific expansion rules, constraints, **and** defaults **only** **where** the Core Meta-Model permits expansion; current Extension activation **and** selected Extension revisions **must** remain owned by the Framework Instance Settings Artifact, **not** duplicated **in** Project Configuration Atoms.\n"
+    },
+    {
+      "id": "CA-R-1273",
+      "version": 32,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1273-CORE_META_MODEL--keep-summary-source-faithful.md",
+      "sha256": "f29050297f233d52df368392fa6c4f4c99025d90d4f41188b60fea54a0871749",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Atom.Content.Summary",
+        "passive": [
+          "Atom.Content"
+        ],
+        "governs": "Atom.Content.Summary",
+        "depends_on": [
+          "Atom.Content"
+        ]
+      },
+      "body": "## Summary\n\nKeep Summary Source-Faithful\n\n## Claim scope\n\nthe faithfulness of an Atom's Summary **to** its authoritative content.\n\n## Claim\n\na Summary **must** preserve the intent **and** applicability of its finalized primary contribution under CA-R-2499, **without** adding, broadening, narrowing, **or** contradicting its contribution. brevity **may** omit supporting detail, but **must not** change what the Atom is about **or** add a conclusion absent from that contribution. for ordinary RMED, source faithfulness is evaluated against the Claim read within its Scope, **not** against either section alone.\n"
+    },
+    {
+      "id": "CA-R-1429",
+      "version": 28,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL--separate-settings-boundaries-from-field-specifications.md",
+      "sha256": "a6ead1a4b720321763c0a74c9328b1945fb73642a814393b1416781ac46de1c8",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Object/Continuant/Governing Objects/Governing Configuration",
+        "passive": [
+          "Project.Settings",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "Atom.Tier",
+          "Scope Unit"
+        ],
+        "governs": "Entity/Object/Continuant/Governing Objects/Governing Configuration",
+        "depends_on": [
+          "Project.Settings",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "Atom.Tier",
+          "Scope Unit"
+        ]
+      },
+      "body": "## Summary\n\nSeparate settings boundaries from field specifications\n\n## Claim scope\n\nthe authority boundary between settings foundations, shared settings specifications, **and** concrete specifications.\n\n## Claim\n\n- the settings foundations for Project Settings, Framework Instance Settings, **and** Default Settings **must** define their purpose, content, **and** authority boundaries;\n- an independently governable shared settings specification **must** preserve those foundations **without** selecting a concrete representation;\n- **every** concrete section, field, **or** Carrier syntax specification **must** be specified explicitly.\n\na setting **must not** require a shared settings specification **unless** a distinct shared specification requires independent authority.\n"
+    },
+    {
+      "id": "CA-R-1432",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL--classify-admitted-atom-changes-by-semantic-effect.md",
+      "sha256": "8c781981a0da0f5ddb81e7846b7d1bcacc78a0c5b6b1da22c0e501d74756f35c",
+      "tier": 2,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Atom",
+        "passive": [
+          "Atom",
+          "Atom.Content.Summary",
+          "Carrier",
+          "Entity/Object/Continuant/Governing Objects/Atom/Content Role"
+        ],
+        "governs": "Atom",
+        "depends_on": [
+          "Atom",
+          "Atom.Content.Summary",
+          "Carrier",
+          "Entity/Object/Continuant/Governing Objects/Atom/Content Role"
+        ]
+      },
+      "body": "## Summary\n\nClassify admitted Atom changes by semantic effect\n\n## Claim scope\n\nthe classification of admitted Atom changes by semantic effect.\n\n## Claim\n\n**before** changing an admitted Atom, CAPRMEDIO **must** assign **`=1`** change class using these boundaries, identity results, **and** required reviews:\n\n| Change class | Boundary | Identity result | Required review |\n|---|---|---|---|\n| `carrier_only` | Representation, the Atom's own filename **or** local placement, encoding, **or** lossless Entity-name/reference renaming **without** changing governed meaning **or** the Atom's Summary value **or** Content Role | Keep the Atom ID; increment Version by exactly **`1`** | Verify lossless recoding |\n| `refinement` | Wording **or** criteria become clearer **or** stricter while content, applicability, **and** acceptance meaning remain equivalent **and** Summary **and** Content Role remain unchanged | Keep the Atom ID; increment Version by exactly **`1`** | Demonstrate equivalence |\n| `semantic_revision` | Meaning **or** applicability changes while Summary **and** Content Role remain unchanged | Keep the Atom ID; increment Version by exactly **`1`** | Declare the delta **and** complete lineage-impact review |\n| `replacement` | the Summary value changes under CA-R-1464 **or** Content Role changes | Create a new Atom ID; preserve the predecessor **and** successor identity binding under CA-R-807 | Review the replacement boundary **and** affected lineage |\n\nFor an existing Atom, only a Summary **or** Content Role change creates a new base Atom ID. Content Role changes always create a new Atom, even with unchanged Summary. Claim, other Content, Type, Status, applicability **or** other property changes alone retain the base ID when Summary **and** Content Role stay unchanged. Scope narrowing **or** expansion is a `semantic_revision`, **not** carrier-only. Adding a separately authored Atom gives that new Atom its own ID; it does not itself replace an existing Atom whose Summary **and** Content Role remain unchanged. Lossless serialization of the same Summary value is **not** a Summary change. the semantic change class is independent of storage transactions **or** version-control change sets; persistence preserves the admitted Atom, Carrier, **and** Journal authority.\n\n**every** actual same-ID update **must** increment Version by exactly **`1`**, regardless of change class, **and** refresh Updated At under CA-R-1788. an exact no-op **must** retain Version **and** Updated At. When a predecessor is archived, its Archive Carrier **must** carry `status: Archived`, identify that predecessor as `<canonical-ID>@<old-version>`, and preserve its numeric Version, prior Updated At, and unrelated content. The Current successor retains the canonical ID, advances Version by exactly **`1`**, and receives the actual Project-time edit instant. Git history preserves the exact pre-archive Carrier bytes; the archive conversion does not require an exact-byte copy.\n\nthis classification concerns changes **to** the Atom's own bytes, metadata, direct ownership **or** local placement. moving an ancestor **only** changes a descendant's repository locator **when** that descendant's own bytes, metadata, direct owner **and** placement relative **to** that owner remain unchanged; this is **not** an Atom update **and** **must** retain that descendant's Version **and** Updated At. this boundary applies **to** **all** Atoms, including Plans nested under a moved Plan **and** Atoms whose owning Scope Unit moves. an actual change **to** the Atom itself, including its Status, filename, direct owner **or** local placement, still follows the classification **and** revision rules above. Exact pre-change bytes remain available through Git history.\n\nTools **may** propose a class but **must** fail closed **when** the distinction between refinement, semantic revision, **and** replacement is uncertain.\n"
+    },
+    {
+      "id": "CA-R-1437",
+      "version": 28,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL--keep-one-source-for-each-relation-fact.md",
+      "sha256": "da24464b21c7df6a63571859896e740bcef201defed1c7032856b09613f90f3f",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "CFEL > Relation",
+        "passive": [
+          "CFEL > Relation",
+          "Entity",
+          "Projection",
+          "Entity/Aspect/Engineering/Traceability",
+          "Atom.Content",
+          "Journal"
+        ],
+        "governs": "CFEL > Relation",
+        "depends_on": [
+          "CFEL > Relation",
+          "Entity",
+          "Projection",
+          "Entity/Aspect/Engineering/Traceability",
+          "Atom.Content",
+          "Journal"
+        ]
+      },
+      "body": "## Summary\n\nKeep one source for each relation fact\n\n## Claim scope\n\nauthoritative source declarations for Relation facts.\n\n## Claim\n\n**every** independently authored Relation fact **must** have **`=1`** authoritative source declaration under Single Source of Truth. its representation **in** multiple CAPRMEDIO Graph views remains a reference **or** derived Projection of that declaration **without** creating another independently maintained source.\n\na Relation derived under admitted derivation authority **must** remain traceable **to** that authority **and** its authoritative input facts, including through upstream Projections. it does **not** require a fabricated direct source declaration for the derived result. this distinction **must not** weaken a Relation Kind's requirement for an explicit source fact **or** permit unsupported inference.\n"
+    },
+    {
+      "id": "CA-R-1558",
+      "version": 23,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-RULE--route-questions-and-ideas-through-exploration-mode.md",
+      "sha256": "3e6f4b0155262e6c82f8808fd631dbffea7d8eedb59d08682adf0fcbd97a367d",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Object/Continuant/Actor/AI Agent",
+        "passive": [
+          "Entity/Object/Continuant/Actor/Operator",
+          "Entity/Object/Continuant/Actor/AI Agent.Permissions",
+          "Term//Artifact",
+          "Atom.Content"
+        ],
+        "governs": "Entity/Object/Continuant/Actor/AI Agent",
+        "depends_on": [
+          "Entity/Object/Continuant/Actor/Operator",
+          "Entity/Object/Continuant/Actor/AI Agent.Permissions",
+          "Term//Artifact",
+          "Atom.Content"
+        ]
+      },
+      "body": "## Summary\n\nRoute questions and ideas through Exploration Mode\n\n## Claim scope\n\nexploratory Operator input and its promotion from Exploration Mode.\n\n## Claim\n\nan AI Agent **must** handle exploratory Operator input **in** Exploration Mode under the following participation policy:\n\n- Exploration Mode permits brainstorming, discussion, research, analysis, comparison, terminology work, **and** structural modeling **without** creating **or** changing governed Artifacts.\n- input is exploratory **when** it primarily asks for information, explanation, comparison, critique, alternatives, **or** a recommendation, **or** introduces an idea, explores it, **or** asks for feedback on it.\n- an explicit Operator request **to** create **or** change governed state takes precedence over question-shaped wording.\n- **otherwise**, Exploration Mode ends **only** **when** the Operator explicitly accepts a conclusion **or** requests its promotion. the AI Agent **must** **then** create **only** the minimum Artifacts required **to** preserve the accepted meaning within the authorized change.\n- whether a mode transition is announced is an interaction-reporting choice; it does **not** change this participation policy.\n"
+    },
+    {
+      "id": "CA-R-1696",
+      "version": 36,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-RULE--keep-the-core-meta-model-implementation-neutral.md",
+      "sha256": "de1d7a24fc9fbeedaf703d42a73607fb909f51c7fdf83a1343ad722886e9c11e",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Scope Unit//CORE_META_MODEL",
+        "passive": [],
+        "governs": "Scope Unit//CORE_META_MODEL",
+        "depends_on": []
+      },
+      "body": "## Summary\n\nKeep the Core Meta-Model implementation neutral\n\n## Claim scope\n\nCORE_META_MODEL authority and its reusable model invariants and expansion boundaries.\n\n## Claim\n\nCORE_META_MODEL authority **must** define reusable model invariants **and** expansion boundaries **without** hidden dependence on a programming language, LLM provider **or** model, agent host, operating system, repository host, package manager, database, deployment platform, **or** other replaceable implementation mechanism.\n\nmechanism-specific obligations belong **to** the Scope that owns the mechanism. Extensions **and** PROJECT_CONFIGURATION **may** expand the model for their bounded use **without** rewriting its governing Claims.\n\nCORE_META_MODEL **may** name a mechanism **only** **when** the mechanism itself is the explicit Entity governed by the Claim, such as a Carrier format, portability boundary, **or** external constraint; this reference **must not** make that mechanism a hidden prerequisite of unrelated model Claims.\n"
+    },
+    {
+      "id": "CA-R-1718",
+      "version": 35,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1718-CORE_META_MODEL-RULE--preserve-strict-semantic-distinctions.md",
+      "sha256": "f84da721c9c32b8e1c38642824a08b294054a89ae7430bee22c13b1bfd1852b7",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Object/Continuant/Governing Objects/Atom/Content Role",
+        "passive": [],
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role",
+        "depends_on": []
+      },
+      "body": "## Summary\n\nPreserve strict semantic distinctions\n\n## Claim scope\n\nindependently governed meanings.\n\n## Claim\n\nindependently governed meanings **must** remain distinct even **when** ordinary language, one Carrier, one workflow, **or** one Implementation change presents them together:\n\n- an Entity is **not** its description **or** Carrier;\n- a Requirement is **not** its Method;\n- a Method is **not** its Implementation;\n- an Evaluation criterion is **not** its execution result;\n- provenance is **not** evidence; **and**\n- an observed fact is **not** authority for the desired state.\n\n**if** wording could resolve **to** multiple governed meanings, **then** the intended meaning **and** its owning Type **must** be resolved **before** the Claim is admitted. this is an admission condition, **not** a definition of the recovery Action **or** Workflow.\n\nco-location, readable presentation, automation, **or** a Relation between meanings **must not** merge their identities **or** transfer their semantic force.\n"
+    },
+    {
+      "id": "CA-R-1750",
+      "version": 39,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md",
+      "sha256": "298823bbbd0aa477fe3ca1fd93df2a65663ea5d34d6fc0ed82e6a3bf0c5a7e19",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+        "passive": [
+          "Entity/Object/Continuant/Actor/Operator",
+          "Project.Settings",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure",
+          "Entity/Object/Continuant/Governing Objects/Governing Configuration",
+          "Project.Settings.Name",
+          "Project.Settings.Prefix",
+          "Atom"
+        ],
+        "governs": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+        "depends_on": [
+          "Entity/Object/Continuant/Actor/Operator",
+          "Project.Settings",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure",
+          "Entity/Object/Continuant/Governing Objects/Governing Configuration",
+          "Project.Settings.Name",
+          "Project.Settings.Prefix",
+          "Atom"
+        ]
+      },
+      "body": "## Summary\n\nPartition Operator Settings Between Settings Artifacts\n\n## Claim scope\n\nOperator-selected settings and their authoritative Settings Artifacts.\n\n## Claim\n\nan Operator-selected setting **must** have **`=1`** authoritative owner: Project Settings for Project initialization inputs, including Project Settings Name **and** Project Settings Prefix; Framework Instance Settings for CAPRMEDIO behavior, configuration choices, **and** Authority Mode defaults; **or** Project Structure for an explicit per-Scope-Unit Authority Mode override. Atoms define permitted parameters, constraints, **and** applicability **without** fixing **or** duplicating current selected values **or** Default Settings values. definitions **and** storage rules for Project Settings Name **and** Project Settings Prefix belong **to** CORE_META_MODEL.\n\n### Current source pin\n\nProposed N+1 successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md`, CA-R-1750@37, SHA-256 `a9222939e3847db6a2c5da16b55122c4108b4f467d8609452dc581088ea9d77c`. Current bytes remain unchanged; this Draft performs no promotion or runtime change.\n"
+    },
+    {
+      "id": "CA-R-1756",
+      "version": 35,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL--make-scope-unit-ownership-immediate-and-recursive.md",
+      "sha256": "3b2321d3412a9386a2926b6ecff8f92fdc4b3032870fec3325b68c5fc6569184",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Object/Continuant/Structural Unit/Scope Unit.Children",
+        "passive": [],
+        "governs": "Entity/Object/Continuant/Structural Unit/Scope Unit.Children",
+        "depends_on": []
+      },
+      "body": "## Summary\n\nMake Scope Unit ownership immediate and recursive\n\n## Claim scope\n\nScope Units and their direct child Scope Units.\n\n## Claim\n\n**every** Scope Unit **must** own **only** its direct child Scope Units through the same recursive structural-parent relation.\n"
+    },
+    {
+      "id": "CA-R-1759",
+      "version": 37,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL--keep-the-project-unordered-without-a-parent.md",
+      "sha256": "2285ce0035c747640676065b8e83738d719c733463cf669fb64758a72b0049ea",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Project",
+        "passive": [
+          "Scope Unit",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Type"
+        ],
+        "governs": "Project",
+        "depends_on": [
+          "Scope Unit",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit/Type"
+        ]
+      },
+      "body": "## Summary\n\nKeep the Project Unordered without a Parent\n\n## Claim scope\n\nthe Project Scope Unit.\n\n## Claim\n\nthe Project Scope Unit **must** have **`=0`** parent Scope Units **and** Type: Unordered.\n"
+    },
+    {
+      "id": "CA-R-2100",
+      "version": 8,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2100-CORE_META_MODEL-RULE--limit-each-atom-to-one-governed-subject.md",
+      "sha256": "ad0fbbbe0d1e50938cda066645f50d2600e758e35bdea42c68c0e25f0d5a4ceb",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Atom.Subjects",
+        "passive": [
+          "CFEL > Relation//GOVERNS"
+        ],
+        "governs": "Atom.Subjects",
+        "depends_on": [
+          "CFEL > Relation//GOVERNS"
+        ]
+      },
+      "body": "## Summary\n\nLimit each Atom to one governed Subject\n\n## Claim scope\n\nThe direct GOVERNS Subject Relations recorded in an Atom's Subjects.\n\n## Claim\n\nAn Atom **may** have zero or one direct GOVERNS Subject Relation. No Atom's Subjects **may** contain more than one direct GOVERNS Subject Relation.\n\n## Details\n\nThis Rule limits cardinality only. It does not require an Atom to have a GOVERNS Subject. The Subjects collection is optional, and DEPENDS_ON relations are not limited by this Rule.\n"
+    },
+    {
+      "id": "CA-R-2424",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2424-CORE_META_MODEL-RULE--define-local-scope-contract-tier-zero.md",
+      "sha256": "c67c18c0b92f7f6b38b5c6f4318a1d5b81a709d5a1db1b66b0cabfd923b7e89b",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Atom.Tier",
+        "passive": [
+          "Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit",
+          "Project"
+        ],
+        "governs": "Atom.Tier",
+        "depends_on": [
+          "Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit",
+          "Project"
+        ]
+      },
+      "body": "## Summary\n\nDefine local Scope Contract Tier Zero\n\n## Claim scope\n\nLocal foundational commitments of Scope Units.\n\n## Claim\n\nA Scope Unit\u2019s local foundational commitments are expressed by its Atoms at numeric Tier `0`, whose readable Tier Label is Scope Contract. Tier `0` applies to Project and non-Project Scope Units. Each Atom retains its Content Role and Type, including existing Operations Types such as Workflow, Action and Step. Tier `1` and above specializes or realizes the local foundational commitments. This rule does not require an Atom for every Content Role or exactly one Tier `0` Atom for a Scope Unit. The external Project Goal retains its Operator Actor owner and its separately governed Tier `-1`.\n"
+    },
+    {
+      "id": "CA-R-643",
+      "version": 33,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-643-CORE_META_MODEL--give-each-governed-claim-one-authoritative-atom-owner.md",
+      "sha256": "199b5b7a912ca4e0738195a310560b92dc57c7d470f135cd851072b1829a9b08",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Atom.Content",
+        "passive": [
+          "Atom"
+        ],
+        "governs": "Atom.Content",
+        "depends_on": [
+          "Atom"
+        ]
+      },
+      "body": "## Summary\n\nGive each governed Claim one authoritative Atom owner\n\n## Claim scope\n\ngoverned Claims.\n\n## Claim\n\n**every** governed Claim **must** have **`=1`** authoritative Atom owner.\n"
+    },
+    {
+      "id": "CA-R-920",
+      "version": 33,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-920-CORE_META_MODEL--give-every-atom-one-scope.md",
+      "sha256": "22553b9860d599d3ce3014c48b4fdc0709a563e6be8429a9e0fd8e028baeea4c",
+      "tier": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit",
+        "passive": [
+          "Atom"
+        ],
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit",
+        "depends_on": [
+          "Atom"
+        ]
+      },
+      "body": "## Summary\nGive Every Atom One Scope\n\n## Claim scope\nAtoms.\n\n## Claim\n\n**every** Atom **must** have **`=1`** Scope.\n"
+    },
+    {
+      "id": "CA-R-1317",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1317-PROJECT_CONFIGURATION-RULE--fail-closed-on-unresolved-methodology-conflicts.md",
+      "sha256": "e2d083ffc746e6d377327db12539502b74066e54c304ce09ebba6ebb107f6f87",
+      "tier": 3,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+        "passive": [
+          "Scope Unit//PROJECT_CONFIGURATION",
+          "Entity/Object/Continuant/Actor/Operator",
+          "Entity/Object/Continuant/History/Journal > Event Record",
+          "Scope Unit"
+        ],
+        "governs": "Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+        "depends_on": [
+          "Scope Unit//PROJECT_CONFIGURATION",
+          "Entity/Object/Continuant/Actor/Operator",
+          "Entity/Object/Continuant/History/Journal > Event Record",
+          "Scope Unit"
+        ]
+      },
+      "body": "## Summary\n\nFail Closed on Unresolved Methodology Conflicts\n\n## Claim scope\n\nunresolved conflicts in Applicable Methodology **and** their required Operator approvals.\n\n## Claim\n\n**if** an Applicable Methodology conflict remains unresolved **or** its required Operator approval is missing, stale, partial, ambiguous, **or** mismatched, **then** compilation **must** fail **without** changing Applicable Methodology membership.\n\n## Details\n\nqualifying approval **must** be the Operator's unambiguous current decision bound **to** the exact proposal, conflict, **and** source-frontier digest under CA-O-007 and CA-O-011, independently retained **and** verified through admitted execution evidence. a Journal append remains a business-provenance obligation; its failure yields a `recording_error` diagnostic and is not a prerequisite, proof, permission, completion, **or** recovery gate. a Project Configuration approval Atom, an LLM judgment, **or** inferred intent **must not** substitute for that decision **or** bypass the Core expansion boundary.\n"
+    },
+    {
+      "id": "CA-R-2469",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2469-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+      "sha256": "f4d096bd71ea8aef00c1fee5039e48d670a6884c1d9244c6600f12d7771945fe",
+      "tier": 3,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "(Node, Node/**, .**)",
+        "governs": "(Node, Node/**, .**)"
+      },
+      "body": "\n## Summary\n\nRequire one Declaration for each Node\n\n## Claim\n\nEvaluate ownership within the selected effective MODEL. Each member selected by (Node, Node/**, .**), including the root and each Property, has exactly one effective Current authoritative Requirement/Form: Declaration addressing that Node.\n\nCount inherited Current Declarations and explicit local replacements after MODEL override resolution. A replaced base Declaration remains available in its base MODEL and is not a second effective owner in the local MODEL. Drafts and archives are not Current owners. Other Atoms may address the same Node.\n\n```CFEL\nAtom/(.Role: Requirement)/(.Form: Declaration)// ((HAS_ACTIVE_SUBJECT)){:1} (Node, Node/**, .**)\n```\n\nThe count uses only the effective Current Declaration-to-Node links in that MODEL. HAS_ACTIVE_SUBJECT is derived from the dedicated Subject field.\n"
+    },
+    {
+      "id": "CA-R-2481",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2481-CORE_META_MODEL-RULE--use-role-and-form.md",
+      "sha256": "3bf88dc5974200938d933c59b48637443c47a6c78bb67c431136ccff53766b9a",
+      "tier": 3,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Atom/(.Role := Requirement)/(.Form := Declaration)",
+        "passive": [
+          "Atom"
+        ],
+        "governs": "Atom/(.Role := Requirement)/(.Form := Declaration)",
+        "depends_on": [
+          "Atom"
+        ]
+      },
+      "body": "## Summary\n\nUse Role and Form for Declaration Atoms\n\n## Claim scope\n\nThe proposed authored representation and formal paths of a Node Declaration.\n\n## Claim\n\nThe proposed Atom schema **must** distinguish Role from Form. The current Atom `content_role` field maps to the proposed `role` value, and the current `type` field maps to the proposed `form` value. A Declaration Atom has `role: Requirement` and `form: Declaration`; Declaration is a Form under the Requirement Role, not a new Role value. In Subject addresses, express that pair as `Atom/(.Role := Requirement)/(.Form := Declaration)`. Use `Form` for the form qualifier in place of a legacy nested `Role: X` or `Type: X` qualifier.\n\nRole identifies the contribution. Form identifies its authoring form and does not override or duplicate Role.\n"
+    },
+    {
+      "id": "CA-R-2482",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2482-CORE_META_MODEL-RULE--declare-formal-scope.md",
+      "sha256": "d17b348e6c1f9381bdbb861767409b785b856d197c8e4a9336e41b56d8263b81",
+      "tier": 3,
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "active": "Atom/(.Role := Requirement)/(.Form := Declaration)",
+        "passive": [
+          "Atom"
+        ],
+        "governs": "Atom/(.Role := Requirement)/(.Form := Declaration)",
+        "depends_on": [
+          "Atom"
+        ]
+      },
+      "body": "## Summary\n\nDeclare Formal Scope Independently of Scope Unit\n\n## Claim scope\n\nFormal Scope expressed by a Declaration.\n\n## Claim\n\n- A formal Scope Declaration is contained outside the Scope Unit it constrains.\n- It states permitted active and passive Subjects, Relations, endpoints and cardinalities.\n- Its Subjects resolve in the applicable MODEL and PROJECT STRUCTURE instances.\n- A Target Scope does not widen its granted permissions.\n- The Declaration does not establish runtime behavior.\n\n"
+    }
+  ],
+  "latest_user_precedence": "If unclear, check latest user input, then active principles; choose the best bounded continuation and create C/Question. User-specific instruction supersedes earlier mandatory questions.",
+  "working_decisions": {
+    "recursive_property_count": "Aggregate distinct selected descendant Property identities per bearer. This follows one bounded selection universe and adds no implicit per-parent quantifier. C/Question records whether a later per-parent operation is needed.",
+    "non_property_bearer_extension": "Do not resurrect superseded IS_BORNE_BY/BEARS in the selected model; preserve their exact archives and retain a nonblocking future-extension Question.",
+    "physical_settings_metadata": "Keep Project and Framework physical carriers separate; logical Project.Settings declarations do not imply moving files or admitting technical metadata as logical fields."
+  }
+}

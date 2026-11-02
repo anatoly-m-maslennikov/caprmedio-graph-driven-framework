@@ -22,8 +22,8 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - 'Subject/CAPRMEDIO/Graph/Relation/Type: depends_on'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-version: 23
-updated_at: 2026-10-27 19:59:44 +0400
+version: 24
+updated_at: 2026-10-29 22:26:57 +0400
 relations:
   depends_on:
   - CA-M-239
@@ -46,7 +46,7 @@ Implementation Preparation **means** the Agentic Action that resolves an impleme
 - bind direct full-source rows in `requirements`, `methods`, `evaluations`, **and** `delivery`; each `methods` row uses the same shape and preserves full content, Atom ID, Version, source path, **and** digest. Do **not** replace Claims with summaries **or** silently omit selected sources.
 - bind the complete explicit declared source universe and verify original current source content, identities, Revisions, paths, **and** digests. An authorized/frozen initial request may explicitly select roots; expand declared governing parents per root, retain other explicitly selected applicable policy branches, **and** evaluate Scope/capability conditions. Parent relations alone do not define applicability. Do **not** infer it from physical directory ancestors **or** irrelevant siblings. stale sources, conflicting identities, missing content, **or** unverifiable completeness return `blocked`.
 - apply only the resulting applicable Methods to selected work. A supplied `method_projection` is an optional legacy derived convenience, not Method authority: it neither replaces direct rows **nor** blocks readiness when absent. Do **not** require or generate a compiled file **or** semantic paragraph. An authorized authority change requires refreshed direct source bindings.
-- include applicable higher-tier authority, current Project Principles, concrete input/output boundaries, **and** test commands **or** enough admitted information **to** establish them. incomplete **or** conflicting authority returns `blocked`, **not** guessed scope.
+- include applicable higher-tier authority, current Project-owned Tier 0 Atoms, concrete input/output boundaries, **and** test commands **or** enough admitted information **to** establish them. incomplete **or** conflicting authority returns `blocked`, **not** guessed scope.
 
 - map every applicable selected R/M/D obligation to a substantive Evaluation predicate, selected check or semantic review, and required evidence, or an explicit justified inapplicability. A relation link or green linter alone does not establish coverage. Missing required Evaluation authority blocks readiness; resolve authorized E definitions before implementation. Optional source-bound review guidance/projections may be refreshed where useful; they are not authority or readiness prerequisites.
 

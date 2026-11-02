@@ -1,34 +1,31 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Confidence.Necessary Information Threshold
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-version: 35
-updated_at: 2026-10-27 19:59:59 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold
+  passive:
+  - Entity/Aspect/Engineering/Execution Control/Decision Confidence
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Object/Continuant/Actor/Operator
+version: 39
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-035
 atom_id: CA-R-1652
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Configure necessary-information confidence threshold
 
-## Scope
+## Claim scope
 
 the necessary-information Confidence Threshold.
 
 ## Claim
 
 the necessary-information Confidence Threshold **must** have an Operator-configurable integer-percentage instance default.
-
-## Details

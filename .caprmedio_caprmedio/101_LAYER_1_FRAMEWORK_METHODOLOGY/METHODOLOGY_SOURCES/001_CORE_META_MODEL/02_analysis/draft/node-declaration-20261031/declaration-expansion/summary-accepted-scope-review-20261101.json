@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "hash_mismatches": [],
+  "checked": [
+    "condition independently filters each historical state before tuple lookup",
+    "false skips incomplete Draft tuple and unknown condition is error",
+    "same ID with differing Current/Archived summaries fails; duplicate keys and shared summary permitted",
+    "three-argument Projection dependencies unchanged",
+    "coverage requirement moved to authoring Method"
+  ],
+  "limits": [
+    "examples are model cases, not parser or runtime tests",
+    "version allocation and identity-fork workflows outside this rule"
+  ]
+}

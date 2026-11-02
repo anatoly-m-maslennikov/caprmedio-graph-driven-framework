@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-01",
+  "status": "Safe prose cleanup implemented; complete whitelist notation is pending user choice",
+  "changes": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "before_sha256": "fa3cc333bbd71a3eb2cd5b7be8ff01084e1b7c16d8853b843b99ef2f720fd6c4",
+      "after_sha256": "d32ee6c1214fdc0b1d1e932588c011ed27b5eec0e9e170fbe345f62ab7be5e99",
+      "reason": "Journal owns containment; ordered wording removed and immutability moved to Event Record"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "before_sha256": "25f7d665aadd41bf7812dc5e7a1590ed8b88c143943d6d0a228497893620342a",
+      "after_sha256": "8433208a44f82f16eba4d04fa758ba7dc6c1a5e46848f302c61c134414f00cf5",
+      "reason": "Event Record owns its immutability; brief positive Semantics"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-id.md",
+      "before_sha256": "415480a04ee0a90c0716eea38099c5b4750e357f33eb08405b970a9a1121cbac",
+      "after_sha256": "f2790565fcb856cd16d8aa3861b2f1395bfaf30ccdf6b1571103aa541608bc3c",
+      "reason": "Whole-record immutability covers ID; retain ID Format, counts and uniqueness"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-model.md",
+      "before_sha256": "109cffe78e98a3f071df8771b3ab82480e9cf29a43a4a6452d44820acb7241fe",
+      "after_sha256": "4b9a315df49683e8809764372dfb8d6bffdc224a625f265f39a97b65df0d6fde",
+      "reason": "Keep MODEL inheritance; Project-use statement moves to Project; omit possibility prose; shared Rule governs overrides"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "before_sha256": "e380f357db963e857c5b6b31d124d5ba575b5eb02df854d4ecdc45810ce91df8",
+      "after_sha256": "13d1d96e622c2b67eb50ed9bee76f630f4cf2ec3d3a753cadf13cd4fe065c5f8",
+      "reason": "Project owns its required CAPRMEDIO MODEL use; no requirement lost"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "before_sha256": "7264fc6c531a695d6804df82777a476fecc7162e4c7724ea661f1b2d98b12dd5",
+      "after_sha256": "2d9e307bf4c6f40b0a5544f1fb2cb0677548972694742313c0e5e18217887057",
+      "reason": "Make containment meaning precise; retain Scope Unit identities and existing value counts"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md",
+      "before_sha256": "ec4a924b5e8a5ba057d5e451a67c95f182e12496fbd361439de44d2217b80a84",
+      "after_sha256": "c73ae3a15ec87ea649e77b7832c193858fefe84aa4ea2f917a52bf4e4d08555d",
+      "reason": "Shared exact-one Property bearing becomes formal; positive acyclic wording retains cycle exclusion"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-positive-claims-about-the-active-subject.md",
+      "before_sha256": "add2297a03a5346c00313dc108c91ac0ab092f1e42a43ec375a7f078a0284b36",
+      "after_sha256": "d84c2994b28081bda58fa2f238b21424655938879a9070efa0463d026c217f7e",
+      "reason": "Latest authoring guidance: positive wording, active Subject, inherited rules and material permissions"
+    }
+  ],
+  "journal_formal": "Journal// {:0+}((CONTAINS)) Event Record//",
+  "event_record_claim": "An Event Record is immutable.",
+  "model_claim": "A local MODEL inherits CAPRMEDIO's MODEL.",
+  "project_claim": "A Project uses CAPRMEDIO's MODEL.",
+  "preserved": [
+    "Passive dependency meaning",
+    "Conditional notation_for_subject requirement",
+    "Atom ID with Version meaning on Projection.Source.Atoms",
+    "Unresolved Tier target binding and other-Goal decision",
+    "Whole-record immutability replaces local ID restatement without dropping uniqueness"
+  ],
+  "whitelist_audit": {
+    "primary_declarations": 28,
+    "property_declarations": 60,
+    "encoding_choice": "Pending: signature-based inherited closed set, or explicit whitelist expression",
+    "degree_scope": "Each Declaration governs only its own active Subject outgoing count",
+    "classification_metadata": "Primary tags in register are normalized independently of the model definition",
+    "incomplete": "No declaration is asserted to have a complete effective whitelist by this prose cleanup"
+  },
+  "current_sources_changed": false,
+  "runtime_changed": false
+}

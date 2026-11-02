@@ -1,0 +1,45 @@
+{
+  "source": "Independent read-only census returned by luna_project_settings_inventory; captured without modifying Current",
+  "known_immediate_logical_settings": [
+    "Name",
+    "Prefix",
+    "AI Agent Confidence Threshold",
+    "Artifact Timestamp Timezone",
+    "Code-Root Locators",
+    "Confidence",
+    "Framework Control-Root Locator",
+    "Identifier",
+    "Interaction",
+    "Parameter Resolution",
+    "Authority Modes",
+    "Extension Selections",
+    "Implementation Retry Limit",
+    "Tool Selections"
+  ],
+  "additional_current_source": {
+    "id": "CA-D-497",
+    "group": "RMED Review",
+    "children": [
+      "Context Headroom Fraction",
+      "Max Atoms"
+    ],
+    "constraints": "finite 0 < context_headroom_fraction < 1; optional positive max_atoms"
+  },
+  "logical_vs_materialization_review": [
+    "Identifier is the reserved Framework Settings artifact identity; independently review whether this belongs to Carrier.ID rather than a Project setting.",
+    "release_version.rollback_retention is present physically but has no found logical mapping; retain its physical data and a nonblocking Question.",
+    "Projection/hash/binding/effective-authority metadata are materialization/provenance, not configured logical Properties."
+  ],
+  "physical_carriers": [
+    ".caprmedio_caprmedio/caprmedio_project_settings.toml",
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
+  ],
+  "physical_mapping_limits": [
+    "AI Agent Confidence Threshold has no confirmed physical key",
+    "Code-Root Locators has no confirmed current key",
+    "Parameter Resolution optional namespace has no observed value",
+    "Tool/Extension selections have source-backed dynamic meaning but no physical schema/section",
+    "Strict Project schema and actual raw runtime readers disagree; runtime repair outside this Epic slice"
+  ],
+  "authority": "R1750 retains distinct physical carrier ownership; user makes logical settings Properties of Project"
+}

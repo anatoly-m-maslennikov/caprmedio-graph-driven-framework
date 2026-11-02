@@ -1,0 +1,28 @@
+{
+  "changed": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-functional-dependencies.md",
+      "sha256": "26fe0f25157e505c68fd44a079a5733832003226642b6856c0b47d3bf1f6ed69"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+      "sha256": "1da2db25479121fd3c3683c0b3f74a9429cafcc1e5bc918ba1c7498c3f59eaa2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "sha256": "d820f67cf931bbb69b6d1756e5c0e283e3167fe5f5ea2e24e268e43b5d830f47"
+    }
+  ],
+  "latest_name_mapping": "Projection.Form is the approved target; Current source Type wording is preserved only in historical source pins.",
+  "context": "One Project, not a Project kind; all required historical states and explicit reference identity bindings.",
+  "source_invariants": [
+    "Same Atom.ID implies same Summary; different IDs may share Summary.",
+    "Equal Projection basis implies equal ID; equal ID implies equal basis.",
+    "Carrier relocation with stable reference targets does not change the Projection basis."
+  ],
+  "limits": [
+    "No parser or historical-state provider implementation",
+    "No new Artifact data fields",
+    "Generic constraint, not a Workflow process"
+  ]
+}

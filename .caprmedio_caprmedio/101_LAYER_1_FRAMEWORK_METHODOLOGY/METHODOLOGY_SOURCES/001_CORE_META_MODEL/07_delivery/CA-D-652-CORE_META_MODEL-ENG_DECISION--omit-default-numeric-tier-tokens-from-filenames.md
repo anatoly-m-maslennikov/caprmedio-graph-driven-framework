@@ -1,37 +1,34 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-version: 9
-updated_at: 2026-10-27 19:59:28 +0400
+  active: Atom.Tier
+  passive:
+  - Atom
+  - Atom.Tier
+  - Projection
+version: 13
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   delivery_for:
-  - CA-R-2124
+  - CA-R-2504
   depends_on:
   - CA-D-651
   - CA-D-478
 atom_id: CA-D-652
-content_role: Delivery
-type: Eng Decision
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 tier: 4
 status: Active
-author: Anatoly Maslennikov
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Omit Default Numeric Tier Tokens from Filenames
 
-## Scope
+## Claim scope
 
 Atom filenames whose registered grammar omits the default numeric Tier token.
 
 ## Claim
 
-an Atom filename **may** omit the default Tier `3` token only where the registered filename grammar explicitly defines that omission. The Atom **must** still carry its numeric Tier internally under CA-R-2124; omission **must not** add, remove, or alter an Atom Property, infer a Content Role or Type restriction, or change the represented source Properties in a Projection or other non-Atom Artifact. A Project Goal's explicit Tier `-1` grammar is evaluated before any ordinary default omission.
-
-## Details
+an Atom filename **may** omit the default Tier `3` token only where the registered filename grammar explicitly defines that omission. The Atom **must** still carry its numeric Tier internally under CA-R-2504; omission **must not** add, remove, or alter an Atom Property, infer a Content Role or Type restriction, or change the represented source Properties in a Projection or other non-Atom Artifact. A Project Goal's explicit Tier `-1` grammar is evaluated before any ordinary default omission.

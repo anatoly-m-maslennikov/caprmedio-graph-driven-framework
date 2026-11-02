@@ -6,8 +6,8 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
-version: 13
-updated_at: 2026-10-27 19:59:48 +0400
+version: 14
+updated_at: 2026-10-29 22:26:57 +0400
 subjects:
   governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   depends_on:
@@ -57,7 +57,7 @@ CA-O-089's six labels map as follows: `implementation_defect` and `test_implemen
 
 ## Details
 
-Bind candidate digest, owned paths, Plan-or-ephemeral-P/task context, direct full `requirements`, `methods`, `evaluations`, and `delivery` rows, Project Principles, permissions, allowed commands, source revisions/hashes, report location, and Run identity. CA-O-227 delegates unchanged to CA-O-020; CA-O-228 delegates unchanged to CA-O-089; CA-O-229 performs the separate semantic review and does not auto-fix. Binding/evaluation use Integrated context; diagnosis/semantic review use Isolated context only when admitted. Commands may write only explicitly admitted temporary fixtures with required permission. No Atom/source edit, replacement, promotion, release, MCP publication, or Journal-completeness gate is part of this Workflow.
+Bind candidate digest, owned paths, Plan-or-ephemeral-P/task context, direct full `requirements`, `methods`, `evaluations`, and `delivery` rows, Project-owned Tier 0 Atoms, permissions, allowed commands, source revisions/hashes, report location, and Run identity. CA-O-227 delegates unchanged to CA-O-020; CA-O-228 delegates unchanged to CA-O-089; CA-O-229 performs the separate semantic review and does not auto-fix. Binding/evaluation use Integrated context; diagnosis/semantic review use Isolated context only when admitted. Commands may write only explicitly admitted temporary fixtures with required permission. No Atom/source edit, replacement, promotion, release, MCP publication, or Journal-completeness gate is part of this Workflow.
 
 Bind original full sources, revisions, paths, and digests **and** a complete explicit declared universe. An authorized/frozen request may explicitly select roots; expand declared governing parents per root, retain other explicitly selected applicable policy branches, and evaluate Scope/capability conditions. Parent relations alone do not define applicability, and physical directory ancestors or irrelevant siblings must not be inferred. `method_projection` is optional legacy derived convenience; direct rows remain required, while the projection's absence cannot block the review.
 

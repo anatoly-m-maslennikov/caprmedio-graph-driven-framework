@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-01",
+  "decision": "Keep the Journal rules in prose, in short bullet points; defer formalization",
+  "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+  "before_sha256": "ea9a75cb97093f424bcf298908482fbe865ebd4981631e3b192bbc166d6b4010",
+  "after_sha256": "9b00a90c62f503a35fce5a53b0b140c8256c1a3dfc4bbc5a9f9b0a2d94fb977d",
+  "claim_prose": "- A Journal is authoritative for one logically ordered table of admitted Event Records.\n- Accepted Event Records cannot be edited, reordered or removed.\n- Corrections append new traceable Event Records.\n- A Journal does not establish or override Atom Claims.\n- A Journal is independent of its storage format.\n- Views of a Journal are Projections.",
+  "formal_block_unchanged": true,
+  "new_syntax": false,
+  "prose_count_effect": 0
+}

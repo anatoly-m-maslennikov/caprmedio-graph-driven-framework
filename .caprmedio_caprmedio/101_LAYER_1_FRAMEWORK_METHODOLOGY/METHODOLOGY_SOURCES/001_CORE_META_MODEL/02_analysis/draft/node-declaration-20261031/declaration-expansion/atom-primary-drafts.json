@@ -1,0 +1,298 @@
+{
+  "drafts": [
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom",
+      "form": "Declaration",
+      "classification": "Primary Node",
+      "sha256": "ea49163fc1661b3e1ac823d853b5c9281db60e40f8aadbca38644e79365dd784",
+      "source_pins": [
+        {
+          "id": "CA-R-655",
+          "version": 42,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-ENTITY-DEFINITION--define-atom-artifact-form.md",
+          "sha256": "ddf97b84cfef8829604bcf39b8b84f9f60d27c395fa93d64c981d7512c072327"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-concern.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Concern)",
+      "form": "Declaration",
+      "classification": "Primary Node",
+      "sha256": "dfcd9bb4f93898b9e896064229ae1fe8d1a5fdd019162fe6fcb996af7d0b02a3",
+      "source_pins": [
+        {
+          "id": "CA-R-1336",
+          "version": 28,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-DEFINITION--define-concern-content-role.md",
+          "sha256": "cc18b16d2e8b9dccd2334e69e5b6a5752a884627e7dd5fec6a89f7a23bceb7cd"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-analysis.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Analysis)",
+      "form": "Declaration",
+      "classification": "Primary Node",
+      "sha256": "1988edc7cd6923927709b2ec8ef39d75b4d7f70c7a19de59dd7c334623c02634",
+      "source_pins": [
+        {
+          "id": "CA-R-1337",
+          "version": 28,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-DEFINITION--define-analysis-content-role.md",
+          "sha256": "f40454ffa0a805ee2ab99c07346b929688a20382b85d862ec43a50a4fd959fde"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Plan)",
+      "form": "Declaration",
+      "classification": "Primary Node",
+      "sha256": "11c46738cd1c65e0fcef95c71b4f11d3f8c1304703dfc8dc66b89c5ecb54184c",
+      "source_pins": [
+        {
+          "id": "CA-R-1338",
+          "version": 31,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-DEFINITION--define-plan-content-role.md",
+          "sha256": "2ea39f094da5313bd3180dff774e5a0ff49c70b3c40661bf67dd44cfaa2eda2a"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Requirement)",
+      "form": "Declaration",
+      "classification": "Primary Node",
+      "sha256": "4cd86ae00a49df1e06c43856c3701ab894be32745db3566e4fe1aa59220ea691",
+      "source_pins": [
+        {
+          "id": "CA-R-1339",
+          "version": 31,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-DEFINITION--define-requirement-content-role.md",
+          "sha256": "2d83baa44df9828f8103a34fe475d42bc8805d9b37be7a5f1733b09d1e4abad8"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Method)",
+      "form": "Declaration",
+      "classification": "Primary Node",
+      "sha256": "ec57a611d5bc7bfce8c62c5486daec245676ccd19679a85fb77fd9abbe4b0b50",
+      "source_pins": [
+        {
+          "id": "CA-R-1340",
+          "version": 32,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-DEFINITION--define-method-content-role.md",
+          "sha256": "c0664f74a3aa7062aedb9499850d81c90648a91e34d6274a127ad3cedf08eadf"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Evaluation)",
+      "form": "Declaration",
+      "classification": "Primary Node",
+      "sha256": "7c5ca6def8b3e8a28002cbe5df98c2e1928fcaef477069db6e19d0da247d78fb",
+      "source_pins": [
+        {
+          "id": "CA-R-1341",
+          "version": 27,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-DEFINITION--define-evaluation-content-role.md",
+          "sha256": "ef5b991f7c6502b9eb9d6ae33efc4e5a48295ea80b5b5a1bee42005c95591b3b"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Delivery)",
+      "form": "Declaration",
+      "classification": "Primary Node",
+      "sha256": "724798bf22940c34da9c844a6e47e87d711ad2aa2f20edd58fb3248dfabe3d98",
+      "source_pins": [
+        {
+          "id": "CA-R-1342",
+          "version": 32,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-DEFINITION--define-delivery-content-role.md",
+          "sha256": "a3aa572d66e9f72a3e4670084cab0bf1413a8fef86f80f7c5dfbafeca111187b"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Requirement)/(.Form: Declaration)",
+      "form": "Declaration",
+      "classification": "Primary Node",
+      "sha256": "425ebbee3d3d4965097674d32e664773cf33469ad77c5a0148e6c015385a368e",
+      "source_pins": [
+        {
+          "id": "CA-R-2227",
+          "version": 3,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2227-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-entity-definition.md",
+          "sha256": "d6f7452f40366c6721a52c3c026df93f4b68a807096359ce4aadf578383a7dc5"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-relation-definition.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Requirement)/(.Form: Relation Definition)",
+      "form": "Declaration",
+      "classification": "Primary Node",
+      "sha256": "e3eb9395e67d5e6b1cc8cbbf371dd59c04b4a09db07f91562272656267f986e1",
+      "source_pins": [
+        {
+          "id": "CA-R-2228",
+          "version": 3,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2228-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-relation-definition.md",
+          "sha256": "394333dd8e76308571df9dd07cb13f8f0382c54972040ed3d1936a7b5218099d"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-concern-priority.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Concern).Priority",
+      "form": "Declaration",
+      "classification": "Property",
+      "sha256": "4869acfeb48ef4b29d8628737220cb78ad1fd52364b199c329dfc8a2a4b3d50a",
+      "source_pins": [
+        {
+          "id": "CA-R-2365",
+          "version": 1,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2365-CORE_META_MODEL-ENTITY_DEFINITION--define-concern-priority.md",
+          "sha256": "0f4ed4e3163b84658082f6b2b9eea935441418153020237963cf6bc2efbdf4a2"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-confidence-threshold.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Plan).Autonomous Confidence Threshold",
+      "form": "Declaration",
+      "classification": "Property",
+      "sha256": "b7ade63d399304d14a036a83d69c516cdbb8890d45a7b87b9669e7b50e313c8b",
+      "source_pins": [
+        {
+          "id": "CA-R-2381",
+          "version": 1,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2381-CORE_META_MODEL-ENTITY_DEFINITION--define-plan-autonomous-confidence-threshold.md",
+          "sha256": "a8ff60c353f12795b60ece80cf86ef10bd80f561c8cb01104a94143533cbb1a0"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-implementation-retry-limit.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Plan).Implementation Retry Limit",
+      "form": "Declaration",
+      "classification": "Property",
+      "sha256": "93aed8d7aee8055fd92f29533a1c35562f52dfcb6cc0a2d1c6214b51778bcb62",
+      "source_pins": [
+        {
+          "id": "CA-R-2385",
+          "version": 1,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2385-CORE_META_MODEL-ENTITY_DEFINITION--define-plan-implementation-retry-limit.md",
+          "sha256": "a8f712ae52b7d0accc1a540c68de3143354412c314471ec31d2c5dcadbb39cd9"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Plan).Work Sequence Number",
+      "form": "Declaration",
+      "classification": "Property",
+      "sha256": "80355b04fcc5977496caabdb2980ac1b8b52b76cba6d5ba1716e08f40e38a679",
+      "source_pins": [
+        {
+          "id": "CA-R-991",
+          "version": 36,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-DEFINITION--define-work-sequence-number.md",
+          "sha256": "7027150f0cc6661e11d617d5e5f29dfbbb36fa98a086e8d2462ce8ac62de3e7f"
+        },
+        {
+          "id": "CA-R-997",
+          "version": 33,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-RULE--validate-work-sequence-numbers.md",
+          "sha256": "c4fc6334d464220bc5fca715ad9ca81689205ca241375845bdf68097ff202512"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action-execution-kind.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Operations)/Action.Execution Kind",
+      "form": "Declaration",
+      "classification": "Property",
+      "sha256": "b9af7cf93e5c96b9a97d141a6a40b031b5f1d32c3b8cbef57f8841aed64c165a",
+      "source_pins": [
+        {
+          "id": "CA-R-1526",
+          "version": 20,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1526-CORE_META_MODEL-DEFINITION--define-action-execution-kind.md",
+          "sha256": "0e00ed2c570ae6fd5ef0613967fbdbf5dbdd10a668650b6817359a31379f120d"
+        }
+      ]
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Requirement)/(.Form: Relation Definition).Content.notation_for_subject",
+      "form": "Declaration",
+      "classification": "Property",
+      "sha256": "741218213bcf06fe504935694818fd400a17f4ab353894627eb8a9bdcba4d5a8",
+      "source_pins": [
+        {
+          "id": "CA-R-2392",
+          "version": 1,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2392-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-definition-content-notation-for-subject.md",
+          "sha256": "7dd0d78ba54e5c0abea07aa9dddea9c76c17240a57a507caa0856a61731ce045"
+        },
+        {
+          "id": "CA-R-2228",
+          "version": 3,
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2228-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-relation-definition.md",
+          "sha256": "394333dd8e76308571df9dd07cb13f8f0382c54972040ed3d1936a7b5218099d"
+        }
+      ]
+    }
+  ],
+  "open_slots": [
+    {
+      "subject": "Atom/(.Role: Plan).Assignee",
+      "issue": "Existing optional string override is superseded by the decision to put modeled instance references under relations. Its typed relation key and whether the old Property remains distinct are unresolved; no duplicate Property or key was invented."
+    },
+    {
+      "subject": "Atom and Role effective whitelists",
+      "issue": "Endpoint conditions, inherited refinements and source dispositions require explicit mapping; these structural candidate Drafts are not complete governing replacements."
+    },
+    {
+      "subject": "Requirement/Form Declaration",
+      "issue": "Its new policy is based on accepted proposed model, not identical to Current CA-R-2227 Entity Definition; predecessor mapping requires review."
+    },
+    {
+      "subject": "Relation Definition.Content.notation_for_subject",
+      "issue": "Check whether the qualified inherited Content Property has the proposed single canonical bearer before admission; the example does not authorize reparenting or cloned inherited Properties."
+    }
+  ],
+  "checks": [
+    "Ten approved Primary Node candidates and six locally sourced Property candidates.",
+    "Property Claims state value domain/cardinality and zero immediate children under the user-approved default.",
+    "No Property Semantics; Primary Semantics uses Current definitions with latest agreed model corrections.",
+    "GFEL structural statements do not establish complete whitelist or admission.",
+    "No duplicate inherited Status, Claim or Content Declaration created.",
+    "No actual Operations instance review or native adoption."
+  ]
+}

@@ -1,8 +1,8 @@
 ---
 subject_scopes:
 - routing
-version: 17
-updated_at: 2026-10-27 06:04:45 +0400
+version: 19
+updated_at: 2026-10-29 09:30:11 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -17,9 +17,17 @@ author: Anatoly Maslennikov
 atom_id: CA-M-141
 type: Implementation Method
 tier: 1
-subjects: {}
+subjects:
+  governs: Entity/Aspect/Engineering/Execution Control
 ---
-# Select the least costly sufficient execution mechanism
+## Summary
+Select the least costly sufficient execution mechanism
+
+## Claim scope
+
+Engineering execution-mechanism selection.
+
+## Claim
 
 For one requested operation, first establish the required outcome, applicable
 non-negotiable constraints, available source inputs, acceptance conditions,

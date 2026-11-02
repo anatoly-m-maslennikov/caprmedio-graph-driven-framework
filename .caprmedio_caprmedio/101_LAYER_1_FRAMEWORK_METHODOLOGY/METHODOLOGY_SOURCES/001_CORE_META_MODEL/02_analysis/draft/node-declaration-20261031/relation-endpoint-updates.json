@@ -1,0 +1,34 @@
+{
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md",
+      "sha256": "d80e387fd230dc03b7b1fe7f34940adac3fdd434cc3dc9a880b578750ccc7be2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-narrowing.md",
+      "sha256": "81bc4c6288c1dfbc2ae425950afe11bc2e934c410b5c86643b4ff748b0264919"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-instantiation.md",
+      "sha256": "c2f6d9588ae78db032a3da83e52593cde10977a66be860f04cb36f0721cafa20"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-classification.md",
+      "sha256": "ce6f4a126d61283745d72913170c690b325b5ded28dba1e14affc89cca487520"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-composition.md",
+      "sha256": "d12e77aecd53dcdd36046eb41bd9634e95e3cfdc4c4e1ee4d12bb1dbaa4e3458"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-active-subject-link.md",
+      "sha256": "991a224a84db40a1b2e48b81556530bdbf70e5e595fea22f1d41bcfd8d8de683"
+    }
+  ],
+  "interpretation": "Endpoint signatures constrain allowable relation endpoints; they do not assert every possible edge. HAS_INVERSE asserts only the two requested known inverse pairs.",
+  "open_questions": [
+    "Canonical direct inverse Relation identities for HAS_NARROWER, HAS_INSTANCE and HAS_CLASSIFICATION are not selected.",
+    "Exact endpoint selector syntax and whether Node/ includes named instances in general composition/property bearer signatures require grammar review; no cross-product existence is intended.",
+    "Classification Axis denotes an admitted axis, not an invented value Node."
+  ]
+}

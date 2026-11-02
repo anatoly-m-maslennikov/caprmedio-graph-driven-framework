@@ -1,0 +1,13 @@
+{
+  "decision": "Scope Units do not have Navigation Number. Keep their existing Local Order semantics; do not maintain a duplicate navigation position. Navigation Number is retained only for Steps and P (Plan) Atoms. This decision does not add new numbering or Carrier-format rules for those Atoms.",
+  "withdrawn_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-navigational-order-number.md",
+  "snapshot": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/withdrawn-scope-unit-navigation-number.md",
+  "withdrawn_sha256": "052d962e1bd075fbd9b5aa22b5bc9c89b37305253fce8dd595c3469e99ba1172",
+  "updated_shared_registers": [
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/draft-register.json",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/declaration-expansion/structural-primary-drafts.json",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/declaration-expansion/selected-node-inventory.json"
+  ],
+  "current_config_changed": false,
+  "current_atoms_changed": false
+}

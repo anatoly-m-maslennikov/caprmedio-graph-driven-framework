@@ -1,0 +1,21 @@
+{
+  "status": "PASS: bounded Draft structure; selected contracts complete",
+  "drafts": 137,
+  "primary_declarations": 28,
+  "property_declarations": 60,
+  "incomplete_properties": [],
+  "duplicate_declaration_subjects": 0,
+  "property_semantics_sections": 0,
+  "current_core_r_sources_unchanged": 750,
+  "current_epic_38_unchanged": true,
+  "metadata_links_register": "pass",
+  "limits": [
+    "Structural Draft checks only; full CFEL evaluation not performed",
+    "Current authored schema requires coordinated source authority changes",
+    "Effective relation whitelists and consumer mappings remain incomplete",
+    "No Current adoption, promotion, retirement or instance migration"
+  ],
+  "allocated_unique_ids": 137,
+  "target_field_names": "role, form, subjects.active, subjects.passive",
+  "authored_schema_admitted": false
+}

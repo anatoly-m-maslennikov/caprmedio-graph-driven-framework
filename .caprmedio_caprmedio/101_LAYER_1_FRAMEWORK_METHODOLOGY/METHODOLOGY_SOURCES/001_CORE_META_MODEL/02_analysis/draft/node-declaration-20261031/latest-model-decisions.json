@@ -1,0 +1,33 @@
+{
+  "relation_endpoints": "Formal Claim constrains allowed Host/Target",
+  "inverses": "Direct ((HAS_INVERSE)) Derived; no separate inverse Definition",
+  "pairs": [
+    [
+      "RUN",
+      "IS_RUN_BY"
+    ],
+    [
+      "IS_PROPERTY_OF",
+      "HAS_PROPERTY"
+    ],
+    [
+      "IS_CONTAINED_BY",
+      "CONTAINS"
+    ],
+    [
+      "NARROWER_THAN",
+      "HAS_NARROWER"
+    ],
+    [
+      "INSTANCE_OF",
+      "HAS_INSTANCE"
+    ]
+  ],
+  "direct_name_sources": [
+    "CA-R-1435@26",
+    "CA-R-2002@15"
+  ],
+  "acyclicity": "prose; no single-use predicate",
+  "boilerplate": "removed from Drafts",
+  "operations_instance_review": "deferred"
+}

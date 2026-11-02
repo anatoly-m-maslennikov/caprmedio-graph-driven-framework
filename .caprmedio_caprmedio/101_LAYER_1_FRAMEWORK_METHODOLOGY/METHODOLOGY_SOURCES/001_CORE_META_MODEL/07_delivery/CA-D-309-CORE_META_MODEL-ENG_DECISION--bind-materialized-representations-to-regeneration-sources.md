@@ -1,25 +1,24 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-version: 22
-updated_at: 2026-10-27 19:59:23 +0400
+  active: Carrier
+  passive:
+  - Term//Artifact
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-309
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Bind Materialized Representations to Regeneration Sources
 
-## Scope
+## Claim scope
 
 admitted materialized representation Carriers.
 
@@ -30,5 +29,3 @@ admitted materialized representation Carriers.
 the binding **may** be recovered through the selected authoritative source frontier **and** governing derivation authority; it does **not** require source metadata **to** be embedded **in** **every** resulting Carrier. an applicable Carrier specification determines whether **and** how **any** explicit binding is serialized.
 
 for Applicable Methodology projected Atom Carriers, CA-D-305 requires an explicit one-way binding **to** the original source Atom Carrier while preserving its authored content, identity, **and** Revision. that specific binding **must not** create duplicate source authority **or** impose a blanket persisted source frontier on other Projections contrary **to** CA-R-1494.
-
-## Details

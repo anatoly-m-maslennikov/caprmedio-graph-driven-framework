@@ -1,0 +1,16 @@
+{
+  "status": "FINDINGS",
+  "findings": [
+    "The selected rules do not define a unique target Scope Unit for arbitrary active Subjects; naming HAS_TARGET_SCOPE_UNIT does not supply that mapping and would introduce an unapproved derived relation.",
+    "An unconditional error for a missing active Subject would conflict with permissible incomplete Drafts; scope any eventual resolution requirement to the applicable Tier condition."
+  ],
+  "minimal_alternative": "Preserve the Tier prose and defer formalizing the conditional until a supported active-Subject-to-target binding is established; compare directly with Project only if the user chooses literal Project as the active Subject. Preserve pending Operator ownership and existing ordinary non-Goal scope.",
+  "confirmed": [
+    "Same-Atom variable and selected Project context are appropriate when a binding exists",
+    "No additional Tier rule for other Goals",
+    "No containing-Scope inference or new Property"
+  ],
+  "limits": [
+    "No Draft, registry, Current or runtime changes"
+  ]
+}

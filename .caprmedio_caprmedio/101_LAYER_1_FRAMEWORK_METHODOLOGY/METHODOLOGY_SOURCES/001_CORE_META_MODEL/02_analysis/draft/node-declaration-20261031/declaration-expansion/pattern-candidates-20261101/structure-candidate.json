@@ -1,0 +1,94 @@
+{
+  "status": "read-only candidate; no Draft, Current source, rule, or runtime implementation changed",
+  "scope": [
+    "Scope Unit.Path",
+    "Scope Unit.structural_level",
+    "Package.structural_level"
+  ],
+  "live_evidence": [
+    {
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md:21-27",
+      "fact": "Path is required as one-or-more strings and is defined in prose as ordered ancestry identities."
+    },
+    {
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md:22-27",
+      "fact": "Scope Unit structural_level is required, one int, childless, nonnegative, with sole-derivation prose."
+    },
+    {
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md:22-27",
+      "fact": "Package structural_level has the same contract and sole-derivation prose."
+    },
+    {
+      "file": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md:24-29; primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md:22-27",
+      "fact": "Existing CFEL provides non-Project single-parent constraints, a link-guarded child = parent + 1 equation, and Project root level 0."
+    },
+    {
+      "file": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md:24-29; primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-implementation.md:22-26",
+      "fact": "Existing CFEL provides the analogous Package equation and Implementation root level 0."
+    }
+  ],
+  "candidate_extension": {
+    "name": "Declare relation-derived Property provenance",
+    "grammar": "DERIVED_FROM(p, R)",
+    "minimum_grammar": {
+      "p": "a logical Property path declared by the Claim bearer",
+      "R": "one existing Relation name"
+    },
+    "exact_rule_text": [
+      "DERIVED_FROM(p, R) declares p a relation-derived Property. A supplied or persisted p value is not an independent authored input or override and does not establish correctness by itself.",
+      "The effective p value must satisfy every applicable governing CFEL equation for p whose graph source is R. The equation's declared constants and kind-qualified root selections remain part of that equation; DERIVED_FROM does not add a field, a relation, a root, a fallback, or a new equation.",
+      "If the selected effective MODEL has no complete applicable governing equation for p, evaluation is invalid. If a stored/cache representation exists, it must equal the equation result and is only a representation, not an additional source.",
+      "DERIVED_FROM reads existing R facts and equations only. It does not write p, materialize a value, persist a cache, traverse an unbounded path, or prove acyclicity."
+    ],
+    "reusability": {
+      "consumer_count": 2,
+      "consumers": [
+        "Scope Unit.structural_level",
+        "Package.structural_level"
+      ],
+      "why_not_path": "Path also needs ordered root-to-target identity sequence semantics. DERIVED_FROM alone proves only provenance, so using it to delete the Path meaning would lose a constraint."
+    }
+  },
+  "claim_rewrites": [
+    {
+      "subject": "Scope Unit.structural_level",
+      "source": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md:22-27",
+      "after_claim": "```CFEL\nScope Unit.structural_level{:1}: [int]{:1};\nScope Unit.structural_level.*[]{:0};\nScope Unit.structural_level >= 0;\nDERIVED_FROM(Scope Unit.structural_level, IS_CONTAINED_BY)\n```",
+      "preserves": "Required one nonnegative integer/no dependents plus the claim that containment, rather than an independently authored value, determines the effective level.",
+      "governing_equations_already_present": [
+        "Scope Unit/Project//$project.structural_level = 0",
+        "IF (Scope Unit//$child ((IS_CONTAINED_BY)) Scope Unit//$parent) THEN ($child.structural_level = $parent.structural_level + 1)"
+      ],
+      "counterexample_rejected": "An authored child level 99 with a parent level 0 fails the existing equation; an authored child level 1 would satisfy equality alone, but DERIVED_FROM rejects it as an independent input."
+    },
+    {
+      "subject": "Package.structural_level",
+      "source": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md:22-27",
+      "after_claim": "```CFEL\nPackage.structural_level{:1}: [int]{:1};\nPackage.structural_level.*[]{:0};\nPackage.structural_level >= 0;\nDERIVED_FROM(Package.structural_level, IS_CONTAINED_BY)\n```",
+      "preserves": "Required one nonnegative integer/no dependents plus containment-only provenance.",
+      "governing_equations_already_present": [
+        "Package/Implementation//$implementation.structural_level = 0",
+        "IF (Package//$child ((IS_CONTAINED_BY)) Package//$parent) THEN ($child.structural_level = $parent.structural_level + 1)"
+      ],
+      "counterexample_rejected": "A cached child value may be retained only when it equals the governing equation result; it cannot be an override or a second source."
+    },
+    {
+      "subject": "Scope Unit.Path",
+      "source": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md:21-27",
+      "after_claim": "The path records the ordered ancestry of Scope Unit identities.\n\n```CFEL\nScope Unit.Path{:1}: [string]{:1+};\nScope Unit.Path.*[]{:0}\n```",
+      "classification": "retain prose",
+      "reason": "The live packet has no sequence/ancestry operator. A relation-derived provenance assertion cannot ensure that values are Scope Unit identities, ordered root-to-target, complete, or aligned with containment. Reintroducing a recursive path operator would exceed the withdrawn path-rule boundary and has only this consumer."
+    }
+  ],
+  "non_goals": [
+    "No recursive relation-path, parent(), ANCESTORS, or sequence-index grammar.",
+    "No new binding, Property field, root instance, stored-value policy, or acyclicity assertion.",
+    "No claim that root zero and parent increment alone prove non-authored provenance."
+  ],
+  "decision_question": null,
+  "implementation_gates": [
+    "Resolve the selected effective MODEL's applicable equations before evaluating DERIVED_FROM.",
+    "Define cache/persisted representation equality without treating the representation as an authored value source.",
+    "Reject missing or conflicting applicable equations rather than silently accepting a Property value."
+  ]
+}

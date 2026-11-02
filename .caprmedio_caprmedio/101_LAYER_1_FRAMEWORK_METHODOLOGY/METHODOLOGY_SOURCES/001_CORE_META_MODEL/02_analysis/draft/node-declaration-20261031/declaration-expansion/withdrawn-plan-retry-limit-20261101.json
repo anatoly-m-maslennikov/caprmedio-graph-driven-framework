@@ -1,0 +1,7 @@
+{
+  "status": "Withdrawn preparation Draft; not selected for adoption",
+  "original_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-implementation-retry-limit.md",
+  "original_sha256": "5aabb91a526cf9eb3fca1affd19408f2e4fa04906a7cbd93688e04c4223d9bb6",
+  "reason": "Operator: remove Retry Limit from P atoms; retry handling is Workflow responsibility.",
+  "original_text": "---\natom_id: CA-R-draft\ncontent_role: Requirement\ntype: Declaration\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Draft\nsubjects:\n  governs: 'Atom/(.Role := Plan).Implementation Retry Limit'\nversion: 1\nrelations: {}\ntier: 3\nupdated_at: 2026-10-31 01:54:15 +0400\n---\n## Summary\n\nDeclare Atom/(.Role := Plan).Implementation Retry Limit\n\n## Claim\n\nAn explicit value overrides the applicable retry limit.\n\n```CFEL\nAtom/(.Role: Plan).Implementation Retry Limit{:0..1}: [int]{:1};\nAtom/(.Role: Plan).Implementation Retry Limit.*[]{:0}\n```\n"
+}

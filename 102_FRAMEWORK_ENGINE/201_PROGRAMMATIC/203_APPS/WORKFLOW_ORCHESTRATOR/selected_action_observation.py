@@ -100,7 +100,7 @@ def _bound_request(
     """Bind one requested Action to the definitions retained by its saved graph."""
     request = saved.get("request")
     graph = saved.get("graph")
-    if (set(saved) != {"request", "graph"} or not isinstance(request, Mapping)
+    if (set(saved) not in ({"request", "graph"}, {"request", "graph", "lifecycle_admission"}) or not isinstance(request, Mapping)
             or set(request) != {"operation", "run_id", "execution"} or not isinstance(graph, Mapping)):
         raise SelectedActionObservationError("saved selected request has an invalid outer shape")
     execution = request.get("execution")
@@ -118,6 +118,20 @@ def _bound_request(
     if (graph.get("route") != route_name or graph.get("manifest_ref") != manifest_ref
             or graph.get("manifest_digest") != manifest_digest):
         raise SelectedActionObservationError("saved selected graph is not bound to its request manifest")
+    if "lifecycle_admission" in saved:
+        admission = saved["lifecycle_admission"]
+        receipt = execution.get("proposal_receipt")
+        freshness = receipt.get("source_freshness") if isinstance(receipt, Mapping) else None
+        observed = freshness.get("observed") if isinstance(freshness, Mapping) else None
+        expected = observed.get("lifecycle_admission") if isinstance(observed, Mapping) else None
+        parameters = execution.get("parameters")
+        if (route_name != "change_atom_status" or not isinstance(admission, Mapping)
+                or set(admission) != {"operation", "prior", "requested_status", "current_status", "status_model", "archive"}
+                or admission != expected or not isinstance(parameters, Mapping)
+                or admission.get("operation") != "change_status"
+                or admission.get("prior") != parameters.get("target")
+                or admission.get("requested_status") != parameters.get("status")):
+            raise SelectedActionObservationError("saved lifecycle admission differs from its bound preview or target")
 
     requested = execution.get("requested_runs")
     if not isinstance(requested, list):

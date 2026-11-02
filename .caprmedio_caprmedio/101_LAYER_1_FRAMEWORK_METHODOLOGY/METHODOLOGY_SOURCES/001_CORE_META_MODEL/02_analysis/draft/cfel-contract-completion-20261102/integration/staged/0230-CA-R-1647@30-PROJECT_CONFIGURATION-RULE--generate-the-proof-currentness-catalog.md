@@ -1,0 +1,26 @@
+---
+subjects:
+  active: 'Entity/Object/Continuant/Projection/Type: Catalog'
+  passive: []
+version: 30
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1647@30
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Archived
+tier: 3
+role: Requirement
+form: Rule
+---
+## Summary
+
+Generate the proof currentness Catalog
+
+## Claim scope
+
+proof-currentness Catalogs generated from governed proof dependency frontiers and their additional invalidation conditions.
+
+## Claim
+
+CAPRMEDIO generates a non-authoritative proof-currentness Catalog from governed proof dependency frontiers encoded under GOV REQU 010 **and** their additional invalidation conditions. the Catalog reports **every** proof as `current`, `stale`, **or** `unknown`, marks **only** the smallest direct **and** transitive dependency closure affected by a change, never infers currentness from timestamps alone, **and** never mutates the historical proof record.

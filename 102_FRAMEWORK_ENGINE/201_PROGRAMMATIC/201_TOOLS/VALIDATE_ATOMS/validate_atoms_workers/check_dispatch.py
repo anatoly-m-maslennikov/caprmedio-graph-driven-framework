@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from typing import Callable
 
+
 from .authority import AuthorityContext, Obligation, Record
 from .check_support import Check
 from .check_fields import (

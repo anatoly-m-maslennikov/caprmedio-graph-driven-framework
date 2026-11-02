@@ -1,0 +1,85 @@
+{
+  "task": "CA-P-2699",
+  "reviewed_at": "2026-10-29T20:25:18.909629+04:00",
+  "method": "Cheap Luna first-pass placement review with parent validation and focused Operations consistency pass",
+  "models": [
+    "gpt-6-luna"
+  ],
+  "reasoning_effort": "high",
+  "source_candidates_acquired": 5136,
+  "non_atom_evidence_candidates": 41,
+  "focus": "Current RMEDO only",
+  "focus_source_count": 2444,
+  "deferred_cap_and_legacy_i": 2651,
+  "classification_counts": {
+    "Project-local": 111,
+    "Engine": 971,
+    "Mixed": 18,
+    "Methodology": 1344
+  },
+  "action_counts": {
+    "NeedsDecision": 48,
+    "MoveCandidate": 576,
+    "Keep": 1802,
+    "SplitCandidate": 18
+  },
+  "content_role_counts": {
+    "Requirement": 1142,
+    "Delivery": 331,
+    "Evaluation": 536,
+    "Method": 248,
+    "Operations": 187
+  },
+  "engine_scope_counts": {
+    "GRAPH_UI": 6,
+    "WORKFLOW_SCHEDULER": 8,
+    "QUEUE_ACTIONS": 7,
+    "TOOLS": 281,
+    "JOURNAL_ACTIONS": 41,
+    "ACTION_ENGINE": 18,
+    "ATOM_ACTIONS": 51,
+    "PROJECTION_ACTIONS": 49,
+    "PROGRAMMATIC": 162,
+    "PROJECT_ACTIONS": 20,
+    "SKILLS": 22,
+    "PROMPTS": 28,
+    "WORKFLOW_ORCHESTRATOR": 36,
+    "DISCOVER_TOOLS": 4,
+    "DISCOVER_OPERATIONS": 4,
+    "GET_EXECUTION_CONTEXT": 4,
+    "GET_EXECUTION_STATUS": 4,
+    "RESUME_EXECUTION_CONTEXT": 4,
+    "WATCH_EXECUTION": 4,
+    "MCP": 94,
+    "PROJECT_TOOLS": 31,
+    "ADAPTERS": 33,
+    "SCOPE_UNIT_ACTIONS": 6,
+    "GRAPH_SERVER": 4,
+    "APPS": 31,
+    "FRAMEWORK_ENGINE": 14,
+    "SCHEDULERS": 3,
+    "AGENTIC": 2
+  },
+  "uncertain_count": 66,
+  "missing_canonical_header_id_count": 5,
+  "stale_focused_source_count": 0,
+  "coverage": "all selected source paths exactly once",
+  "scope_registry_sha256": "bc53259e9ecfac7a718fbccd0cd81c4ae9954640fb0e535f03c2acfba80547b4",
+  "reviewed_source_vector_sha256": "3c0987ce54bb5ff6b79263afc5f5edba8766137225f629f214feeb7184ee2598",
+  "placement_table_sha256": "39bc364c4e2669da36376c2bb563091431722dbc6a4f92be61ee33551c6a73ae",
+  "operations_consistency": null,
+  "source_moves_applied": 0,
+  "uncertainty_policy": "No uncertain placement is an approved move; Plan/C/A questions deferred by Operator",
+  "operator_owned_project_goal_exception": {
+    "atom_id": "CA-R-2155",
+    "actual_owner": "Anatoly Maslennikov",
+    "target_project": "caprmedio",
+    "placement": "Keep; no Scope Unit proposed because the owner is an Actor"
+  },
+  "workflow_responsibility_correction": {
+    "operations_reviewed": 187,
+    "related_rmed_reviewed": 186,
+    "changed_prior_proposals": 283,
+    "rule": "Core owns business meaning; Engine technical realization; Project local/public release orchestration; Project Steps may call Methodology or Engine Workflows"
+  }
+}

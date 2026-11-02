@@ -1,28 +1,27 @@
 ---
 atom_id: CA-D-497
-content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
-version: 15
-updated_at: 2026-10-27 19:59:26 +0400
+version: 18
+updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  passive:
+  - Entity/Object/Occurrent/Execution/Workflow Run
+  - Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - Entity/Object/Continuant/Actor/Operator
+  - Atom
 relations: {}
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Encode RMED review batch limits
 
-## Scope
+## Claim scope
 
 the `rmed_review` parameter group **in** Framework Instance Settings **and** Default Settings.
 

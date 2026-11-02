@@ -8,7 +8,7 @@ from unittest.mock import patch
 from subject_batch_fixture import SubjectBatchProject
 import atom_operations as operations
 import atom_subject_apply as native
-from atom_subject_patch import prepare_subject_intent, materialize_subject_intent
+from atom_subject_patch import prepare_subject_intent, materialize_subject_intent, preview_subject_patches
 from subject_batch import load_subject_batch
 from subject_batch_stage import stage_subject_batch
 from subject_batch_drafts import require_reviewed_draft_candidate, subject_batch_draft_path
@@ -91,6 +91,37 @@ def _rewrite_as_id_free(project, item, *, filename=None, suffix=b""):
 
 
 class SubjectBatchDraftTests(unittest.TestCase):
+    def test_admitted_legacy_source_stages_and_executes_only_through_batch(self):
+        project = SubjectBatchProject(self, count=1)
+        project.use_legacy_subject_transition()
+        with self.assertRaises(operations.ToolError) as direct:
+            prepare_subject_intent(
+                project.root, project.targets[0], project.packet["atoms"][0]["subject_patches"],
+                subject_profile="approved", source_subject_profile="legacy",
+            )
+        self.assertEqual("subject-profile-transition-unadmitted", direct.exception.code)
+        with self.assertRaises(operations.ToolError) as preview:
+            preview_subject_patches(project.root, [{
+                "selector": project.targets[0]["path"],
+                "expected": {"atom_id": project.targets[0]["atom_id"],
+                             "version": project.targets[0]["version"],
+                             "sha256": project.targets[0]["digest"]},
+                "subject_patches": project.packet["atoms"][0]["subject_patches"],
+            }], subject_profile="approved")
+        self.assertEqual("subject-malformed", preview.exception.code)
+        staged = stage_subject_batch(project.root, project.parameters, limit=1)
+        project.use_reviewed_packet(staged["reviewed_packet"])
+        runner, frozen = project.execution("legacy-subject-transition")
+        result = runner.dispatch(frozen)
+        self.assertEqual("terminal", result["disposition"])
+        self.assertIn(b"Entity/Graph Syntax <+ Relation", project.paths[0].read_bytes())
+
+    def test_transition_rejects_an_unchanged_legacy_scalar(self):
+        project = SubjectBatchProject(self, count=1)
+        project.use_legacy_subject_transition(leave_legacy_dependency=True)
+        stopped = stage_subject_batch(project.root, project.parameters, limit=1)
+        self.assertEqual("stopped", stopped["state"])
+        self.assertEqual(0, stopped["completed"])
     def test_noop_draft_promotion_keeps_original_bytes_version_and_time(self):
         project = SubjectBatchProject(self, count=1)
         path = project.paths[0]

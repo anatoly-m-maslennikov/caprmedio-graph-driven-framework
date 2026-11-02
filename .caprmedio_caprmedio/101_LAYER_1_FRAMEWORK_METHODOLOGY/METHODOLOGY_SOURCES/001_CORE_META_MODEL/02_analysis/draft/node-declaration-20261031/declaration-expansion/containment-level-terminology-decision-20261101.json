@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-01",
+  "user_correction": "Use which instance IS_CONTAINED_BY another and which instance CONTAINS it, not child-parent terminology.",
+  "changes": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "before_sha256": "8ccddd05cc8cf195f6ce2d636ecdbbccf584f79d27ff1ca0e130c3d008e044b9",
+      "after_sha256": "c6401eaf05d8be0fbd4ace0d6d2b65214c8668803b555693401b324f5556b40d",
+      "only_bound_variable_names_changed": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "before_sha256": "9abfa4ce3b250bb3a9be8c5c39c7eb58fbb96687e0b1145e3c99f3eaab861c2d",
+      "after_sha256": "aa78279859f486da639ce14ab9f2d9e7f449cd5206c7cffef9ee3a4e009755ad",
+      "only_bound_variable_names_changed": true
+    }
+  ],
+  "meaning": "For each bound IS_CONTAINED_BY link, the contained instance level equals the container instance level plus one. CONTAINS is the derived inverse; no second authored fact.",
+  "root_rules": "Unchanged: Project and Implementation root level 0.",
+  "prose_claim_count": 19,
+  "provenance_question": "Still open; terminology correction does not authorize removal of the sole-derivation constraint.",
+  "runtime_changed": false
+}

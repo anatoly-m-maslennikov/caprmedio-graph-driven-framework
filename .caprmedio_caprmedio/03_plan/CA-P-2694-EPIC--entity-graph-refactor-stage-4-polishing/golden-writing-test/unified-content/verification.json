@@ -1,0 +1,10 @@
+{
+  "result": "Pass",
+  "cases": 12,
+  "source_fidelity_pass": 12,
+  "joint_style_pass": 12,
+  "source_hashes_unchanged": 38,
+  "older_corpus_hashes_unchanged": 38,
+  "prompt_hash_matches": true,
+  "external_fix_rounds": 0
+}

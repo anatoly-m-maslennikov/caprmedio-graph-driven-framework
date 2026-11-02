@@ -1,0 +1,10 @@
+{
+  "drafts": 137,
+  "formal_only_claims": 82,
+  "node_descendant_claims_with_prose": 8,
+  "prose_by_classification": {
+    "Property": 5,
+    "Primary Node": 3
+  },
+  "node_claims_with_prose_including_root": 8
+}

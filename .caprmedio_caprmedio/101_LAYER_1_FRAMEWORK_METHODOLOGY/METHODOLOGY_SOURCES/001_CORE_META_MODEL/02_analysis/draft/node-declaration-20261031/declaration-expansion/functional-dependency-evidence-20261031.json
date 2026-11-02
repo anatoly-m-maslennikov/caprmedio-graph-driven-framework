@@ -1,0 +1,62 @@
+{
+  "operator": "DETERMINES",
+  "truth_table": [
+    {
+      "key_equal": true,
+      "dependent_equal": true,
+      "result": "pass"
+    },
+    {
+      "key_equal": true,
+      "dependent_equal": false,
+      "result": "fail"
+    },
+    {
+      "key_equal": false,
+      "dependent_equal": true,
+      "result": "pass"
+    },
+    {
+      "key_equal": false,
+      "dependent_equal": false,
+      "result": "pass"
+    }
+  ],
+  "reference_identity_example": {
+    "name": "SameSourceDifferentCarrierAddressStableTargetPass",
+    "context": "One selected Project kind with complete historical Projection-rebuild states and a declared reference-to-target-identity resolver.",
+    "rows": [
+      {
+        "state": "rebuild-1",
+        "type": "Catalog",
+        "named_selection_target_identity": "Selection:source-A",
+        "named_selection_carrier_address": "docs/selection-a.md",
+        "source_of_truth_target_identity": "Atom:CA-R-100",
+        "source_of_truth_carrier_address": "04_requirement/CA-R-100.md",
+        "projection_id": "P-1"
+      },
+      {
+        "state": "rebuild-2-after-carrier-migration",
+        "type": "Catalog",
+        "named_selection_target_identity": "Selection:source-A",
+        "named_selection_carrier_address": "docs/moved/selection-a.md",
+        "source_of_truth_target_identity": "Atom:CA-R-100",
+        "source_of_truth_carrier_address": "04_requirement/archive/CA-R-100.md",
+        "projection_id": "P-1"
+      }
+    ],
+    "expected": "pass: the ordered semantic basis tuples and ID are equal despite different carrier addresses.",
+    "negative": "If either reference-to-target identity binding is absent or ambiguous, evaluation errors; it must not compare raw addresses as fallback."
+  },
+  "source_pins": [
+    "CA-R-1943: the same Projection Type, named source selection, and source of truth identify the same Projection and retain its ID across rebuilds; a changed basis has a different Projection ID.",
+    "CA-R-2393: confirms the same Projection identity condition.",
+    "CA-R-1050: identity survives carrier migration when governed meaning and identity are unchanged."
+  ],
+  "normalization": "Use latest approved Projection.Form in target; legacy Type remains only in unchanged Current source pins. Explicit Project context means a Project instance, not a Project kind.",
+  "limits": [
+    "Provide an explicit Evaluation Context for one selected Project kind; do not infer selection from Artifact fields or carrier layout.",
+    "Provide a complete historical-state population callback for the selected context. Partial, Current-only, unresolved, or ambiguous history must error.",
+    "Provide exact scalar resolution and declared reference-to-target-identity resolution for every ordered tuple position. Missing or ambiguous binding must error; no raw-string or locator fallback is allowed."
+  ]
+}

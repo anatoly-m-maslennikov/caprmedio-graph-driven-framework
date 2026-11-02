@@ -1,0 +1,45 @@
+{
+  "canonical_source": ".caprmedio_caprmedio/project_structure.toml",
+  "sha256": "bc53259e9ecfac7a718fbccd0cd81c4ae9954640fb0e535f03c2acfba80547b4",
+  "scope_units": 44,
+  "ordered_rows": 10,
+  "unordered_rows": 34,
+  "fields": {
+    "scope_unit_name": "Declaration Name",
+    "scope_unit_type": "Declaration ordered/unordered",
+    "scope_unit_label": "Declaration Label",
+    "navigational_order_number": "retire for Scope Units by latest Operator decision; do not migrate into Declarations",
+    "parent": "containment binding; exact expression/carrier mapping not fabricated",
+    "local_order": "retain existing Local Order",
+    "authority_path": "preserve; governing model/Carrier binding must be mapped",
+    "delivery_path": "preserve; Carrier mapping must be mapped",
+    "authority_mode": "preserve; six explicit values, do not infer defaults"
+  },
+  "missing_from_toml": [
+    "Scope Unit ID (do not copy projection-only node_id as authority)",
+    "external Goal/Constraint Atom bindings",
+    "local Contract Atom bindings"
+  ],
+  "authority_mode_present": 6,
+  "projection_note": "Derived project_scope_unit_graph.projection.toml has13 rows and is nonauthoritative; it is not the44-row inventory or an ID registry.",
+  "consumer_entrypoints": [
+    "GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
+    "WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/project_structure.py",
+    "project_selection.py",
+    "project_runtime.py",
+    "COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
+    "COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py",
+    "PROJECT_TOOLS/RELEASE_VERSION/local_release.py"
+  ],
+  "scope": "Read-only schema-key coverage and entrypoint discovery, not complete consumer validation.",
+  "latest_operator_numbering_decision": "Scope Units do not have Navigation Number. Keep their existing Local Order semantics; do not maintain a duplicate navigation position. Navigation Number is retained only for Steps and P (Plan) Atoms. This decision does not add new numbering or Carrier-format rules for those Atoms.",
+  "scope_units_in_toml": 44,
+  "implicit_project_root": {
+    "source": ".caprmedio_caprmedio/caprmedio_project_settings.toml",
+    "source_sha256": "654884d1580894159bbcae0a994bfd1f4b745d92bf4438c30d0297a261310ffa",
+    "project_name": "caprmedio",
+    "toml_parent_alias": "PROJECT",
+    "own_declaration_needed": true
+  },
+  "total_units_for_declaration_coverage": 45
+}

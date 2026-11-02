@@ -1,0 +1,398 @@
+{
+  "review": "independent post-apply restore47 verification",
+  "packet": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/restore-project-principles-core-20261031",
+  "baseline_commit": "d029da802",
+  "inventory_ready": 47,
+  "inventory_held": [
+    {
+      "historical_id": "CA-E-002",
+      "state": "not-active-at-project-root"
+    }
+  ],
+  "receipts": 47,
+  "historical_git_body_matches": 47,
+  "predecessor_archive_matches": 47,
+  "normalized_metadata_matches": 47,
+  "receipt_matches": 47,
+  "journal_matches": 47,
+  "failures": [],
+  "passed": true,
+  "details": [
+    {
+      "atom_id": "CA-R-001",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-007",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-029",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-047",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-053",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-1056",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-1178",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-1179",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-1180",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-1181",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-2445",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-2444",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-1407",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-1420",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-1421",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-1423",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-1426",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-1486",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-2448",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-632",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-635",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-642",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-644",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-686",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-705",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-2450",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-709",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-712",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-819",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-831",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-844",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-881",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-R-975",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-M-447",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-M-446",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-M-448",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-M-005",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-M-006",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-M-105",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-M-138",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-M-261",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-M-263",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-M-296",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-E-001",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-E-208",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-E-667",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    },
+    {
+      "atom_id": "CA-E-434",
+      "body": true,
+      "archive": true,
+      "metadata": true,
+      "receipt": true,
+      "journal": true
+    }
+  ]
+}

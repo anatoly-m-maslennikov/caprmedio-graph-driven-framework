@@ -1,26 +1,24 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Rule
-  depends_on: []
-version: 29
-updated_at: 2026-10-27 20:00:01 +0400
+  active: Atom.Relations
+version: 33
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-M-001
+  - CA-M-447
 atom_id: CA-R-1686
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Propagate CAPRMEDIO change forward
 
-## Scope
+## Claim scope
 
 an accepted upstream change in the ordered layer graph.
 

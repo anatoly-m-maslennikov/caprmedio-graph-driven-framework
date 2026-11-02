@@ -1,0 +1,35 @@
+---
+subjects:
+  active: CFEL <+ Relation//IS_ALLOWED_VALUE_OF
+  passive:
+  - Entity
+  - 'Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
+  - CFEL <+ Relation
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1436
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Relation Definition
+---
+## Summary
+
+Define IS_ALLOWED_VALUE_OF
+
+## Claim scope
+
+the IS_ALLOWED_VALUE_OF Relation **in** the Entities Graph.
+
+## Claim
+
+an IS_ALLOWED_VALUE_OF Relation from value V **to** target Entity X **in** the Entities Graph **means** that governing authority admits V as a possible value of X **in** its qualified context, irrespective of X's kind or path. This Relation does **not** assign V **to** a particular occurrence **or** determine direct-value cardinality.
+
+## Notation for subject
+
+```text
+:
+```

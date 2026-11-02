@@ -1,0 +1,102 @@
+{
+  "status": "read-only CFEL candidate; latest user decision applied; no Draft or runtime change made",
+  "supersedes": "The existing fallback rule's same-bearer/literal-only limit only for the explicit ordered IS_CONTAINED_BY lookup described here.",
+  "terms": {
+    "plan_property": "Atom/(.Role: Plan).AI Agent Confidence Threshold",
+    "project_terminal_property": "Project.Settings.AI Agent Confidence Threshold",
+    "terminal_contract_required_by_user": "Project.Settings.AI Agent Confidence Threshold{:1}: [int]{:1}; Project.Settings.AI Agent Confidence Threshold.*[]{:0}",
+    "plan_contract_optional": "Atom/(.Role: Plan).AI Agent Confidence Threshold{:0..1}: [int]{:1}; Atom/(.Role: Plan).AI Agent Confidence Threshold.*[]{:0}"
+  },
+  "candidate_extension": {
+    "name": "Ordered containment fallback lookup",
+    "grammar": [
+      "p ?= e1 ?= e2",
+      "LOOKUP(R, q)"
+    ],
+    "exact_rule_text": [
+      "`p ?= e1 ?= e2` is one ordered fallback chain. Use p when authored; otherwise use the first available valid expression from left to right. An authored invalid value is an error, not absence. Omission is Property absence, not null, an empty string, zero or false.",
+      "Expressions may be literals, same-bearer Property paths, explicit bound Property reads, or `LOOKUP(R, q)`. An explicit foreign-bearer read must resolve one target in the declared evaluation context; zero or multiple targets are errors.",
+      "`LOOKUP(R, q)` starts from p\u2019s bearer, follows one existing outgoing R link at each step, and returns the nearest compatible authored q value. The starting bearer is excluded. A known end with no applicable authored value returns absence, allowing the next fallback.",
+      "Resolve q by full Property declaration identity and applicability in the effective MODEL. Skip a bearer only when q is inapplicable or its authored occurrence is absent. Do not match unrelated Properties by bare name or invent a slot on an inapplicable kind.",
+      "An invalid present value, unresolved applicability or graph facts, multiple outgoing targets, or a revisited bearer is an error. Follow only the relation direction named by R.",
+      "Lookup is lazy: stop at the first valid available value. Later branches are not evaluated. Missing final values and evaluated fallback-expression cycles are errors. More than one applicable fallback chain is an error. Independent Declaration constraints still apply.",
+      "Resolve the effective value without writing a Carrier or adding an authored occurrence. It must satisfy p\u2019s declared value Format and cardinality. A fallback cannot satisfy a required authored occurrence. Property-declaration inheritance is unchanged; recursive instance-value lookup occurs only through explicit LOOKUP."
+    ],
+    "scope_boundary": "This is one reusable relation-chain lookup shape, not a general path, ancestry, projection, or inherited-instance-value language. It follows only the named R chain in the expression."
+  },
+  "exact_plan_claim_after": "```CFEL\nAtom/(.Role: Plan).AI Agent Confidence Threshold{:0..1}: [int]{:1};\nAtom/(.Role: Plan).AI Agent Confidence Threshold.*[]{:0};\nAtom/(.Role: Plan).AI Agent Confidence Threshold\n  ?= LOOKUP(IS_CONTAINED_BY, Atom/(.Role: Plan).AI Agent Confidence Threshold)\n  ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold\n```",
+  "consumer_trace": {
+    "current_source": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-ai-agent-confidence-threshold.md",
+    "new_plan_name": "Latest user decision replaces Autonomous Confidence Threshold with AI Agent Confidence Threshold.",
+    "preserved": [
+      "Plan Property remains optional, one int when authored, with no children.",
+      "A present Plan value is its own authored value and is not copied or rewritten.",
+      "The terminal Project Settings leaf is required by latest user decision, but its new Declaration is root-owned and not created here."
+    ],
+    "not_assumed": "No source Property is declared on Scope Unit merely because it lies on an IS_CONTAINED_BY chain. Only an already applicable, identity-matching declaration can be a nearest lookup match."
+  },
+  "examples": [
+    {
+      "name": "plan-authored-value-short-circuits",
+      "state": "Plan has authored valid value 80; containment chain is cyclic or unavailable.",
+      "result": "effective 80; LOOKUP branches are not evaluated."
+    },
+    {
+      "name": "nearest-compatible-ancestor-wins",
+      "state": "Plan omits the Property; nearest chain bearer has an authored valid occurrence resolved to the same Plan-property declaration identity with value 75; terminal required Project Settings value is 60.",
+      "result": "effective 75; terminal branch is not evaluated."
+    },
+    {
+      "name": "inapplicable-scope-unit-does-not-create-slot",
+      "state": "Plan omits the Property; an intervening Scope Unit has no applicable matching declaration; contextual Project terminal has required value 60.",
+      "result": "effective 60; no Scope Unit Property is inferred."
+    },
+    {
+      "name": "same-bare-name-is-not-a-match",
+      "state": "Plan omits the Property; an ancestor bears a different declaration also named AI Agent Confidence Threshold with value 70; Project terminal has 60.",
+      "result": "effective 60; the different declaration identity is ignored."
+    },
+    {
+      "name": "invalid-nearest-source-errors",
+      "state": "Plan omits the Property; nearest compatible authored source has two values or a non-int value; Project terminal has 60.",
+      "result": "error; invalid source is not skipped to the terminal."
+    },
+    {
+      "name": "missing-required-terminal-errors",
+      "state": "Plan and all compatible ancestors omit the Property; contextual Project Settings leaf is absent.",
+      "result": "error; the required terminal contract has been violated and no value is fabricated."
+    },
+    {
+      "name": "multiple-parent-step-errors",
+      "state": "Plan omits the Property and one traversed bearer has two IS_CONTAINED_BY targets.",
+      "result": "error; lookup never chooses an arbitrary path."
+    },
+    {
+      "name": "orphan-plan-still-uses-project-context",
+      "state": "Plan omits the value; its known containment chain ends without a compatible source. The unique contextual Project Settings value is60.",
+      "result": "effective60; do not require an otherwise undeclared containment route to Project."
+    },
+    {
+      "name": "unresolved-project-context",
+      "state": "Final default is needed but zero or multiple Project instances match the evaluation context.",
+      "result": "error, never choose an arbitrary Project."
+    },
+    {
+      "name": "evaluated-fallback-expression-cycle",
+      "state": "p and q are absent and p ?= q; q ?= p is evaluated.",
+      "result": "error; distinct from a repeated-bearer LOOKUP traversal cycle."
+    }
+  ],
+  "implementation_gates": [
+    "Resolve Property declaration identity/applicability and authored occurrence without confusing it with effective fallback values.",
+    "Resolve existing relation facts deterministically with absence, incompleteness and cycles distinguished.",
+    "Bind the singleton Project within the current evaluation context; its required default remains an independent Declaration constraint."
+  ],
+  "policy_question": null,
+  "mutations": {
+    "repository_files_changed": false,
+    "output": "/tmp/caprmedio-confidence-fallback-20261101/language-candidate.json"
+  },
+  "root_revision": "Use one LOOKUP shape. Terminal default reads the unique Project in current evaluation context; it does not add a mandatory containment route to Project.",
+  "terminal_binding": "Scope Unit/Project has one logical instance in the current Project evaluation context, as declared by the existing Project Declaration. Bind $project there; do not infer it from a carrier name, target Subject or a containment path that need not exist."
+}

@@ -1,28 +1,27 @@
 ---
 atom_id: CA-R-1611
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-version: 21
-updated_at: 2026-10-27 19:59:59 +0400
+  active: Entity/Aspect/Engineering/Traceability
+  passive:
+  - Atom/(.Role := Analysis)
+  - Atom.Content
+  - Atom/(.Role := Evaluation)
+  - Projection
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Separate legacy observations from refactoring decisions
 
-## Scope
+## Claim scope
 
 Reverse-engineering results, including observed Implementation facts and proposed decisions about the intended refactored result.
 
@@ -35,5 +34,3 @@ reverse-engineering results **must** distinguish observed Implementation facts f
 - unresolved behavior, missing evidence, **and** uncertain interpretations **must** remain explicit.
 
 an observed behavior **or** defect **must not** become a Requirement merely because it exists **in** the legacy Implementation. supporting evidence **must** remain recoverable **without** a proposed disposition **or** uncertainty being presented as an observed fact.
-
-## Details

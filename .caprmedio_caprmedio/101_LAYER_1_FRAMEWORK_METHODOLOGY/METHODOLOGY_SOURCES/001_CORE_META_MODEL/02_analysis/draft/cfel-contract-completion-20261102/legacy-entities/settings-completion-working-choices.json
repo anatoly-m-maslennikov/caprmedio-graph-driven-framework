@@ -1,0 +1,187 @@
+{
+  "status": "candidates_for_review_not_current",
+  "files": [
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-dynamic-2408.md",
+      "sha256": "3d8b042b78b2787bbfdfa63d10da174db874706b49e3cc6aa9346cfce17b8ded",
+      "source_pins": [
+        {
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2408@1-CORE_META_MODEL-ENTITY_DEFINITION--define-extension-selections.md",
+          "sha256": "21f3e9e13bdd775a7824502d9075da5820bd1644b7d91bf73517d139bac8f63f"
+        },
+        {
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-373-CORE_META_MODEL-ENG_DECISION--serialize-instance-extension-selections.md",
+          "sha256": "9e072ac999bd7a44c82287e8670aea4df0ec5463fdcda7ad816535d503f072d4"
+        }
+      ],
+      "working_choice": "Dynamic dependent names are strings. Detailed per-name representation and target binding remain subject to their existing Delivery contracts, not guessed model fields.",
+      "scope_decision": "MODEL Property schema: CORE_META_MODEL; adjust native destination path as well as owner and Target Scope. Scope expansion is semantic_revision under CA-R-1432."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-dynamic-2411.md",
+      "sha256": "6e714740b125175778c41c6315fe14b42145f91e7ad56900ec203f170c97748b",
+      "source_pins": [
+        {
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2411@1-CORE_META_MODEL-ENTITY_DEFINITION--define-tool-selections.md",
+          "sha256": "fce34a1ed9ed423390e44cef023157a8fc275840a1880a651901da181364c367"
+        },
+        {
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-372-CORE_META_MODEL-ENG_DECISION--serialize-instance-tool-selections.md",
+          "sha256": "86bd84dbec71393ac96655f428a45002101c355cbd5aa6ec445a24c8f4d9cc92"
+        }
+      ],
+      "working_choice": "Dynamic dependent names are strings. Detailed per-name representation and target binding remain subject to their existing Delivery contracts, not guessed model fields.",
+      "scope_decision": "MODEL Property schema: CORE_META_MODEL; adjust native destination path as well as owner and Target Scope. Scope expansion is semantic_revision under CA-R-1432."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-rmed-review.md",
+      "sha256": "d252f811f6efeb8b6f27aae5c4d98de60c1306905f5f30752b6a696cc3d49346",
+      "source_pins": [
+        {
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-497-PROJECT_CONFIGURATION-ENG_DECISION--encode-rmed-review-batch-limits.md",
+          "sha256": "804fe897500bd5359494814de76fedb2193a95a56e4bd7f6ee3494ffec01f3c6"
+        }
+      ],
+      "working_choice": "A Project override group is optional; each parameter resolves independently through the existing precedence.",
+      "scope_decision": "MODEL Property schema: CORE_META_MODEL; adjust native destination path as well as owner and Target Scope. Scope expansion is semantic_revision under CA-R-1432."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-rmed-headroom.md",
+      "sha256": "0b04a094a3479626cc8df4341be2811eff511f92b7568a2668d9ce2b65d10ecf",
+      "source_pins": [
+        {
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-497-PROJECT_CONFIGURATION-ENG_DECISION--encode-rmed-review-batch-limits.md",
+          "sha256": "804fe897500bd5359494814de76fedb2193a95a56e4bd7f6ee3494ffec01f3c6"
+        }
+      ],
+      "working_choice": "The CFEL float Format represents the source TOML number; finiteness and bounds remain precise prose.",
+      "scope_decision": "MODEL Property schema: CORE_META_MODEL; adjust native destination path as well as owner and Target Scope. Scope expansion is semantic_revision under CA-R-1432."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-rmed-max-atoms.md",
+      "sha256": "3303f67760acd8034c259ff94b6135cc66c3a0460e9d68c52150f7bdbe9ee891",
+      "source_pins": [
+        {
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-497-PROJECT_CONFIGURATION-ENG_DECISION--encode-rmed-review-batch-limits.md",
+          "sha256": "804fe897500bd5359494814de76fedb2193a95a56e4bd7f6ee3494ffec01f3c6"
+        }
+      ],
+      "working_choice": "Optional cap follows D497; no new default is introduced.",
+      "scope_decision": "MODEL Property schema: CORE_META_MODEL; adjust native destination path as well as owner and Target Scope. Scope expansion is semantic_revision under CA-R-1432."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/CA-R-2532@3-draft-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "a1bd4a72e6c4c961a9eec7af114ccb25e6a67b938587ab44a3246a1d0449a66e",
+      "source_pins": [
+        {
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+          "sha256": "74deae07ecb532f48a734593865787f3e1c4b35feaea9365627377472f72fba4"
+        },
+        {
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-497-PROJECT_CONFIGURATION-ENG_DECISION--encode-rmed-review-batch-limits.md",
+          "sha256": "804fe897500bd5359494814de76fedb2193a95a56e4bd7f6ee3494ffec01f3c6"
+        }
+      ],
+      "working_choice": "Closed over 15 known logical immediate children from Current/archived evidence and the operator’s all-settings direction; if independent census finds another logical setting, extend before admission."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1373@28-draft-PROJECT_CONFIGURATION-RULE--define-applicable-methodology-conflict.md",
+      "sha256": "0c24fef91e15b7e0e592f647cba282402fb3564dce9a692d5d793264b0cbccb6",
+      "source_pins": [
+        {
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1373-PROJECT_CONFIGURATION--define-applicable-methodology-conflict.md",
+          "sha256": "2bd79d8675b7a5497ab642e76655b244051cbd2a35f9dff56c33a9e166932ff9"
+        }
+      ],
+      "working_choice": "Compiler outcome addressed under its Projection; no unselected Conflict Property Node is introduced. The historical zero direct-value property rule is not carried because this working interpretation treats Conflict as an outcome, not a stored Property."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/draft/cfel-contract-completion-20261102/CA-R-2256@3-draft-CAPRMEDIO-DECLARATION--define-the-caprmedio-framework-product.md",
+      "sha256": "b1211656140ab8f293719350d5036c97d30314d00ac9c8b1aadc4234bda31fda",
+      "source_pins": [
+        {
+          "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-2256-CAPRMEDIO-ENTITY_DEFINITION--define-the-caprmedio-framework-product.md",
+          "sha256": "9d58afebbaca431d849f82b12ade421e0c5b5ac715bc0da3a59fc511b00aa9fe"
+        }
+      ],
+      "working_choice": "The actual product is a named Continuant instance with one Declaration. It remains distinct from the Project; its product specialization remains a nonblocking Question."
+    }
+  ],
+  "concern_candidates": [
+    {
+      "subject": "Project.Settings.Extension Selections",
+      "summary": "Resolve the logical dependent Properties for Extension selections",
+      "question": "Which dependent Properties and value contracts represent each selected Extension and its retained settings?",
+      "working_choice": "Permit named string children and retain per-Extension settings without inventing file keys.",
+      "impact": "Property contracts, disabled-versus-active distinction and selected revision; Current D373 remains governing."
+    },
+    {
+      "subject": "Project.Settings.Tool Selections",
+      "summary": "Resolve the logical dependent Properties for Tool selections",
+      "question": "Which dependent Properties and value contracts represent selected active and background Tools and their settings?",
+      "working_choice": "Permit named string children and retain per-Tool settings; exact child shapes remain governed by existing policy.",
+      "impact": "Property contracts and Tool selections, without changing runtime routing."
+    },
+    {
+      "subject": "Node/Continuant//CAPRMEDIO Framework",
+      "summary": "Resolve the model specialization of the CAPRMEDIO Framework product",
+      "question": "Should the CAPRMEDIO Framework product remain a named Continuant or have a separately admitted product specialization?",
+      "working_choice": "Use the named Continuant to preserve its distinct persistent identity without adding a new Product kind.",
+      "impact": "Product identity, the old Aspect subject mapping and downstream Subject references; Project remains distinct."
+    },
+    {
+      "subject": "Projection/(.Form := Applicable Methodology)",
+      "summary": "Resolve the representation of Applicable Methodology conflicts",
+      "question": "Is a compiler conflict solely an outcome, or must a stored Conflict Property also be modeled?",
+      "working_choice": "Preserve it as a conflict outcome within the compiler frontier, without asserting a new stored Property.",
+      "impact": "CA-R-1373 and any consumers relying on the old zero-value Conflict group."
+    }
+  ],
+  "known_limits": [
+    "Parent covers 13 currently evidenced immediate logical Settings children, not a claim that unrelated unresolved release-version fields are fully modeled.",
+    "The context-headroom finite float and positive integer constraints preserve D497.",
+    "Dynamic selections preserve retained settings without inventing runtime field names; child representations still require a follow-up Concern.",
+    "Product and compiler conflict use explicit provisional choices backed by sources; do not treat proposed Form/Subject changes as adopted.",
+    "No Current, Git, runtime or actual Workflow instance changes."
+  ],
+  "concern_drafts": [
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--extension-selection-children.md",
+      "sha256": "d20a38064d8fd56bc92c2c6f62c9856e2adf20775d1d76cac917516d836fdba9",
+      "summary": "Resolve the logical dependent Properties for Extension selections"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--tool-selection-children.md",
+      "sha256": "1acbdf9a5e123b9cfcdf013cdcd3ea8db8a323e458ceb1c58087b95dc22660e1",
+      "summary": "Resolve the logical dependent Properties for Tool selections"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--framework-product-specialization.md",
+      "sha256": "ef0c58afb57f27282d73ed4003a27bfb2040f8a24c23a902c357fa042bc10729",
+      "summary": "Resolve the model specialization of the CAPRMEDIO Framework product"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--methodology-conflict-representation.md",
+      "sha256": "355da1ae2a4247ae7677273375e67a33f22e41993761d415b5decc518320a5ed",
+      "summary": "Resolve the representation of Applicable Methodology conflicts"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--classify-release-retention-settings.md",
+      "sha256": "21fc496e252df518a4399b09186f5be200adb02efd84a1adbf08e35964e3fd4b",
+      "summary": "Resolve the logical status of release retention settings"
+    }
+  ],
+  "independent_review_fixes": [
+    "Carrier Identifier and derived parameter resolution are Rules, not stored Project Settings Properties.",
+    "Authority Modes requires both source-backed values when its group is authored.",
+    "Retry nonnegative/zero and no-permission semantics preserved.",
+    "Tool and Extension selection source constraints retained."
+  ],
+  "scope_applicability_review": {
+    "generic_model_scope": "CORE_META_MODEL",
+    "project_specific_behavior": "PROJECT_CONFIGURATION",
+    "mandatory_locator_choice": "Generic Properties optional; separate Project Configuration Rule retains caprmedio Framework Instance Settings 1+ code roots and exactly one control root.",
+    "principles_evidence": "../principles/active-principles.json",
+    "no_physical_carrier_changes": true
+  }
+}

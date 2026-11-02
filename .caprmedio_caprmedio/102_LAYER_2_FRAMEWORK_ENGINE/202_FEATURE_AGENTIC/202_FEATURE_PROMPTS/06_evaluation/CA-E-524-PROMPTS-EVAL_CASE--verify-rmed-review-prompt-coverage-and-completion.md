@@ -6,8 +6,8 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
-version: 18
-updated_at: 2026-10-27 19:59:36 +0400
+version: 20
+updated_at: 2026-10-30 03:11:57 +0400
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
   depends_on:
@@ -31,7 +31,7 @@ relations:
   - CA-M-317
   - CA-R-1801
   - CA-R-1802
-  - CA-R-1803
+  - CA-R-2447
 tier: 4
 ---
 # Summary

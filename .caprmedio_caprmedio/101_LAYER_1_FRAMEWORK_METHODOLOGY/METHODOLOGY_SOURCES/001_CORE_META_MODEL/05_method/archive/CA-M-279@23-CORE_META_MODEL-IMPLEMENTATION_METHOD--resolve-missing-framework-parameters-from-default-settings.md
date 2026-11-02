@@ -1,0 +1,28 @@
+---
+subjects:
+  governs: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution
+  depends_on:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project
+  - Entity/Object/Continuant/Actor/Operator
+version: 23
+updated_at: 2026-10-29 10:13:50 +0400
+relations: {}
+atom_id: CA-M-279@23
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 2
+type: Implementation Method
+---
+## Summary
+Resolve missing framework parameters from Default Settings
+
+## Claim scope
+resolution of a Framework Instance Settings parameter.
+
+## Claim
+**to** resolve a Framework Instance Settings parameter, use its explicit value **if** that parameter is present **in** the current Project's Framework Instance Settings; **otherwise**, use the corresponding value from Default Settings. determine presence for the individual parameter, **not** its containing section **or** the truthiness of its value, so valid `false`, `0`, **and** empty values remain explicit selections. validate the selected value against its governing parameter authority **and** reject an invalid explicit value **without** falling back. **if** neither source supplies a required parameter, report that parameter as unresolved **and** stop the operation that requires it; an optional parameter **may** remain absent. do **not** copy inherited values into Framework Instance Settings as explicit selections.

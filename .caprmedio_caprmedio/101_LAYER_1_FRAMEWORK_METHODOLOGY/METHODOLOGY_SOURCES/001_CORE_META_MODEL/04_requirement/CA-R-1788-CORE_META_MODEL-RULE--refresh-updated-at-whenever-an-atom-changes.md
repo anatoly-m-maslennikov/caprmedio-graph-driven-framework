@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Carrier.Canonical Address
-version: 15
-updated_at: 2026-10-27 20:00:03 +0400
+  active: Atom.Updated At
+  passive:
+  - Atom
+  - Atom.Status
+  - Carrier
+  - Carrier.Canonical Address
+version: 18
+updated_at: 2026-11-02 00:18:22 +0400
 claim_target_scope_unit: CORE_META_MODEL
 relations:
   child_of:
   - CA-R-1416
 atom_id: CA-R-1788
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 status: Active
-type: Rule
-author: Anatoly Maslennikov
 tier: 3
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Refresh Updated At whenever an Atom changes
 
-## Scope
+## Claim scope
 
 accepted Markdown Atom Carrier edits.
 

@@ -1,0 +1,430 @@
+{
+  "hashes": {
+    ".caprmedio_tmp/summary-iteration-4-20261030/comparison.jsonl": "a3245c2a1d5b373dd6f17646ec57a659720c4e1297d5e02e4308aa0c5314b51f",
+    ".caprmedio_tmp/summary-iteration-4-20261030/generator-prompt.md": "84ab310b3b3f7e81910bcb16f015a88ea180aa08b8d9b53a75990aa7845afcfc",
+    ".caprmedio_tmp/summary-iteration-4-20261030/blind-1/writing-style-guide.prompt.md": "bdf99a66c7cf79d14ab5c0373aeb70e934cde5c028385a8a3f4e794c92bf0ea5",
+    ".caprmedio_tmp/summary-iteration-4-20261030/blind-1/input.jsonl": "4a987228ee71a87f7d2cb427b5e8cd5336908c7dfff531e704aea88e5e1f7b86",
+    ".caprmedio_tmp/summary-iteration-4-20261030/blind-1/output.jsonl": "6d0565d12d6d99434a2f48c36369e08ef4fae23c50bf39b6e45471f748cb9550",
+    ".caprmedio_tmp/summary-iteration-4-20261030/blind-2/input.jsonl": "e094c38c5dc79157c9bce1d2881465aad1fede4ff237b6990c4e74239c7a68fe",
+    ".caprmedio_tmp/summary-iteration-4-20261030/blind-2/output.jsonl": "1069f500e6acea27a4f8ebc265ca20c2ba31b89397348af8a94ddf3e05ec2c4f",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/golden-writing-test/summary-test-eval-v3.json": "2f0e446d1e6e411afe92591c80c24c4c952b224d0f9a5b3269ecc9ec87fb039c"
+  },
+  "counts": {
+    "total": 38,
+    "pass": 23,
+    "needs_changes": 15
+  },
+  "previous_failed": [
+    "B03",
+    "B08",
+    "B09",
+    "B10",
+    "B14",
+    "B15",
+    "B17",
+    "B23"
+  ],
+  "fixed_previous_failures": [
+    "B09",
+    "B10",
+    "B15",
+    "B17"
+  ],
+  "still_failed": [
+    "B03",
+    "B08",
+    "B14",
+    "B23"
+  ],
+  "regressions": [
+    "B05",
+    "B06",
+    "B07",
+    "B19",
+    "B21",
+    "B26",
+    "B27",
+    "B28",
+    "B34",
+    "B36",
+    "B37"
+  ],
+  "results": [
+    {
+      "key": "B01",
+      "current_id": "CA-R-2442",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B02",
+      "current_id": "CA-R-2430",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B03",
+      "current_id": "CA-M-448",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "NeedsChanges",
+      "issues": [
+        {
+          "source_quote": "keep **all** unexposed preserved information so it can be retrieved",
+          "generated_quote": "Show only the complete, currently justified information set needed for a task.",
+          "problem": "The title drops the equally central requirement to keep the rest recoverable.",
+          "minimal_fix": "Show what is needed; keep the rest"
+        }
+      ]
+    },
+    {
+      "key": "B04",
+      "current_id": "CA-M-446",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B05",
+      "current_id": "CA-R-2443",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "Pass",
+      "issues": [
+        {
+          "source_quote": "own the optional human-facing interface over GRAPH_SERVER",
+          "generated_quote": "GRAPH_UI is an optional human-facing interface that is not required for headless graph access, Tools, or MCP.",
+          "problem": "The title omits the core responsibility for the interface over GRAPH_SERVER, focusing instead on optional access.",
+          "minimal_fix": "GRAPH_UI owns an optional user interface to GRAPH_SERVER"
+        }
+      ]
+    },
+    {
+      "key": "B06",
+      "current_id": "CA-R-2444",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "Pass",
+      "issues": [
+        {
+          "source_quote": "input from other CAPRMEDIO users",
+          "generated_quote": "FIELD collects feedback, questions, suggestions, and problem reports from CAPRMEDIO users.",
+          "problem": "The title changes the identified source from other users to CAPRMEDIO users in general.",
+          "minimal_fix": "Collect input from other CAPRMEDIO users"
+        }
+      ]
+    },
+    {
+      "key": "B07",
+      "current_id": "CA-R-2445",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "Pass",
+      "issues": [
+        {
+          "source_quote": "externally maintained Extension packages",
+          "generated_quote": "COMMUNITY_EXTENSIONS catalogs external Extension packages without making them CAPRMEDIO-owned Scope Units.",
+          "problem": "External packages do not necessarily mean externally maintained packages.",
+          "minimal_fix": "Catalog externally maintained Extension packages"
+        }
+      ]
+    },
+    {
+      "key": "B08",
+      "current_id": "CA-R-2446",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "NeedsChanges",
+      "issues": [
+        {
+          "source_quote": "recent Tool calls;",
+          "generated_quote": "MCP exposes a bounded, non-authoritative, read-only browser diagnostic view at `/health`.",
+          "problem": "A generic browser diagnostic view omits call and Workflow history, central functions of the view.",
+          "minimal_fix": "Expose bounded, read-only MCP health and call history"
+        }
+      ]
+    },
+    {
+      "key": "B09",
+      "current_id": "CA-O-238",
+      "verdict": "Pass",
+      "previous_verdict": "NeedsChanges",
+      "issues": []
+    },
+    {
+      "key": "B10",
+      "current_id": "CA-O-239",
+      "verdict": "Pass",
+      "previous_verdict": "NeedsChanges",
+      "issues": []
+    },
+    {
+      "key": "B11",
+      "current_id": "CA-E-666",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B12",
+      "current_id": "CA-R-2447",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B13",
+      "current_id": "CA-R-2448",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B14",
+      "current_id": "CA-E-667",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "NeedsChanges",
+      "issues": [
+        {
+          "source_quote": "A required supporting Core Claim is absent",
+          "generated_quote": "Evaluate the Project-wide foundation and Core set for canonical, non-conflicting authority.",
+          "problem": "Canonical, non-conflicting authority selects only part of an Evaluation that also checks Core support and other defects.",
+          "minimal_fix": "Check the Project-wide foundation and Core set"
+        }
+      ]
+    },
+    {
+      "key": "B15",
+      "current_id": "CA-R-2449",
+      "verdict": "Pass",
+      "previous_verdict": "NeedsChanges",
+      "issues": []
+    },
+    {
+      "key": "B16",
+      "current_id": "CA-D-657",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B17",
+      "current_id": "CA-R-2450",
+      "verdict": "Pass",
+      "previous_verdict": "NeedsChanges",
+      "issues": []
+    },
+    {
+      "key": "B18",
+      "current_id": "CA-R-2451",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B19",
+      "current_id": "CA-R-2452",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "Pass",
+      "issues": [
+        {
+          "source_quote": "create **and** evolve a working CAPRMEDIO Framework",
+          "generated_quote": "The caprmedio Project evolves a Framework that enables AI Agents to create, deliver, run, and maintain any feasible Project.",
+          "problem": "The title drops creation and the working Framework, and replaces the Operator using AI Agents with Agents acting as the primary actors.",
+          "minimal_fix": "Create and evolve a working CAPRMEDIO Framework"
+        }
+      ]
+    },
+    {
+      "key": "B20",
+      "current_id": "CA-E-668",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B21",
+      "current_id": "CA-R-709",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "Pass",
+      "issues": [
+        {
+          "source_quote": "`unordered_unit`",
+          "generated_quote": "Every CAPRMEDIO Feature is an unordered unit with one immediate Structural-unit owner and no local order",
+          "problem": "The title changes exact model tokens `unordered_unit` and `local_order` into prose labels.",
+          "minimal_fix": "Classify Project Features as unordered units"
+        }
+      ]
+    },
+    {
+      "key": "B22",
+      "current_id": "CA-R-1420",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B23",
+      "current_id": "CA-R-705",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "NeedsChanges",
+      "issues": [
+        {
+          "source_quote": "are downstream Project Layers; COMMUNITY_EXTENSIONS **and** FIELD are direct Project Features",
+          "generated_quote": "The CAPRMEDIO Framework comprises all caprmedio Project outputs delivered to root Implementation Folders",
+          "problem": "The title reduces Framework composition to root-folder outputs and omits its separate Layer and Feature composition.",
+          "minimal_fix": "Define Framework composition"
+        }
+      ]
+    },
+    {
+      "key": "B24",
+      "current_id": "CA-R-1407",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B25",
+      "current_id": "CA-R-1178",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B26",
+      "current_id": "CA-R-1180",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "Pass",
+      "issues": [
+        {
+          "source_quote": "provide CAPRMEDIO-maintained Extensions",
+          "generated_quote": "CORE_EXTENSIONS provides CAPRMEDIO-maintained optional capabilities without modifying canonical Core Meta-Model authority",
+          "problem": "Providing optional capabilities is not the same as providing maintained Extension packages.",
+          "minimal_fix": "Provide CAPRMEDIO-Maintained Optional Extensions"
+        }
+      ]
+    },
+    {
+      "key": "B27",
+      "current_id": "CA-R-1179",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "Pass",
+      "issues": [
+        {
+          "source_quote": "to** achieve their Project Goals",
+          "generated_quote": "OPERATOR_DOCUMENTATION provides readable information for efficient Framework Instance use",
+          "problem": "Efficient Framework Instance use omits the central purpose of achieving Project Goals.",
+          "minimal_fix": "Help Operators use CAPRMEDIO to achieve Project Goals"
+        }
+      ]
+    },
+    {
+      "key": "B28",
+      "current_id": "CA-R-819",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "Pass",
+      "issues": [
+        {
+          "source_quote": "acquire specialist craft proficiency **or** personally perform specialist craft work",
+          "generated_quote": "A CAPRMEDIO Framework Instance must not require human participants to have or perform specialist craft work",
+          "problem": "“Have specialist craft work” is unclear and does not preserve the prohibition on requiring human participants to acquire proficiency.",
+          "minimal_fix": "Do not require human participants to master or personally perform specialist work"
+        }
+      ]
+    },
+    {
+      "key": "B29",
+      "current_id": "CA-R-712",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B30",
+      "current_id": "CA-R-1421",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B31",
+      "current_id": "CA-R-1423",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B32",
+      "current_id": "CA-R-1486",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B33",
+      "current_id": "CA-R-1181",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B34",
+      "current_id": "CA-R-1426",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "Pass",
+      "issues": [
+        {
+          "source_quote": "understand execution;",
+          "generated_quote": "FRAMEWORK_ENGINE provides observability and transparency for informed Operator decisions",
+          "problem": "The title narrows Engine execution observability to informed decisions and omits the broader execution transparency purpose.",
+          "minimal_fix": "Make engine execution observable and transparent"
+        }
+      ]
+    },
+    {
+      "key": "B35",
+      "current_id": "CA-M-447",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B36",
+      "current_id": "CA-M-006",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "Pass",
+      "issues": [
+        {
+          "source_quote": "Terms;",
+          "generated_quote": "Keep shared or interacting Project authority mutually coherent",
+          "problem": "“Project authority” does not cover the Implementation and other interacting Project elements whose coherence is required.",
+          "minimal_fix": "Keep the whole project coherent"
+        }
+      ]
+    },
+    {
+      "key": "B37",
+      "current_id": "CA-M-005",
+      "verdict": "NeedsChanges",
+      "previous_verdict": "Pass",
+      "issues": [
+        {
+          "source_quote": "only** **when** the other admitted mechanisms cannot preserve a required outcome **or** a material governed distinction",
+          "generated_quote": "Admit or retain a Project mechanism only when it preserves a required outcome or material governed distinction",
+          "problem": "The title changes a necessity test into a usefulness test: a mechanism preserving an outcome is not necessarily needed when existing mechanisms already preserve it.",
+          "minimal_fix": "Add complexity only when necessary"
+        }
+      ]
+    },
+    {
+      "key": "B38",
+      "current_id": "CA-E-001",
+      "verdict": "Pass",
+      "previous_verdict": "Pass",
+      "issues": []
+    }
+  ],
+  "limitations": [
+    "Evaluation is a semantic and style judgment, not exact-match scoring; secondary details can be omitted.",
+    "The supplied experiment states the same inputs, model and guide were used with a changed generator instruction; the assessment is limited to these 38 cases.",
+    "Corrections are suggestions only; no source or generated outputs were changed."
+  ]
+}

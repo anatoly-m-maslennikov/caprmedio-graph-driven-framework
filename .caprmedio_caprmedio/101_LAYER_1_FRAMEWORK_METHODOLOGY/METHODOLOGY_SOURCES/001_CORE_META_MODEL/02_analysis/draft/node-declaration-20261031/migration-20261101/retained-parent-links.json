@@ -1,0 +1,72 @@
+{
+  "status": "Draft correction of existing inherited parents",
+  "new_kinds": 0,
+  "links": [
+    {
+      "subject": "Atom",
+      "parent": "Continuant",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2508@1-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "83e12dff26e4af38c6f84b3d2aaddeaf1707099d8a7fc2f14f49231540eae6a9"
+    },
+    {
+      "subject": "Scope Unit",
+      "parent": "Continuant",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2523@1-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "sha256": "9028d49455e0fb146e451d0fcbd8cc25e33f3f678ad8a3fab713ce4845f9b3fd"
+    },
+    {
+      "subject": "Project",
+      "parent": "Scope Unit",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2524@1-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "492f7b5c3b29a0250f22a3d8d22a4d1469d989c3848f2a06c2be60fc6dff4c37"
+    },
+    {
+      "subject": "Package",
+      "parent": "Continuant",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2525@1-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "sha256": "3ba8fa9bf008542093666cc080bb971a878d94c4501021535e53e022481e9028"
+    },
+    {
+      "subject": "Projection",
+      "parent": "Continuant",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2535@1-draft-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "sha256": "5ae51c55cc56aeab208f445c15fa7d6d65e9363c8a0cc72b0da2faf593c52b7d"
+    },
+    {
+      "subject": "Journal",
+      "parent": "Continuant",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2536@1-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "sha256": "184805f95cd003a9f610638842140735091f08ff281830c38daa936b7dff4b25"
+    },
+    {
+      "subject": "Actor",
+      "parent": "Continuant",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2542@1-draft-CORE_META_MODEL-DECLARATION--declare-actor.md",
+      "sha256": "2f440285a2c6232ab3b3fc2055ffd95f5be2922f79cd9772c7dde5411e769ec5"
+    },
+    {
+      "subject": "Aspect",
+      "parent": "Node",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2543@1-draft-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "sha256": "689dc72dedb4b013586375efbea59975e91d3cc2cbb9bf83c49869960cdbf7f8"
+    },
+    {
+      "subject": "MODEL",
+      "parent": "Node",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2559@1-draft-CORE_META_MODEL-DECLARATION--declare-model.md",
+      "sha256": "baa11a7bb7c445c62196afb73324d4370b52cb76683ff6f3533a7827f382677f"
+    },
+    {
+      "subject": "PROJECT STRUCTURE",
+      "parent": "Node",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2560@1-draft-CORE_META_MODEL-DECLARATION--declare-project-structure.md",
+      "sha256": "cf7437a2d0e0ed4fcc7e143badb66422b4eee8ee7015b29c126b75ce6e6e7c33"
+    },
+    {
+      "subject": "Named Selection",
+      "parent": "Continuant",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2587@1-draft-CORE_META_MODEL-DECLARATION--declare-named-selection.md",
+      "sha256": "7185ae62efe983bd859f3d94c9b230505f3092fa3fd311c7f0508fada059ea45"
+    }
+  ]
+}

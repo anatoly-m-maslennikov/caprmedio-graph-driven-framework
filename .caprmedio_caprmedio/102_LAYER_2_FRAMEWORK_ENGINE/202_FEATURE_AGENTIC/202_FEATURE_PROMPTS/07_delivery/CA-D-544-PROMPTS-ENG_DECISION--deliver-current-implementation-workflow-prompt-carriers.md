@@ -6,8 +6,8 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
-version: 15
-updated_at: 2026-10-27 19:59:27 +0400
+version: 17
+updated_at: 2026-10-30 03:11:57 +0400
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
   depends_on:
@@ -28,7 +28,7 @@ the definition-only shared-context package at `102_FRAMEWORK_ENGINE/202_AGENTIC/
 
 ## Claim
 
-the package **must** contain only `CA-O-231`, `CA-O-232`, `CA-O-233`, `CA-O-094`, `CA-O-234`, `CA-O-096`, `CA-O-099`, and `CA-O-230` `.prompt.md` carriers, plus `README.md`, `definition_frontier.projection.json`, and `tests/`.
+the package **must** contain only `CA-O-231`, `CA-O-232`, `CA-O-233`, `CA-O-094`, `CA-O-234`, `CA-O-096`, `CA-O-099`, and `CA-O-239` `.prompt.md` carriers, plus `README.md`, `definition_frontier.projection.json`, and `tests/`.
 
 ## Details
 

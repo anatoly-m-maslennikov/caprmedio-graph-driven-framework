@@ -1,0 +1,686 @@
+{
+  "status": "Drafts created for approved Projection and Journal primary categories only; Current unchanged; not registered or promoted.",
+  "scope": {
+    "approved_primary_categories": [
+      "Projection",
+      "Journal"
+    ],
+    "primary_draft_count": 2,
+    "property_declaration_count": 6,
+    "actual_instance_review": false,
+    "other_scope_edits": false
+  },
+  "source_census": {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/declaration-expansion/census.json",
+    "sha256": "557f7a1e2619ad308d9230452e2d8b66d9a51a1c0f38c5016f44f3d5545059ff",
+    "active_core_r_sources_indexed": 750
+  },
+  "primary_drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Projection",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "category": "Primary Node",
+      "governs": "Projection",
+      "formal_claim": "Projection/ {0}((IS_PROPERTY_OF)) plus six declared Properties",
+      "sha256": "6e225765a05b70b56f72ffc3638ee40e32772b1d470a15798b15b9b3b07eaeed",
+      "source_pins": [
+        {
+          "id": "CA-R-1746",
+          "version": 43,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL--define-projection-artifact-form.md",
+          "sha256": "62d932d646242619892aef5882a23ac430f30ff5f867a9076ca7e13d43a1c6ac",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1406",
+          "version": 25,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL--keep-entity-identity-independent-of-graph-materialization.md",
+          "sha256": "d2b524b7342e2804907089042cad88fbd0860697fa4fa2748c36d126d751005c",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1460",
+          "version": 21,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1460-CORE_META_MODEL--separate-projection-derivation-from-carrier-materialization.md",
+          "sha256": "5f3861840b35e4d01e5580389da2d62792059dc5dab95ce4d7c7457e91b3ab1b",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1493",
+          "version": 19,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1493-CORE_META_MODEL-RULE--identify-how-each-projection-is-rebuilt.md",
+          "sha256": "079a29ca071a8af35d55107855e2df7b1a02dfdbcfc4b740917b939d63c0b1b6",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1494",
+          "version": 19,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1494-CORE_META_MODEL-RULE--record-projection-dependency-provenance-only-when-required.md",
+          "sha256": "99af2fa18bfd42c62ffdbd6649b406c2d39fda4905a49d0dbef26719517312d0",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1507",
+          "version": 18,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1507-CORE_META_MODEL-RULE--require-declared-source-atoms-before-projection-refresh.md",
+          "sha256": "08711f8a495d3b919614688fbe60cab42bccb129cfb1255e5474a5f0c22dd3d4",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1609",
+          "version": 21,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-RULE--distinguish-projected-representations-from-represented-entities.md",
+          "sha256": "6c276c8602c138fd25f3ff8188c327515bbfcdb23333e3d36c611ab87cdefcbd",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1634",
+          "version": 42,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+          "sha256": "a82803b9e90220dc959a9399bbc8cf3366bee01203b4d73992bfe958b1260e6f",
+          "subjects_governs": "Entity/Object/Continuant/Projection/Type"
+        },
+        {
+          "id": "CA-R-1749",
+          "version": 25,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL--preserve-source-scope-in-derived-views.md",
+          "sha256": "e12002ba84ef7b752c49a94029d56629b9b2321c057a8cef45c78094de84d05f",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1943",
+          "version": 14,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md",
+          "sha256": "bcaee12974f5eb918d402559d54fdd0ec3fad3590671b5d335691cca2f31fe03",
+          "subjects_governs": "Entity/Object/Continuant/Projection.ID"
+        },
+        {
+          "id": "CA-R-1495",
+          "version": 20,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1495-CORE_META_MODEL-RULE--projections-have-updated-at.md",
+          "sha256": "7a05de09b7c16929d3ef8b66a682ca7ef0c31e4d9d0cc4e2345213cc94aebcfe",
+          "subjects_governs": "Entity/Object/Continuant/Projection.Updated At"
+        },
+        {
+          "id": "CA-R-1470",
+          "version": 25,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1470-CORE_META_MODEL--define-single-source-of-truth.md",
+          "sha256": "41767469fb7e5915b4895636276d0dab5fe3b0aee1cc3a2c3aee8e936bd4c377",
+          "subjects_governs": "Entity"
+        }
+      ],
+      "contract_note": "Includes all six R1746 base Properties and their current direct formats/counts; no extra Workflow field or Relation mapping is added."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Journal",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "category": "Primary Node",
+      "governs": "Journal",
+      "formal_claim": "Journal/ {0}((IS_PROPERTY_OF))",
+      "sha256": "ef069a2181e872226151b2c794d2859ee2710799ac9c1471c38c3edce6b9bdfc",
+      "source_pins": [
+        {
+          "id": "CA-R-1745",
+          "version": 34,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL--define-journal-artifact-form.md",
+          "sha256": "6a1cc6d2420477b3186a0a2d47e1fd4fd889cfb6c86aaa7b964458fa61c4cf17",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal"
+        },
+        {
+          "id": "CA-R-1720",
+          "version": 37,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-RULE--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "fa4f09b43f5f15534aa44ab4a0504a0a76c2409e2c2eb93eb892ad8bcc125b00",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal"
+        },
+        {
+          "id": "CA-R-1684",
+          "version": 27,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL--separate-analysis-from-factual-execution-records.md",
+          "sha256": "90c450d860590000543e20e270393030dcfb67ae669cb6cd4d76f90a20ee5876",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal"
+        },
+        {
+          "id": "CA-R-1712",
+          "version": 26,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1712-CORE_META_MODEL-RULE--distinguish-enacted-release-and-runtime-facts-from-operations-authority.md",
+          "sha256": "754c68ba9ecf78fe84f53a6b3e57fcf4aa14f944878ffaae31821985d6e75395",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal"
+        },
+        {
+          "id": "CA-R-1491",
+          "version": 28,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md",
+          "sha256": "f835a4383542056bdc683a9d02ba20904106743caa8b58bb98eeeef26a2ac7bc",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal"
+        },
+        {
+          "id": "CA-R-1643",
+          "version": 37,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-RULE--register-type-values-for-work-journal-events.md",
+          "sha256": "d58885f822dc597161495017202fb2d4aece6c6119d8af85a7108187fe7d1c5d",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal > Event Record"
+        },
+        {
+          "id": "CA-R-1644",
+          "version": 34,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md",
+          "sha256": "21b32bd60cfda62b95d90af560184b1181092d90ec775981637ffd16b9599f4b",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal > Event Record"
+        },
+        {
+          "id": "CA-R-1743",
+          "version": 25,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL--record-recurrence-check-outcomes-in-the-journal.md",
+          "sha256": "2f475c36fec8592f91c0897df8c9d2a1a404922ea931ccd92da5e909f08760f3",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal"
+        },
+        {
+          "id": "CA-R-2234",
+          "version": 1,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2234-CORE_META_MODEL-ENTITY_DEFINITION--define-event-record.md",
+          "sha256": "870eda2cc936436158e1bf891002f6f5ca3811187c9349bfc8cefff0588e6ab6",
+          "subjects_governs": "Entity/Object/Continuant/History/Journal > Event Record"
+        }
+      ],
+      "contract_note": "Preserves authoritative, logically ordered, append-only event history and per-Project single Work Journal rule. Does not create an Event Record class or a Journal Records Property."
+    }
+  ],
+  "property_declarations": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Projection.ID",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "category": "Declared Property",
+      "governs": "Projection.ID",
+      "formal_claim": "Projection.ID[string]{1}.[]{0}",
+      "sha256": "39b9b0b12399626529aba11f17e63ee037dd9f9fdeb23783977cd352381670bf",
+      "source_pins": [
+        {
+          "id": "CA-R-1746",
+          "version": 43,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL--define-projection-artifact-form.md",
+          "sha256": "62d932d646242619892aef5882a23ac430f30ff5f867a9076ca7e13d43a1c6ac",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-2393",
+          "version": 1,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2393-CORE_META_MODEL-ENTITY_DEFINITION--define-projection-id.md",
+          "sha256": "299251b0d010bddc1353055730871db9a2a60b31521c9f0b2053597a7cc52fc1",
+          "subjects_governs": "Entity/Object/Continuant/Projection.ID"
+        },
+        {
+          "id": "CA-R-1943",
+          "version": 14,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md",
+          "sha256": "bcaee12974f5eb918d402559d54fdd0ec3fad3590671b5d335691cca2f31fe03",
+          "subjects_governs": "Entity/Object/Continuant/Projection.ID"
+        }
+      ],
+      "contract_note": "Stable identity follows Projection Type, named source selection and source of truth; no dependent Property is declared."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-type.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Projection.Type",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "category": "Declared Property",
+      "governs": "Projection.Type",
+      "formal_claim": "Projection.Type[string]{1}.[]{0}",
+      "sha256": "d931038540e79cf1568d52744a07257d43ff5a5f5da2529a5da632c9a1edeb61",
+      "source_pins": [
+        {
+          "id": "CA-R-1746",
+          "version": 43,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL--define-projection-artifact-form.md",
+          "sha256": "62d932d646242619892aef5882a23ac430f30ff5f867a9076ca7e13d43a1c6ac",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-2397",
+          "version": 1,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2397-CORE_META_MODEL-ENTITY_DEFINITION--define-projection-type.md",
+          "sha256": "f672c42a80ca28f1d623135be29a75ca135934f2ba3f767b384fb63e40fdbb15",
+          "subjects_governs": "Entity/Object/Continuant/Projection.Type"
+        },
+        {
+          "id": "CA-R-1634",
+          "version": 42,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+          "sha256": "a82803b9e90220dc959a9399bbc8cf3366bee01203b4d73992bfe958b1260e6f",
+          "subjects_governs": "Entity/Object/Continuant/Projection/Type"
+        }
+      ],
+      "contract_note": "Keeps the Current name Type. Catalog, Map and Hub are registered values; no subtype Node classes are created."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Projection.Updated At",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "category": "Declared Property",
+      "governs": "Projection.Updated At",
+      "formal_claim": "Projection.Updated At[datetime]{1}.[]{0}",
+      "sha256": "15ccc67140d680d3cd1d0262eb7709abc4ad7cc298b17ec9de7247603860168b",
+      "source_pins": [
+        {
+          "id": "CA-R-1746",
+          "version": 43,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL--define-projection-artifact-form.md",
+          "sha256": "62d932d646242619892aef5882a23ac430f30ff5f867a9076ca7e13d43a1c6ac",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-2398",
+          "version": 1,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2398-CORE_META_MODEL-ENTITY_DEFINITION--define-projection-updated-at.md",
+          "sha256": "7ce4e77e89759b0a28610423ee61ded98cbaeadfbdebeeb80662acce261b990c",
+          "subjects_governs": "Entity/Object/Continuant/Projection.Updated At"
+        },
+        {
+          "id": "CA-R-1495",
+          "version": 20,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1495-CORE_META_MODEL-RULE--projections-have-updated-at.md",
+          "sha256": "7a05de09b7c16929d3ef8b66a682ca7ef0c31e4d9d0cc4e2345213cc94aebcfe",
+          "subjects_governs": "Entity/Object/Continuant/Projection.Updated At"
+        }
+      ],
+      "contract_note": "Date-time identifies the latest completed rebuild; no dependent Property is declared."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-sources.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Projection.Sources",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "category": "Declared Property",
+      "governs": "Projection.Sources",
+      "formal_claim": "Projection.Sources[string]{0+}.[]{0}",
+      "sha256": "36dc723abca7e1ba5ee4e7d29300932887f84006816d4dd3911f37ff2433cd8f",
+      "source_pins": [
+        {
+          "id": "CA-R-1746",
+          "version": 43,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL--define-projection-artifact-form.md",
+          "sha256": "62d932d646242619892aef5882a23ac430f30ff5f867a9076ca7e13d43a1c6ac",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-2396",
+          "version": 1,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2396-CORE_META_MODEL-ENTITY_DEFINITION--define-projection-sources.md",
+          "sha256": "8dead45fb67b62f999212695dbcd9d55e4d6958dc4ece2f1fb1370af9eb7b33f",
+          "subjects_governs": "Entity/Object/Continuant/Projection.Sources"
+        },
+        {
+          "id": "CA-R-1494",
+          "version": 19,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1494-CORE_META_MODEL-RULE--record-projection-dependency-provenance-only-when-required.md",
+          "sha256": "99af2fa18bfd42c62ffdbd6649b406c2d39fda4905a49d0dbef26719517312d0",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1507",
+          "version": 18,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1507-CORE_META_MODEL-RULE--require-declared-source-atoms-before-projection-refresh.md",
+          "sha256": "08711f8a495d3b919614688fbe60cab42bccb129cfb1255e5474a5f0c22dd3d4",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-1470",
+          "version": 25,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1470-CORE_META_MODEL--define-single-source-of-truth.md",
+          "sha256": "41767469fb7e5915b4895636276d0dab5fe3b0aee1cc3a2c3aee8e936bd4c377",
+          "subjects_governs": "Entity"
+        }
+      ],
+      "contract_note": "Zero or more string source references, including Atom Versions; conditional dependency provenance only when the registered job requires it. No Relation key or typed endpoint is invented."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-named-selection.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Projection.Named Selection",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "category": "Declared Property",
+      "governs": "Projection.Named Selection",
+      "formal_claim": "Projection.Named Selection[string]{1}.[]{0}",
+      "sha256": "9bb5bbcedce4fd2afffe249723c32cd7fb24f31ff8468fd53a002771e1fbe9cf",
+      "source_pins": [
+        {
+          "id": "CA-R-1746",
+          "version": 43,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL--define-projection-artifact-form.md",
+          "sha256": "62d932d646242619892aef5882a23ac430f30ff5f867a9076ca7e13d43a1c6ac",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-2394",
+          "version": 1,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2394-CORE_META_MODEL-ENTITY_DEFINITION--define-projection-named-selection.md",
+          "sha256": "e0fe753c210826bd50984899a63093218aa00fd00a3975d21caf3b2b9b25113f",
+          "subjects_governs": "Entity/Object/Continuant/Projection.Named Selection"
+        },
+        {
+          "id": "CA-R-1943",
+          "version": 14,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md",
+          "sha256": "bcaee12974f5eb918d402559d54fdd0ec3fad3590671b5d335691cca2f31fe03",
+          "subjects_governs": "Entity/Object/Continuant/Projection.ID"
+        }
+      ],
+      "contract_note": "Required string names the source selection used to produce the Projection; no dependent Property is declared."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-of-truth.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Projection.Source Of Truth",
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft",
+      "category": "Declared Property",
+      "governs": "Projection.Source Of Truth",
+      "formal_claim": "Projection.Source Of Truth[string]{1}.[]{0}",
+      "sha256": "fd21ca536c89f454d92d682002d1a0957e7f009b15026a1cd8bfd1e8a38406f9",
+      "source_pins": [
+        {
+          "id": "CA-R-1746",
+          "version": 43,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL--define-projection-artifact-form.md",
+          "sha256": "62d932d646242619892aef5882a23ac430f30ff5f867a9076ca7e13d43a1c6ac",
+          "subjects_governs": "Entity/Object/Continuant/Projection"
+        },
+        {
+          "id": "CA-R-2395",
+          "version": 1,
+          "type": "Entity Definition",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2395-CORE_META_MODEL-ENTITY_DEFINITION--define-projection-source-of-truth.md",
+          "sha256": "dd07af763dea364aebce37bfa63cd97eac7f201844112566fab82a0a2ba4d9d7",
+          "subjects_governs": "Entity/Object/Continuant/Projection.Source Of Truth"
+        },
+        {
+          "id": "CA-R-1943",
+          "version": 14,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md",
+          "sha256": "bcaee12974f5eb918d402559d54fdd0ec3fad3590671b5d335691cca2f31fe03",
+          "subjects_governs": "Entity/Object/Continuant/Projection.ID"
+        },
+        {
+          "id": "CA-R-1470",
+          "version": 25,
+          "type": "Rule",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1470-CORE_META_MODEL--define-single-source-of-truth.md",
+          "sha256": "41767469fb7e5915b4895636276d0dab5fe3b0aee1cc3a2c3aee8e936bd4c377",
+          "subjects_governs": "Entity"
+        }
+      ],
+      "contract_note": "Required source-of-truth reference; authority remains assigned per fact; no dependent Property is declared."
+    }
+  ],
+  "journal_property_declarations": [],
+  "unresolved_questions": [
+    {
+      "question": "Should Projection.Type keep the Current Type name or map to Form in the new model?",
+      "evidence": "The accepted Type-to-Form decision is Atom-specific. Projection sources use Projection.Type; drafts retain it."
+    },
+    {
+      "question": "How should Projection.Sources string references bind to the new relations model?",
+      "evidence": "R1746/R2396 declare artifact-source references, including Atom Versions. The proposed relation key and typed endpoint mapping remain open; drafts preserve the string contract and add no relation."
+    },
+    {
+      "question": "How should Journal’s ordered record table and records be represented in the Declaration model?",
+      "evidence": "R1745 describes one logically ordered table and R2234 defines Event Record, but no Record-class/property expansion is approved in this scope. No Journal property or Event Record Declaration was created."
+    },
+    {
+      "question": "Which Projection Type values are in scope for the eventual new model?",
+      "evidence": "R1634 registers Catalog, Map and Hub; current Core also has specific Projection declarations. No Projection subtype Node classes were drafted."
+    }
+  ],
+  "not_created": [
+    "Event Record or generic Record Node",
+    "Release Node",
+    "Projection subtype Nodes",
+    "Journal records Property",
+    "Projection source Relation or Relations key"
+  ],
+  "source_pins": {
+    "projection_primary": [
+      {
+        "id": "CA-R-1746",
+        "version": 43,
+        "type": "Entity Definition",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL--define-projection-artifact-form.md",
+        "sha256": "62d932d646242619892aef5882a23ac430f30ff5f867a9076ca7e13d43a1c6ac",
+        "subjects_governs": "Entity/Object/Continuant/Projection"
+      },
+      {
+        "id": "CA-R-1406",
+        "version": 25,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL--keep-entity-identity-independent-of-graph-materialization.md",
+        "sha256": "d2b524b7342e2804907089042cad88fbd0860697fa4fa2748c36d126d751005c",
+        "subjects_governs": "Entity/Object/Continuant/Projection"
+      },
+      {
+        "id": "CA-R-1460",
+        "version": 21,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1460-CORE_META_MODEL--separate-projection-derivation-from-carrier-materialization.md",
+        "sha256": "5f3861840b35e4d01e5580389da2d62792059dc5dab95ce4d7c7457e91b3ab1b",
+        "subjects_governs": "Entity/Object/Continuant/Projection"
+      },
+      {
+        "id": "CA-R-1493",
+        "version": 19,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1493-CORE_META_MODEL-RULE--identify-how-each-projection-is-rebuilt.md",
+        "sha256": "079a29ca071a8af35d55107855e2df7b1a02dfdbcfc4b740917b939d63c0b1b6",
+        "subjects_governs": "Entity/Object/Continuant/Projection"
+      },
+      {
+        "id": "CA-R-1494",
+        "version": 19,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1494-CORE_META_MODEL-RULE--record-projection-dependency-provenance-only-when-required.md",
+        "sha256": "99af2fa18bfd42c62ffdbd6649b406c2d39fda4905a49d0dbef26719517312d0",
+        "subjects_governs": "Entity/Object/Continuant/Projection"
+      },
+      {
+        "id": "CA-R-1507",
+        "version": 18,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1507-CORE_META_MODEL-RULE--require-declared-source-atoms-before-projection-refresh.md",
+        "sha256": "08711f8a495d3b919614688fbe60cab42bccb129cfb1255e5474a5f0c22dd3d4",
+        "subjects_governs": "Entity/Object/Continuant/Projection"
+      },
+      {
+        "id": "CA-R-1609",
+        "version": 21,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-RULE--distinguish-projected-representations-from-represented-entities.md",
+        "sha256": "6c276c8602c138fd25f3ff8188c327515bbfcdb23333e3d36c611ab87cdefcbd",
+        "subjects_governs": "Entity/Object/Continuant/Projection"
+      },
+      {
+        "id": "CA-R-1634",
+        "version": 42,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+        "sha256": "a82803b9e90220dc959a9399bbc8cf3366bee01203b4d73992bfe958b1260e6f",
+        "subjects_governs": "Entity/Object/Continuant/Projection/Type"
+      },
+      {
+        "id": "CA-R-1749",
+        "version": 25,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL--preserve-source-scope-in-derived-views.md",
+        "sha256": "e12002ba84ef7b752c49a94029d56629b9b2321c057a8cef45c78094de84d05f",
+        "subjects_governs": "Entity/Object/Continuant/Projection"
+      },
+      {
+        "id": "CA-R-1943",
+        "version": 14,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md",
+        "sha256": "bcaee12974f5eb918d402559d54fdd0ec3fad3590671b5d335691cca2f31fe03",
+        "subjects_governs": "Entity/Object/Continuant/Projection.ID"
+      },
+      {
+        "id": "CA-R-1495",
+        "version": 20,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1495-CORE_META_MODEL-RULE--projections-have-updated-at.md",
+        "sha256": "7a05de09b7c16929d3ef8b66a682ca7ef0c31e4d9d0cc4e2345213cc94aebcfe",
+        "subjects_governs": "Entity/Object/Continuant/Projection.Updated At"
+      },
+      {
+        "id": "CA-R-1470",
+        "version": 25,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1470-CORE_META_MODEL--define-single-source-of-truth.md",
+        "sha256": "41767469fb7e5915b4895636276d0dab5fe3b0aee1cc3a2c3aee8e936bd4c377",
+        "subjects_governs": "Entity"
+      }
+    ],
+    "journal_primary": [
+      {
+        "id": "CA-R-1745",
+        "version": 34,
+        "type": "Entity Definition",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL--define-journal-artifact-form.md",
+        "sha256": "6a1cc6d2420477b3186a0a2d47e1fd4fd889cfb6c86aaa7b964458fa61c4cf17",
+        "subjects_governs": "Entity/Object/Continuant/History/Journal"
+      },
+      {
+        "id": "CA-R-1720",
+        "version": 37,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-RULE--use-one-project-journal-for-governed-provenance.md",
+        "sha256": "fa4f09b43f5f15534aa44ab4a0504a0a76c2409e2c2eb93eb892ad8bcc125b00",
+        "subjects_governs": "Entity/Object/Continuant/History/Journal"
+      },
+      {
+        "id": "CA-R-1684",
+        "version": 27,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL--separate-analysis-from-factual-execution-records.md",
+        "sha256": "90c450d860590000543e20e270393030dcfb67ae669cb6cd4d76f90a20ee5876",
+        "subjects_governs": "Entity/Object/Continuant/History/Journal"
+      },
+      {
+        "id": "CA-R-1712",
+        "version": 26,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1712-CORE_META_MODEL-RULE--distinguish-enacted-release-and-runtime-facts-from-operations-authority.md",
+        "sha256": "754c68ba9ecf78fe84f53a6b3e57fcf4aa14f944878ffaae31821985d6e75395",
+        "subjects_governs": "Entity/Object/Continuant/History/Journal"
+      },
+      {
+        "id": "CA-R-1491",
+        "version": 28,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md",
+        "sha256": "f835a4383542056bdc683a9d02ba20904106743caa8b58bb98eeeef26a2ac7bc",
+        "subjects_governs": "Entity/Object/Continuant/History/Journal"
+      },
+      {
+        "id": "CA-R-1643",
+        "version": 37,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-RULE--register-type-values-for-work-journal-events.md",
+        "sha256": "d58885f822dc597161495017202fb2d4aece6c6119d8af85a7108187fe7d1c5d",
+        "subjects_governs": "Entity/Object/Continuant/History/Journal > Event Record"
+      },
+      {
+        "id": "CA-R-1644",
+        "version": 34,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md",
+        "sha256": "21b32bd60cfda62b95d90af560184b1181092d90ec775981637ffd16b9599f4b",
+        "subjects_governs": "Entity/Object/Continuant/History/Journal > Event Record"
+      },
+      {
+        "id": "CA-R-1743",
+        "version": 25,
+        "type": "Rule",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL--record-recurrence-check-outcomes-in-the-journal.md",
+        "sha256": "2f475c36fec8592f91c0897df8c9d2a1a404922ea931ccd92da5e909f08760f3",
+        "subjects_governs": "Entity/Object/Continuant/History/Journal"
+      },
+      {
+        "id": "CA-R-2234",
+        "version": 1,
+        "type": "Entity Definition",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2234-CORE_META_MODEL-ENTITY_DEFINITION--define-event-record.md",
+        "sha256": "870eda2cc936436158e1bf891002f6f5ca3811187c9349bfc8cefff0588e6ab6",
+        "subjects_governs": "Entity/Object/Continuant/History/Journal > Event Record"
+      }
+    ]
+  },
+  "validation": {
+    "all_drafts_use_CA_R_draft_marker": true,
+    "all_property_claims_include_value_format_cardinality_and_zero_dependent_property_cardinality": true,
+    "primary_nodes_have_zero_IS_PROPERTY_OF": true,
+    "primary_nodes_have_brief_Semantics_sections": true,
+    "property_declarations_have_no_Semantics_sections": true,
+    "dependent_properties_not_explicitly_declared_by_source_are_forbidden_with_zero": true
+  }
+}

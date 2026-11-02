@@ -1,41 +1,40 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-version: 15
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Carrier
+  passive:
+  - Atom
+  - Term//Artifact
+  - Journal
+  - Entity/Object/Continuant/History/Journal <+ Event Record
+  - Projection
+  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
+  - Scope Unit
+  - Entity/Object/Continuant/Governing Objects/Atom.Content Role
+  - Entity/Object/Continuant/Actor/Operator
+version: 19
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-D-308
   - CA-D-341
   - CA-R-1463
-  - CA-R-1467
-  - CA-R-1468
+  - CA-R-1467@19
+  - CA-R-1468@20
   - CA-R-1720
-  - CA-R-1745
+  - CA-R-2536
 atom_id: CA-E-522
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Storage-boundary classification interpretability
 
-## Scope
+## Claim scope
 
 an Operator's placement **and** retention classifications for Atoms, Journal Records, resumable checkpoints, generated caches, **and** disposable workspaces. the available boundaries are the applicable Project authority root, Framework control root, Runtime State, **and** host temporary root.
 

@@ -1,0 +1,29 @@
+Atom ID	field	old Subject	new Subject	status
+CA-R-706	depends_on	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Principle Universe	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-E-210	governs	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Principle Universe	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1375	governs	Entity/Object/Continuant/Structural Unit/Scope Unit.Expansion Boundary	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1439	governs	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode.Effects	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction	Applied
+CA-R-1440	governs	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction	Applied
+CA-R-1489	governs	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit	Applied
+CA-R-1551	depends_on	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Principle Universe	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1770	governs	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Owning Scope Unit	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Local Scope Unit	Applied
+CA-R-1772	governs	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Minimum Model	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1774	governs	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Principle Universe	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1776	governs	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Graph Dimensions	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1973	governs	Entity/Object/Occurrent/Execution.Execution ID	Entity/Object/Occurrent/Execution.ID	Applied
+CA-R-2160	governs	Entity/Object/Continuant/Governing Objects/Atom.content.claim_scope	Entity/Object/Continuant/Governing Objects/Atom.Content.Claim Scope	Applied
+CA-M-295	depends_on	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit	Applied
+CA-M-298	depends_on	Entity/Object/Continuant/Structural Unit/Scope Unit.Expansion Boundary	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-M-306	depends_on	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit	Applied
+CA-E-249	governs	Entity/Object/Continuant/Structural Unit/Scope Unit.Expansion Boundary	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-E-450	governs	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution Validation	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution	Applied
+CA-D-398	governs	Entity/Object/Continuant/Governing Objects/Atom.Frontmatter	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-D-447	depends_on	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit	Applied
+CA-R-1317	depends_on	Entity/Object/Continuant/Structural Unit/Scope Unit.Expansion Boundary	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1434	depends_on	Entity/Object/Continuant/Structural Unit/Scope Unit.Expansion Boundary	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-M-277	depends_on	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode.Effects	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction	Applied
+CA-M-277	depends_on	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction	Applied
+CA-M-278	depends_on	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode.Effects	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction	Applied
+CA-M-278	depends_on	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction	Applied
+CA-E-379	depends_on	Entity/Object/Continuant/Structural Unit/Scope Unit.Expansion Boundary	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-E-445	depends_on	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Principle Universe	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied

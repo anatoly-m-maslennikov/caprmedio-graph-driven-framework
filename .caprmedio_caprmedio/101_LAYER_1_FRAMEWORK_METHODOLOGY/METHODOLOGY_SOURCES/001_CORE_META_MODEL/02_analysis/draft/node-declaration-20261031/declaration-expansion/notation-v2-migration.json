@@ -1,0 +1,571 @@
+{
+  "status": "Notation migration complete for all non-root-owned Declaration Draft carriers; Current unchanged; register and hashes not updated.",
+  "scope": {
+    "core_requirement_draft_directory": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031",
+    "declaration_carriers_found": 71,
+    "carriers_migrated": 63,
+    "root_owned_body_carriers_excluded": 8,
+    "git_or_current_changes": false
+  },
+  "changed_paths": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Action",
+      "subjects_governs": "Atom/(.Role: Operations)/Action",
+      "form": "Declaration",
+      "sha256": "72a04e843d22bbe09b454a25f61dc18cc497f849189a7852bc330a1cefc9dadb"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Relations.contained_by.atom",
+      "subjects_governs": "Atom.Relations.contained_by.atom",
+      "form": "Declaration",
+      "sha256": "2eb33334a449efebe2da4acd41e85748f8101b33969a51eb649a29d683039e72"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Relations.contained_by.scope_unit",
+      "subjects_governs": "Atom.Relations.contained_by.scope_unit",
+      "form": "Declaration",
+      "sha256": "e8170ecf7e5b28fbd19035e7e48ab72da7baa12bf4d2619f800a62e75627642d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Relations.contained_by",
+      "subjects_governs": "Atom.Relations.contained_by",
+      "form": "Declaration",
+      "sha256": "0b0e308a5c1a7c83ca9b387fd36e7144e650915d1dc235954a2d7171cfabef4b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-status.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Status",
+      "subjects_governs": "Atom.Status",
+      "form": "Declaration",
+      "sha256": "79d5cb32db990053c4d9d4554f220a592c5307b2a51b53fe046e43bf70ee6649"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Updated At",
+      "subjects_governs": "Atom.Updated At",
+      "form": "Declaration",
+      "sha256": "a1eeb14eefcab56a9d0a265b9111aefbd3f1d958929993a0d2df5cc489032b9f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Node",
+      "subjects_governs": "Node",
+      "form": "Declaration",
+      "sha256": "32c62dfcab16daa9deb9809dea3080889a5b3770571db3e7c28d8f12c2ad33c3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Operations",
+      "subjects_governs": "Atom/(.Role: Operations)",
+      "form": "Declaration",
+      "sha256": "520c4b9163d8745e52914a2a4b622c654795aa5e2583a5e5d741856f69275ca8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Step",
+      "subjects_governs": "Atom/(.Role: Operations)/Step",
+      "form": "Declaration",
+      "sha256": "97114e7215ca43e7ef51248cf22dae55a66ff6721cadd533edb9799c84747a6b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Substep",
+      "subjects_governs": "Atom/(.Role: Operations)/Substep",
+      "form": "Declaration",
+      "sha256": "9a873f5519596bc445a86158c0e834f580799161b55ef4ba91539c750108a14c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Workflow",
+      "subjects_governs": "Atom/(.Role: Operations)/Workflow",
+      "form": "Declaration",
+      "sha256": "4c3221b0ac2983325303dac6647f29fc86c42c4cd6d62fea02a0a1b7b9574156"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action-execution-kind.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Operations)/Action.Execution Kind",
+      "subjects_governs": "Atom/(.Role: Operations)/Action.Execution Kind",
+      "form": "Declaration",
+      "sha256": "87af2c1b7c5e82486c281f0db74bb3a47d4d04e99e80933dfbb493ac9f5b2d62"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-actor.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Actor",
+      "subjects_governs": "Actor",
+      "form": "Declaration",
+      "sha256": "c2851c097fc0d5384e78c4310cb8383d02cc2c68f1164b6e7b805491455b1f83"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Aspect",
+      "subjects_governs": "Aspect",
+      "form": "Declaration",
+      "sha256": "501b5f8d6c960e4ac19d462679d55864956df6b271b96dfe956a57a546428702"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom",
+      "subjects_governs": "Atom",
+      "form": "Declaration",
+      "sha256": "51ca3339e7d8a92123774f6972f419c8227a20e1637b25d928340b42dd1a28e1"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-concern-priority.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Concern).Priority",
+      "subjects_governs": "Atom/(.Role: Concern).Priority",
+      "form": "Declaration",
+      "sha256": "f45f41d6d2cb2c502dd000ff00493aea51aecbbc673c63965cb2cd99c23d7085"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-concern.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Concern)",
+      "subjects_governs": "Atom/(.Role: Concern)",
+      "form": "Declaration",
+      "sha256": "50e81e9f924180c1faadad672a112a9c53633f16cc1c5aad05ee805a273b76e7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Delivery)",
+      "subjects_governs": "Atom/(.Role: Delivery)",
+      "form": "Declaration",
+      "sha256": "29ae0f4e237da4ec61587ea4c969de4c44e1387bc64bd027bf4cd2995ea6594b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Evaluation)",
+      "subjects_governs": "Atom/(.Role: Evaluation)",
+      "form": "Declaration",
+      "sha256": "8107f5b1b5b6f7d9a22291b0d7997461818c3c6a3bdb0bc76f2a0b0dbd56a916"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Journal",
+      "subjects_governs": "Journal",
+      "form": "Declaration",
+      "sha256": "120c7012d2f465c209f046383f490e5b8c65228648b635183e1b7885322244bc"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Method)",
+      "subjects_governs": "Atom/(.Role: Method)",
+      "form": "Declaration",
+      "sha256": "e1f89c024d7ec3e7b2334ea92cb9e7ba67eb6f1dd3a934ec9df265f1f3656895"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Package",
+      "subjects_governs": "Package",
+      "form": "Declaration",
+      "sha256": "96d218febc7563f656cbb7e788319a9ff9a80e20c6022a87b0e419a6df59efc0"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-confidence-threshold.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Plan).Autonomous Confidence Threshold",
+      "subjects_governs": "Atom/(.Role: Plan).Autonomous Confidence Threshold",
+      "form": "Declaration",
+      "sha256": "b933df567fe23e009fb1eeaf99565aaac9e80ebb9f5ddbdab0f3c42b58c6a23a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-implementation-retry-limit.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Plan).Implementation Retry Limit",
+      "subjects_governs": "Atom/(.Role: Plan).Implementation Retry Limit",
+      "form": "Declaration",
+      "sha256": "92e404f4b72c72d061f2923a00cd890807927b28b75330ac92ebb28e3dff4e87"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Plan).Work Sequence Number",
+      "subjects_governs": "Atom/(.Role: Plan).Work Sequence Number",
+      "form": "Declaration",
+      "sha256": "442d03382e571082e01c26f198a7d01eb7991c91229e45f56dcebd89e182388c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Plan)",
+      "subjects_governs": "Atom/(.Role: Plan)",
+      "form": "Declaration",
+      "sha256": "824e9023b03d836237cde2d6adee47228cfa2c9d041ee8882837adb063ae2b72"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Project",
+      "subjects_governs": "Project",
+      "form": "Declaration",
+      "sha256": "fe42681d9b2e8d55acb74767faeca753f447fa86ab55f494edee7bf1513829a1"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Projection",
+      "subjects_governs": "Projection",
+      "form": "Declaration",
+      "sha256": "d2bad11264a0e222ba7b1cad0034e91d76f6b83f1c3fc72df5ee2b780fcc6614"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Requirement)/(.Form: Relation Definition).Content.notation_for_subject",
+      "subjects_governs": "Atom/(.Role: Requirement)/(.Form: Relation Definition).Content.notation_for_subject",
+      "form": "Declaration",
+      "sha256": "32bd5dca9c970c4a30bfc48eea73d3ca13e51973f4157581da2befc4033cdb9a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Requirement)/(.Form: Declaration)",
+      "subjects_governs": "Atom/(.Role: Requirement)/(.Form: Declaration)",
+      "form": "Declaration",
+      "sha256": "a0b33469b769b7a0be4ee231de96eebaca8fd848f78a1b0e7d0910a809609904"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-relation-definition.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Requirement)/(.Form: Relation Definition)",
+      "subjects_governs": "Atom/(.Role: Requirement)/(.Form: Relation Definition)",
+      "form": "Declaration",
+      "sha256": "d26a3531974f8868e1388a0565c957a1fcfb97b18586c1ebc97a5cb52d8061f4"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom/(.Role: Requirement)",
+      "subjects_governs": "Atom/(.Role: Requirement)",
+      "form": "Declaration",
+      "sha256": "f59f128db02ae5df4891200d242b15f1e63986ac2ec05f56d9b9940b06329fe7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Scope Unit",
+      "subjects_governs": "Scope Unit",
+      "form": "Declaration",
+      "sha256": "68818cea4975364a63ffa1b9da89e47843f41b7a20ddeabf69d87a4b6403c5a6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-actor-name.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Actor.Name",
+      "subjects_governs": "Actor.Name",
+      "form": "Declaration",
+      "sha256": "ad442518ee5953644ec9e3a619646b7e267ec61d0d2a6709168610de482212a7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-author.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Author",
+      "subjects_governs": "Atom.Author",
+      "form": "Declaration",
+      "sha256": "7e1ee5f7a72b0fcd1d7cf684bb3f03586e25f8b3e53b48598897f001e36a5fb7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-form.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Form",
+      "subjects_governs": "Atom.Form",
+      "form": "Declaration",
+      "sha256": "bfb69ed02d3200cf7176561d8a498e9ea838dc6bb080ec903a27463e018511d6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.ID",
+      "subjects_governs": "Atom.ID",
+      "form": "Declaration",
+      "sha256": "879b50317e1cb99074b30bce254a0a8af1659c99d218cf8e1caa3ca03ef2b2ed"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-label.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Label",
+      "subjects_governs": "Atom.Label",
+      "form": "Declaration",
+      "sha256": "dbcc1b564f84b12e24fb8b447ce09205f24ebe7e207b92be3292475891ed5884"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Relations",
+      "subjects_governs": "Atom.Relations",
+      "form": "Declaration",
+      "sha256": "9e56e9bef72ca3a6777e77989835fd1d7b88143493619ea99a252892d5a7941d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-role.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Role",
+      "subjects_governs": "Atom.Role",
+      "form": "Declaration",
+      "sha256": "7a6afcdd1425de4a7fc42ed694d4e941f6ef847ea62a5c1efa33eeb8a28e52f8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-active.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Subjects.Active",
+      "subjects_governs": "Atom.Subjects.Active",
+      "form": "Declaration",
+      "sha256": "4e6cb7bb3651244720e323e11f601fe78ef747b549d648a0f73180c2f07011be"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Subjects.Passive",
+      "subjects_governs": "Atom.Subjects.Passive",
+      "form": "Declaration",
+      "sha256": "fe4ae2233ac9a6aded8f99b74d61da9487be5d02f6dd743f559fe97c1d45df99"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Subjects",
+      "subjects_governs": "Atom.Subjects",
+      "form": "Declaration",
+      "sha256": "b8078d8abb5656eefea79bfc1329a7c9b5b25c6792f7248d178452464d1fc447"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier-label.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Tier.Label",
+      "subjects_governs": "Atom.Tier.Label",
+      "form": "Declaration",
+      "sha256": "76d5f1b0be6c8368444e9596f41974499cd40eeb903ed908c29f2d2e1cd8b609"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Tier",
+      "subjects_governs": "Atom.Tier",
+      "form": "Declaration",
+      "sha256": "614f6ed8a4ff82fa1e8ac6ccfa358ae38e7d1de437e9b74f6f6c0a859dab8917"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-version-number.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Atom.Version Number",
+      "subjects_governs": "Atom.Version Number",
+      "form": "Declaration",
+      "sha256": "1156c863f06ef74a4dbf865b8998d26d50d69062c37404e3771fc51af8dd85c7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-framework-settings.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Project Framework Settings",
+      "subjects_governs": "Project.Framework Settings",
+      "form": "Declaration",
+      "sha256": "d9abff33a84d7ffb34cda16cc9c22263d26a0c530f1ab8fda9199e707b18e656"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings-name.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Project Settings Name",
+      "subjects_governs": "Project.Settings.Name",
+      "form": "Declaration",
+      "sha256": "479481c5d7b3bd31c369c4486ed1079f722162c731764ebf3745d226f7ca505f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings-prefix.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Project Settings Prefix",
+      "subjects_governs": "Project.Settings.Prefix",
+      "form": "Declaration",
+      "sha256": "f166754a21e50c10a446a34820dc51c6726675a7457cee5d3e0ac7941e271a45"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Project Settings",
+      "subjects_governs": "Project.Settings",
+      "form": "Declaration",
+      "sha256": "442d530161a3139f487d8e3d0cc4cd18c6a3ca16eef25041023280e9ae1fa1e8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Projection.ID",
+      "subjects_governs": "Projection.ID",
+      "form": "Declaration",
+      "sha256": "cf78af2604d13ee921b319d74aaf5875e456c3beff0810a4f7026be11167ba31"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-named-selection.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Projection.Named Selection",
+      "subjects_governs": "Projection.Named Selection",
+      "form": "Declaration",
+      "sha256": "75a074a03db1b1739b352dc3c4d46f4de3c43d68622c21e269cb5848115f5c40"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-of-truth.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Projection.Source Of Truth",
+      "subjects_governs": "Projection.Source Of Truth",
+      "form": "Declaration",
+      "sha256": "6b44194dcd675d1c61fd82d41f48363452d625e61a32e582852460d88d94afd4"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-sources.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Projection.Sources",
+      "subjects_governs": "Projection.Sources",
+      "form": "Declaration",
+      "sha256": "f15004bb0b0955f62533e6a9222201f44c05adfd54a504c6e7f92808ee027af2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-type.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Projection.Type",
+      "subjects_governs": "Projection.Type",
+      "form": "Declaration",
+      "sha256": "f6fc3f5906a4c6dd16cb21d697ba19955de057340e4737f2c97af7ff26e3dec1"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Projection.Updated At",
+      "subjects_governs": "Projection.Updated At",
+      "form": "Declaration",
+      "sha256": "ab5ef5720db833affc238646335aa9aa7fd2ec9f4fef24d95fe906455d7a2edd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Scope Unit ID",
+      "subjects_governs": "Scope Unit.ID",
+      "form": "Declaration",
+      "sha256": "a09b763d4639412e818fb7a26b94df4c22035175d1fde8a1c1d7452acd65b9ce"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-label.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Scope Unit Label",
+      "subjects_governs": "Scope Unit.Label",
+      "form": "Declaration",
+      "sha256": "7147d7d40e8e69606f5071ddf9ac49ebf531a8f5903345eb947b761ed8b0eaad"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-local-order.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Scope Unit Local Order",
+      "subjects_governs": "Scope Unit.Local Order",
+      "form": "Declaration",
+      "sha256": "50c435ba74d5db0ba125ee8083f1a92b020c96c12950db9e5c0a16eb7d0b1350"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-name.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Scope Unit Name",
+      "subjects_governs": "Scope Unit.Name",
+      "form": "Declaration",
+      "sha256": "4490fadaaf498213712463e1d039ebfc3b3d1cc85a4e92b4505f1df93e0713b1"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-navigational-order-number.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Scope Unit Navigational Order Number",
+      "subjects_governs": "Scope Unit.Navigational Order Number",
+      "form": "Declaration",
+      "sha256": "fd4bb44a25178040b06843fcb8f7a3bac76ae0eb0842ea9b19ffbb9b37face96"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Scope Unit Path",
+      "subjects_governs": "Scope Unit.Path",
+      "form": "Declaration",
+      "sha256": "9ed37c8b46c45667db4ca0f672d37b1d9bd05d41ad2a5a3323498daa631a0375"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-project-boundary-position.md",
+      "atom_id": "CA-R-draft",
+      "summary": "Declare Scope Unit Project Boundary Position",
+      "subjects_governs": "Scope Unit.Project Boundary Position",
+      "form": "Declaration",
+      "sha256": "a493bbee0f3852dbb34413afe4ffff43bb219d84d927dde1fe79b2965454f22d"
+    }
+  ],
+  "source_mapping_assumptions": [
+    {
+      "rule": "A legacy property expression p[format]{n}.[dependent-name-format]{d} became two GFEL statements: p{presence}: [format]{value-count} and p.*[dependent-name-format]{d}. The dependent count is unchanged and counts immediate property names."
+    },
+    {
+      "rule": "Legacy direct value count 1 maps to presence 1/value count 1; 0..1 maps to presence 0..1/value count 1; 0+ maps to presence 0..1/value count 0+; 1+ maps to presence 1/value count 1+."
+    },
+    {
+      "rule": "An empty group with direct-value count 0 has value format [] and count 0. Atom.Subjects, Atom.Relations and Project.Settings are presence 1 per settled instruction. Other such groups default to presence 0..1 unless an explicit unresolved exception applies."
+    },
+    {
+      "rule": "Project.Framework Settings has unknown presence in current source evidence. Its contract is `Project.Framework Settings: []{0}` with presence omitted; no presence was inferred."
+    },
+    {
+      "rule": "The old Atom.Role `in(...)` value domain was converted to string format/cardinality plus the same eight colon allowed values, supported by current Role sources. The dependent-name `in(Label)` and `in(Active,Passive)` forms remain name formats and use `.*`."
+    },
+    {
+      "rule": "The three contained_by source contracts use the explicit approved typed override: optional empty parent group, exactly one dependent name selected from atom/scope_unit, and optional typed leaf properties with one direct reference and zero child names."
+    },
+    {
+      "rule": "New direct formats keep their current format names. No generic Property relation was added. Other standalone structural names, Relation facts, endpoint cardinalities, count comparisons and existing colon allowed-value statements were preserved."
+    },
+    {
+      "rule": "Every migrated Declaration formal block is now tagged GFEL. The separate `### Formal claim` heading is removed. No standalone single-use grammar was introduced."
+    }
+  ],
+  "comparison_gaps": [
+    {
+      "gap": "The root-owned eight body files were excluded as instructed. Their `Atom.Content.**[string]{0+}: [markdown]{1}` contract remains for the root-owned Content declaration lane."
+    },
+    {
+      "gap": "Framework Settings group presence remains unresolved in source evidence and is omitted in the migrated contract."
+    },
+    {
+      "gap": "The leaf Property migration preserves source contracts but does not settle any broader source-to-Node mapping or consumer acceptance."
+    },
+    {
+      "gap": "The migration did not update the draft register, its hashes, source indexes or proposal carriers; root owns integration and later hash refresh."
+    }
+  ],
+  "counts": {
+    "property_contract_lines_migrated": 40,
+    "typed_containment_files_overridden": 3,
+    "role_allowed_value_domains_split_into_colon_statements": 1,
+    "gfels_codeblocks_confirmed": 63,
+    "legacy_combined_property_contracts_remaining_in_migrated_files": 0,
+    "no_Formal_claim_headings_remaining_in_migrated_files": 0
+  },
+  "validation": {
+    "all_63_owned_declarations_have_one_GFEL_codeblock": true,
+    "all_63_owned_declarations_have_no_Formal_claim_heading": true,
+    "all_63_owned_declarations_checked_for_legacy_combined_property_syntax": true,
+    "typed_containment_lines_match_user_override": true,
+    "Project_Framework_Settings_presence_not_inferred": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "review": "Stage 2 independent coherence review",
+  "reviewer": "scope_governance_coherence (terra_reviewer_xhigh)",
+  "recording": "Reviewer returned this result in chat; parent transcribed it into this artifact.",
+  "verdict": "coherent_after_alignment_fix",
+  "counts": {
+    "drafts_reviewed": 6,
+    "defects": 0,
+    "operator_questions": 3,
+    "adoption_checks": 2
+  },
+  "defects": [],
+  "operator_questions": [
+    {
+      "id": "Q1",
+      "question": "Who owns and where is the root Project external Declaration carried/discovered?",
+      "impact": "Root Declaration has no settled external owner/carrier."
+    },
+    {
+      "id": "Q2",
+      "question": "Must every declared Scope Unit have at least one explicit local Contract?",
+      "impact": "Zero-Contract units cannot yet be evaluated."
+    },
+    {
+      "id": "Q3",
+      "question": "Is Navigation Number authored or derived from declared order?",
+      "impact": "Avoid two independent authorities for position."
+    }
+  ],
+  "adoption_checks": [
+    {
+      "id": "A1",
+      "check": "Map all project_structure.toml governed fields, source discovery and consumers before retiring its governing role.",
+      "status": "deferred"
+    },
+    {
+      "id": "A2",
+      "check": "Admit the technical Type-to-Form schema/reader migration separately.",
+      "status": "deferred"
+    }
+  ],
+  "confirmed": [
+    "One external Declaration and 1+ separate external Goals; internal Tier-0 Contracts as applicable.",
+    "Declaration Form may contain multiple prose/GFEL statements and topic Summary; ordinary Atom defaults remain.",
+    "Declaration content distinct from Markdown Carrier and any derived compatibility TOML.",
+    "No extra per-unit Definition; parent Goal dual role does not introduce contradiction."
+  ],
+  "scope": "Draft methodology coherence only; no runtime/consumer implementation audit or adoption."
+}

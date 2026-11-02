@@ -1,34 +1,31 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Work Sequence Number'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Work Sequence Number'
-version: 30
-updated_at: 2026-10-27 20:00:13 +0400
+  active: Atom/(.Role := Plan).Work Sequence Number
+  passive:
+  - Atom/(.Role := Plan)
+  - Atom/(.Role := Plan).Work Sequence Number
+version: 34
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-991
+  - CA-R-2520
   - CA-R-992
 atom_id: CA-R-997
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Validate Work Sequence Numbers
 
-## Scope
+## Claim scope
 
 supplied Work Sequence Numbers for Plans directly contained by the same Plan or sharing the same top-level Plan container.
 
 ## Claim
 
 **every** supplied Work Sequence Number **must** be a unique positive ordinal among Plans directly contained by the same Plan **or** sharing the same top-level Plan container.
-
-## Details

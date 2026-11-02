@@ -1,28 +1,27 @@
 ---
 atom_id: CA-M-345
-content_role: Method
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: FPF Analysis Report'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-version: 11
-updated_at: 2026-10-27 19:59:42 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: FPF Analysis Report'
+  passive:
+  - Atom.Content.Summary
+  - Entity/Aspect/Engineering/Traceability
+version: 15
+updated_at: 2026-11-02 00:55:09 +0400
 relations:
   method_for:
   - CA-R-1889
 tier: 3
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Author FPF Analysis Reports
 
-## Scope
+## Claim scope
 
 authoring and content-preserving import of FPF Analysis Report Atoms.
 
@@ -30,7 +29,7 @@ authoring and content-preserving import of FPF Analysis Report Atoms.
 
 **to** author an FPF Analysis Report, use the common Analysis structure under CA-D-479 and retain the report's bounded question, scope, approach, results, provenance and evidence limits without treating its recommendations as accepted specification.
 
-- carry `content_role: Analysis` and `type: FPF Analysis Report`, the actual owning Scope Unit, applicable tier, Author, Status and Revision Properties. Summary describes the Question; TLDR summarizes the retained analytical record without replacing Results.
+- carry `role: Analysis` and `form: FPF Analysis Report`, the actual owning Scope Unit, applicable tier, Status and Version Properties. Summary describes the Question; TLDR summarizes the retained analytical record without replacing Results.
 - **when** importing an existing report, preserve its complete original UTF-8 text as quoted Markdown in Results. Quotation is a carrier wrapper, not an edit to the original text. Record its original path, SHA-256 and byte length in Approach so the original bytes can be recovered and checked.
 - identify the original inquiry from its explicit task or question where available; otherwise identify the bounded historical report without inventing a missing execution contract. Preserve all native findings, alternatives, citations, limitations and time-relative statements in the quoted record.
 - distinguish import metadata and its current Revision timestamp from the original report's provenance. Do not infer an original execution timestamp or completed FPF Run merely from a filename or physical file existence.

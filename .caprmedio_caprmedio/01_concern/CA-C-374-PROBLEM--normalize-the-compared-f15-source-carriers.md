@@ -14,11 +14,19 @@ subjects:
   - Markdown Atom Carrier/Structure
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Method
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
+version: 3
+updated_at: 2026-10-29 23:57:07 +0400
 relations:
-  concern_about: [CA-O-004, CA-O-009, CA-O-025, CA-O-027, CA-M-301]
-  relates_to: [CA-P-1360, CA-A-1078, CA-D-479]
+  concern_about:
+  - CA-O-004
+  - CA-O-009
+  - CA-O-025
+  - CA-O-027
+  - CA-M-444
+  relates_to:
+  - CA-P-1360
+  - CA-A-1078
+  - CA-D-479
 ---
 # Summary
 

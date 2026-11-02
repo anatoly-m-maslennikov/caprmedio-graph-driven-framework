@@ -1,17 +1,17 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Graph/Node
-version: 19
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Atom.Updated At
+  passive:
+  - Atom/(.Role := Evaluation)
+  - Atom
+  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - Carrier
+  - Atom.Status
+  - Atom.Content.Summary
+  - Atom.ID
+  - Entity
+version: 22
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-D-270
@@ -19,19 +19,18 @@ relations:
   - CA-R-1788
   - CA-O-051
 atom_id: CA-E-521
-content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Verify Updated At refresh and semantic Versioning
 
-## Scope
+## Claim scope
 
 accepted Markdown Atom Carrier edits classified by governed meaning.
 

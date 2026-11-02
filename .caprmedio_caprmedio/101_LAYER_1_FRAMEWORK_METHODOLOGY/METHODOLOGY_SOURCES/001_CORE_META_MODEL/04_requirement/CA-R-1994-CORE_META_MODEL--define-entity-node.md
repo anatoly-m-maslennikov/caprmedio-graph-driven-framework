@@ -1,31 +1,31 @@
 ---
 atom_id: CA-R-1994
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model
+  active: Entity
+  passive:
+  - Node/Continuant
 relations: {}
-version: 11
-updated_at: 2026-10-27 20:00:07 +0400
+version: 15
+updated_at: 2026-11-02 00:18:22 +0400
 tier: 1
-type: Definition
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Define Entity/Node
 
-## Scope
+## Claim scope
 
 Nodes in the Subject graph.
 
 ## Claim
 
-A Node identifies a thing or topic addressed by the graph. Its description and Carrier are separate.
+
+An Entity used as a Subject-graph node must identify a thing or topic addressed by the graph; its description and Carrier remain separate.
 
 ## Semantics
 

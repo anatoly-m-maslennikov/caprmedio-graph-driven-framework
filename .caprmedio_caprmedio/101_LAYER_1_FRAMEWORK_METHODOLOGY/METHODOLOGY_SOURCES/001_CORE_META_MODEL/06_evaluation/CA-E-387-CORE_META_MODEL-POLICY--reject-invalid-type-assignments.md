@@ -1,30 +1,28 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node
-  - Subject
-version: 22
-updated_at: 2026-10-27 19:59:34 +0400
+  active: Entity
+  passive:
+  - Entity
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-1285
   - CA-R-1349
   - CA-R-1350
 atom_id: CA-E-387
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 3
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Reject Invalid Type Assignments
 
-## Scope
+## Claim scope
 
 Type assignments on Entity occurrences.
 
@@ -37,5 +35,3 @@ the Evaluation **must** reject a Type assignment **if** **any** of the following
 - qualified Type Subjects create **`>1`** Type Property slots for the occurrence.
 
 absence of a Type value **in** an Entity occurrence that does **not** bear Type is **not** a cardinality failure under this Evaluation.
-
-## Details

@@ -1,0 +1,64 @@
+{
+  "result": "reviewed_with_fixes",
+  "fixes": [
+    "Preserved Current CA-R-2362 Updated At edit, no-op and archived-predecessor constraints as concise Claim prose.",
+    "Preserved Current CA-R-1989 Status base value cases in GFEL and archived predecessor Version/Updated At behavior in Claim prose."
+  ],
+  "checks": [
+    "Five explicit formats and both value/child domain-count slots match the selected decisions; no global child-count default inferred.",
+    "All five Property Declarations have formal Claims and no Semantics.",
+    "Reference selectors denote typed instance references; no literal reference Nodes introduced.",
+    "Source constraints remain subject to complete mapping and consumer review before retirement."
+  ],
+  "source_evidence": [
+    "CA-R-2362@1",
+    "CA-R-1788@17",
+    "CA-R-1989@16"
+  ],
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-status.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Status",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "2b8d7de8aeae816dbec731ebcff7c564a421091fd7c6f1d3f43ffc62ee74ad7d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Updated At",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "f061377be20fe16dec514f6fdeb6865c89d3a3216f8d28d7e411b27694ebced5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Relations.contained_by",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "9ebc7ab40b585501348973f11913815c83c3961a3e80384adadae79110b9cd09"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Relations.contained_by.atom",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "0eaedff5e4e7b42857e3fedf375255c6d1b8352cd5d7a2158492b132ae7117b6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Relations.contained_by.scope_unit",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "76703eff75c6614a5d0b23c37bdfa3d13aba7f037cc0a2110627f7d4bf07e13e"
+    }
+  ],
+  "limits": [
+    "The reference selector grammar and source-to-Declaration completeness require integration review.",
+    "No native validation, admission or actual instance review."
+  ]
+}

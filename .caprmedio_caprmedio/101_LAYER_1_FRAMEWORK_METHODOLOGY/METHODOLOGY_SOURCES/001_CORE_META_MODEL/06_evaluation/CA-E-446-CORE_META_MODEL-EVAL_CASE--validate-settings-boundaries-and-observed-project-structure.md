@@ -1,27 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Goal'
-  - Subject/CAPRMEDIO/Carrier
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
-version: 25
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+  passive:
+  - Project.Settings
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Project
+  - Scope Unit
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - Carrier
+  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
-  - CA-R-1483
+  - CA-R-1483@21
   - CA-R-1484
   - CA-R-1485
-  - CA-R-1738
-  - CA-R-1402
+  - CA-R-2532
+  - CA-R-1402@27
   - CA-R-1052
   - CA-R-1429
   - CA-R-1430
-  - CA-R-1739
+  - CA-R-1739@36
   - CA-R-626
   - CA-R-1740
   - CA-D-317
@@ -29,19 +29,18 @@ relations:
   - CA-D-359
   - CA-D-364
 atom_id: CA-E-446
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 6
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate settings boundaries and observed Project Structure
 
-## Scope
+## Claim scope
 
 settings boundaries and observed Project Structure across Projects in one repository.
 

@@ -1,0 +1,51 @@
+{
+  "status": "APPLIED",
+  "source": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "source_sha256": "8992808b485a25b9e7c50a4a0cf5d6c94a08e5ab6a8601f9831d4248cd8b863d",
+  "draft": ".caprmedio_caprmedio/03_plan/draft/CA-P-2694@39-draft-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "draft_sha256": "0dd4afddf8643e9819ab3234cb24da4e2f225f16ef8623c5e745fbafb71b9ec4",
+  "archive": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@38-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "archive_sha256": "8209be8fd455ad8ee04b018732a46d0bbbf852b5d8da83e8c1bc3226e262967e",
+  "current": ".caprmedio_caprmedio/03_plan/done/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "current_sha256": "27ee11395485d86b778d28bf7290c0703b91fcadb742bb231f8924d2478df23c",
+  "version": 40,
+  "accepted_at": "2026-11-02 08:16:41 +0400",
+  "children_preserved": [
+    "CA-P-2695",
+    "CA-P-2696",
+    "CA-P-2697",
+    "CA-P-2698",
+    "CA-P-2699",
+    "CA-P-2700",
+    "CA-P-2701",
+    "CA-P-2703"
+  ],
+  "event": {
+    "event_id": "133a2de1-f67f-466b-abc6-bf92b2e99fd4",
+    "happened_at": "2026-11-02 08:16:41 +0400",
+    "inserted_at": "2026-11-02T08:16:41.159201+04:00",
+    "action": "update",
+    "object_input": {
+      "id": "CA-P-2694",
+      "version": 38,
+      "updated_at": "2026-10-31 15:50:58 +0400"
+    },
+    "object_output": {
+      "id": "CA-P-2694",
+      "version": 40,
+      "updated_at": "2026-11-02 08:16:41 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  "journal_receipts": [
+    {
+      "event_id": "133a2de1-f67f-466b-abc6-bf92b2e99fd4",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 699
+    }
+  ]
+}

@@ -1,0 +1,411 @@
+Subject	defining R IDs/Versions	status
+Entity	CA-R-1033@26; CA-R-1035@24; CA-R-1036@24; CA-R-1194@29; CA-R-1248@23; CA-R-1275@29; CA-R-1284@22; CA-R-1321@30; CA-R-1408@23; CA-R-1409@27; CA-R-1499@17; CA-R-1500@17; CA-R-1501@17; CA-R-1709@36; CA-R-1994@13; CA-R-2003@12	covered
+Entity/Aspect	CA-R-1248@23; CA-R-2210@4	covered
+Entity/Aspect/Design	CA-R-2216@4	covered
+Entity/Aspect/Documentation Aspect	CA-R-2217@4	covered
+Entity/Aspect/Domain	CA-R-2213@4	covered
+Entity/Aspect/Engineering	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Architecture	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Architecture/Communication	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Architecture/Communication/API	CA-R-2214@6; CA-R-2238@2	covered
+Entity/Aspect/Engineering/Architecture/Communication/API/Result Contract	CA-R-2230@2	covered
+Entity/Aspect/Engineering/Architecture/Communication/API/Self Documentation	CA-R-2231@2	covered
+Entity/Aspect/Engineering/Architecture/Component Structure	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Authoring	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Authoring/Code Authoring	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Authoring/Code Authoring/Python Code Authoring	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Authoring/Controlled English	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Authoring/Prompt Authoring	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Data Handling	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Data Handling/Data Transformation	CA-R-1360@24; CA-R-2214@6	covered
+Entity/Aspect/Engineering/Data Handling/Data Validation	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Data Handling/Output Publication	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Data Handling/Parsing	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Data Handling/Serialization	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Data Handling/Source Retrieval	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Data Handling/Source Selection	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Delivery	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Delivery/Extension Lifecycle	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Delivery/Git Commits	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Execution Control	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Execution Control/Decision Confidence	CA-R-1044@29; CA-R-1427@17; CA-R-2214@6	covered
+Entity/Aspect/Engineering/Execution Control/Effect Authorization	CA-R-1356@22; CA-R-2214@6	covered
+Entity/Aspect/Engineering/Execution Control/Failure Handling	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Execution Control/Recovery	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Observability	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Observability/Logging	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Observability/Monitoring	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Storage	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Storage/Directory Layout	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Traceability	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Verification	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Verification/Coverage	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Verification/Dynamic Testing	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Verification/Static Analysis	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Verification/Static Analysis/Python Static Analysis	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Verification/Test Data	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Verification/Test Data/Golden Corpora	CA-R-2214@6	covered
+Entity/Aspect/Engineering/Verification/Test Design	CA-R-2214@6	covered
+Entity/Aspect/Product	CA-R-2211@4	covered
+Entity/Aspect/Product: CAPRMEDIO Framework	CA-R-2256@1	covered
+Entity/Aspect/Project Aspect	CA-R-2212@4	covered
+Entity/Aspect/UX	CA-R-2215@6	covered
+Entity/Aspect/UX/Discovery and Navigation	CA-R-2215@6	covered
+Entity/Aspect/UX/Entry	CA-R-1637@28; CA-R-2215@6	covered
+Entity/Aspect/UX/Guidance	CA-R-2215@6	covered
+Entity/Aspect/UX/Interaction	CA-R-2215@6	covered
+Entity/Aspect/UX/Interaction/Accessibility	CA-R-2215@6	covered
+Entity/Aspect/UX/Interaction/Decision	CA-R-2215@6	covered
+Entity/Aspect/UX/Result and Status Presentation	CA-R-2215@6	covered
+Entity/Carrier	CA-R-1248@23; CA-R-1958@14	covered
+Entity/Carrier.Canonical Address	CA-R-1949@10; CA-R-1958@14	covered
+Entity/Carrier.Canonical Address.Segment	CA-R-1948@11	covered
+Entity/Carrier.Format	CA-R-1950@10; CA-R-1958@14	covered
+Entity/Carrier.ID	CA-R-1958@14	covered
+Entity/Carrier/Database	CA-R-1955@10	covered
+Entity/Carrier/Directory	CA-R-1956@10	covered
+Entity/Carrier/Directory.Name	CA-R-1952@11	covered
+Entity/Carrier/Directory.Numeric Prefix	CA-R-1953@12	covered
+Entity/Carrier/Directory.Path	CA-R-1954@11	covered
+Entity/Carrier/Docker Image	CA-R-2198@4	covered
+Entity/Carrier/File	CA-R-1957@10; CA-R-2269@1	covered
+Entity/Carrier/File.Extension	CA-R-1974@11	covered
+Entity/Carrier/File.Filename	CA-R-1975@11; CA-R-2269@1	covered
+Entity/Carrier/File.Filename.Scope Unit Token	CA-R-2269@1	covered
+Entity/Carrier/File.Format	CA-R-1958@14	covered
+Entity/Carrier/File.Main Content	CA-R-2269@1	covered
+Entity/Carrier/File.Main Content.CCE Operator	CA-R-2269@1	covered
+Entity/Carrier/File.Main Content.Paragraph	CA-R-2269@1	covered
+Entity/Carrier/File.Path	CA-R-1976@11	covered
+Entity/Carrier/File.YAML Frontmatter	CA-R-2269@1	covered
+Entity/Carrier/File.YAML Frontmatter.Scalar	CA-R-2269@1	covered
+Entity/Carrier/Git Branch	CA-R-2200@4	covered
+Entity/Carrier/Git Commit	CA-R-2199@4	covered
+Entity/Carrier/Git Index	CA-R-2202@4	covered
+Entity/Carrier/Git Repository	CA-R-2203@5	covered
+Entity/Carrier/Pull Request	CA-R-2201@4	covered
+Entity/Graph Syntax	CA-R-1248@23; CA-R-1931@15; CA-R-2244@1	covered
+Entity/Graph Syntax > Cardinality	CA-R-2243@2	covered
+Entity/Graph Syntax > Entity/Cardinality	CA-R-1248@23; CA-R-2244@1	covered
+Entity/Graph Syntax > Entity/Format	CA-R-1248@23; CA-R-2244@1	covered
+Entity/Graph Syntax > Entity/Relation	CA-R-1248@23; CA-R-2244@1	covered
+Entity/Graph Syntax > Format	CA-R-2248@1	covered
+Entity/Graph Syntax > Format.Data Type	CA-R-2248@1	covered
+Entity/Graph Syntax > Format.Uniqueness Selection	CA-R-2248@1	covered
+Entity/Graph Syntax > Format/bool	CA-R-2249@2	covered
+Entity/Graph Syntax > Format/datetime	CA-R-2254@2	covered
+Entity/Graph Syntax > Format/decimal	CA-R-2252@2	covered
+Entity/Graph Syntax > Format/float	CA-R-2251@2	covered
+Entity/Graph Syntax > Format/int	CA-R-2250@2	covered
+Entity/Graph Syntax > Format/scalar	CA-R-2257@1	covered
+Entity/Graph Syntax > Format/string	CA-R-2253@2	covered
+Entity/Graph Syntax > Relation	CA-R-1034@24; CA-R-1639@32; CA-R-2247@2; CA-R-945@34	covered
+Entity/Graph Syntax > Relation.Meaning	CA-R-2247@2	covered
+Entity/Graph Syntax > Relation.Name	CA-R-2247@2	covered
+Entity/Graph Syntax > Relation//BEARS	CA-R-1260@32	covered
+Entity/Graph Syntax > Relation//BLOCKS	CA-R-1580@23	covered
+Entity/Graph Syntax > Relation//CARRIES	CA-R-1993@16	covered
+Entity/Graph Syntax > Relation//CONTAINS	CA-R-1368@27	covered
+Entity/Graph Syntax > Relation//DEPENDS_ON	CA-R-1200@36	covered
+Entity/Graph Syntax > Relation//EXECUTES	CA-R-2255@5	covered
+Entity/Graph Syntax > Relation//GOVERNS	CA-R-1199@33	covered
+Entity/Graph Syntax > Relation//HAS_EXECUTION	CA-R-2245@4	covered
+Entity/Graph Syntax > Relation//INSTANCE_OF	CA-R-2002@15	covered
+Entity/Graph Syntax > Relation//IS_ALLOWED_VALUE_OF	CA-R-1436@23	covered
+Entity/Graph Syntax > Relation//IS_BORNE_BY	CA-R-1260@32	covered
+Entity/Graph Syntax > Relation//IS_CARRIED_BY	CA-R-1993@16	covered
+Entity/Graph Syntax > Relation//IS_CONTAINED_BY	CA-R-1368@27	covered
+Entity/Graph Syntax > Relation//IS_DERIVED_RELATION_OF	CA-R-2170@6	covered
+Entity/Graph Syntax > Relation//IS_EXECUTED_BY	CA-R-2255@5	covered
+Entity/Graph Syntax > Relation//IS_EXECUTION_OF	CA-R-2245@4	covered
+Entity/Graph Syntax > Relation//IS_RECORDED_BY	CA-R-2246@4	covered
+Entity/Graph Syntax > Relation//NARROWER_THAN	CA-R-1435@25	covered
+Entity/Graph Syntax > Relation//RECORDS	CA-R-2246@4	covered
+Entity/Graph Syntax > Relation//child_of	CA-R-796@40	covered
+Entity/Graph Syntax > Relation//concern_about	CA-R-1022@28	covered
+Entity/Graph Syntax > Relation//delivery_for	CA-R-1019@26	covered
+Entity/Graph Syntax > Relation//depends_on	CA-R-1026@28	covered
+Entity/Graph Syntax > Relation//evaluation_for	CA-R-1018@34	covered
+Entity/Graph Syntax > Relation//evidence_for	CA-R-1021@26	covered
+Entity/Graph Syntax > Relation//feature_realization	CA-R-1654@34	covered
+Entity/Graph Syntax > Relation//implementation_of	CA-R-1020@26	covered
+Entity/Graph Syntax > Relation//method_for	CA-R-1017@27	covered
+Entity/Graph Syntax > Relation//rationale_for	CA-R-1016@27	covered
+Entity/Graph Syntax > Relation//required_by	CA-R-1026@28	covered
+Entity/Graph Syntax > Relation//structural_parent	CA-R-1660@32	covered
+Entity/Object	CA-R-1248@23; CA-R-2226@2	covered
+Entity/Object/Continuant	CA-R-1248@23; CA-R-1967@10; CA-R-2226@2	covered
+Entity/Object/Continuant/Actor	CA-R-2218@5	covered
+Entity/Object/Continuant/Actor.Name	CA-R-1944@11; CA-R-2218@5	covered
+Entity/Object/Continuant/Actor/AI Agent	CA-R-1959@11	covered
+Entity/Object/Continuant/Actor/AI Agent.Permissions	CA-R-2270@1	covered
+Entity/Object/Continuant/Actor/Operator	CA-R-1422@22	covered
+Entity/Object/Continuant/Governing Objects	CA-R-2236@2	covered
+Entity/Object/Continuant/Governing Objects/Atom	CA-R-1448@23; CA-R-1449@19; CA-R-1578@23; CA-R-655@41; CA-R-922@36; CA-R-923@37	covered
+Entity/Object/Continuant/Governing Objects/Atom.Author	CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Content	CA-R-1359@25; CA-R-1624@19; CA-R-1946@13; CA-R-2160@8; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Content Role	CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Content.Claim	CA-R-1269@33; CA-R-2160@8	covered
+Entity/Object/Continuant/Governing Objects/Atom.Content.Claim Scope	CA-R-1269@33; CA-R-2160@8	covered
+Entity/Object/Continuant/Governing Objects/Atom.Content.Details	CA-R-1269@33; CA-R-1624@19	covered
+Entity/Object/Continuant/Governing Objects/Atom.Content.Semantics	CA-R-1269@33; CA-R-1946@13	covered
+Entity/Object/Continuant/Governing Objects/Atom.Content.Summary	CA-R-1465@25; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Enabled Relations	CA-R-1945@13	covered
+Entity/Object/Continuant/Governing Objects/Atom.Enabled Relations.Contains	CA-R-1945@13	covered
+Entity/Object/Continuant/Governing Objects/Atom.Enabled Relations.Contains: False	CA-R-1945@13	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom.Enabled Relations.Contains: True	CA-R-1945@13	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom.Governance Origin	CA-R-1709@36	covered
+Entity/Object/Continuant/Governing Objects/Atom.Governance Origin: external	CA-R-1709@36	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom.Governance Origin: internal	CA-R-1709@36	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom.ID	CA-R-655@41; CA-R-728@35	covered
+Entity/Object/Continuant/Governing Objects/Atom.Label	CA-R-1594@17; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit	CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Relations	CA-R-2149@11; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Status	CA-R-1989@14; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Status: Archived	CA-R-1989@14; CA-R-655@41	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom.Status: Draft	CA-R-1989@14; CA-R-655@41	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom.Subjects	CA-R-1198@28; CA-R-2004@11; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Subjects.Depends On	CA-R-1198@28; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs	CA-R-1198@28; CA-R-1363@29; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit	CA-R-1595@21; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Tier	CA-R-2124@12; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Type	CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Updated At	CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom.Version Number	CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role	CA-R-1531@20; CA-R-1549@21	classification_axis
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis	CA-R-1337@27	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis.Status	CA-R-1727@30	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type	CA-R-1232@28	classification_axis
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: Analysis Report	CA-R-1232@28	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: FPF Analysis Report	CA-R-1889@14	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: Rationale	CA-R-1232@28	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: Spec Proposal	CA-R-1232@28; CA-R-2219@4	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern	CA-R-1336@27	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Local Scope Unit	CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Priority	CA-R-1336@27	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Priority: High	CA-R-1336@27	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Priority: Low	CA-R-1336@27	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Priority: Medium	CA-R-1336@27	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Status	CA-R-1989@14; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern/Type	CA-R-1231@28	classification_axis
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern/Type: Bug	CA-R-1231@28	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern/Type: Conflict	CA-R-1231@28	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern/Type: Opportunity	CA-R-1231@28	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern/Type: Problem	CA-R-1231@28	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern/Type: Question	CA-R-1231@28	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern/Type: Risk	CA-R-1231@28	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery	CA-R-1342@31	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery.Content	CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery.Content.Claim	CA-R-1269@33	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery.Status	CA-R-1989@14; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type		classification_axis
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type: Decision	CA-R-2268@1	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type: Policy	CA-R-2267@2	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation	CA-R-1341@26	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation.Content	CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation.Content.Claim	CA-R-1269@33	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation.Status	CA-R-1989@14; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation/Type		classification_axis
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation/Type: Eval Case	CA-R-2116@9	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation/Type: Eval Policy	CA-R-2266@2	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method	CA-R-1340@31	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method.Content	CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method.Content.Claim	CA-R-1269@33	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method.Status	CA-R-1989@14; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type		classification_axis
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Eng Decision	CA-R-1668@32; CA-R-2120@8	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Eng Policy	CA-R-2119@8	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: External Implementation Method	CA-R-1674@32	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Implementation Method	CA-R-1667@32	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Method Binding	CA-R-1675@32	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations	CA-R-1530@27	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations.Status	CA-R-1989@14; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type		classification_axis
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action	CA-R-1452@27; CA-R-1562@23	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind	CA-R-1526@20	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind: Agentic	CA-R-1526@20	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind: Programmatic	CA-R-1526@20	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Implementation Retry Control	CA-R-1452@27; CA-R-1562@23	covered_by_kind
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Reconcile Navigation Numbers	CA-R-1452@27; CA-R-1562@23	covered_by_kind
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	CA-R-1508@28; CA-R-1563@23	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step	CA-R-1509@23; CA-R-1569@21	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step >{0+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Sub-step	CA-R-2242@2	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step.Enabled Relations.Contains	CA-R-1945@13	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow.Enabled Relations	CA-R-1945@13	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow.Enabled Relations.Contains	CA-R-1945@13	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation	CA-R-1508@28; CA-R-1563@23	covered_by_kind
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow	CA-R-1508@28; CA-R-1563@23	covered_by_kind
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//RMEDO Conflict Resolution	CA-R-1508@28; CA-R-1563@23	covered_by_kind
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Release Readiness	CA-R-1508@28; CA-R-1563@23	covered_by_kind
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	CA-R-1338@30; CA-R-1542@21	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee	CA-R-1338@30	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Autonomous Confidence Threshold	CA-R-1338@30	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content	CA-R-1581@23; CA-R-1586@23	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done	CA-R-1581@23	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Details	CA-R-1586@23	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Enabled Relations	CA-R-1945@13	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Enabled Relations.Contains	CA-R-1945@13	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit	CA-R-1338@30	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label	CA-R-1576@21; CA-R-1577@21	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status	CA-R-1583@25	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Backlog	CA-R-1583@25	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Canceled	CA-R-1583@25	covered_allowed_value
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Target Scope Unit	CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Work Sequence Number	CA-R-991@36	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type		classification_axis
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan	CA-R-1574@21	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement	CA-R-1339@30	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement.Content	CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement.Content.Claim	CA-R-1269@33	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement.Content.Claim.Formal Claim	CA-R-1269@33	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement.Status	CA-R-1989@14; CA-R-655@41	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type		classification_axis
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Boundary	CA-R-825@31	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Constraint	CA-R-1673@37	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand	CA-R-932@37	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit	CA-R-944@37	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Entity Definition	CA-R-2227@2	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal	CA-R-925@36	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal	CA-R-2152@8	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Relation Definition	CA-R-2228@2	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Relation Definition.Content	CA-R-2228@2	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Relation Definition.Content.Notation for subject	CA-R-2228@2	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Relation Definition.Content.notation_for_subject	CA-R-2228@2	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Rule	CA-R-2000@13	covered
+Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Term Definition	CA-R-2229@1	covered
+Entity/Object/Continuant/Governing Objects/Governing Configuration	CA-R-1441@23; CA-R-1962@12	covered
+Entity/Object/Continuant/History	CA-R-1961@12	covered
+Entity/Object/Continuant/History/Journal	CA-R-1745@34	covered
+Entity/Object/Continuant/History/Journal > Event Record	CA-R-2234@1	covered
+Entity/Object/Continuant/History/Release	CA-R-2171@4	covered
+Entity/Object/Continuant/History/Release.ID	CA-R-2172@6	covered
+Entity/Object/Continuant/Package	CA-R-2174@4; CA-R-2178@5	covered
+Entity/Object/Continuant/Package > Asset	CA-R-2237@2	covered
+Entity/Object/Continuant/Package > Asset/Configuration	CA-R-2190@4	covered
+Entity/Object/Continuant/Package > Asset/Schema	CA-R-2191@4	covered
+Entity/Object/Continuant/Package > Asset/Template	CA-R-2192@4	covered
+Entity/Object/Continuant/Package > Asset/Test Fixture	CA-R-2193@4	covered
+Entity/Object/Continuant/Package > Documentation	CA-R-2180@6	covered
+Entity/Object/Continuant/Package > Documentation/Code Block	CA-R-2187@4	covered
+Entity/Object/Continuant/Package > Documentation/Diagram	CA-R-2188@4	covered
+Entity/Object/Continuant/Package > Documentation/Document	CA-R-2181@4	covered
+Entity/Object/Continuant/Package > Documentation/Document > Section	CA-R-2182@4	covered
+Entity/Object/Continuant/Package > Documentation/List	CA-R-2185@4	covered
+Entity/Object/Continuant/Package > Documentation/Paragraph	CA-R-2183@4	covered
+Entity/Object/Continuant/Package > Documentation/Sentence	CA-R-2184@4	covered
+Entity/Object/Continuant/Package > Documentation/Table	CA-R-2186@4	covered
+Entity/Object/Continuant/Package > Entity/Asset	CA-R-2178@5	covered
+Entity/Object/Continuant/Package > Entity/Documentation	CA-R-2178@5	covered
+Entity/Object/Continuant/Package > Entity/Module	CA-R-2178@5	covered
+Entity/Object/Continuant/Package > Entity/Prompt	CA-R-2178@5	covered
+Entity/Object/Continuant/Package > Module	CA-R-2177@5	covered
+Entity/Object/Continuant/Package > Module > Code Unit	CA-R-2232@1	covered
+Entity/Object/Continuant/Package > Module > Code Unit/Class	CA-R-2176@4; CA-R-2232@1	covered
+Entity/Object/Continuant/Package > Module > Code Unit/Function	CA-R-2175@4; CA-R-2232@1	covered
+Entity/Object/Continuant/Package > Prompt	CA-R-2179@6	covered
+Entity/Object/Continuant/Package/Eval Package	CA-R-2178@5; CA-R-2233@2	covered
+Entity/Object/Continuant/Package/Project Implementation	CA-R-2173@4; CA-R-2239@2	covered
+Entity/Object/Continuant/Package/Runtime Package	CA-R-2178@5; CA-R-2240@2	covered
+Entity/Object/Continuant/Projection	CA-R-1593@23; CA-R-1746@41	covered
+Entity/Object/Continuant/Projection.ID	CA-R-1746@41	covered
+Entity/Object/Continuant/Projection.Named Selection	CA-R-1746@41	covered
+Entity/Object/Continuant/Projection.Source Of Truth	CA-R-1746@41	covered
+Entity/Object/Continuant/Projection.Sources	CA-R-1746@41	covered
+Entity/Object/Continuant/Projection.Type	CA-R-1746@41	covered
+Entity/Object/Continuant/Projection.Updated At	CA-R-1746@41	covered
+Entity/Object/Continuant/Projection//PROJECT_SCOPE_UNIT_GRAPH	CA-R-1593@23; CA-R-1746@41	covered_by_kind
+Entity/Object/Continuant/Projection/Type		classification_axis
+Entity/Object/Continuant/Projection/Type: Applicable Methodology	CA-R-1213@37	covered
+Entity/Object/Continuant/Projection/Type: Applicable Methodology.Conflict	CA-R-1373@26	covered
+Entity/Object/Continuant/Projection/Type: Applicable Methodology.Member	CA-R-1213@37	covered
+Entity/Object/Continuant/Projection/Type: Artifact Change Log	CA-R-1467@19	covered
+Entity/Object/Continuant/Projection/Type: Atom Subjects Graph	CA-R-1281@33	covered
+Entity/Object/Continuant/Projection/Type: Canonical Scope Signature	CA-R-1361@29	covered
+Entity/Object/Continuant/Projection/Type: Canonical Signature	CA-R-2272@1	covered
+Entity/Object/Continuant/Projection/Type: Catalog	CA-R-1746@41	covered
+Entity/Object/Continuant/Projection/Type: Direct Relation Registry	CA-R-1965@14	covered
+Entity/Object/Continuant/Projection/Type: Entities Graph	CA-R-1438@25	covered
+Entity/Object/Continuant/Projection/Type: Extended Entities Graph	CA-R-1459@20	covered
+Entity/Object/Continuant/Projection/Type: Implementation Overview	CA-R-1638@46	covered
+Entity/Object/Continuant/Projection/Type: Process Log	CA-R-1468@20	covered
+Entity/Object/Continuant/Projection/Type: Realization Graph	CA-R-1616@20; CA-R-1620@17	covered
+Entity/Object/Continuant/Projection/Type: Reconciled Projection	CA-R-1461@22	covered
+Entity/Object/Continuant/Projection/Type: Scope Unit Graph	CA-R-1739@36	covered
+Entity/Object/Continuant/Projection/Type: Subject Graph	CA-R-2150@13	covered
+Entity/Object/Continuant/Projection/Type: Subject Graph Dependency-only Subjects	CA-R-2224@3	covered
+Entity/Object/Continuant/Projection/Type: Subject Graph Instances	CA-R-2223@4	covered
+Entity/Object/Continuant/Projection/Type: Subject Graph Primary Subjects	CA-R-2221@3	covered
+Entity/Object/Continuant/Projection/Type: Subject Graph Properties	CA-R-2222@3	covered
+Entity/Object/Continuant/Projection/Type: Terms Graph	CA-R-1335@30	covered
+Entity/Object/Continuant/Selection	CA-R-1447@23; CA-R-1548@22; CA-R-1966@12; CA-R-942@30; CA-R-999@24	covered
+Entity/Object/Continuant/Selection//Current Plan Scope	CA-R-1447@23; CA-R-1548@22; CA-R-1966@12; CA-R-942@30; CA-R-999@24	covered_by_kind
+Entity/Object/Continuant/Selection//Methodology Sources	CA-R-1447@23; CA-R-1548@22; CA-R-1966@12; CA-R-942@30; CA-R-999@24	covered_by_kind
+Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC	CA-R-1447@23; CA-R-1548@22; CA-R-1966@12; CA-R-942@30; CA-R-999@24	covered_by_kind
+Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL	CA-R-1447@23; CA-R-1548@22; CA-R-1966@12; CA-R-942@30; CA-R-999@24	covered_by_kind
+Entity/Object/Continuant/Selection//Previous Unit	CA-R-1447@23; CA-R-1548@22; CA-R-1966@12; CA-R-942@30; CA-R-999@24	covered_by_kind
+Entity/Object/Continuant/Selection//Project Principle Universe	CA-R-1447@23; CA-R-1548@22; CA-R-1966@12; CA-R-942@30; CA-R-999@24	covered_by_kind
+Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences	CA-R-1447@23; CA-R-1548@22; CA-R-1966@12; CA-R-942@30; CA-R-999@24	covered_by_kind
+Entity/Object/Continuant/Structural Unit	CA-R-2241@2	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit	CA-R-1217@23; CA-R-1219@30; CA-R-1757@33; CA-R-2241@2; CA-R-705@22; CA-R-707@21; CA-R-709@22; CA-R-775@19; CA-R-960@26; CA-R-964@27	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit.Children	CA-R-1757@33	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit.ID	CA-R-1757@33; CA-R-1988@11	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit.Label	CA-R-972@34	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit.Local Order	CA-R-1757@33; CA-R-1763@34	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit.Name	CA-R-1757@33	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit.Navigational Order Number	CA-R-1757@33; CA-R-978@30	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit.Parent	CA-R-1757@33	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit.Path	CA-R-1764@33; CA-R-2133@8; CA-R-2134@8	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit.Project Boundary Position	CA-R-844@23; CA-R-961@25; CA-R-975@21	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit//CORE_META_MODEL	CA-R-1217@23; CA-R-1219@30; CA-R-1757@33; CA-R-2241@2; CA-R-705@22; CA-R-707@21; CA-R-709@22; CA-R-775@19; CA-R-960@26; CA-R-964@27	covered_by_kind
+Entity/Object/Continuant/Structural Unit/Scope Unit//PROJECT_CONFIGURATION	CA-R-1217@23; CA-R-1219@30; CA-R-1757@33; CA-R-2241@2; CA-R-705@22; CA-R-707@21; CA-R-709@22; CA-R-775@19; CA-R-960@26; CA-R-964@27	covered_by_kind
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project	CA-R-1757@33; CA-R-2220@4	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	CA-R-1402@27; CA-R-1977@12; CA-R-1978@12; CA-R-1979@12; CA-R-1980@12; CA-R-1981@13; CA-R-1982@12; CA-R-1983@12; CA-R-2271@1	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Artifact Timestamp Timezone	CA-R-1977@12	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes	CA-R-1402@27	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes.Default Scope Unit Authority Mode	CA-R-1402@27	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes.Project Authority Mode	CA-R-1402@27	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Code-Root Locators	CA-R-1978@12	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence	CA-R-1979@12	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold	CA-R-2271@1	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Semantic Resolution Threshold	CA-R-2271@1	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Extension Selections	CA-R-2271@1	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Framework Control-Root Locator	CA-R-1980@12	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Identifier	CA-R-1981@13	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit	CA-R-1402@27	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction	CA-R-1402@27; CA-R-1982@12	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode	CA-R-1402@27	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode: silent	CA-R-1402@27	covered_allowed_value
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode: verbose	CA-R-1402@27	covered_allowed_value
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution	CA-R-1983@12	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Tool Selections	CA-R-2271@1	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry	CA-R-1984@12	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Parent	CA-R-2220@4	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings	CA-R-1738@39; CA-R-1985@13	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Atom Prefix	CA-R-1738@39	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Identifier	CA-R-1985@13	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Project Name	CA-R-1738@39	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	CA-R-1483@20	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Type		classification_axis
+Entity/Object/Continuant/Structural Unit/Scope Unit/Type: Ordered	CA-R-1760@35	covered
+Entity/Object/Continuant/Structural Unit/Scope Unit/Type: Unordered	CA-R-1761@34	covered
+Entity/Object/Continuant/Term	CA-R-1318@28; CA-R-1319@23; CA-R-1320@23; CA-R-1347@26	covered
+Entity/Object/Continuant/Term.Name	CA-R-1318@28	covered
+Entity/Object/Continuant/Term//Artifact	CA-R-1318@28; CA-R-1319@23; CA-R-1320@23; CA-R-1347@26	covered_by_kind
+Entity/Object/Continuant/Term//Dependent Entity	CA-R-1318@28; CA-R-1319@23; CA-R-1320@23; CA-R-1347@26	covered_by_kind
+Entity/Object/Continuant/Term//Property	CA-R-1318@28; CA-R-1319@23; CA-R-1320@23; CA-R-1347@26	covered_by_kind
+Entity/Object/Continuant/Term//Type	CA-R-1318@28; CA-R-1319@23; CA-R-1320@23; CA-R-1347@26	covered_by_kind
+Entity/Object/Occurrent	CA-R-1248@23; CA-R-1972@11; CA-R-2226@2	covered
+Entity/Object/Occurrent/Event	CA-R-1968@12	covered
+Entity/Object/Occurrent/Execution	CA-R-1970@10	covered
+Entity/Object/Occurrent/Execution.ID	CA-R-1973@12	covered
+Entity/Object/Occurrent/Execution.Result	CA-R-2235@3	covered
+Entity/Object/Occurrent/Execution/Action Run	CA-R-1969@11	covered
+Entity/Object/Occurrent/Execution/Step Run	CA-R-1511@22	covered
+Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context	CA-R-1527@21	covered
+Entity/Object/Occurrent/Execution/Step Run.Invocation Context	CA-R-2273@1	covered
+Entity/Object/Occurrent/Execution/Workflow Run	CA-R-1510@18	covered
+Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit	CA-R-1488@21	covered
+Entity/Object/Occurrent/Runtime	CA-R-2194@6	covered
+Entity/Object/Occurrent/Runtime/Container Run	CA-R-2195@4	covered
+Entity/Object/Occurrent/Runtime/Process Run	CA-R-2196@4	covered
+Entity/Object/Occurrent/Runtime/Session	CA-R-1971@12	covered

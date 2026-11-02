@@ -107,7 +107,7 @@ def _role_directories(authority: Path, reader: ReadContext, selected_role: str |
 
 
 def _registered_roots(selection: ProjectSelection, root: Path, control: Path) -> tuple[set[Path], set[Path]]:
-    authorities: set[Path] = set()
+    authorities: set[Path] = {control}
     deliveries: set[Path] = set()
     for row in selection.structure.get("scope_units", ()):
         if not isinstance(row, Mapping):

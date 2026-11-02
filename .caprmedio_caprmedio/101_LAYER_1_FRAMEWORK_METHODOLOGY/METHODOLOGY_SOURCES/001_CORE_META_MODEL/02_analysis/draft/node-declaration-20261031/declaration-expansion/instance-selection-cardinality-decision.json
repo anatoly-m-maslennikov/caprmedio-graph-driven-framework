@@ -1,0 +1,12 @@
+{
+  "decision": "Reuse existing cardinality on instance selections, as on Properties",
+  "syntax": "Kind//{n}",
+  "scope": "Complete selected logical instances inside Project; same instance counted once",
+  "consumers": [
+    "Package/Implementation//{1}",
+    "Scope Unit/Project//{1}"
+  ],
+  "new_atoms_added": 0,
+  "new_count_function": false,
+  "remaining_question": "Work Journal specialization or instance identity must be settled before selecting its singleton population"
+}

@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Parent
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Children
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
-version: 27
-updated_at: 2026-10-27 20:00:00 +0400
+  active: Scope Unit.Path
+  passive:
+  - Scope Unit
+  - Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
+  - Entity/Object/Continuant/Structural Unit/Scope Unit.Children
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+version: 31
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-1764
+  - CA-R-2530
 atom_id: CA-R-1661
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Derive Structural Path
 
-## Scope
+## Claim scope
 
 Structural Paths derived from active Scope Unit identities and their declared Structural Parent Relations.
 
@@ -33,5 +32,3 @@ Structural Paths derived from active Scope Unit identities and their declared St
 **every** Structural Path **must** be derived from active Scope Unit identities **and** their declared Structural Parent Relations.
 
 a retained representation for readability **must** remain derived **and** consistent with those authoritative inputs under CA-R-1485. it **must not** independently establish **or** change structural ancestry. permitted storage follows the applicable Delivery authority; this rule does **not** admit another authored Project Structure field.
-
-## Details

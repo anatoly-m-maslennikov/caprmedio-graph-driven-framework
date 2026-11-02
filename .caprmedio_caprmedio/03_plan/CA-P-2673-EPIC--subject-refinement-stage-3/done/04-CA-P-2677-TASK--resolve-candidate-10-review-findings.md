@@ -9,8 +9,8 @@ author: Anatoly Maslennikov
 status: Done
 subjects:
   governs: Subject
-version: 6
-updated_at: 2026-10-27 18:34:34 +0400
+version: 7
+updated_at: 2026-10-29 21:51:04 +0400
 relations:
   IS_CONTAINED_BY:
   - CA-P-2673
@@ -26,7 +26,7 @@ After the FPF review, resolve its findings with the Operator and refine the prop
 
 ## Details
 
-Candidate: [A1218](../../../02_analysis/CA-A-1218-SPECIFICATION_PROPOSAL--subject-model-candidate-10.md). The proposal holds the structure and definitions; this Task holds work, progress and links to decision proposals.
+Candidate: [A1218](../../../02_analysis/done/CA-A-1218-SPECIFICATION_PROPOSAL--subject-model-candidate-10.md). The proposal holds the structure and definitions; this Task holds work, progress and links to decision proposals.
 
 Latest Operator decisions supersede incompatible earlier messages. Scope: main Subjects and their definitions, without instances or property enumeration.
 
@@ -40,11 +40,11 @@ Review: [Candidate10 FPF design challenge](../../../../fpf-reports/20261027T1349
 
 ### C10-I01 / C10-F01 — resolved; clarification Drafted
 
-Decision: [A1219 — Clarify mixed Subject targets](../../../02_analysis/CA-A-1219-SPECIFICATION_PROPOSAL--clarify-mixed-subject-targets.md). Operator-accepted; reflected in R1994@11-draft, R2209@1-draft and Candidate #10. No Current RMED promotion.
+Decision: [A1219 — Clarify mixed Subject targets](../../../02_analysis/done/CA-A-1219-SPECIFICATION_PROPOSAL--clarify-mixed-subject-targets.md). Operator-accepted; reflected in R1994@11-draft, R2209@1-draft and Candidate #10. No Current RMED promotion.
 
 ### C10-I02 — resolved; C10-F02 superseded; replacement clarification Drafted
 
-Decision: [A1220 — Define Project as a whole entity](../../../02_analysis/CA-A-1220-SPECIFICATION_PROPOSAL--define-project-as-a-whole-entity.md). Operator-defined meaning is reflected in R2220@1-draft and Candidate #10. C10-F02 was not adopted as written. No Current RMED promotion.
+Decision: [A1220 — Define Project as a whole entity](../../../02_analysis/done/CA-A-1220-SPECIFICATION_PROPOSAL--define-project-as-a-whole-entity.md). Operator-defined meaning is reflected in R2220@1-draft and Candidate #10. C10-F02 was not adopted as written. No Current RMED promotion.
 
 ## Decision storage
 

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import copy
 import json
 from pathlib import Path
 import sys
@@ -226,5 +227,55 @@ class SelectedActionObservationTests(unittest.TestCase):
                 else:
                     saved["graph"]["steps"][0]["actions"][0]["sha256"] = "e" * 64
                 path.write_text(json.dumps(saved), encoding="utf-8")
+                result = observe_selected_action(self.root, action_id)
+                self.assertEqual("blocked", result["disposition"])
+
+    def test_native_lifecycle_freeze_envelope_is_observed_without_current_preflight(self) -> None:
+        # Captured from the actual completed CA-R-2453 fresh publication. The
+        # native freeze attaches lifecycle_admission beside request and graph.
+        captured = Path(__file__).parent / "fixtures/selected_action_observation/lifecycle_freeze.json"
+        saved = json.loads(captured.read_bytes())
+        workflow = saved["request"]["run_id"]
+        action_id = next(row["requested_run_id"] for row in saved["request"]["execution"]["requested_runs"]
+                         if row["kind"] == "action" and row["definition"]["atom_id"] == "CA-O-128")
+        folder = self.root / ".caprmedio_install/workflow_orchestrator/runs" / workflow
+        folder.mkdir(parents=True)
+        (folder / "selected_request.json").write_bytes(captured.read_bytes())
+        self._progress(action_id, folder, outcome="applied")
+        before = {path.relative_to(self.root).as_posix(): path.read_bytes()
+                  for path in self.root.rglob("*") if path.is_file()}
+        with patch("lifecycle_intents.preflight_atom_lifecycle", side_effect=AssertionError("read-only history must not preflight a consumed Draft")):
+            result = observe_selected_action(self.root, action_id)
+        self.assertEqual(("terminal", "applied"), (result["disposition"], result["outcome"]))
+        self.assertEqual("CA-O-128", result["action_definition"]["atom_id"])
+        self.assertEqual(workflow, result["workflow_run_id"])
+        self.assertEqual(before, {path.relative_to(self.root).as_posix(): path.read_bytes()
+                                  for path in self.root.rglob("*") if path.is_file()})
+
+    def test_native_lifecycle_envelope_keeps_unknown_fields_and_cross_bindings_closed(self) -> None:
+        captured = json.loads((Path(__file__).parent / "fixtures/selected_action_observation/lifecycle_freeze.json").read_bytes())
+        workflow = captured["request"]["run_id"]
+        action_id = next(row["requested_run_id"] for row in captured["request"]["execution"]["requested_runs"]
+                         if row["kind"] == "action" and row["definition"]["atom_id"] == "CA-O-128")
+        folder = self.root / ".caprmedio_install/workflow_orchestrator/runs" / workflow
+        folder.mkdir(parents=True)
+        self._progress(action_id, folder, outcome="applied")
+        for mutation in ("outer", "admission_type", "admission_field", "admission_target", "request_target", "route"):
+            with self.subTest(mutation=mutation):
+                saved = copy.deepcopy(captured)
+                if mutation == "outer":
+                    saved["unknown"] = {}
+                elif mutation == "admission_type":
+                    saved["lifecycle_admission"] = None
+                elif mutation == "admission_field":
+                    saved["lifecycle_admission"]["unknown"] = True
+                elif mutation == "admission_target":
+                    saved["lifecycle_admission"]["prior"]["digest"] = "f" * 64
+                elif mutation == "request_target":
+                    saved["request"]["execution"]["parameters"]["target"]["digest"] = "f" * 64
+                else:
+                    saved["graph"]["route"] = "find_and_fetch_artifacts"
+                    saved["request"]["execution"]["operation_route"] = "find_and_fetch_artifacts"
+                (folder / "selected_request.json").write_text(json.dumps(saved))
                 result = observe_selected_action(self.root, action_id)
                 self.assertEqual("blocked", result["disposition"])

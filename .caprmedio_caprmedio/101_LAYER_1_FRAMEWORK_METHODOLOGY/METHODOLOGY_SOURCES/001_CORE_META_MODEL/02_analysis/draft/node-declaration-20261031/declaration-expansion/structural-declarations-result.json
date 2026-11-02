@@ -1,0 +1,72 @@
+{
+  "status": "implemented; supersedes the recursive-closure declaration result",
+  "scope": {
+    "edited_primary_declarations": [
+      "declare-scope-unit.md",
+      "declare-package.md",
+      "declare-project.md",
+      "declare-implementation.md"
+    ],
+    "added_property_declarations": [
+      "declare-scope-unit-structural-level.md",
+      "declare-package-structural-level.md"
+    ],
+    "current_read": false,
+    "other_sources_edited": false
+  },
+  "withdrawn_recursive_path": {
+    "removed_from_scope_unit": "Scope Unit//$unit {0}((CONTAINS))** $unit",
+    "removed_from_package": "Package//$package {0}((CONTAINS))** $package",
+    "unpublished_generic_closure_rule": "root-owned withdrawal; not edited in this lane",
+    "reason": "Structural levels replace recursive closure as the acyclicity basis."
+  },
+  "field_cases": {
+    "scope_unit_property": {
+      "subject": "Scope Unit.structural_level",
+      "gfel": [
+        "Scope Unit.structural_level{1}: [int]{1}",
+        "Scope Unit.structural_level.*[]{0}",
+        "Scope Unit.structural_level >= 0"
+      ],
+      "derived_from": "Scope Unit containment; not an independent authored input"
+    },
+    "package_property": {
+      "subject": "Package.structural_level",
+      "gfel": [
+        "Package.structural_level{1}: [int]{1}",
+        "Package.structural_level.*[]{0}",
+        "Package.structural_level >= 0"
+      ],
+      "derived_from": "Package containment; not an independent authored input"
+    },
+    "roots": [
+      "Scope Unit/Project//$project.structural_level = 0",
+      "Package/Implementation//$implementation.structural_level = 0"
+    ],
+    "link_guarded_increment": [
+      "IF (Scope Unit//$child ((IS_CONTAINED_BY)) Scope Unit//$parent) THEN ($child.structural_level = $parent.structural_level + 1)",
+      "IF (Package//$child ((IS_CONTAINED_BY)) Package//$parent) THEN ($child.structural_level = $parent.structural_level + 1)"
+    ],
+    "non_root_parent_rules": [
+      "IF (Scope Unit//$unit not in (Scope Unit/Project//)) THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)",
+      "IF (Package//$package not in (Package/Implementation//)) THEN ($package {==1}((IS_CONTAINED_BY)) Package//)"
+    ]
+  },
+  "preserved": [
+    "Scope Unit and Package remain Container == yes with zero-or-one immediate parent base constraints.",
+    "Project retains zero Scope Unit parents and its root Scope Unit semantics.",
+    "Implementation retains zero Package parents, concise one-root-per-Project prose, and its root-Package meaning.",
+    "Scope Unit, Package, and Project Semantics remain unchanged.",
+    "No Property Semantics section was added."
+  ],
+  "acyclicity_basis": "A non-root child has exactly one parent, roots have level zero, and every containment link raises a nonnegative integer level by one. A containment cycle would require a finite level to equal itself plus a positive increment.",
+  "legacy_source_disposition": {
+    "source": "CA-R-2239, supplied task context only; not read or modified",
+    "unchanged_note": "realizes RMED, direct editable, and not automatically Projection remain unmigrated because they are outside this structural Declaration scope."
+  },
+  "not_added": [
+    "unconditional child-parent equation",
+    "new counter or selector-count grammar",
+    "Current rename, alias, instance, Workflow, Rule, Action, runtime behavior, registry, or proposal edit"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "scope": "Frozen CFEL/operator candidate packet only; no Current or runtime evaluation.",
+  "manifest": {
+    "path": "../frozen-integration-manifest.json",
+    "result": "five core and 26 operator candidate hashes match their frozen entries"
+  },
+  "checks": [
+    {
+      "name": "named_relation_direction",
+      "result": "pass",
+      "evidence": "../CA-R-2487@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md:99-103: bare ((R)) is forward; <((R)) is reverse; no trailing reverse marker remains"
+    },
+    {
+      "name": "endpoint_universe",
+      "result": "pass",
+      "evidence": "../CA-R-2487@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md:83-96: declared entities or instances include Carrier and CFEL; literals are excluded; operator descriptors remain eligible entities"
+    },
+    {
+      "name": "relations_and_operators_distinct",
+      "result": "pass",
+      "evidence": "../CA-R-2487@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md:69-77; ../operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md:22"
+    },
+    {
+      "name": "allowed_values_and_counts",
+      "result": "pass",
+      "evidence": "../CA-R-2487@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md:41-60; ../CA-R-2243@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality-notation.md:23-49"
+    },
+    {
+      "name": "count_compatibility_overlay",
+      "result": "pass",
+      "evidence": "{:n} forms remain allowed bounds on their qualified selection; {=n} remains a condition/test and {==n} a required or derived conclusion. Relation endpoint counts remain independent and swap only under reverse normalization; R1321 already uses that admitted syntax."
+    },
+    {
+      "name": "recursive_aggregate",
+      "result": "pass",
+      "evidence": "../CA-R-2472@3-draft-CORE_META_MODEL-CFEL--separate-property-value-and-child-constraints.md:39-44; ../CA-C-draft-CORE_META_MODEL-QUESTION--should-recursive-property-counts-aggregate-descendant-identities.md:22-32"
+    },
+    {
+      "name": "single_cardinality_concept",
+      "result": "pass",
+      "evidence": "../CA-R-2243@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality-notation.md:13-21 is a Rule; ../duplicate-root-disposition.json:cardinality_split retains R2327 as the concept Definition"
+    },
+    {
+      "name": "claim_fence_structure",
+      "result": "pass",
+      "evidence": "R2487 Claim has one CFEL fence and no text fence; every 25 leaf operator Declaration Claims has one CFEL fence; the base operator has none; no nested Claim/Formal headings occur in the packet"
+    }
+  ],
+  "blockers": [],
+  "limits": [
+    "R2244 retirement remains conditional on the five frozen consumer dispositions.",
+    "This report does not claim parser, evaluator, runtime, or Current adoption."
+  ]
+}

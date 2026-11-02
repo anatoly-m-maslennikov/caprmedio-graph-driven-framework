@@ -1,0 +1,8 @@
+{
+  "scope": "Every Atom with an active Subject; all Roles and Forms",
+  "new_rule": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--keep-assertions-about-the-active-subject.md",
+  "declaration_only_policy_removed": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-form-registration.md",
+  "examples": "Step owns its Workflow-parent count; Workflow owns its Step count",
+  "reference_boundary": "Other Subjects can be referenced as needed, without independently governing them",
+  "no_current_or_runtime_changes": true
+}

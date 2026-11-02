@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: Subject/caprmedio/Workflow//Applicable Methodology Compilation
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Extension Sources
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Expansion Boundary
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-version: 39
-updated_at: 2026-10-27 19:59:34 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
+  passive:
+  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - Entity/Object/Continuant/Selection//Methodology Sources
+  - Scope Unit//PROJECT_CONFIGURATION
+  - Entity/Object/Continuant/Selection//Extension Sources
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Scope Unit
+  - Atom
+  - Atom.Content
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/History/Journal > Event Record
+version: 46
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-D-305
@@ -23,21 +23,19 @@ relations:
   - CA-O-011
   - CA-R-1228
   - CA-R-1375
-  - CA-R-1434
 atom_id: CA-E-379
-content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 4
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Validate Applicable Methodology Compilation
 
-## Scope
+## Claim scope
 
 Applicable Methodology Compilation.
 
@@ -66,5 +64,3 @@ check the decision **and** correction boundary:
 - rejection, requested revision, missing decisions, failed corrections, **and** partial effects **must** remain distinguishable; **none** **may** be reported as a successfully approved **and** completed correction.
 
 check source-binding fixtures with nested output directories, missing targets, a target for a different Atom, a stale source Revision, tampered body content, **and** a valid current source. **only** the valid source-faithful case **may** pass the source-binding check; historical output **may** remain preserved **without** being reported as current.
-
-## Details

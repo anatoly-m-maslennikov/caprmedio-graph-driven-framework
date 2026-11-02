@@ -1,26 +1,25 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern.Priority'
-version: 27
-updated_at: 2026-10-27 19:59:38 +0400
+  active: Atom/(.Role := Concern).Priority
+version: 30
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-D-386
   - CA-R-1629
 atom_id: CA-E-623
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Effective-priority selection
 
-## Scope
+## Claim scope
 
 the following effective-priority selection conditions:
 

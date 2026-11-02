@@ -1,0 +1,259 @@
+{
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Scope Unit",
+      "subject": "Scope Unit",
+      "sha256": "96589b5d7e8dd1ccb464b802eb18cf9e55d0679eda6d8ee746b24d3f48a567ea",
+      "sources": [
+        "CA-R-1757",
+        "CA-R-2402",
+        "CA-R-2400"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Project",
+      "subject": "Project",
+      "sha256": "c2917ddfa4a06a74393e1618f2a4d88a8392c9d8de243a484d9e00a8430e2bf7",
+      "sources": [
+        "CA-R-2220",
+        "CA-R-1757"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Package",
+      "subject": "Package",
+      "sha256": "3fcef5f665ca6c29b745c221543c8461d01aae28e4fece4c36f9f1b3588e9c19",
+      "sources": [
+        "CA-R-2178"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Scope Unit ID",
+      "subject": "Scope Unit.ID",
+      "sha256": "474ef28a1110701d8166732aaa082eb96c1fe860f08dfe0483791f2b0f2744c6",
+      "sources": [
+        "CA-R-1757",
+        "CA-R-1988"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-name.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Scope Unit Name",
+      "subject": "Scope Unit.Name",
+      "sha256": "4f2372c017d7b299949ca8c176b7b9f2a035978aa85ded83dbb1584d7194bf07",
+      "sources": [
+        "CA-R-1757",
+        "CA-R-2401"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-label.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Scope Unit Label",
+      "subject": "Scope Unit.Label",
+      "sha256": "d480d572053703c909d126da669eaeb56ef85a9313df700f60078f37ef1f0e04",
+      "sources": [
+        "CA-R-972"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-local-order.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Scope Unit Local Order",
+      "subject": "Scope Unit.Local Order",
+      "sha256": "82f0bfc4559d2b0824e850fd4cec4e3034465c3a5ac9996040f2a4458dd18b33",
+      "sources": [
+        "CA-R-1757",
+        "CA-R-1763"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Scope Unit Path",
+      "subject": "Scope Unit.Path",
+      "sha256": "67d4576c9b1d9baf949bddde0ae88daa1216d9fc9ee6b0a0330d5f9872985d12",
+      "sources": [
+        "CA-R-1764"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-project-boundary-position.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Scope Unit Project Boundary Position",
+      "subject": "Scope Unit.Project Boundary Position",
+      "sha256": "ba3d494eef52fc65ac9a2dd9006ea21053974aac75dc5f33883f78e1a7d463b5",
+      "sources": [
+        "CA-R-961"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Project Settings",
+      "subject": "Project.Settings",
+      "sha256": "167670bfa3cd4b99c4fc37221d6f1385c25e54d6ac40a67a887f3aa3c26e6d85",
+      "sources": [
+        "CA-R-1738"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings-name.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Project Settings Name",
+      "subject": "Project.Settings.Name",
+      "sha256": "cdc4c2144c842698aac6c6729c9b814276737bbf0807fa903e3bea0320a3fdfa",
+      "sources": [
+        "CA-R-2458",
+        "CA-R-1738"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings-prefix.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Project Settings Prefix",
+      "subject": "Project.Settings.Prefix",
+      "sha256": "fbf05ebda2ffef8ad5b1b3aba46fbfd1d819768bb3af419993d5e21c3f9e86d7",
+      "sources": [
+        "CA-R-2459",
+        "CA-R-1738"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-framework-settings.md",
+      "id": "CA-R-draft",
+      "form": "Declaration",
+      "summary": "Declare Project Framework Settings",
+      "subject": "Project.Framework Settings",
+      "sha256": "002432f0b5a70982e95cc5911cebef9c085b220fbb6e0b88c91546ccfdad8988",
+      "sources": [
+        "CA-R-1402"
+      ]
+    }
+  ],
+  "source_pins": {
+    "CA-R-1402": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL--define-framework-instance-settings.md",
+      "version": 27,
+      "sha256": "b9169774901f48815eb9df9f06fb5789b8399a4b2c8de3f99f86fe553e90f6a7"
+    },
+    "CA-R-1738": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL--define-project-settings.md",
+      "version": 40,
+      "sha256": "e69f7f46030998cfa30d62db19cf8d84be6c8d41cb1921586f3ab20543d5dae0"
+    },
+    "CA-R-1757": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-ENTITY-DEFINITION--define-scope-unit.md",
+      "version": 34,
+      "sha256": "37896e6cb91a2f868a1713bdd16763d08dd9a1e190c778a65245b45a02455a57"
+    },
+    "CA-R-1763": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL--define-local-order.md",
+      "version": 34,
+      "sha256": "bcf77e1d06fd6a1e33846bbe25fa59619f89cd2c249882746d6f1902e7a0aab7"
+    },
+    "CA-R-1764": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-DEFINITION--define-structural-path.md",
+      "version": 33,
+      "sha256": "7c28639396b459661f571add5d5db62e406329183cf5d39e93adf44c1427fc24"
+    },
+    "CA-R-1988": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1988-CORE_META_MODEL--define-scope-unit-id.md",
+      "version": 11,
+      "sha256": "723cae6b256c39a0d1f496f7258be583415b90cd635852c65c1c177b4721e406"
+    },
+    "CA-R-2178": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2178-CORE_META_MODEL-DEFINITION--define-package.md",
+      "version": 5,
+      "sha256": "becf7ff7740a026156027caf0798d227dc06f807ad979e3622f44c2ecd2e1d15"
+    },
+    "CA-R-2220": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2220-CORE_META_MODEL-DEFINITION--define-project.md",
+      "version": 4,
+      "sha256": "362576452cfd2357086b9b4f4d39f32abbb07ef3743013fc49728689170782b4"
+    },
+    "CA-R-2400": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2400-CORE_META_MODEL-ENTITY_DEFINITION--define-scope-unit-children.md",
+      "version": 1,
+      "sha256": "daa347f64cdbac669e01cdeb40aa3e61fff8b65ea5df99708a9e1c98cae9438b"
+    },
+    "CA-R-2401": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2401-CORE_META_MODEL-ENTITY_DEFINITION--define-scope-unit-name.md",
+      "version": 1,
+      "sha256": "df1e5491d9bfbe877ff03c2650046ba7fdc21185bc030840681a3294eb3c45b5"
+    },
+    "CA-R-2402": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2402-CORE_META_MODEL-ENTITY_DEFINITION--define-scope-unit-parent.md",
+      "version": 1,
+      "sha256": "dbb32b2bfe812b7d6ebadd097dc2a4e5ff8dfb8f8fcba40b45b6b573e4dcf686"
+    },
+    "CA-R-2458": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2458-CORE_META_MODEL-ENTITY_DEFINITION--define-project-settings-name.md",
+      "version": 2,
+      "sha256": "fbe4e271fa501acbe5450e26c188e6768040e143df329f02dbbf292d63f7d90c"
+    },
+    "CA-R-2459": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2459-CORE_META_MODEL-ENTITY_DEFINITION--define-project-settings-prefix.md",
+      "version": 2,
+      "sha256": "9b955579344379e28c7fb3c2d7566d78a79544b874484f5cb6d93ceac3fd357f"
+    },
+    "CA-R-961": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-DEFINITION--define-project-boundary-position.md",
+      "version": 25,
+      "sha256": "d92e725caf2172b22f37936eb7e9fc5d880550b624ecadbbc004d8ac9693f29e"
+    },
+    "CA-R-972": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL--define-scope-unit-label.md",
+      "version": 34,
+      "sha256": "8ca81592e4b419d651d6a9aa93c5aa7d65e31488fc2f2cb8cd47f31274cb0c7c"
+    },
+    "CA-R-978": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-DEFINITION--define-navigational-order-number.md",
+      "version": 30,
+      "sha256": "22a931ff05b1c91a120d2b034a91949b60be13d8fe356639528f2e32661eff98"
+    }
+  },
+  "gaps": [
+    "Scope Unit and Package complete inherited Relation whitelists and endpoint/cardinality rules require review; selected relations do not close whitelist.",
+    "Project.Settings and Project.Framework Settings direct dependent-property sets and counts are unresolved; known Name/Prefix are declared separately without claiming they exhaust the set.",
+    "Framework Settings children and their encodings are existing source-backed candidates outside the selected slice; do not guess them or retire their sources.",
+    "Parent and Children transition from direct property fields to IS_CONTAINED_BY / derived CONTAINS needs carrier and consumer migration; no new storage key or duplicate Property Declaration was invented.",
+    "Current Package permits other contained kinds and non-root parent rules; unselected contained-kind Declarations and the Project Implementation root case remain for later review.",
+    "Scope Unit.Path, Project Boundary Position and Local/Navigation order are current properties; determine which are derived in the new graph before adoption."
+  ],
+  "constraints": [
+    "Scope Unit, Project and Package each classify as Container; classification is not inherited. Project inherits Scope Unit properties without a duplicate Project.Name Declaration.",
+    "Instances and unselected primary kinds remain deferred.",
+    "Current Relation names IS_CONTAINED_BY / CONTAINS retained."
+  ],
+  "status": "Draft candidates; selected structure only, no admission",
+  "withdrawn_drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-navigational-order-number.md",
+      "review_snapshot": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/withdrawn-scope-unit-navigation-number.md",
+      "sha256": "052d962e1bd075fbd9b5aa22b5bc9c89b37305253fce8dd595c3469e99ba1172",
+      "reason": "Latest Operator decision: no Scope Unit Navigation Number; retain only for Steps and P."
+    }
+  ]
+}

@@ -1,28 +1,31 @@
 ---
-version: 19
-updated_at: 2026-10-27 20:00:10 +0400
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   child_of:
-  - CA-M-002
+  - CA-M-446
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  active: Carrier
+  passive:
+  - Atom/(.Role := Requirement)
+  - Project
 cce_version: cce_1
 cce_form: permission
-author: Anatoly Maslennikov
-content_role: Requirement
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-644
-type: Rule
 tier: 1
+role: Requirement
+form: Rule
 ---
-# Admit necessary materialized representations
+## Summary
+
+Admit necessary materialized representations
+
+## Claim
 
 CAPRMEDIO **may** admit a materialized representation **only** **when** an explicit Requirement establishes that the representation is necessary **to** preserve a required outcome **or** a material governed distinction under CA-M-005.
 

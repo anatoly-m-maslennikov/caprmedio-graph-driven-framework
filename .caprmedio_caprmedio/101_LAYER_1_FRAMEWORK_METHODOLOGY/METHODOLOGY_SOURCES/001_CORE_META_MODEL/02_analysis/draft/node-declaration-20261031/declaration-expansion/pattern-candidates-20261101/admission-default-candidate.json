@@ -1,0 +1,30 @@
+{
+  "status": "decision_needed_before_formal_rewrite",
+  "recommendation": "Retain the four live Claims unchanged until admission sources and effective Plan-resolution contracts are specified. No new CFEL operator is needed yet.",
+  "user_decision": {
+    "question": "Which governing declarations determine the admitted atomic Forms for each Role and the admitted short Subject notations for each Relation?",
+    "reason": "The current packet does not establish the authoritative bindings required to derive either set without circularly treating observed use as admission."
+  },
+  "candidate_reusable_pattern": {
+    "status": "design only, not admitted syntax",
+    "concept": "A read-only admitted-cases query takes an explicitly resolved subject and case category in the selected effective MODEL, and returns its complete declared cases. Resolve same-bearer Role for Forms and the same Relation Definition active Subject for Relation notation.",
+    "requirements": [
+      "Admission is established by governing declarations, never by observing a value in use. Resolve declared model overrides without inventing a universal whole-set union or replacement policy.",
+      "A known complete empty set differs from an unknown, cyclic, ambiguous or incomplete resolution, which is an error. Query results alone do not mutate instances or define a new graph Node.",
+      "Form candidates must resolve to typed, declared atomic Form units under the resolved Role; do not infer atomicity from a literal. An independently defined no-placeholder condition remains necessary unless non-placeholder is part of the governing admission criterion. A Form may have the same name as its Role.",
+      "Relation short-notation cases are bound to the resolved Relation, not automatically to the notation_for_subject Property admission set. A nonempty set requires that Property; do not add value-membership requirements."
+    ]
+  },
+  "exact_safe_current_rewrites": {
+    "Atom.Form": "Keep existing CFEL shape and both remaining prose constraints; do not reintroduce the Role-name ban.",
+    "RelationDefinition.notation_for_subject": "Keep existing optional shape and the prose requiring it when short notation is admitted for that Relation.",
+    "Plan.AutonomousConfidenceThreshold": "Keep existing optional shape and omission/inherited-or-default prose; current ?= cannot resolve cross-bearer or hierarchy defaults.",
+    "Plan.ImplementationRetryLimit": "Keep existing optional shape and explicit-value override prose; current ?= cannot express inherited/default precedence."
+  },
+  "defaults_boundary": "FrameworkSettings and the effective default source/precedence remain deferred. Do not add a general effective-value function, assign new settings sources, or treat MODEL constraint inheritance as copying instance values. Revisit a shared effective-value query only after its authoritative per-setting resolution order is established.",
+  "limitations": [
+    "No repository edits",
+    "Current authority and proposed Drafts are distinct",
+    "No parser or runtime behavior claimed"
+  ]
+}

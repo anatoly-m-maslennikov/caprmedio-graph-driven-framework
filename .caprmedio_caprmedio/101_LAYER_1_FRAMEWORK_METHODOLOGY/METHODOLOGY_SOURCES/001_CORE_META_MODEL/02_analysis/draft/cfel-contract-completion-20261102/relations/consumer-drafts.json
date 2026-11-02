@@ -1,0 +1,178 @@
+[
+  {
+    "source_id": "CA-R-1245",
+    "source_version": 26,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1245-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.md",
+    "source_sha256": "3fd67ece68c34dfed37229710073a90cd176355a2bc62102d95a1e66f1ee427f",
+    "summary": "Qualify Allowed Values with Colon",
+    "draft_id": "CA-R-1245@27-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1245@27-draft-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.md",
+    "draft_sha256": "5a8075422e743691bdf39149306066b5c969dacc036d1ef7054e3e8ee21904fd",
+    "changes": "Operator Subject/reference and source-specific Claim translation",
+    "identity_status": "same ID successor; Summary unchanged"
+  },
+  {
+    "source_id": "CA-R-1346",
+    "source_version": 26,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+    "source_sha256": "1e1dd7db0ca41694871e41b5b8ba9e6614b4473b13093514e9b2b5387c017228",
+    "summary": "Permit reused Terms **in** qualified value domains",
+    "draft_id": "CA-R-1346@27-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1346@27-draft-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+    "draft_sha256": "7f81b7207b494ebb6ec2e934cf1cf7caf9a28dab4e63e96945b45b9cdfaed2a7",
+    "changes": "Operator Subject/reference and source-specific Claim translation",
+    "identity_status": "same ID successor; Summary unchanged"
+  },
+  {
+    "source_id": "CA-R-1358",
+    "source_version": 33,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1358-CORE_META_MODEL--consolidate-single-value-claims-as-one-value-set-claim.md",
+    "source_sha256": "86f11ef8b0c60bef2af074017d34a13de7e26d029fb11baba26358fb433cfec1",
+    "summary": "Consolidate Single-Value Claims as One Value-Set Claim",
+    "draft_id": "CA-R-1358@34-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1358@34-draft-CORE_META_MODEL--consolidate-single-value-claims-as-one-value-set-claim.md",
+    "draft_sha256": "45500fe63e203c72e6bc75f0ba74f571162523c59772aae05294f80a005789bb",
+    "changes": "Operator Subject/reference and source-specific Claim translation",
+    "identity_status": "same ID successor; Summary unchanged"
+  },
+  {
+    "source_id": "CA-R-1359",
+    "source_version": 28,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1359-CORE_META_MODEL-DEFINITION--define-claim-value-set.md",
+    "source_sha256": "701e365cf20162e1431c631dd5c535a64db8d7c7dc3a955278ee949903b6ace0",
+    "summary": "Define Claim Value Set",
+    "draft_id": "CA-R-1359@29-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1359@29-draft-CORE_META_MODEL-DEFINITION--define-claim-value-set.md",
+    "draft_sha256": "4f068671757474d8efe0f18eff2b4daebd39b629c65805fdfaa12de1a62d8a0d",
+    "changes": "Operator Subject/reference and source-specific Claim translation",
+    "identity_status": "same ID successor; Summary unchanged"
+  },
+  {
+    "source_id": "CA-R-1405",
+    "source_version": 27,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL--register-core-artifact-type-values.md",
+    "source_sha256": "9b34b024174793570b409ab5b725c7a55f05cbcc485acf4afaeb90792349283a",
+    "summary": "Register Core Artifact Type Values",
+    "draft_id": "CA-R-1405@28-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1405@28-draft-CORE_META_MODEL--register-core-artifact-type-values.md",
+    "draft_sha256": "c95f9fd06ffdf351f77de726e27068cd2146bdf321d1527343b5dbccad040f9f",
+    "changes": "Operator Subject/reference and source-specific Claim translation",
+    "identity_status": "same ID successor; Summary unchanged"
+  },
+  {
+    "source_id": "CA-R-1456",
+    "source_version": 37,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL--derive-entities-views-from-selected-authority.md",
+    "source_sha256": "64a67f76c08c33040e9757958afff446bbebd3043f960c0f0dfa3bb81ca79c86",
+    "summary": "Derive Entities views from selected authority",
+    "draft_id": "CA-R-1456@38-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1456@38-draft-CORE_META_MODEL--derive-entities-views-from-selected-authority.md",
+    "draft_sha256": "16af2fa6e040a513b7c64cf309321c4fa3ae593d16cb793d52732a195e52496b",
+    "changes": "Operator Subject/reference and source-specific Claim translation",
+    "identity_status": "same ID successor; Summary unchanged",
+    "historical_citations": [
+      "CA-R-1260@34",
+      "CA-R-1243@27"
+    ]
+  },
+  {
+    "source_id": "CA-M-237",
+    "source_version": 31,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL-IMPLEMENTATION_METHOD--author-claim-value-sets.md",
+    "source_sha256": "a8cee63eb3fe71c37fc917b82d9a05167d6ef60da25ffe1a6e623ebfce17f9bb",
+    "summary": "Author Claim Value Sets",
+    "draft_id": "CA-M-237@32-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/cfel-contract-completion-20261102/relation-consumers/CA-M-237@32-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--author-claim-value-sets.md",
+    "draft_sha256": "c70a1f3c25e884546162753ecc13deb8c1e5fe80ab0243605dd53b248ee5ec17",
+    "changes": "Operator Subject/reference and source-specific Claim translation",
+    "identity_status": "same ID successor; Summary unchanged"
+  },
+  {
+    "source_id": "CA-M-385",
+    "source_version": 22,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md",
+    "source_sha256": "256fe774825bdf17a217370b2f83fcea96290090680dcb155d7a4390c5c31630",
+    "summary": "Generate readable Entities Graph trees programmatically",
+    "draft_id": "CA-M-385@23-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/cfel-contract-completion-20261102/relation-consumers/CA-M-385@23-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md",
+    "draft_sha256": "56994fe30fdb1f7633226ffd29732cb4214fbbca8e3c6515a2385603a0f7f385",
+    "changes": "Operator Subject/reference and source-specific Claim translation",
+    "identity_status": "same ID successor; Summary unchanged"
+  },
+  {
+    "source_id": "CA-E-383",
+    "source_version": 41,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-POLICY--reject-invalid-subject-expressions.md",
+    "source_sha256": "5984d9d809f3e0ea63219d5002d4cacb56b17df225a56601213d32359b28a625",
+    "summary": "Reject Invalid Subject Expressions",
+    "draft_id": "CA-E-383@42-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/relation-consumers/CA-E-383@42-draft-CORE_META_MODEL-POLICY--reject-invalid-subject-expressions.md",
+    "draft_sha256": "60462016417efb3eb6d2adc8fac6a809e8d18f41132384ef37b45a2ea3eabcba",
+    "changes": "Operator Subject/reference and source-specific Claim translation",
+    "identity_status": "same ID successor; Summary unchanged"
+  },
+  {
+    "source_id": "CA-E-402",
+    "source_version": 31,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-402-CORE_META_MODEL-POLICY--reject-invalid-claim-value-sets.md",
+    "source_sha256": "04d9a4351dc57657e63bc5e9b8d778a09680d058e4a58ffbfa365e288a8bc9f2",
+    "summary": "Reject Invalid Claim Value Sets",
+    "draft_id": "CA-E-402@32-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/relation-consumers/CA-E-402@32-draft-CORE_META_MODEL-POLICY--reject-invalid-claim-value-sets.md",
+    "draft_sha256": "73c0fd12b9a8a98e0997899a4f125de66191e11f392c23180dae21fbcb4f9a67",
+    "changes": "Operator Subject/reference and source-specific Claim translation",
+    "identity_status": "same ID successor; Summary unchanged"
+  },
+  {
+    "source_id": "CA-E-403",
+    "source_version": 34,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-POLICY--report-exact-claim-value-set-consolidation-candidates.md",
+    "source_sha256": "85a325f6bc86737493fc82523164ef34d85140ac1dbe1ccabda02924d5721be7",
+    "summary": "Report Exact Claim Value-Set Consolidation Candidates",
+    "draft_id": "CA-E-403@35-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/relation-consumers/CA-E-403@35-draft-CORE_META_MODEL-POLICY--report-exact-claim-value-set-consolidation-candidates.md",
+    "draft_sha256": "f6e7fda02fcdde2584b0f539393856a1bc9a739df9a87a7547982e8202758c08",
+    "changes": "Operator Subject/reference and source-specific Claim translation",
+    "identity_status": "same ID successor; Summary unchanged"
+  },
+  {
+    "source_id": "CA-E-449",
+    "source_version": 42,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-POLICY--validate-entities-graph.md",
+    "source_sha256": "eba903490bb4b21f3b9a9ee9593bcf9356fb80b57873ae44c2b7bce2fb1ed055",
+    "summary": "Validate Entities Graph",
+    "draft_id": "CA-E-449@43-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/relation-consumers/CA-E-449@43-draft-CORE_META_MODEL-POLICY--validate-entities-graph.md",
+    "draft_sha256": "d29f7663989aae2a9c0002c95700cfecb7506d6794dd21a0c982548df83c94a6",
+    "changes": "Operator Subject/reference and source-specific Claim translation",
+    "identity_status": "same ID successor; Summary unchanged",
+    "historical_citations": [
+      "CA-R-1260@34",
+      "CA-R-1243@27"
+    ]
+  },
+  {
+    "source_id": "CA-R-2469",
+    "source_version": 2,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2469-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+    "source_sha256": "f4d096bd71ea8aef00c1fee5039e48d670a6884c1d9244c6600f12d7771945fe",
+    "summary": "Require one Declaration for each Node",
+    "draft_id": "CA-R-2469@3-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-2469@3-draft-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+    "draft_sha256": "e8dbf09588ebaff40569a9f552bde1439b5d8738949a0c51c91dfd270707035a",
+    "changes": "Clarify canonical active-Subject Relation value derives from its field",
+    "identity_status": "same ID successor; Summary unchanged"
+  },
+  {
+    "source_id": "CA-D-662",
+    "source_version": 2,
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-662-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+    "source_sha256": "c37077ade6f4c05aa616069be8559168003444868b617b476a94407216ef611c",
+    "summary": "Encode Node Declarations in YAML",
+    "draft_id": "CA-D-662@3-draft",
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/relation-consumers/CA-D-662@3-draft-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+    "draft_sha256": "936bebd4f8420b307a3c7a8c39a1e22fcec5aa7abce663ef10277f04afb87963",
+    "changes": "Clarify canonical active-Subject Relation value derives from its field; correct active Subject to one scalar and passive Subjects to unique collection",
+    "identity_status": "same ID successor; Summary unchanged"
+  }
+]

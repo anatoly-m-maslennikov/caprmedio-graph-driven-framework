@@ -1,13 +1,12 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: depends_on'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - 'Subject/CAPRMEDIO/Graph/Relation/Type: DEPENDS_ON'
-  - Subject/CAPRMEDIO/Graph/Relation
-  - 'Subject/CAPRMEDIO/Graph/Relation/Type: depends_on'
-version: 22
-updated_at: 2026-10-27 19:59:34 +0400
+  active: CFEL <+ Relation//depends_on
+  passive:
+  - Term//Artifact
+  - CFEL <+ Relation//DEPENDS_ON
+  - CFEL <+ Relation
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-1026
@@ -16,19 +15,18 @@ relations:
   - CA-M-239
   - CA-R-1580
 atom_id: CA-E-404
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 5
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Reject Invalid Dependency-Order Derivations
 
-## Scope
+## Claim scope
 
 derived non-Plan Artifact dependency orders.
 

@@ -1,24 +1,23 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  depends_on: []
-version: 24
-updated_at: 2026-10-27 20:00:00 +0400
+  active: Journal
+  passive: []
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1684
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Separate Analysis from factual execution records
 
-## Scope
+## Claim scope
 
 factual execution Records, interpretive Analysis.
 
@@ -33,5 +32,3 @@ Analysis interprets Concerns, factual Records, Requirements, Methods, Evaluation
 **when** one Carrier mixes factual input with interpretation, the factual Record **and** interpretive Analysis remain separate governed contributions with explicit references.
 
 factual execution Records **and** interpretive Analysis are **not** reusable Operations definitions.
-
-## Details

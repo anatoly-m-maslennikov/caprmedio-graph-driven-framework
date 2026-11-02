@@ -1,25 +1,24 @@
 ---
 atom_id: CA-R-1955
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier/Database
+  active: Carrier/Database
 relations:
   child_of:
   - CA-R-1174
-version: 8
-updated_at: 2026-10-27 20:00:06 +0400
+version: 11
+updated_at: 2026-11-02 00:18:22 +0400
 tier: 3
-type: Definition
+role: Requirement
+form: Entity Definition
 ---
-# Summary
+## Summary
 
 Define Entity/Carrier/Database Carrier
 
-## Scope
+## Claim scope
 
 Database Carriers.
 

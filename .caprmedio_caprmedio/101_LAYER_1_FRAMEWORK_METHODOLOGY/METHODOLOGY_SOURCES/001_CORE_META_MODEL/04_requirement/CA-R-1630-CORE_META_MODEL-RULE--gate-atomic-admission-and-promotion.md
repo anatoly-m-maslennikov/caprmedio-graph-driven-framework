@@ -1,26 +1,25 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
-version: 37
-updated_at: 2026-10-27 19:59:59 +0400
+  active: Atom
+  passive:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Object/Continuant/Governing Objects/Governing Configuration
+version: 41
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1630
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Gate atomic admission and promotion
 
-## Scope
+## Claim scope
 
 atomic admission strictness settings and one-step promotion eligibility.
 
@@ -35,5 +34,3 @@ the effective atomic admission strictness setting **must** be **in** (`medium`, 
 the two levels assess one-step promotion eligibility. promotion is proposed **only** **when** the Claim applies unchanged at the broader enabled Scope **and** always requires explicit Operator acceptance.
 
 admission does **not** prohibit later same-ID Revisions. **every** later change passes the atomic change-class gate; changing the primary Claim identity requires a replacement.
-
-## Details

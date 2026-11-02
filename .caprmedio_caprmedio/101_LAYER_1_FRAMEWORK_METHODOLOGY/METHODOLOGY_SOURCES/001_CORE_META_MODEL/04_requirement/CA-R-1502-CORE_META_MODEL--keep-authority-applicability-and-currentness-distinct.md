@@ -1,33 +1,33 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Continuant
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
-version: 20
-updated_at: 2026-10-27 19:59:56 +0400
+  active: Node/Continuant
+  passive:
+  - Entity
+  - Projection
+  - Atom/(.Role := Evaluation)
+  - Term//Property
+  - Atom.Content
+  - Atom/(.Role := Requirement)
+  - Atom/(.Role := Method)
+  - Atom/(.Role := Delivery)
+  - Atom/(.Role := Operations)
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-M-001
+  - CA-M-447
 atom_id: CA-R-1502
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Keep Authority, Applicability, and Currentness distinct
+## Summary
+Keep Authority, Applicability, and Currentness distinct
 
-## Scope
+## Claim scope
 
 an Artifact's Authority, Applicability, and Currentness Properties.
 

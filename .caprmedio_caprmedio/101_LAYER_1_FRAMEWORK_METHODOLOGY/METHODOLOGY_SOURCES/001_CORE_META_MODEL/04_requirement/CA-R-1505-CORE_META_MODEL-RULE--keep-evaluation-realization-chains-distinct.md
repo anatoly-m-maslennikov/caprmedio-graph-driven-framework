@@ -1,29 +1,28 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
-version: 22
-updated_at: 2026-10-27 19:59:56 +0400
+  active: Atom/(.Role := Evaluation)
+  passive:
+  - Entity/Object/Continuant/Package/Project Implementation
+  - Entity/Aspect/Engineering/Traceability
+  - Entity/Object/Continuant/History/Journal > Event Record
+  - Atom/(.Role := Evaluation)
+  - Atom/(.Role := Operations)
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1505
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Keep Evaluation realization chains distinct
 
-## Scope
+## Claim scope
 
 Evaluation realization chains and their associated implementation, evidence, and operational contributions.
 

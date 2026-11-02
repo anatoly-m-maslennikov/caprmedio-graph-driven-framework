@@ -1,0 +1,38 @@
+---
+subjects:
+  governs: Entity
+  depends_on:
+  - Entity/Object/Continuant/Term//Artifact
+  - Entity
+  - Entity/Object/Continuant/Structural Unit/Scope Unit
+  - Entity/Carrier
+  - Entity
+  - Entity/Graph Syntax > Relation
+  - Entity/Object/Continuant/Governing Objects/Atom
+  - Entity/Object/Continuant/History/Journal
+  - Entity/Object/Continuant/Projection
+version: 27
+updated_at: 2026-10-29 10:13:48 +0400
+relations: {}
+atom_id: CA-R-1409@27
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 1
+type: Entity Definition
+---
+## Summary
+
+Define General Artifact Graph
+
+## Claim scope
+
+the General Artifact Graph and its represented governed Artifacts and Structural Entities.
+
+## Claim
+
+a General Artifact Graph **means** the derived CAPRMEDIO Graph that represents governed Artifacts **and** Structural Entities as nodes, locates them by their authoritative Carriers, **and** connects them through the existing direct containment relations. its Structural Entity nodes include Scope Units **and** Atom Collections; its Artifact nodes include Atoms, Journals, **and** Projections.
+
+node identities, Carrier locations, **and** containment come from existing authoritative sources **and** registered containment rules, **not** independently maintained graph declarations. an administrative directory does **not** become a Structural Entity merely because it is a folder. the graph provides their shared structural context **without** duplicating specialized graphs **or** becoming a separate source of authority.

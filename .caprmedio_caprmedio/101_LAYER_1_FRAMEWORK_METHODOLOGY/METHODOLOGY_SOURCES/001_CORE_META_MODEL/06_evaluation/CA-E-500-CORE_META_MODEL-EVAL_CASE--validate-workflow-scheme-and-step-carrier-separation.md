@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - Subject/CAPRMEDIO/Carrier/Directory
-version: 21
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Atom/(.Role:=Operations)/Workflow
+  passive:
+  - Atom/(.Role:=Operations)/Workflow
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - Atom/(.Role:=Operations)/Action
+  - Carrier/Directory
+version: 26
+updated_at: 2026-11-02 08:06:47 +0400
 relations:
   evaluation_for:
   - CA-R-1570
@@ -15,19 +15,18 @@ relations:
   - CA-M-305
   - CA-D-467
 atom_id: CA-E-500
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate Workflow scheme and Step carrier separation
 
-## Scope
+## Claim scope
 
 Workflow representation; Step Carrier separation.
 

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "hash_mismatches": [],
+  "semantic_correction_present": true,
+  "limits": [
+    "Typed-reference source mapping and ontology reconciliation remain adoption gates",
+    "No parser/runtime verification"
+  ]
+}

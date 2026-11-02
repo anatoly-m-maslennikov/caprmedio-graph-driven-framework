@@ -26,6 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import artifact_metadata
 from artifact_metadata import atom_identifier
+from carrier_aliases import carrier_read_view
 from project_runtime import atomic_tempfile
 from project_selection import bound_selection
 import subject_notation
@@ -48,6 +49,10 @@ PERSISTED_CONTROL_NON_SOURCE_DIRECTORY_NAMES = {
 }
 CANONICAL_SUBJECT_KINDS = {"governs": "GOVERNS", "depends_on": "DEPENDS_ON"}
 LEGACY_SUBJECT_KINDS = {"declared": "GOVERNS", "prerequisite": "DEPENDS_ON"}
+# The emitted Relation kind remains stable during the metadata-key migration.
+# ``active``/``passive`` are preferred source spellings; the legacy keys stay
+# visible in ``source_schema_key`` for carrier evidence.
+SUBJECT_KEY_ALIASES = {"active": "governs", "passive": "depends_on"}
 TEMPORAL_FORMS = {"continuant": "CONTINUANT", "occurrent": "OCCURRENT"}
 _SECRET_SHAPED = re.compile(r"(?:secret|password|token|credential|api[_-]?key)", re.I)
 
@@ -470,8 +475,23 @@ def discover_atoms(repository: Path, selected_folder: Path) -> tuple[list[AtomCa
             continue
         atom_id = atom_identifier(path.name, top_scalar(frontmatter, "atom_id"))
         cce_form = (top_scalar(frontmatter, "cce_form") or "").lower()
-        content_role = top_scalar(frontmatter, "content_role") or ""
-        atom_type = top_scalar(frontmatter, "type") or ""
+        try:
+            read_view = carrier_read_view({
+                key: value
+                for key, value in {
+                    "role": top_scalar(frontmatter, "role"),
+                    "content_role": top_scalar(frontmatter, "content_role"),
+                    "form": top_scalar(frontmatter, "form"),
+                    "type": top_scalar(frontmatter, "type"),
+                }.items()
+                if value is not None
+            })
+        except ValueError as error:
+            raise EntityGraphError(
+                "atom-metadata-conflict", str(error), path=display_path,
+            ) from error
+        content_role = read_view.get("content_role", "")
+        atom_type = read_view.get("type", "")
         status = top_scalar(frontmatter, "status") or ""
         if status and status.lower() != "active":
             diagnostics.append(
@@ -527,32 +547,32 @@ def _subject_profile(subject_profile: str = "legacy") -> object:
         ) from error
 
 
+def _validate_subject_expression(subject_path: str, subject_profile: str) -> None:
+    if subject_profile != "approved":
+        _subject_parts(subject_path, subject_profile=subject_profile)
+        return
+    try:
+        subject_notation.parse_subject_expression(subject_path, subject_profile=subject_profile)
+    except ValueError as error:
+        raise EntityGraphError(getattr(error, "code", "subject-path-invalid"), str(error),
+                               subject_path=subject_path) from error
+
+
 def parse_subject_relations(
     carrier: AtomCarrier, *, subject_profile: str = "legacy"
 ) -> tuple[list[SubjectRelation], list[dict[str, object]]]:
     _subject_profile(subject_profile)
     block = top_block(carrier.frontmatter, "subjects")
     relations: list[SubjectRelation] = []
+    pending: list[tuple[str, str, str, str]] = []
     diagnostics: list[dict[str, object]] = []
     current_kind: str | None = None
     current_form: str | None = None
     legacy_keys: set[str] = set()
 
     def append(kind: str, subject_path: str, temporal_form: str, source_schema_key: str) -> None:
-        _subject_parts(subject_path, subject_profile=subject_profile)
-        relations.append(
-            SubjectRelation(
-                atom_id=carrier.atom_id,
-                atom_revision=carrier.version,
-                carrier_path=carrier.carrier_path,
-                carrier_sha256=carrier.sha256,
-                subject_path=subject_path,
-                kind=CANONICAL_SUBJECT_KINDS.get(kind) or LEGACY_SUBJECT_KINDS[kind],
-                temporal_form=temporal_form,
-                source_schema_key=source_schema_key,
-                cce_form=carrier.cce_form,
-            )
-        )
+        _validate_subject_expression(subject_path, subject_profile)
+        pending.append((kind, subject_path, temporal_form, source_schema_key))
 
     for line in block:
         kind_match = re.fullmatch(r"  ([a-z_]+):(?:\s*(.*))?", line)
@@ -561,7 +581,7 @@ def parse_subject_relations(
             current_form = None
             if current_kind in LEGACY_SUBJECT_KINDS:
                 legacy_keys.add(current_kind)
-            elif current_kind not in CANONICAL_SUBJECT_KINDS:
+            elif current_kind not in CANONICAL_SUBJECT_KINDS and current_kind not in SUBJECT_KEY_ALIASES:
                 raise EntityGraphError(
                     "subject-kind-invalid",
                     "Atom Carrier has an unknown Subject relation kind",
@@ -634,6 +654,57 @@ def parse_subject_relations(
             item_match.group(1), path=carrier.carrier_path, field=current_kind,
             subject_profile=subject_profile,
         ), TEMPORAL_FORMS[current_form], current_kind)
+    # Prefer the migrated key if both spellings are present.  A mixed Carrier
+    # is admitted only when both decoded lists state the same Subject facts.
+    consumed: set[str] = set()
+    for current, legacy in SUBJECT_KEY_ALIASES.items():
+        current_rows = [row for row in pending if row[0] == current]
+        legacy_rows = [row for row in pending if row[0] == legacy]
+        consumed.update({current, legacy})
+        if current_rows and legacy_rows:
+            current_values = [(row[1], row[2]) for row in current_rows]
+            legacy_values = [(row[1], row[2]) for row in legacy_rows]
+            if current_values != legacy_values:
+                raise EntityGraphError(
+                    "subject-schema-conflict",
+                    "Migrated and legacy Subject keys must carry the same decoded values.",
+                    atom_id=carrier.atom_id,
+                    carrier_path=carrier.carrier_path,
+                    current_key=current,
+                    legacy_key=legacy,
+                )
+        selected = current_rows or legacy_rows
+        canonical_kind = CANONICAL_SUBJECT_KINDS[legacy]
+        for _, subject_path, temporal_form, source_schema_key in selected:
+            relations.append(
+                SubjectRelation(
+                    atom_id=carrier.atom_id,
+                    atom_revision=carrier.version,
+                    carrier_path=carrier.carrier_path,
+                    carrier_sha256=carrier.sha256,
+                    subject_path=subject_path,
+                    kind=canonical_kind,
+                    temporal_form=temporal_form,
+                    source_schema_key=source_schema_key,
+                    cce_form=carrier.cce_form,
+                )
+            )
+    for kind, subject_path, temporal_form, source_schema_key in pending:
+        if kind in consumed:
+            continue
+        relations.append(
+            SubjectRelation(
+                atom_id=carrier.atom_id,
+                atom_revision=carrier.version,
+                carrier_path=carrier.carrier_path,
+                carrier_sha256=carrier.sha256,
+                subject_path=subject_path,
+                kind=CANONICAL_SUBJECT_KINDS.get(kind) or LEGACY_SUBJECT_KINDS[kind],
+                temporal_form=temporal_form,
+                source_schema_key=source_schema_key,
+                cce_form=carrier.cce_form,
+            )
+        )
     if legacy_keys:
         diagnostics.append(
             {
@@ -666,7 +737,27 @@ def _subject_parts(
     subject_path: str, *, subject_profile: str = "legacy"
 ) -> list[tuple[str, str | None]]:
     try:
-        return subject_notation.parse_subject(subject_path, subject_profile=subject_profile)
+        if subject_profile != "approved":
+            return subject_notation.parse_subject(subject_path, subject_profile=subject_profile)
+        expression = subject_notation.parse_subject_expression(
+            subject_path, subject_profile=subject_profile
+        ).expression
+        if (not isinstance(expression, subject_notation.Path)
+                or expression.value_format is not None
+                or expression.value_cardinality is not None
+                or not isinstance(expression.head, (subject_notation.Name,
+                                                    subject_notation.InitialAtomSelector))
+                or any(not isinstance(step.operand, (subject_notation.Name,
+                                                    subject_notation.ValueLiteral))
+                       for step in expression.steps)):
+            raise EntityGraphError(
+                "subject-term-projection-unsupported",
+                "This Subject expression requires the typed Entity projection; it cannot be flattened into Terms.",
+                subject_path=subject_path,
+            )
+        head = (expression.head.value if isinstance(expression.head, subject_notation.Name)
+                else expression.head.literal)
+        return [(head, None), *((step.operand.value, step.operator) for step in expression.steps)]
     except ValueError as error:
         raise EntityGraphError(
             getattr(error, "code", "subject-path-invalid"),
@@ -675,8 +766,50 @@ def _subject_parts(
         ) from error
 
 
+def _lexical_term_name(subject_path: str, *, reference: bool = False) -> str | None:
+    try:
+        expression = subject_notation.parse_subject_expression(
+            subject_path, subject_profile="approved"
+        ).expression
+    except ValueError as error:
+        raise EntityGraphError(getattr(error, "code", "subject-path-invalid"), str(error),
+                               subject_path=subject_path) from error
+    if not isinstance(expression, subject_notation.Path):
+        return None
+    if reference and isinstance(expression.head, subject_notation.DeclaredReference) and not expression.steps:
+        target = expression.head.entity
+        if not isinstance(target, subject_notation.Path):
+            return None
+        expression = target
+    while isinstance(expression.head, subject_notation.Path):
+        head = expression.head
+        if head.value_format is not None or head.value_cardinality is not None:
+            return None
+        expression = subject_notation.Path(
+            head.head, (*head.steps, *expression.steps), expression.value_format,
+            expression.value_cardinality, expression.span,
+        )
+    if (expression.value_format is not None or expression.value_cardinality is not None
+            or not isinstance(expression.head, subject_notation.Name)
+            or expression.head.value != "Entity" or len(expression.steps) != 2):
+        return None
+    kind, named = expression.steps
+    if (kind.operator == "/" and isinstance(kind.operand, subject_notation.Name)
+            and kind.operand.value == "Term" and named.operator == "//"
+            and isinstance(named.operand, subject_notation.Name)):
+        return named.operand.value
+    return None
+
+
 def terminal_term(subject_path: str, *, subject_profile: str = "legacy") -> str:
     """Return the terminal Term named by one complete Subject Expression."""
+    if subject_profile == "approved":
+        lexical = _lexical_term_name(subject_path)
+        if lexical is not None:
+            return lexical
+        raise EntityGraphError("subject-term-projection-unsupported",
+                               "Only an explicit Entity/Term//Name identifies a Current lexical Term.",
+                               subject_path=subject_path)
     parts = _subject_parts(subject_path, subject_profile=subject_profile)
     if parts[-1][1] == "//":
         raise EntityGraphError(
@@ -726,6 +859,9 @@ def term_system_edges(
     """Derive typed Term-System edges without treating all dependencies as taxonomy."""
 
     profile = _subject_profile(subject_profile)
+    if subject_profile == "approved":
+        # Current lexical Term instances do not inherit Entity-path relations.
+        return []
     edge_rows: dict[tuple[str, str, str], dict[str, object]] = {}
 
     def add(
@@ -765,7 +901,7 @@ def term_system_edges(
             )
             if separator == profile.bearer_separator:
                 add(
-                    "IS_BORNE_BY",
+                    "IS_PROPERTY_OF" if subject_profile == "approved" else "IS_BORNE_BY",
                     child_prefix,
                     segment,
                     parent_prefix,
@@ -845,7 +981,7 @@ def term_system_analysis(
             subkind_graph[source_term].add(str(edge["target_term"]))
         elif relation_kind == "IS_ALLOWED_VALUE_OF":
             allowed_value_parents[source_term].add(target_subject)
-        elif relation_kind == "IS_BORNE_BY":
+        elif relation_kind in {"IS_PROPERTY_OF", "IS_BORNE_BY"}:
             bearer_parents[source_subject].add(target_subject)
 
     violations: list[dict[str, object]] = []
@@ -908,6 +1044,15 @@ def declared_term_tree(
     declared: Mapping[str, Sequence[SubjectRelation]], *, subject_profile: str = "legacy"
 ) -> list[dict[str, object]]:
     profile = _subject_profile(subject_profile)
+    if subject_profile == "approved":
+        if any(_lexical_term_name(row.subject_path) != term
+               for term, definitions in declared.items() for row in definitions):
+            raise EntityGraphError("term-definition-target-unsupported",
+                                   "A Current lexical declaration tree requires Entity/Term//Name targets.")
+        return [{"segment": term, "subject_path": declared[term][0].subject_path,
+                 "relation_from_parent": None, "declared": True, "declared_term": term,
+                 "declared_by": [row.evidence() for row in declared[term]], "children": []}
+                for term in sorted(declared)]
     roots: dict[tuple[str, str | None], dict[str, object]] = {}
     for term in sorted(declared):
         for relation in declared[term]:
@@ -930,7 +1075,7 @@ def declared_term_tree(
                         "relation_from_parent": (
                             None
                             if separator is None
-                            else "IS_BORNE_BY"
+                            else ("IS_PROPERTY_OF" if subject_profile == "approved" else "IS_BORNE_BY")
                             if separator == profile.bearer_separator
                             else "IS_ALLOWED_VALUE_OF"
                             if separator == ":"
@@ -974,9 +1119,11 @@ def _relation_sort_key(relation: SubjectRelation) -> tuple[object, ...]:
     )
 
 
-def _is_definition_carrier(carrier: AtomCarrier) -> bool:
+def _is_definition_carrier(carrier: AtomCarrier, *, subject_profile: str = "legacy") -> bool:
     """Admit current Definition Type carriers; retain retired CCE-form compatibility."""
 
+    if subject_profile == "approved":
+        return carrier.content_role == "Method" and carrier.atom_type == "Term Definition"
     return (
         carrier.atom_type.strip().lower() == "definition"
         or carrier.content_role.strip().lower() == "definition"
@@ -1011,11 +1158,17 @@ def dependency_edges(
     for atom_key, rows in by_atom.items():
         governs = sorted((row for row in rows if row.kind == "GOVERNS"), key=_relation_sort_key)
         depends_on = sorted((row for row in rows if row.kind == "DEPENDS_ON"), key=_relation_sort_key)
-        is_definition = _is_definition_carrier(carriers_by_atom[atom_key])
+        is_definition = _is_definition_carrier(carriers_by_atom[atom_key], subject_profile=subject_profile)
         for row in governs:
             governed_subjects[row.subject_path].append(row)
             if is_definition:
-                declared_terms[terminal_term(row.subject_path, subject_profile=subject_profile)].append(row)
+                name = (_lexical_term_name(row.subject_path) if subject_profile == "approved"
+                        else terminal_term(row.subject_path, subject_profile=subject_profile))
+                if name is None:
+                    raise EntityGraphError("term-definition-target-unsupported",
+                                           "A Current Method Term Definition must govern one Entity/Term//Name.",
+                                           atom_id=row.atom_id, subject_path=row.subject_path)
+                declared_terms[name].append(row)
         for row in depends_on:
             depended[row.subject_path].append(row)
         definition_rows_by_atom[atom_key] = list(governs) if is_definition else []
@@ -1027,7 +1180,9 @@ def dependency_edges(
         for governed in definition_terms:
             governed_term = terminal_term(governed.subject_path, subject_profile=subject_profile)
             for parent in depends_on:
-                parent_terminal = terminal_term(parent.subject_path, subject_profile=subject_profile)
+                parent_terminal = (_lexical_term_name(parent.subject_path, reference=True)
+                                   if subject_profile == "approved"
+                                   else terminal_term(parent.subject_path, subject_profile=subject_profile))
                 parent_node = parent_terminal if parent_terminal in declared_term_names else parent.subject_path
                 graph[governed_term].add(parent_node)
                 evidence[(governed_term, parent_node)].append(
@@ -1194,15 +1349,18 @@ def generate_projection(
     governed_subjects = sorted(governed)
     depends_on_subjects = sorted(depended)
     declared_term_names = set(declared_terms)
+    def terminal_reference(subject_path: str) -> str | None:
+        return (_lexical_term_name(subject_path, reference=True) if subject_profile == "approved"
+                else terminal_term(subject_path, subject_profile=subject_profile))
     depends_on_terminal_terms = {
-        terminal_term(subject_path, subject_profile=subject_profile) for subject_path in depends_on_subjects
+        terminal_reference(subject_path) for subject_path in depends_on_subjects
     }
     terms_in_depends_on = sorted(depends_on_terminal_terms & declared_term_names)
     gaps = sorted(
         subject_path
         for subject_path in depends_on_subjects
         if subject_path not in governed
-        and terminal_term(subject_path, subject_profile=subject_profile) not in declared_term_names
+        and terminal_reference(subject_path) not in declared_term_names
     )
     cycles = dependency_cycles(graph)
     dependency_trees = [
@@ -1222,6 +1380,9 @@ def generate_projection(
                 "details": dict(violation),
             }
         )
+    if subject_profile == "approved":
+        diagnostics.append({"severity": "warning", "code": "current-term-native-admission-unavailable",
+                            "message": "Current Method Term Definition sources supply lexical declarations and dependencies; no reviewed Current native Term or relation admission profile is available."})
     diagnostics.sort(
         key=lambda row: (
             str(row.get("severity", "")),
@@ -1234,6 +1395,8 @@ def generate_projection(
     return {
         "artifact_form": "PROJECTION",
         "authority": "NON_AUTHORITATIVE",
+        **({"subject_profile": "approved", "native_admission": "not_performed"}
+           if subject_profile == "approved" else {}),
         "projection_kind": "ENTITY_GRAPH",
         "generator": TOOL_ID,
         "generation_procedure": "terminal_terms_typed_term_system_edges_and_claim_subject_relations_from_selected_folder",
@@ -1696,18 +1859,21 @@ def _term_dependencies(
         by_atom[(relation.atom_id, relation.carrier_path)].append(relation)
     dependency_graph: dict[str, set[str]] = defaultdict(set)
     evidence: list[dict[str, object]] = []
+    def name(subject_path: str) -> str | None:
+        return (_lexical_term_name(subject_path, reference=True) if subject_profile == "approved"
+                else terminal_term(subject_path, subject_profile=subject_profile))
     for rows in by_atom.values():
         governed = [
             row
             for row in rows
             if row.kind == "GOVERNS"
-            and terminal_term(row.subject_path, subject_profile=subject_profile) in terms
+            and name(row.subject_path) in terms
         ]
         depended = [row for row in rows if row.kind == "DEPENDS_ON"]
         for source in governed:
-            source_term = terminal_term(source.subject_path, subject_profile=subject_profile)
+            source_term = name(source.subject_path)
             for target in depended:
-                target_term = terminal_term(target.subject_path, subject_profile=subject_profile)
+                target_term = name(target.subject_path)
                 if target_term in terms:
                     dependency_graph[source_term].add(target_term)
                     evidence.append(
@@ -2032,6 +2198,8 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--format", choices=("json", "markdown"), default="json")
     result.add_argument("--output", type=Path, help="Optional Projection Carrier; stdout is the default")
     result.add_argument("--compact", action="store_true", help="Emit compact JSON")
+    result.add_argument("--subject-profile", choices=("approved", "legacy"), default="approved",
+                        help="Current approved notation; legacy is explicit historical compatibility")
     return result
 
 
@@ -2040,7 +2208,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     repository = arguments.repository.resolve()
     folder = arguments.folder if arguments.folder.is_absolute() else repository / arguments.folder
     try:
-        projection = generate_projection(repository, folder)
+        projection = generate_projection(repository, folder, subject_profile=arguments.subject_profile)
         content = (
             markdown_projection(projection)
             if arguments.format == "markdown"

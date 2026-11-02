@@ -1,0 +1,39 @@
+---
+version: 31
+updated_at: 2026-10-30 01:32:01 +0400
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations:
+  depends_on:
+  - CA-R-1750
+  - CA-R-1738
+  - CA-R-1402
+  child_of:
+  - CA-M-446
+  - CA-R-1421
+cce_version: cce_1
+cce_form: obligation
+subjects:
+  governs: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings
+  depends_on:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Object/Continuant/Term//Artifact
+  - Entity/Object/Continuant/Governing Objects/Atom
+  - Entity/Aspect/Engineering/Data Handling/Source Selection
+author: Anatoly Maslennikov
+content_role: Requirement
+current_scope_unit: PROJECT_CONFIGURATION
+status: Archived
+atom_id: CA-R-622@31
+type: Rule
+tier: 1
+claim_target_scope_unit: caprmedio
+---
+## Summary
+Keep selected settings in their authoritative Settings Artifact
+
+## Claim
+
+the CAPRMEDIO Framework Instance serving caprmedio **must** consume Project Settings **and** Framework Instance Settings according **to** Core Meta-Model authority under CA-R-1750, **without** redefining their purpose, locations, **or** selected values **in** Project Atoms.

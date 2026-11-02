@@ -1,30 +1,30 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-version: 34
-updated_at: 2026-10-27 19:59:59 +0400
+  active: Carrier/File.Main Content
+  passive:
+  - Carrier
+  - Journal
+version: 40
+updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
 atom_id: CA-R-1643
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Register Type Values for Work Journal Events
 
-## Scope
+## Claim scope
 
-Work Journal Event Types.
+legacy Work Journal execution-observation category labels in serialized Journal Carrier Main Content.
 
 ## Claim
 
-the allowed values of `Work Journal/Event/Type` **must** be (Started, Progressed, Completed, Failed, Interrupted, Abandoned, Recovered).
+the Main Content of a serialized Journal Carrier **must** preserve a supplied legacy Work Journal execution-observation category label as one of (Started, Progressed, Completed, Failed, Interrupted, Abandoned, Recovered).
 
-## Details
+this is a Carrier representation constraint. It does **not** create a logical Event Record Property, prescribe an Event Record business Action, or make these legacy observation labels model-level action values.

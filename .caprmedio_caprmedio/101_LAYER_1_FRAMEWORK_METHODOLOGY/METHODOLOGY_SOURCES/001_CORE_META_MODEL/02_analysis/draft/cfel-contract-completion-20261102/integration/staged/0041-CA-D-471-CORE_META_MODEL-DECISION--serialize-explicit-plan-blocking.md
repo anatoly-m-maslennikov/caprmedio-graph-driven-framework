@@ -1,0 +1,36 @@
+---
+subjects:
+  active: CFEL <+ Relation
+  passive:
+  - Atom/(.Role := Plan)
+  - CFEL <+ Relation
+  - Atom.ID
+  - Atom.Subjects
+version: 24
+updated_at: 2026-11-02 08:06:47 +0400
+relations:
+  delivery_for:
+  - CA-R-1580
+atom_id: CA-D-471
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 3
+role: Delivery
+form: Decision
+---
+## Summary
+
+Serialize explicit Plan blocking
+
+## Claim scope
+
+explicit `A BLOCKS B` facts, including their storage on Plan `A` under `relations.blocks` for Plan `B`.
+
+## Claim
+
+**every** explicit `A BLOCKS B` fact **must** be stored once on Plan `A` under `relations.blocks`, as a unique canonical Atom ID for Plan `B`; an omitted list encodes **`=0`** outgoing blocking Relations.
+
+- do **not** store a separate inverse list.
+- do **not** encode Plan scheduling with `relations.depends_on` **or** `subjects.depends_on`.
+- store Plan containment separately on the child under `IS_CONTAINED_BY`, with `CONTAINS` derived; do **not** derive blocking from containment **or** directory order.

@@ -1,30 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-version: 25
-updated_at: 2026-10-27 20:00:12 +0400
+  active: Scope Unit.Name
+  passive:
+  - Scope Unit
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-962
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Give Every Scope Unit One Name
 
-## Scope
+## Claim scope
 
 Scope Unit Names.
 
 ## Claim
 
 **every** Scope Unit **must** have **`=1`** authoritative Name.
-
-## Details

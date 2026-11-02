@@ -1,29 +1,27 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent.Permissions'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-version: 18
-updated_at: 2026-10-27 19:59:57 +0400
+  active: Entity/Object/Continuant/Actor/AI Agent
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/Actor/AI Agent.Permissions
+  - Term//Artifact
+  - Atom.Content
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1558
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Route questions and ideas through Exploration Mode
 
-## Scope
+## Claim scope
 
 exploratory Operator input and its promotion from Exploration Mode.
 
@@ -36,5 +34,3 @@ an AI Agent **must** handle exploratory Operator input **in** Exploration Mode u
 - an explicit Operator request **to** create **or** change governed state takes precedence over question-shaped wording.
 - **otherwise**, Exploration Mode ends **only** **when** the Operator explicitly accepts a conclusion **or** requests its promotion. the AI Agent **must** **then** create **only** the minimum Artifacts required **to** preserve the accepted meaning within the authorized change.
 - whether a mode transition is announced is an interaction-reporting choice; it does **not** change this participation policy.
-
-## Details

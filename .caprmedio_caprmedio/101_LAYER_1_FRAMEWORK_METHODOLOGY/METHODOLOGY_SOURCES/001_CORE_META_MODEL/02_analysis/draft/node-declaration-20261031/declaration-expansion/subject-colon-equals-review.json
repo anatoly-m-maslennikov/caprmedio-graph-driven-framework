@@ -1,0 +1,11 @@
+{
+  "baseline_files": 108,
+  "register_entries": 106,
+  "errors": [],
+  "status": "PASS",
+  "notes": [
+    "CFEL fences unchanged in 104 worker files and 4 manager files",
+    "legacy Role/Type colon examples explicitly marked legacy",
+    "manual review confirms := not withdrawn; regex matched a different withdrawn operator"
+  ]
+}

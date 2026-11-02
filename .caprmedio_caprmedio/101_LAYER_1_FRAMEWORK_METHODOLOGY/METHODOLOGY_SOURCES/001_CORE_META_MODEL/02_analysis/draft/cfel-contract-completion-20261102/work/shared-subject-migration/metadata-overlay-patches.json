@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "status": "OVERLAY_PATCHES_FOR_ROOT_MERGER",
+  "items": [
+    {
+      "source_id": "CA-D-305",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-305-PROJECT_CONFIGURATION-ENG_DECISION--carry-projected-atoms-without-new-identity.md",
+      "required_patch": "delegated semantic B; root prefers the owner packet and excludes this A row",
+      "existing_candidates": [
+        {
+          "version": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-305@31-draft-PROJECT_CONFIGURATION-ENG_DECISION--carry-projected-atoms-without-new-identity.md",
+          "candidate_sha256": "2f986d2ed24c82a0cbbcb7308c8c39d4b35949fe28dd484e75791f5a5149301f",
+          "candidate_id": "CA-D-305@31-draft",
+          "candidate_status": "Draft",
+          "candidate_subject": "Projection/(.Form := Applicable Methodology)",
+          "source_id": "CA-D-305",
+          "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-305-PROJECT_CONFIGURATION-ENG_DECISION--carry-projected-atoms-without-new-identity.md",
+          "source_sha256": "934e56c1e138517d504f7d951d608610ada2ebdf4a20e7fa0abdb7c5eb4d2a09",
+          "source_subject": "Entity/Object/Continuant/Projection/Type:Applicable Methodology.Member",
+          "requested_subject": "Projection/(.Form:=Applicable Methodology.Member)"
+        }
+      ],
+      "basis": "separate semantic Projection Member lane; no concurrent rewrite"
+    },
+    {
+      "source_id": "CA-E-438",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-438-POLICY--evaluate-implementation-mode-conformance.md",
+      "required_patch": "merge exact source pin and metadata fields into the existing subject-migration candidate",
+      "existing_candidates": [
+        {
+          "version": 26,
+          "path": ".caprmedio_caprmedio/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-438@26-draft-POLICY--evaluate-implementation-mode-conformance.md",
+          "candidate_sha256": "0e09e507b3035386603aa10c07ec4c3e9438cda548082bc09641b4c40ece731d",
+          "candidate_id": "CA-E-438@26-draft",
+          "candidate_status": "Draft",
+          "candidate_subject": "Package/Implementation",
+          "source_id": "CA-E-438",
+          "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-438-POLICY--evaluate-implementation-mode-conformance.md",
+          "source_sha256": "0b520961aca981cf623a6926b0374c5a974998f07ec6fd956aa77cff7d0d861f",
+          "source_subject": "Entity/Object/Continuant/Package/Project Implementation",
+          "requested_subject": "Package/Implementation"
+        },
+        {
+          "version": 28,
+          "path": ".caprmedio_caprmedio/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-438@28-draft-POLICY--evaluate-implementation-mode-conformance.md",
+          "candidate_sha256": "c079e926cd6a1d1f3bda307cbbdd9138c999e0c88bca35b1c59c4418c625a9bd",
+          "candidate_id": "CA-E-438@28-draft",
+          "candidate_status": "Draft",
+          "candidate_subject": "Package/Implementation",
+          "source_id": "CA-E-438",
+          "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-438-POLICY--evaluate-implementation-mode-conformance.md",
+          "source_sha256": "0b520961aca981cf623a6926b0374c5a974998f07ec6fd956aa77cff7d0d861f",
+          "source_subject": "Entity/Object/Continuant/Package/Project Implementation",
+          "requested_subject": "Package/Implementation"
+        }
+      ],
+      "basis": "pre-existing same-lane candidate; no duplicate candidate"
+    },
+    {
+      "source_id": "CA-M-261",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-261-PROJECT-IMPLEMENTATION_METHOD--rebuild-implementation-from-its-governing-specification.md",
+      "required_patch": "merge exact source pin and metadata fields into the existing subject-migration candidate",
+      "existing_candidates": [
+        {
+          "version": 16,
+          "path": ".caprmedio_caprmedio/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-261@16-draft-PROJECT-IMPLEMENTATION_METHOD--rebuild-implementation-from-its-governing-specification.md",
+          "candidate_sha256": "a301e2c638a86e197afd32975b88eb62aca69aa87b70e2daf1809c6957c13a61",
+          "candidate_id": "CA-M-261@16-draft",
+          "candidate_status": "Draft",
+          "candidate_subject": "Package/Implementation",
+          "source_id": "CA-M-261",
+          "source_path": ".caprmedio_caprmedio/05_method/CA-M-261-PROJECT-IMPLEMENTATION_METHOD--rebuild-implementation-from-its-governing-specification.md",
+          "source_sha256": "3a765c6aee94b49e32dab08aa2548dcc91de486b8b4f26f7c5bdfff34e9f5fd1",
+          "source_subject": "Entity/Object/Continuant/Package/Project Implementation",
+          "requested_subject": "Package/Implementation"
+        },
+        {
+          "version": 17,
+          "path": ".caprmedio_caprmedio/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-261@17-draft-PROJECT-IMPLEMENTATION_METHOD--rebuild-implementation-from-its-governing-specification.md",
+          "candidate_sha256": "a9b97b1f740923dd985a26bf5b2d01b29acde47db3a8e3d66b293548793c57f2",
+          "candidate_id": "CA-M-261@17-draft",
+          "candidate_status": "Draft",
+          "candidate_subject": "Package/Implementation",
+          "source_id": "CA-M-261",
+          "source_path": ".caprmedio_caprmedio/05_method/CA-M-261-PROJECT-IMPLEMENTATION_METHOD--rebuild-implementation-from-its-governing-specification.md",
+          "source_sha256": "3a765c6aee94b49e32dab08aa2548dcc91de486b8b4f26f7c5bdfff34e9f5fd1",
+          "source_subject": "Entity/Object/Continuant/Package/Project Implementation",
+          "requested_subject": "Package/Implementation"
+        }
+      ],
+      "basis": "pre-existing same-lane candidate; no duplicate candidate"
+    },
+    {
+      "source_id": "CA-M-262",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-262-IMPLEMENTATION_METHOD--preserve-sufficient-authority-for-reconstruction.md",
+      "required_patch": "merge exact source pin and metadata fields into the existing subject-migration candidate",
+      "existing_candidates": [
+        {
+          "version": 25,
+          "path": ".caprmedio_caprmedio/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-262@25-draft-IMPLEMENTATION_METHOD--preserve-sufficient-authority-for-reconstruction.md",
+          "candidate_sha256": "e2d799cd8dbee8612bb50977ef5d6139abf55a12064562ec359bc4a92bbc582e",
+          "candidate_id": "CA-M-262@25-draft",
+          "candidate_status": "Draft",
+          "candidate_subject": "Package/Implementation",
+          "source_id": "CA-M-262",
+          "source_path": ".caprmedio_caprmedio/05_method/CA-M-262-IMPLEMENTATION_METHOD--preserve-sufficient-authority-for-reconstruction.md",
+          "source_sha256": "e263347e587d371f22e89fead80ca7814d390d27bafc919f9db8c34b6bab3a1c",
+          "source_subject": "Entity/Object/Continuant/Package/Project Implementation",
+          "requested_subject": "Package/Implementation"
+        },
+        {
+          "version": 26,
+          "path": ".caprmedio_caprmedio/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-262@26-draft-IMPLEMENTATION_METHOD--preserve-sufficient-authority-for-reconstruction.md",
+          "candidate_sha256": "dae404eee2b287eefc261640956eaf55d9a1a26eb83fca2ad6966b1eb97d2eee",
+          "candidate_id": "CA-M-262@26-draft",
+          "candidate_status": "Draft",
+          "candidate_subject": "Package/Implementation",
+          "source_id": "CA-M-262",
+          "source_path": ".caprmedio_caprmedio/05_method/CA-M-262-IMPLEMENTATION_METHOD--preserve-sufficient-authority-for-reconstruction.md",
+          "source_sha256": "e263347e587d371f22e89fead80ca7814d390d27bafc919f9db8c34b6bab3a1c",
+          "source_subject": "Entity/Object/Continuant/Package/Project Implementation",
+          "requested_subject": "Package/Implementation"
+        }
+      ],
+      "basis": "pre-existing same-lane candidate; no duplicate candidate"
+    },
+    {
+      "source_id": "CA-R-1200",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-DEFINITION--define-depends-on-subject-relation-kind.md",
+      "required_patch": "merge exact Subject metadata into the existing relation-lane candidate",
+      "existing_candidates": [
+        {
+          "version": 38,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1200@38-draft-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md",
+          "candidate_sha256": "276ee93b3b15396b0f6938c9ffcab67013492616bf117b818c728ee559b7c6fc",
+          "candidate_id": "CA-R-1200@38-draft",
+          "candidate_status": "Draft",
+          "candidate_subject": "CFEL <+ Relation//DEPENDS_ON",
+          "source_id": "CA-R-1200",
+          "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-DEFINITION--define-depends-on-subject-relation-kind.md",
+          "source_sha256": "2896defa0eac3f26369d1d6abe71b9f7c7a8fcf97b34a395cbbeb87ce02bb5bf",
+          "source_subject": "CFEL > Relation//DEPENDS_ON",
+          "requested_subject": "CFEL <+ Relation//DEPENDS_ON"
+        }
+      ],
+      "basis": "other-lane ownership; no duplicate candidate"
+    },
+    {
+      "source_id": "CA-R-1314",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1314-PROJECT_CONFIGURATION-RULE--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+      "required_patch": "delegated semantic B; root prefers the owner packet and excludes this A row",
+      "existing_candidates": [
+        {
+          "version": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1314@33-draft-PROJECT_CONFIGURATION-RULE--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+          "candidate_sha256": "85ef592d4ea7a8adcfb08a15bfa2eaca894f1905fd405575b932ba00c7bfd420",
+          "candidate_id": "CA-R-1314@33-draft",
+          "candidate_status": "Draft",
+          "candidate_subject": "Projection/(.Form := Applicable Methodology)",
+          "source_id": "CA-R-1314",
+          "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1314-PROJECT_CONFIGURATION-RULE--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+          "source_sha256": "eb2b76e385c5f82bc9705ec92ea0a19e25a43d78d29a7c81e98655b54563fb06",
+          "source_subject": "Entity/Object/Continuant/Projection/Type:Applicable Methodology.Member",
+          "requested_subject": "Projection/(.Form:=Applicable Methodology.Member)"
+        }
+      ],
+      "basis": "separate semantic Projection Member lane; no concurrent rewrite"
+    },
+    {
+      "source_id": "CA-R-2327",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2327-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md",
+      "required_patch": "metadata overlay only; preserve authoritative legacy-CFEL body and formal expression",
+      "existing_candidates": [
+        {
+          "version": 4,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2327@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md",
+          "candidate_sha256": "8e465e6253957f182b29a887240dc58e7fc8c9c045614e5db93d5634807190fc",
+          "candidate_id": "CA-R-2327@4-draft",
+          "candidate_status": "Draft",
+          "candidate_subject": "CFEL <+ Cardinality",
+          "source_id": "CA-R-2327",
+          "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2327-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md",
+          "source_sha256": "8dc7296195ec2e1bbd56485b872626d18205d330c7331c6d264021c314809b22",
+          "source_subject": "CFEL > Entity/Cardinality",
+          "requested_subject": "CFEL <+ Cardinality"
+        }
+      ],
+      "basis": "legacy-cfel packet is authoritative; mechanical subject-migration duplicate withdrawn"
+    },
+    {
+      "source_id": "CA-R-881",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-881-RULE--use-relation-specific-cross-unit-ownership.md",
+      "required_patch": "merge exact source pin and metadata fields into the existing subject-migration candidate",
+      "existing_candidates": [
+        {
+          "version": 33,
+          "path": ".caprmedio_caprmedio/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-881@33-draft-RULE--use-relation-specific-cross-unit-ownership.md",
+          "candidate_sha256": "2af56afaaa1f391a9e1b21726196fe4dc4da81d150ed12961135855d54228161",
+          "candidate_id": "CA-R-881@33-draft",
+          "candidate_status": "Draft",
+          "candidate_subject": "CFEL <+ Relation",
+          "source_id": "CA-R-881",
+          "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-881-RULE--use-relation-specific-cross-unit-ownership.md",
+          "source_sha256": "079fb0c85362e87298e915a6b7a2dc7331bcfa06dab7d5fededd5c1286a216e2",
+          "source_subject": "CFEL > Relation",
+          "requested_subject": "CFEL <+ Relation"
+        },
+        {
+          "version": 34,
+          "path": ".caprmedio_caprmedio/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-881@34-draft-RULE--use-relation-specific-cross-unit-ownership.md",
+          "candidate_sha256": "28aeec71af6a669c14f3ebee12df122bfcddee0e62526eb67af3962c66dd265e",
+          "candidate_id": "CA-R-881@34-draft",
+          "candidate_status": "Draft",
+          "candidate_subject": "CFEL <+ Relation",
+          "source_id": "CA-R-881",
+          "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-881-RULE--use-relation-specific-cross-unit-ownership.md",
+          "source_sha256": "079fb0c85362e87298e915a6b7a2dc7331bcfa06dab7d5fededd5c1286a216e2",
+          "source_subject": "CFEL > Relation",
+          "requested_subject": "CFEL <+ Relation"
+        }
+      ],
+      "basis": "pre-existing same-lane candidate; no duplicate candidate"
+    }
+  ]
+}

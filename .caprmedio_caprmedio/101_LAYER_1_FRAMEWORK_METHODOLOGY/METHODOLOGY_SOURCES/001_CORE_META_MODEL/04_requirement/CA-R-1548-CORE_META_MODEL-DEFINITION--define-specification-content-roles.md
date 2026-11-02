@@ -1,31 +1,30 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - Subject/CAPRMEDIO/Carrier
-version: 20
-updated_at: 2026-10-27 19:59:57 +0400
+  active: Entity/Object/Continuant/Selection
+  passive:
+  - Atom/(.Role := Requirement)
+  - Atom/(.Role := Method)
+  - Atom/(.Role := Evaluation)
+  - Atom/(.Role := Delivery)
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - Entity/Object/Continuant/Package/Project Implementation
+  - Carrier
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1548
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Definition
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Define Specification Content Roles
 
-## Scope
+## Claim scope
 
 Specification Content Roles (Spec, RMED).
 

@@ -1,0 +1,150 @@
+{
+  "status": "APPLIED",
+  "source_frontier": "current-source-frontier.json",
+  "projections": [
+    {
+      "id": "CA-PROJ-014",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md",
+      "before_sha256": "8928929d4e06ec986a89387f8563b048d003b82863dec2fd8cb86f2bad68b6fd",
+      "sha256": "b46bb15f00992741aa683aba725f3dfbbc2ddd0fbc96a5656c445b4c28166933",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/migration-20261101/projection-predecessors/CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md",
+      "source_count": 1101,
+      "form": "Map",
+      "named_selection": "Named Selection//Current-MODEL-Primary-Nodes",
+      "updated_at": "2026-11-02 01:20:24 +0400"
+    },
+    {
+      "id": "CA-PROJ-015",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-015-CAPRMEDIO--Subject-Graph-Properties--Current-Methodology-and-Project-RMED.md",
+      "before_sha256": "0d92ac0a6f287231a8834dff87a02a07810592ec00048dce2e13c5faf1b97d29",
+      "sha256": "a03d1dd56d4fc09996487d536965ba27a027210671ae959d2fca1eabdd71e7d0",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/migration-20261101/projection-predecessors/CA-PROJ-015-CAPRMEDIO--Subject-Graph-Properties--Current-Methodology-and-Project-RMED.md",
+      "source_count": 1101,
+      "form": "Map",
+      "named_selection": "Named Selection//Current-MODEL-Properties",
+      "updated_at": "2026-11-02 01:20:24 +0400"
+    },
+    {
+      "id": "CA-PROJ-016",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-016-CAPRMEDIO--Subject-Graph-Instances--Current-Methodology-and-Project-RMED.md",
+      "before_sha256": "3c46db167e0cd08208c1b04ffeed913a004a4a1e23ff33a4b5821a7044ce69c5",
+      "sha256": "502b51a6684456c929d796116fd91c8b04cf71637cff3e01dd2c9fdb96b7cb00",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/migration-20261101/projection-predecessors/CA-PROJ-016-CAPRMEDIO--Subject-Graph-Instances--Current-Methodology-and-Project-RMED.md",
+      "source_count": 1101,
+      "form": "Map",
+      "named_selection": "Named Selection//Current-MODEL-Named-Relations",
+      "updated_at": "2026-11-02 01:20:24 +0400"
+    },
+    {
+      "id": "CA-PROJ-017",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-017-CAPRMEDIO--Model-Graph--Current-MODEL-Declarations.md",
+      "sha256": "ef8f53838b2fca5007063295f2e66ea8acd11354291619b6373b00f352dab0b8",
+      "source_count": 128,
+      "form": "Map",
+      "named_selection": "Named Selection//Current-MODEL-Declarations",
+      "updated_at": "2026-11-02 00:50:34 +0400",
+      "action": "create"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "3c3b3d82-c2db-44d3-ae82-f317e198b620",
+      "happened_at": "2026-11-02 01:20:24 +0400",
+      "inserted_at": "2026-11-02T01:20:24.288515+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-PROJ-014",
+        "updated_at": "2026-10-30 03:57:25 +0400"
+      },
+      "object_output": {
+        "id": "CA-PROJ-014",
+        "updated_at": "2026-11-02 01:20:24 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "b3d8c14c-368a-4318-8066-4024fbb09cb5",
+      "happened_at": "2026-11-02 01:20:24 +0400",
+      "inserted_at": "2026-11-02T01:20:24.328180+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-PROJ-015",
+        "updated_at": "2026-10-30 03:57:25 +0400"
+      },
+      "object_output": {
+        "id": "CA-PROJ-015",
+        "updated_at": "2026-11-02 01:20:24 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "151289ab-edff-4551-8e91-57369ddf5aee",
+      "happened_at": "2026-11-02 01:20:24 +0400",
+      "inserted_at": "2026-11-02T01:20:24.366354+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-PROJ-016",
+        "updated_at": "2026-10-30 03:57:25 +0400"
+      },
+      "object_output": {
+        "id": "CA-PROJ-016",
+        "updated_at": "2026-11-02 01:20:24 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "5fbb0069-fbca-46fe-a05e-c7c522fd6fac",
+      "happened_at": "2026-11-02 00:50:34 +0400",
+      "inserted_at": "2026-11-02T01:20:24.368570+04:00",
+      "action": "create",
+      "object_output": {
+        "id": "CA-PROJ-017",
+        "updated_at": "2026-11-02 00:50:34 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    }
+  ],
+  "journal_receipts": [
+    {
+      "event_id": "3c3b3d82-c2db-44d3-ae82-f317e198b620",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 416
+    },
+    {
+      "event_id": "b3d8c14c-368a-4318-8066-4024fbb09cb5",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 417
+    },
+    {
+      "event_id": "151289ab-edff-4551-8e91-57369ddf5aee",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 418
+    },
+    {
+      "event_id": "5fbb0069-fbca-46fe-a05e-c7c522fd6fac",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 419
+    }
+  ],
+  "limits": [
+    "Bounded CFEL extraction, not full semantic validation",
+    "Legacy expressions remain observations or diagnostics; they are not admitted as additional declared Nodes",
+    "Actual Workflow, Step, Substep and Action instances remain deferred"
+  ]
+}

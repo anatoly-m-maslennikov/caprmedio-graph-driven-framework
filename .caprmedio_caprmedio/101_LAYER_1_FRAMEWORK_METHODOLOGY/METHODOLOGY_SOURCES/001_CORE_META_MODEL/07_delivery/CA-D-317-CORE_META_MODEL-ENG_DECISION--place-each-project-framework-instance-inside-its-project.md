@@ -1,24 +1,23 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  depends_on: []
-version: 24
-updated_at: 2026-10-27 19:59:23 +0400
+  active: Project
+  passive: []
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-317
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Place each Project Framework Instance inside its Project
 
-## Scope
+## Claim scope
 
 CAPRMEDIO Framework Instances serving Projects.
 

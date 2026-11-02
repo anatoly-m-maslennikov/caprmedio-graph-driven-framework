@@ -1,36 +1,37 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Project Name
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Atom Prefix
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-version: 34
-updated_at: 2026-10-27 20:00:02 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Project.Settings
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+  - Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - Project.Settings.Name
+  - Project.Settings.Prefix
+  - Atom
+version: 39
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1750
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Partition Operator Settings Between Settings Artifacts
 
-## Scope
+## Claim scope
 
 Operator-selected settings and their authoritative Settings Artifacts.
 
 ## Claim
 
-an Operator-selected setting **must** have **`=1`** authoritative owner: Project Settings for Project initialization inputs, including Project Name **and** Project Atom prefix; Framework Instance Settings for CAPRMEDIO behavior, configuration choices, **and** Authority Mode defaults; **or** Project Structure for an explicit per-Scope-Unit Authority Mode override. Atoms define permitted parameters, constraints, **and** applicability **without** fixing **or** duplicating current selected values **or** Default Settings values. definitions **and** storage rules for Project Name **and** Project Atom prefix belong **to** CORE_META_MODEL.
+an Operator-selected setting **must** have **`=1`** authoritative owner: Project Settings for Project initialization inputs, including Project Settings Name **and** Project Settings Prefix; Framework Instance Settings for CAPRMEDIO behavior, configuration choices, **and** Authority Mode defaults; **or** Project Structure for an explicit per-Scope-Unit Authority Mode override. Atoms define permitted parameters, constraints, **and** applicability **without** fixing **or** duplicating current selected values **or** Default Settings values. definitions **and** storage rules for Project Settings Name **and** Project Settings Prefix belong **to** CORE_META_MODEL.
 
-## Details
+### Current source pin
+
+Proposed N+1 successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md`, CA-R-1750@37, SHA-256 `a9222939e3847db6a2c5da16b55122c4108b4f467d8609452dc581088ea9d77c`. Current bytes remain unchanged; this Draft performs no promotion or runtime change.

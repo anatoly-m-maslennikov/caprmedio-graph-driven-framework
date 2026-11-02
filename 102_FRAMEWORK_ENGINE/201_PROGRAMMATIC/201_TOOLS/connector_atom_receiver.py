@@ -6,6 +6,7 @@ import copy
 from collections.abc import Collection
 from pathlib import Path
 
+from carrier_aliases import carrier_read_view
 from connector_atom_dispatch import execute_atom_request
 from connector_atom_parse import IDENTITY, LIFECYCLES, validate_filters
 from connector_atom_read import AtomSourceView
@@ -27,7 +28,7 @@ _ACTIONS = {
 
 
 def _metadata(source: FileSource) -> dict:
-    return parse_carrier(source.read_bytes(), source.root / source.relative_path).metadata
+    return carrier_read_view(parse_carrier(source.read_bytes(), source.root / source.relative_path).metadata)
 
 
 def _grammar_binding_matches(

@@ -56,6 +56,15 @@ class ServiceTests(unittest.TestCase):
         result = self.service.discover(Query(), operations=True)
         self.assertEqual(result['total'], 1)
 
+    def test_catalog_reads_new_role_and_form_without_rewriting_properties(self):
+        (self.root / '.caprmedio_caprmedio' / 'action.md').write_text(
+            '---\natom_id: CA-O-999\nstatus: Active\nrole: Operations\nform: Action\n---\n# Summary\nFixture\n')
+        result = self.service.discover(Query(), operations=True)
+        row = result['matches'][0]
+        self.assertEqual((row['content_role'], row['type']), ('Operations', 'Action'))
+        self.assertEqual(row['properties']['role'], 'Operations')
+        self.assertNotIn('content_role', row['properties'])
+
     def test_catalog_excludes_persistent_journal_and_projection_carriers(self):
         control = self.root / '.caprmedio_caprmedio'
         for relative, identity in (

@@ -1,0 +1,33 @@
+{
+  "issues": [],
+  "reviewed": [
+    {
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/C-concern.prompt.md",
+      "sha256": "aafed25d32dcedf0d6e2845c40a29293d9ef2fa3faef455ace5a1b1b11e5a69a"
+    },
+    {
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/P-plan.prompt.md",
+      "sha256": "39752c5177eb9c229c46a9271f56dd595033319129251fa8061084b34faeda80"
+    },
+    {
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/R-requirement.prompt.md",
+      "sha256": "574c1224f4a1fe6402214bc20ff49a40de33fcba4c5b94618e5644eb116a5f21"
+    },
+    {
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/E-evaluation.prompt.md",
+      "sha256": "a5ea6ccdc4e05c626766c440b45c76a5a9e3738e8c843628cc141a66a0ca2cad"
+    },
+    {
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/O-operations.prompt.md",
+      "sha256": "096b87ca7dfe863eaf2707c601775b0148c14a3cf3b5a91a5c1f32253f509f4a"
+    }
+  ],
+  "confirmed": [
+    "O distinguishes leaf calls from containing Steps and their local Substep ordering.",
+    "P supplies a falsifying Definition of Done in plain prose.",
+    "R requires only supplied behavior, conditions and limits.",
+    "C preserves apparent versus actual effects.",
+    "E preserves findings-only dispositions without inventing pass/fail."
+  ],
+  "scope": "Focused contract recheck only; generated outputs and runtime were not tested."
+}

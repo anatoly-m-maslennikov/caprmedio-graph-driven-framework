@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "hash_mismatches": [],
+  "checked": [
+    "Active-only filtering before tuple resolution",
+    "distinct direct containers and reference target identity",
+    "numbered Active requires contained_by group, whose existing declaration requires one typed target",
+    "optional positive integer and unfiltered two-argument uniqueness preserved",
+    "Project snapshot rather than historic-state expansion"
+  ],
+  "limits": [
+    "10 cases describe model outcomes, not executed parser/runtime tests",
+    "No renumbering, lifecycle workflow or deployment verified"
+  ]
+}

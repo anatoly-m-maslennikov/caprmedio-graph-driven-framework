@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier/File
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Carrier/File
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-version: 30
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Carrier/File
+  passive:
+  - Atom
+  - Carrier/File
+  - Project
+version: 34
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-D-463
@@ -14,19 +14,18 @@ relations:
   - CA-D-356
   - CA-D-470
 atom_id: CA-E-457
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 4
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Validate Authoritative Markdown Atom Carriers
 
-## Scope
+## Claim scope
 
 the authoritative Markdown Carrier **and** body structure of an Atom Revision.
 

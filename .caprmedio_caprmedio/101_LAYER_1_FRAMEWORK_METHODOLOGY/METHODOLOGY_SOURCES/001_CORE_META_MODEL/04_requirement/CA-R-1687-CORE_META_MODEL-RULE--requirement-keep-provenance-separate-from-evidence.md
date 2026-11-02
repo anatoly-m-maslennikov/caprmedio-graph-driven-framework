@@ -1,24 +1,23 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-  depends_on: []
-version: 27
-updated_at: 2026-10-27 20:00:01 +0400
+  active: Entity/Aspect/Engineering/Traceability
+  passive: []
+version: 31
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1687
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Requirement — Keep provenance separate from evidence
 
-## Scope
+## Claim scope
 
 provenance and Evidence for governed claims and Implementations.
 
@@ -29,5 +28,3 @@ provenance establishes the origin, carrier identity, revision, sequence, **and**
 complete governed provenance remains owned under CA-R-1720. a storage-history record, Author identity, session identifier, signature, hash, **or** intact Carrier proves **only** the bounded historical fact it records. **none** of those facts becomes evidence for the carrier's semantic claim **without** a separate, explicit claim-bound Evidence relation.
 
 Evidence used for reliance **must** identify the claim it supports, the relevant carrier **or** Journal Record, the producing **or** interpreting work **or** Method **when** material, **and** the applicable scope **and** time boundary. Verification remains a separate Evaluation conclusion. a claim, its carrier, **and** the work that created it **must not** silently evidence themselves.
-
-## Details

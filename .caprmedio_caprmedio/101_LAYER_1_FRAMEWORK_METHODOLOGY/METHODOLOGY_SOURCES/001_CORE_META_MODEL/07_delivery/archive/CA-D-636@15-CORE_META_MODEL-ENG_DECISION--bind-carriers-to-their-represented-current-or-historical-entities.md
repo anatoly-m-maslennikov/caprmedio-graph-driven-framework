@@ -1,0 +1,36 @@
+---
+atom_id: CA-D-636@15
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+subjects:
+  governs: Entity/Carrier
+  depends_on:
+  - Entity
+  - Entity/Graph Syntax > Relation//CARRIES
+  - Entity/Object/Continuant/History
+relations:
+  child_of:
+  - CA-R-1174
+version: 15
+updated_at: 2026-10-29 09:57:57 +0400
+tier: 1
+type: Policy
+---
+## Summary
+
+Bind Carriers to their represented current or historical Entities
+
+## Claim scope
+
+Carrier bindings of non-ephemeral Entities.
+
+## Claim
+
+a Carrier binding **must** identify the Entity actually represented by that Carrier. a current Entity's Carrier binds that current Entity; a preserved historical version's Carrier binds that archived Atom version or the historical record actually represented, not a separate Revision entity. citing a current Entity's Version **must not** reclassify the current Entity as an archived version.
+
+## Details
+
+Use the separately defined CARRIES meaning. Its IS_CARRIED_BY inverse exposes the same binding with the endpoints reversed; neither direction substitutes an archived version for the Current Entity actually represented. The applicable Carrier policy determines the representation. General representation rules may carry dependent properties inside one File Carrier; this policy does not require a separately registered binding for each field or section. It creates no additional Carrier, snapshot, Journal record or history gate.

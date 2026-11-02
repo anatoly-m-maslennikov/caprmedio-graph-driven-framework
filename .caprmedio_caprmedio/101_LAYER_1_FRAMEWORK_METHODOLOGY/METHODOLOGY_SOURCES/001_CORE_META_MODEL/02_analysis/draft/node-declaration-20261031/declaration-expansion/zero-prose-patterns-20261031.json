@@ -1,0 +1,348 @@
+{
+  "goal": "Zero prose Claims in Node descendants and their Properties; retain brief Primary Semantics",
+  "baseline_prose_claims": 26,
+  "stage": "Atom.Form string contract formal-only;10 prose Claims remain",
+  "patterns": [
+    {
+      "pattern": "Registered value domains and scoped selections",
+      "subjects": [
+        "Relation Definition.Content.notation_for_subject"
+      ],
+      "existing_progress": "Projection.Form is resolved with formal allowed-value cases and its Property contract; dynamic registry admissions remain separate.",
+      "gap": "Authoritative model/registry binding for dynamic admissions; no new syntax admitted.",
+      "resolved_form": "Form string contract replaces its old admission/placeholder prose."
+    },
+    {
+      "pattern": "Structured Markdown constraints",
+      "subjects": [
+        "Atom.Content.Claim"
+      ],
+      "gap": "Fenced-block count and label/exclusion predicates; preserve current prose until a reusable structure interface exists."
+    },
+    {
+      "pattern": "Value distinctness and container-scoped uniqueness",
+      "subjects": [
+        "Atom.Subjects.Passive",
+        "Scope Unit.Path",
+        "Plan.Work Sequence Number"
+      ],
+      "gap": "Direct-value uniqueness and ordered/path or parent-group selection; preserve context and exact equality."
+    },
+    {
+      "pattern": "Derived values and effective defaults",
+      "subjects": [
+        "Scope Unit.structural_level",
+        "Package.structural_level",
+        "Scope Unit.Path",
+        "Plan.AI Agent Confidence Threshold",
+        "Atom.Tier"
+      ],
+      "gap": "Value equality does not by itself specify sole derivation provenance. Same-bearer ?= does not invent inherited-value lookup. Framework Settings remain deferred."
+    },
+    {
+      "pattern": "Identity and history invariants",
+      "subjects": [
+        "Atom.Status",
+        "Atom.Updated At",
+        "Atom.ID",
+        "Atom.Content.Summary",
+        "Projection.ID",
+        "Projection.Updated At",
+        "Journal"
+      ],
+      "gap": "Cross-revision/event evidence and immutable/append-only contracts; no temporal DSL or Workflow execution sequence admitted."
+    },
+    {
+      "pattern": "MODEL and provenance bindings",
+      "subjects": [
+        "MODEL",
+        "Projection",
+        "Projection.Sources",
+        "Projection.Named Selection",
+        "Projection.Source Of Truth"
+      ],
+      "gap": "Typed inheritance/override and derivation/authority bindings; existing shared MODEL ownership Rule already governs uniqueness."
+    }
+  ],
+  "safe_reductions": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-semantics.md",
+      "before_sha256": "bcaf2f85f15e6c2c99301cee0c613ee739e75e2220bab90bbd7e36dc99181d3f",
+      "after_sha256": "287b469b8a65429a4e52f2f60cfed5f5f912d72a0bbc039896686260a76543aa",
+      "proof": "Exact existing Declaration-form-registration Rule preserves both constraints; all occurrence/value/name counts retained."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "before_sha256": "7e4e6e1fa49a91b28067ad4e37d557e89ecb096cce7bc9de045cc659351c74a6",
+      "after_sha256": "d845449e1f616dd550043558b3074071dc5df561a08289deab0481a5b332f71a",
+      "proof": "Shared CFEL use-node-graph-notation Rule Formal content section already defines the CFEL-labelled Claim fence. Remaining RMED-wide prose-only necessity, fence count and exclusion clauses retained."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-type.md",
+      "before_sha256": "a8152aaac18809d1f3e21594e143b7a1b6a7364aa27afeb1ccf9a1010eb5d000",
+      "after_sha256": "5785df7beb5c1d95b92ded33ad6a4ddfd433394136a586e9a4a2708fe4b047f7",
+      "proof": "Existing colon syntax admits the three known literal cases without closing the value domain; the unchanged Projection Primary Claim preserves non-authority. Classification meaning retained as prose pending formal equivalence."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+      "before_sha256": "ae29bd66adc26c77ca28cfdfae4f5fcd00d3569b98fff5bd0b619caeab195ebf",
+      "after_sha256": "5f7274b51b9523e7eb6121e1b97b657663d9d5e0cc53ea03f9d8ccb26fdecf41",
+      "proof": "Existing required scalar integer Tier plus separately declared child Label enforce this exact nonreplacement; owner-specific Tier ranges retained."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-form-registration.md",
+      "before_sha256": "dc3aa05179881bc3f3b7a5edf0ed393243705e6392aef87ffc715649d6b4ca48",
+      "after_sha256": "3e0eb887970b15243db5711679cfec9744f2014cc9892460a0513396dfc7dd52",
+      "proof": "Align existing inheritance wording with the already-approved unrestricted local MODEL override rule; unchanged reuse retained."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+      "before_sha256": "5336784b6051afcccc36c2e2a34a720fad93f3907d1036b0975aed1dfcec7081",
+      "after_sha256": "f33d4db8ee3c4ee2bcfd5a75bed1d708fbfb89f9287c9b29a8244ebb0397d962",
+      "proof": "Clarify existing lookup after effective MODEL override resolution; no syntax or inheritance-stage addition. The shared Formal content section now explicitly requires all RMED formal content to use the CFEL fence, preserving the removed Property-scope requirement in its reusable serialization Rule."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/node-declaration-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "before_sha256": "5d0a99da22f48cb0bc229ad976e66662abbbbfca122f39ad9d4fa3ddac5f9968",
+      "after_sha256": "834e693a4171e4cde71b507a6dc6d00752c417a1ff97417d7b80f1c39156ae24",
+      "proof": "Repair the four verified readiness-Evaluation review findings; respect any-rule local overrides throughout the default checklist."
+    }
+  ],
+  "review": {
+    "status": "PASS",
+    "closed": [
+      "Shared CFEL rule now requires all RMED formal content to use the CFEL fence; original Property Claim count and exclusion constraints remain."
+    ],
+    "hash_mismatches": [],
+    "limits": [
+      "Pending Active Subject completeness decision outside scope",
+      "No parser/runtime review"
+    ]
+  },
+  "adjudication": [
+    "Do not remove domain-specific target constraints solely because unmigrated Current Rules or Definitions mention them.",
+    "Keep derivation provenance prose until an equivalent binding is defined; correct numeric levels alone do not prove provenance.",
+    "Do not repeat the shared per-effective-MODEL ownership Rule in MODEL merely to satisfy an isolated review.",
+    "Projection.Type keeps its Property meaning prose; allowed literal cases do not silently become a new classification Relation."
+  ],
+  "limits": [
+    "No new syntax admitted",
+    "No Current adoption, runtime or parser change",
+    "Zero-prose goal not yet reached"
+  ],
+  "current_prose_claims": 10,
+  "metrics": {
+    "drafts": 132,
+    "formal_only_claims": 77,
+    "node_descendant_claims_with_prose": 10,
+    "prose_by_classification": {
+      "Property": 7,
+      "Primary Node": 3
+    },
+    "node_claims_with_prose_including_root": 11
+  },
+  "resolved_questions": [
+    {
+      "subject": "Atom.Subjects.Active",
+      "answer": "Current",
+      "effect": "Every Current Atom requires Active Subject; completeness exception removed; formal block unchanged"
+    },
+    {
+      "subject": "Projection.Form",
+      "answer": "Projection/(.Form: value)",
+      "effect": "Rename Type to Form; Property and literal value cases express the intended qualification; remove explanatory prose"
+    },
+    {
+      "subject": "Atom.ID",
+      "answer": "From first promotion to Current or Archived; Draft to Archived is possible",
+      "effect": "Immutability trigger includes both Status Groups; no previous Current state required"
+    },
+    {
+      "subject": "Atom.ID across versions",
+      "answer": "Yes, across all versions",
+      "effect": "Any first Current or Archived promotion establishes the immutable ID across the same Atom's versions, including later Drafts."
+    },
+    {
+      "subject": "Atom.ID across versions",
+      "answer": "Yes, across all versions",
+      "effect": "IMMUTABLE activates at first Current/Archived and persists for later Draft versions of the same Atom"
+    },
+    {
+      "subject": "Atom.Content.Summary",
+      "answer": "Authoring Method rule",
+      "effect": "Preserve coverage in Method; Declaration formal-only"
+    },
+    {
+      "subject": "Atom.ID and Summary",
+      "answer": "Same ID cannot have different Summaries in Current + Archived",
+      "effect": "DETERMINES condition selects accepted-state groups only; update fresh-ID/Version1 remains Operations logic"
+    },
+    {
+      "subject": "Work Sequence Number grouping",
+      "answer": "Restart per direct container",
+      "effect": "No top-level Epic grouping"
+    },
+    {
+      "subject": "Work Sequence Number population",
+      "answer": "Only on Active; Done/Canceled need no uniqueness check",
+      "effect": "Exact Status=Active, not the Current Status Group"
+    },
+    {
+      "subject": "Work Sequence Number execution meaning",
+      "answer": "Execution order belongs to Workflow for P execution; model only number constraints",
+      "effect": "Remove extraneous execution-order prose; do not create navigation Method"
+    },
+    {
+      "subject": "Atom.Form versus Atom.Role names",
+      "answer": "Form may have the same name as Role",
+      "effect": "Remove the different-name restriction only; admission remains required. Previous candidate anti-copy expression is superseded."
+    },
+    {
+      "subject": "Scope Unit.structural_level and Package.structural_level",
+      "answer": "Explicit value written once in Declaration, instead of deriving it from containment chain",
+      "effect": "Remove sole-derivation provenance restriction; retain numeric root and containment validation; no new syntax."
+    },
+    {
+      "subject": "Atom.Content.Claim writing guidance",
+      "answer": "Move the writing rule to Method",
+      "effect": "Reuse existing formal-notation authoring Method with only-when wording; Declaration keeps fence invariants; prose-Claim count remains17."
+    },
+    {
+      "subject": "Atom.Content.Claim fenced versus indented code",
+      "answer": "Restrict fenced blocks only",
+      "effect": "FENCED_LABELS excludes indented code; Claim Declaration becomes formal-only."
+    },
+    {
+      "subject": "Plan Implementation Retry Limit and Autonomous Confidence Threshold",
+      "answer": "Remove retry limit; Workflow job. Confidence Threshold is part of P atoms.",
+      "effect": "Withdraw Plan retry Property; keep Confidence Declaration unchanged. No fallback policy change inferred."
+    },
+    {
+      "subject": "AI Agent Confidence Threshold",
+      "answer": "Optional P value ?= nearest IS_CONTAINED_BY authored value recursively ?= required Project.Settings default; renamed from Autonomous Confidence Threshold",
+      "effect": "Add required Project default; extend ?= explicitly with LOOKUP; P Declaration formal-only. Retry Property remains withdrawn."
+    },
+    {
+      "subject": "Archive Version and Updated At preservation",
+      "answer": "Keep preservation in Workflow requirements",
+      "effect": "Add one Workflow Requirement; Status Declaration formal-only; remove only archive component from Updated At prose. No temporal syntax or Workflow instance."
+    },
+    {
+      "subject": "Timestamp requirements versus Workflow process",
+      "answer": "R defines what Updated At should be; Workflow how/process. Still Core Meta-model.",
+      "effect": "Keep both timestamp data contracts in Core Declarations. Existing archive result Requirement stays Core R; no Engine move or Operations step is inferred."
+    },
+    {
+      "subject": "Update Event Record qualification",
+      "answer": "Only accepted completed updates, including Projection rebuilds; exclude no-op/failed/archive",
+      "effect": "No outcome filter needed; creation and event identity/time schema still pending."
+    },
+    {
+      "subject": "Initial Updated At",
+      "answer": "MAX over create and update events",
+      "effect": "Creation supplies initial timestamp; no synthetic additional update event required. Target identity/schema still pending."
+    },
+    {
+      "subject": "Promotion event and old/new content",
+      "answer": "Promotion is update; one record contains only changed business Properties (Version,Status), not Carrier rename/move data",
+      "effect": "Add one Core Event Record Rule; timestamp consumer/schema field encoding still pending."
+    },
+    {
+      "subject": "Updated At in business change delta and DRY",
+      "answer": "May include it as a derived audit value",
+      "effect": "No new value source, mandatory duplicate or business update caused by capture; latest allowance supersedes omission suggestion."
+    },
+    {
+      "subject": "Event Record field list and separate clocks",
+      "answer": "happened_at and inserted_at are separate; author is event performer; action and object input/output are requested",
+      "effect": "Add two time Declarations and shared Core meaning Rule; timestamp MAX uses happened_at. Object field shape pending; no Atom.Author restore."
+    },
+    {
+      "subject": "Event Record Atom input/output and Content",
+      "answer": "Capture ID/Version/Updated At on both sides; IDs may differ; exclude Atom.Content.* for now",
+      "effect": "New Core capture Rule; Content omission does not suppress accepted-update event; Projection Version still pending."
+    },
+    {
+      "subject": "Projection Version and Event Record descriptor schema",
+      "answer": "Projection has no Version",
+      "effect": "Declare common descriptors with optional version; Atom triplet versus Projection pair. Add action/Actor link and convert both timestamp Claims to formal MAX(happened_at)."
+    },
+    {
+      "subject": "Atom.Form",
+      "answer": "Atom.Form: [string]{:1}",
+      "effect": "Remove admission/placeholder prose; preserve existing formal contracts; no new helper."
+    },
+    {
+      "subject": "Atom.Role and other-Goal Tier behavior",
+      "answer": "Role is one string; no extra Tier rule for other Goals",
+      "effect": "Role Format broadened; Tier expression waits for target binding; ownership is not decided by the numeric rule."
+    }
+  ],
+  "renames": [
+    {
+      "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-type.md",
+      "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+      "old_subject": "Projection.Type",
+      "new_subject": "Projection.Form"
+    }
+  ],
+  "remaining_qualitative_summary_clause": "The Summary covers the complete contribution.",
+  "defined_draft_extensions": [
+    {
+      "syntax": "IMMUTABLE(p)",
+      "rule": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-scalar-immutability.md",
+      "consumers": [
+        "Atom.ID",
+        "Event Record.ID"
+      ],
+      "review": "PASS after optional-removal closure",
+      "runtime_support": false
+    },
+    {
+      "syntax": "DETERMINES(selector, key tuple, dependent tuple)",
+      "rule": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-functional-dependencies.md",
+      "consumers": [
+        "Atom.Content.Summary",
+        "Projection.ID"
+      ],
+      "review": "PASS; latest Form name and one-Project context retained",
+      "runtime_support": false,
+      "condition": "Optional fourth per-historical-state condition; Summary filters Current+Archived."
+    },
+    {
+      "syntax": "UNIQUE(selector, tuple, condition)",
+      "rule": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-unique-property-tuples.md",
+      "consumers": [
+        "Active Plan numbers grouped by direct Atom container",
+        "Active Plan numbers grouped by direct Scope Unit container"
+      ],
+      "condition_scope": "One Project snapshot, not history",
+      "runtime_support": false
+    },
+    {
+      "syntax": "FENCED_LABELS(p): [format]{:n}",
+      "rule": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--select-fenced-markdown-labels.md",
+      "consumer": "Atom/(.Role in RMED).Content.Claim",
+      "constraints": [
+        "At most one fenced block",
+        "Finite literal label Format matches only CFEL"
+      ],
+      "review": "PASS: final two-file review",
+      "runtime_support": false
+    },
+    {
+      "syntax": "p ?= LOOKUP(R,q) ?= explicit bound Property",
+      "rule": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "consumer": "Atom/(.Role: Plan).AI Agent Confidence Threshold",
+      "review": "PASS after preserving fallback-expression-cycle errors",
+      "runtime_support": false
+    },
+    {
+      "syntax": "Kind//(conditions).p; MAX(selection)",
+      "rule": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md",
+      "review": "PASS after explicit narrower-kind and outer-variable binding clarifications",
+      "consumer_status": "Timestamp consumers pending event schema and creation policy",
+      "runtime_support": false
+    }
+  ]
+}

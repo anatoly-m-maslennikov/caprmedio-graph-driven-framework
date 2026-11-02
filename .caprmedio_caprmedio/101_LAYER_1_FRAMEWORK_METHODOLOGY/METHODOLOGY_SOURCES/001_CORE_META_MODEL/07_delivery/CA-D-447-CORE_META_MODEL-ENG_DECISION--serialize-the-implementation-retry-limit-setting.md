@@ -1,29 +1,28 @@
 ---
-version: 25
-updated_at: 2026-10-27 19:59:25 +0400
+version: 30
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.implementation.retry_limit
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-  - Subject/CAPRMEDIO/Carrier
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit
+  passive:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - Carrier
 atom_id: CA-D-447
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize the implementation retry-limit setting
 
-## Scope
+## Claim scope
 
 explicitly selected Implementation Retry Limits.
 
@@ -39,7 +38,7 @@ an explicitly selected Implementation Retry Limit **must** use the integer field
 
 ### inheritance and ownership
 
-- allowed values follow CA-R-1488-CORE_META_MODEL-DEFINITION--define-implementation-retry-limit; the default value is owned **only** by Default Settings.
+- allowed values follow CA-R-1488@21-CORE_META_MODEL-DEFINITION--define-implementation-retry-limit; the default value is owned **only** by Default Settings.
 - omitted instance values resolve under CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings; omitted Plan fields inherit under CA-M-295-CORE_META_MODEL-METHOD--resolve-implementation-retry-limits-by-source-precedence@7 **without** copied values. preserve explicit **=0**.
 - a Hub override belongs **to** that same Plan identity, **not** a separate Objective **or** settings file; do **not** use `epic_overrides`.
 - **every** Plan has its own Markdown file **and** DoD under CA-D-460-CORE_META_MODEL-CORE-DELIVERY--serialize-plan-atom-carrier-bundles **and** CA-D-470-CORE_META_MODEL-DELIVERY--serialize-plan-file-sections; its existence does **not** require a selected retry override.

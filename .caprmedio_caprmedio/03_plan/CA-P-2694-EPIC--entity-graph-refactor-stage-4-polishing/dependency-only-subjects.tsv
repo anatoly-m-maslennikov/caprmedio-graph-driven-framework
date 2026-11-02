@@ -1,0 +1,64 @@
+Atom ID	old Subject	new Subject	status
+CA-D-346	Entity/Aspect/Engineering/Data Handling/Output Publication	Entity/Aspect/Engineering/Data Handling/Output Publication	Shared formal definition: CA-R-2214
+CA-D-559	Entity/Aspect/Engineering/Data Handling/Output Publication	Entity/Aspect/Engineering/Data Handling/Output Publication	Shared formal definition: CA-R-2214
+CA-M-122	Entity/Aspect/Engineering/Data Handling/Parsing	Entity/Aspect/Engineering/Data Handling/Parsing	Shared formal definition: CA-R-2214
+CA-M-240	Entity/Aspect/Engineering/Data Handling/Parsing	Entity/Aspect/Engineering/Data Handling/Parsing	Shared formal definition: CA-R-2214
+CA-R-1360	Entity/Aspect/Engineering/Data Handling/Parsing	Entity/Aspect/Engineering/Data Handling/Parsing	Shared formal definition: CA-R-2214
+CA-R-1361	Entity/Aspect/Engineering/Data Handling/Parsing	Entity/Aspect/Engineering/Data Handling/Parsing	Shared formal definition: CA-R-2214
+CA-D-339	Entity/Aspect/Engineering/Data Handling/Serialization	Entity/Aspect/Engineering/Data Handling/Serialization	Shared formal definition: CA-R-2214
+CA-D-361	Entity/Aspect/Engineering/Data Handling/Serialization	Entity/Aspect/Engineering/Data Handling/Serialization	Shared formal definition: CA-R-2214
+CA-D-372	Entity/Aspect/Engineering/Data Handling/Serialization	Entity/Aspect/Engineering/Data Handling/Serialization	Shared formal definition: CA-R-2214
+CA-D-388	Entity/Aspect/Engineering/Data Handling/Serialization	Entity/Aspect/Engineering/Data Handling/Serialization	Shared formal definition: CA-R-2214
+CA-E-230	Entity/Aspect/Engineering/Verification/Dynamic Testing	Entity/Aspect/Engineering/Verification/Dynamic Testing	Shared formal definition: CA-R-2214
+CA-D-344	Entity/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface	Entity/Aspect/UX/Entry	Applied: CA-R-1637; CA-R-2215
+CA-R-1354	Entity/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface	Entity/Aspect/UX/Entry	Applied: CA-R-1637; CA-R-2215
+CA-R-1355	Entity/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface	Entity/Aspect/UX/Entry	Applied: CA-R-1637; CA-R-2215
+CA-R-1641	Entity/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface	Entity/Aspect/UX/Entry	Applied: CA-R-1637; CA-R-2215
+CA-D-330	Entity/Carrier/File.Format: Markdown	Entity/Carrier/File.Format: Markdown	Inherited format/value: CA-R-1950; CA-R-1958; CA-D-262
+CA-D-330	Entity/Carrier/File.Format: TOML	Entity/Carrier/File.Format: TOML	Inherited format/value: CA-R-1950; CA-R-1958; CA-D-262
+CA-D-330	Entity/Carrier/File.Format: YAML	Entity/Carrier/File.Format: YAML	Inherited format/value: CA-R-1950; CA-R-1958; CA-D-262
+CA-M-120	Entity/Graph Syntax > Relation.Authority	Entity/Graph Syntax > Relation	Applied: CA-R-2247
+CA-D-268	Entity/Graph Syntax > Relation.Source Reference	Entity/Graph Syntax > Relation	Applied: CA-R-2247
+CA-R-1314	Entity/Graph Syntax > Relation//DERIVED_FROM	Entity/Graph Syntax > Relation//DERIVED_FROM	Defined: CA-R-1639
+CA-E-477	Entity/Object/Continuant/Governing Objects/Atom.Tier: Principle	Entity/Object/Continuant/Governing Objects/Atom.Tier.Label: Principle	Applied: CA-R-2274
+CA-R-1556	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: Analysis Report	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: Analysis Report	Covered: CA-R-1232
+CA-R-1889	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: Analysis Report	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: Analysis Report	Covered: CA-R-1232
+CA-M-304	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind: Agentic	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind: Agentic	Covered: CA-R-1526
+CA-E-491	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Atom Update Identity	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Atom Update Identity	Instance: CA-O-067; kind CA-R-1452
+CA-M-303	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Atom Update Identity	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Atom Update Identity	Instance: CA-O-067; kind CA-R-1452
+CA-E-474	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Release Readiness	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Release Readiness	Instance: CA-O-027; kind CA-R-1452
+CA-R-1541	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Active	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Active	Inherited: CA-R-1989; CA-R-1947
+CA-E-504	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done	Covered: CA-R-1583
+CA-R-1580	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done	Covered: CA-R-1583
+CA-R-1592	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done	Covered: CA-R-1583
+CA-D-483	Entity/Object/Continuant/Governing Objects/Atom/Type	Entity/Object/Continuant/Governing Objects/Atom/Type	Classification axis: CA-R-2002; CA-R-655
+CA-R-1568	Entity/Object/Continuant/Projection.Authority	Entity/Object/Continuant/Projection	Applied: CA-R-1746
+CA-R-1634	Entity/Object/Continuant/Projection/Type: Hub	Entity/Object/Continuant/Projection/Type: Hub	Covered: CA-R-1746; CA-R-1634
+CA-R-1634	Entity/Object/Continuant/Projection/Type: Map	Entity/Object/Continuant/Projection/Type: Map	Covered: CA-R-1746; CA-R-1634
+CA-R-2003	Entity/Object/Continuant/Selection//Dependent Entity Occurrences	Entity/Object/Continuant/Selection//Dependent Entity Occurrences	Covered: CA-R-2003; CA-R-1966
+CA-E-379	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1207	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1218	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1226	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1228	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1286	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1313	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1375	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1434	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1515	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1724	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1748	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1874	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1875	Entity/Object/Continuant/Selection//Extension Sources	Entity/Object/Continuant/Selection//Extension Sources	Defined: CA-R-2277
+CA-R-1014	Entity/Object/Continuant/Structural Unit/Scope Unit.Scope	Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit	Applied: CA-R-920
+CA-R-1206	Entity/Object/Continuant/Structural Unit/Scope Unit//INSTALLED_EXTENSIONS	Entity/Object/Continuant/Structural Unit/Scope Unit//INSTALLED_EXTENSIONS	Registered instance: project_structure.toml; CA-R-1757; CA-R-1175
+CA-R-1220	Entity/Object/Continuant/Structural Unit/Scope Unit//INSTALLED_EXTENSIONS	Entity/Object/Continuant/Structural Unit/Scope Unit//INSTALLED_EXTENSIONS	Registered instance: project_structure.toml; CA-R-1757; CA-R-1175
+CA-R-1173	Entity/Object/Continuant/Structural Unit/Scope Unit//METHODOLOGY_SOURCES	Entity/Object/Continuant/Structural Unit/Scope Unit//METHODOLOGY_SOURCES	Registered instance: project_structure.toml; CA-R-1757; CA-R-1173
+CA-R-1217	Entity/Object/Continuant/Structural Unit/Scope Unit//METHODOLOGY_SOURCES	Entity/Object/Continuant/Structural Unit/Scope Unit//METHODOLOGY_SOURCES	Registered instance: project_structure.toml; CA-R-1757; CA-R-1173
+CA-R-1722	Entity/Object/Continuant/Structural Unit/Scope Unit//METHODOLOGY_SOURCES	Entity/Object/Continuant/Structural Unit/Scope Unit//METHODOLOGY_SOURCES	Registered instance: project_structure.toml; CA-R-1757; CA-R-1173
+CA-D-392	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete Names	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete Names	Defined: CA-R-2275
+CA-R-1789	Entity/Object/Occurrent/Execution/Step Run.Execution Context	Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context	Applied: CA-R-1527
+CA-R-1790	Entity/Object/Occurrent/Execution/Step Run.Execution Context	Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context	Applied: CA-R-1527
+CA-R-1791	Entity/Object/Occurrent/Execution/Step Run.Execution Context	Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context	Applied: CA-R-1527
+CA-R-1792	Entity/Object/Occurrent/Execution/Step Run.Execution Context	Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context	Applied: CA-R-1527
+CA-R-1793	Entity/Object/Occurrent/Execution/Step Run.Execution Context	Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context	Applied: CA-R-1527

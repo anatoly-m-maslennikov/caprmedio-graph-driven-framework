@@ -1,31 +1,33 @@
 ---
 cce_version: cce_1
 cce_form: method
-version: 24
-updated_at: 2026-10-27 19:59:41 +0400
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-M-261
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  active: Entity/Aspect/Engineering/Verification/Test Design
+  passive:
+  - Atom/(.Role := Requirement)
+  - Atom/(.Role := Method)
+  - Atom/(.Role := Evaluation)
+  - Atom/(.Role := Delivery)
+  - Entity/Aspect/Engineering/Verification/Test Design
+  - Project
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-M-270
 status: Active
-content_role: Method
-author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-type: Implementation Method
 tier: 2
+role: Method
+form: Implementation Method
 ---
-# Prepare verification before refactoring
+## Summary
+Prepare verification before refactoring
+
+## Claim
 
 **to** refactor existing Implementation, prepare the applicable verification **before** changing the target Implementation:
 

@@ -1,31 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Project Name
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Project Name
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-version: 25
-updated_at: 2026-10-27 19:59:24 +0400
+  active: Project.Settings.Name
+  passive:
+  - Project.Settings
+  - Project
+  - Entity/Object/Continuant/Actor/Operator
+  - Atom
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-D-366
 atom_id: CA-D-375
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 7
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize Project initialization identity
 
-## Scope
+## Claim scope
 
 the Operator-selected Project Name in the Project Settings TOML Carrier.
 
@@ -36,3 +34,7 @@ the Project Settings TOML Carrier **must** encode the Operator-selected Project 
 ## Details
 
 validation **must** preserve the selected value exactly; it **must not** trim **or** convert its case. the complete supported field signature is governed by CA-D-366.
+
+### Current source provenance
+
+Current source: `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL-ENG_DECISION--serialize-project-initialization-identity.md`, CA-D-375@27, SHA-256 `d86d451d292b2af19c799152c03940cf96f3693edad8f90fbca028d47f55303f`.

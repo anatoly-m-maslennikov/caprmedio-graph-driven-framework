@@ -1,0 +1,15 @@
+{
+  "status": "FIX",
+  "findings": [
+    {
+      "issue": "Candidate treats `FENCED_LABELS(p): CFEL` as an exclusive universal whitelist, but existing CFEL colon admits a case without closing the allowed-value domain; this does not prove non-CFEL fences forbidden.",
+      "source": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+      "correction": "Keep the original prose until a separately specified universal membership or nonmatching-label constraint is available; do not redefine colon globally.",
+      "example": "One YAML fence passes the cardinality {:0..1}; : CFEL alone merely admits CFEL and does not reject YAML."
+    }
+  ],
+  "checks": "Per-bearer occurrence counts, duplicates, unlabelled labels, empty selection, parse errors and parser binding gate otherwise fit scope.",
+  "limits": [
+    "Candidate review only; no repository mutation or runtime test"
+  ]
+}

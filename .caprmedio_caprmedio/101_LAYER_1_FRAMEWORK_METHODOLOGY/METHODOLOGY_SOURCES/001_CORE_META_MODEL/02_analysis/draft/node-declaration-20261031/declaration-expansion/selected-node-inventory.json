@@ -1,0 +1,686 @@
+{
+  "inventory_status": "Operator-selected reduced inventory; navigation-number and Plan retry-limit withdrawals preserved",
+  "expected_primary_nodes": [
+    "Node",
+    "Actor",
+    "Atom",
+    "Scope Unit",
+    "Project",
+    "Aspect",
+    "Package",
+    "Projection",
+    "Journal",
+    "Atom/(.Role := Concern)",
+    "Atom/(.Role := Analysis)",
+    "Atom/(.Role := Plan)",
+    "Atom/(.Role := Requirement)",
+    "Atom/(.Role := Method)",
+    "Atom/(.Role := Evaluation)",
+    "Atom/(.Role := Delivery)",
+    "Atom/(.Role := Operations)",
+    "Atom/(.Role := Requirement)/(.Form := Declaration)",
+    "Atom/(.Role := Requirement)/(.Form := Relation Definition)",
+    "Atom/(.Role := Operations)/Workflow",
+    "Atom/(.Role := Operations)/Step",
+    "Atom/(.Role := Operations)/Substep",
+    "Atom/(.Role := Operations)/Action",
+    "Event Record",
+    "MODEL",
+    "PROJECT STRUCTURE"
+  ],
+  "primary_count": 30,
+  "primary_declarations": [
+    {
+      "subject": "Node",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "id": "CA-R-2462",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Operations)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "id": "CA-R-2463",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Operations)/Workflow",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "id": "CA-R-2464",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Operations)/Step",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "id": "CA-R-2465",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Operations)/Substep",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "id": "CA-R-2466",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Operations)/Action",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "id": "CA-R-2467",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "id": "CA-R-2508",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Concern)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2509-CORE_META_MODEL-DECLARATION--declare-concern.md",
+      "id": "CA-R-2509",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Analysis)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2510-CORE_META_MODEL-DECLARATION--declare-analysis.md",
+      "id": "CA-R-2510",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Plan)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "id": "CA-R-2511",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Requirement)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2512-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "id": "CA-R-2512",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Method)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2513-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "id": "CA-R-2513",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Evaluation)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2514-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "id": "CA-R-2514",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Delivery)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2515-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "id": "CA-R-2515",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Requirement)/(.Form := Declaration)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2516-CORE_META_MODEL-DECLARATION--declare-requirement-declaration.md",
+      "id": "CA-R-2516",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Requirement)/(.Form := Relation Definition)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2517-CORE_META_MODEL-DECLARATION--declare-requirement-relation-definition.md",
+      "id": "CA-R-2517",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Scope Unit",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "id": "CA-R-2523",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Project",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "id": "CA-R-2524",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Package",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2525-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "id": "CA-R-2525",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Projection",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2535-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "id": "CA-R-2535",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Journal",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2536-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "id": "CA-R-2536",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Actor",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2542-CORE_META_MODEL-DECLARATION--declare-actor.md",
+      "id": "CA-R-2542",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Aspect",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2543-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "id": "CA-R-2543",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Package/Implementation",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2553-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+      "id": "CA-R-2553",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2557-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "id": "CA-R-2557",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "MODEL",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2559-CORE_META_MODEL-DECLARATION--declare-model.md",
+      "id": "CA-R-2559",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "PROJECT STRUCTURE",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2560-CORE_META_MODEL-DECLARATION--declare-project-structure.md",
+      "id": "CA-R-2560",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Named Selection",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2587-CORE_META_MODEL-DECLARATION--declare-named-selection.md",
+      "id": "CA-R-2587",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Node/Continuant",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2589-CORE_META_MODEL-DECLARATION--declare-continuant.md",
+      "id": "CA-R-2589",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Node/Occurrent",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2590-CORE_META_MODEL-DECLARATION--declare-occurrent.md",
+      "id": "CA-R-2590",
+      "version": 2,
+      "status": "Active"
+    }
+  ],
+  "missing_primary": [],
+  "extra_primary": [],
+  "property_count": 60,
+  "property_declarations": [
+    {
+      "subject": "Atom.Status",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2488-CORE_META_MODEL-DECLARATION--declare-atom-status.md",
+      "id": "CA-R-2488",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Updated At",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2489-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "id": "CA-R-2489",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Relations.contained_by",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2490-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md",
+      "id": "CA-R-2490",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Relations.contained_by.atom",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2491-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md",
+      "id": "CA-R-2491",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Relations.contained_by.scope_unit",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2492-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md",
+      "id": "CA-R-2492",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.ID",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2493-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "id": "CA-R-2493",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Role",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2494-CORE_META_MODEL-DECLARATION--declare-atom-role.md",
+      "id": "CA-R-2494",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Form",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2495-CORE_META_MODEL-DECLARATION--declare-atom-form.md",
+      "id": "CA-R-2495",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Version",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2496-CORE_META_MODEL-DECLARATION--declare-atom-version.md",
+      "id": "CA-R-2496",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Label",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2497-CORE_META_MODEL-DECLARATION--declare-atom-label.md",
+      "id": "CA-R-2497",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Content",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+      "id": "CA-R-2498",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Content.Summary",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2499-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+      "id": "CA-R-2499",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Content.Claim",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2500-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "id": "CA-R-2500",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Content.Claim Scope",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2501-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-scope.md",
+      "id": "CA-R-2501",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Content.Semantics",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2502-CORE_META_MODEL-DECLARATION--declare-atom-content-semantics.md",
+      "id": "CA-R-2502",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Content.Details",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2503-CORE_META_MODEL-DECLARATION--declare-atom-content-details.md",
+      "id": "CA-R-2503",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Tier",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2504-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+      "id": "CA-R-2504",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Tier.Label",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2505-CORE_META_MODEL-DECLARATION--declare-atom-tier-label.md",
+      "id": "CA-R-2505",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Subjects.Passive",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2506-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive.md",
+      "id": "CA-R-2506",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Relations",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2507-CORE_META_MODEL-DECLARATION--declare-atom-relations.md",
+      "id": "CA-R-2507",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Concern).Priority",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2518-CORE_META_MODEL-DECLARATION--declare-concern-priority.md",
+      "id": "CA-R-2518",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Plan).AI Agent Confidence Threshold",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2519-CORE_META_MODEL-DECLARATION--declare-plan-ai-agent-confidence-threshold.md",
+      "id": "CA-R-2519",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Plan).Work Sequence Number",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2520-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md",
+      "id": "CA-R-2520",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Operations)/Action.Execution Kind",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2521-CORE_META_MODEL-DECLARATION--declare-action-execution-kind.md",
+      "id": "CA-R-2521",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom/(.Role := Requirement)/(.Form := Relation Definition).Content.notation_for_subject",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2522-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md",
+      "id": "CA-R-2522",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Scope Unit.ID",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "id": "CA-R-2526",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Scope Unit.Name",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2527-CORE_META_MODEL-DECLARATION--declare-scope-unit-name.md",
+      "id": "CA-R-2527",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Scope Unit.Label",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2528-CORE_META_MODEL-DECLARATION--declare-scope-unit-label.md",
+      "id": "CA-R-2528",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Scope Unit.Local Order",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2529-CORE_META_MODEL-DECLARATION--declare-scope-unit-local-order.md",
+      "id": "CA-R-2529",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Scope Unit.Path",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2530-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "id": "CA-R-2530",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Scope Unit.Project Boundary Position",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2531-CORE_META_MODEL-DECLARATION--declare-scope-unit-project-boundary-position.md",
+      "id": "CA-R-2531",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Project.Settings",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "id": "CA-R-2532",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Project.Settings.Name",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2533-CORE_META_MODEL-DECLARATION--declare-project-settings-name.md",
+      "id": "CA-R-2533",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Project.Settings.Prefix",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2534-CORE_META_MODEL-DECLARATION--declare-project-settings-prefix.md",
+      "id": "CA-R-2534",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Projection.ID",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "id": "CA-R-2537",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Projection.Form",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+      "id": "CA-R-2538",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Projection.Updated At",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2539-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+      "id": "CA-R-2539",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Projection.Source.Atoms",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2540-CORE_META_MODEL-DECLARATION--declare-projection-source-atoms.md",
+      "id": "CA-R-2540",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Projection.Source.Named Selection",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2541-CORE_META_MODEL-DECLARATION--declare-projection-source-named-selection.md",
+      "id": "CA-R-2541",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Actor.Name",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2544-CORE_META_MODEL-DECLARATION--declare-actor-name.md",
+      "id": "CA-R-2544",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Subjects",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2545-CORE_META_MODEL-DECLARATION--declare-atom-subjects.md",
+      "id": "CA-R-2545",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Atom.Subjects.Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2546-CORE_META_MODEL-DECLARATION--declare-atom-subjects-active.md",
+      "id": "CA-R-2546",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Scope Unit.structural_level",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+      "id": "CA-R-2554",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Package.structural_level",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+      "id": "CA-R-2555",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.ID",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2558-CORE_META_MODEL-DECLARATION--declare-event-record-id.md",
+      "id": "CA-R-2558",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Project.Settings.AI Agent Confidence Threshold",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "id": "CA-R-2564",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.happened_at",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2568-CORE_META_MODEL-DECLARATION--declare-event-record-happened-at.md",
+      "id": "CA-R-2568",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.inserted_at",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2569-CORE_META_MODEL-DECLARATION--declare-event-record-inserted-at.md",
+      "id": "CA-R-2569",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.object_input",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2572-CORE_META_MODEL-DECLARATION--declare-event-record-object-input.md",
+      "id": "CA-R-2572",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.object_input.id",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2573-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-id.md",
+      "id": "CA-R-2573",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.object_input.version",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2574-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-version.md",
+      "id": "CA-R-2574",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.object_input.updated_at",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2575-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-updated-at.md",
+      "id": "CA-R-2575",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.object_output",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2576-CORE_META_MODEL-DECLARATION--declare-event-record-object-output.md",
+      "id": "CA-R-2576",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.object_output.id",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2577-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-id.md",
+      "id": "CA-R-2577",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.object_output.version",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2578-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-version.md",
+      "id": "CA-R-2578",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.object_output.updated_at",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2579-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-updated-at.md",
+      "id": "CA-R-2579",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.action",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2580-CORE_META_MODEL-DECLARATION--declare-event-record-action.md",
+      "id": "CA-R-2580",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.Relations",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2581-CORE_META_MODEL-DECLARATION--declare-event-record-relations.md",
+      "id": "CA-R-2581",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Event Record.Relations.HAS_EVENT_AUTHOR",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2582-CORE_META_MODEL-DECLARATION--declare-event-record-event-author.md",
+      "id": "CA-R-2582",
+      "version": 2,
+      "status": "Active"
+    },
+    {
+      "subject": "Projection.Source",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2586-CORE_META_MODEL-DECLARATION--declare-projection-source.md",
+      "id": "CA-R-2586",
+      "version": 2,
+      "status": "Active"
+    }
+  ],
+  "incomplete_property_contracts": [],
+  "limits": [
+    "Primary coverage is not full whitelist/endpoint readiness",
+    "Property inclusion/contracts still under review",
+    "Actual Operations instances deferred",
+    "No Current adoption or runtime change"
+  ],
+  "withdrawn_drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-navigational-order-number.md",
+      "review_snapshot": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/withdrawn-scope-unit-navigation-number.md",
+      "sha256": "052d962e1bd075fbd9b5aa22b5bc9c89b37305253fce8dd595c3469e99ba1172",
+      "reason": "Latest Operator decision: no Scope Unit Navigation Number; retain only for Steps and P."
+    }
+  ],
+  "latest_retention": "Continuant and Occurrent retained",
+  "status": "Current adopted selected Node Declaration inventory"
+}

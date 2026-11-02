@@ -1,25 +1,24 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Logging
-version: 17
-updated_at: 2026-10-27 19:59:24 +0400
+  active: Carrier
+  passive:
+  - Entity/Aspect/Engineering/Observability/Logging
+version: 21
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-396
-content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize Structured Production Log Records
 
-## Scope
+## Claim scope
 
 structured production log records.
 
@@ -34,5 +33,3 @@ structured production log records.
 - outcome, duration, attempt number, **and** retry disposition;
 - stable error code **and** exception class for failures; **and**
 - a concise human-readable message with sanitized diagnostic context.
-
-## Details

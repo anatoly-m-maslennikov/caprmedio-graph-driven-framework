@@ -1,0 +1,26 @@
+{
+  "status": "PASS_WITH_SEMANTIC_LIMITS",
+  "counts": {
+    "frontier": 1101,
+    "projection_files": 4,
+    "projection_017_sources": 128,
+    "journal_rows": 4,
+    "selected_primary": 30,
+    "selected_properties": 60,
+    "source_diagnostics": 345,
+    "selected_declarations_present_in_017": 90,
+    "projection_carriers_found": 16
+  },
+  "errors": [],
+  "notes": [
+    "CA-PROJ-016 filename says Instances but its named selection and content are Named Relations.",
+    "Predecessor Type/named-selection values differ from current Form/typed Named Selection references; historical identity continuity requires verified mapping or replacement disposition.",
+    "Snapshot tuple uniqueness checked among four receipt projections only; cross-Project/history uniqueness not established.",
+    "Twelve other Projection carriers retain legacy identity fields; their normalization/history has not been validated."
+  ],
+  "limits": [
+    "Bounded CFEL extraction, not full semantic validation",
+    "Legacy expressions remain observations or diagnostics; they are not admitted as additional declared Nodes",
+    "Actual Workflow, Step, Substep and Action instances remain deferred"
+  ]
+}

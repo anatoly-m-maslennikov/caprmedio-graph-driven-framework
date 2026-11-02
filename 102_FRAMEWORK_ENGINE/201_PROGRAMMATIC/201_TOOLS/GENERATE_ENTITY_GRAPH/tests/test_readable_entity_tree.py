@@ -8,11 +8,12 @@ import unittest
 
 import yaml
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path[:0] = [str(Path(__file__).resolve().parents[1]), str(Path(__file__).resolve().parents[2])]
 import readable_entity_tree as readable  # noqa: E402
 
 
 STAMP = "2026-10-15 19:00:00 +0400"
+PROJECTION = {"projection_id": "CA-PROJ-900", "named_selection": "Controlled fixture"}
 
 
 def edge(child, parent, kind="NARROWER_THAN", **fields):
@@ -64,6 +65,7 @@ def render(graph=None, provenance=None, **overrides):
         default_provenance if provenance is None else provenance,
         updated_at=overrides.get("updated_at", STAMP),
         source_selection="controlled Core fixture",
+        projection_identity=PROJECTION,
     )
 
 
@@ -82,9 +84,12 @@ class ReadableEntityTreeTests(unittest.TestCase):
         frontmatter = document.split("---\n", 2)[1]
         metadata = yaml.safe_load(frontmatter)
         self.assertEqual("Projection", metadata["artifact_form"])
-        self.assertEqual("Entities Graph", metadata["type"])
+        self.assertEqual("Map", metadata["form"])
         self.assertEqual(STAMP, metadata["updated_at"])
-        self.assertEqual(["CA-M-9001@2", "CA-R-9002@3"], metadata["sources"])
+        self.assertEqual("Named Selection//Controlled fixture", metadata["source"]["named_selection"])
+        self.assertEqual(["CA-M-9001@2", "CA-R-9002@3"], metadata["source"]["atoms"])
+        self.assertNotIn("type", metadata)
+        self.assertNotIn("sources", metadata)
         self.assertNotIn("\t", frontmatter)
         self.assertIn("controlled Core fixture", document)
         self.assertRegex(document.lower(), r"provisional|admission.*not|not.*admission")
@@ -110,7 +115,7 @@ class ReadableEntityTreeTests(unittest.TestCase):
         details = document.split("### Shared\n", 1)[1].split("\n### ", 1)[0]
         for name in ("Shared.Status", "Shared.Status: Active", "Shared.Status/Special"):
             self.assertIn(name, details)
-        for relation in ("NARROWER_THAN", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF"):
+        for relation in ("NARROWER_THAN", "IS_PROPERTY_OF", "IS_ALLOWED_VALUE_OF"):
             self.assertIn(relation, document)
         blocks = text_blocks(document)
         self.assertTrue(blocks)
@@ -152,6 +157,19 @@ class ReadableEntityTreeTests(unittest.TestCase):
         self.assertIn("Workflow/Child.Status", document)
         sections = re.findall(r"^### (.+)$", document, re.MULTILINE)
         self.assertEqual(["Primary entities", "Workflow//Daily", "Workflow/Child"], sections)
+
+    def test_containment_classification_and_value_constraints_are_visible(self):
+        from current_subject_graph import compose_current_graph
+        graph, provenance = compose_current_graph([{
+            "source": {"atom_id": "CA-R-9999", "version": 1, "path": "fixture.md"},
+            "subjects": {"governs": "Part {1+}+>{2} Whole",
+                         "depends_on": ["Part >| Category", "Part.Label:Name[Text]{1+}"]},
+        }])
+        document = render(graph, provenance)
+        self.assertIn("{2}<+{1+} Part", document)
+        self.assertIn(">| Category", document)
+        self.assertIn("Part.Label:Name[Text]{1+}", document)
+        self.assertNotIn("omitted unsupported", document)
 
     def test_generation_is_deterministic_and_does_not_mutate_inputs(self):
         graph, provenance = fixture()

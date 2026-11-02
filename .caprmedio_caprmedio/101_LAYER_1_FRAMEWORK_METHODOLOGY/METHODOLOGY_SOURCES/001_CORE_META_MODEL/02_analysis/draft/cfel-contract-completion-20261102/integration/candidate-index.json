@@ -1,0 +1,3578 @@
+{
+  "status": "PASS",
+  "candidate_count": 254,
+  "existing_identity_candidates": 196,
+  "new_identity_candidates": 58,
+  "errors": [],
+  "candidates": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-253@29-draft-PROJECT_CONFIGURATION-ENG_DECISION--place-applicable-methodology-and-its-sources.md",
+      "sha256": "c0c2bf23e08aec08c7ef413fac506f6d8af6363aaa4eb7dc6381c61b47aeb801",
+      "atom_id": "CA-D-253@29-draft",
+      "base_id": "CA-D-253",
+      "version": 29,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Place Applicable Methodology and Its Sources",
+      "active": "Projection/(.Form:=Applicable Methodology)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-266@28-draft-CORE_META_MODEL-ENG_DECISION--prohibit-persisting-derived-containment.md",
+      "sha256": "3a27a0b1d0a6d3cff61f5d9969f1e592b422b83b837909f5d480ea08d4f72fbb",
+      "atom_id": "CA-D-266@28-draft",
+      "base_id": "CA-D-266",
+      "version": 28,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Prohibit Persisting Derived Containment",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-268@29-draft-CORE_META_MODEL-ENG_DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "sha256": "6386266cfa8e2597f2e7e8b4042fc0e57c9d040c1ee571a70ed94c48db9b8614",
+      "atom_id": "CA-D-268@29-draft",
+      "base_id": "CA-D-268",
+      "version": 29,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Serialize Authored Direct Relations on Their Owning Atoms",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-305@31-draft-PROJECT_CONFIGURATION-ENG_DECISION--carry-projected-atoms-without-new-identity.md",
+      "sha256": "2f986d2ed24c82a0cbbcb7308c8c39d4b35949fe28dd484e75791f5a5149301f",
+      "atom_id": "CA-D-305@31-draft",
+      "base_id": "CA-D-305",
+      "version": 31,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Carry Projected Atoms without New Identity",
+      "active": "Projection/(.Form := Applicable Methodology)",
+      "lanes": [
+        "projection-members"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-306@29-draft-PROJECT_CONFIGURATION-ENG_DECISION--materialize-applicable-methodology-as-projected-atom-files.md",
+      "sha256": "ab3747fe440c8bc76e4e4829a7f88860521eb46f13bc32dcf1943733ef6b7010",
+      "atom_id": "CA-D-306@29-draft",
+      "base_id": "CA-D-306",
+      "version": 29,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Materialize Applicable Methodology as Projected Atom Files",
+      "active": "Projection/(.Form:=Applicable Methodology)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-307@27-draft-PROJECT_CONFIGURATION-ENG_DECISION--prohibit-persistent-applicable-methodology-subject-indexes.md",
+      "sha256": "9856d998ac0c846f774f9a3ab984f0dc2770fc5f2b3ca79973b324d111ffea64",
+      "atom_id": "CA-D-307@27-draft",
+      "base_id": "CA-D-307",
+      "version": 27,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Prohibit Persistent Applicable Methodology Subject Indexes",
+      "active": "Projection/(.Form:=Applicable Methodology)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-333@33-draft-CORE_META_MODEL-ENG_DECISION--serialize-scope-unit-graph-projection-generation-metadata.md",
+      "sha256": "83adddbd1f30442bcda334abacd57fcff3193ec81b6afd6aba7ecc973b430229",
+      "atom_id": "CA-D-333@33-draft",
+      "base_id": "CA-D-333",
+      "version": 33,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Serialize Scope Unit Graph Projection Generation Metadata",
+      "active": "Projection/(.Form:=Scope Unit Graph)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/journal-workflow-cleanup/07_delivery/CA-D-338@28-draft-CORE_META_MODEL-ENG_DECISION--serialize-completed-projection-rebuild-results.md",
+      "sha256": "00f633ecde4a821f078ebea8a217633db00276924d4248534f5fd8ac5ae77b57",
+      "atom_id": "CA-D-338@28-draft",
+      "base_id": "CA-D-338",
+      "version": 28,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Serialize Completed Projection Rebuild Results",
+      "active": "Carrier/File.Main Content",
+      "lanes": [
+        "journal-workflow"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/journal-workflow-cleanup/07_delivery/CA-D-340@32-draft-CORE_META_MODEL-ENG_DECISION--serialize-work-journal-event-properties.md",
+      "sha256": "1fe9d63a1e2c9d183ef56d284ac91f7adce6b7feb56bd6f8e7e6bdfce530b495",
+      "atom_id": "CA-D-340@32-draft",
+      "base_id": "CA-D-340",
+      "version": 32,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Serialize Work Journal Event Properties",
+      "active": "Carrier/File.Main Content",
+      "lanes": [
+        "journal-workflow"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-346@33-draft-CORE_META_MODEL-ENG_DECISION--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "sha256": "bcd5f5baf282aa66193345751eb0ff76ff4a056b2d564dc642150d1bd23284ac",
+      "atom_id": "CA-D-346@33-draft",
+      "base_id": "CA-D-346",
+      "version": 33,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Deliver CCE Canonical Signatures as External Report Projections",
+      "active": "Projection/(.Form:=Canonical Signature)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-347@28-draft-CORE_META_MODEL-ENG_DECISION--deliver-canonical-scope-signatures-as-external-report-projections.md",
+      "sha256": "d37b2eebfcac5cc17d42e855e53b693f20aca745455fd7501c82e4f84bbcabc2",
+      "atom_id": "CA-D-347@28-draft",
+      "base_id": "CA-D-347",
+      "version": 28,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Deliver Canonical Scope Signatures as External Report Projections",
+      "active": "Projection/(.Form:=Canonical Scope Signature)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-376@27-draft-CORE_META_MODEL-ENG_DECISION--serialize-the-project-atom-prefix.md",
+      "sha256": "c67a789e4792ead006d9a889dce6ee4c245c9d87170b05504e322992ee69382b",
+      "atom_id": "CA-D-376@27-draft",
+      "base_id": "CA-D-376",
+      "version": 27,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Serialize the Project Atom prefix",
+      "active": "Project.Settings.Prefix",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-397@25-draft-PROJECT_CONFIGURATION-ENG_DECISION--register-caprmedio-type-prefixes.md",
+      "sha256": "b45841f7a1c045587c879f00a966475dd105055fdd874d21f750aad2e0bce530",
+      "atom_id": "CA-D-397@25-draft",
+      "base_id": "CA-D-397",
+      "version": 25,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Register CAPRMEDIO Type prefixes",
+      "active": "Projection.Form",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/journal-workflow-cleanup/07_delivery/CA-D-435@24-draft-PROJECT_CONFIGURATION-ENG_DECISION--serialize-atom-replacement-event-references.md",
+      "sha256": "1fd03f7b55fefeab8d5a8880e1302d1f475f63423f3730323c9edc3823bd8204",
+      "atom_id": "CA-D-435@24-draft",
+      "base_id": "CA-D-435",
+      "version": 24,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Serialize Atom replacement event references",
+      "active": "Carrier/File.Main Content",
+      "lanes": [
+        "journal-workflow"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-467@25-draft-CORE_META_MODEL-ENG_DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "sha256": "d87d14c0c1cfa4dc55f6a167596e64aba20cb34170736daaa58b5bf97d207acc",
+      "atom_id": "CA-D-467@25-draft",
+      "base_id": "CA-D-467",
+      "version": 25,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Store Workflow graphs **and** Steps in separate carriers",
+      "active": "Atom/(.Role:=Operations)/Workflow",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-471@23-draft-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-blocking.md",
+      "sha256": "f590be272016f5ba3e51ce5563aa577aab10d3a22746648d7b56cb541577acec",
+      "atom_id": "CA-D-471@23-draft",
+      "base_id": "CA-D-471",
+      "version": 23,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Serialize explicit Plan blocking",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-472@26-draft-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "sha256": "ab64cf59c1695dd82c4afe287f8c7062d3b0b26d4275573edd3871aa7e4156e8",
+      "atom_id": "CA-D-472@26-draft",
+      "base_id": "CA-D-472",
+      "version": 26,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Serialize explicit Plan confidence overrides",
+      "active": "Atom/(.Role:=Plan).AI Agent Confidence Threshold",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-565@19-draft-CORE_META_MODEL-ENG_DECISION--bind-new-archived-revision-markdown-carrier.md",
+      "sha256": "4d49cbe0dcfb05d0de5570425dc54a1e867ed89d25ac9d6764cf97d3d4e5bf94",
+      "atom_id": "CA-D-565@19-draft",
+      "base_id": "CA-D-565",
+      "version": 19,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Bind new archived Revision Markdown Carrier",
+      "active": "Atom.Status:Archived",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-570@23-draft-CORE_META_MODEL-ENG_DECISION--serialize-draft-revision-lineage.md",
+      "sha256": "272b0e9e723f2d896d3e55f94a7420b537f64a3431092c72d071c2329442d39b",
+      "atom_id": "CA-D-570@23-draft",
+      "base_id": "CA-D-570",
+      "version": 23,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Serialize Draft Revision Lineage",
+      "active": "Atom.Status:Draft",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-634@22-draft-CORE_META_MODEL-ENG_DECISION--deliver-readable-entities-graph-trees-as-markdown.md",
+      "sha256": "7e921f8dd4c520368d8bef97ee0298269fdd40bdb29ff472b44137126d5683fd",
+      "atom_id": "CA-D-634@22-draft",
+      "base_id": "CA-D-634",
+      "version": 22,
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Deliver readable Entities Graph trees as Markdown",
+      "active": "Projection/(.Form:=Entities Graph)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/cfel-contract-completion-20261102/relation-consumers/CA-D-662@3-draft-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+      "sha256": "936bebd4f8420b307a3c7a8c39a1e22fcec5aa7abce663ef10277f04afb87963",
+      "atom_id": "CA-D-662@3-draft",
+      "base_id": "CA-D-662",
+      "version": 3,
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "summary": "Encode Node Declarations in YAML",
+      "active": "Atom/(.Role := Requirement)/(.Form := Declaration)",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/relation-consumers/CA-E-383@42-draft-CORE_META_MODEL-POLICY--reject-invalid-subject-expressions.md",
+      "sha256": "60462016417efb3eb6d2adc8fac6a809e8d18f41132384ef37b45a2ea3eabcba",
+      "atom_id": "CA-E-383@42-draft",
+      "base_id": "CA-E-383",
+      "version": 42,
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Reject Invalid Subject Expressions",
+      "active": "Entity",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/relation-consumers/CA-E-402@32-draft-CORE_META_MODEL-POLICY--reject-invalid-claim-value-sets.md",
+      "sha256": "73c0fd12b9a8a98e0997899a4f125de66191e11f392c23180dae21fbcb4f9a67",
+      "atom_id": "CA-E-402@32-draft",
+      "base_id": "CA-E-402",
+      "version": 32,
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Reject Invalid Claim Value Sets",
+      "active": "Atom.Content",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/relation-consumers/CA-E-403@35-draft-CORE_META_MODEL-POLICY--report-exact-claim-value-set-consolidation-candidates.md",
+      "sha256": "f6e7fda02fcdde2584b0f539393856a1bc9a739df9a87a7547982e8202758c08",
+      "atom_id": "CA-E-403@35-draft",
+      "base_id": "CA-E-403",
+      "version": 35,
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Report Exact Claim Value-Set Consolidation Candidates",
+      "active": "Atom.Content",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-436@27-draft-POLICY--evaluate-graph-of-graphs-connectivity.md",
+      "sha256": "e98e8b6ac7a8aa18d6613888c9a1b0e0e69682e76737d67b3c283fcde52464b2",
+      "atom_id": "CA-E-436@27-draft",
+      "base_id": "CA-E-436",
+      "version": 27,
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Evaluate graph-of-graphs connectivity",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subject-supplement"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-438@28-draft-POLICY--evaluate-implementation-mode-conformance.md",
+      "sha256": "c079e926cd6a1d1f3bda307cbbdd9138c999e0c88bca35b1c59c4418c625a9bd",
+      "atom_id": "CA-E-438@28-draft",
+      "base_id": "CA-E-438",
+      "version": 28,
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Evaluate implementation mode conformance",
+      "active": "Package/Implementation",
+      "lanes": [
+        "shared-subject-overlays"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/relation-consumers/CA-E-449@43-draft-CORE_META_MODEL-POLICY--validate-entities-graph.md",
+      "sha256": "d29f7663989aae2a9c0002c95700cfecb7506d6794dd21a0c982548df83c94a6",
+      "atom_id": "CA-E-449@43-draft",
+      "base_id": "CA-E-449",
+      "version": 43,
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Validate Entities Graph",
+      "active": "Entity/Object/Continuant/Projection/(.Type: Entities Graph)",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/journal-workflow-cleanup/06_evaluation/CA-E-462@32-draft-CORE_META_MODEL-POLICY--validate-atom-replacement-event-evidence.md",
+      "sha256": "c8da544b51a2934e3385ac9286138079eb12fc87f048c5d5e76812041639c4de",
+      "atom_id": "CA-E-462@32-draft",
+      "base_id": "CA-E-462",
+      "version": 32,
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Validate Atom replacement event evidence",
+      "active": "Event Record",
+      "lanes": [
+        "journal-workflow"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/journal-workflow-cleanup/06_evaluation/CA-E-465@24-draft-PROJECT_CONFIGURATION-EVAL_CASE--validate-replacement-event-schema-encoding.md",
+      "sha256": "656f181eb7aa25a53f1c79f07d52ac68fac2783dc728d13be1677a3c059ba839",
+      "atom_id": "CA-E-465@24-draft",
+      "base_id": "CA-E-465",
+      "version": 24,
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "summary": "Validate replacement Event schema encoding",
+      "active": "Carrier/File.Main Content",
+      "lanes": [
+        "journal-workflow"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-486@22-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+      "sha256": "e91295575a5a195509c4675fd893ed7f7ad3f72269f14daf99000eaf5179057f",
+      "atom_id": "CA-E-486@22-draft",
+      "base_id": "CA-E-486",
+      "version": 22,
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "summary": "Validate Workflow Steps and Runs",
+      "active": "Atom/(.Role:=Operations)/Workflow",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-489@22-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-execution-and-handoff-definitions.md",
+      "sha256": "d5d5f70f20c7332820c922e8833dfd8db5407113a66ad4ab8e01fd430aa9dd30",
+      "atom_id": "CA-E-489@22-draft",
+      "base_id": "CA-E-489",
+      "version": 22,
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "summary": "Validate Workflow execution and handoff definitions",
+      "active": "Atom/(.Role:=Operations)/Workflow",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-490@22-draft-CORE_META_MODEL-EVAL_CASE--validate-lifecycle-workflow-adaptability.md",
+      "sha256": "b16fb7dc99116b18f5d1e8df2ce786f6e6958565997797dad1b2fac73fa7b491",
+      "atom_id": "CA-E-490@22-draft",
+      "base_id": "CA-E-490",
+      "version": 22,
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "summary": "Validate lifecycle Workflow adaptability",
+      "active": "Atom/(.Role:=Operations)/Workflow",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-491@24-draft-PROJECT_CONFIGURATION-EVAL_CASE--validate-update-to-replacement-routing.md",
+      "sha256": "daf18af68143235ba7d92fece406697264e486cf443c2ef503ca5c6fb32245ac",
+      "atom_id": "CA-E-491@24-draft",
+      "base_id": "CA-E-491",
+      "version": 24,
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "summary": "Validate update-to-replacement routing",
+      "active": "Atom/(.Role:=Operations)/Workflow",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/journal-workflow-cleanup/06_evaluation/CA-E-496@21-draft-CORE_META_MODEL-EVAL_CASE--validate-nested-tool-call-evidence.md",
+      "sha256": "0fac4db4d535a84bc7dc4d55b1997c6e490ca864706f56eb2a801e5ca4b72f4a",
+      "atom_id": "CA-E-496@21-draft",
+      "base_id": "CA-E-496",
+      "version": 21,
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "summary": "Validate nested Tool-call evidence",
+      "active": "Carrier/File.Main Content",
+      "lanes": [
+        "journal-workflow"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-500@25-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "sha256": "0f581e65d5faac018d26b408188a239d4d29f6957f552fac5f4ba0c903d235a5",
+      "atom_id": "CA-E-500@25-draft",
+      "base_id": "CA-E-500",
+      "version": 25,
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "summary": "Validate Workflow scheme and Step carrier separation",
+      "active": "Atom/(.Role:=Operations)/Workflow",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-620@32-draft-CORE_META_MODEL-EVAL_CASE--relation-vocabulary-interpretability.md",
+      "sha256": "8675c62aa7e434723419da870a54d7eafa12888cf9677b476ad17c91ce7ec6b5",
+      "atom_id": "CA-E-620@32-draft",
+      "base_id": "CA-E-620",
+      "version": 32,
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "summary": "Relation-vocabulary interpretability",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-622@50-draft-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "8b602da1da9700f73884525811de597252248d747fba44848a52477bfb511b83",
+      "atom_id": "CA-E-622@50-draft",
+      "base_id": "CA-E-622",
+      "version": 50,
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "summary": "Canonical relation validity",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-658@10-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "sha256": "fef69e2c9e12143aa5644f2107ffbd047dec01448f1813786df7e27d3a573e6f",
+      "atom_id": "CA-E-658@10-draft",
+      "base_id": "CA-E-658",
+      "version": 10,
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "summary": "Validate Atom Content Role classification",
+      "active": "Atom.Role",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-661@3-draft-CORE_META_MODEL-EVAL-POLICY--validate-tier-zero-content-role-semantics.md",
+      "sha256": "f6a5908a0e7c43de7341210783719e10e3f274c389e9e99ed2051d87dfb8f5e1",
+      "atom_id": "CA-E-661@3-draft",
+      "base_id": "CA-E-661",
+      "version": 3,
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Validate Tier Zero Content-role semantics",
+      "active": "Atom.Role",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-120@40-draft-CORE_META_MODEL--compile-the-direct-relation-registry.md",
+      "sha256": "6cc0e499ce1bd45dc27e292df590e1cc35d6e2609b58bafade915ec16ee573e2",
+      "atom_id": "CA-M-120@40-draft",
+      "base_id": "CA-M-120",
+      "version": 40,
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Compile the direct-relation registry",
+      "active": "Projection/(.Form:=Direct Relation Registry)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-225@32-draft-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--retrieve-applicable-methodology-mechanically.md",
+      "sha256": "45b001f8ea2b54f561b203746c7e457c388ebf4dc4fe301885baa2e177bc121d",
+      "atom_id": "CA-M-225@32-draft",
+      "base_id": "CA-M-225",
+      "version": 32,
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Retrieve Applicable Methodology Mechanically",
+      "active": "Projection/(.Form:=Applicable Methodology)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/cfel-contract-completion-20261102/relation-consumers/CA-M-237@32-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--author-claim-value-sets.md",
+      "sha256": "c70a1f3c25e884546162753ecc13deb8c1e5fe80ab0243605dd53b248ee5ec17",
+      "atom_id": "CA-M-237@32-draft",
+      "base_id": "CA-M-237",
+      "version": 32,
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Author Claim Value Sets",
+      "active": "Atom.Content",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-261@17-draft-PROJECT-IMPLEMENTATION_METHOD--rebuild-implementation-from-its-governing-specification.md",
+      "sha256": "a9b97b1f740923dd985a26bf5b2d01b29acde47db3a8e3d66b293548793c57f2",
+      "atom_id": "CA-M-261@17-draft",
+      "base_id": "CA-M-261",
+      "version": 17,
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Rebuild Implementation from its governing specification",
+      "active": "Package/Implementation",
+      "lanes": [
+        "shared-subject-overlays"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-262@26-draft-IMPLEMENTATION_METHOD--preserve-sufficient-authority-for-reconstruction.md",
+      "sha256": "dae404eee2b287eefc261640956eaf55d9a1a26eb83fca2ad6966b1eb97d2eee",
+      "atom_id": "CA-M-262@26-draft",
+      "base_id": "CA-M-262",
+      "version": 26,
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Preserve sufficient authority for reconstruction",
+      "active": "Package/Implementation",
+      "lanes": [
+        "shared-subject-overlays"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-287@24-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--exclude-activity-labels-from-content-role-names.md",
+      "sha256": "308e995ce42ac9cb77c41b6786ee28105978cc17153b6748780097051fb0dda1",
+      "atom_id": "CA-M-287@24-draft",
+      "base_id": "CA-M-287",
+      "version": 24,
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Exclude Activity Labels from Content Role Names",
+      "active": "Atom.Role",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-303@25-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--declare-update-routing-in-the-calling-workflow.md",
+      "sha256": "074b32e8c97173554c569c49bce263fd7f41d4017872325ba4f66884ffb61a13",
+      "atom_id": "CA-M-303@25-draft",
+      "base_id": "CA-M-303",
+      "version": 25,
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Declare update routing **in** the calling Workflow",
+      "active": "Atom/(.Role:=Operations)/Workflow",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-305@21-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-workflow-schemes-using-step-references.md",
+      "sha256": "e18edbac0d640229a8a1eea77a21de3246399052cd8bc04522bc3a052f6704ca",
+      "atom_id": "CA-M-305@21-draft",
+      "base_id": "CA-M-305",
+      "version": 21,
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Write Workflow schemes using Step references",
+      "active": "Atom/(.Role:=Operations)/Workflow",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-307@25-draft-CORE_META_MODEL--define-content-role-specific-cce-profiles.md",
+      "sha256": "af31ecb851c59a4a294c408daacc6e3a895dd0a4a1ed25d2d37385b8394df86b",
+      "atom_id": "CA-M-307@25-draft",
+      "base_id": "CA-M-307",
+      "version": 25,
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Define Content-role-specific CCE Profiles",
+      "active": "Atom.Role",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/cfel-contract-completion-20261102/relation-consumers/CA-M-385@23-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md",
+      "sha256": "56994fe30fdb1f7633226ffd29732cb4214fbbca8e3c6515a2385603a0f7f385",
+      "atom_id": "CA-M-385@23-draft",
+      "base_id": "CA-M-385",
+      "version": 23,
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Generate readable Entities Graph trees programmatically",
+      "active": "Entity/Object/Continuant/Projection/(.Type: Entities Graph)",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1016@29-draft-CORE_META_MODEL-DECLARATION--register-rationale-for-relation.md",
+      "sha256": "02b8bc855c01de27716269bd6a80c2d639a7c79853ab2b4554d7d5ac03483ff2",
+      "atom_id": "CA-R-1016@29-draft",
+      "base_id": "CA-R-1016",
+      "version": 29,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Register rationale_for relation",
+      "active": "CFEL <+ Relation//rationale_for",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1017@29-draft-CORE_META_MODEL-DECLARATION--register-method-for-relation.md",
+      "sha256": "64e8db4eee6c1ab1d8aa37a4c4e50a8c026bc10b9c1d6681336e957734b0d57b",
+      "atom_id": "CA-R-1017@29-draft",
+      "base_id": "CA-R-1017",
+      "version": 29,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Register method_for relation",
+      "active": "CFEL <+ Relation//method_for",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1018@36-draft-CORE_META_MODEL-DECLARATION--register-evaluation-targets.md",
+      "sha256": "ccb1245163badad9583e50843c72c011c4ffd71a575910f05cdc00fcf7180769",
+      "atom_id": "CA-R-1018@36-draft",
+      "base_id": "CA-R-1018",
+      "version": 36,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Register Evaluation targets",
+      "active": "CFEL <+ Relation//evaluation_for",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1019@28-draft-CORE_META_MODEL-DECLARATION--register-delivery-for-relation.md",
+      "sha256": "39067be2e5d8393abfcdb46be6a6e677ab920acc2a80a2e7b483a2e0d69a1453",
+      "atom_id": "CA-R-1019@28-draft",
+      "base_id": "CA-R-1019",
+      "version": 28,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Register delivery_for relation",
+      "active": "CFEL <+ Relation//delivery_for",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1020@28-draft-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "sha256": "24a0ebf95c35b41bd6b07c207ae0020b97412cdd7c1c5d56bfa161cc3c74ba96",
+      "atom_id": "CA-R-1020@28-draft",
+      "base_id": "CA-R-1020",
+      "version": 28,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Register implementation_of relation",
+      "active": "CFEL <+ Relation//implementation_of",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1021@28-draft-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "sha256": "fc781f6eae72de3efaa8161c12fad69401f448430cbeee14de5e7f16b6301857",
+      "atom_id": "CA-R-1021@28-draft",
+      "base_id": "CA-R-1021",
+      "version": 28,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Register evidence_for relation",
+      "active": "CFEL <+ Relation//evidence_for",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1022@30-draft-CORE_META_MODEL-DECLARATION--register-concern-about-relation.md",
+      "sha256": "8eb9064ce5fbf8484744ff81972db8dcbd67909be311a1f476c29a561fc66977",
+      "atom_id": "CA-R-1022@30-draft",
+      "base_id": "CA-R-1022",
+      "version": 30,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Register concern_about relation",
+      "active": "CFEL <+ Relation//concern_about",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1023@25-draft-CORE_META_MODEL--permit-distinct-direct-relations-on-one-atom.md",
+      "sha256": "df3b7efe7de30256c17a45bca98363e74361df1f1cda23b8bfdd19a8877907a1",
+      "atom_id": "CA-R-1023@25-draft",
+      "base_id": "CA-R-1023",
+      "version": 25,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Permit distinct direct relations on one Atom",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1024@26-draft-CORE_META_MODEL--prohibit-transitive-meaning-for-direct-relations.md",
+      "sha256": "9d25a21bdffac77b66747aeb066ea9a43167840361438047f2648e3b0ad2e4d0",
+      "atom_id": "CA-R-1024@26-draft",
+      "base_id": "CA-R-1024",
+      "version": 26,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Prohibit transitive meaning for direct relations",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1025@26-draft-CORE_META_MODEL--require-authority-for-new-relation-meanings.md",
+      "sha256": "a5d2b8967c85fc9ba09e1ebb4d284fbfcd10a03d18534623b76206957ac0b6e7",
+      "atom_id": "CA-R-1025@26-draft",
+      "base_id": "CA-R-1025",
+      "version": 26,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Require authority for new relation meanings",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1026@31-draft-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md",
+      "sha256": "0cbb19699b86b32a1e87bd71c1943de5c910d5add2dc4989c35520e4bca7afe2",
+      "atom_id": "CA-R-1026@31-draft",
+      "base_id": "CA-R-1026",
+      "version": 31,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Register depends_on and required_by relation pair",
+      "active": "CFEL <+ Relation//depends_on",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1027@27-draft-CORE_META_MODEL--register-implementation-of-and-implemented-by-relation-pair.md",
+      "sha256": "f490acdbfca79588ecf68381ea93b2594964596cb70fe44d1eaa234c8831ca16",
+      "atom_id": "CA-R-1027@27-draft",
+      "base_id": "CA-R-1027",
+      "version": 27,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Register implementation_of **and** implemented_by relation pair",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1029@25-draft-CORE_META_MODEL--record-lineage-impact-disposition-context.md",
+      "sha256": "aa044fcd351a6c422eefd739e213054187439296939ee7605102b2980645a769",
+      "atom_id": "CA-R-1029@25-draft",
+      "base_id": "CA-R-1029",
+      "version": 25,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Record Lineage Impact disposition context",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1030@25-draft-CORE_META_MODEL--prohibit-silent-non-compatible-impact-dispositions.md",
+      "sha256": "64310a8a4137a845138fc96f3225031b40372c746a79609c2288acb7121e2950",
+      "atom_id": "CA-R-1030@25-draft",
+      "base_id": "CA-R-1030",
+      "version": 25,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Prohibit silent non-compatible Impact dispositions",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1032@26-draft-CORE_META_MODEL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+      "sha256": "42efd6d3fa3a0af7bbc6dd765c7358febbf4caf73d41bcf67f930815e0d8b9ee",
+      "atom_id": "CA-R-1032@26-draft",
+      "base_id": "CA-R-1032",
+      "version": 26,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Block dependent gates until Lineage Impact reaches a fixed point",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1038@26-draft-CORE_META_MODEL-RULE--permit-multiple-child-rows-in-one-lineage-impact-analysis.md",
+      "sha256": "c98d439284f76913158f66f56c1a04e9e3677c03fd4f6a7ed78f6d916632e6ef",
+      "atom_id": "CA-R-1038@26-draft",
+      "base_id": "CA-R-1038",
+      "version": 26,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Permit multiple child rows in one Lineage Impact Analysis",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1039@26-draft-CORE_META_MODEL--preserve-authority-outside-lineage-impact-analysis.md",
+      "sha256": "9b13651e46aebef977b30acfae5a806f66c8d9c4402d58d969a3da61848c6697",
+      "atom_id": "CA-R-1039@26-draft",
+      "base_id": "CA-R-1039",
+      "version": 26,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Preserve authority outside Lineage Impact Analysis",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1040@29-draft-CORE_META_MODEL--reject-authored-inverse-relations.md",
+      "sha256": "abf49b9efdcdb2d47c34eb4129c77c2407dc86fb9b32c5c0771f0cbcc612cfd6",
+      "atom_id": "CA-R-1040@29-draft",
+      "base_id": "CA-R-1040",
+      "version": 29,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Reject authored inverse relations",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-117@30-draft-CORE_META_MODEL--store-each-semantic-relation-once.md",
+      "sha256": "0536ec80337ebbb144ff414e79391dde7164360db4faecbbd59bdefc00c2d417",
+      "atom_id": "CA-R-117@30-draft",
+      "base_id": "CA-R-117",
+      "version": 30,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Store each semantic relation once",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-118@34-draft-CORE_META_MODEL--let-the-dependent-atom-own-the-relation.md",
+      "sha256": "a322c8463fad382fb89d3428204b261d0f2ddd8bb73a752a2896ffb28e3115b5",
+      "atom_id": "CA-R-118@34-draft",
+      "base_id": "CA-R-118",
+      "version": 34,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Let the dependent Atom own the relation",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1199@35-draft-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md",
+      "sha256": "fd1607fc516d06e3aad3033b141f99f5d019a3e931f4d0158edd8418e3aca93a",
+      "atom_id": "CA-R-1199@35-draft",
+      "base_id": "CA-R-1199",
+      "version": 35,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define GOVERNS Subject Relation Kind",
+      "active": "CFEL <+ Relation//GOVERNS",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1200@38-draft-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md",
+      "sha256": "276ee93b3b15396b0f6938c9ffcab67013492616bf117b818c728ee559b7c6fc",
+      "atom_id": "CA-R-1200@38-draft",
+      "base_id": "CA-R-1200",
+      "version": 38,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define DEPENDS_ON Subject Relation Kind",
+      "active": "CFEL <+ Relation//DEPENDS_ON",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-121@30-draft-CORE_META_MODEL--store-only-direct-semantic-relations.md",
+      "sha256": "82ce18c7c23d24be24eb6b8b0619a5a202e14906c832daee6408bf73a9dfae93",
+      "atom_id": "CA-R-121@30-draft",
+      "base_id": "CA-R-121",
+      "version": 30,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Store only direct semantic relations",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1213@39-draft-PROJECT_CONFIGURATION-RULE--qualified-form-1213.md",
+      "sha256": "2d86aa703b37b235415ced1c473172f8666e2d651b204ed066b7cbc9af81adde",
+      "atom_id": "CA-R-1213@39-draft",
+      "base_id": "CA-R-1213",
+      "version": 39,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define Applicable Methodology as a Compiled Projection",
+      "active": "Projection/(.Form := Applicable Methodology)",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1245@27-draft-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.md",
+      "sha256": "5a8075422e743691bdf39149306066b5c969dacc036d1ef7054e3e8ee21904fd",
+      "atom_id": "CA-R-1245@27-draft",
+      "base_id": "CA-R-1245",
+      "version": 27,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Qualify Allowed Values with Colon",
+      "active": "Entity",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1246@33-draft-CORE_META_MODEL-RULE--keep-relation-vocabularies-graph-specific.md",
+      "sha256": "29b0ea9546c2cf00370ad60cde4afa3989c7705285f92ae76d61a523172237dd",
+      "atom_id": "CA-R-1246@33-draft",
+      "base_id": "CA-R-1246",
+      "version": 33,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Keep relation vocabularies graph-specific",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1280@33-draft-CORE_META_MODEL-RULE--reference-every-prerequisite-subject-through-depends-on.md",
+      "sha256": "5ac19ab4ace733ea5668a8ad695a863bed1457fc7a0a50f02c831a2ff7198e59",
+      "atom_id": "CA-R-1280@33-draft",
+      "base_id": "CA-R-1280",
+      "version": 33,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Reference Every Prerequisite Subject through DEPENDS_ON",
+      "active": "CFEL <+ Relation//DEPENDS_ON",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1283@29-draft-CORE_META_MODEL-RULE--register-content-role-values.md",
+      "sha256": "b4f7477f295e6d4b01d84f768a95b42a40fbb589f0812cb345425523ed3a8c79",
+      "atom_id": "CA-R-1283@29-draft",
+      "base_id": "CA-R-1283",
+      "version": 29,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Register Content Role Values",
+      "active": "Atom.Role",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1314@33-draft-PROJECT_CONFIGURATION-RULE--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+      "sha256": "85ef592d4ea7a8adcfb08a15bfa2eaca894f1905fd405575b932ba00c7bfd420",
+      "atom_id": "CA-R-1314@33-draft",
+      "base_id": "CA-R-1314",
+      "version": 33,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Preserve Source Atom Revision Identity in Applicable Methodology",
+      "active": "Projection/(.Form := Applicable Methodology)",
+      "lanes": [
+        "projection-members"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1316@31-draft-PROJECT_CONFIGURATION-RULE--forbid-claim-synthesis-and-merge-during-compilation.md",
+      "sha256": "4531aaf10d7a4deb733f67908d6c17d9e21017aa23c12c24057be39dabc12dfa",
+      "atom_id": "CA-R-1316@31-draft",
+      "base_id": "CA-R-1316",
+      "version": 31,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Forbid Claim Synthesis and Merge During Compilation",
+      "active": "Projection/(.Form:=Applicable Methodology)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1317@30-draft-PROJECT_CONFIGURATION-RULE--fail-closed-on-unresolved-methodology-conflicts.md",
+      "sha256": "008052f3738b0f2263a6a2d9e76ec7a24f939a3fac62efab30fcc9aa7d4b8bcc",
+      "atom_id": "CA-R-1317@30-draft",
+      "base_id": "CA-R-1317",
+      "version": 30,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Fail Closed on Unresolved Methodology Conflicts",
+      "active": "Projection/(.Form:=Applicable Methodology)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/consumer-patches/CA-R-1321@34-draft-CORE_META_MODEL--define-subject-expression.md",
+      "sha256": "8bb6cf3f52741e1931603bcdf56dc5568cc4f055f370c52e50115f039bc35119",
+      "atom_id": "CA-R-1321@34-draft",
+      "base_id": "CA-R-1321",
+      "version": 34,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define Subject Expression",
+      "active": "CFEL",
+      "lanes": [
+        "cfel-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1345@28-draft-CORE_META_MODEL-RULE--keep-the-narrower-than-graph-acyclic.md",
+      "sha256": "553047207a8f1af3e3f5583dc4e59662731aa421b6a39aada6c1041f2f896f9a",
+      "atom_id": "CA-R-1345@28-draft",
+      "base_id": "CA-R-1345",
+      "version": 28,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Keep the NARROWER_THAN graph acyclic",
+      "active": "CFEL <+ Relation//NARROWER_THAN",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1346@27-draft-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+      "sha256": "7f81b7207b494ebb6ec2e934cf1cf7caf9a28dab4e63e96945b45b9cdfaed2a7",
+      "atom_id": "CA-R-1346@27-draft",
+      "base_id": "CA-R-1346",
+      "version": 27,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Permit reused Terms **in** qualified value domains",
+      "active": "CFEL<+Operator//AllowedValue",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1358@34-draft-CORE_META_MODEL--consolidate-single-value-claims-as-one-value-set-claim.md",
+      "sha256": "45500fe63e203c72e6bc75f0ba74f571162523c59772aae05294f80a005789bb",
+      "atom_id": "CA-R-1358@34-draft",
+      "base_id": "CA-R-1358",
+      "version": 34,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Consolidate Single-Value Claims as One Value-Set Claim",
+      "active": "Atom.Content",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1359@29-draft-CORE_META_MODEL-DEFINITION--define-claim-value-set.md",
+      "sha256": "4f068671757474d8efe0f18eff2b4daebd39b629c65805fdfaa12de1a62d8a0d",
+      "atom_id": "CA-R-1359@29-draft",
+      "base_id": "CA-R-1359",
+      "version": 29,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define Claim Value Set",
+      "active": "Atom.Content",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1373@28-draft-PROJECT_CONFIGURATION-RULE--define-applicable-methodology-conflict.md",
+      "sha256": "0c24fef91e15b7e0e592f647cba282402fb3564dce9a692d5d793264b0cbccb6",
+      "atom_id": "CA-R-1373@28-draft",
+      "base_id": "CA-R-1373",
+      "version": 28,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define Applicable Methodology Conflict",
+      "active": "Projection/(.Form := Applicable Methodology)",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1405@28-draft-CORE_META_MODEL--register-core-artifact-type-values.md",
+      "sha256": "c95f9fd06ffdf351f77de726e27068cd2146bdf321d1527343b5dbccad040f9f",
+      "atom_id": "CA-R-1405@28-draft",
+      "base_id": "CA-R-1405",
+      "version": 28,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Register Core Artifact Type Values",
+      "active": "Entity",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1415@27-draft-CORE_META_MODEL--give-every-atom-revision-one-version.md",
+      "sha256": "fee98129a74b421dca53587376d4e55e45913b20a15f99b57fe8ae37870dce03",
+      "atom_id": "CA-R-1415@27-draft",
+      "base_id": "CA-R-1415",
+      "version": 27,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Give Every Atom Revision One Version",
+      "active": "Atom.Version",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1419@22-draft-CORE_META_MODEL--restrict-archived-status-to-non-current-revisions.md",
+      "sha256": "e0c1a81e14c48e447b896c80a286634faa5a6d11fba6c9db638be988262e6272",
+      "atom_id": "CA-R-1419@22-draft",
+      "base_id": "CA-R-1419",
+      "version": 22,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Restrict Archived Status to Non-Current Revisions",
+      "active": "Atom.Status:Archived",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1437@29-draft-CORE_META_MODEL--keep-one-source-for-each-relation-fact.md",
+      "sha256": "7ed902d054469e60bf9ffb18c6fec7cc2b6d28034653a71fa6207bc8c25e28e8",
+      "atom_id": "CA-R-1437@29-draft",
+      "base_id": "CA-R-1437",
+      "version": 29,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Keep one source for each relation fact",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-1456@38-draft-CORE_META_MODEL--derive-entities-views-from-selected-authority.md",
+      "sha256": "16af2fa6e040a513b7c64cf309321c4fa3ae593d16cb793d52732a195e52496b",
+      "atom_id": "CA-R-1456@38-draft",
+      "base_id": "CA-R-1456",
+      "version": 38,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Derive Entities views from selected authority",
+      "active": "Entity/Object/Continuant/Projection/(.Type: Entities Graph)",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1472@27-draft-CORE_META_MODEL--admit-typed-secondary-graph-connections.md",
+      "sha256": "8bc182fe0ecfb5f2e5153d27bbbd299acff368289f9713d0e8eedc74305a0080",
+      "atom_id": "CA-R-1472@27-draft",
+      "base_id": "CA-R-1472",
+      "version": 27,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Admit typed secondary graph connections",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1519@24-draft-CORE_META_MODEL-RULE--require-conforming-workflow-execution.md",
+      "sha256": "280da44d6061a80293b029584af34b34a581e86ec767ef07f4e99347a478241b",
+      "atom_id": "CA-R-1519@24-draft",
+      "base_id": "CA-R-1519",
+      "version": 24,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Require conforming Workflow execution",
+      "active": "Atom/(.Role:=Operations)/Workflow",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1521@30-draft-CORE_META_MODEL-RULE--resolve-lifecycle-changes-from-applicable-status-models.md",
+      "sha256": "0a92cf8b1563af040e058b4d157f2eec348b73398f1d5e9e2a74093d8d82649d",
+      "atom_id": "CA-R-1521@30-draft",
+      "base_id": "CA-R-1521",
+      "version": 30,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Resolve lifecycle changes from applicable Status models",
+      "active": "Atom/(.Role:=Operations)/Workflow",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1550@27-draft-CORE_META_MODEL-RULE--keep-specification-in-rmed-regardless-of-its-subject.md",
+      "sha256": "d089b1482c7f9aa3a00cc649b2fe201cef77877372e6665d45c9e6f97774e092",
+      "atom_id": "CA-R-1550@27-draft",
+      "base_id": "CA-R-1550",
+      "version": 27,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Keep specification in RMED regardless of its Subject",
+      "active": "Atom.Role",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1562@26-draft-CORE_META_MODEL-DEFINITION--define-the-action-operations-atom-type.md",
+      "sha256": "ff83fdf3a0a9cf11c0eb7feb870897d28e1b36eb72cce4156e6817a3c4d19adb",
+      "atom_id": "CA-R-1562@26-draft",
+      "base_id": "CA-R-1562",
+      "version": 26,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define the Action Operations Atom Type",
+      "active": "Atom/(.Role:=Operations)/Action",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1563@26-draft-CORE_META_MODEL-DEFINITION--define-the-workflow-operations-atom-type.md",
+      "sha256": "68b6e1fc25486359be4621e24602627b95db8218b0a324a54d67d69de6766b87",
+      "atom_id": "CA-R-1563@26-draft",
+      "base_id": "CA-R-1563",
+      "version": 26,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define the Workflow Operations Atom Type",
+      "active": "Atom/(.Role:=Operations)/Workflow",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/journal-workflow-cleanup/04_requirement/CA-R-1569@24-draft-CORE_META_MODEL-DEFINITION--define-the-step-operations-atom-type.md",
+      "sha256": "f0cda7b53a73ac6ff0bcc74d690a060660a40146d43e6a8c0264647fdb4a1f5e",
+      "atom_id": "CA-R-1569@24-draft",
+      "base_id": "CA-R-1569",
+      "version": 24,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define the Step Operations Atom Type",
+      "active": "Atom/(.Role := Operations)/Step",
+      "lanes": [
+        "journal-workflow"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1570@23-draft-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "sha256": "41a60a11b09f863ee9111c57463e4de57a6bf0956316068ec465ff9bb2d93d06",
+      "atom_id": "CA-R-1570@23-draft",
+      "base_id": "CA-R-1570",
+      "version": 23,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Keep Workflow graphs separate from Step bindings",
+      "active": "Atom/(.Role:=Operations)/Workflow",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1580@25-draft-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "sha256": "0dadb1ee386530618af44411cf1c6912b71fadd14a2c570fdceafd33a118d149",
+      "atom_id": "CA-R-1580@25-draft",
+      "base_id": "CA-R-1580",
+      "version": 25,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define Plan blocking",
+      "active": "CFEL <+ Relation//BLOCKS",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1587@23-draft-CORE_META_MODEL--require-an-effective-confidence-threshold-for-plan-execution.md",
+      "sha256": "94d429b4d0c50da5d0500a1bcc38e225761f64731be4a095b4d1fb5054bb9bff",
+      "atom_id": "CA-R-1587@23-draft",
+      "base_id": "CA-R-1587",
+      "version": 23,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Require an effective confidence threshold for Plan execution",
+      "active": "Atom/(.Role:=Plan).AI Agent Confidence Threshold",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1591@25-draft-CORE_META_MODEL-RULE--apply-autonomous-confidence-thresholds-to-plan-execution.md",
+      "sha256": "2b9242ad228187837dd7222db5ebe3fd44d8c6857329ee77e926285e29a65419",
+      "atom_id": "CA-R-1591@25-draft",
+      "base_id": "CA-R-1591",
+      "version": 25,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Apply autonomous confidence thresholds to Plan execution",
+      "active": "Atom/(.Role:=Plan).AI Agent Confidence Threshold",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1612@23-draft-PROJECT_CONFIGURATION-RULE--allow-pre-runtime-pass-only-with-sufficient-evidence.md",
+      "sha256": "017a17e56dcd8b10583adf81c5e3fe74da50618e117833e3ecac8fd3198275f9",
+      "atom_id": "CA-R-1612@23-draft",
+      "base_id": "CA-R-1612",
+      "version": 23,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Allow pre-runtime pass only with sufficient evidence",
+      "active": "Projection/(.Form:=Realization Graph)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1616@22-draft-PROJECT_CONFIGURATION-RULE--qualified-form-1616.md",
+      "sha256": "28caa538276bddccd4f01fbca7941f243345f7a4738ed776a62c0a13d0a3b4b1",
+      "atom_id": "CA-R-1616@22-draft",
+      "base_id": "CA-R-1616",
+      "version": 22,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define Realization Graph",
+      "active": "Projection/(.Form := Realization Graph)",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1620@20-draft-PROJECT_CONFIGURATION-DEFINITION--define-the-realization-graph-dependency-view.md",
+      "sha256": "5882a3aa6dd5260720fe45328afbdbda0b4b5028e71bf5ae84a6f4a75d68e69d",
+      "atom_id": "CA-R-1620@20-draft",
+      "base_id": "CA-R-1620",
+      "version": 20,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define the Realization Graph dependency view",
+      "active": "Projection/(.Form:=Realization Graph)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1621@18-draft-PROJECT_CONFIGURATION-RULE--register-realization-graph-projection-type.md",
+      "sha256": "5fff5ce17beedca959bc9110b2ceedfd0bf6ba28aa024427e6cf7e4a9e0fc69b",
+      "atom_id": "CA-R-1621@18-draft",
+      "base_id": "CA-R-1621",
+      "version": 18,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Register Realization Graph Projection Type",
+      "active": "Projection/(.Form:=Realization Graph)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1632@33-draft-CORE_META_MODEL-RULE--classify-lineage-impact-with-four-dispositions.md",
+      "sha256": "9b6a1083b74df22f13beed111bb054d45a20d1f480cca7dd5e3f10665454aa4e",
+      "atom_id": "CA-R-1632@33-draft",
+      "base_id": "CA-R-1632",
+      "version": 33,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Classify lineage impact with four dispositions",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1634@44-draft-CORE_META_MODEL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+      "sha256": "3bc941505f1b4fefb211db58156bb667a4b61d7708760fd24e896124a8ee6944",
+      "atom_id": "CA-R-1634@44-draft",
+      "base_id": "CA-R-1634",
+      "version": 44,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Register Catalog, Map, and Hub as Type Values under Projection",
+      "active": "Projection.Form",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1639@36-draft-CORE_META_MODEL-DECLARATION--register-derived-from-relation.md",
+      "sha256": "ecde2f689911f43d3a858b27ea6e6da952f165afe29188a367f76f8ca0c3ae00",
+      "atom_id": "CA-R-1639@36-draft",
+      "base_id": "CA-R-1639",
+      "version": 36,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Register derived_from relation",
+      "active": "CFEL <+ Relation//DERIVED_FROM",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/journal-workflow-cleanup/04_requirement/CA-R-1643@39-draft-CORE_META_MODEL-RULE--register-type-values-for-work-journal-events.md",
+      "sha256": "528db39c74bba251d9fc67bd3ed7302705793f6c1368891d7d47b50a47621ef7",
+      "atom_id": "CA-R-1643@39-draft",
+      "base_id": "CA-R-1643",
+      "version": 39,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Register Type Values for Work Journal Events",
+      "active": "Carrier/File.Main Content",
+      "lanes": [
+        "journal-workflow"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/journal-workflow-cleanup/04_requirement/CA-R-1644@36-draft-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md",
+      "sha256": "3dc15137ab47ab70058dc75956d488f23c7b129a3d519edaea267241e39e9eb0",
+      "atom_id": "CA-R-1644@36-draft",
+      "base_id": "CA-R-1644",
+      "version": 36,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Recover Work Journal coverage without invention",
+      "active": "Journal",
+      "lanes": [
+        "journal-workflow"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1647@31-draft-PROJECT_CONFIGURATION-RULE--generate-the-proof-currentness-catalog.md",
+      "sha256": "4f4f4e16fe1c1957c78464a86a9b3c6448f1113efd272a948635d0b777670cb2",
+      "atom_id": "CA-R-1647@31-draft",
+      "base_id": "CA-R-1647",
+      "version": 31,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Generate the proof currentness Catalog",
+      "active": "Projection/(.Form:=Catalog)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1654@36-draft-CORE_META_MODEL-DECLARATION--register-feature-realization-relation-kind.md",
+      "sha256": "0ef8edf9a84c88b6a0652f64022839e77a29b135afcb054fb0220cb35b46bb93",
+      "atom_id": "CA-R-1654@36-draft",
+      "base_id": "CA-R-1654",
+      "version": 36,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Register feature realization relation kind",
+      "active": "CFEL <+ Relation//feature_realization",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1657@31-draft-CORE_META_MODEL-RULE--require-acyclic-structural-ownership.md",
+      "sha256": "2e68a55b87347d5a7bf31c8a2cb2bfa254ca06afd115a1b6d2d903711037a066",
+      "atom_id": "CA-R-1657@31-draft",
+      "base_id": "CA-R-1657",
+      "version": 31,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Require acyclic structural ownership",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1659@29-draft-CORE_META_MODEL-RULE--derive-inverse-structural-ownership.md",
+      "sha256": "c3f271bc08af5a323d1b865da8f1cfaf3a916cea21d1412528dfa1edb6fb849c",
+      "atom_id": "CA-R-1659@29-draft",
+      "base_id": "CA-R-1659",
+      "version": 29,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Derive inverse structural ownership",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1660@34-draft-CORE_META_MODEL-DECLARATION--register-structural-parent-relation.md",
+      "sha256": "8fdfc2da47e4b7c16b954f508d4e57a632f4612154c0a218d1e5d45efed062f0",
+      "atom_id": "CA-R-1660@34-draft",
+      "base_id": "CA-R-1660",
+      "version": 34,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Register structural parent relation",
+      "active": "CFEL <+ Relation//structural_parent",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1676@35-draft-CORE_META_MODEL-RULE--keep-rmed-to-rmed-relations-within-active-authority.md",
+      "sha256": "a86aaaaa0b3382c27ea715884287011ef76fe9d054f58c0d3b0753af39732b37",
+      "atom_id": "CA-R-1676@35-draft",
+      "base_id": "CA-R-1676",
+      "version": 35,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Keep RMED-to-RMED Relations within Active Authority",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1697@34-draft-CORE_META_MODEL-RULE--bind-traceability-to-exact-claims-and-revisions.md",
+      "sha256": "2b7ccfe1f5a28308aabf68524931146ec9ee81e344807982ca74b06301262d7b",
+      "atom_id": "CA-R-1697@34-draft",
+      "base_id": "CA-R-1697",
+      "version": 34,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Bind traceability to exact claims and revisions",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1699@35-draft-CORE_META_MODEL-RULE--bind-governed-transactions-to-stable-artifact-revisions.md",
+      "sha256": "d54ad6904671a702dbe47c5821a2daf604832a3ee2db75a2548081eed30786df",
+      "atom_id": "CA-R-1699@35-draft",
+      "base_id": "CA-R-1699",
+      "version": 35,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Bind governed transactions to stable artifact revisions",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1702@47-draft-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "sha256": "895500a4381167399fbff10231252c2b54480a6e0ebff0854ec1e34cef86a816",
+      "atom_id": "CA-R-1702@47-draft",
+      "base_id": "CA-R-1702",
+      "version": 47,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Preserve content role boundaries through CAPRMEDIO loop",
+      "active": "Atom.Role",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1704@34-draft-CORE_META_MODEL-RULE--require-stable-noun-content-role-names.md",
+      "sha256": "c5f4208556f9f460b6e0e0765bc4c4cd075a13b65353af112a54b463f6cb477e",
+      "atom_id": "CA-R-1704@34-draft",
+      "base_id": "CA-R-1704",
+      "version": 34,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Require Stable Noun Content Role Names",
+      "active": "Atom.Role",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1718@36-draft-CORE_META_MODEL-RULE--preserve-strict-semantic-distinctions.md",
+      "sha256": "f29501f40a78a5098c9ff0896d279f4df37c9efa80d5915a17c0995fba8e432f",
+      "atom_id": "CA-R-1718@36-draft",
+      "base_id": "CA-R-1718",
+      "version": 36,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Preserve strict semantic distinctions",
+      "active": "Atom.Role",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1734@27-draft-CORE_META_MODEL--preserve-self-improvement-stage-meanings.md",
+      "sha256": "085c4a3cc1eda0ce6db6b94d7abc7cd727fffb1029f1a70711e6c2b43c486e85",
+      "atom_id": "CA-R-1734@27-draft",
+      "base_id": "CA-R-1734",
+      "version": 27,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Preserve self-improvement stage meanings",
+      "active": "Atom.Role",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1735@26-draft-CORE_META_MODEL--relate-self-improvement-stages-explicitly.md",
+      "sha256": "c51317da0e4225aead8dc03d66c1f6f26bc34385199c97eeb75eb784aa9aff42",
+      "atom_id": "CA-R-1735@26-draft",
+      "base_id": "CA-R-1735",
+      "version": 26,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Relate self-improvement stages explicitly",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1740@39-draft-CORE_META_MODEL-RULE--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "sha256": "3b67f5ffb34a65e8f0cddecaf8b3b48c21f8329afe70f30edb770b2c45fb20cb",
+      "atom_id": "CA-R-1740@39-draft",
+      "base_id": "CA-R-1740",
+      "version": 39,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Bind every Project Scope Unit Graph value to exact sources",
+      "active": "Projection/(.Form:=Scope Unit Graph)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1873@19-draft-CORE_META_MODEL--derive-implementation-and-use-its-actual-state-as-source.md",
+      "sha256": "7bd3e378191e42fc18cd609fdca90593dc52692acd1be7afdb44e1d6b8e70a9c",
+      "atom_id": "CA-R-1873@19-draft",
+      "base_id": "CA-R-1873",
+      "version": 19,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Derive Implementation and use its actual state as source",
+      "active": "Package/Implementation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1889@16-draft-PROJECT_CONFIGURATION-RULE--qualified-form-1889.md",
+      "sha256": "8d94e0feff9f27f5f4fefaa937d87a5c45ed9eabfc5ddfba874065a6a54a60c8",
+      "atom_id": "CA-R-1889@16-draft",
+      "base_id": "CA-R-1889",
+      "version": 16,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define FPF Analysis Report",
+      "active": "Atom/(.Role := Analysis)/(.Form := FPF Analysis Report)",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1977@14-draft-PROJECT_CONFIGURATION-DECLARATION--declare-project-settings-1977.md",
+      "sha256": "33ef58a772134277e57a8d7674bc21002ee7bd4701da900101b51dcd27afc5b6",
+      "atom_id": "CA-R-1977@14-draft",
+      "base_id": "CA-R-1977",
+      "version": 14,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define Project.Framework Settings.Artifact Timestamp Timezone",
+      "active": "Project.Settings.Artifact Timestamp Timezone",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1978@14-draft-PROJECT_CONFIGURATION-DECLARATION--declare-project-settings-1978.md",
+      "sha256": "93bd1b55eccb0937e31cb24029d024fb71c2d564705d09cb3df976d284388c75",
+      "atom_id": "CA-R-1978@14-draft",
+      "base_id": "CA-R-1978",
+      "version": 14,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define Project.Framework Settings.Code-Root Locators",
+      "active": "Project.Settings.Code-Root Locators",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1979@14-draft-PROJECT_CONFIGURATION-DECLARATION--declare-project-settings-1979.md",
+      "sha256": "d4def61444ec0f5bd196fa7b2f298f45ed49a50978ed20f963a1a2872a76fc37",
+      "atom_id": "CA-R-1979@14-draft",
+      "base_id": "CA-R-1979",
+      "version": 14,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define Project.Framework Settings.Confidence",
+      "active": "Project.Settings.Confidence",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1980@14-draft-PROJECT_CONFIGURATION-DECLARATION--declare-project-settings-1980.md",
+      "sha256": "55874f3b5d0befb36f1ec0eac47917990c32d5bcd4e39a4acc73cf340b1ee1e4",
+      "atom_id": "CA-R-1980@14-draft",
+      "base_id": "CA-R-1980",
+      "version": 14,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define Project.Framework Settings.Framework Control-Root Locator",
+      "active": "Project.Settings.Framework Control-Root Locator",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1981@15-draft-PROJECT_CONFIGURATION-RULE--settings-1981.md",
+      "sha256": "34aa52380b1a67eb54eaf8e9a6018a3d087eff6b9c5904bbf2ca95823d128b43",
+      "atom_id": "CA-R-1981@15-draft",
+      "base_id": "CA-R-1981",
+      "version": 15,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define Project.Framework Settings.Identifier",
+      "active": "Carrier.ID",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1982@14-draft-PROJECT_CONFIGURATION-DECLARATION--declare-project-settings-1982.md",
+      "sha256": "d217217ff34ab5e89d5184690188123c1168f6fab39c655e44d28f41f4277c3e",
+      "atom_id": "CA-R-1982@14-draft",
+      "base_id": "CA-R-1982",
+      "version": 14,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define Project.Framework Settings.Interaction",
+      "active": "Project.Settings.Interaction",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1983@14-draft-PROJECT_CONFIGURATION-RULE--settings-1983.md",
+      "sha256": "593803c4882167ab282f09055559b727f3f89b674a63e622ced941ba7906e1f7",
+      "atom_id": "CA-R-1983@14-draft",
+      "base_id": "CA-R-1983",
+      "version": 14,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define Project.Framework Settings.Parameter Resolution",
+      "active": "Project.Settings",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/journal-workflow-cleanup/04_requirement/CA-R-1992@14-draft-CORE_META_MODEL-RULE--enable-containment-for-step-atoms.md",
+      "sha256": "f48c9d2fef9ba7f99c3c71a724b23177d844fe24bd82f12c15a2fbcacde1b4dd",
+      "atom_id": "CA-R-1992@14-draft",
+      "base_id": "CA-R-1992",
+      "version": 14,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Enable containment for Step Atoms",
+      "active": "Atom/(.Role := Operations)/Step",
+      "lanes": [
+        "journal-workflow"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1993@18-draft-CORE_META_MODEL-DECLARATION--define-carries.md",
+      "sha256": "f7d4f9c097adbac88619dfaea7c702560a86643b9887425927d30edf6f07f15a",
+      "atom_id": "CA-R-1993@18-draft",
+      "base_id": "CA-R-1993",
+      "version": 18,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define CARRIES",
+      "active": "CFEL <+ Relation//CARRIES",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2170@8-draft-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "sha256": "600266f9df67c7c082e47e5be39e4a34e7cfd5b3db69197be8cf2b5ae0e5db61",
+      "atom_id": "CA-R-2170@8-draft",
+      "base_id": "CA-R-2170",
+      "version": 8,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define is derived relation of relation",
+      "active": "CFEL <+ Relation//IS_DERIVED_RELATION_OF",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-2173@7-draft-CORE_META_MODEL-DEFINITION--define-implementation.md",
+      "sha256": "0bba26b95a80dda81f7cb1ccfd2c98e9e06addbe3901c36dc6c1bf7c3b6b73ac",
+      "atom_id": "CA-R-2173@7-draft",
+      "base_id": "CA-R-2173",
+      "version": 7,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define Implementation",
+      "active": "Package/Implementation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/CA-R-2243@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality-notation.md",
+      "sha256": "8b57813089fd91d42ff0a3298fa6f734be518998234b9d96d1f51470391447c9",
+      "atom_id": "CA-R-2243@6-draft",
+      "base_id": "CA-R-2243",
+      "version": 6,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define Cardinality Notation",
+      "active": "CFEL <+ Cardinality",
+      "lanes": [
+        "cfel-description"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2245@6-draft-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "sha256": "27b17b2257f01837d0a3a7bba6f2a2fa6631da31b842bbe533843dbd0d7e7ab8",
+      "atom_id": "CA-R-2245@6-draft",
+      "base_id": "CA-R-2245",
+      "version": 6,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define IS_EXECUTION_OF Relation",
+      "active": "CFEL <+ Relation//IS_EXECUTION_OF",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2246@6-draft-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+      "sha256": "6a04252d5216ef4b2abf07e8d632b1f7eac77b4b3937aae620dcad63bed2ab65",
+      "atom_id": "CA-R-2246@6-draft",
+      "base_id": "CA-R-2246",
+      "version": 6,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define RECORDS Relation",
+      "active": "CFEL <+ Relation//RECORDS",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2247@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "678fda56ee1e7bba40625ed2e11efd9c32d436ca515d001847fc1721c5b1c1cf",
+      "atom_id": "CA-R-2247@4-draft",
+      "base_id": "CA-R-2247",
+      "version": 4,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define Relation",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2248@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "sha256": "1ac28763884f25772833edfb7e40a21ef4cd5c24f3e5b788762c138930f1dc53",
+      "atom_id": "CA-R-2248@3-draft",
+      "base_id": "CA-R-2248",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define Value Format",
+      "active": "CFEL <+ Format",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2249@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-bool-value-format.md",
+      "sha256": "bb038a2eccebdd6a93237793b96b32479e73d72418dc8e645d63714f9efe995b",
+      "atom_id": "CA-R-2249@4-draft",
+      "base_id": "CA-R-2249",
+      "version": 4,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define bool Value Format",
+      "active": "CFEL <+ Format/bool",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2250@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-int-value-format.md",
+      "sha256": "46a118338f2bcc4030b07d44c6a649e8cea58bd53781962e5754cd065caa43fb",
+      "atom_id": "CA-R-2250@4-draft",
+      "base_id": "CA-R-2250",
+      "version": 4,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define int Value Format",
+      "active": "CFEL <+ Format/int",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2251@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-float-value-format.md",
+      "sha256": "e2d0da23c49f0106e9bea184c3b8c3f9479bc3d3faabbd320982064977429cb7",
+      "atom_id": "CA-R-2251@4-draft",
+      "base_id": "CA-R-2251",
+      "version": 4,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define float Value Format",
+      "active": "CFEL <+ Format/float",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2252@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-decimal-value-format.md",
+      "sha256": "2b56889ff91a49007ad89110f2eb43e6b413db34e9dfb9aa64ae2072e153434c",
+      "atom_id": "CA-R-2252@4-draft",
+      "base_id": "CA-R-2252",
+      "version": 4,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define decimal Value Format",
+      "active": "CFEL <+ Format/decimal",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2253@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-string-value-format.md",
+      "sha256": "411f4d6401ac9e92db2f57bc69931807e448bc33d24d34900cf4eec01fe1f11e",
+      "atom_id": "CA-R-2253@4-draft",
+      "base_id": "CA-R-2253",
+      "version": 4,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define string Value Format",
+      "active": "CFEL <+ Format/string",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2254@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-datetime-value-format.md",
+      "sha256": "0b03a9ffe94a262ba83b92d2ebdf07892e50fb9c0e6cf0ceb3964bef5cb12cbd",
+      "atom_id": "CA-R-2254@4-draft",
+      "base_id": "CA-R-2254",
+      "version": 4,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define datetime Value Format",
+      "active": "CFEL <+ Format/datetime",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2255@7-draft-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "sha256": "ac4495a698655ec5354956d7e8633181e7d5823d283004bd6245b5edee35bf58",
+      "atom_id": "CA-R-2255@7-draft",
+      "base_id": "CA-R-2255",
+      "version": 7,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define EXECUTES Relation",
+      "active": "CFEL <+ Relation//EXECUTES",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/draft/cfel-contract-completion-20261102/CA-R-2256@3-draft-CAPRMEDIO-DECLARATION--define-the-caprmedio-framework-product.md",
+      "sha256": "b1211656140ab8f293719350d5036c97d30314d00ac9c8b1aadc4234bda31fda",
+      "atom_id": "CA-R-2256@3-draft",
+      "base_id": "CA-R-2256",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define the CAPRMEDIO Framework product",
+      "active": "Node/Continuant//CAPRMEDIO Framework",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2257@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-scalar-value-format.md",
+      "sha256": "2e902e4603465105e130cdb93796a48a873ec146c208e73b1b00ce8be5001130",
+      "atom_id": "CA-R-2257@3-draft",
+      "base_id": "CA-R-2257",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define scalar Value Format",
+      "active": "CFEL <+ Format/scalar",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-2272@4-draft-PROJECT_CONFIGURATION-RULE--qualified-form-2272.md",
+      "sha256": "788eeeafa7d08ba1ac1a6f250209e775a0c0eff4ae9b963b889eb5addd4eaf63",
+      "atom_id": "CA-R-2272@4-draft",
+      "base_id": "CA-R-2272",
+      "version": 4,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define Canonical Signature Projection",
+      "active": "Projection/(.Form := Canonical Signature)",
+      "lanes": [
+        "legacy-entities",
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/consumer-patches/CA-R-2276@3-draft-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "sha256": "ebdcbbb363ec2e25249e27a7529c6b3960d0f84cb3f1e99d7496c3ea923cddaa",
+      "atom_id": "CA-R-2276@3-draft",
+      "base_id": "CA-R-2276",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Require one-to-one canonical entity names with reusable Terms",
+      "active": "Entity",
+      "lanes": [
+        "cfel-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-2277@3-draft-PROJECT_CONFIGURATION-RULE--define-extension-sources-selection.md",
+      "sha256": "ef9064e25a542ea4811953c295473673b04d720867070e0fef23614ae2601bc6",
+      "atom_id": "CA-R-2277@3-draft",
+      "base_id": "CA-R-2277",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define Extension Sources Selection",
+      "active": "Named Selection//Extension Sources",
+      "lanes": [
+        "legacy-entities"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2279@3-draft-CORE_META_MODEL-DECLARATION--define-derived-is-defined-by-relation.md",
+      "sha256": "566893972f184aa8c614a80d7333e693506c082b8b9b414a09c82141beae9fa2",
+      "atom_id": "CA-R-2279@3-draft",
+      "base_id": "CA-R-2279",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define Derived IS_DEFINED_BY Relation",
+      "active": "CFEL <+ Relation//IS_DEFINED_BY",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2327@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md",
+      "sha256": "8e465e6253957f182b29a887240dc58e7fc8c9c045614e5db93d5634807190fc",
+      "atom_id": "CA-R-2327@4-draft",
+      "base_id": "CA-R-2327",
+      "version": 4,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define Cardinality",
+      "active": "CFEL <+ Cardinality",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2352@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-format-data-type.md",
+      "sha256": "ea304b7da80b78a0120b10ea98d9880ec9ed38e9f7c311cb914797cde50393d9",
+      "atom_id": "CA-R-2352@3-draft",
+      "base_id": "CA-R-2352",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define Format Data Type",
+      "active": "CFEL <+ Format.Data Type",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2353@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-format-uniqueness-selection.md",
+      "sha256": "0951a06fede714f160b8d21331352947ecc913957bb9f6169890e9eb3b538e23",
+      "atom_id": "CA-R-2353@3-draft",
+      "base_id": "CA-R-2353",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define Format Uniqueness Selection",
+      "active": "CFEL <+ Format.Uniqueness Selection",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2354@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md",
+      "sha256": "fa6b01053a596157ced42f3c8cc041440b26499b10bf13a5065fe52fab60da99",
+      "atom_id": "CA-R-2354@3-draft",
+      "base_id": "CA-R-2354",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define Relation Meaning",
+      "active": "CFEL <+ Relation.Meaning",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2355@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "sha256": "2b358a0d845803dca008c500566a66503a04d8109ba8e6289a061df74e12bdc0",
+      "atom_id": "CA-R-2355@3-draft",
+      "base_id": "CA-R-2355",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define Relation Name",
+      "active": "CFEL <+ Relation.Name",
+      "lanes": [
+        "legacy-cfel"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2417@3-draft-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+      "sha256": "da678d9f0d89dd16aa0b52f46fcd6db2de79bf6e822e5e7288364e57d4106075",
+      "atom_id": "CA-R-2417@3-draft",
+      "base_id": "CA-R-2417",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define HAS_EXECUTION Relation",
+      "active": "CFEL <+ Relation//HAS_EXECUTION",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2418@3-draft-CORE_META_MODEL-DECLARATION--define-is-carried-by-relation.md",
+      "sha256": "2b320096fdc97780716d8054f4e70d655014a6ffbb77b7bf742191f84afba070",
+      "atom_id": "CA-R-2418@3-draft",
+      "base_id": "CA-R-2418",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define IS_CARRIED_BY Relation",
+      "active": "CFEL <+ Relation//IS_CARRIED_BY",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2420@3-draft-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+      "sha256": "a445207344ec2fe05e048fa64b54b987ba704806491d588a8554a23d88bfc7b5",
+      "atom_id": "CA-R-2420@3-draft",
+      "base_id": "CA-R-2420",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define IS_EXECUTED_BY Relation",
+      "active": "CFEL <+ Relation//IS_EXECUTED_BY",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2421@3-draft-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+      "sha256": "e5654d8817c3a01596ab1cd117174ad9dea6cc3e2cc655469ab6b8a704ee0846",
+      "atom_id": "CA-R-2421@3-draft",
+      "base_id": "CA-R-2421",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define IS_RECORDED_BY Relation",
+      "active": "CFEL <+ Relation//IS_RECORDED_BY",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2422@3-draft-CORE_META_MODEL-DECLARATION--define-required-by-relation.md",
+      "sha256": "ec3a1f8c8f363bff3f766ec5e5f9baf1ef9cbf7404344f2317517124e00bf7df",
+      "atom_id": "CA-R-2422@3-draft",
+      "base_id": "CA-R-2422",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define required_by Relation",
+      "active": "CFEL <+ Relation//required_by",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relation-consumers/CA-R-2469@3-draft-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+      "sha256": "e8dbf09588ebaff40569a9f552bde1439b5d8738949a0c51c91dfd270707035a",
+      "atom_id": "CA-R-2469@3-draft",
+      "base_id": "CA-R-2469",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Require one Declaration for each Node",
+      "active": "(Node, Node/**, .**)",
+      "lanes": [
+        "relation-consumers"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/work/notation-compatibility/CA-R-2471@3-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+      "sha256": "2700463f75f684f9bf4ea115fbc8f9055ffb0c98661d4283efef7285706055de",
+      "atom_id": "CA-R-2471@3-draft",
+      "base_id": "CA-R-2471",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Use distinct graph notation for Node relations",
+      "active": "CFEL",
+      "lanes": [
+        "notation-compatibility"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/CA-R-2472@3-draft-CORE_META_MODEL-CFEL--separate-property-value-and-child-constraints.md",
+      "sha256": "4ae2c709e07339af5944eef1156a85a7e4bdbe8e8659dc8176311d53c944f518",
+      "atom_id": "CA-R-2472@3-draft",
+      "base_id": "CA-R-2472",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Separate Property names and values",
+      "active": "CFEL",
+      "lanes": [
+        "cfel-description"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2473@3-draft-CORE_META_MODEL-DECLARATION--define-property-bearing.md",
+      "sha256": "29ba07c1f8ff31ecddb459997fa713e6770c9f17aeb5f2dd7f589656af704ae3",
+      "atom_id": "CA-R-2473@3-draft",
+      "base_id": "CA-R-2473",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define Property bearing and its inverse",
+      "active": "CFEL <+ Relation//IS_PROPERTY_OF",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2475@3-draft-CORE_META_MODEL-DECLARATION--define-narrowing.md",
+      "sha256": "d05fa7c60556a38e9323cde7dfcd22c879d77c7f74cb9447e5e5b5298f47eb75",
+      "atom_id": "CA-R-2475@3-draft",
+      "base_id": "CA-R-2475",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define NARROWER_THAN",
+      "active": "CFEL <+ Relation//NARROWER_THAN",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2476@3-draft-CORE_META_MODEL-DECLARATION--define-instantiation.md",
+      "sha256": "9c17014f31e0502c04b2e74ab0c2b5ae3853a080539b05072e9345241923aceb",
+      "atom_id": "CA-R-2476@3-draft",
+      "base_id": "CA-R-2476",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define INSTANCE_OF",
+      "active": "CFEL <+ Relation//INSTANCE_OF",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2477@3-draft-CORE_META_MODEL-DECLARATION--define-classification.md",
+      "sha256": "00d5e071019d2c08a7c348279fb45673c2ecf2a3ad4f55576faeb80541144e8e",
+      "atom_id": "CA-R-2477@3-draft",
+      "base_id": "CA-R-2477",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define classification and its written reverse",
+      "active": "CFEL <+ Relation//HAS_CLASSIFICATION",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2478@3-draft-CORE_META_MODEL-DECLARATION--define-composition.md",
+      "sha256": "020b6b8b57f6539040aa6ff14d832a6a639ecadc5c88b06629f6c0fc36072b3d",
+      "atom_id": "CA-R-2478@3-draft",
+      "base_id": "CA-R-2478",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define composition and its inverse",
+      "active": "CFEL <+ Relation//IS_CONTAINED_BY",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2480@3-draft-CORE_META_MODEL-DECLARATION--define-run.md",
+      "sha256": "8e86be1b10b7282a955329bc8ef9a1bb401d7fd52a8bba85cea6792f47220c9c",
+      "atom_id": "CA-R-2480@3-draft",
+      "base_id": "CA-R-2480",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define RUN",
+      "active": "CFEL <+ Relation//RUN",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2485@3-draft-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+      "sha256": "81ef034059c1d07ca2bcdf70b925c3862a3ca78b2e6a7c0dea8ef03ecf2cce0e",
+      "atom_id": "CA-R-2485@3-draft",
+      "base_id": "CA-R-2485",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define HAS_INVERSE",
+      "active": "CFEL <+ Relation//HAS_INVERSE",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2486@3-draft-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+      "sha256": "f380aa61381beb73bfb7d010a4d0609980d1840ffc32f4aaef0c22efb1a9a35d",
+      "atom_id": "CA-R-2486@3-draft",
+      "base_id": "CA-R-2486",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Declare Relation endpoints",
+      "active": "Atom/(.Role := Requirement)/(.Form := Declaration)",
+      "lanes": [
+        "relations-rule"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/CA-R-2487@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "6eaccea1a11ebe687df8a75f0b34b20589ec781cfb5d3f59082270451100e017",
+      "atom_id": "CA-R-2487@3-draft",
+      "base_id": "CA-R-2487",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "summary": "Define CFEL",
+      "active": "CFEL",
+      "lanes": [
+        "cfel-description"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/work/relations/CA-R-2516@3-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration.md",
+      "sha256": "2080fda46ba58e1928d055b6338389bd125e8044ca57a23bc2532ef6b948e97f",
+      "atom_id": "CA-R-2516@3-draft",
+      "base_id": "CA-R-2516",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Atom/(.Role := Requirement)/(.Form := Declaration)",
+      "active": "Atom/(.Role := Requirement)/(.Form := Declaration)",
+      "lanes": [
+        "declaration-form"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/CA-R-2532@3-draft-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "a1bd4a72e6c4c961a9eec7af114ccb25e6a67b938587ab44a3246a1d0449a66e",
+      "atom_id": "CA-R-2532@3-draft",
+      "base_id": "CA-R-2532",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Project.Settings",
+      "active": "Project.Settings",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/CA-R-2557@3-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "sha256": "8bff0e8c5cb8d9c3d48c93b301c137b5f0be67e30d8cc2c1db80a45616f983c5",
+      "atom_id": "CA-R-2557@3-draft",
+      "base_id": "CA-R-2557",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Event Record",
+      "active": "Event Record",
+      "lanes": [
+        "event-record"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-2583@3-draft-CORE_META_MODEL-DECLARATION--define-event-author-link.md",
+      "sha256": "32fa0563b46018c293a647c95516958dacd0c355bacdac35ecb4cadf1e78f4be",
+      "atom_id": "CA-R-2583@3-draft",
+      "base_id": "CA-R-2583",
+      "version": 3,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define HAS_EVENT_AUTHOR",
+      "active": "CFEL <+ Relation//HAS_EVENT_AUTHOR",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-626@41-draft-CORE_META_MODEL-RULE--project-the-current-scope-unit-graph-without-owning-authority.md",
+      "sha256": "0fbbd6f37d0498ec62b24c6a01cf86cd8daad23321a3177e079eb3eee8b5d3fc",
+      "atom_id": "CA-R-626@41-draft",
+      "base_id": "CA-R-626",
+      "version": 41,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Project the current Scope Unit Graph without owning authority",
+      "active": "Projection/(.Form:=Scope Unit Graph)",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-740@37-draft-CORE_META_MODEL-RULE--give-every-atom-one-content-role.md",
+      "sha256": "f63f05ca7260b69232117d845602ce4e6c064cbc568629ad5217e3e3903eb505",
+      "atom_id": "CA-R-740@37-draft",
+      "base_id": "CA-R-740",
+      "version": 37,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Give Every Atom One Content Role",
+      "active": "Atom.Role",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-796@42-draft-CORE_META_MODEL-DECLARATION--keep-tier-parent-relations-within-atom-scope.md",
+      "sha256": "cd5e72e5a388e1c71feb3f98bc7bbf1ebef0e38669ddf901ebabbe4f41fac0fb",
+      "atom_id": "CA-R-796@42-draft",
+      "base_id": "CA-R-796",
+      "version": 42,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Keep tier-parent relations within Atom Scope",
+      "active": "CFEL <+ Relation//child_of",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-806@41-draft-CORE_META_MODEL--register-complete-relation-kind-metadata.md",
+      "sha256": "7e3dfc154cecad8d8fb31715dc516b23b9d40a33437aaa05486174a0e4fd7009",
+      "atom_id": "CA-R-806@41-draft",
+      "base_id": "CA-R-806",
+      "version": 41,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Register Complete Relation Kind Metadata",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-807@32-draft-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md",
+      "sha256": "a17227fc060516c2e817b1bb4bfe28ae824e61ce68fa519f45ac4333fd574807",
+      "atom_id": "CA-R-807@32-draft",
+      "base_id": "CA-R-807",
+      "version": 32,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Record replacement transitions in the Journal",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-808@33-draft-CORE_META_MODEL-RULE--apply-relation-direction-within-its-ordering-domain.md",
+      "sha256": "067388779c03576c139bcd30c34dd3e8dbaa021490018c6f527379936342e3d0",
+      "atom_id": "CA-R-808@33-draft",
+      "base_id": "CA-R-808",
+      "version": 33,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Apply relation direction within its ordering domain",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-879@31-draft-CORE_META_MODEL-RULE--register-child-of-and-parent-of-relation-pair.md",
+      "sha256": "29bd34b2dca2f9e4ed2ad8bbca4dc441c7e300009d40bcb93bcecf6a0155a081",
+      "atom_id": "CA-R-879@31-draft",
+      "base_id": "CA-R-879",
+      "version": 31,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Register child_of and parent_of relation pair",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-881@34-draft-RULE--use-relation-specific-cross-unit-ownership.md",
+      "sha256": "28aeec71af6a669c14f3ebee12df122bfcddee0e62526eb67af3962c66dd265e",
+      "atom_id": "CA-R-881@34-draft",
+      "base_id": "CA-R-881",
+      "version": 34,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Use relation-specific cross-unit ownership",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subject-overlays"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-915@31-draft-CORE_META_MODEL-RULE--prohibit-order-derived-dependencies.md",
+      "sha256": "c74d1fd6dcffeed34655c400d6d21ed458c72294368aca213d9e3e388c9c27e2",
+      "atom_id": "CA-R-915@31-draft",
+      "base_id": "CA-R-915",
+      "version": 31,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Prohibit order-derived dependencies",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-916@36-draft-CORE_META_MODEL-DEMAND--restrict-ordered-demands-to-earlier-producers.md",
+      "sha256": "203119373d190ba4400d4aaf6a123b39a3d7605721e215f5ac9e281845c819bd",
+      "atom_id": "CA-R-916@36-draft",
+      "base_id": "CA-R-916",
+      "version": 36,
+      "role": "Requirement",
+      "form": "Demand",
+      "summary": "Restrict ordered Demands to earlier Producers",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-934@29-draft-CORE_META_MODEL-RULE--preserve-producer-authority-outside-demanded-result.md",
+      "sha256": "2670df623c3c383d6cc0ce2e26753a15173f71e5a751a161b3e97f7d653e8458",
+      "atom_id": "CA-R-934@29-draft",
+      "base_id": "CA-R-934",
+      "version": 29,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Preserve Producer authority outside demanded result",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-935@36-draft-CORE_META_MODEL-RULE--prohibit-demands-between-ancestors-and-descendants.md",
+      "sha256": "9ca1dfd998d8e94a5d44bcd016f2be464e5f944f0237e88463fa3b0239cd7a52",
+      "atom_id": "CA-R-935@36-draft",
+      "base_id": "CA-R-935",
+      "version": 36,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Prohibit Demands between ancestors and descendants",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-945@37-draft-CORE_META_MODEL-DEFINITION--define-result-flow-direction.md",
+      "sha256": "df712ef9347f31d1ca30891f0d76a53c799867d8ad123b369f394d01bbceb1bb",
+      "atom_id": "CA-R-945@37-draft",
+      "base_id": "CA-R-945",
+      "version": 37,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define result-flow direction",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-976@30-draft-CORE_META_MODEL-RULE--separate-navigational-order-from-structural-relations.md",
+      "sha256": "eb9abc737bf2e398d5e04e6c9a087f054a482b3d0d5117d6155d8bfde258f506",
+      "atom_id": "CA-R-976@30-draft",
+      "base_id": "CA-R-976",
+      "version": 30,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Separate Navigational Order from structural relations",
+      "active": "CFEL <+ Relation",
+      "lanes": [
+        "shared-subjects"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/journal-workflow-cleanup/01_concern/CA-C-draft-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "sha256": "6a481109f2c38e3186aa5c3566769eb572c29526e757aa63f7f3cd2e1525d680",
+      "atom_id": "CA-C-draft-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral",
+      "base_id": null,
+      "version": 1,
+      "role": "Concern",
+      "form": "Question",
+      "summary": "Resolve Step definition details after model-instance deferral",
+      "active": "Atom/(.Role := Operations)/Step",
+      "lanes": [
+        "questions"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/work/notation-compatibility/CA-C-draft-CORE_META_MODEL-QUESTION--test-and-set-cardinalities-in-cfel.md",
+      "sha256": "d8c928c9b96e3b05caa842d143f8d16b93ddbe595617993bd8ce2082c9488301",
+      "atom_id": "CA-C-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Concern",
+      "form": "Question",
+      "summary": "How should CFEL test and set cardinalities?",
+      "active": "CFEL",
+      "lanes": [
+        "questions"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-contains.md",
+      "sha256": "83d88bc5a304da0e3a6e10cf7f6f86ea415c535f7cbbb07b7967c450133316d9",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CONTAINS",
+      "active": "CFEL <+ Relation//CONTAINS",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+      "sha256": "82e75d74c1586552b7763a22e029136deadb581bc89da3b489a49840ef994303",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare HAS_ACTIVE_SUBJECT",
+      "active": "CFEL <+ Relation//HAS_ACTIVE_SUBJECT",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-has-instance.md",
+      "sha256": "927b6d5841c6f33ab151b11d1aecdff4bbdc584d07f05d052a9c0f855d285ea3",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare HAS_INSTANCE",
+      "active": "CFEL <+ Relation//HAS_INSTANCE",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-has-narrower.md",
+      "sha256": "cfc31b28abb79d535ed9863398fe87def00f925ec43bca319f5cb49688ed1bb7",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare HAS_NARROWER",
+      "active": "CFEL <+ Relation//HAS_NARROWER",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-has-property.md",
+      "sha256": "3ad41a8866be333bc0f31d8c58749e327a77c1d1f37df7aa0745e24138a109c2",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare HAS_PROPERTY",
+      "active": "CFEL <+ Relation//HAS_PROPERTY",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-is-event-author-of.md",
+      "sha256": "8056e52b010d2e4fa9a9a536cad50f890c043a4d792357e7a0f3222200d76438",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare IS_EVENT_AUTHOR_OF",
+      "active": "CFEL <+ Relation//IS_EVENT_AUTHOR_OF",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/draft/cfel-contract-completion-20261102/relation-consumers/CA-C-draft-CORE_META_MODEL-QUESTION--preserve-non-property-bearer-dependence.md",
+      "sha256": "c14d1138209788fff8e27b1a9eec0a276dacd197c077b90f2ae2cb20455bb61d",
+      "atom_id": "CA-C-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Concern",
+      "form": "Question",
+      "summary": "Should a future model support non-Property bearer dependence?",
+      "active": "CFEL <+ Relation//IS_PROPERTY_OF",
+      "lanes": [
+        "questions"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "sha256": "76e3789fdf7085e0ab574d4903520094bdcfcb7c11ae529bbfd3e182b04c5a2a",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare IS_RUN_BY",
+      "active": "CFEL <+ Relation//IS_RUN_BY",
+      "lanes": [
+        "relations"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/CA-C-draft-CORE_META_MODEL-QUESTION--should-recursive-property-counts-aggregate-descendant-identities.md",
+      "sha256": "9c1410095d04966c27528c594f0733a58bea91f12d0660422071889b7ba403df",
+      "atom_id": "CA-C-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Concern",
+      "form": "Question",
+      "summary": "Should recursive Property counts aggregate descendant identities?",
+      "active": "CFEL/Property/Recursive Count",
+      "lanes": [
+        "cfel-description"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "9cee9554227202473204de4523d6e63f781a19d8594e7510bacb7d01388aeef2",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL Operator",
+      "active": "CFEL<+Operator",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-addition.md",
+      "sha256": "0b389085bf5b24d8858280c7a9c7d6f8a53b77da6885edd06f4eb7887ec9fd2f",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator +",
+      "active": "CFEL<+Operator//Addition",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-allowed-value.md",
+      "sha256": "f86dcd093dd8c8634d0ce1d96901a27a7c88c5b5f8aa92b55df49177477048a9",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator :",
+      "active": "CFEL<+Operator//AllowedValue",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-conclusion.md",
+      "sha256": "bd2ccbf1ba1d565e4d6133c65d88f130bd7da5a634d687da9aa263c6da1fdd0a",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator ==",
+      "active": "CFEL<+Operator//Conclusion",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-condition.md",
+      "sha256": "b362c674ff49b3070d160cae4ff8a4fe7fe13ee25e7cfc3e081baae013a58623",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator =",
+      "active": "CFEL<+Operator//Condition",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-declared-reference.md",
+      "sha256": "5145df34cbb388d242b05a29fb6429d9e8849ba58874ed9701c4336485dd2bb0",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator @",
+      "active": "CFEL<+Operator//DeclaredReference",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-delivery.md",
+      "sha256": "bcf13c733f24ca65f71ed27c8d512695b8c5e7a15944d319b3bd5f2a9a4864ca",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator >>",
+      "active": "CFEL<+Operator//Delivery",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-expression-separator.md",
+      "sha256": "78470f1c4169a705336007b8498009fce2c7c93f3b7bfdc7f57db3ca84e9079b",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator ;",
+      "active": "CFEL<+Operator//ExpressionSeparator",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-fallback.md",
+      "sha256": "4cb8425b742e3c79c52bea9507a9ce19be859042a30cb6480125bb366a4a1b77",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator ?=",
+      "active": "CFEL<+Operator//Fallback",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-greater-or-equal.md",
+      "sha256": "7a17f27adcf03042d12bd977581bfa28669ad5c7ba37b05e2016b968f8338bce",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator >=",
+      "active": "CFEL<+Operator//GreaterOrEqual",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-greater-than.md",
+      "sha256": "b668e4befeff7f509a6bad146579bcef028b3ca2309db4338ffb0d63e758237c",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator >",
+      "active": "CFEL<+Operator//GreaterThan",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-grouping.md",
+      "sha256": "fe745a0bfd0494a4abcf5242bf288088d2d0152b4ffa35e69250905d84904015",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator ()",
+      "active": "CFEL<+Operator//Grouping",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-immediate-wildcard.md",
+      "sha256": "eb32966dfa863aa761c023cd9278e304180f8085e618f89e440b2947d2fb90c1",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator *",
+      "active": "CFEL<+Operator//ImmediateWildcard",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-inequality.md",
+      "sha256": "a0e6eaa781552ec0913f65cb0ce3ea5f55863c5bb5d84b6640d83b7de179eeb3",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator !=",
+      "active": "CFEL<+Operator//Inequality",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-instance.md",
+      "sha256": "646d6a901ae7b5e034a7224c913845195a7e3fdfa49c82ee309ebad17592f0e0",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator //",
+      "active": "CFEL<+Operator//Instance",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-instance-binding.md",
+      "sha256": "61df050e0cffd854eb8ebb7493f99e5be46d875113ce45cf4011ee741b735b09",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator $",
+      "active": "CFEL<+Operator//InstanceBinding",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-less-or-equal.md",
+      "sha256": "ba419b194dc6e3e3f8a2cd0d9c40124f0a90801a20b61bab9f90895cba9bd4c6",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator <=",
+      "active": "CFEL<+Operator//LessOrEqual",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-less-than.md",
+      "sha256": "c77330caa4d987da1ecf1242a196277ce9eea265c98b36cb43c56f50147eab8d",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator <",
+      "active": "CFEL<+Operator//LessThan",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-membership.md",
+      "sha256": "bfc07881216c63bc263e2e63952142abc51d32fe3a9fff17dcfe04935a451c6e",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator in / not in",
+      "active": "CFEL<+Operator//Membership",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+      "sha256": "4109cf68438ae5bdbf65d31ed792f67ad8e15235142502e1504d8ba707ca6f42",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator named Relation direction",
+      "active": "CFEL<+Operator//NamedRelationDirection",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-narrowing.md",
+      "sha256": "1b86acf1b44ef559c0169b56961d58f787dcaca8093d147b9b6f05893567c98d",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator /",
+      "active": "CFEL<+Operator//Narrowing",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-property.md",
+      "sha256": "f9c2389a4c04832bd6f35cb27750c066c09e814e4d80dd45e6e61007d5c5f95e",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator .",
+      "active": "CFEL<+Operator//Property",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-recursive-wildcard.md",
+      "sha256": "40e0e3a6d0f7b62774ed79aa799dbb85c0ffd07646745ef5792c25c56982c776",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator **",
+      "active": "CFEL<+Operator//RecursiveWildcard",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-relation-endpoint-signature.md",
+      "sha256": "9d399256a40d0afc180d674092ea97710003e5badc8648515457af02e1eaa376",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL Relation endpoint signature",
+      "active": "CFEL<+Operator//RelationEndpointSignature",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-selection-exclusion.md",
+      "sha256": "ec7a3581d7dfb72c3fed76478d3ad83850600812a279ce7b470b487f4bb73e4c",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator !()",
+      "active": "CFEL<+Operator//SelectionExclusion",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/cfel-description/operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-subject-value-selection.md",
+      "sha256": "1fd033f86dac950b9b7824c086fcfb087ebda27f7157949e09e74e6f2af82529",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator :=",
+      "active": "CFEL<+Operator//SubjectValueSelection",
+      "lanes": [
+        "operators"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/journal-workflow-cleanup/01_concern/CA-C-draft-CORE_META_MODEL-QUESTION--should-observation-phase-become-an-event-record-model-property.md",
+      "sha256": "7c1ed4f20ce5342112c945b741bba7b1fc82d3c249cba8367e92e9fbdba9fb6f",
+      "atom_id": "CA-C-draft-CORE_META_MODEL-QUESTION--should-observation-phase-become-an-event-record-model-property",
+      "base_id": null,
+      "version": 1,
+      "role": "Concern",
+      "form": "Question",
+      "summary": "Decide whether Observation Phase becomes an Event Record model Property",
+      "active": "Carrier/File.Main Content",
+      "lanes": [
+        "questions"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--framework-product-specialization.md",
+      "sha256": "ef0c58afb57f27282d73ed4003a27bfb2040f8a24c23a902c357fa042bc10729",
+      "atom_id": "CA-C-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Concern",
+      "form": "Question",
+      "summary": "Resolve the model specialization of the CAPRMEDIO Framework product",
+      "active": "Node/Continuant//CAPRMEDIO Framework",
+      "lanes": [
+        "questions"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--classify-release-retention-settings.md",
+      "sha256": "21fc496e252df518a4399b09186f5be200adb02efd84a1adbf08e35964e3fd4b",
+      "atom_id": "CA-C-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Concern",
+      "form": "Question",
+      "summary": "Resolve the logical status of release retention settings",
+      "active": "Project.Settings",
+      "lanes": [
+        "questions"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--scope-framework-root-locator-requirements.md",
+      "sha256": "a2ff63c0dc5489eda6d027254b46de03896ad3726efd8cac5bafa99033790cfe",
+      "atom_id": "CA-C-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Concern",
+      "form": "Question",
+      "summary": "Resolve the scope of framework root locator requirements",
+      "active": "Project.Settings",
+      "lanes": [
+        "questions"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-RULE--require-framework-instance-root-locators.md",
+      "sha256": "60496945835b503849dcb5e372eaafed0e98debe352981e0dd70e52245c98cae",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Require framework instance root locators",
+      "active": "Project.Settings",
+      "lanes": [
+        "settings-scope"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--restore-settings-2403.md",
+      "sha256": "baecaf9b287a8d088998436ed7365b72411ff730d695786babe8359274985e52",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Project.Settings.Authority Modes",
+      "active": "Project.Settings.Authority Modes",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--restore-settings-2404.md",
+      "sha256": "68a6cbaab7feaacd8dc3517131425dcfa9cdb7d1818eb8c531311d2252e2a762",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Project.Settings.Authority Modes.Default Scope Unit Authority Mode",
+      "active": "Project.Settings.Authority Modes.Default Scope Unit Authority Mode",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--restore-settings-2405.md",
+      "sha256": "46be1f1a696057c11a1700820fcd54c665aeee6fc1aa143e50dc54b753d7c994",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Project.Settings.Authority Modes.Project Authority Mode",
+      "active": "Project.Settings.Authority Modes.Project Authority Mode",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-2406.md",
+      "sha256": "f525212af57a808c2ef739acfc21dc440b4d8b5197f1d883c14577f67977c0e9",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define Necessary Information Threshold",
+      "active": "Project.Settings.Confidence.Necessary Information Threshold",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-2407.md",
+      "sha256": "030652233ea13b1ec1fbac3c43be30e79526d720bd3cfe5d344575c13122bd40",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define Semantic Resolution Threshold",
+      "active": "Project.Settings.Confidence.Semantic Resolution Threshold",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--extension-selection-children.md",
+      "sha256": "d20a38064d8fd56bc92c2c6f62c9856e2adf20775d1d76cac917516d836fdba9",
+      "atom_id": "CA-C-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Concern",
+      "form": "Question",
+      "summary": "Resolve the logical dependent Properties for Extension selections",
+      "active": "Project.Settings.Extension Selections",
+      "lanes": [
+        "questions"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-dynamic-2408.md",
+      "sha256": "3d8b042b78b2787bbfdfa63d10da174db874706b49e3cc6aa9346cfce17b8ded",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Project.Settings.Extension Selections",
+      "active": "Project.Settings.Extension Selections",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--restore-settings-2409.md",
+      "sha256": "0c39bd2cab3d2f741209212c3aa9836175829fcae625663901bfdc8bec82b571",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Project.Settings.Implementation Retry Limit",
+      "active": "Project.Settings.Implementation Retry Limit",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-2410.md",
+      "sha256": "fb0ef0b04fc3d60f19c2a16e93b5edcb5365c5da75ef9475456341feb3c9d727",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define Interaction Reporting Mode",
+      "active": "Project.Settings.Interaction.Reporting Mode",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-rmed-review.md",
+      "sha256": "d252f811f6efeb8b6f27aae5c4d98de60c1306905f5f30752b6a696cc3d49346",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Project.Settings.RMED Review",
+      "active": "Project.Settings.RMED Review",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-rmed-headroom.md",
+      "sha256": "0b04a094a3479626cc8df4341be2811eff511f92b7568a2668d9ce2b65d10ecf",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Project.Settings.RMED Review.Context Headroom Fraction",
+      "active": "Project.Settings.RMED Review.Context Headroom Fraction",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-rmed-max-atoms.md",
+      "sha256": "3303f67760acd8034c259ff94b6135cc66c3a0460e9d68c52150f7bdbe9ee891",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Project.Settings.RMED Review.Max Atoms",
+      "active": "Project.Settings.RMED Review.Max Atoms",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--tool-selection-children.md",
+      "sha256": "1acbdf9a5e123b9cfcdf013cdcd3ea8db8a323e458ceb1c58087b95dc22660e1",
+      "atom_id": "CA-C-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Concern",
+      "form": "Question",
+      "summary": "Resolve the logical dependent Properties for Tool selections",
+      "active": "Project.Settings.Tool Selections",
+      "lanes": [
+        "questions"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-dynamic-2411.md",
+      "sha256": "6e714740b125175778c41c6315fe14b42145f91e7ad56900ec203f170c97748b",
+      "atom_id": "CA-R-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Project.Settings.Tool Selections",
+      "active": "Project.Settings.Tool Selections",
+      "lanes": [
+        "settings"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--identify-applicable-methodology-members.md",
+      "sha256": "4b2b33ed48f6f3c39249f59e465a9e44cf04046c711812047cbb5a1c0a1204b1",
+      "atom_id": "CA-C-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Concern",
+      "form": "Question",
+      "summary": "Identify Applicable Methodology members",
+      "active": "Projection/(.Form := Applicable Methodology)",
+      "lanes": [
+        "questions"
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--methodology-conflict-representation.md",
+      "sha256": "355da1ae2a4247ae7677273375e67a33f22e41993761d415b5decc518320a5ed",
+      "atom_id": "CA-C-draft",
+      "base_id": null,
+      "version": 1,
+      "role": "Concern",
+      "form": "Question",
+      "summary": "Resolve the representation of Applicable Methodology conflicts",
+      "active": "Projection/(.Form := Applicable Methodology)",
+      "lanes": [
+        "questions"
+      ]
+    }
+  ]
+}

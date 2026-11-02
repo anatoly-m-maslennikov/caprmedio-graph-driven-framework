@@ -1,0 +1,12 @@
+[
+  {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+    "sha256": "3387259c0deb8948e496c0e37d83ae92bb8cc29d155b443dfd51324bffec03be",
+    "text": "---\natom_id: CA-R-draft\ncontent_role: Requirement\ntype: Declaration\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Draft\nsubjects:\n  governs: 'Atom.ID'\nversion: 1\nupdated_at: \"2026-10-31 01:26:40 +0400\"\nrelations: {}\ntier: 3\n---\n## Summary\n\nDeclare Atom.ID\n\n## Claim\n\n```CFEL\nAtom.ID{:1}: [string]{:1};\nAtom.ID.*[]{:0}\n```\n\nFor a Project-owned Atom, ID becomes immutable on its first promotion to Current or Archived.\n"
+  },
+  {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-id.md",
+    "sha256": "de5606c4ca1b7cd9f202248558ce232c07a5ebb54a6bc486f8e998d1195c08f5",
+    "text": "---\natom_id: CA-R-draft\ncontent_role: Requirement\ntype: Declaration\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Draft\nsubjects:\n  governs: 'Event Record.ID'\nversion: 1\nupdated_at: \"2026-10-31 18:40:46 +0400\"\nrelations: {}\ntier: 3\n---\n## Summary\n\nDeclare Event Record.ID\n\n## Claim\n\n```CFEL\nEvent Record.ID{:1}: [string]{:1};\nEvent Record.ID.*[]{:0};\nUNIQUE(Event Record//, (.ID))\n```\n"
+  }
+]

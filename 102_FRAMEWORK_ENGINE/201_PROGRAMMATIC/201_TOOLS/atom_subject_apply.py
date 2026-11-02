@@ -24,12 +24,15 @@ def _fail(code: str, message: str) -> None:
 
 def _parameters(value: Mapping[str, Any]) -> dict[str, Any]:
     required = {"target", "subject_patches", "subject_intent_sha256"}
-    if not isinstance(value, Mapping) or not required.issubset(value) or set(value) - (required | {"subject_profile", "semantic_assessment_report"}):
+    if not isinstance(value, Mapping) or not required.issubset(value) or set(value) - (required | {"subject_profile", "source_subject_profile", "semantic_assessment_report"}):
         _fail("subject-update-parameters-invalid", "Subject Update requires one closed target, patch list and intent hash")
     request = dict(value)
     profile = request.get("subject_profile", "legacy")
     if not isinstance(profile, str) or profile not in {"legacy", "approved"}:
         _fail("subject-profile-invalid", "Subject profile must be legacy or approved")
+    source_profile = request.get("source_subject_profile")
+    if source_profile is not None and source_profile != "legacy":
+        _fail("source-subject-profile-invalid", "Source Subject profile must be legacy")
     if not isinstance(request["subject_intent_sha256"], str) or re.fullmatch(r"[0-9a-f]{64}", request["subject_intent_sha256"]) is None:
         _fail("subject-intent-invalid", "Subject intent must have one canonical SHA-256 hash")
     fields = {"atom_id", "path", "filename", "version", "digest", "lifecycle", "status", "updated_at", "content_role", "type"}
@@ -41,7 +44,8 @@ def _parameters(value: Mapping[str, Any]) -> dict[str, Any]:
 def _prepare(root: Path, request: Mapping[str, Any]) -> dict[str, Any]:
     from atom_subject_patch import prepare_subject_intent
     prepared = prepare_subject_intent(root, request["target"], request["subject_patches"],
-                                      subject_profile=request.get("subject_profile", "legacy"))
+                                      subject_profile=request.get("subject_profile", "legacy"),
+                                      source_subject_profile=request.get("source_subject_profile"))
     if prepared["subject_intent_sha256"] != request["subject_intent_sha256"]:
         _fail("subject-intent-stale", "Subject intent differs from the current exact proposal")
     return prepared
@@ -210,6 +214,8 @@ def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute:
     from subject_batch_authorization import validate_batch_action
     from lifecycle_intents import LifecycleError, _validate_update_assessment
     root = Path(root).resolve()
+    if "source_subject_profile" in parameters and not validate_batch_action(root, parameters):
+        _fail("subject-profile-transition-unadmitted", "Subject profile transition requires its exact active batch")
     request = _parameters(parameters)
     batch = validate_batch_action(root, request)
     try:

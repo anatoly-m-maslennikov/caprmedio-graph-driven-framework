@@ -1,0 +1,28 @@
+{
+  "cases": 11,
+  "source": "Eight difficult cases from frozen corpus; original Summaries removed",
+  "operation": "Single generation pass over batches of 4,4,3; internal self-check, no external repair",
+  "validation": "Independent review of full content plus Summary; no external fix call during generation",
+  "source_edits": false,
+  "prompt_sha256": "c9963b613df00bc9992ebbe3762e3c946f965520cde3901baae2779d15dc4288",
+  "added_logic_checks": [
+    "all and only",
+    "Operator agency and sufficient resources",
+    "necessity versus usefulness"
+  ],
+  "test_batches": [
+    4,
+    4,
+    3
+  ],
+  "prompt_v2_sha256": "7e6af49f90d9326dbef05ea9868d44ac9a5d1a7e2074c0c0e3b0f3aa47b45b9a",
+  "v3_cases": 12,
+  "v3_original_titles_hidden": true,
+  "teaching_case_excluded": "B03",
+  "v3_batches": [
+    4,
+    4,
+    4
+  ],
+  "v3_change": "Role-aware Summary guidance and two examples; B03 excluded from held-out targets"
+}

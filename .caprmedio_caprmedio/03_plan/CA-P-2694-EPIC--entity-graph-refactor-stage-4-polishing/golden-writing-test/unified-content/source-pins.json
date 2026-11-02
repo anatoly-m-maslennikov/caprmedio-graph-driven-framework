@@ -1,0 +1,344 @@
+[
+  {
+    "key": "B01",
+    "atom_id": "CA-R-2442",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/04_requirement/CA-R-2442-AGENTIC-GOAL--ca-is-the-main-skill-for-using-workflows-through-mcp.md",
+    "sha256": "eb08e240964a2d293bcee5b979510830cf1711bb1626a2654645525d986464e1",
+    "corpus_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS/04_requirement/archive/CA-R-1625@20-SKILLS-GOAL--provide-ca-as-the-universal-entry-skill.md",
+    "corpus_sha256": "289bbc41f5738ae025e46a673702fab95cfd2083336c762ebcc3ed91ca543f4e"
+  },
+  {
+    "key": "B02",
+    "atom_id": "CA-R-2430",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/04_requirement/CA-R-2430-FRAMEWORK_ENGINE-SCOPE_CONTRACT-GOAL--programmatic-owns-all-and-only-deterministic-behavior-of-framework-engine.md",
+    "sha256": "f4cd496c72f9680c11f066811fdf6cae8492da228f0b4935845c5824bb324fd9",
+    "corpus_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/04_requirement/archive/CA-R-1184@22-FRAMEWORK_ENGINE-GOAL--own-deterministic-programmatic-framework-engine-behavior.md",
+    "corpus_sha256": "33cf8fac761a15918fecfe82c8195876c089ce63904ce5ae0c4b6d9b208a73f3"
+  },
+  {
+    "key": "B03",
+    "atom_id": "CA-M-448",
+    "version": 2,
+    "path": ".caprmedio_caprmedio/05_method/CA-M-448-CAPRMEDIO-SCOPE_CONTRACT-ENG_POLICY--show-what-is-needed-keep-the-rest.md",
+    "sha256": "d7dcaae88c928028e5405a8e930b6df9f54a88e8bff54e03917252a7a6ebfe90",
+    "corpus_path": ".caprmedio_caprmedio/05_method/archive/CA-M-003@23-ENG_POLICY--show-what-is-needed-keep-the-rest.md",
+    "corpus_sha256": "ae27fb6cd7f45dc999908c8cdbfb8689006a451fe02b95a4c18e2f30d72eb9a7"
+  },
+  {
+    "key": "B04",
+    "atom_id": "CA-M-446",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/05_method/CA-M-446-CAPRMEDIO-SCOPE_CONTRACT-ENG_POLICY--dry-don-t-repeat-yourself.md",
+    "sha256": "d80118e82e429943c762dfedcfdd187f8a0780c1e448bb3f46a0c9aa046cb1d5",
+    "corpus_path": ".caprmedio_caprmedio/05_method/archive/CA-M-002@26-ENG_POLICY--dry-don-t-repeat-yourself.md",
+    "corpus_sha256": "722c5b9e26594dd16f5230f86cc6ecc56474ede3b6ef984e80358ca53a13a9a6"
+  },
+  {
+    "key": "B05",
+    "atom_id": "CA-R-2443",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/04_requirement/CA-R-2443-APPS-SCOPE_CONTRACT-GOAL--graph-ui-owns-an-optional-user-interface-to-graph-server.md",
+    "sha256": "fa8b77201ae1b906348e2de81611b2989644bfdcba0ca45d6c609da5fab898cd",
+    "corpus_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/04_requirement/archive/CA-R-1604@14-APPS-GOAL--provide-an-optional-graph-interface.md",
+    "corpus_sha256": "24d41810a1434935b5ff5a9bd9765b2519b21e0ef1d19c0a203fc99e63463e4d"
+  },
+  {
+    "key": "B06",
+    "atom_id": "CA-R-2444",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-2444-CAPRMEDIO-SCOPE_CONTRACT-GOAL--collect-input-from-other-caprmedio-users.md",
+    "sha256": "013aa35b7c988510dd4844fd1c40c78322b54063e6d32d5e3b53f83ada5f1da3",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1183@19-GOAL--collect-inputs-from-other-caprmedio-users.md",
+    "corpus_sha256": "1bebce74cc23b2d13961f96a6204e2a2ca5bdba21ae41c10f076c63eef25cf84"
+  },
+  {
+    "key": "B07",
+    "atom_id": "CA-R-2445",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-2445-CAPRMEDIO-SCOPE_CONTRACT-GOAL--catalog-externally-maintained-extension-packages.md",
+    "sha256": "b20220513972246996c39e86a7746a9e64e0d13eec0b7e441de09843982b83c0",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1182@20-GOAL--catalog-externally-maintained-extension-packages.md",
+    "corpus_sha256": "85cfd185eb191e75756eed7b96306eb6bca4b1e5005a71b15d2bb0d4c6a784e0"
+  },
+  {
+    "key": "B08",
+    "atom_id": "CA-R-2446",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/04_requirement/CA-R-2446-PROGRAMMATIC-GOAL--expose-bounded-read-only-mcp-health-and-call-history.md",
+    "sha256": "8552eac96075f66ece20117de6fe2d4fe7b38f9fbc0c692aa9fc2dcc04657250",
+    "corpus_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/04_requirement/archive/CA-R-2007@10-MCP-GOAL--expose-bounded-read-only-mcp-health-and-call-history.md",
+    "corpus_sha256": "6310c36eac92c8bc4faf8ef14ab0e75709c958ad6ed70ab9540cd1f83366e924"
+  },
+  {
+    "key": "B09",
+    "atom_id": "CA-O-238",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-238-PROJECT_CONFIGURATION-ACTION--review-code-candidate-evidence-and-applicable-method-policy-without-editing.md",
+    "sha256": "0cb1436ab21ceead7d0b248945d7c9f0b7535354f88065db94e0b2491094e5cf",
+    "corpus_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/archive/CA-O-225@12-PROJECT_CONFIGURATION-ACTION--review-code-candidate-evidence-and-applicable-method-policy-without-editing.md",
+    "corpus_sha256": "ef6f5240375433b8c50f9810666ef1dd41215f0fe91f0e2de8e8c546ca776119"
+  },
+  {
+    "key": "B10",
+    "atom_id": "CA-O-239",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-239-PROJECT_CONFIGURATION-STEP--review-code-in-shared-implementation-context.md",
+    "sha256": "eac6020f7ca4c86d1419b0bc3dc9fa9471985a4140e45a4671efeca0f45102c4",
+    "corpus_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/archive/CA-O-230@10-PROJECT_CONFIGURATION-STEP--review-code-in-shared-implementation-context.md",
+    "corpus_sha256": "43fd3c8713235d7cd78a9a89681d3a5962b4d0b17d8ee99017a0140456fa401b"
+  },
+  {
+    "key": "B11",
+    "atom_id": "CA-E-666",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-666-PROJECT_CONFIGURATION-EVAL_CASE--check-gap-free-rmedo-conflict-resolution.md",
+    "sha256": "0cd202140f330952afb526b6fc64fc4f6da4a82c78201486cdb00ffa581ee884",
+    "corpus_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/archive/CA-E-477@24-PROJECT_CONFIGURATION-EVAL_CASE--validate-gap-free-rmedo-conflict-resolution.md",
+    "corpus_sha256": "f4e3dd570fadae89f788392522375462dba8c6171248b605d56fbae8d7c36eaf"
+  },
+  {
+    "key": "B12",
+    "atom_id": "CA-R-2447",
+    "version": 2,
+    "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/04_requirement/CA-R-2447-AGENTIC-GOAL--record-each-review-run-and-its-evidence.md",
+    "sha256": "5d2a5b8a4ed9e6ad13d6d0ab8031edb80194afaa6a19c73fed69cdefd61a5b8c",
+    "corpus_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/202_FEATURE_PROMPTS/04_requirement/archive/CA-R-1803@14-PROMPTS-GOAL--provide-traceable-full-review-run-evidence.md",
+    "corpus_sha256": "d3dd4b50e50783b753047a184c69693802fbd72b66e3048d98d771bb51c17a5e"
+  },
+  {
+    "key": "B13",
+    "atom_id": "CA-R-2448",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-2448-CAPRMEDIO-SCOPE_CONTRACT-GOAL--keep-valuable-project-information-recoverable.md",
+    "sha256": "009fbcebb46540bcd5d714c4049dc7dce1985032c7f0943f1753dd32476cf8a7",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1490@16-GOAL--preserve-valuable-information.md",
+    "corpus_sha256": "281562ca9632c7a2db7365423d00fcddfb021ce3907b92c246da607d4a0f053a"
+  },
+  {
+    "key": "B14",
+    "atom_id": "CA-E-667",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/06_evaluation/CA-E-667-CAPRMEDIO-EVAL_POLICY--check-the-project-wide-foundation-and-core-set.md",
+    "sha256": "62268a5a4f365584a966b5f369ab3a5003d7098b72e466ffe6065ebc879efbea",
+    "corpus_path": ".caprmedio_caprmedio/06_evaluation/archive/CA-E-210@28-POLICY--evaluate-the-current-principle-and-core-set.md",
+    "corpus_sha256": "14ccf36973bfa9242f9f55cd7f60c63fb3ced47956ac9c388e299a5f88941a5d"
+  },
+  {
+    "key": "B15",
+    "atom_id": "CA-R-2449",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/04_requirement/CA-R-2449-PROGRAMMATIC-SCOPE_CONTRACT-GOAL--mcp-owns-provider-neutral-discovery-schema-and-dispatch.md",
+    "sha256": "93d09c0f88b4f7172515867fc7f17dca9da8a561a3aff10f7ba4871dad07a9bc",
+    "corpus_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/04_requirement/archive/CA-R-1188@20-PROGRAMMATIC-GOAL-MCP--own-provider-neutral-capability-discovery-schema-and-dispatch.md",
+    "corpus_sha256": "100ff8a58a29fc04fb356e2617bf312bb2515c212ab77cc635084ecd0327f2a5"
+  },
+  {
+    "key": "B16",
+    "atom_id": "CA-D-657",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+    "sha256": "34d889b05d5a0167960c9c63d435f3ba7f6595f2629eeb210a6051eb32539ad8",
+    "corpus_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archive/CA-D-276@31-CORE_META_MODEL-ENG_DECISION--use-economical-yaml-frontmatter.md",
+    "corpus_sha256": "226ba471571683f2d01fd3fa12c60ecb1ddfe8ee32dc78e97eb454c173c2f58a"
+  },
+  {
+    "key": "B17",
+    "atom_id": "CA-R-2450",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-2450-CAPRMEDIO-SCOPE_CONTRACT-RULE--the-project-has-five-layers-in-local-order.md",
+    "sha256": "0ed3169b7d251d1178c3e4e2f684b470e46cd8e668e2f4b210eee6a1387563f0",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-707@19-DEFINITION--order-project-layers.md",
+    "corpus_sha256": "23a94f4bde40cf1db533dd503e7f91e7acdcad79fc15d36d6d7f7c049e20ab53"
+  },
+  {
+    "key": "B18",
+    "atom_id": "CA-R-2451",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/04_requirement/CA-R-2451-AGENTIC-SCOPE_CONTRACT-GOAL--prompts-owns-agent-and-operator-prompt-implementations.md",
+    "sha256": "833bb9246960d46aa9f8ecdff0c944536aa210c1b232f60e140aa43d7a58e57d",
+    "corpus_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/04_requirement/archive/CA-R-1600@14-AGENTIC-GOAL--own-agent-and-operator-prompt-implementations.md",
+    "corpus_sha256": "e9f3b26a2990280469b83a7a0aea9c65b493b8f8cd74428f44012682cb0cccf7"
+  },
+  {
+    "key": "B19",
+    "atom_id": "CA-R-2452",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/CA-R-2452-ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-caprmedio--create-and-evolve-a-working-caprmedio-framework.md",
+    "sha256": "91b07317d669387b8245ae107b41df9a0a5acbc73307fe347e69a6ae9a4dfd95",
+    "corpus_path": ".caprmedio_caprmedio/archive/CA-R-2155@16-ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-caprmedio--create-and-evolve-a-working-caprmedio-framework.md",
+    "corpus_sha256": "d02151dd7e67339c24c80fee4a85499f3f43abc349be7e0e713dbb8b5336a82e"
+  },
+  {
+    "key": "B20",
+    "atom_id": "CA-E-668",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-668-CORE_META_MODEL-EVAL_POLICY--check-the-selected-scope-against-active-project-wide-invariants.md",
+    "sha256": "62391b32dad6b73ebbf171b6a3d29014b2e31a9df75b17df414690c4b943599b",
+    "corpus_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CA-E-655@26-CORE_META_MODEL-POLICY--principle-first-alignment.md",
+    "corpus_sha256": "17f9929bab1cfced318985a6ad8088a633c06ca6d3af6ca231f7cd9f153d82e1"
+  },
+  {
+    "key": "B21",
+    "atom_id": "CA-R-709",
+    "version": 25,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-709-CAPRMEDIO-SCOPE_CONTRACT-RULE--classify-project-features-as-unordered-units.md",
+    "sha256": "9c4d3f7e73f4b6398d8d06d6a949d0e08836b006d07153e77b7ef36ff1762644",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-709@20-DEFINITION--classify-project-features-as-unordered-units.md",
+    "corpus_sha256": "6098cb577ab516742f1d189d7507d9c656944eb7874c4df47c616b4b71fd7775"
+  },
+  {
+    "key": "B22",
+    "atom_id": "CA-R-1420",
+    "version": 23,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-1420-CAPRMEDIO-SCOPE_CONTRACT-GOAL--support-informed-operator-decisions.md",
+    "sha256": "14a937c933f5c4817825f5e39c9252ffc487dd88a602d9f10b0026ef8817e553",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1420@19-GOAL--support-informed-operator-decisions.md",
+    "corpus_sha256": "4f6f7a3b209baad269e5a93b82fa0676071d0539b8698216856674dbd3ef2a24"
+  },
+  {
+    "key": "B23",
+    "atom_id": "CA-R-705",
+    "version": 25,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-705-CAPRMEDIO-SCOPE_CONTRACT-RULE--define-framework-composition.md",
+    "sha256": "4b5b028c77b1fd69037319a540b8bec7ebc2da1e92c389a18a956fced479ba0c",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-705@20-DEFINITION--define-framework-composition.md",
+    "corpus_sha256": "224e99d232a0cd80ec47cf201a4e4e56717ff599873e73dd3daddf5e69fbdb74"
+  },
+  {
+    "key": "B24",
+    "atom_id": "CA-R-1407",
+    "version": 24,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-1407-CAPRMEDIO-SCOPE_CONTRACT-RULE--the-caprmedio-instance-and-the-implementation-form-a-graph-of-graphs.md",
+    "sha256": "2822b1d85867f5904be9d5ab1593cced18039f9222e4b59b3e1c5ae43273cc4f",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1407@20-RULE--the-caprmedio-instance-and-the-implementation-form-a-graph-of-graphs.md",
+    "corpus_sha256": "23de6163cee56dafb35d4a6a76ff178b5ff99182a16429e80e2479262dfbcfe4"
+  },
+  {
+    "key": "B25",
+    "atom_id": "CA-R-1178",
+    "version": 24,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-1178-CAPRMEDIO-SCOPE_CONTRACT-GOAL--reduce-tokens-mistakes-and-context-clutter.md",
+    "sha256": "a991d1e3d49a21c98be41c1c46b29a60c875b9703f2ce3334567e8e5c93fc885",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1178@20-GOAL--reduce-tokens-mistakes-and-context-clutter.md",
+    "corpus_sha256": "978ef72cfaa6c75a30febbecfbe0ed04d5ded93d29e99e3cecda06b3707568f3"
+  },
+  {
+    "key": "B26",
+    "atom_id": "CA-R-1180",
+    "version": 24,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-1180-CAPRMEDIO-SCOPE_CONTRACT-GOAL--provide-caprmedio-maintained-optional-extensions.md",
+    "sha256": "f0119f4d11fdffabe1afb2b7486b52fbd1e8193dcb609f240a4d561539cbc53e",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1180@20-GOAL--provide-caprmedio-maintained-optional-extensions.md",
+    "corpus_sha256": "acd5dd44212b1129d3ba33351a1cfbc8d3438a49a452b3ec2bf7d15c01cbb672"
+  },
+  {
+    "key": "B27",
+    "atom_id": "CA-R-1179",
+    "version": 26,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-1179-CAPRMEDIO-SCOPE_CONTRACT-GOAL--help-operators-use-caprmedio-to-achieve-project-goals.md",
+    "sha256": "e51e70d8036e47125625d971102f3bd34b6bf82645b0d201925d5eadf2cfc523",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1179@22-GOAL--help-operators-use-caprmedio-to-achieve-project-goals.md",
+    "corpus_sha256": "8b69a330601f9f3fa571f8c2b230b77d62a7e5a7d36dc59050b3eaa403dc923f"
+  },
+  {
+    "key": "B28",
+    "atom_id": "CA-R-819",
+    "version": 34,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-819-CAPRMEDIO-SCOPE_CONTRACT-RULE--do-not-require-human-participants-to-master-or-personally-perform-specialist-work.md",
+    "sha256": "e4b597c816b32e92cd04eb08c98db40b6e5113f8669df23b323617d1b5b92086",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-819@28-RULE--do-not-require-human-participants-to-master-or-personally-perform-specialist-work.md",
+    "corpus_sha256": "e6b96fab145193ce2f0215a847b9bcd56d65d8a49050ca591677bfefe8289883"
+  },
+  {
+    "key": "B29",
+    "atom_id": "CA-R-712",
+    "version": 20,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-712-CAPRMEDIO-SCOPE_CONTRACT-RULE--keep-project-layers-as-siblings.md",
+    "sha256": "c4cd396552abccb5606b63f4d005fe2006ba9f220b74802d041f6d7d4b505aef",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-712@16-RULE--keep-project-layers-as-siblings.md",
+    "corpus_sha256": "8174c34c398503afc35823fe9160cd19f9d7489fa603c1202a6dbbfd7e10fe5b"
+  },
+  {
+    "key": "B30",
+    "atom_id": "CA-R-1421",
+    "version": 21,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-1421-CAPRMEDIO-SCOPE_CONTRACT-GOAL--keep-the-framework-configurable-and-extensible.md",
+    "sha256": "2e8985beebbcb6659d6b9e7f2074f9c67753cefb398b0c262f5dcd7cf52b5e11",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1421@17-GOAL--keep-the-framework-configurable-and-extensible.md",
+    "corpus_sha256": "e730972e8ec4dc1c45ee4beaab2a977d831fb723b9be0847af5db2cac6796e4a"
+  },
+  {
+    "key": "B31",
+    "atom_id": "CA-R-1423",
+    "version": 23,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-1423-CAPRMEDIO-SCOPE_CONTRACT-GOAL--support-improvement-from-observed-outcomes.md",
+    "sha256": "b4fd6508c1d7dfe438019b5170454e1e6c36deeab22149ad9ceaf2503a3650b0",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1423@19-GOAL--support-improvement-from-observed-outcomes.md",
+    "corpus_sha256": "15b7e18b513c29fc5e3dc988bf05ddf3528158d768482cff5a3667231151ee8f"
+  },
+  {
+    "key": "B32",
+    "atom_id": "CA-R-1486",
+    "version": 18,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-1486-CAPRMEDIO-SCOPE_CONTRACT-GOAL--define-how-projects-are-represented-and-operated.md",
+    "sha256": "54f2eb9f04e0c53e0d9e349d9ce7d99eb84ff5a9e3c5741e64cf2b48ba9ea41c",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1486@14-GOAL-FRAMEWORK_METHODOLOGY--define-how-projects-are-represented-and-operated.md",
+    "corpus_sha256": "5d4261b4933d001424b838530a62db9e02c36bb1e9a38bc3532080394bcb5f3d"
+  },
+  {
+    "key": "B33",
+    "atom_id": "CA-R-1181",
+    "version": 26,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-1181-CAPRMEDIO-SCOPE_CONTRACT-GOAL--provide-usable-caprmedio-versions-and-release-notes.md",
+    "sha256": "8549af029b3f5ea4f287167ca7e1fe0751fc9c7e093103c7b956c2046f9eda0a",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1181@22-GOAL--provide-usable-caprmedio-versions-and-release-notes.md",
+    "corpus_sha256": "f59aff9533d2679bdcc39f06abcfb60f45289bb81c90acedf2f61ff7815dc3e3"
+  },
+  {
+    "key": "B34",
+    "atom_id": "CA-R-1426",
+    "version": 21,
+    "path": ".caprmedio_caprmedio/04_requirement/CA-R-1426-CAPRMEDIO-SCOPE_CONTRACT-GOAL--make-engine-execution-observable-and-transparent.md",
+    "sha256": "e78c77b1950bf45279d9daed5982d0d22af2a78133d9c5c3467e562ca4c16b82",
+    "corpus_path": ".caprmedio_caprmedio/04_requirement/archive/CA-R-1426@17-GOAL--make-engine-execution-observable-and-transparent.md",
+    "corpus_sha256": "17eaa40a4135743885b838ecea4f3224cc57247399cd6ae858367ca58df9ac15"
+  },
+  {
+    "key": "B35",
+    "atom_id": "CA-M-447",
+    "version": 2,
+    "path": ".caprmedio_caprmedio/05_method/CA-M-447-CAPRMEDIO-SCOPE_CONTRACT-ENG_POLICY--mece-mutually-exclusive-collectively-exhaustive.md",
+    "sha256": "b98fac8f57903c5e05a16da7dea7e8f09cdc3febe1ee38432ecb3a4f07c5c36d",
+    "corpus_path": ".caprmedio_caprmedio/05_method/archive/CA-M-001@22-ENG_POLICY--mece-cover-the-whole-with-non-overlapping-parts.md",
+    "corpus_sha256": "3f658e3be12b04504219401dadac37ce74db7edfa9be09bfd0a841de689a34b1"
+  },
+  {
+    "key": "B36",
+    "atom_id": "CA-M-006",
+    "version": 29,
+    "path": ".caprmedio_caprmedio/05_method/CA-M-006-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--keep-the-whole-project-coherent.md",
+    "sha256": "9aaf9f6e122f6584b5629f82c78cec6451721a72e9c76982a02fc96ffe913512",
+    "corpus_path": ".caprmedio_caprmedio/05_method/archive/CA-M-006@23-ENG_POLICY--keep-the-whole-project-coherent.md",
+    "corpus_sha256": "3cddf83933af1165dd49be34ed5edb4e3a04efb4985e16d75c27e6ee8b24d109"
+  },
+  {
+    "key": "B37",
+    "atom_id": "CA-M-005",
+    "version": 26,
+    "path": ".caprmedio_caprmedio/05_method/CA-M-005-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--add-complexity-only-when-necessary.md",
+    "sha256": "2eb7730a3a0345b6541e3e960058901c458e875fc76561a65288e00be944ed24",
+    "corpus_path": ".caprmedio_caprmedio/05_method/archive/CA-M-005@20-ENG_POLICY--add-complexity-only-when-necessary.md",
+    "corpus_sha256": "57604dbc9901bbff5989f8abb30c5629bb1230dfcbfc98370c0845d8282f02cf"
+  },
+  {
+    "key": "B38",
+    "atom_id": "CA-E-001",
+    "version": 31,
+    "path": ".caprmedio_caprmedio/06_evaluation/CA-E-001-CAPRMEDIO-SCOPE_CONTRACT-EVAL-POLICY--make-governed-commitments-and-results-checkable.md",
+    "sha256": "56ace684a659aefd65c2069907bb2f87308c15923f534c4d74a2de362f77c495",
+    "corpus_path": ".caprmedio_caprmedio/06_evaluation/archive/CA-E-001@26-POLICY--make-governed-commitments-and-results-checkable.md",
+    "corpus_sha256": "bcdd7c242ddacffcce18e654ec5269c575169af30aabf068afc59246560e3ae9"
+  }
+]

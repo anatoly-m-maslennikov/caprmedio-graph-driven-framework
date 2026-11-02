@@ -1,36 +1,35 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
-  - 'Subject/CAPRMEDIO/Graph/Relation/Type: evaluation_for'
-version: 20
-updated_at: 2026-10-27 19:59:56 +0400
+  active: Atom/(.Role := Evaluation)
+  passive:
+  - Entity/Object/Continuant/Selection//Methodology Sources
+  - Scope Unit
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - Package
+  - Atom/(.Role := Operations)
+  - Entity/Aspect/Engineering/Verification
+  - CFEL > Relation//evaluation_for
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   depends_on:
   - CA-R-1018
   - CA-E-486
 atom_id: CA-R-1518
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Separate methodology and Tool Evaluation responsibilities
 
-## Scope
+## Claim scope
 
 Evaluation responsibility for operational definitions and their Tool implementations.
 

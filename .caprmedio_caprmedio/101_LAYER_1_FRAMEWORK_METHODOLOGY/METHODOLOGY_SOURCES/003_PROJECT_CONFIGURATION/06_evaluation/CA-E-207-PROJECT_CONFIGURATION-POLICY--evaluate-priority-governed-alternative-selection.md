@@ -1,6 +1,6 @@
 ---
-version: 29
-updated_at: 2026-10-27 19:59:30 +0400
+version: 34
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-815
@@ -10,28 +10,27 @@ relations:
   - CA-O-022
   - CA-O-023
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_LEXICOGRAPHIC
+  active: Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Project
+  - Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - Entity/Aspect/Engineering/Execution Control/Effect Authorization
+  - Entity/Object/Continuant/Selection
+  - Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
 atom_id: CA-E-207
-content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 5
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Evaluate priority-governed alternative selection
 
-## Scope
+## Claim scope
 
 this Evaluation checks priority resolution **and** alternative selection for an affected Scope **and** Project stage under CA-R-1487, CA-M-297, CA-O-022, **and** CA-O-023.
 
@@ -49,5 +48,3 @@ the evaluated behavior passes **if** **all** applicable conditions hold **and** 
 ### Falsification
 
 the evaluated behavior fails **if** **any** applicable acceptance condition is false. missing evidence for an applicable condition leaves that condition unevaluated, **not** passed.
-
-## Details

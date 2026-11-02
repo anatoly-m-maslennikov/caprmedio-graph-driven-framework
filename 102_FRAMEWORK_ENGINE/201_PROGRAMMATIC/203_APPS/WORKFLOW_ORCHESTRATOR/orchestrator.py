@@ -17,7 +17,7 @@ from pydantic import Field, TypeAdapter
 from contracts import Enqueue, EnqueueSelected, Status, SubmitResult
 from backend import enqueue, enqueue_selected, status, worker
 from engine import Coordinator
-from runtime_config import control_directory, docker_runtime
+from runtime_config import control_directory, docker_runtime, isolated_runtime
 
 Request = Annotated[
     Enqueue | EnqueueSelected | Status | SubmitResult, Field(discriminator="operation")
@@ -36,7 +36,7 @@ def run(root, request):
     handled, result = _run_native(root, request)
     if handled:
         return result
-    if not docker_runtime():
+    if not docker_runtime() and not isolated_runtime():
         from docker_bridge import MARKER, invoke
 
         if Coordinator(root, None).store.path(MARKER).exists():
@@ -55,7 +55,8 @@ def _worker_paths(root):
     return (
         engine,
         directory,
-        engine.store.path(".caprmedio_install/workflow_orchestrator/worker.log"),
+        directory / "worker.log" if isolated_runtime()
+        else engine.store.path(".caprmedio_install/workflow_orchestrator/worker.log"),
     )
 
 

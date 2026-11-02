@@ -1,0 +1,10 @@
+{
+  "status": "Runtime/adapter integration gate; not a new semantic decision",
+  "required_mapping": "Atom.Relations.contained_by.atom or .scope_unit resolves to an outgoing IS_CONTAINED_BY fact for the same selected logical Atom.",
+  "source": "Luna bounded reference inventory",
+  "not_claimed": [
+    "Runtime adapter emits these edges",
+    "LOOKUP evaluator exists",
+    "Actual Project default value has been set"
+  ]
+}

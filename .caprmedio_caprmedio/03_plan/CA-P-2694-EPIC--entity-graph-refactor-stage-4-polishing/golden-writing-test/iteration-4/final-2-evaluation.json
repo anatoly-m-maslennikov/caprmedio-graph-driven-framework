@@ -1,0 +1,33 @@
+{
+  "hashes": {
+    "repair-final-2/input.jsonl": "d6368ffae794a4daa2ef3c263822d9a59ea6862e7aae27e9bdccd7a5a99d387e",
+    "repair-final-2/output.jsonl": "971d1ae15f3c6a6395a187435ae083b117b96f62929a2e65735a374db8ff1425",
+    "comparison-input.jsonl": "1dc2228e689347189d76851ba340a64bef02ed6dc919025648decc6e2ba84615",
+    "repair-final-2/writing-style-guide.prompt.md": "bdf99a66c7cf79d14ab5c0373aeb70e934cde5c028385a8a3f4e794c92bf0ea5"
+  },
+  "counts": {
+    "total": 2,
+    "pass": 2,
+    "needs_changes": 0,
+    "needs_context": 0
+  },
+  "results": [
+    {
+      "key": "B03",
+      "generated_summary": "Keep all unexposed preserved information retrievable; show only the justified task-sufficient set",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B09",
+      "generated_summary": "Review code candidates, evidence and all bound applicable Method policy without editing",
+      "verdict": "Pass",
+      "issues": []
+    }
+  ],
+  "verification": {
+    "frozen_content_matches": true,
+    "sources_and_outputs_unchanged": true
+  },
+  "scope": "Meaning and readable-title review; secondary detail may remain in the body. The other 36 titles were not re-evaluated."
+}

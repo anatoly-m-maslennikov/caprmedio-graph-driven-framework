@@ -1,0 +1,479 @@
+{
+  "report": "Node Declaration source mapping review",
+  "status": "evidence-only; no source-to-target mappings approved",
+  "reviewed_at": "2026-10-31",
+  "scope": {
+    "registered_authority_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+    "source_inventory_path": "/tmp/node-declaration-proposal-20261030/inventory/node_declaration_inventory.json",
+    "source_inventory_sha256": "32b9ebfd877b169f08fe1e67d178f19d2558fcb7469fe648e16983b07f538cbf",
+    "inventory_scope": "direct Current carriers in 04_requirement with status Active, content_role Requirement, type Entity Definition, and subjects.governs beginning Entity/",
+    "mapping_caution": "Current governed path only supplies review grouping; no old Entity-to-new Node identity or semantic mapping is inferred.",
+    "current_source_metadata_changed": false
+  },
+  "counts": {
+    "inventory_rows": 333,
+    "review_candidates_under_Entity_Object_Aspect_Property": 290,
+    "non_Node_branch_or_preserved_syntax_rows": 43,
+    "direct_target_candidate_sources_for_six_declarations": 5,
+    "direct_target_coverage": {
+      "Operations": 1,
+      "Workflow": 1,
+      "Step": 1,
+      "Substep": 1,
+      "Action": 1,
+      "Node": 0
+    },
+    "candidate_rows_without_direct_name_or_branch_link_to_the_six_targets": 285,
+    "candidate_rows_with_identity_or_semantic_decision_still_open": 290,
+    "operations_related_candidate_rows": 10,
+    "exact_duplicate_governed_path_groups": 1,
+    "extra_duplicate_source_occurrences": 1
+  },
+  "declarations": [
+    {
+      "draft_atom_id": "CA-R-draft",
+      "status": "Draft",
+      "type": "Declaration",
+      "governs": "Node",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "6ec99e608d22feb4b938fb4a2b8f8bae488f7763b4ee2cc212c7b54237a8d94a"
+    },
+    {
+      "draft_atom_id": "CA-R-draft",
+      "status": "Draft",
+      "type": "Declaration",
+      "governs": "Atom/(.Role: Operations)",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "sha256": "3e2cf2d5127dbcc9f663575df42f4a3d27e0d1338fe61839aa03ea225b31cd8c"
+    },
+    {
+      "draft_atom_id": "CA-R-draft",
+      "status": "Draft",
+      "type": "Declaration",
+      "governs": "Atom/(.Role: Operations)/Workflow",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "68624e9a011a480ad85277405cefcdcd6636ebcfef8a65ffa1158f8cd80969a5"
+    },
+    {
+      "draft_atom_id": "CA-R-draft",
+      "status": "Draft",
+      "type": "Declaration",
+      "governs": "Atom/(.Role: Operations)/Step",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "253a4394a43c9164b8ea1b539b6f9c8dcb0fa244eefe0b3d1571adf718f2ef2c"
+    },
+    {
+      "draft_atom_id": "CA-R-draft",
+      "status": "Draft",
+      "type": "Declaration",
+      "governs": "Atom/(.Role: Operations)/Substep",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "sha256": "a95c9dcd116430e46aa8f0d42652854c4dee87404d8923a365a72ba01903a98b"
+    },
+    {
+      "draft_atom_id": "CA-R-draft",
+      "status": "Draft",
+      "type": "Declaration",
+      "governs": "Atom/(.Role: Operations)/Action",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "0cc0779676fb8509ac2845f20ef73d8d565089233ddc3cd385d6acaf90e8ccde"
+    }
+  ],
+  "mechanically_supportable_candidate_mappings": [
+    {
+      "target": "Atom/(.Role: Operations)",
+      "candidate_source": {
+        "atom_id": "CA-R-1530",
+        "version": 27,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-DEFINITION--define-the-operations-content-role.md",
+        "sha256": "501e8ff45c8e88d9a30f3116f203f207badf9fcedc2479c3ddcc9903d6776af6"
+      },
+      "basis": "Exact Operations branch/label candidate. Current axis is Content Role; target makes it a Role-qualified Node/form scope. Same meaning and Node identity are not established by the path."
+    },
+    {
+      "target": "Atom/(.Role: Operations)/Workflow",
+      "candidate_source": {
+        "atom_id": "CA-R-1508",
+        "version": 28,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1508-CORE_META_MODEL-DEFINITION--define-workflow.md",
+        "sha256": "0ac735ab228105685a95fa3795cf755f1f10dddef3b2844ad30f2637e6e8d6aa"
+      },
+      "basis": "Exact Workflow label under Operations; candidate scope identity only. Retain existing source details until relation whitelist and formal claim reconciliation."
+    },
+    {
+      "target": "Atom/(.Role: Operations)/Step",
+      "candidate_source": {
+        "atom_id": "CA-R-1509",
+        "version": 23,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Atom/Content Role: Operations/Type: Step",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1509-CORE_META_MODEL-DEFINITION--define-step.md",
+        "sha256": "1c230d81bcbf5f0056ef8a0250a36b8509cad3c467d6cfae15acf8549944d705"
+      },
+      "basis": "Exact Step label, currently nested beneath Workflow via containment syntax. Target declaration’s Workflow parent and containment need explicit identity and relation reconciliation."
+    },
+    {
+      "target": "Atom/(.Role: Operations)/Substep",
+      "candidate_source": {
+        "atom_id": "CA-R-2242",
+        "version": 2,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Atom/Content Role: Operations/Type: Step >{0+} Atom/Content Role: Operations/Type: Sub-step",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2242-CORE_META_MODEL-ENTITY_DEFINITION--define-substep.md",
+        "sha256": "f034ad21b67a60e59e69ffe7052941c1a731418dbd5e328617d836ced498af7b"
+      },
+      "basis": "Exact current Sub-step branch source nested beneath Step. Name normalization is a candidate only. Current semantics specify leaf/call-to-Action behavior; target uses RUN and needs exact relation/binding reconciliation."
+    },
+    {
+      "target": "Atom/(.Role: Operations)/Action",
+      "candidate_source": {
+        "atom_id": "CA-R-1452",
+        "version": 27,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL--define-action.md",
+        "sha256": "22f66357c3fb3abd33641de03cbd1df4f8268850ea606bdcc0ad95abf2c8cbb5"
+      },
+      "basis": "Exact Action label under Operations; candidate scope identity only. Preserve distinction between reusable Action, execution kind, call, and Run."
+    }
+  ],
+  "unmapped_node_root_candidates": [
+    {
+      "source": {
+        "atom_id": "CA-R-1248",
+        "version": 24,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-DEFINITION--define-entity.md",
+        "sha256": "d9946790458fc48aaf349a2ab40d4b2d0cf4e82903e59dbb761cdf6fdb5129ca"
+      },
+      "disposition": "Broad Entity-root Definition; describes graph entities and branch rules, not a Node definition. Entity includes non-Object branches, so no blanket identity."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-2226",
+        "version": 2,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Object",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2226-CORE_META_MODEL-ENTITY_DEFINITION--define-object.md",
+        "sha256": "77b6b37e6ab9d4d3d262613d88ad08ebfcceb7af9d8c756fdc88ec4f93b7e532"
+      },
+      "disposition": "Object branch Definition; narrower than Entity and still not an explicit Node equivalence. Object includes Continuant/Occurrent; not all Objects are the proposed Node set."
+    }
+  ],
+  "operations_related_sources_requiring_individual_disposition": [
+    {
+      "atom_id": "CA-R-1452",
+      "version": 27,
+      "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL--define-action.md",
+      "sha256": "22f66357c3fb3abd33641de03cbd1df4f8268850ea606bdcc0ad95abf2c8cbb5",
+      "disposition": "Related current scope; do not fold into a declared form from path text alone."
+    },
+    {
+      "atom_id": "CA-R-1508",
+      "version": 28,
+      "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1508-CORE_META_MODEL-DEFINITION--define-workflow.md",
+      "sha256": "0ac735ab228105685a95fa3795cf755f1f10dddef3b2844ad30f2637e6e8d6aa",
+      "disposition": "Related current scope; do not fold into a declared form from path text alone."
+    },
+    {
+      "atom_id": "CA-R-1509",
+      "version": 23,
+      "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Atom/Content Role: Operations/Type: Step",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1509-CORE_META_MODEL-DEFINITION--define-step.md",
+      "sha256": "1c230d81bcbf5f0056ef8a0250a36b8509cad3c467d6cfae15acf8549944d705",
+      "disposition": "Related current scope; do not fold into a declared form from path text alone."
+    },
+    {
+      "atom_id": "CA-R-1526",
+      "version": 20,
+      "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1526-CORE_META_MODEL-DEFINITION--define-action-execution-kind.md",
+      "sha256": "0e00ed2c570ae6fd5ef0613967fbdbf5dbdd10a668650b6817359a31379f120d",
+      "disposition": "Related current scope; do not fold into a declared form from path text alone."
+    },
+    {
+      "atom_id": "CA-R-1530",
+      "version": 27,
+      "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-DEFINITION--define-the-operations-content-role.md",
+      "sha256": "501e8ff45c8e88d9a30f3116f203f207badf9fcedc2479c3ddcc9903d6776af6",
+      "disposition": "Related current scope; do not fold into a declared form from path text alone."
+    },
+    {
+      "atom_id": "CA-R-2242",
+      "version": 2,
+      "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Atom/Content Role: Operations/Type: Step >{0+} Atom/Content Role: Operations/Type: Sub-step",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2242-CORE_META_MODEL-ENTITY_DEFINITION--define-substep.md",
+      "sha256": "f034ad21b67a60e59e69ffe7052941c1a731418dbd5e328617d836ced498af7b",
+      "disposition": "Related current scope; do not fold into a declared form from path text alone."
+    },
+    {
+      "atom_id": "CA-R-2376",
+      "version": 1,
+      "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations.Status",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2376-CORE_META_MODEL-ENTITY_DEFINITION--define-operations-status.md",
+      "sha256": "a761b610bb93353dc6c09622f09d58ce52d95ad7bddaa01d889c2446f9c24936",
+      "disposition": "Related current scope; do not fold into a declared form from path text alone."
+    },
+    {
+      "atom_id": "CA-R-2377",
+      "version": 1,
+      "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step.Enabled Relations.Contains",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2377-CORE_META_MODEL-ENTITY_DEFINITION--define-step-enabled-relations-contains.md",
+      "sha256": "5e037305724b8f4a7b565c296072cf310ab3e2329a38105126f97669eba37f2d",
+      "disposition": "Related current scope; do not fold into a declared form from path text alone."
+    },
+    {
+      "atom_id": "CA-R-2378",
+      "version": 1,
+      "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow.Enabled Relations",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2378-CORE_META_MODEL-ENTITY_DEFINITION--define-workflow-enabled-relations.md",
+      "sha256": "dd27c746dd867fc0ac06bfde0b0d1cb39e3c3cd2fc714507007b87eeb2b7b006",
+      "disposition": "Related current scope; do not fold into a declared form from path text alone."
+    },
+    {
+      "atom_id": "CA-R-2379",
+      "version": 1,
+      "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow.Enabled Relations.Contains",
+      "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2379-CORE_META_MODEL-ENTITY_DEFINITION--define-workflow-enabled-relations-contains.md",
+      "sha256": "c10394176845b67352b1400d04c8f216277a789838d6c0c4be1591febb4b2cc0",
+      "disposition": "Related current scope; do not fold into a declared form from path text alone."
+    }
+  ],
+  "authoritative_constraints_and_exceptions": [
+    {
+      "source": {
+        "atom_id": "CA-R-1193",
+        "version": 23,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Property",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-DEFINITION--define-property.md",
+        "sha256": "9b18fb8b423e9944f16ef4d4862b8fa298e11b21ebf5e416086d7feda06f47cb"
+      },
+      "preserve": "Property branch has exactly one immediate bearer via IS_PROPERTY_OF; direct value cardinality/format is distinct from child Properties; nested Property bearers remain permitted. Does not settle whether all Properties become Nodes, HAS_VALUE endpoint kinds, or new Property-vs-Primary classification."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1351",
+        "version": 21,
+        "status": "Active",
+        "type": "Rule",
+        "content_role": "Requirement",
+        "governs": "Entity/Graph Syntax <+ Relation//IS_PROPERTY_OF",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL--give-primary-entity-occurrences-no-bearer.md",
+        "sha256": "cd6da9ac1476d094907f8bec313fdfbf2c06b674d1b25f0e2e37e5aa8bf615ac"
+      },
+      "preserve": "The zero-bearer rule applies to Primary Entity occurrences referenced by Subject; incoming Property relations remain possible. Does not imply every occurrence with no observed outgoing edge is a Primary Node."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-2003",
+        "version": 14,
+        "status": "Active",
+        "type": "Rule",
+        "content_role": "Requirement",
+        "governs": "Entity/Property",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+        "sha256": "4888c85d9c39d671588439e38c0f295d0fab37227206a2c989d068bdb32e952d"
+      },
+      "preserve": "Dependent Entity occurrences require exactly one immediate bearer; missing IS_PROPERTY_OF is a violation, not a classifier signal for Independence."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-2454",
+        "version": 2,
+        "status": "Active",
+        "type": "Relation Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Graph Syntax <+ Relation//IS_PROPERTY_OF",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2454-CORE_META_MODEL-RELATION_DEFINITION--define-is-property-of.md",
+        "sha256": "3669a8c6811544ca5f8952524bfe50d067eb8cf6540e948cf48c5a902e9b0d36"
+      },
+      "preserve": "IS_PROPERTY_OF is authored from dependent Property to immediate bearer; HAS_PROPERTY is derived inverse, not a second authored fact."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-2243",
+        "version": 3,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Graph Syntax <+ Cardinality",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality-notation.md",
+        "sha256": "49fe031d91c81516b98c0816e0afed43707d036efd41290366bbe38a8cbc781b"
+      },
+      "preserve": "Zero direct values do not forbid child Properties; value cardinality and relations are separate axes."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1435",
+        "version": 26,
+        "status": "Active",
+        "type": "Relation Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Graph Syntax <+ Relation//NARROWER_THAN",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1435-CORE_META_MODEL--define-narrower-than.md",
+        "sha256": "3d29bc7c91355eb674527ee0010ea9d38110ab2a094385e747c6e79e805d8eaf"
+      },
+      "preserve": "NARROWER_THAN expresses narrowing/inheritance; it is not containment or property bearing. Proposed HAS_NARROWER cannot be mechanically identified with it."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1931",
+        "version": 17,
+        "status": "Active",
+        "type": "Rule",
+        "content_role": "Requirement",
+        "governs": "Entity/Graph Syntax",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+        "sha256": "522cf35695d24171ed3af4c84f1f8a2da1d3f817bcc5c13571ee6d7c40c7207d"
+      },
+      "preserve": "Path separators distinguish narrower/inheritance from bearer/dependent and syntax does not create/admit entity identity. Keep relation type/cardinality explicit."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-2150",
+        "version": 15,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Object/Continuant/Projection/(.Type: Subject Graph)",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2150-CORE_META_MODEL--define-subject-graph.md",
+        "sha256": "87b0a50fc65a846df9322bac5c0effef30ee5947b1e90369dc3e83b920527d8f"
+      },
+      "preserve": "Subject Graph is a projection and cannot supply authoritative Atom-to-Entity identity or relation facts."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1198",
+        "version": 29,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom.Subjects",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-DEFINITION--define-atom-subjects.md",
+        "sha256": "49a6997f18420036ae28a69e10ba850c274901ac8ba1c895be1410741fbfcb3b"
+      },
+      "preserve": "Current Atom source metadata has one GOVERNS and zero or more DEPENDS_ON targets; it does not mechanically determine new subjects.active/passive or declaration-node identity."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1276",
+        "version": 24,
+        "status": "Active",
+        "type": "Rule",
+        "content_role": "Requirement",
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom.Subjects",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1276-CORE_META_MODEL-RULE--type-every-direct-subject-reference.md",
+        "sha256": "7d60111adf31d1e1d00d449d77bcdcdfb6cddbdee1c1b8c3c87efa4eb6e669a2"
+      },
+      "preserve": "Each current direct subject target has exactly one current relation kind; do not infer new active/passive semantics without explicit mapping."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1363",
+        "version": 29,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL--define-atom-governed-subject.md",
+        "sha256": "ddc2b58b713b46818ab4250f476dd598ff639f1c68a267fa571712670132c31d"
+      },
+      "preserve": "Current complete Atom has exactly one governed subject. Declaration relations and subject-node endpoints require a migration rule."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-2227",
+        "version": 3,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Entity Definition",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2227-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-entity-definition.md",
+        "sha256": "d6f7452f40366c6721a52c3c026df93f4b68a807096359ce4aadf578383a7dc5"
+      },
+      "preserve": "Current Entity Definitions have a defining Requirement and scope/narrowing rules; retiring them needs replacement readiness and reference ownership, not a path rename."
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-2228",
+        "version": 3,
+        "status": "Active",
+        "type": "Entity Definition",
+        "content_role": "Requirement",
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Relation Definition",
+        "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2228-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-relation-definition.md",
+        "sha256": "394333dd8e76308571df9dd07cb13f8f0382c54972040ed3d1936a7b5218099d"
+      },
+      "preserve": "Relation Definition authors one direction; inverse direction is derived/named, not separately authored."
+    }
+  ],
+  "explicit_exclusions_and_duplicate_candidates": {
+    "graph_syntax": {
+      "count": 18,
+      "disposition": "Syntax entities keep Claim and optional Semantics; do not retire as Node declarations by default."
+    },
+    "carrier": {
+      "count": 23,
+      "disposition": "Carrier branch is outside Node/ and requires its own explicit disposition."
+    },
+    "term": {
+      "count": 2,
+      "disposition": "Term branch is outside Node/ and requires its own explicit disposition."
+    },
+    "exact_duplicate_governed_paths": [
+      {
+        "governs": "Entity/Object/Continuant/Governing Objects/Atom/Content Role",
+        "sources": [
+          {
+            "atom_id": "CA-R-1531",
+            "version": 20,
+            "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-DEFINITION--define-the-content-role-property.md",
+            "sha256": "d249d9f4de10a47522a3f7f377ad43ee87a2cf9eb31f534bf53898e8c4d3b622"
+          },
+          {
+            "atom_id": "CA-R-1549",
+            "version": 21,
+            "repo_relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1549-CORE_META_MODEL-DEFINITION--define-change-content-roles.md",
+            "sha256": "73a1cd74dea72ff4287596725b79543abf0ef084a45f457e18cd85022b55d65d"
+          }
+        ]
+      }
+    ]
+  },
+  "unresolved_boundaries": [
+    "Identity mapping from old Entity/Object/Aspect/Property definitions to Node and the six proposed targets; 290 candidate source rows remain unconfirmed.",
+    "Only five of six declared targets have directly name/branch-linked Current source candidates; Node itself has no direct Node definition.",
+    "The 285 candidate rows without direct links require inventory-driven classification; do not create 285/290 declarations from entity-path strings.",
+    "The five direct target candidates also require semantic/identity approval; direct label overlap is not a safe transformation rule.",
+    "Classify each Operations-adjacent source (10 rows) as a declared form, a property/constraint/syntax scope, or a separate node only after checking its Claim and relations.",
+    "Resolve duplicate active subject definitions CA-R-1531@20 and CA-R-1549@21 sharing Entity/Object/Continuant/Governing Objects/Atom/Content Role.",
+    "Resolve how R1193/R1351/R2003 Property and Primary-Entity constraints interact with proposed IS_PROPERTY_OF cardinality classifier, and specify HAS_VALUE endpoint/cardinality matrix.",
+    "Reconcile target Substep RUN/Action semantics and relation whitelist with Current CA-R-2242 and Action/Workflow/Step definitions.",
+    "Decide subjects.active/passive and Declaration ownership mapping from current GOVERNS/DEPENDS_ON; no direct equivalence established."
+  ]
+}

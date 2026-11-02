@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: Subject
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Relation
-version: 23
-updated_at: 2026-10-27 19:59:49 +0400
+  active: Atom
+  passive:
+  - CFEL > Relation
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1033
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Definition
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Define compatible Lineage Impact disposition
 
-## Scope
+## Claim scope
 
 `compatible` Lineage Impact dispositions.
 
 ## Claim
 
-`compatible` **means** the child remains valid against the parent Revision required by the gate **and** traversal stops on that branch **without** a child update. **if** the gate requires the revised parent, **then** compatibility **must** be established against that new Revision; permission **to** consume a pinned earlier Revision **must not** establish compatibility for a gate that requires the new Revision.
 
-## Details
+When a Lineage Impact analysis addresses an Atom, `compatible` must mean the child remains valid against the parent Revision required by the gate and traversal stops without a child update; a pinned earlier Revision does not establish compatibility where the new Revision is required.
+

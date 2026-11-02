@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "status": "PASS_WITH_DELEGATED_AND_RETIRED_DISPOSITIONS",
+  "scope": "Read-only review of the finalized shared Subject migration packet. No Draft or Current carrier was modified by this review.",
+  "inputs": {
+    "manifest": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/work/shared-subject-migration/source-pinned-draft-manifest.json",
+    "overlays": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/work/shared-subject-migration/metadata-overlay-patches.json",
+    "inventory": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/work/shared-subject-migration/alias-candidate-inventory.json"
+  },
+  "counts": {
+    "created_drafts": 93,
+    "skipped_sources": 9,
+    "overlay_items": 8,
+    "raw_proven_bound_sources": 63,
+    "eligible_proven_bound_sources": 59
+  },
+  "checks": {
+    "bodies_unchanged": {
+      "pass": true,
+      "checked_created_drafts": 93,
+      "changed_source_ids": []
+    },
+    "current_source_hashes_match_baseline": {
+      "pass": true,
+      "checked_created_sources": 93,
+      "failed_source_ids": []
+    },
+    "candidate_hashes_match_manifest": {
+      "pass": true,
+      "failed_source_ids": []
+    },
+    "mappings_are_source_backed": {
+      "pass": true,
+      "failures": [],
+      "generic_relation_coverage": {
+        "requested": 40,
+        "created": 38,
+        "overlay": 1,
+        "retired": 1,
+        "covered": 40
+      },
+      "typed_relation_coverage": {
+        "requested": 3,
+        "created": 2,
+        "overlay": 1,
+        "covered": 3
+      }
+    },
+    "no_projection_form_value_misuse": {
+      "pass": true,
+      "checked_created_and_overlay_candidates": 105,
+      "stale_paths": []
+    },
+    "r1243_retirement_preserved": {
+      "pass": true,
+      "draft_paths": [],
+      "disposition": "Explicit retirement; no Subject alias Draft published."
+    },
+    "r2327_no_owned_mechanical_duplicate": {
+      "pass": true,
+      "authoritative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2327@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md",
+      "authoritative_sha256": "8e465e6253957f182b29a887240dc58e7fc8c9c045614e5db93d5634807190fc",
+      "formal_expression": "CFEL <+ Cardinality",
+      "owned_mechanical_paths": [],
+      "preexisting_nonwinning_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/CA-R-2327@2-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md",
+      "preexisting_nonwinning_disposition": "Do not adopt; the legacy-CFEL candidate remains authoritative."
+    },
+    "b_owned_candidates_not_selected_or_rewritten": {
+      "pass": true,
+      "items": [
+        {
+          "source_id": "CA-D-305",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-305@31-draft-PROJECT_CONFIGURATION-ENG_DECISION--carry-projected-atoms-without-new-identity.md",
+          "sha256": "2f986d2ed24c82a0cbbcb7308c8c39d4b35949fe28dd484e75791f5a5149301f",
+          "disposition": "B semantic owner packet; exclude A row."
+        },
+        {
+          "source_id": "CA-R-1314",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1314@33-draft-PROJECT_CONFIGURATION-RULE--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+          "sha256": "85ef592d4ea7a8adcfb08a15bfa2eaca894f1905fd405575b932ba00c7bfd420",
+          "disposition": "B semantic owner packet; exclude A row."
+        }
+      ]
+    },
+    "overlay_hashes_match": {
+      "pass": true,
+      "failed_source_ids": []
+    }
+  },
+  "winning_mechanical_candidates": [
+    {
+      "source_id": "CA-E-438",
+      "path": ".caprmedio_caprmedio/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-438@28-draft-POLICY--evaluate-implementation-mode-conformance.md",
+      "sha256": "c079e926cd6a1d1f3bda307cbbdd9138c999e0c88bca35b1c59c4418c625a9bd",
+      "basis": "Body matches Current and the mapped Subject is source-backed; choose the latest equivalent Draft."
+    },
+    {
+      "source_id": "CA-M-261",
+      "path": ".caprmedio_caprmedio/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-261@17-draft-PROJECT-IMPLEMENTATION_METHOD--rebuild-implementation-from-its-governing-specification.md",
+      "sha256": "a9b97b1f740923dd985a26bf5b2d01b29acde47db3a8e3d66b293548793c57f2",
+      "basis": "Body matches Current and the mapped Subject is source-backed; choose the latest equivalent Draft."
+    },
+    {
+      "source_id": "CA-M-262",
+      "path": ".caprmedio_caprmedio/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-262@26-draft-IMPLEMENTATION_METHOD--preserve-sufficient-authority-for-reconstruction.md",
+      "sha256": "dae404eee2b287eefc261640956eaf55d9a1a26eb83fca2ad6966b1eb97d2eee",
+      "basis": "Body matches Current and the mapped Subject is source-backed; choose the latest equivalent Draft."
+    },
+    {
+      "source_id": "CA-R-881",
+      "path": ".caprmedio_caprmedio/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-881@34-draft-RULE--use-relation-specific-cross-unit-ownership.md",
+      "sha256": "28aeec71af6a669c14f3ebee12df122bfcddee0e62526eb67af3962c66dd265e",
+      "basis": "Body matches Current and the mapped Subject is source-backed; choose the latest equivalent Draft."
+    }
+  ],
+  "skipped_sources": [
+    {
+      "source_id": "CA-D-305",
+      "winning_candidate_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-305@31-draft-PROJECT_CONFIGURATION-ENG_DECISION--carry-projected-atoms-without-new-identity.md",
+      "winning_candidate_sha256": "2f986d2ed24c82a0cbbcb7308c8c39d4b35949fe28dd484e75791f5a5149301f",
+      "disposition": "Delegated semantic Projection Member correction; B packet wins."
+    },
+    {
+      "source_id": "CA-E-438",
+      "winning_candidate_path": ".caprmedio_caprmedio/06_evaluation/draft/cfel-contract-completion-20261102/subject-migration/CA-E-438@28-draft-POLICY--evaluate-implementation-mode-conformance.md",
+      "winning_candidate_sha256": "c079e926cd6a1d1f3bda307cbbdd9138c999e0c88bca35b1c59c4418c625a9bd",
+      "disposition": "Use the source-faithful latest equivalent Draft."
+    },
+    {
+      "source_id": "CA-M-261",
+      "winning_candidate_path": ".caprmedio_caprmedio/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-261@17-draft-PROJECT-IMPLEMENTATION_METHOD--rebuild-implementation-from-its-governing-specification.md",
+      "winning_candidate_sha256": "a9b97b1f740923dd985a26bf5b2d01b29acde47db3a8e3d66b293548793c57f2",
+      "disposition": "Use the source-faithful latest equivalent Draft."
+    },
+    {
+      "source_id": "CA-M-262",
+      "winning_candidate_path": ".caprmedio_caprmedio/05_method/draft/cfel-contract-completion-20261102/subject-migration/CA-M-262@26-draft-IMPLEMENTATION_METHOD--preserve-sufficient-authority-for-reconstruction.md",
+      "winning_candidate_sha256": "dae404eee2b287eefc261640956eaf55d9a1a26eb83fca2ad6966b1eb97d2eee",
+      "disposition": "Use the source-faithful latest equivalent Draft."
+    },
+    {
+      "source_id": "CA-R-1200",
+      "winning_candidate_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-1200@38-draft-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md",
+      "winning_candidate_sha256": "276ee93b3b15396b0f6938c9ffcab67013492616bf117b818c728ee559b7c6fc",
+      "disposition": "Relation-lane candidate wins; merge Subject metadata only."
+    },
+    {
+      "source_id": "CA-R-1243",
+      "winning_candidate_path": null,
+      "winning_candidate_sha256": null,
+      "disposition": "Explicit retirement; publish no alias Draft."
+    },
+    {
+      "source_id": "CA-R-1314",
+      "winning_candidate_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1314@33-draft-PROJECT_CONFIGURATION-RULE--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+      "winning_candidate_sha256": "85ef592d4ea7a8adcfb08a15bfa2eaca894f1905fd405575b932ba00c7bfd420",
+      "disposition": "Delegated semantic Projection Member correction; B packet wins."
+    },
+    {
+      "source_id": "CA-R-2327",
+      "winning_candidate_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/legacy-cfel/CA-R-2327@4-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md",
+      "winning_candidate_sha256": "8e465e6253957f182b29a887240dc58e7fc8c9c045614e5db93d5634807190fc",
+      "disposition": "Legacy-CFEL semantic candidate wins; preserve its formal body and use metadata overlay only."
+    },
+    {
+      "source_id": "CA-R-881",
+      "winning_candidate_path": ".caprmedio_caprmedio/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-881@34-draft-RULE--use-relation-specific-cross-unit-ownership.md",
+      "winning_candidate_sha256": "28aeec71af6a669c14f3ebee12df122bfcddee0e62526eb67af3962c66dd265e",
+      "disposition": "Use the source-faithful latest equivalent Draft."
+    }
+  ],
+  "passive_alias_dispositions": [
+    {
+      "source_id": "CA-D-307",
+      "before": "CFEL > Relation//GOVERNS",
+      "after": "CFEL <+ Relation//GOVERNS",
+      "basis": "Approved relation-name continuity; operator direction only."
+    },
+    {
+      "source_id": "CA-R-1314",
+      "before": "CFEL > Relation//DERIVED_FROM",
+      "after": "CFEL <+ Relation//DERIVED_FROM",
+      "basis": "Delegated to B semantic Projection Member packet; A did not rewrite the file."
+    }
+  ],
+  "product_replacement": {
+    "status": "applied_existing_authoritative_candidate",
+    "source_id": "CA-R-2256",
+    "subject": "Node/Continuant//CAPRMEDIO Framework",
+    "candidate_sha256": "b1211656140ab8f293719350d5036c97d30314d00ac9c8b1aadc4234bda31fda"
+  }
+}

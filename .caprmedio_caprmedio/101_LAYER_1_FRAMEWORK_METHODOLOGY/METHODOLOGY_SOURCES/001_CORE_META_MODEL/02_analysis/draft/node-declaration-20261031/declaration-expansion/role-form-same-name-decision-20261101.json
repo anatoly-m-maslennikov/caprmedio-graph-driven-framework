@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-01",
+  "user_decision": "A Form may have the same name as its Role.",
+  "scope": "Remove same-name rejection only; preserve required string, zero nested Properties, admission and no-placeholder requirements.",
+  "examples": [
+    {
+      "role": "Requirement",
+      "form": "Requirement",
+      "outcome": "Name equality is allowed; admission under Requirement remains required."
+    },
+    {
+      "role": "Requirement",
+      "form": "Declaration",
+      "outcome": "Admission under Requirement remains required."
+    }
+  ],
+  "draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-form.md",
+  "before_sha256": "b2f3c27cba1ada771c13296da2e4b3ca9abc620084bdd9fccf49566fa52c56ab",
+  "after_sha256": "d94d281e04a1d2dee7c1d9136b1da1ca7df994dba790a49d9a9b0d762ca1c96d",
+  "new_language_rule": false,
+  "runtime_changed": false
+}

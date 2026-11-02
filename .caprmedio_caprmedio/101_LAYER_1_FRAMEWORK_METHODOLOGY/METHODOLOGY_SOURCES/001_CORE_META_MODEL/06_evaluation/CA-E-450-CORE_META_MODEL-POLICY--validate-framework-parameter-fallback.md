@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Parameter Resolution Validation
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Carrier
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-version: 21
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution
+  passive:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - Project
+  - Carrier
+  - Atom/(.Role := Evaluation)
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-D-407
@@ -16,18 +16,17 @@ relations:
   - CA-M-279
   - CA-R-1441
 atom_id: CA-E-450
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 5
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 Validate framework parameter fallback
 
-## Scope
+## Claim scope
 Framework parameter resolution across explicit parameters, Framework Instance Settings, **and** Default Settings.
 
 ## Claim
@@ -45,5 +44,3 @@ the Evaluation **must** reject framework parameter resolution **if** **any** of 
 - Default Settings uses an unregistered Carrier location **or** a parameter representation that differs from its registered Framework Instance Settings representation.
 
 use the registered parameter constraints for the cases; **when** the current parameter catalog lacks a Boolean, zero-valued, **or** empty-valued example, use isolated test-fixture parameters **without** adding them **to** authoritative Settings.
-
-## Details

@@ -1,0 +1,32 @@
+---
+atom_id: CA-C-draft
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CFEL/Property/Recursive Count
+version: 1
+updated_at: 2026-11-02 00:00:00 +0400
+relations: {}
+tier: 3
+role: Concern
+form: Question
+---
+
+## Summary
+
+Should recursive Property counts aggregate descendant identities?
+
+## Claim
+
+The selected default is that `p.**[name format]{:n}` counts the aggregate of
+selected distinct descendant Property identities below p within each bearer.
+
+## Details
+
+Context: the prior language named recursive counts without choosing between an
+aggregate and a per-recursive-parent interpretation. Decision: use aggregate
+selection because `**` selects descendants across depths and Property names are
+unique among siblings. Blast radius: validation of nested Property declarations;
+direct-value counts and immediate-child counts remain separate. Question for
+future change only: is a distinct per-recursive-parent operator needed?

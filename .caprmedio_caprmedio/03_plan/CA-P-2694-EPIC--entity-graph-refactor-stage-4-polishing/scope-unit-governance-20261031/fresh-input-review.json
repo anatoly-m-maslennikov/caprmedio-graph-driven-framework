@@ -1,0 +1,21 @@
+{
+  "reviewer": "scope_fresh_input_review (luna_research_max)",
+  "verdict": "pass",
+  "findings": [],
+  "checks": [
+    "One Declaration and 1+ separate external Goals",
+    "Project Declaration outside Project like Project Goal",
+    "Zero local Contracts allowed",
+    "Navigation Number explicit when present",
+    "Default coherent Claim/faithful Summary with Declaration Form exception"
+  ],
+  "reviewed_sha256": {
+    ".caprmedio_caprmedio/02_analysis/draft/CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md": "cc59bd06da35b451fed4c23ac0e2b51417213c391deb53d56c418a619779d126",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration-form.md": "63874c727b3c80c09350b6eb0011c3701d36e7640f1c6913f181ac4d0241b410",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-governance.md": "fd59dd8cde5791b5b50d192f1e6c89e53f6f14952124fd89c468fbdf4fd319f5",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/scope-unit-governance-20261031/CA-M-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md": "3779b3cf41335e29c191ec416db68ba138c72ef617f1893a6d2c4d31af40f344",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/scope-unit-governance-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md": "d3954fd4fa046bd9760af7a45ce44fe96782045d407b27d5e58fe14eca86d38f",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/scope-unit-governance-20261031/CA-D-draft-CORE_META_MODEL-DECISION--carry-scope-unit-declarations-as-governing-atoms.md": "d4d71bf329d949be140aa05b08e8d81c5773e34cca8c9a929f641e587f05d353"
+  },
+  "recording": "Parent recorded the independently returned review; no Draft edits."
+}

@@ -1,0 +1,17 @@
+{
+  "user_expression": "projection/(.Form: )",
+  "old_subject": "Projection.Type",
+  "new_subject": "Projection.Form",
+  "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-type.md",
+  "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+  "before_sha256": "5785df7beb5c1d95b92ded33ad6a4ddfd433394136a586e9a4a2708fe4b047f7",
+  "after_sha256": "0fa73adc532b153c58a94854e81d58f8e5843fe0b17d9c1c132060786bb8a924",
+  "formal_cases": [
+    "Projection/(.Form: Catalog)",
+    "Projection/(.Form: Map)",
+    "Projection/(.Form: Hub)"
+  ],
+  "subject_syntax": "Existing := convention for Subject value qualifiers is unchanged; the supplied : expression is the formal allowed-value case",
+  "current_sources": "Unchanged; old Current names/carrier keys remain migration work",
+  "claim_prose_removed": "Explanatory Type classifies a Projection sentence; Property/value case semantics retained"
+}

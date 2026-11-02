@@ -9,8 +9,8 @@ author: Anatoly Maslennikov
 status: Done
 subjects:
   governs: Subject
-version: 3
-updated_at: 2026-10-27 18:34:34 +0400
+version: 4
+updated_at: 2026-10-29 21:51:04 +0400
 relations:
   IS_CONTAINED_BY:
   - CA-P-2673
@@ -26,7 +26,7 @@ Create the Specification Proposal with the main Subject tree, defining R Atom ID
 
 ## Details
 
-Candidate: [A1218](../../../02_analysis/CA-A-1218-SPECIFICATION_PROPOSAL--subject-model-candidate-10.md). The proposal holds the structure and definitions; this Task holds work and decisions.
+Candidate: [A1218](../../../02_analysis/done/CA-A-1218-SPECIFICATION_PROPOSAL--subject-model-candidate-10.md). The proposal holds the structure and definitions; this Task holds work and decisions.
 
 Latest Operator decisions supersede incompatible earlier messages. Scope: main Subjects and their definitions, without instances or property enumeration.
 

@@ -1,23 +1,22 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling
-version: 25
-updated_at: 2026-10-27 19:59:59 +0400
+  active: Entity/Aspect/Engineering/Data Handling
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1627
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Requirement — Exclude secrets from CAPRMEDIO
 
-## Scope
+## Claim scope
 
 secret values and their use across CAPRMEDIO surfaces.
 
@@ -42,5 +41,3 @@ email addresses, usernames, **and** account identifiers are identifiers rather t
 ### exposure response
 
 **if** a secret reaches an unauthorized durable **or** shared surface, stop propagation, revoke **or** rotate it immediately, **then** clean affected Carriers **and** record the incident **without** reproducing the value. deleting a current file is **not** sufficient remediation for a value already present **in** durable history **or** another replica.
-
-## Details

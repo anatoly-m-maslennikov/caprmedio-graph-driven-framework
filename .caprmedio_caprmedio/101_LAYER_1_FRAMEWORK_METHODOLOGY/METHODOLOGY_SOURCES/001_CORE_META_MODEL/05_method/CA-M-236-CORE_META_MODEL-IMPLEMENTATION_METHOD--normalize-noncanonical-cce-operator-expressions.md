@@ -1,25 +1,24 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-version: 18
-updated_at: 2026-10-27 19:59:40 +0400
+  active: Entity/Aspect/Engineering/Authoring/Controlled English
+  passive:
+  - Entity/Aspect/Engineering/Authoring/Controlled English
+version: 22
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-M-236
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Normalize Noncanonical CCE Operator Expressions
 
-## Scope
+## Claim scope
 
 noncanonical CCE Operator Expressions.
 
@@ -33,5 +32,3 @@ noncanonical CCE Operator Expressions.
 - `both <A> and <B>` **to** `(<A>` **and** `<B>)`.
 - `either <A> or <B>` **to** `(<A>` **or** `<B>)`.
 - `neither <A> nor <B>` **to** **not** `(<A>` **or** `<B>)`.
-
-## Details

@@ -1,0 +1,29 @@
+---
+subjects:
+  active: CFEL > Relation//feature_realization
+  passive:
+  - CFEL > Relation
+version: 35
+updated_at: 2026-11-02 00:18:22 +0400
+relations:
+  child_of:
+  - CA-R-1718
+atom_id: CA-R-1654@35
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+tier: 3
+role: Requirement
+form: Relation Definition
+---
+## Summary
+
+Register feature realization relation kind
+
+## Claim scope
+
+a declared SPEC Feature Scope Unit and its applicable native Realization targets.
+
+## Claim
+
+`feature_realization` **must** be registered as a typed relation that maps a declared SPEC Feature Scope Unit **to** its applicable native Realization targets **without** making those targets Scope Units.

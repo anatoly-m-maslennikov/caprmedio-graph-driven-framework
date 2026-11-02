@@ -1,0 +1,39 @@
+{
+  "scope": "48 registered non-Declaration Claims plus subject-focus Rule",
+  "findings": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-instantiation.md",
+      "finding_and_safe_fix": "Standalone Property-hosted HAS_INSTANCE zero belongs to Property/Node scope. Preserve equivalent effective constraint before removal; keep relation signature and inverse."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "finding_and_safe_fix": "Unqualified Markdown Carrier filename/location/author constraints can govern carriers beyond delivered Atom. Bind to delivered carrier or relocate global constraints, preserving all requirements."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+      "finding_and_safe_fix": "MODEL-wide override paragraph is independent of active Node branch. Preserve its contract in MODEL scope, then leave Node consequences here."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+      "finding_and_safe_fix": "Last independent complete-Current Atom active-Subject count belongs to Atom.Subjects.Active; retain there before removing redundant sentence."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--keep-assertions-about-the-active-subject.md",
+      "finding_and_safe_fix": "Restate Node count sentence as the active Atom authoring rule, rather than as an independent Node-wide prescription."
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/draft/node-declaration-20261031/CA-R-draft-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "finding_and_safe_fix": "ENGINE permission paragraph states independent ENGINE authority; preserve in existing Scope contract or ENGINE-subject carrier. Structure can retain Unit and formal-Scope context."
+    }
+  ],
+  "not_automatically_findings": [
+    "Relation endpoint signatures and derived inverse descriptions",
+    "CFEL syntax definitions and examples",
+    "Methods describing how to author their active target",
+    "Delivery references bound to the delivered object"
+  ],
+  "limits": [
+    "No normative text removed; confirm effective equivalent coverage before relocating",
+    "Read-only bounded review; no runtime or parser verification"
+  ]
+}

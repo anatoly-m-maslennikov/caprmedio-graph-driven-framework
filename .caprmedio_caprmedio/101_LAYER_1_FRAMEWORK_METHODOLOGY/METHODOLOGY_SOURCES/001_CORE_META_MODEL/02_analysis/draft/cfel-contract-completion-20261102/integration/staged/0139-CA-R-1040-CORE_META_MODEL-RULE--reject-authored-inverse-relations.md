@@ -1,0 +1,30 @@
+---
+subjects:
+  active: CFEL <+ Relation
+  passive: []
+version: 30
+updated_at: 2026-11-02 07:49:21 +0400
+relations: {}
+atom_id: CA-R-1040
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Reject authored inverse relations
+
+## Claim scope
+
+authored inverse typed relations.
+
+## Claim
+
+validators **must** reject **every** inverse typed relation authored **in** an Atom Carrier.
+
+## Details
+
+Inverse means the derived direction declared by the governing Relation Kind definition, not a direction guessed from its name. In the containment pair, IS_CONTAINED_BY is direct from child to parent and is the only permitted authoritative direction when Atom containment is authored; CONTAINS is the inverse and must not be separately authored. This clarification does not admit a new runtime relation key or waive endpoint Entity Definition constraints.

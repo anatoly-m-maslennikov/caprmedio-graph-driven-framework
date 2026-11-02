@@ -1,0 +1,16 @@
+{
+  "draft_count": 81,
+  "tier_zero_drafts": 35,
+  "review_statuses": {
+    "Ready": 78,
+    "Hold": 3
+  },
+  "new_scope_contract_types": 0,
+  "current_rmdeo_changes": 0,
+  "source_hashes_match": true,
+  "draft_hashes_match": true,
+  "existing_trial_drafts_unchanged": true,
+  "independent_mechanical_status": "PASS",
+  "shared_unallocated_draft_ids_expected": true,
+  "previous_trial_source_based_draft_hashes_rechecked": 103
+}

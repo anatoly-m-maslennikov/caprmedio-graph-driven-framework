@@ -1,0 +1,1453 @@
+{
+  "status": "139 identified Drafts; 90 Node Declarations including retained Continuant and Occurrent",
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2462@1-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "id": "CA-R-2462@1-draft",
+      "summary": "Declare Node",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "b3f05356154a01c96decfb643f5e2107df743a2c37093a21890cec4aaaef3a49",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2463@1-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "id": "CA-R-2463@1-draft",
+      "summary": "Declare Operations",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "feddd3d093e4fa432eacd189aa4f0a959f301b6c96a1710195f88afaf24269d9",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2464@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "id": "CA-R-2464@1-draft",
+      "summary": "Declare Workflow",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "736cdd34f8462803046a4eb25fb93a91ea84f2330c61a21af9eaec43935e3e53",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2465@1-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "id": "CA-R-2465@1-draft",
+      "summary": "Declare Step",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "6d296a17f57385ed9f583e9c2a978fc80b56d00e36404cfc89a2480e15b33160",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2466@1-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "id": "CA-R-2466@1-draft",
+      "summary": "Declare Substep",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "26640beeac687927c945ce8728996de9e2a93df9359feed6c06a24624898c548",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2467@1-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "id": "CA-R-2467@1-draft",
+      "summary": "Declare Action",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "89ae64df549d9810aed4a0a2f8bf42db897cb956183ecbce802926e352bcc1b3",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2468@1-draft-CORE_META_MODEL-RULE--declaration-form-registration.md",
+      "id": "CA-R-2468@1-draft",
+      "summary": "Register Declaration as a Requirement Form",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "3a8578403ceee1b5e235e48fa1ef4e7ba932bb23f653fa2f70a0ec269144fbeb",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2469@1-draft-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+      "id": "CA-R-2469@1-draft",
+      "summary": "Require one Declaration for each Node",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "62d457fe3341ad25cf300941550155c51ffb418d42780dec7a4fcc07168a5371",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2470@1-draft-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+      "id": "CA-R-2470@1-draft",
+      "summary": "Inherit Declaration constraints and enforce Relation whitelists",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "ad3e30390fe701d1cf42ff1ee0388c888e960e2176cda3ba580b5f1325b9e364",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2471@1-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+      "id": "CA-R-2471@1-draft",
+      "summary": "Use distinct graph notation for Node relations",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "1f929e42edf5778ad8deaa975f817276db74d217c6174e8eae01c17d712a5b31",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2472@1-draft-CORE_META_MODEL-CFEL--separate-property-value-and-child-constraints.md",
+      "id": "CA-R-2472@1-draft",
+      "summary": "Separate Property names and values",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "aaf30444c2f95b56a018851f929e21d755f9c2e936476d8d7a355b1f7daf9ad0",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2473@1-draft-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md",
+      "id": "CA-R-2473@1-draft",
+      "summary": "Define Property bearing and its inverse",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "sha256": "126ac39a1d8b6507dc93af01c323a20a30785bddc33c10b38772d401f99654b8",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2474@1-draft-CORE_META_MODEL-RULE--bind-direct-property-values.md",
+      "id": "CA-R-2474@1-draft",
+      "summary": "Bind direct Property values on instances",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "2fc4f7d42f1feb032816a9c4515399dcfe3f2b5bff633681aa9c01aef680cf03",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2475@1-draft-CORE_META_MODEL-RELATION_DEFINITION--define-narrowing.md",
+      "id": "CA-R-2475@1-draft",
+      "summary": "Define NARROWER_THAN",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "sha256": "e19fab88b10c3960111083f0d4af294224297db39a2789d729805ea74cfbbdab",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2476@1-draft-CORE_META_MODEL-RELATION_DEFINITION--define-instantiation.md",
+      "id": "CA-R-2476@1-draft",
+      "summary": "Define INSTANCE_OF",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "sha256": "a2f80f3438934b8e5e0b0dce0a4c233e745fbda11614d9344c03952daeb1d521",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2477@1-draft-CORE_META_MODEL-RELATION_DEFINITION--define-classification.md",
+      "id": "CA-R-2477@1-draft",
+      "summary": "Define classification and its written reverse",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "sha256": "30ad8ae1f6e472c4fb12ca340bdef5185af9a792e5ece841471f5a8b2378f4fa",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2478@1-draft-CORE_META_MODEL-RELATION_DEFINITION--define-composition.md",
+      "id": "CA-R-2478@1-draft",
+      "summary": "Define composition and its inverse",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "sha256": "66110cfa8eb5d23ff458376e1c2347d26180ffa17ab1e7898395c3e4224c21e6",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2479@1-draft-CORE_META_MODEL-RELATION_DEFINITION--define-active-subject-link.md",
+      "id": "CA-R-2479@1-draft",
+      "summary": "Define the derived active Subject link",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "sha256": "c401f7a8d6cd748fab5a2c79f0af0c559bc036f0c78dab588851ec62973f849c",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2480@1-draft-CORE_META_MODEL-RELATION_DEFINITION--define-run.md",
+      "id": "CA-R-2480@1-draft",
+      "summary": "Define RUN",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "sha256": "f72d4d8f2a0fafa4df405e333f99792184bb3d2f09138655a8d1566a96442b07",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-456@1-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--name-model-concepts-with-canonical-terms.md",
+      "id": "CA-M-456@1-draft",
+      "summary": "Name Model Concepts with Canonical Terms",
+      "role": "Method",
+      "form": "Implementation Method",
+      "sha256": "51dd74c690679212332ac2fccaef9ada5a93ccec26292e76cb53727226d4840c",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2481@1-draft-CORE_META_MODEL-RULE--use-role-and-form.md",
+      "id": "CA-R-2481@1-draft",
+      "summary": "Use Role and Form for Declaration Atoms",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "9f993dcff25a86d1f4fa56d3f29d0addc66fa1610ec0c31bb8babff8d47f567c",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2482@1-draft-CORE_META_MODEL-RULE--declare-formal-scope.md",
+      "id": "CA-R-2482@1-draft",
+      "summary": "Declare Formal Scope Independently of Scope Unit",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "075458b82915b0ec7e1f342a24b2230f6d457409fa9d09b4e0dca328506c85cc",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-662@1-draft-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+      "id": "CA-D-662@1-draft",
+      "summary": "Encode Node Declarations in YAML",
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "sha256": "2cc81a62f5a80a06522db8d581e415129d522ef0190c364561e698845c72ebdb",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/node-declaration-20261031/CA-E-669@1-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "id": "CA-E-669@1-draft",
+      "summary": "Check Node Declaration migration readiness",
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "sha256": "85f0f9d1ba1c28aef88ce469e0fb1c3f366395891087b04aebcc76ee9ab3165c",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-663@1-draft-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md",
+      "id": "CA-D-663@1-draft",
+      "summary": "Map Markdown headings to Property paths",
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "sha256": "f095bc44dea70e974ea540794796f69e41b2d1192bcdf18cc648ac98fbcc9d06",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/draft/node-declaration-20261031/CA-R-2483@1-draft-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "id": "CA-R-2483@1-draft",
+      "summary": "Separate the CAPRMEDIO model from Project structure",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "0fe09bf8dbacb22998928a4aa9aeaf2b268f7891066b7460d6ac672a774defb7",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2484@1-draft-CORE_META_MODEL-RULE--admit-container-classification.md",
+      "id": "CA-R-2484@1-draft",
+      "summary": "Classify permission to have parts as Container",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "d13e5e330cca692a5e434e6ce23089019b9095a167dce10e50ec4295e39551c4",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2485@1-draft-CORE_META_MODEL-RELATION_DEFINITION--define-has-inverse.md",
+      "id": "CA-R-2485@1-draft",
+      "summary": "Define HAS_INVERSE",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "sha256": "2c8a0a1492ed6c4956cdd541473ca09c1ee43b42e8b03160c153cdad23aea2c3",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2486@1-draft-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+      "id": "CA-R-2486@1-draft",
+      "summary": "Declare Relation endpoints",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "502b050c6186bc5207567d6513015d55481c8a22e8556fef1ebee4f4ac9ae21e",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-457@1-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--reuse-formal-notation-and-write-isolated-constraints-in-prose.md",
+      "id": "CA-M-457@1-draft",
+      "summary": "Reuse formal notation and write isolated constraints in prose",
+      "role": "Method",
+      "form": "Implementation Method",
+      "sha256": "548bb2f8a624438cb0eaf1e9975c69d798cf13f97eef435d61a2a0fe7a96e7ab",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2487@1-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "id": "CA-R-2487@1-draft",
+      "summary": "Define CFEL",
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "sha256": "35a45bc9fa417da66a7f85f511fe4dda94c5fbb6371a44c7c707e31a95576edb",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2488@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-status.md",
+      "id": "CA-R-2488@1-draft",
+      "summary": "Declare Atom.Status",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "98c21866ad71a43c81caa1e114a5c6cb278c37055dfa9dec7473cf791e57f877",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2489@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "id": "CA-R-2489@1-draft",
+      "summary": "Declare Atom.Updated At",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "cfdf27d5e4c4fce72ebe0f1fcdde2a0d3821210b458a535c3a8965594168cdae",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2490@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md",
+      "id": "CA-R-2490@1-draft",
+      "summary": "Declare Atom.Relations.contained_by",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "c9e358ed288fefbfc0425847d3b5178837f05af8b9574252e638f6b30d368033",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2491@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md",
+      "id": "CA-R-2491@1-draft",
+      "summary": "Declare Atom.Relations.contained_by.atom",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "5fe1a16ffd388cfc98c434a51937ad26fbb167d2e6dcf25ad495ab9339dc4fb8",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2492@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md",
+      "id": "CA-R-2492@1-draft",
+      "summary": "Declare Atom.Relations.contained_by.scope_unit",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "8e5f0ddf8313eeace2a2227838ce0c6ea1ccf4c011e62c51dbeeb06504129470",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2493@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "id": "CA-R-2493@1-draft",
+      "summary": "Declare Atom.ID",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "f05f660b095df3f02d7d3f7dc811d8e1032eaaeb4b3b0ec1a32b26fb3db34df6",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2494@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-role.md",
+      "id": "CA-R-2494@1-draft",
+      "summary": "Declare Atom.Role",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "d5bfc7836dcd423fbb43f2cda028610d7e0e41da4055838b89a6046a1c61cada",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2495@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-form.md",
+      "id": "CA-R-2495@1-draft",
+      "summary": "Declare Atom.Form",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "6f0e7309cdac6108a7abb7b80b1e50102dbb4be89b0c04dc6c50982ef57a7d9c",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2496@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-version.md",
+      "id": "CA-R-2496@1-draft",
+      "summary": "Declare Atom.Version",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "5e6182d3f1270cf776588fe281a3807b91406c7da95dc381d5bf93378416fb24",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2497@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-label.md",
+      "id": "CA-R-2497@1-draft",
+      "summary": "Declare Atom.Label",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "5f409595a54f0b180a9a81d48390d1c5ce5e22ae466cb1c07ebc8946d8f5898d",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2498@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+      "id": "CA-R-2498@1-draft",
+      "summary": "Declare Atom.Content",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "c01086788f09648774116e88b174b401cbae8b95e765b528848198bd06c40abe",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2499@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+      "id": "CA-R-2499@1-draft",
+      "summary": "Declare Atom.Content.Summary",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "62fc7580047cecd80723309d50a72e4e8eb2afd86dd50db638134a6be0fe6cf9",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2500@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "id": "CA-R-2500@1-draft",
+      "summary": "Declare Atom.Content.Claim",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "e8dca8683060690332f7a1157bab1f821d4e9a16816ae41f25c8908ee1913185",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2501@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-scope.md",
+      "id": "CA-R-2501@1-draft",
+      "summary": "Declare Atom.Content.Claim Scope",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "7e69540d305dc36b34b9c6999fff38db42bc17510e83dd6d97c88c21d8d37ccd",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2502@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-semantics.md",
+      "id": "CA-R-2502@1-draft",
+      "summary": "Declare Atom.Content.Semantics",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "c9e154a72dd63418044a991175f478fc4c9fea892a82b846e4ab8a12ffd679cd",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2503@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-details.md",
+      "id": "CA-R-2503@1-draft",
+      "summary": "Declare Atom.Content.Details",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "e5c69f3da69bada93bb05b343593215ddab5454680b86fc680b1ac078759b8ad",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2504@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+      "id": "CA-R-2504@1-draft",
+      "summary": "Declare Atom.Tier",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "ec850738d2c2d36a23dd269c6d71cfe0a4837a7a7371aa7ee1c0270a24785b9b",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2505@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier-label.md",
+      "id": "CA-R-2505@1-draft",
+      "summary": "Declare Atom.Tier.Label",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "672a121c60ffa0305672b387c5cb2f5e7d3f78d94fd1ca447ebfd77401d33888",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2506@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive.md",
+      "id": "CA-R-2506@1-draft",
+      "summary": "Declare Atom.Subjects.Passive",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "ae2b11bb87620963d127cdfcd50a5b2805251051d2b878dd1d7e2bd072c02625",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2507@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations.md",
+      "id": "CA-R-2507@1-draft",
+      "summary": "Declare Atom.Relations",
+      "role": "Requirement",
+      "form": "Declaration",
+      "contract_status": "prepared",
+      "sha256": "87864a690cf4767d3857359396e8b187e7b336d2db1db2c4982e9cd3ea10ddba",
+      "classification": "Property",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2508@1-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "id": "CA-R-2508@1-draft",
+      "summary": "Declare Atom",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "83e12dff26e4af38c6f84b3d2aaddeaf1707099d8a7fc2f14f49231540eae6a9",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2509@1-draft-CORE_META_MODEL-DECLARATION--declare-concern.md",
+      "id": "CA-R-2509@1-draft",
+      "summary": "Declare Atom/(.Role := Concern)",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "88047d40a847429d125a1e681cee6320a072091cd8b2c389a97a3cafceeaf271",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2510@1-draft-CORE_META_MODEL-DECLARATION--declare-analysis.md",
+      "id": "CA-R-2510@1-draft",
+      "summary": "Declare Atom/(.Role := Analysis)",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "408a8f3e5044db0b3837683ca1fb1c8029d08c9ae764dc84f1a7148102ad861f",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2511@1-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "id": "CA-R-2511@1-draft",
+      "summary": "Declare Atom/(.Role := Plan)",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "efc8ece4191347663d64b063b8d62a0281f6b9859002a06b9ae12a5e6bbf16ac",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2512@1-draft-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "id": "CA-R-2512@1-draft",
+      "summary": "Declare Atom/(.Role := Requirement)",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "aae30ae58356752d26c9281ef984d6deaf97c42890d089ab68aa18a806171764",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2513@1-draft-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "id": "CA-R-2513@1-draft",
+      "summary": "Declare Atom/(.Role := Method)",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "700a2bd008091419e57b868b0f3da8982741162455e9bf2603557d820f34e9c3",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2514@1-draft-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "id": "CA-R-2514@1-draft",
+      "summary": "Declare Atom/(.Role := Evaluation)",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "b68a5cd44471596c5c8c58974301917b4c15499f34da4af556379bbddca86679",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2515@1-draft-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "id": "CA-R-2515@1-draft",
+      "summary": "Declare Atom/(.Role := Delivery)",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "8f4cf2145593654a37f860d42ba4e562064fbb9dc6e482fbafc0a891ae2e3118",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2516@1-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration.md",
+      "id": "CA-R-2516@1-draft",
+      "summary": "Declare Atom/(.Role := Requirement)/(.Form := Declaration)",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "48f426d224e79c2f1c963860df014af1f50622904d27f0974a783ec7ff68430f",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2517@1-draft-CORE_META_MODEL-DECLARATION--declare-requirement-relation-definition.md",
+      "id": "CA-R-2517@1-draft",
+      "summary": "Declare Atom/(.Role := Requirement)/(.Form := Relation Definition)",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "737f9dc058f8aa829c9ee95518b71642dcd247e13868c6634e7c5a9b031dcb2c",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2518@1-draft-CORE_META_MODEL-DECLARATION--declare-concern-priority.md",
+      "id": "CA-R-2518@1-draft",
+      "summary": "Declare Atom/(.Role := Concern).Priority",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "746563798a577423c3a415751a6731b13a04b7f6740a9535e45f2dd11fde8249",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2519@1-draft-CORE_META_MODEL-DECLARATION--declare-plan-ai-agent-confidence-threshold.md",
+      "id": "CA-R-2519@1-draft",
+      "summary": "Declare Atom/(.Role := Plan).AI Agent Confidence Threshold",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "f8cf61cbd2f68ac75cd4d92010ee56af2057f3a891a045a116a367b759ccf0ed",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2520@1-draft-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md",
+      "id": "CA-R-2520@1-draft",
+      "summary": "Declare Atom/(.Role := Plan).Work Sequence Number",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "feb4f4244533c5498cfdd84f25e5e880432ce1f0ce45609fa2417688a133ad86",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2521@1-draft-CORE_META_MODEL-DECLARATION--declare-action-execution-kind.md",
+      "id": "CA-R-2521@1-draft",
+      "summary": "Declare Atom/(.Role := Operations)/Action.Execution Kind",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "bedc29e62c0a2ade29c3804c48753354539208321aabc6bf276ac3283a58ad71",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2522@1-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md",
+      "id": "CA-R-2522@1-draft",
+      "summary": "Declare Atom/(.Role := Requirement)/(.Form := Relation Definition).Content.notation_for_subject",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "c87a9e6f5ef8779a5fbc1f0158ef6bdc0d9ca0a01b02ad7d33667544e0a7c5b4",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2523@1-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "id": "CA-R-2523@1-draft",
+      "summary": "Declare Scope Unit",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "9028d49455e0fb146e451d0fcbd8cc25e33f3f678ad8a3fab713ce4845f9b3fd",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2524@1-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "id": "CA-R-2524@1-draft",
+      "summary": "Declare Project",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "492f7b5c3b29a0250f22a3d8d22a4d1469d989c3848f2a06c2be60fc6dff4c37",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2525@1-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "id": "CA-R-2525@1-draft",
+      "summary": "Declare Package",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "3ba8fa9bf008542093666cc080bb971a878d94c4501021535e53e022481e9028",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2526@1-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "id": "CA-R-2526@1-draft",
+      "summary": "Declare Scope Unit ID",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "85473de46145055d71374d98fc3fafbbeb3572b39e18cd11a69f2ada4057669b",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2527@1-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-name.md",
+      "id": "CA-R-2527@1-draft",
+      "summary": "Declare Scope Unit Name",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "8cb74b638b9ffea70d7e2f2671937dee3d339d4b64e29567b62f95d140f68b78",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2528@1-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-label.md",
+      "id": "CA-R-2528@1-draft",
+      "summary": "Declare Scope Unit Label",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "c263e282ed4d2f1bde6395d350bc234e1c02979eaebfa900e42d8d3fe9aafdfe",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2529@1-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-local-order.md",
+      "id": "CA-R-2529@1-draft",
+      "summary": "Declare Scope Unit Local Order",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "2f8504b84dc35d1151cc7adec222d92e7d8fdbd7910732c6c5dd0ea5fa16f2f6",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2530@1-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "id": "CA-R-2530@1-draft",
+      "summary": "Declare Scope Unit Path",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "1c1df7fef38a86bf68296998a6b99d052b39be42b34711eb290724cec7bff33c",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2531@1-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-project-boundary-position.md",
+      "id": "CA-R-2531@1-draft",
+      "summary": "Declare Scope Unit Project Boundary Position",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "47d4e02005d19034ad2431bdddc3a97a22cdc15518a5a9e163fe4aa3b2cd63d4",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2532@1-draft-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "id": "CA-R-2532@1-draft",
+      "summary": "Declare Project.Settings",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "0f984a3af069b1df974e92764f81741659b90a7e20f748cf2e9c57e0754ce876",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2533@1-draft-CORE_META_MODEL-DECLARATION--declare-project-settings-name.md",
+      "id": "CA-R-2533@1-draft",
+      "summary": "Declare Project Settings Name",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "1eb964d811cd4210697ea433735db7678ed158622fb32e9fb3f008387a1b6f3e",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2534@1-draft-CORE_META_MODEL-DECLARATION--declare-project-settings-prefix.md",
+      "id": "CA-R-2534@1-draft",
+      "summary": "Declare Project Settings Prefix",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "65bb6b80931cf6e520a060939a9d6f45149841cc111c41d7564c5ae87d47a6d1",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2535@1-draft-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "id": "CA-R-2535@1-draft",
+      "summary": "Declare Projection",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "5ae51c55cc56aeab208f445c15fa7d6d65e9363c8a0cc72b0da2faf593c52b7d",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2536@1-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "id": "CA-R-2536@1-draft",
+      "summary": "Declare Journal",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "184805f95cd003a9f610638842140735091f08ff281830c38daa936b7dff4b25",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2537@1-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "id": "CA-R-2537@1-draft",
+      "summary": "Declare Projection.ID",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "8216f6353ac7e15b2d6a45a1763dc4c48ee509dba0cb94eb81531d2d07586128",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2538@1-draft-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+      "id": "CA-R-2538@1-draft",
+      "summary": "Declare Projection.Form",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "4915e8bb4767e860f6bddec79b9e620145a79b9d0fbe6c8193336ede2c704f9a",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2539@1-draft-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+      "id": "CA-R-2539@1-draft",
+      "summary": "Declare Projection.Updated At",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "ec5b81ce0ce0178dbe67b941d7a9fc5600686139ccef63bd7a92bbea535ecc2c",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2540@1-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-atoms.md",
+      "id": "CA-R-2540@1-draft",
+      "summary": "Declare Projection.Source.Atoms",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "7a4ab43a892dc7d810dd260be1d19b85e0f8d5dc9c7009247ce82532f5c73bad",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2541@1-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-named-selection.md",
+      "id": "CA-R-2541@1-draft",
+      "summary": "Declare Projection.Source.Named Selection",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "6a669a4b2c75aaf27fbd382c03571490be859f8317f3d6d0096d2a66485a8cae",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2542@1-draft-CORE_META_MODEL-DECLARATION--declare-actor.md",
+      "id": "CA-R-2542@1-draft",
+      "summary": "Declare Actor",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "2f440285a2c6232ab3b3fc2055ffd95f5be2922f79cd9772c7dde5411e769ec5",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2543@1-draft-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "id": "CA-R-2543@1-draft",
+      "summary": "Declare Aspect",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "689dc72dedb4b013586375efbea59975e91d3cc2cbb9bf83c49869960cdbf7f8",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2544@1-draft-CORE_META_MODEL-DECLARATION--declare-actor-name.md",
+      "id": "CA-R-2544@1-draft",
+      "summary": "Declare Actor.Name",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "bf87d5816ee1da9e4e96b6652468158b41fb79aa3227edc42e72e4d3175e262b",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2545@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects.md",
+      "id": "CA-R-2545@1-draft",
+      "summary": "Declare Atom.Subjects",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "01cf32fe063bb54f12a32e54ab74f9bc3daeaafc71fa46b8e9c04a2a2d00bd17",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2546@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-active.md",
+      "id": "CA-R-2546@1-draft",
+      "summary": "Declare Atom.Subjects.Active",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "92eeb6bfd80725bfb859efcdc395dac0dfeaeb9a4fd01eda06a570071ff77c11",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2547@1-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-value-format.md",
+      "id": "CA-R-2547@1-draft",
+      "summary": "Define markdown value Format",
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "sha256": "f38556b49db3ba776db11daf7f65cf6f1e2ab318330ab25595cfc6767c562301",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2548@1-draft-CORE_META_MODEL-RULE--deliver-objects-to-carriers.md",
+      "id": "CA-R-2548@1-draft",
+      "summary": "Deliver Objects to Carriers",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "52a1388ba38c6154729952e2facb2978dcd7bf0935b7168f055ccc48658a47e4",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-664@1-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "id": "CA-D-664@1-draft",
+      "summary": "Deliver Atoms to Markdown files",
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "sha256": "3634ca57783e0b38bc9d7622a5a859292bbb2a0d6f64cd5fec8710a790d64688",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-458@1-draft-CORE_META_MODEL-TERM_DEFINITION--define-object.md",
+      "id": "CA-M-458@1-draft",
+      "summary": "Define Object",
+      "role": "Method",
+      "form": "Term Definition",
+      "sha256": "d5fbe8645bfba9e0331d2fd1ff8872720fbeeb52968fb875dbdc0760b75ad34d",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2549@1-draft-CORE_META_MODEL-CFEL--compare-numeric-values.md",
+      "id": "CA-R-2549@1-draft",
+      "summary": "Compare and add numeric values in CFEL",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "97778b0b4335cf2e60aa55a491bb9f95cb96f6766722a62a752ede65ea86aec7",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2550@1-draft-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "id": "CA-R-2550@1-draft",
+      "summary": "Resolve a fallback when an optional Property is omitted",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "c54e812ab8c1b25107a03f09d10d8c87b2d8db59cb08447c4d2df7a577edc090",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2551@1-draft-CORE_META_MODEL-CFEL--require-unique-property-tuples.md",
+      "id": "CA-R-2551@1-draft",
+      "summary": "Require unique Property tuples",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "74e350e84b1038455da5bd7a56ff201055acbba6914fef44a8954bc1516b3bf2",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2552@1-draft-CORE_META_MODEL-CFEL--bind-instance-variables.md",
+      "id": "CA-R-2552@1-draft",
+      "summary": "Bind instance variables",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "d97227dfc4ef212791e0cd2a8890d367dc56cfa98343f9fff9b4b3be0bf797b1",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2553@1-draft-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+      "id": "CA-R-2553@1-draft",
+      "summary": "Declare Implementation",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "7b0d258b18a2e39cece379005bd6703b1a240d362fee8de8043a91a1991925c9",
+      "classification": "Primary Node",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2554@1-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+      "id": "CA-R-2554@1-draft",
+      "summary": "Declare Scope Unit.structural_level",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "391e749dc6571fc1aa5cddd40549034faaa8305243c4b1782ffbb7551503c624",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2555@1-draft-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+      "id": "CA-R-2555@1-draft",
+      "summary": "Declare Package.structural_level",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "56e8fc1b604dc86ebc7fffb44356b29c5830b4d69ecfe4659e1cdd298d181980",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2556@1-draft-CORE_META_MODEL-RULE--keep-assertions-about-the-active-subject.md",
+      "id": "CA-R-2556@1-draft",
+      "summary": "State assertions about the active Subject",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "f6e428475954e848cccd0824dfb0edff8305902e34d30e20e19fd4a4829fab21",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2557@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "id": "CA-R-2557@1-draft",
+      "summary": "Declare Event Record",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "79e9b704a8d955509697c8fdca64c783d3fbcbc1d889e18e178bd44ba9ab666c",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2558@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-id.md",
+      "id": "CA-R-2558@1-draft",
+      "summary": "Declare Event Record.ID",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "486a033d2e2a8af3fa0a276dda8103b04770fe82cd60771bdc056318118a7e37",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2559@1-draft-CORE_META_MODEL-DECLARATION--declare-model.md",
+      "id": "CA-R-2559@1-draft",
+      "summary": "Declare MODEL",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "baa11a7bb7c445c62196afb73324d4370b52cb76683ff6f3533a7827f382677f",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2560@1-draft-CORE_META_MODEL-DECLARATION--declare-project-structure.md",
+      "id": "CA-R-2560@1-draft",
+      "summary": "Declare PROJECT STRUCTURE",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "cf7437a2d0e0ed4fcc7e143badb66422b4eee8ee7015b29c126b75ce6e6e7c33",
+      "classification": "Primary Node",
+      "contract_status": "Draft; effective whitelist review pending",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2561@1-draft-CORE_META_MODEL-CFEL--require-scalar-immutability.md",
+      "id": "CA-R-2561@1-draft",
+      "summary": "Require scalar Property immutability",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "ac495fbbc9aab708e837cbec4c0e8dccea1bcd51ae4d376119b87c6f9d538251",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2562@1-draft-CORE_META_MODEL-CFEL--require-functional-dependencies.md",
+      "id": "CA-R-2562@1-draft",
+      "summary": "Require functional dependencies between Property tuples",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "f6d10a33310cec70cb660db313ef3e2cbaf00620277584d1718d01d4cd164582",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-459@1-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-summary-for-the-complete-contribution.md",
+      "id": "CA-M-459@1-draft",
+      "summary": "Write Summary for the Complete Contribution",
+      "role": "Method",
+      "form": "Implementation Method",
+      "sha256": "4dae23e83c46009ceddec58bc1cb697e485a795d84fa64c885b13832aa56abf8",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2563@1-draft-CORE_META_MODEL-CFEL--select-fenced-markdown-labels.md",
+      "id": "CA-R-2563@1-draft",
+      "summary": "Select fenced Markdown labels",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "9a6f60f9c66887361960bbf245e8d34b36e5565967123cb58f9d3145391fb7f7",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2564@1-draft-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "id": "CA-R-2564@1-draft",
+      "summary": "Declare Project.Settings.AI Agent Confidence Threshold",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "2b5f40b9d5b8f4032e6a135db638589f52bc684463cb338e4012fc7901c99c2d",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2565@1-draft-CORE_META_MODEL-RULE--preserve-atom-version-and-updated-at-when-archiving.md",
+      "id": "CA-R-2565@1-draft",
+      "summary": "Preserve Atom Version and Updated At When Archiving",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "f8a22de7bc8d297083600f2a583426e044887dcd3c5c86fa55eda1537905e4ed",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2566@1-draft-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md",
+      "id": "CA-R-2566@1-draft",
+      "summary": "Filter instances and select maximum values",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "d5aef4fb942b4344345a73829f961a3f2d9ec2ee9fe3f68110c4faa3feba7ca7",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2567@1-draft-CORE_META_MODEL-RULE--record-business-property-changes-in-one-update-event.md",
+      "id": "CA-R-2567@1-draft",
+      "summary": "Record business Property changes in one update Event Record",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "04a4c697dd6b54bb32de80773d578e408e13e73187f218cea039ba8e30506052",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2568@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-happened-at.md",
+      "id": "CA-R-2568@1-draft",
+      "summary": "Declare Event Record.happened_at",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "0afe80eb5539a943bd8ba9d12f6329ad9c6a62b6916d6ff75954cc6e2ec84bf8",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2569@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-inserted-at.md",
+      "id": "CA-R-2569@1-draft",
+      "summary": "Declare Event Record.inserted_at",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "ae474ae6f8032cd24dd1ae628cc3f4a212ca63f60844abe9b7c7b35863eb2610",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2570@1-draft-CORE_META_MODEL-RULE--distinguish-event-time-from-record-insertion-time.md",
+      "id": "CA-R-2570@1-draft",
+      "summary": "Distinguish event time from record insertion time",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "12d526cae32a8c59dff53cf44450dbff9be375c9e92ae08cef1b1868331fc062",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2571@1-draft-CORE_META_MODEL-RULE--capture-atom-input-and-output-metadata.md",
+      "id": "CA-R-2571@1-draft",
+      "summary": "Capture Atom input and output metadata",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "0190b86cf2410636093da98d2b6eacb6e2fb090325f74f2617d9df0d7699b224",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2572@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-object-input.md",
+      "id": "CA-R-2572@1-draft",
+      "summary": "Declare Event Record.object_input",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "505be34bd001c40a66bd188dd20493b2732963aeb4fb40382571c387ef142fd9",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2573@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-id.md",
+      "id": "CA-R-2573@1-draft",
+      "summary": "Declare Event Record.object_input.id",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "2938fe2767c14b88585183e3e4064932b13789c90a4507ada124c72168b66764",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2574@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-version.md",
+      "id": "CA-R-2574@1-draft",
+      "summary": "Declare Event Record.object_input.version",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "5c7124d24ef633f3f1322422eacdef2b28b081547a09a056eb3438154dc5a287",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2575@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-updated-at.md",
+      "id": "CA-R-2575@1-draft",
+      "summary": "Declare Event Record.object_input.updated_at",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "4bc81b2e1f4948ec79d979cbd5fa005d73a5e352fa05019f735f8defd2d4c978",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2576@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-object-output.md",
+      "id": "CA-R-2576@1-draft",
+      "summary": "Declare Event Record.object_output",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "d41728eff641b7c1f415220ae09fe7becc83705e951583ff32f513b006fbd154",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2577@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-id.md",
+      "id": "CA-R-2577@1-draft",
+      "summary": "Declare Event Record.object_output.id",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "2d3026efd55793640566f6c5ed121711831d37d7d0e27cb39485521030153081",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2578@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-version.md",
+      "id": "CA-R-2578@1-draft",
+      "summary": "Declare Event Record.object_output.version",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "3b2c6e5b0c567a5140914b4b7451f7bcf46978935620ec92cfb15bf81b285a32",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2579@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-updated-at.md",
+      "id": "CA-R-2579@1-draft",
+      "summary": "Declare Event Record.object_output.updated_at",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "0ef89c13776e97434c56f972bb82a2fc5286f6ec885b363fefe8ade7b3c3a228",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2580@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-action.md",
+      "id": "CA-R-2580@1-draft",
+      "summary": "Declare Event Record.action",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "b4d67d699e96c9b9f51a4fd280ef94cd2ab9586740cad7edd24f56425f2e7544",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2581@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-relations.md",
+      "id": "CA-R-2581@1-draft",
+      "summary": "Declare Event Record.Relations",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "0137bdea683e8d84004d4b21539be4f1abd881e5c0a990cfc928132ae1474ef1",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2582@1-draft-CORE_META_MODEL-DECLARATION--declare-event-record-event-author.md",
+      "id": "CA-R-2582@1-draft",
+      "summary": "Declare Event Record.Relations.HAS_EVENT_AUTHOR",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "7d6b093a1c220de45f39d5fcf624255c1a18d1053b454cfafe745e3bb413ab6f",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2583@1-draft-CORE_META_MODEL-RELATION_DEFINITION--define-event-author-link.md",
+      "id": "CA-R-2583@1-draft",
+      "summary": "Define HAS_EVENT_AUTHOR",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "sha256": "d12855081e5668d8a166a1addf29c8a3b9a021d2e9c621f6b3fb9b04176e5922",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2584@1-draft-CORE_META_MODEL-RULE--capture-projection-input-and-output-metadata.md",
+      "id": "CA-R-2584@1-draft",
+      "summary": "Capture Projection input and output metadata",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "875731458608022b75ab82fc48ff3aedc1cd6df0538411df2f2de9177ebfb583",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2585@1-draft-CORE_META_MODEL-CFEL--count-property-values-and-distinct-values.md",
+      "id": "CA-R-2585@1-draft",
+      "summary": "Count direct Property values and distinct values",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "c4483a96a76d986580a2247aadb47929bb39745334f94d305590a246f6f776ef",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-665@1-draft-CORE_META_MODEL-ENG_DECISION--deliver-projections-to-markdown-files.md",
+      "id": "CA-D-665@1-draft",
+      "summary": "Deliver Projections to Markdown files",
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "sha256": "c584e3ee6c9e49d27ea62a9ad80ce38baf97dd79e75b611eb83c42a8c1c73c32",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-2586@1-draft-CORE_META_MODEL-DECLARATION--declare-projection-source.md",
+      "id": "CA-R-2586@1-draft",
+      "summary": "Declare Projection.Source",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "ed1c6d23be34ba318de6bc879316ff4cd9c784e63b9905bbac3629112e40cbd1",
+      "classification": "Property",
+      "contract_status": "prepared",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-2587@1-draft-CORE_META_MODEL-DECLARATION--declare-named-selection.md",
+      "id": "CA-R-2587@1-draft",
+      "summary": "Declare Named Selection",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "7185ae62efe983bd859f3d94c9b230505f3092fa3fd311c7f0508fada059ea45",
+      "classification": "Primary Node",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-460@1-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-positive-claims-about-the-active-subject.md",
+      "id": "CA-M-460@1-draft",
+      "summary": "Write positive Claims about the active Subject",
+      "role": "Method",
+      "form": "Implementation Method",
+      "sha256": "c462f950f4663ec58cb5d6364627d2f9fe501c30e10b93baf2ae324e2ae2455d",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2588@1-draft-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "id": "CA-R-2588@1-draft",
+      "summary": "Apply default Relation cardinalities",
+      "role": "Requirement",
+      "form": "Rule",
+      "sha256": "4c30273b30d02162a7cbea3e2ddb56bf3d865c47af24a8727f5cc944285f66d1",
+      "identity_status": "allocated Draft identity; authored-schema admission pending"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2589@1-draft-CORE_META_MODEL-DECLARATION--declare-continuant.md",
+      "id": "CA-R-2589@1-draft",
+      "summary": "Declare Continuant",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "1071636c1038f229d92f9e296e78dc84624fb9e3605598b689109b60a9dce5af",
+      "classification": "Primary Node",
+      "contract_status": "prepared; retained concept"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-2590@1-draft-CORE_META_MODEL-DECLARATION--declare-occurrent.md",
+      "id": "CA-R-2590@1-draft",
+      "summary": "Declare Occurrent",
+      "role": "Requirement",
+      "form": "Declaration",
+      "sha256": "3566c996422af30b7778b67b8fa4e10a544c115ede2fa712e7dfce1dead0eba6",
+      "classification": "Primary Node",
+      "contract_status": "prepared; retained concept"
+    }
+  ],
+  "withdrawn_drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-navigational-order-number.md",
+      "review_snapshot": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/withdrawn-scope-unit-navigation-number.md",
+      "sha256": "052d962e1bd075fbd9b5aa22b5bc9c89b37305253fce8dd595c3469e99ba1172",
+      "reason": "Latest Operator decision: no Scope Unit Navigation Number; retain only for Steps and P."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-implementation-retry-limit.md",
+      "review_snapshot": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/declaration-expansion/withdrawn-plan-retry-limit-20261101.json",
+      "sha256": "5aabb91a526cf9eb3fca1affd19408f2e4fa04906a7cbd93688e04c4223d9bb6",
+      "reason": "Latest Operator decision: remove Plan Implementation Retry Limit; retry handling belongs to Workflow."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-of-truth.md",
+      "review_snapshot": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/declaration-expansion/withdrawn-projection-source-of-truth-20261101.json",
+      "sha256": "fabbfae6d05101bf4c2e3ced5e8d5ede38ff7f13e45fc5f0f89cd034861a635b",
+      "reason": "Latest Operator decision: Sources already exists; remove the separate Source Of Truth Property."
+    }
+  ],
+  "allocation_manifest": "migration-20261101/draft-allocation-application.json"
+}

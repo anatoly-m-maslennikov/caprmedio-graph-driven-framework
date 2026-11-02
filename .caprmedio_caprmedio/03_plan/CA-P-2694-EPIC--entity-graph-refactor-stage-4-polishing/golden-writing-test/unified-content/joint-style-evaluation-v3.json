@@ -1,0 +1,102 @@
+{
+  "comparison_sha256": "7960374ab5a76e233c898e9bf0667f134513a396a2faf7ac73e06ee19ef539df",
+  "prompt_sha256": "bd04d4f3e1f5c313cdda69e610104801379985649eefefb104be88bc1e36a4f6",
+  "counts": {
+    "total": 12,
+    "pass": 10,
+    "needs_changes": 2,
+    "needs_context": 0
+  },
+  "results": [
+    {
+      "key": "B08",
+      "summary_verdict": "Pass",
+      "body_style_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B09",
+      "summary_verdict": "Pass",
+      "body_style_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B10",
+      "summary_verdict": "NeedsChanges",
+      "body_style_verdict": "Pass",
+      "issues": [
+        {
+          "area": "Summary",
+          "generated_quote": "Review implementation candidates against applicable Method-policy and bound check evidence",
+          "source_quote": "review-code-candidate-evidence-and-applicable-method-policy-without-editing",
+          "problem": "The title says “implementation candidates” rather than identifying the code review, and omits the Step’s shared implementation context; those are the Step’s distinguishing purpose, not merely secondary constraints.",
+          "minimal_fix": "Review code in shared implementation context"
+        }
+      ]
+    },
+    {
+      "key": "B14",
+      "summary_verdict": "NeedsChanges",
+      "body_style_verdict": "Pass",
+      "issues": [
+        {
+          "area": "Summary",
+          "generated_quote": "Check Project-wide foundations and Core Claims for ownership, breadth, support, consistency, and correct Atom classification",
+          "source_quote": "The Project-wide foundation and Core set Evaluation",
+          "problem": "The title becomes a checklist of evaluation categories instead of naming the central check.",
+          "minimal_fix": "Check the Project-wide foundation and Core set"
+        }
+      ]
+    },
+    {
+      "key": "B15",
+      "summary_verdict": "Pass",
+      "body_style_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B17",
+      "summary_verdict": "Pass",
+      "body_style_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B23",
+      "summary_verdict": "Pass",
+      "body_style_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B02",
+      "summary_verdict": "Pass",
+      "body_style_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B19",
+      "summary_verdict": "Pass",
+      "body_style_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B37",
+      "summary_verdict": "Pass",
+      "body_style_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B36",
+      "summary_verdict": "Pass",
+      "body_style_verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B16",
+      "summary_verdict": "Pass",
+      "body_style_verdict": "Pass",
+      "issues": []
+    }
+  ],
+  "joint_reading_note": "A Summary is part of the Atom, read with its scope and Claim. B09 omits the word bound in the title but the Operation supplies it; B19 omits resource qualification from its title but the Claim supplies it; B23 does not repeat “delivered” but the Claim supplies it. These omissions alone are not contrary assertions or reasons to reject the Atom.",
+  "scope": "Summary plus five writing areas; deep logical body-fidelity review is separate. No output or source edits."
+}

@@ -32,12 +32,15 @@ from atom_operations import (
     atom_version,
     bind_existing_draft_promotion,
     canonical_json,
+    _canonical_source_summary,
     carrier_directory_snapshot,
     carrier_directory_snapshot_matches,
     control_root,
     create_atom_revision,
     demote_atom_to_draft,
     _draft_marker_identity,
+    _draft_promotion_filename,
+    _draft_summary,
     frontmatter_scalar,
     migrate_atom_identity_revision,
     move_atom_revision,
@@ -394,21 +397,11 @@ def _legacy_summary(content: str) -> str:
     return headings[0]
 
 
-def _summary(content: str) -> str:
-    headings = _headings(content)
-    summaries = [(title, index) for level, title, index in headings if level == 1 and title == "Summary"]
-    if not summaries:
-        raise LifecycleError("summary-missing", "the complete carrier content must contain # Summary")
-    if len(summaries) != 1 or not headings or headings[0] != (1, "Summary", summaries[0][1]):
-        raise LifecycleError("summary-ambiguous", "# Summary must be the one first unfenced H1")
-    _, index = summaries[0]
-    lines = content.splitlines()
-    end = next((heading_index for _, _, heading_index in headings if heading_index > index), len(lines))
-    for line in lines[index + 1 : end]:
-        value = line.strip()
-        if value:
-            return value
-    raise LifecycleError("summary-missing", "# Summary must carry a non-empty value")
+def _summary(content: str, *, content_role: str | None = None) -> str:
+    try:
+        return _draft_summary(content, content_role=content_role)
+    except AtomToolError as error:
+        raise _translate(error) from error
 
 
 def _source_summary(target: Atom, *, legacy: bool = False) -> str:
@@ -416,14 +409,19 @@ def _source_summary(target: Atom, *, legacy: bool = False) -> str:
 
     if (target.atom_id is None or re.fullmatch(r"CA-C-[0-9]{3,}", target.atom_id) is None
             or target.role_directory != "01_concern"):
-        return _legacy_summary(target.content) if legacy else _summary(target.content)
+        if legacy:
+            return _legacy_summary(target.content)
+        try:
+            return _canonical_source_summary(target)
+        except AtomToolError as error:
+            raise _translate(error) from error
 
     headings = _headings(target.content)
     h1 = [(heading, index) for level, heading, index in headings if level == 1]
     summaries = [(heading, index) for level, heading, index in headings if heading == "Summary"]
     if summaries:
         if len(summaries) == 1 and len(h1) == 1 and h1[0] == summaries[0]:
-            return _summary(target.content)
+            return _summary(target.content, content_role="Concern")
         raise LifecycleError(
             "legacy-summary-ambiguous",
             "identified Concern source requires one Summary or one descriptive first H1, without a competing Summary",
@@ -637,7 +635,8 @@ def _mechanical_update_evidence(target: Atom, prior: Mapping[str, Any], proposed
                                 identity_mapping: Mapping[str, str] | None = None) -> dict[str, Any]:
     """Retain O067's actual target/proposal comparison for a proven safe class."""
 
-    proposed_summary = _summary(proposed["content"])
+    proposed_summary = _summary(proposed["content"],
+                                content_role=frontmatter_scalar(proposed["frontmatter"], "content_role"))
     claim_kind, target_claim = _claim_comparison_value(target.content)
     proposed_claim_kind, proposed_claim = _claim_comparison_value(proposed["content"])
     result = {
@@ -823,11 +822,11 @@ def _recovery_authority_pins(root: Path, lineage: list[object]) -> dict[str, dic
 
 
 def _admit_assessment_class(admitted: object, *, carrier_recovery: bool) -> None:
-    allowed = {"equivalent_refinement", "semantic_revision", "replacement"}
+    allowed = {"carrier_only", "equivalent_refinement", "semantic_revision", "replacement"}
     if carrier_recovery and admitted == "carrier_only":
         return
     if admitted not in allowed:
-        raise LifecycleError("assessment-evidence-invalid", "assessment change class is not substantive")
+        raise LifecycleError("assessment-evidence-invalid", "assessment change class is not admitted")
     if carrier_recovery:
         raise LifecycleError("assessment-evidence-invalid", "Goal Type recovery must be carrier_only")
 
@@ -1269,7 +1268,8 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
     if not legacy and frontmatter_scalar(proposed["frontmatter"], "content_role") != frontmatter_scalar(target.frontmatter, "content_role"):
         raise LifecycleError("atom-role-changed", "same-identity Update must retain the current Content Role")
     prior_summary = _source_summary(target, legacy=legacy)
-    if _summary(proposed["content"]) != prior_summary:
+    if _summary(proposed["content"],
+                content_role=frontmatter_scalar(proposed["frontmatter"], "content_role")) != prior_summary:
         if mapping:
             raise LifecycleError("legacy-summary-changed", "identity encoding migration must preserve the exact Summary")
         proposed_successors = _proposed_successors(root, request.get("successors"), target)
@@ -1873,18 +1873,15 @@ def _publish_status_change(root: Path, target: Atom, requested: str, frontmatter
                 expected_draft_digest=expected_draft_digest, expected_canonical_digest=expected_canonical_digest,
             )
         elif target.atom_id is None:
-            if _draft_marker_identity(root, target.path, target.frontmatter) is not None:
+            marker = _draft_marker_identity(root, target.path, target.frontmatter)
+            if marker is not None and marker.canonical_id is not None:
                 raise LifecycleError(
                     "draft-promotion-marker-unsupported",
-                    "carried Draft markers require their admitted source-bound promotion effect",
+                    "existing Draft markers require their admitted canonical promotion binding",
                 )
             with atom_identity_lock(root):
                 identity = _draft_promotion_identity(root, target)
-                match = re.fullmatch(r"([A-Za-z0-9]+-[A-Z]+)--(.+)", target.filename)
-                if match is None:
-                    raise LifecycleError("draft-promotion-invalid", "Draft filename has no admitted role prefix")
-                separator = "-" if "--" in match.group(2) else "--"
-                filename = f"{identity}{separator}{match.group(2)}"
+                filename = _draft_promotion_filename(target, identity, marker)
                 prospective = replace(
                     target,
                     path=target.path.with_name(filename),

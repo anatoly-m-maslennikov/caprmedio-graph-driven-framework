@@ -11,7 +11,7 @@ TOOL = Path(__file__).resolve().parents[1]
 TOOLS = TOOL.parent
 sys.path[:0] = [str(TOOLS), str(TOOL)]
 
-from declaration_sources import compose_declaration_catalog  # noqa: E402
+from declaration_sources import compose_declaration_catalog, resolve_relation_authorities  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.check_sections import GRAPH_RULE_SOURCES  # noqa: E402
 
 
@@ -225,6 +225,65 @@ class DeclarationSourcesTests(unittest.TestCase):
 
         self.assertEqual(catalog["relation_types"], [])
         self.assertEqual(len(catalog["unresolved"]), 2)
+
+    def test_approved_relation_identity_resolver_requires_exact_unique_active_definition(self):
+        def definition(atom_id):
+            carrier = relation_carrier(atom_id, "Entity/Graph Syntax <+ Relation//IS_PROPERTY_OF", "Entities Graph")
+            carrier["metadata"]["type"] = "Relation Definition"
+            raw = carrier["raw"].replace(
+                b"status: Active\n---", b"status: Active\ntype: Relation Definition\nsubjects:\n"
+                b"  governs: Entity/Graph Syntax <+ Relation//IS_PROPERTY_OF\n---")
+            carrier["raw"] = raw
+            carrier["source"]["sha256"] = hashlib.sha256(raw).hexdigest()
+            return carrier
+        carrier = definition("CA-R-99001")
+        resolved = resolve_relation_authorities([carrier], ["IS_PROPERTY_OF"])
+        self.assertEqual(carrier["source"], resolved["IS_PROPERTY_OF"])
+        with self.assertRaisesRegex(ValueError, "found 2"):
+            resolve_relation_authorities([carrier, definition("CA-R-99002")], ["IS_PROPERTY_OF"])
+        for change in ("draft", "bytes", "missing", "metadata"):
+            with self.subTest(change=change):
+                altered = definition("CA-R-99001")
+                if change == "draft":
+                    altered["metadata"]["status"] = "Draft"
+                elif change == "bytes":
+                    altered["raw"] += b"changed"
+                elif change == "metadata":
+                    altered["metadata"]["version"] = 2
+                    altered["source"]["version"] = 2
+                with self.assertRaisesRegex(ValueError, "found 0"):
+                    resolve_relation_authorities([] if change == "missing" else [altered], ["IS_PROPERTY_OF"])
+
+    def test_migrated_role_form_relation_definition_stays_in_the_relation_catalog(self):
+        body = "## Scope\n\nRUN Relation in the Entities Graph.\n\n## Claim\nText.\n"
+        raw = (
+            "---\natom_id: CA-R-901090\nversion: 1\nstatus: Active\n"
+            "role: Requirement\nform: Relation Definition\nsubjects:\n"
+            "  active: Entity/CFEL <+ Relation//RUN\n  passive: []\n---\n" + body
+        ).encode("utf-8")
+        carrier = {
+            "source": {
+                "atom_id": "CA-R-901090", "version": 1, "path": "CA-R-901090.md",
+                "sha256": hashlib.sha256(raw).hexdigest(),
+            },
+            "metadata": {
+                "atom_id": "CA-R-901090", "version": 1, "status": "Active",
+                "role": "Requirement", "form": "Relation Definition",
+            },
+            "subjects": {"active": "Entity/CFEL <+ Relation//RUN", "passive": []},
+            "body": body,
+            "raw_body": body,
+            "raw": raw,
+        }
+
+        self.assertEqual(
+            carrier["source"], resolve_relation_authorities([carrier], ["RUN"])["RUN"],
+        )
+        catalog = compose_declaration_catalog([carrier])
+        self.assertEqual(
+            [("Entities Graph", "RUN")],
+            [(row["graph_kind"], row["canonical_name"]) for row in catalog["relation_types"]],
+        )
 
     def test_current_support_sources_admit_valid_rule_and_input_order_is_irrelevant(self):
         supports, entries = support_carriers()

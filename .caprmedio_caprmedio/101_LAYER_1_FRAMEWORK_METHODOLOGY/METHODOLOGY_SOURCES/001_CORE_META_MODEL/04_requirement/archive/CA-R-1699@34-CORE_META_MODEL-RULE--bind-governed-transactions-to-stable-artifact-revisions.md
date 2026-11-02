@@ -1,0 +1,26 @@
+---
+subjects:
+  active: CFEL > Relation
+  passive: []
+version: 34
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1699@34
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Bind governed transactions to stable artifact revisions
+
+## Claim scope
+
+governed changes.
+
+## Claim
+
+**every** governed change forms one directed provenance transaction from exact parent Artifact revisions **to** the governed Artifacts **or** native targets created **or** revised by that change.

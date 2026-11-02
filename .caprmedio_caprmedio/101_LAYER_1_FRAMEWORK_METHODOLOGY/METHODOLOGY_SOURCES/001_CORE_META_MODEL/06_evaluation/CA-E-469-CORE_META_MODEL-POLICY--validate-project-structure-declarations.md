@@ -1,34 +1,33 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - Subject/CAPRMEDIO/Carrier
-version: 22
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+  passive:
+  - Scope Unit
+  - Project.Settings
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Carrier
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
-  - CA-R-1483
+  - CA-R-1483@21
   - CA-R-1484
   - CA-R-1485
   - CA-R-2133
   - CA-M-291
 atom_id: CA-E-469
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 3
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Validate Project Structure declarations
 
-## Scope
+## Claim scope
 
 Project Structure declarations.
 
@@ -50,5 +49,3 @@ the Evaluation **must** reject Project Structure **if**
 - retained readable fields **must** agree with governing source fields **and** admitted Carrier exceptions.
 - lexical **and** resolved-path collisions, traversal outside the authorized repository boundary, **and** ambiguous unit lookup **must** fail.
 - the Evaluation **must** test a valid declaration **and** a falsifying example for **every** applicable condition, with explicit failures for unknown fields **or** unsupported schema versions.
-
-## Details

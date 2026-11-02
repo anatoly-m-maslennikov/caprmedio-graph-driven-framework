@@ -1,0 +1,39 @@
+Atom ID	field	old Subject	new Subject	status
+CA-R-025	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-R-030	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Relations	Applied
+CA-R-033	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-037	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Relations	Applied
+CA-R-038	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Relations	Applied
+CA-R-040	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1308	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Status	Applied
+CA-R-1312	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Status	Applied
+CA-R-1313	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Status	Applied
+CA-R-1408	depends_on	Subject/CAPRMEDIO/Graph/Rule	(removed: retired generic Graph Rule dependency)	Applied
+CA-R-1432	depends_on	Subject/CAPRMEDIO/Graph/Rule	(removed: retired generic Graph Rule dependency)	Applied
+CA-R-1470	governs	Subject/CAPRMEDIO/Graph/Rule	Entity	Applied
+CA-R-1471	depends_on	Subject/CAPRMEDIO/Graph/Rule	(removed: retired generic Graph Rule dependency)	Applied
+CA-R-1498	governs	Subject/CAPRMEDIO/Graph/Rule//Recursive Containment	Entity	Applied
+CA-R-1609	depends_on	Subject/CAPRMEDIO/Graph/Rule	(removed: retired generic Graph Rule dependency)	Applied
+CA-R-1610	depends_on	Subject/CAPRMEDIO/Graph/Rule	(removed: retired generic Graph Rule dependency)	Applied
+CA-R-1678	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Aspect/Engineering/Execution Control	Applied
+CA-R-1681	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Structural Unit/Scope Unit//CORE_META_MODEL	Applied
+CA-R-1682	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Content.Claim	Applied
+CA-R-1683	governs	Subject/CAPRMEDIO/Graph/Rule	Entity	Applied
+CA-R-1686	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Relations	Applied
+CA-R-1689	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1690	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Governance Origin	Applied
+CA-R-1713	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Aspect/Engineering/Execution Control/Decision Confidence	Applied
+CA-R-1719	governs	Subject/CAPRMEDIO/Graph/Rule	Entity	Applied
+CA-R-1721	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1732	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit	Applied
+CA-R-1744	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Structural Unit/Scope Unit//CORE_META_MODEL	Applied
+CA-R-1746	depends_on	Subject/CAPRMEDIO/Graph/Rule	(removed: retired generic Graph Rule dependency)	Applied
+CA-M-438	depends_on	Subject/CAPRMEDIO/Graph/Rule	(removed: retired generic Graph Rule dependency)	Applied
+CA-M-438	depends_on	Subject/CAPRMEDIO/Graph/Rule.Applies To	(removed: retired generic Graph Rule dependency)	Applied
+CA-M-438	depends_on	Subject/CAPRMEDIO/Graph/Rule.Condition	(removed: retired generic Graph Rule dependency)	Applied
+CA-E-622	depends_on	Subject/CAPRMEDIO/Graph/Rule	(removed: retired generic Graph Rule dependency)	Applied
+CA-E-654	depends_on	Subject/CAPRMEDIO/Graph/Rule	(removed: retired generic Graph Rule dependency)	Applied
+CA-E-654	depends_on	Subject/CAPRMEDIO/Graph/Rule.Applies To	(removed: retired generic Graph Rule dependency)	Applied
+CA-E-654	depends_on	Subject/CAPRMEDIO/Graph/Rule.Condition	(removed: retired generic Graph Rule dependency)	Applied
+CA-D-264	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Carrier/Directory	Applied
+CA-R-1645	governs	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Governance Origin	Applied

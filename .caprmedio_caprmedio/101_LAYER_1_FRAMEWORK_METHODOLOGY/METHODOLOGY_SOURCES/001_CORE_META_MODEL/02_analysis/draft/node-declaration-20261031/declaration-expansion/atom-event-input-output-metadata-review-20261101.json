@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checked": [
+    "Each present Atom input/output captures ID, Version and Updated At; input/output IDs can differ",
+    "Atom.Content descendants excluded; other Event metadata remains available",
+    "Each recorded delta preserves complete Property path and old/new values or absence",
+    "Accepted business update, promotion, derived Updated At and Carrier-only exclusions preserved"
+  ],
+  "limits": [
+    "No Event input/output schema or Projection Version policy decided",
+    "No parser or runtime behavior checked"
+  ]
+}

@@ -1,0 +1,27 @@
+---
+subjects:
+  active: CFEL <+ Relation
+  passive:
+  - CFEL <+ Relation
+version: 31
+updated_at: 2026-11-02 07:52:54 +0400
+relations: {}
+atom_id: CA-R-121
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Store only direct semantic relations
+
+## Claim scope
+
+declared semantic relations.
+
+## Claim
+
+**every** declared semantic relation **must** connect its two named participants through one registered immediate meaning.

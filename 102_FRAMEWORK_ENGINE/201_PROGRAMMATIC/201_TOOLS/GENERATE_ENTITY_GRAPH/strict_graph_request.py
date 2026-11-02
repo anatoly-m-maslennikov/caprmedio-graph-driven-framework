@@ -178,9 +178,11 @@ def build_graph(repository: Path, request, api):
         diagnostics.extend({**row, "details": {key: value for key, value in row.get("details", {}).items()
                                                if key != "status"}, "source_refs": []}
                            for row in source_diagnostics)
-        context = prepare_fact_context(repository, graph_kind, carriers, selection, frontier, carriers)
+        context = prepare_fact_context(repository, graph_kind, carriers, selection, frontier, carriers,
+                                               subject_profile=subject_profile)
         if supplied is not None:
-            context = verified_context(supplied, repository, graph_kind, carriers, selection, frontier, carriers)
+            context = verified_context(supplied, repository, graph_kind, carriers, selection, frontier, carriers,
+                                       subject_profile=subject_profile)
         data = context.as_dict()
         incidence = []
         for carrier in selected:
@@ -238,7 +240,8 @@ def build_graph(repository: Path, request, api):
         rendered = canonical_bytes(publication)
         after_digest = hashlib.sha256(rendered).hexdigest()
         # Recheck ultimate authority/profile bytes as well as the selected frontier.
-        current_context = prepare_fact_context(repository, graph_kind, carriers, selection, frontier, carriers)
+        current_context = prepare_fact_context(repository, graph_kind, carriers, selection, frontier, carriers,
+                                               subject_profile=subject_profile)
         if current_context.context_sha256 != context.context_sha256:
             raise api.EntityGraphError("fact-context-binding-stale", "Authority or provider profile changed before publication")
         if canonical_bytes(api.source_frontier_for(repository, folder)) != canonical_bytes(frontier):
@@ -297,7 +300,7 @@ def build_graph(repository: Path, request, api):
         if before and not attempted:
             result["output_effects"] = _effects("unchanged", before=before, after=before)
         return result
-    except (OSError, ValueError, TypeError, UnicodeError) as error:
+    except (OSError, ValueError, TypeError, UnicodeError):
         if result is None:
             result = error_result(graph_kind, api.EntityGraphError("graph-input-unavailable", "Graph input cannot be safely assessed"))
         else:

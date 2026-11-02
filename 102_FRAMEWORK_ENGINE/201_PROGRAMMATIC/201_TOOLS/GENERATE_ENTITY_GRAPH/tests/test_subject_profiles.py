@@ -86,48 +86,48 @@ class SubjectProfileGraphTests(unittest.TestCase):
             destination.write_bytes(raw)
             self.assertEqual(raw, destination.read_bytes())
 
-    def test_approved_mixed_path_retains_full_prefixes_and_only_emits_dot_and_colon_edges(self) -> None:
+    def test_approved_mixed_nonlexical_subject_retains_incidence_without_term_inference(self) -> None:
         subject = "Core/Atom.Dependent: Value"
         self.write("CA-R-2070", subject, depends_on=("Core/Claim.Dependent",))
-
         projection = graph.generate_projection(self.repository, self.selected, subject_profile="approved")
+        self.assertEqual([], projection["declared_terms"])
+        self.assertEqual([], projection["term_system"]["edges"])
+        self.assertEqual(subject, projection["claim_subject_relations"][1]["subject_path"])
+        self.assertEqual([], projection["sets"]["declared_term_tree"])
 
-        edges = [
-            (row["relation"], row["source_subject"], row["source_term"], row["target_subject"], row["target_term"])
-            for row in projection["term_system"]["edges"]
-        ]
-        self.assertEqual(
-            [
-                ("IS_ALLOWED_VALUE_OF", "Core/Atom.Dependent: Value", "Value", "Core/Atom.Dependent", "Dependent"),
-                ("IS_BORNE_BY", "Core/Atom.Dependent", "Dependent", "Core/Atom", "Atom"),
-                ("IS_BORNE_BY", "Core/Claim.Dependent", "Dependent", "Core/Claim", "Claim"),
-            ],
-            edges,
-        )
-        self.assertNotIn(
-            ("IS_BORNE_BY", "Core/Atom", "Atom", "Core", "Core"),
-            edges,
-        )
-        self.assertFalse(any(row[0] == "NARROWER_THAN" for row in edges))
-        self.assertEqual(
-            subject,
-            projection["claim_subject_relations"][1]["subject_path"],
-        )
-        relations, diagnostics = graph.parse_subject_relations(
-            self.carriers()[0], subject_profile="approved"
-        )
-        self.assertEqual([], diagnostics)
-        dependency_graph, dependency_evidence, cycles = graph._term_dependencies(
-            relations, {"Value", "Dependent"}, subject_profile="approved"
-        )
-        self.assertEqual({"Dependent": [], "Value": ["Dependent"]}, dependency_graph)
-        self.assertEqual([], cycles)
-        self.assertEqual("Value", dependency_evidence[0]["source"])
-        self.assertEqual("Dependent", dependency_evidence[0]["target"])
-        tree = projection["sets"]["declared_term_tree"]
-        self.assertIsNone(tree[0]["children"][0]["relation_from_parent"])
-        self.assertEqual("IS_BORNE_BY", tree[0]["children"][0]["children"][0]["relation_from_parent"])
-        self.assertEqual("IS_ALLOWED_VALUE_OF", tree[0]["children"][0]["children"][0]["children"][0]["relation_from_parent"])
+    def test_current_method_term_definitions_scan_mixed_corpus_without_false_terms(self) -> None:
+        def lexical(atom_id, subject, dependencies=()):
+            path = self.write(atom_id, subject, depends_on=dependencies)
+            path.write_text(path.read_text(encoding="utf-8").replace(
+                "content_role: Definition\ntype: Definition",
+                "content_role: Method\ntype: Term Definition"), encoding="utf-8")
+            return path
+        alpha = lexical("CA-M-99001", "Entity/Term//Alpha", (
+            "Entity/Term//Beta", "@(Entity/Term//Beta)",
+            'atom(content_role="Plan").Status:Active[Text]{1+}', "@Unknown",
+        ))
+        lexical("CA-M-99002", "Entity/Term//Beta")
+        lexical("CA-M-99003", r"Entity/Term//atom\.content\.claim")
+        self.write("CA-R-99004", "Entity/Artifact//Daily")
+        self.write("CA-R-99005", "Entity/Atom/(.Content Role:Requirement).Type:Rule[Text]{1+}")
+        self.write("CA-R-99006", "Entity/Term//Not Lexical")
+        projection = graph.generate_projection(self.repository, self.selected, subject_profile="approved")
+        self.assertEqual(["Alpha", "Beta", "atom.content.claim"], projection["declared_terms"])
+        self.assertEqual(["Beta"], projection["terms_in_depends_on"])
+        self.assertEqual([], projection["term_system"]["edges"])
+        self.assertEqual(["Alpha", "Beta", "atom.content.claim"],
+                         [row["segment"] for row in projection["sets"]["declared_term_tree"]])
+        owner = next(row for row in projection["term_definitions"] if row["term"] == "Alpha")["definitions"][0]
+        self.assertEqual("Entity/Term//Alpha", owner["subject_path"])
+        self.assertEqual("CA-M-99001", owner["defined_by"]["atom_id"])
+        self.assertEqual(hashlib.sha256(alpha.read_bytes()).hexdigest(), owner["defined_by"]["carrier_sha256"])
+        self.assertIn("current-term-native-admission-unavailable",
+                      {row["code"] for row in projection["diagnostics"]})
+        self.assertIn("Entity/Atom/(.Content Role:Requirement).Type:Rule[Text]{1+}", projection["governed_subjects"])
+        lexical("CA-M-99007", "Entity/Term//Atom.Content.Claim")
+        with self.assertRaises(graph.EntityGraphError) as malformed_owner:
+            graph.generate_projection(self.repository, self.selected, subject_profile="approved")
+        self.assertEqual("term-definition-target-unsupported", malformed_owner.exception.code)
 
     def test_legacy_dot_is_literal_and_default_stays_legacy(self) -> None:
         subject = "Core.Atom/Property: Value"
@@ -152,7 +152,7 @@ class SubjectProfileGraphTests(unittest.TestCase):
 
     def test_bare_selectors_name_only_existing_atom_term_and_preserve_owner_identities(self) -> None:
         selectors = (
-            'atom(atom_id="CA-O-135")',
+            'atom(content_role="Operations")',
             'atom(content_role="Plan")',
             'atom(content_role="Plan",type="Plan")',
             'atom( content_role = "Owner/Plan.Kind: Value, O\'Brien" , type = "Plan/Kind" )',
@@ -160,39 +160,30 @@ class SubjectProfileGraphTests(unittest.TestCase):
         for index, selector in enumerate(selectors):
             with self.subTest(selector=selector):
                 self.assertEqual([(selector, None)], graph._subject_parts(selector, subject_profile="approved"))
-                self.assertEqual("Atom", graph.terminal_term(selector, subject_profile="approved"))
-                self.assertEqual("Status", graph.terminal_term(selector + ".Status", subject_profile="approved"))
+                with self.assertRaises(graph.EntityGraphError):
+                    graph.terminal_term(selector, subject_profile="approved")
+                with self.assertRaises(graph.EntityGraphError):
+                    graph.terminal_term(selector + ".Status", subject_profile="approved")
             self.write(f"CA-R-{2080 + index}", selector)
 
         projection = graph.generate_projection(self.repository, self.selected, subject_profile="approved")
-        self.assertEqual(["Atom"], projection["declared_terms"])
+        self.assertEqual([], projection["declared_terms"])
         self.assertEqual([], projection["term_system"]["edges"])
         self.assertEqual(sorted(selectors), projection["governed_subjects"])
         self.assertEqual(sorted(selectors), sorted(row["subject_path"] for row in projection["claim_subject_relations"]))
         roots = projection["sets"]["declared_term_tree"]
-        self.assertEqual(sorted(selectors), [node["subject_path"] for node in roots])
-        self.assertTrue(all(node["declared_term"] == "Atom" for node in roots))
+        self.assertEqual([], roots)
 
     def test_selected_owner_edges_tree_and_incidence_do_not_flatten_patterns(self) -> None:
-        owners = ('atom(atom_id="CA-O-135")', 'atom(content_role="Plan")', 'atom(content_role="Plan",type="Plan")')
+        owners = ('atom(content_role="Operations")', 'atom(content_role="Plan")', 'atom(content_role="Plan",type="Plan")')
         for index, owner in enumerate(owners):
             self.write(f"CA-R-{2090 + index}", owner + ".Status: Active", depends_on=(owner,))
         projection = graph.generate_projection(self.repository, self.selected, subject_profile="approved")
-        self.assertEqual(["Active"], projection["declared_terms"])
-        edges = projection["term_system"]["edges"]
-        self.assertEqual(6, len(edges))
-        for owner in owners:
-            bearer = next(row for row in edges if row["source_subject"] == owner + ".Status")
-            self.assertEqual(("IS_BORNE_BY", "Status", owner, "Atom"),
-                             (bearer["relation"], bearer["source_term"], bearer["target_subject"], bearer["target_term"]))
-            self.assertEqual(owner + ".Status: Active", bearer["evidence"][0]["subject_path"])
-            value = next(row for row in edges if row["source_subject"] == owner + ".Status: Active")
-            self.assertEqual(("IS_ALLOWED_VALUE_OF", owner + ".Status", "Status"),
-                             (value["relation"], value["target_subject"], value["target_term"]))
-        self.assertEqual(sorted(owners), [node["subject_path"] for node in projection["sets"]["declared_term_tree"]])
+        self.assertEqual([], projection["declared_terms"])
+        self.assertEqual([], projection["term_system"]["edges"])
+        self.assertEqual([], projection["sets"]["declared_term_tree"])
         self.assertEqual({owner + ".Status: Active" for owner in owners},
                          {row["subject_path"] for row in projection["claim_subject_relations"] if row["kind"] == "GOVERNS"})
-        self.assertFalse(any(row["relation"] == "NARROWER_THAN" for row in edges))
 
     def test_selector_first_separator_retains_slash_dot_and_colon_semantics(self) -> None:
         owner = 'atom(content_role="Plan",type="Plan")'
@@ -202,15 +193,8 @@ class SubjectProfileGraphTests(unittest.TestCase):
                 self.assertEqual([(owner, None), (dependent, separator)], graph._subject_parts(subject, subject_profile="approved"))
                 self.write("CA-R-2100", subject)
                 projection = graph.generate_projection(self.repository, self.selected, subject_profile="approved")
-                edges = projection["term_system"]["edges"]
-                if separator == "/":
-                    self.assertEqual([], edges)
-                    self.assertIsNone(projection["sets"]["declared_term_tree"][0]["children"][0]["relation_from_parent"])
-                else:
-                    self.assertEqual(1, len(edges))
-                    self.assertEqual(owner, edges[0]["target_subject"])
-                    self.assertEqual("Atom", edges[0]["target_term"])
-                    self.assertEqual("IS_BORNE_BY" if separator == "." else "IS_ALLOWED_VALUE_OF", edges[0]["relation"])
+                self.assertEqual([], projection["term_system"]["edges"])
+                self.assertEqual([], projection["sets"]["declared_term_tree"])
                 self.assertEqual(subject, graph.parse_subject_relations(self.carriers()[0], subject_profile="approved")[0][0].subject_path)
 
     def test_instance_reference_is_not_promoted_into_native_term_projection(self) -> None:
@@ -230,22 +214,18 @@ class SubjectProfileGraphTests(unittest.TestCase):
         self.assertEqual([("Workflow", None), ("Daily", "//")], graph._subject_parts(path, subject_profile="approved"))
         with self.assertRaises(graph.EntityGraphError) as terminal:
             graph.terminal_term(path, subject_profile="approved")
-        self.assertEqual("subject-instance-term-unsupported", terminal.exception.code)
-        with self.assertRaises(graph.EntityGraphError) as edges:
-            graph.term_system_edges([], [relation], subject_profile="approved")
-        self.assertEqual("subject-instance-term-unsupported", edges.exception.code)
+        self.assertEqual("subject-term-projection-unsupported", terminal.exception.code)
+        self.assertEqual([], graph.term_system_edges([], [relation], subject_profile="approved"))
         with self.assertRaises(graph.EntityGraphError) as tree:
             graph.declared_term_tree({"Daily": [relation]}, subject_profile="approved")
-        self.assertEqual("subject-instance-term-unsupported", tree.exception.code)
+        self.assertEqual("term-definition-target-unsupported", tree.exception.code)
 
     def test_native_projection_reports_instance_term_coverage_gap(self) -> None:
         self.write("CA-R-2103", "Workflow//Daily")
 
-        with self.assertRaises(graph.EntityGraphError) as error:
-            graph.generate_projection(self.repository, self.selected, subject_profile="approved")
-
-        self.assertEqual("subject-instance-term-unsupported", error.exception.code)
-        self.assertEqual("Workflow//Daily", error.exception.details["subject_path"])
+        projection = graph.generate_projection(self.repository, self.selected, subject_profile="approved")
+        self.assertEqual([], projection["declared_terms"])
+        self.assertEqual(["Workflow//Daily"], projection["governed_subjects"])
 
     def test_instance_property_path_keeps_exact_bearer_prefix_but_is_unsupported_as_term_edge(self) -> None:
         path = "Workflow//Daily.Status"
@@ -254,7 +234,8 @@ class SubjectProfileGraphTests(unittest.TestCase):
             [("Workflow", None), ("Daily", "//"), ("Status", ".")],
             parts,
         )
-        self.assertEqual("Status", graph.terminal_term(path, subject_profile="approved"))
+        with self.assertRaises(graph.EntityGraphError):
+            graph.terminal_term(path, subject_profile="approved")
         bearer = graph._subject_prefix("Workflow//Daily", ".", "Status", subject_profile="approved")
         self.assertEqual("Workflow//Daily.Status", bearer)
         relation = graph.SubjectRelation(
@@ -268,15 +249,13 @@ class SubjectProfileGraphTests(unittest.TestCase):
             source_schema_key="governs",
             cce_form="",
         )
-        with self.assertRaises(graph.EntityGraphError) as edges:
-            graph.term_system_edges([], [relation], subject_profile="approved")
-        self.assertEqual("subject-instance-term-unsupported", edges.exception.code)
+        self.assertEqual([], graph.term_system_edges([], [relation], subject_profile="approved"))
 
     def test_approved_yaml_quotes_flow_and_block_lists_preserve_decoded_selectors_and_source_spans(self) -> None:
         self.copy_current_approved_pins()
         owner = 'atom( content_role = "Owner/Plan.Kind: Value, O\'Brien" , type = "Plan" )'
         governs = owner + ".Status: Active"
-        dependencies = ('atom(atom_id="CA-O-135").Status', 'atom(content_role="Plan",type="Plan")/Child')
+        dependencies = ('atom(content_role="Operations").Status', 'atom(content_role="Plan",type="Plan")/Child')
         for quotes in ("double", "single"):
             quote = json.dumps if quotes == "double" else lambda value: "'" + value.replace("'", "''") + "'"
             for collection in ("flow", "block"):
@@ -315,7 +294,7 @@ class SubjectProfileGraphTests(unittest.TestCase):
             'atom(type="Plan").Status',
             'atom(atom_id="CA-O-135",content_role="Plan").Status',
             'Atom(content_role="Plan").Status',
-            'Artifact/atom(atom_id="CA-O-135")',
+            'Artifact/atom(content_role="Operations")',
             'atom(content_role="Plan").Status@current',
             'atom(content_role="Plan")/',
         ):
@@ -339,7 +318,15 @@ class SubjectProfileGraphTests(unittest.TestCase):
         self.write("CA-R-2072", "Atom@12")
         with self.assertRaises(graph.EntityGraphError) as unsupported:
             graph.generate_projection(self.repository, self.selected, subject_profile="approved")
-        self.assertEqual("subject-at-unsupported", unsupported.exception.code)
+        self.assertEqual("subject-malformed", unsupported.exception.code)
+
+    def test_complex_approved_subjects_fail_term_projection_without_flattening(self) -> None:
+        for subject in ("X/(.Property:Value)", "Part +> Whole", "Entity >| Classification",
+                        "X:Value[Text]{1+}", "@Declared"):
+            with self.subTest(subject=subject):
+                with self.assertRaises(graph.EntityGraphError) as error:
+                    graph.terminal_term(subject, subject_profile="approved")
+                self.assertEqual("subject-term-projection-unsupported", error.exception.code)
 
     def test_profile_pins_are_immutable_and_evidence_is_fresh(self) -> None:
         profile = subject_notation.get_profile("approved")

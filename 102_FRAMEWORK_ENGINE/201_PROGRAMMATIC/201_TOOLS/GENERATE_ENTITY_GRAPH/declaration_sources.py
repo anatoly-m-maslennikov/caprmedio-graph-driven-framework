@@ -9,8 +9,11 @@ from pathlib import Path
 from typing import Any
 
 from current_entity_sources import _raw_body
-from subject_notation import SubjectNotationError, parse_subject
+from carrier_aliases import carrier_read_view
+import subject_notation as notation
+from subject_notation import SubjectNotationError, parse_subject_expression
 from VALIDATE_ATOMS.validate_atoms_workers.authority import AuthorityContext, Obligation
+from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError, parse_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.check_support import Check
 from VALIDATE_ATOMS.validate_atoms_workers.check_sections import GRAPH_RULE_SOURCES
 from VALIDATE_ATOMS.validate_atoms_workers.check_sections import _headings as body_headings
@@ -39,6 +42,16 @@ _OWNED_RELATION = re.compile(
 _GRAPH_MENTION = re.compile(
     r"\b(?:in|within)\s+the\s+(?P<graph>[A-Z][A-Za-z0-9]*(?: [A-Z][A-Za-z0-9]*)* Graph)\b"
 )
+
+
+def _view(carrier: Mapping[str, object]) -> Mapping[str, object]:
+    """Use migrated Role/Form and Subject aliases without changing evidence."""
+
+    value = carrier.get("read_view")
+    if isinstance(value, Mapping):
+        return value
+    metadata = carrier.get("metadata")
+    return carrier_read_view(dict(metadata)) if isinstance(metadata, Mapping) else {}
 
 
 def _source(carrier: Mapping[str, object]) -> Record | None:
@@ -72,7 +85,7 @@ def _source_with_matching_bytes(
 
 
 def _subjects(carrier: Mapping[str, object]) -> list[str]:
-    subjects = carrier.get("subjects")
+    subjects = _subjects_mapping(carrier)
     if not isinstance(subjects, Mapping):
         return []
     value = subjects.get("governs")
@@ -81,7 +94,7 @@ def _subjects(carrier: Mapping[str, object]) -> list[str]:
 
 
 def _single_valid_governed_subject(carrier: Mapping[str, object]) -> str | None:
-    subjects = carrier.get("subjects")
+    subjects = _subjects_mapping(carrier)
     if not isinstance(subjects, Mapping):
         return None
     value = subjects.get("governs")
@@ -89,26 +102,100 @@ def _single_valid_governed_subject(carrier: Mapping[str, object]) -> str | None:
     if len(values) != 1 or not isinstance(values[0], str) or not values[0].strip():
         return None
     try:
-        parse_subject(values[0], subject_profile="approved")
+        parse_subject_expression(values[0], subject_profile="approved")
     except SubjectNotationError:
         return None
     return values[0]
 
 
+def _subjects_mapping(carrier: Mapping[str, object]) -> Mapping[str, object] | None:
+    subjects = carrier.get("subjects")
+    if not isinstance(subjects, Mapping):
+        subjects = _view(carrier).get("subjects")
+    if not isinstance(subjects, Mapping):
+        return None
+    return carrier_read_view({"subjects": dict(subjects)}).get("subjects")
+
+
 def _candidate_name(subject: str) -> str | None:
     try:
-        components = parse_subject(subject, subject_profile="approved")
+        expression = parse_subject_expression(subject, subject_profile="approved").expression
     except SubjectNotationError:
         return None
-    if len(components) == 4 and components[:3] == [
-        ("Entity", None),
-        ("Relation", "/"),
-        ("Type", "/"),
-    ] and components[3][1] == ":":
-        return components[3][0]
-    if len(components) == 1 and components[0][1] is None and _RELATION_LIKE.fullmatch(subject):
-        return subject
-    return None
+    if not isinstance(expression, notation.Path) or not isinstance(expression.head, notation.Name):
+        return _defined_relation_name(subject)
+    if expression.value_format is not None or expression.value_cardinality is not None:
+        return None
+    if expression.head.value == "Entity" and len(expression.steps) == 3:
+        first, second, last = expression.steps
+        if (first.operator == second.operator == "/" and last.operator == ":"
+                and isinstance(first.operand, notation.Name) and first.operand.value == "Relation"
+                and isinstance(second.operand, notation.Name) and second.operand.value == "Type"
+                and isinstance(last.operand, notation.ValueLiteral)):
+            return last.operand.value
+    if not expression.steps and _RELATION_LIKE.fullmatch(expression.head.value):
+        return expression.head.value
+    return _defined_relation_name(subject)
+
+
+def _defined_relation_name(subject: str) -> str | None:
+    expression = parse_subject_expression(subject, subject_profile="approved").expression
+    paths = expression.endpoints if isinstance(expression, notation.RelationChain) else (expression,)
+    names = []
+    for path in paths:
+        if not path.steps:
+            continue
+        final = path.steps[-1]
+        parent = path.steps[-2].operand if len(path.steps) > 1 else path.head
+        if (final.operator == "//" and isinstance(final.operand, notation.Name)
+                and isinstance(parent, notation.Name) and parent.value == "Relation"
+                and _RELATION_LIKE.fullmatch(final.operand.value)):
+            names.append(final.operand.value)
+    return names[0] if len(names) == 1 else None
+
+
+def _definition_metadata_matches(carrier: dict, source: Record, subject: str) -> bool:
+    try:
+        parsed = parse_carrier(carrier["raw"], Path(source["path"]))
+    except CarrierError:
+        return False
+    parsed_view = carrier_read_view(parsed.metadata)
+    view = _view(carrier)
+    return (all(parsed_view.get(field) == view.get(field)
+                for field in ("atom_id", "version", "status", "type"))
+            and _single_valid_governed_subject({"subjects": parsed_view.get("subjects")}) == subject)
+
+
+def resolve_relation_authorities(carriers: list[dict], names: list[str]) -> dict[str, Record]:
+    """Bind canonical names to exact supplied Active Relation Definition sources.
+
+    This is identity evidence only; unavailable relation metadata and admission
+    constraints remain the responsibility of the existing admission pipeline.
+    """
+    candidates: dict[str, list[Record]] = {name: [] for name in names}
+    for carrier in carriers:
+        metadata = _view(carrier)
+        if metadata.get("type") != "Relation Definition":
+            continue
+        subject = _single_valid_governed_subject(carrier)
+        if subject is None:
+            continue
+        name = _defined_relation_name(subject)
+        if name not in candidates:
+            continue
+        source = _source_with_matching_bytes(_source(carrier), carrier.get("raw"), carrier.get("raw_body"))
+        if not _active_source_matches_metadata(source, metadata):
+            continue
+        if not _definition_metadata_matches(carrier, source, subject):
+            continue
+        if source not in candidates[name]:
+            candidates[name].append(source)
+    result = {}
+    for name, sources in candidates.items():
+        if len(sources) != 1:
+            raise ValueError(f"Relation authority {name} requires one exact Active Definition; found {len(sources)}")
+        result[name] = sources[0]
+    return result
 
 
 def _scope(body: object) -> str | None:
@@ -154,7 +241,7 @@ def _authority_rows(carriers: list[dict]) -> list[Record]:
         if not isinstance(carrier, Mapping):
             continue
         binding = carrier.get("source")
-        metadata = carrier.get("metadata")
+        metadata = _view(carrier)
         raw = carrier.get("raw")
         if isinstance(binding, Mapping) and isinstance(metadata, Mapping) and isinstance(raw, bytes):
             try:
@@ -242,7 +329,7 @@ def _add_relation_candidate(
 def _graph_rule_candidate(
     carrier: dict, carriers: list[dict], source: Record | None
 ) -> tuple[Record | None, Record | None, bool]:
-    metadata = carrier["metadata"]
+    metadata = _view(carrier)
     if metadata.get("content_role") != "Requirement" or metadata.get("type") != "Graph Rule":
         return None, None, False
 
@@ -349,7 +436,7 @@ def compose_declaration_catalog(carriers: list[dict]) -> Record:
     rule_authority_gap = False
 
     for carrier in carriers:
-        metadata = carrier["metadata"]
+        metadata = _view(carrier)
         source = _source(carrier)
         source = _source_with_matching_bytes(source, carrier.get("raw"), carrier.get("raw_body"))
         for subject in _subjects(carrier):

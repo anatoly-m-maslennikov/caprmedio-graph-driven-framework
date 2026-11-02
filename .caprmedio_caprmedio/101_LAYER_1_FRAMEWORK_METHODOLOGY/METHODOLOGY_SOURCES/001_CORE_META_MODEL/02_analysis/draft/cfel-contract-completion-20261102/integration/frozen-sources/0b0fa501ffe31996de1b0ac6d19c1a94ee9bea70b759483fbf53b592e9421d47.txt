@@ -1,0 +1,28 @@
+---
+subjects:
+  active: CFEL > Relation//evidence_for
+  passive:
+  - CFEL > Relation
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1021
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Relation Definition
+---
+## Summary
+
+Register evidence_for relation
+
+## Claim scope
+
+`evidence_for` relations.
+
+## Claim
+
+`evidence_for` **means** the direct relation from an Evidence carrier to the
+carrier that the Evidence supports.

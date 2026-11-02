@@ -1,0 +1,324 @@
+{
+  "date": "2026-10-31",
+  "status": "Review complete; four readiness-Evaluation inconsistencies require correction",
+  "prose_count": {
+    "claims": 26,
+    "primary": 3,
+    "properties": 23,
+    "excludes": [
+      "Node root",
+      "Semantics sections"
+    ]
+  },
+  "architecture": {
+    "status": "architecture_review_findings",
+    "scope": "34 non-Declaration Drafts, MODEL and PROJECT STRUCTURE Declarations, Spec Proposal and Epic39 Draft",
+    "reviewed_non_declarations": 34,
+    "registered_packet_count": 108,
+    "findings": [
+      {
+        "severity": "P2",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/node-declaration-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+        "line": 30,
+        "trigger": "A valid Subject uses Atom/(.Role := Method).",
+        "counterexample": "The proposed CFEL Rule and proposal admit := in Subject addresses as the allowed-value case plus condition, but the Evaluation rejects := without qualification.",
+        "impact": "A conforming migration packet would fail readiness review.",
+        "minimal_fix": "Reject := in Formal Claims, while explicitly accepting the admitted Subject-only form.",
+        "confidence": "high"
+      },
+      {
+        "severity": "P2",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/node-declaration-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+        "line": 27,
+        "trigger": "A local MODEL explicitly replaces a base Declaration for the same Node.",
+        "counterexample": "Base and local Current sources coexist; the selected local MODEL resolves only the local replacement as effective. The Evaluation demands one Current Declaration without saying effective per selected MODEL.",
+        "impact": "A valid override can be rejected as duplicate, or reviewers may fail to assess the local effective owner.",
+        "minimal_fix": "Evaluate exactly one effective Current Declaration per Node within each selected MODEL after override resolution; retain unchanged inherited sources.",
+        "confidence": "high"
+      },
+      {
+        "severity": "P2",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/node-declaration-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+        "line": 33,
+        "trigger": "A local MODEL explicitly overrides the ENGINE scope rule to admit an otherwise prohibited model-definition case.",
+        "counterexample": "The current Evaluation says ENGINE cannot actively redefine metamodel Subjects without qualification, whereas the accepted MODEL rule permits any inherited rule, including this one, to be explicitly overridden.",
+        "impact": "Readiness checking would treat an overrideable base rule as an immutable core or silently deny an authorized local configuration.",
+        "minimal_fix": "Check ENGINE against its selected MODEL effective Scope: no automatic widening; an explicit valid override may replace the inherited restriction.",
+        "confidence": "high"
+      },
+      {
+        "severity": "P2",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/node-declaration-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+        "line": 28,
+        "trigger": "A local MODEL explicitly replaces an inherited Property Declaration.",
+        "counterexample": "The Evaluation says inherited Properties resolve to their original declaration with no local override exception. The accepted model reuses unchanged Declarations but selects the explicit local replacement where overridden.",
+        "impact": "A valid local Property rule change could fail or resolve against the wrong effective Declaration.",
+        "minimal_fix": "Reuse original Declaration only when unchanged; resolve an explicit local replacement within the selected MODEL.",
+        "confidence": "high"
+      }
+    ],
+    "verified": [
+      "Separate MODEL and PROJECT STRUCTURE root kinds and named roots are described; local MODEL is optional.",
+      "The MODEL Declaration permits any explicit inherited-rule override while preserving the base.",
+      "One-owner Rule explicitly scopes ownership to the selected effective MODEL.",
+      "UNIQUE remains scoped to the Project evaluation population.",
+      "CFEL proposal and syntax Rule limit := to Subjects.",
+      "All checked local Markdown links in the reviewed files resolve."
+    ],
+    "limits": [
+      "Source/target namespace binding, model-inheritance Relation naming and exact override-selection algorithm are explicitly open; not independently counted as new defects.",
+      "No formal execution, implementation, source adoption or actual instance audit was performed.",
+      "This review does not establish that all non-Declaration Drafts are complete."
+    ]
+  },
+  "declarations": {
+    "status": "read-only substantive review complete; no verified Declaration defect remains in the reviewed surface",
+    "verified_scope": {
+      "register": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/draft-register.json",
+      "registered_declarations": 74,
+      "primary": 27,
+      "property": 47,
+      "all_registered_paths_exist": true,
+      "duplicate_governing_subjects": 0,
+      "properties_with_semantics": 0,
+      "properties_missing_occurrence_or_value_or_dependent_contract": 0,
+      "formal_fence_language": "CFEL"
+    },
+    "findings": [],
+    "retracted_findings": [
+      {
+        "former_finding": "Event Record.ID uniqueness was global rather than per Project.",
+        "declaration_evidence": "declare-event-record-id.md:24 has `UNIQUE(Event Record//, (.ID))`.",
+        "governing_rule_evidence": "CA-R-draft-CORE_META_MODEL-CFEL--require-unique-property-tuples.md:21 defines UNIQUE across selected logical instances in the explicit Project evaluation context.",
+        "adjudication": "Retracted. The Project context is supplied by the shared CFEL Rule, so the Declaration is not globally scoped and must not duplicate a Project selector."
+      },
+      {
+        "former_finding": "MODEL lacked exactly one effective Current Declaration per Node per MODEL.",
+        "declaration_evidence": "declare-model.md:27-32 states inheritance, override, replacement, and reuse without restating the owner count.",
+        "governing_rule_evidence": "CA-R-draft-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md:22-30 states one effective Current authoritative Declaration per Node in the selected effective MODEL, after override resolution, with one matching active Subject.",
+        "adjudication": "Retracted. The shared owner Rule is the correct nonduplicated location; MODEL prose remains consistent with it."
+      },
+      {
+        "former_finding": "MODEL and PROJECT STRUCTURE Primary Declarations lacked typed CAPRMEDIO root bindings.",
+        "declaration_evidence": "declare-model.md:22-24 and declare-project-structure.md:22-24 define generic kinds rather than framework-specific instances.",
+        "governing_rule_evidence": ".caprmedio_caprmedio/04_requirement/draft/node-declaration-20261031/CA-R-draft-CAPRMedio-RULE--separate-the-model-from-project-structure.md:44 explicitly binds MODEL//CAPRMEDIO and PROJECT STRUCTURE//CAPRMEDIO.",
+        "adjudication": "Retracted. Generic kind Declarations must not duplicate instance-specific root bindings; the project-owned Rule carries them."
+      }
+    ],
+    "acknowledged_open_not_findings": [
+      "The `Atom.Subjects.Active` Current classification reference needs its broader Status-Group/model-binding definition, but its own-host IF/THEN scope is not a foreign-scope Declaration defect.",
+      "Relation naming and Project-membership binding remain open adoption/model-binding work. They do not invalidate the existing Project-context UNIQUE Rule.",
+      "Approved `:=` Subject syntax and `:` Formal-Claim value syntax are used in their respective locations; no syntax mismatch was found."
+    ],
+    "remaining_claim_prose_under_node_descendants": {
+      "count": 26,
+      "primary": [
+        "declare-projection.md",
+        "declare-journal.md",
+        "declare-model.md"
+      ],
+      "property": [
+        "declare-atom-status.md",
+        "declare-atom-updated-at.md",
+        "declare-atom-id.md",
+        "declare-atom-form.md",
+        "declare-atom-content-summary.md",
+        "declare-atom-content-claim.md",
+        "declare-atom-content-semantics.md",
+        "declare-atom-tier.md",
+        "declare-atom-subjects-passive.md",
+        "declare-plan-confidence-threshold.md",
+        "declare-plan-implementation-retry-limit.md",
+        "declare-plan-work-sequence-number.md",
+        "declare-relation-definition-notation-for-subject.md",
+        "declare-scope-unit-path.md",
+        "declare-projection-id.md",
+        "declare-projection-type.md",
+        "declare-projection-updated-at.md",
+        "declare-projection-sources.md",
+        "declare-projection-named-selection.md",
+        "declare-projection-source-of-truth.md",
+        "declare-atom-subjects-active.md",
+        "declare-scope-unit-structural-level.md",
+        "declare-package-structural-level.md"
+      ],
+      "note": "Node-root Claim prose is excluded from this Node/** count. These are remaining Claim prose, not defects; many carry lifecycle, identity, derivation, registry, or carrier semantics not expressed by current CFEL."
+    },
+    "review_limits": [
+      "No Current, runtime, parser, or evaluation-readiness source was reviewed.",
+      "No Draft, register, proposal, metadata, or Git mutation was made.",
+      "The four already-reported Evaluation-readiness stale rules were intentionally not duplicated."
+    ]
+  },
+  "structure": {
+    "registered_drafts": 108,
+    "primary": 27,
+    "properties": 47,
+    "limits": [
+      "No CFEL parser or runtime test",
+      "Unallocated Draft markers and authorless target schema are known adoption gates"
+    ],
+    "snapshotted_current_core_requirements_unchanged": 750,
+    "current_epic38_unchanged": true,
+    "registry_hashes_metadata_links": "PASS"
+  },
+  "prose_census": [
+    {
+      "subject": "Atom.Status",
+      "kind": "Property",
+      "prose": "Archiving preserves:\n\n- Version.\n- Updated At.\n\nArchiving alone does not create a new version.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-status.md"
+    },
+    {
+      "subject": "Atom.Updated At",
+      "kind": "Property",
+      "prose": "Updated At records the actual Project-time instant of the accepted edit represented by the Atom. An exact no-op and an archived predecessor retain the prior timestamp.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md"
+    },
+    {
+      "subject": "Atom.ID",
+      "kind": "Property",
+      "prose": "For a Project-owned Atom, ID is the immutable identity of that accepted Atom.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md"
+    },
+    {
+      "subject": "Atom.Form",
+      "kind": "Property",
+      "prose": "- Form is an admitted atomic unit under the Atom's Role.\n- Do not invent a placeholder Form or copy a Role name as a Form.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-form.md"
+    },
+    {
+      "subject": "Atom.Content.Summary",
+      "kind": "Property",
+      "prose": "- The Summary covers the complete contribution.\n- Changing the Summary requires a new Atom ID.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md"
+    },
+    {
+      "subject": "Atom.Content.Claim",
+      "kind": "Property",
+      "prose": "- Use prose only for constraints CFEL cannot express.\n- Formal content uses a fenced block labelled CFEL.\n- At most one CFEL block is present.\n- Other fenced blocks are not allowed in Claim.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md"
+    },
+    {
+      "subject": "Atom.Content.Semantics",
+      "kind": "Property",
+      "prose": "- A Primary Node Declaration uses Semantics for its brief meaning.\n- A Property Declaration has no Semantics section.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-semantics.md"
+    },
+    {
+      "subject": "Atom.Tier",
+      "kind": "Property",
+      "prose": "Project Goals use Tier -1 and Operator ownership. Ordinary Scope Unit-owned Atoms use Tier 0 or higher. Tier Label does not replace the numeric Tier.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md"
+    },
+    {
+      "subject": "Atom.Subjects.Passive",
+      "kind": "Property",
+      "prose": "Passive Subjects identify distinct direct contextual dependencies.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive.md"
+    },
+    {
+      "subject": "Atom/(.Role := Plan).Autonomous Confidence Threshold",
+      "kind": "Property",
+      "prose": "When omitted, the applicable inherited or default threshold remains in force.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-confidence-threshold.md"
+    },
+    {
+      "subject": "Atom/(.Role := Plan).Implementation Retry Limit",
+      "kind": "Property",
+      "prose": "An explicit value overrides the applicable retry limit.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-implementation-retry-limit.md"
+    },
+    {
+      "subject": "Atom/(.Role := Plan).Work Sequence Number",
+      "kind": "Property",
+      "prose": "A supplied number is unique among Plans in the same direct or top-level Plan container. It does not determine execution order.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md"
+    },
+    {
+      "subject": "Atom/(.Role := Requirement)/(.Form := Relation Definition).Content.notation_for_subject",
+      "kind": "Property",
+      "prose": "When a short subject notation is admitted for the Relation, this Property is required.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md"
+    },
+    {
+      "subject": "Scope Unit.Path",
+      "kind": "Property",
+      "prose": "The path records the ordered ancestry of Scope Unit identities.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md"
+    },
+    {
+      "subject": "Projection",
+      "kind": "Primary Node",
+      "prose": "- A Projection is produced from its declared source selection and source of truth through a Workflow.\n- Changes are made in its authoritative sources; the Projection is rebuilt through its Workflow.\n- A Projection is non-authoritative. Multiple views do not create new authority.\n- Source references include the contributing sources, including Atom Versions.\n- Carrier materialization is separate from Projection derivation.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection.md"
+    },
+    {
+      "subject": "Journal",
+      "kind": "Primary Node",
+      "prose": "- A Journal is authoritative for one logically ordered table of admitted event records.\n- Accepted records are not edited, reordered, or removed. Corrections append new traceable records.\n- Journal authority does not redefine governing Atom Claims.\n- A Journal is a logical Artifact, not a required storage format. Views of a Journal are Projections.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md"
+    },
+    {
+      "subject": "Projection.ID",
+      "kind": "Property",
+      "prose": "The same Projection Type, named source selection, and source of truth keep the same ID across rebuilds. A change to any of them requires a different ID.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md"
+    },
+    {
+      "subject": "Projection.Type",
+      "kind": "Property",
+      "prose": "Type classifies a Projection and does not give it authority over its sources. Catalog, Map, and Hub are distinct registered values.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-type.md"
+    },
+    {
+      "subject": "Projection.Updated At",
+      "kind": "Property",
+      "prose": "Updated At identifies the latest completed rebuild represented by the Projection.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md"
+    },
+    {
+      "subject": "Projection.Sources",
+      "kind": "Property",
+      "prose": "Each value identifies a contributing source, including an Atom Version. A blanket dependency frontier is not required; additional dependency provenance is recorded only when the registered job requires it.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-sources.md"
+    },
+    {
+      "subject": "Projection.Named Selection",
+      "kind": "Property",
+      "prose": "Named Selection identifies the source selection used to produce the Projection.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-named-selection.md"
+    },
+    {
+      "subject": "Projection.Source Of Truth",
+      "kind": "Property",
+      "prose": "Source Of Truth identifies the declared source-of-truth reference for a Projection. Authority remains assigned per fact.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-of-truth.md"
+    },
+    {
+      "subject": "Atom.Subjects.Active",
+      "kind": "Property",
+      "prose": "The IF/THEN constraint applies only to complete Atoms.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-active.md"
+    },
+    {
+      "subject": "Scope Unit.structural_level",
+      "kind": "Property",
+      "prose": "The value is derived solely from IS_CONTAINED_BY links.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md"
+    },
+    {
+      "subject": "Package.structural_level",
+      "kind": "Property",
+      "prose": "The value is derived solely from IS_CONTAINED_BY links.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md"
+    },
+    {
+      "subject": "MODEL",
+      "kind": "Primary Node",
+      "prose": "- A Project may use CAPRMEDIO's MODEL directly or define an optional local MODEL.\n- A local MODEL inherits the applicable Declarations of its base MODEL.\n- It may add Nodes, Relations, Properties and constraints.\n- It may override any inherited rule.\n- An explicit override replaces the matching effective rule in the local MODEL. The base MODEL remains unchanged.\n- Unchanged inherited Declarations are reused.",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-model.md"
+    }
+  ],
+  "target_mutations": "None; only review artifacts saved"
+}

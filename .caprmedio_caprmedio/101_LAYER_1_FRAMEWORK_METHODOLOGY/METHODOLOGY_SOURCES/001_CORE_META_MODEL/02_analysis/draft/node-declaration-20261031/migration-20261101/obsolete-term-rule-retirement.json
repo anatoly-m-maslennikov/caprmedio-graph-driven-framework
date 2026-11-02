@@ -1,0 +1,20 @@
+{
+  "id": "CA-R-1352",
+  "version": 22,
+  "current_path_removed": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1352-CORE_META_MODEL--classify-type-as-a-property.md",
+  "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1352@22-CORE_META_MODEL--classify-type-as-a-property.md",
+  "source_sha256": "5c8367c81cdc7c0092675c832aefd582ba130a55744c519dc7af6449b93d0dbb",
+  "archive_sha256": "63295394ba16cbba30d7785bb954513c2d7f7edb50d16aaafd17f0540b469c34",
+  "status": "APPLIED",
+  "reason": "The approved model keeps Terms outside the Node graph. The old Rule makes a Term narrower than Property and has no valid target in that model. No replacement Term or Property is introduced.",
+  "version_and_updated_at_preserved": true,
+  "journal_receipt": [
+    {
+      "event_id": "206c9e77-6c97-4d1a-a590-6bc3f5203899",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 415
+    }
+  ]
+}

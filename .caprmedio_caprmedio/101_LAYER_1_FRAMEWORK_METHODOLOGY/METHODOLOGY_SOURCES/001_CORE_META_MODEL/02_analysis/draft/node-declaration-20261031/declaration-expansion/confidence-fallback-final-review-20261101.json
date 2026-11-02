@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "findings": [],
+  "checked": [
+    "Plan optional int and Project default required int",
+    "Settings whitelist exactly Name, Prefix and confidence",
+    "contextual Project terminal and nearest authored lookup",
+    "original Atom.Label fallback example retained"
+  ],
+  "limits": [
+    "No parser/runtime verification"
+  ],
+  "closed": [
+    "Explicit evaluated fallback-expression cycle error restored independently of LOOKUP revisited-bearer error; example covers p ?= q; q ?= p."
+  ]
+}

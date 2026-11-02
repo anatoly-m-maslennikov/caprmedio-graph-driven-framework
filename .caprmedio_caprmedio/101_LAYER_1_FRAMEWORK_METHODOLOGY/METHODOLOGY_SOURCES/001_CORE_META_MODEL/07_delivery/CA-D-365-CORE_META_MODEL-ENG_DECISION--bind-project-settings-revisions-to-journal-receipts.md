@@ -1,28 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-version: 23
-updated_at: 2026-10-27 19:59:24 +0400
+  active: Project.Settings
+  passive:
+  - Entity/Object/Continuant/History
+  - Entity/Object/Continuant/History/Journal > Event Record
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-D-364
 atom_id: CA-D-365
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 6
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Bind Project Settings Revisions to Journal Receipts
 
-## Scope
+## Claim scope
 
 the current Project Settings Revision and SHA-256 Digest.
 

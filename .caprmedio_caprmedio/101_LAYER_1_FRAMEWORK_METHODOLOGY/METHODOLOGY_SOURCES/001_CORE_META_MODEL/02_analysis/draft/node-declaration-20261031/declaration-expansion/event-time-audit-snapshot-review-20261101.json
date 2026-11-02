@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "checked": [
+    "Historical audit copy uses happened_at cutoff through its own event, so later event times do not alter it",
+    "Inserted_at is not used as cutoff or MAX input",
+    "Copy remains optional, derived and non-self-triggering"
+  ],
+  "limits": [
+    "Event-source bindings and runtime are not verified"
+  ]
+}

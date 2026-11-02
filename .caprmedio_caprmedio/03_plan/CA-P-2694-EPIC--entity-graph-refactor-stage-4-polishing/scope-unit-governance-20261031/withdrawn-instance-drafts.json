@@ -1,0 +1,15 @@
+[
+  {
+    "path": ".caprmedio_caprmedio/04_requirement/draft/scope-unit-instance-declarations-20261031/CA-R-draft-APPLICABLE_METHODOLOGY-SCOPE_UNIT_DECLARATION--declare-applicable-methodology.md",
+    "declared_scope_unit": "APPLICABLE_METHODOLOGY",
+    "active_subject": "Scope Unit//APPLICABLE_METHODOLOGY",
+    "external_owner": "FRAMEWORK_METHODOLOGY",
+    "source_row": 13,
+    "source": ".caprmedio_caprmedio/project_structure.toml",
+    "source_sha256": "bc53259e9ecfac7a718fbccd0cd81c4ae9954640fb0e535f03c2acfba80547b4",
+    "scope_unit_id": "not assigned or inferred",
+    "status": "Withdrawn after Operator decision: Applicable Methodology is a special Projection, not a separately retained hosting Scope Unit.",
+    "sha256": "0839f91ad0b48e5430b9d468d396032256e7e9c72844723ef5e0e67196f5aa0a",
+    "snapshot": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/withdrawn-applicable-methodology-scope-declaration.md"
+  }
+]

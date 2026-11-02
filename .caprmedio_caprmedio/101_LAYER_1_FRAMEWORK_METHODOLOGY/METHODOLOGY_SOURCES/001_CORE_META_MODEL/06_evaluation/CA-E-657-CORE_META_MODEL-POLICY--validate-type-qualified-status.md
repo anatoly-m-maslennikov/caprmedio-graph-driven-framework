@@ -1,27 +1,26 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status'
-version: 3
-updated_at: 2026-10-27 19:59:38 +0400
+  active: Entity
+  passive:
+  - Entity
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+version: 8
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-E-657
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 2
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Validate Type-Qualified Status
 
-## Scope
+## Claim scope
 
 Artifacts and their applicable qualified Status model.
 
@@ -34,5 +33,3 @@ the Evaluation **must** reject an Artifact **if** **any** applicable condition h
 **when** no explicitly defined Status model applies, absence of a Status is **not** a rejection.
 
 the Evaluation **must not** substitute Active **or** Inactive for a missing, invalid, **or** ambiguous Status. an Artifact outside the applicable qualified Status model **must not** fail merely because it has no Status.
-
-## Details

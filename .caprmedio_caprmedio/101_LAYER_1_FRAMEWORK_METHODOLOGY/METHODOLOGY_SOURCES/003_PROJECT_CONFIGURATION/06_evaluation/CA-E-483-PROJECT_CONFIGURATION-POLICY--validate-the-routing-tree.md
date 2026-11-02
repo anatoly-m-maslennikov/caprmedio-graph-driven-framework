@@ -1,26 +1,25 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on: []
-version: 14
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Entity/Aspect/Engineering/Architecture/Communication
+  passive: []
+version: 18
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-1640
 atom_id: CA-E-483
-content_role: Evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 2
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Validate the routing tree
 
-## Scope
+## Claim scope
 
 the CAPRMEDIO Routing Tree.
 

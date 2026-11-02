@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "findings": [],
+  "checked": [
+    "Version, Updated At and no new Version solely for archiving retained in existing Workflow kind Rule",
+    "Accepted-edit instant and no-op timestamp retained in Property Claim",
+    "CFEL fences unchanged"
+  ],
+  "limits": [
+    "No Workflow instance, parser or runtime behavior checked"
+  ],
+  "post_review_path_rename": {
+    "from": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--preserve-atom-version-and-timestamp-when-archiving.md",
+    "to": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--preserve-atom-version-and-updated-at-when-archiving.md",
+    "content_unchanged": true
+  }
+}

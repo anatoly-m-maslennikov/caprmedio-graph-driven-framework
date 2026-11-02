@@ -124,13 +124,16 @@ class DeclarationViewTests(unittest.TestCase):
 
         frontmatter = yaml.safe_load(document.split("---\n", 2)[1])
         self.assertEqual("Projection", frontmatter["artifact_form"])
-        self.assertEqual("Entities Graph", frontmatter["type"])
+        self.assertEqual("Catalog", frontmatter["form"])
         self.assertEqual("CA-PROJ-901", frontmatter["projection_id"])
         self.assertEqual(
-            ["CORE_META_MODEL selected authority", "current active source set"],
-            frontmatter["source_of_truth"],
+            "Named Selection//Relation-Types-and-Graph-Rules",
+            frontmatter["source"]["named_selection"],
         )
-        self.assertEqual(["CA-R-100@2", "CA-R-200@4"], frontmatter["sources"])
+        self.assertEqual(["CA-R-100@2", "CA-R-200@4"], frontmatter["source"]["atoms"])
+        self.assertNotIn("type", frontmatter)
+        self.assertNotIn("source_of_truth", frontmatter)
+        self.assertNotIn("sources", frontmatter)
         self.assertLess(document.index("## Relation Types"), document.index("## Graph Rules"))
         self.assertLess(document.index("## Graph Rules"), document.index("## Source limitations"))
         self.assertIn("\tMeaning: a supplied relation meaning", document)
@@ -259,7 +262,10 @@ class DeclarationViewTests(unittest.TestCase):
             ],
         )
 
-        self.assertEqual(["CA-R-2@8", "CA-R-9@3"], yaml.safe_load(document.split("---\n", 2)[1])["sources"])
+        self.assertEqual(
+            ["CA-R-2@8", "CA-R-9@3"],
+            yaml.safe_load(document.split("---\n", 2)[1])["source"]["atoms"],
+        )
         self.assertEqual(1, document.count("\t\tCA-R-9@3"))
         self.assertEqual(1, document.count("\t\tCA-R-2@8"))
 

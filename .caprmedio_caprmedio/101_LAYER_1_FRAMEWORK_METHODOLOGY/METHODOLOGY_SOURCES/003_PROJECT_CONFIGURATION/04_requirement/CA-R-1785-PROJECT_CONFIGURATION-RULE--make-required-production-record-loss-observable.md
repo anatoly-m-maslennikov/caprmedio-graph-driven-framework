@@ -1,25 +1,24 @@
 ---
 atom_id: CA-R-1785
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Logging
-version: 9
-updated_at: 2026-10-27 20:00:03 +0400
+  active: Entity/Aspect/Engineering/Observability
+  passive:
+  - Entity/Aspect/Engineering/Observability/Logging
+version: 12
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Make required production-record loss observable
 
-## Scope
+## Claim scope
 
 logging Implementation **when** required records are lost **or** suppressed under production Logging Policies.
 

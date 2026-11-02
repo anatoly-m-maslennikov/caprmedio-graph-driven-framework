@@ -15,8 +15,8 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
   - Subject/caprmedio/Action//Implementation Retry Control
-version: 26
-updated_at: 2026-10-27 19:59:44 +0400
+version: 28
+updated_at: 2026-10-30 03:11:58 +0400
 relations: {}
 tier: 3
 ---
@@ -33,7 +33,7 @@ Every implementation handoff carries direct full-source rows in `requirements`, 
 An Agentic Step exposes its current prompt, inputs, **and** result contract while pending. The controlling session may execute **or** delegate that Step, then submits the actual result through the same invocation interface/continuation for executor next-Step selection. Every continuation requires fresh bound admission; it is one-use, an identical submission is idempotent, and a conflicting submission is refused. It never replays effects. This lifecycle neither hardcodes an MCP transport nor adds Workflow-wide Properties.
 
 - entry: CA-O-231.
-- nodes: CA-O-231, CA-O-232, CA-O-233, CA-O-094, CA-O-234, CA-O-096, CA-O-099, CA-O-230.
+- nodes: CA-O-231, CA-O-232, CA-O-233, CA-O-094, CA-O-234, CA-O-096, CA-O-099, CA-O-239.
 - transitions between Steps are declared in the Workflow's Step structure; result-based routing belongs to the applicable Conditional Step definition; `completed` **and** `blocked` are terminal results, **not** Steps.
 
 | From Step | Result condition | Next Step **or** terminal result |
@@ -41,7 +41,7 @@ An Agentic Step exposes its current prompt, inputs, **and** result contract whil
 | CA-O-231 | evaluation_ready | CA-O-232 |
 | CA-O-231 | requirement_ready | CA-O-233 |
 | CA-O-231 | evaluation_runnable | CA-O-094 |
-| CA-O-231 | review_ready | CA-O-230 |
+| CA-O-231 | review_ready | CA-O-239 |
 | CA-O-231 | complete | completed |
 | CA-O-231 | blocked | blocked |
 | CA-O-232 | prepared | CA-O-231 |
@@ -62,11 +62,11 @@ An Agentic Step exposes its current prompt, inputs, **and** result contract whil
 | CA-O-099 | repaired | CA-O-231 |
 | CA-O-099 | authority_change_required | blocked |
 | CA-O-099 | blocked | blocked |
-| CA-O-230 | preliminary_clear | CA-O-231 |
-| CA-O-230 | passed | CA-O-231 |
-| CA-O-230 | findings | CA-O-234 |
-| CA-O-230 | partial | blocked |
-| CA-O-230 | unresolved | blocked |
+| CA-O-239 | preliminary_clear | CA-O-231 |
+| CA-O-239 | passed | CA-O-231 |
+| CA-O-239 | findings | CA-O-234 |
+| CA-O-239 | partial | blocked |
+| CA-O-239 | unresolved | blocked |
 
 an unknown result, failed invocation, unresolved confidence/permission gate, **or** non-progressing revisit ends the Run as `blocked` with actual partial results. **every** repair path crosses CA-O-096; revisiting preparation **or** changing a failure **must not** reset that retry state. preparation revisits retain completed work **and** require a changed residual work/evidence/baseline state; otherwise they are blocked rather than looping.
 
@@ -78,7 +78,7 @@ Method creation **and** acceptance are outside this Workflow. return retained is
 
 Every Agentic Step in this graph explicitly uses Integrated context. Shared context retains the current request, Plan, source-bound R/M/E/D, candidate, actual results, findings, and remaining budget; it never replaces complete Step inputs or permits a silent context fallback. Standalone review Workflow CA-O-223 and its Isolated CA-O-229 are unchanged.
 
-Preparation selects tests before behavior, then preliminary code review before final checks, then final review against those actual checks. CA-O-230 invokes read-only CA-O-225 with an explicit preliminary or final phase. A preliminary_clear result is not acceptance. A repair changes the candidate and invalidates affected earlier checks and review; preparation selects their required reruns. Confirmed review findings use CA-O-234, CA-O-096, and CA-O-099 without bypassing diagnosis or resetting finite retry, confidence, permission, resource, or no-progress gates.
+Preparation selects tests before behavior, then preliminary code review before final checks, then final review against those actual checks. CA-O-239 invokes read-only CA-O-238 with an explicit preliminary or final phase. A preliminary_clear result is not acceptance. A repair changes the candidate and invalidates affected earlier checks and review; preparation selects their required reruns. Confirmed review findings use CA-O-234, CA-O-096, and CA-O-099 without bypassing diagnosis or resetting finite retry, confidence, permission, resource, or no-progress gates.
 
 ### Separate release continuation
 

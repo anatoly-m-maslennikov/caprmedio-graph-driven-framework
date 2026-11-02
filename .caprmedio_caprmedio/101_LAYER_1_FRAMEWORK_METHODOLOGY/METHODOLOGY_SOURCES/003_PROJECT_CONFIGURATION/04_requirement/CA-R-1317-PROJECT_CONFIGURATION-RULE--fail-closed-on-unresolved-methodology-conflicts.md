@@ -1,28 +1,27 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Expansion Boundary
-version: 25
-updated_at: 2026-10-27 19:59:53 +0400
+  active: Projection/(.Form:=Applicable Methodology)
+  passive:
+  - Scope Unit//PROJECT_CONFIGURATION
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/History/Journal > Event Record
+  - Scope Unit
+version: 31
+updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
 atom_id: CA-R-1317
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Fail Closed on Unresolved Methodology Conflicts
 
-## Scope
+## Claim scope
 
 unresolved conflicts in Applicable Methodology **and** their required Operator approvals.
 

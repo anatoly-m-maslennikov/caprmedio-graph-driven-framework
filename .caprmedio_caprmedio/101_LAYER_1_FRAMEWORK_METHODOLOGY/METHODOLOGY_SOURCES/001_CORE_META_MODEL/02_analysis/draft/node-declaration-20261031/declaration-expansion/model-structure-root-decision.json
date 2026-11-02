@@ -1,0 +1,44 @@
+{
+  "root_kinds": [
+    "MODEL",
+    "PROJECT STRUCTURE"
+  ],
+  "instance_roots": [
+    "MODEL//CAPRMEDIO",
+    "PROJECT STRUCTURE//CAPRMEDIO",
+    "MODEL//<PROJECT NAME> (optional)",
+    "PROJECT STRUCTURE//<PROJECT NAME>"
+  ],
+  "self_description": "MODEL//CAPRMEDIO declares MODEL and PROJECT STRUCTURE",
+  "definition_scope_unit": "Core Meta-Model",
+  "structure_components": [
+    "Scope Structure",
+    "Aspects",
+    "Further declared components"
+  ],
+  "inheritance": "A local MODEL inherits the CAPRMEDIO MODEL; any inherited rule may be overridden locally",
+  "effective_declarations": "One effective Current Declaration per Node within the selected MODEL; unchanged inherited Declarations reused",
+  "unit_scope": "MODEL override does not automatically change ENGINE Scope",
+  "supersedes": [
+    "Owner-wrapper namespace layout",
+    "MODEL versus PROJECT root split"
+  ],
+  "open": [
+    "MODEL inheritance Relation name",
+    "Exact effective MODEL selection and override binding",
+    "Exact root/source registration and migration"
+  ],
+  "concurrent_change_preserved": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-navigational-order-number.md",
+      "review_snapshot": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/withdrawn-scope-unit-navigation-number.md",
+      "sha256": "052d962e1bd075fbd9b5aa22b5bc9c89b37305253fce8dd595c3469e99ba1172",
+      "reason": "Latest Operator decision: no Scope Unit Navigation Number; retain only for Steps and P."
+    }
+  ],
+  "limits": [
+    "No directory moves",
+    "No Current promotion or source changes",
+    "No parser, allocator or runtime implementation"
+  ]
+}

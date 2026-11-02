@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-version: 19
-updated_at: 2026-10-27 19:59:41 +0400
+  active: Atom.Content
+  passive:
+  - Entity/Aspect/Engineering/Authoring/Controlled English
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - Entity/Object/Continuant/Governing Objects/Atom.Type
+  - Atom.Content
+version: 22
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-M-307
 atom_id: CA-M-308
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 6
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Resolve the Effective CCE Role Profile
 
-## Scope
+## Claim scope
 
 effective CCE Role Profiles for Atom Claims.
 

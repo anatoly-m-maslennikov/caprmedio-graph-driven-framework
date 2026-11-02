@@ -1,31 +1,30 @@
 ---
-version: 22
-updated_at: 2026-10-27 19:59:39 +0400
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-M-003
+  - CA-M-448
   - CA-M-005
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  active: Project
+  passive:
+  - Project
 cce_version: cce_1
 cce_form: method
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-M-091
 status: Active
-content_role: Method
-author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-type: Implementation Method
 tier: 2
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Keep only necessary and sufficient reusable project information
 
-## Scope
+## Claim scope
 
 reusable Project information, including its methodology.
 

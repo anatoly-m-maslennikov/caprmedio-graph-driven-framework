@@ -1,0 +1,88 @@
+{
+  "epic": ".caprmedio_caprmedio/03_plan/done/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "status": "COMPLETE; Epic CA-P-2694@40 Done",
+  "lanes": [
+    {
+      "lane": "legacy-cfel",
+      "deliverable": "16 CFEL Definition fixes",
+      "owner": "luna",
+      "edit_scope": "own candidate drafts and manifest only",
+      "dependencies": [],
+      "check": "composition preserved; no unsupported legacy > in candidate Subjects",
+      "status": "done: applied and checked"
+    },
+    {
+      "lane": "legacy-entities",
+      "deliverable": "14 legacy Entity dispositions and Event Record placement",
+      "owner": "terra",
+      "edit_scope": "own candidate drafts and manifest only",
+      "dependencies": [],
+      "check": "latest model preserved; unresolved decisions explicit",
+      "status": "done: applied and checked"
+    },
+    {
+      "lane": "relations",
+      "deliverable": "canonical and derived Relation Declarations and coverage",
+      "owner": "terra",
+      "edit_scope": "own candidate drafts and manifest only",
+      "dependencies": [],
+      "check": "all modeled Relation names accounted for; exact inverse/endpoints",
+      "status": "done: applied and checked"
+    },
+    {
+      "lane": "cfel-description",
+      "deliverable": "CFEL description and syntax alignment drafts",
+      "owner": "terra",
+      "edit_scope": "own CFEL overview/grammar candidates, excluding 16 legacy Definition sources",
+      "dependencies": [],
+      "check": "documented syntax matches adopted examples; no invented single-use syntax",
+      "status": "done: applied and checked"
+    },
+    {
+      "lane": "contract-graph",
+      "deliverable": "tree with complete source-bound entity contracts",
+      "owner": "terra",
+      "edit_scope": "GENERATE_ENTITY_GRAPH tool and tests only",
+      "dependencies": [],
+      "check": "own/inherited/shared/prose coverage visible; relation and property counts kept separate",
+      "status": "done: applied and checked"
+    },
+    {
+      "lane": "coverage-verification",
+      "deliverable": "independent baseline and completeness checks",
+      "owner": "luna",
+      "edit_scope": "read-only sources; verifier/evidence in analysis support folder only",
+      "dependencies": [],
+      "check": "diagnostics/relations/entities trace to exact Current sources",
+      "status": "done: applied and checked"
+    }
+  ],
+  "integration_owner": "root",
+  "publication": "root only; workers preserve Current sources and shared Git state",
+  "additional_lanes": [
+    {
+      "lane": "independent-source-review",
+      "owner": "terra_migration_plan_warden",
+      "status": "done",
+      "check": "source-faithful changes and notation direction"
+    },
+    {
+      "lane": "project-settings-inventory",
+      "owner": "luna_project_settings_inventory",
+      "status": "done",
+      "check": "logical fields versus physical metadata; no runtime changes"
+    }
+  ],
+  "integration": {
+    "owner": "root",
+    "edit_scope": "Current lifecycle, Journal, official projections and Epic only",
+    "dependencies": [
+      "source fidelity PASS",
+      "staging preflight PASS",
+      "integration safety review"
+    ],
+    "acceptance": "Current hashes, source coverage, graph diagnostics and official projection readback",
+    "status": "done: Current, archives, Journal, projections, tests and Epic verified"
+  },
+  "completion_readback": "verification/final-epic-readback.json"
+}

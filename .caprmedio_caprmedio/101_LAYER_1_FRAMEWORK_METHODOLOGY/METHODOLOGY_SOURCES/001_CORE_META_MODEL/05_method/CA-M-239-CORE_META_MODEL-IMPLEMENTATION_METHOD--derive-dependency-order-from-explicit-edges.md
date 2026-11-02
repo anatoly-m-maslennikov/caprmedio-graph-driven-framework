@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: depends_on'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Relation/Type: DEPENDS_ON'
-  - Subject/CAPRMEDIO/Graph/Relation
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-version: 21
-updated_at: 2026-10-27 19:59:41 +0400
+  active: CFEL <+ Relation//depends_on
+  passive:
+  - CFEL <+ Relation//DEPENDS_ON
+  - CFEL <+ Relation
+  - Term//Artifact
+  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-M-120
 atom_id: CA-M-239
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 4
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Derive Dependency Order from Explicit Edges
 
-## Scope
+## Claim scope
 
 non-Plan Artifact dependency order derivation from explicit edges.
 

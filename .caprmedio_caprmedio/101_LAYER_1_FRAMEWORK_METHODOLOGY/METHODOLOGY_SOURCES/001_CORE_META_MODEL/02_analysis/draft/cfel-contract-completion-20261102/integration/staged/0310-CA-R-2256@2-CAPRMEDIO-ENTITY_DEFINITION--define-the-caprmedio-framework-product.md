@@ -1,0 +1,26 @@
+---
+atom_id: CA-R-2256@2
+current_scope_unit: caprmedio
+status: Archived
+tier: 1
+subjects:
+  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+relations: {}
+version: 2
+updated_at: 2026-11-02 00:18:22 +0400
+role: Requirement
+form: Entity Definition
+---
+## Summary
+
+Define the CAPRMEDIO Framework product
+
+## Claim
+
+CAPRMEDIO Framework is the product produced by the caprmedio Project. This Subject identifies that product and its required capabilities. Project Settings identify the Project; this project-local definition identifies its product.
+
+### Formal claim
+
+```text
+Entity/Aspect/Product: CAPRMEDIO Framework
+```

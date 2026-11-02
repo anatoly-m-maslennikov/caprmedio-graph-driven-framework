@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+  governs: 'Entity/Aspect/Product: CAPRMEDIO Framework'
   depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-version: 12
-updated_at: 2026-10-27 19:59:54 +0400
+  - Entity/Object/Continuant/Structural Unit/Scope Unit
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project
+version: 14
+updated_at: 2026-10-29 07:45:26 +0400
 relations:
   child_of:
   - CA-R-1486
@@ -21,6 +21,9 @@ atom_id: CA-R-1425
 type: Rule
 tier: 1
 ---
-# Provide modular methodology with a reusable core
+## Summary
+Provide modular methodology with a reusable core
+
+## Claim
 
 FRAMEWORK_METHODOLOGY **must** provide modular Methodology with a project-independent CORE_META_MODEL applicable **to** **any** Project.

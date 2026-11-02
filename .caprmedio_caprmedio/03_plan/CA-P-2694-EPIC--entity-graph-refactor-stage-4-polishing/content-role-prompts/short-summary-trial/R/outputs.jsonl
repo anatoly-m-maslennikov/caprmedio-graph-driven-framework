@@ -1,0 +1,2 @@
+{"case":"R1","markdown":"## Summary\n\nPROGRAMMATIC owns all and only deterministic FRAMEWORK_ENGINE behavior\n\n## Claim\n\nPROGRAMMATIC owns all and only deterministic behavior of FRAMEWORK_ENGINE."}
+{"case":"R2","markdown":"## Summary\n\nAtom Version Number has exactly one integer value at least 1\n\n## Claim\n\nAtom Version Number has exactly one value. It is an integer at least 1. Boolean values are not integers for this property."}

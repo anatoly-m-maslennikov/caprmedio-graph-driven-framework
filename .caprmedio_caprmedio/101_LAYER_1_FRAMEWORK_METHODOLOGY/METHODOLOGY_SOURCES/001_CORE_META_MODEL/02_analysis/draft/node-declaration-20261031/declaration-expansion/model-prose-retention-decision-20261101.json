@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-01",
+  "decision": "Keep MODEL rules in prose, in short bullet points; defer formalization",
+  "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-model.md",
+  "before_sha256": "b6a89ebad9d6765a1dd53bbeaffe83fd3f0b00ca19ed6c357ff99bb0e8807bff",
+  "after_sha256": "7546fab80863bbcb1442ff61042b64ec0f3961ede0e6884809ba823bddbab28a",
+  "claim_prose": "- A Project may use CAPRMEDIO's MODEL directly.\n- A Project may define a local MODEL.\n- A local MODEL inherits its base MODEL's applicable Declarations.\n- A local MODEL may add Nodes, Relations, Properties and constraints.\n- A local MODEL may override any inherited rule.\n- An explicit override replaces the matching effective rule in the local MODEL.\n- The base MODEL remains unchanged.\n- Unmodified inherited Declarations are reused.",
+  "formal_block_unchanged": true,
+  "new_syntax": false,
+  "prose_count_effect": 0
+}

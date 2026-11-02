@@ -1,0 +1,98 @@
+{
+  "status": "draft_scope_correction_not_applied",
+  "scope_changed_declarations": [
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1977@14-draft-PROJECT_CONFIGURATION-DECLARATION--declare-project-settings-1977.md",
+      "sha256": "33ef58a772134277e57a8d7674bc21002ee7bd4701da900101b51dcd27afc5b6"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1978@14-draft-PROJECT_CONFIGURATION-DECLARATION--declare-project-settings-1978.md",
+      "sha256": "93bd1b55eccb0937e31cb24029d024fb71c2d564705d09cb3df976d284388c75"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1979@14-draft-PROJECT_CONFIGURATION-DECLARATION--declare-project-settings-1979.md",
+      "sha256": "d4def61444ec0f5bd196fa7b2f298f45ed49a50978ed20f963a1a2872a76fc37"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1980@14-draft-PROJECT_CONFIGURATION-DECLARATION--declare-project-settings-1980.md",
+      "sha256": "55874f3b5d0befb36f1ec0eac47917990c32d5bcd4e39a4acc73cf340b1ee1e4"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-1982@14-draft-PROJECT_CONFIGURATION-DECLARATION--declare-project-settings-1982.md",
+      "sha256": "d217217ff34ab5e89d5184690188123c1168f6fab39c655e44d28f41f4277c3e"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-2406.md",
+      "sha256": "f525212af57a808c2ef739acfc21dc440b4d8b5197f1d883c14577f67977c0e9"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-2407.md",
+      "sha256": "030652233ea13b1ec1fbac3c43be30e79526d720bd3cfe5d344575c13122bd40"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-2410.md",
+      "sha256": "fb0ef0b04fc3d60f19c2a16e93b5edcb5365c5da75ef9475456341feb3c9d727"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--restore-settings-2403.md",
+      "sha256": "baecaf9b287a8d088998436ed7365b72411ff730d695786babe8359274985e52"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--restore-settings-2404.md",
+      "sha256": "68a6cbaab7feaacd8dc3517131425dcfa9cdb7d1818eb8c531311d2252e2a762"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--restore-settings-2405.md",
+      "sha256": "46be1f1a696057c11a1700820fcd54c665aeee6fc1aa143e50dc54b753d7c994"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--restore-settings-2409.md",
+      "sha256": "0c39bd2cab3d2f741209212c3aa9836175829fcae625663901bfdc8bec82b571"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-dynamic-2408.md",
+      "sha256": "3d8b042b78b2787bbfdfa63d10da174db874706b49e3cc6aa9346cfce17b8ded"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-dynamic-2411.md",
+      "sha256": "6e714740b125175778c41c6315fe14b42145f91e7ad56900ec203f170c97748b"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-rmed-review.md",
+      "sha256": "d252f811f6efeb8b6f27aae5c4d98de60c1306905f5f30752b6a696cc3d49346"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-rmed-headroom.md",
+      "sha256": "0b04a094a3479626cc8df4341be2811eff511f92b7568a2668d9ce2b65d10ecf"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-DECLARATION--declare-settings-rmed-max-atoms.md",
+      "sha256": "3303f67760acd8034c259ff94b6135cc66c3a0460e9d68c52150f7bdbe9ee891"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/CA-R-2532@3-draft-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "a1bd4a72e6c4c961a9eec7af114ccb25e6a67b938587ab44a3246a1d0449a66e"
+    }
+  ],
+  "scoped_rule": {
+    "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/CA-R-draft-PROJECT_CONFIGURATION-RULE--require-framework-instance-root-locators.md",
+    "sha256": "60496945835b503849dcb5e372eaafed0e98debe352981e0dd70e52245c98cae"
+  },
+  "question": {
+    "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--scope-framework-root-locator-requirements.md",
+    "sha256": "a2ff63c0dc5489eda6d027254b46de03896ad3726efd8cac5bafa99033790cfe"
+  },
+  "evidence": [
+    "CA-R-2482: formal Scope Declaration controls permitted Subjects and does not confer runtime behavior.",
+    "CA-R-686: Core, Extensions and Project Configuration remain distinct authority strata.",
+    "CA-R-1750: distinct physical Settings owners remain unchanged.",
+    "CA-D-371: Framework Instance Settings carrier has one or more code-root locators.",
+    "CA-R-1980: Project Configuration control-root locator has exactly one string value.",
+    "CA-R-1432: applicability or scope expansion is semantic_revision; Summary and Role unchanged retain the base ID."
+  ],
+  "integration": "Project Configuration filesystem paths for CORE_META_MODEL Drafts are temporary. Native plan must create them at CORE_META_MODEL authority destination and update scope metadata without moving actual settings files.",
+  "limitations": [
+    "The separate scoped Rule uses the current Project Configuration applicability and is a proposal; validate exact source scope and lifecycle before admission.",
+    "Physical TOML values and runtime remain unchanged."
+  ]
+}

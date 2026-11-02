@@ -1,0 +1,86 @@
+{
+  "result": "declaration_review_complete_naming_pending",
+  "fixes": [
+    "Step formal Claim now states opposite zero counts for each branch and same-Step binding in Details.",
+    "Workflow Declaration now carries its own composition cardinality.",
+    "Node Declaration now marks formal acyclicity representation as an adoption gate."
+  ],
+  "checks": {
+    "declaration_form": true,
+    "cohort_one_to_one": "Formal count scoped to Requirement/Form Declaration; other Atoms retained",
+    "no_property_redeclaration": true,
+    "operations_xor_explicit_zero_branches": true,
+    "acyclicity": "Unresolved formal representation is explicit adoption gate",
+    "whitelists": "Incomplete effective whitelists explicitly gate admission",
+    "naming_packet": "Unavailable at review time"
+  },
+  "files": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Node",
+      "form": "Declaration",
+      "sha256": "117e31aa188eb9af3bccae0fa25d5e08c1728265fa34cabebd1b1321e9bd3143"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Operations",
+      "form": "Declaration",
+      "sha256": "3e2cf2d5127dbcc9f663575df42f4a3d27e0d1338fe61839aa03ea225b31cd8c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Workflow",
+      "form": "Declaration",
+      "sha256": "68624e9a011a480ad85277405cefcdcd6636ebcfef8a65ffa1158f8cd80969a5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Step",
+      "form": "Declaration",
+      "sha256": "253a4394a43c9164b8ea1b539b6f9c8dcb0fa244eefe0b3d1571adf718f2ef2c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Substep",
+      "form": "Declaration",
+      "sha256": "a95c9dcd116430e46aa8f0d42652854c4dee87404d8923a365a72ba01903a98b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Action",
+      "form": "Declaration",
+      "sha256": "0cc0779676fb8509ac2845f20ef73d8d565089233ddc3cd385d6acaf90e8ccde"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-form-registration.md",
+      "id": "CA-R-draft",
+      "summary": "Register Declaration as a Requirement Form",
+      "form": "Rule",
+      "sha256": "dfe09f612ee42c1f47463c8a1f8c8cb879729b804377ab04bceae2073ae22da7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+      "id": "CA-R-draft",
+      "summary": "Require one Declaration for each Node",
+      "form": "Rule",
+      "sha256": "e3286515efa80dc3d8fa5985040ed9963b06b16239e1ef6d0e5cfb3dce590277"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+      "id": "CA-R-draft",
+      "summary": "Inherit Declaration constraints and enforce Relation whitelists",
+      "form": "Rule",
+      "sha256": "a1a7e6e9edcd2aebb56746cdb036bae80680035b395167b9997e1c766014dd5c"
+    }
+  ],
+  "limitations": [
+    "No native validation or admission; naming packet not yet available.",
+    "Formal acyclicity and effective whitelist coverage remain adoption gates."
+  ]
+}

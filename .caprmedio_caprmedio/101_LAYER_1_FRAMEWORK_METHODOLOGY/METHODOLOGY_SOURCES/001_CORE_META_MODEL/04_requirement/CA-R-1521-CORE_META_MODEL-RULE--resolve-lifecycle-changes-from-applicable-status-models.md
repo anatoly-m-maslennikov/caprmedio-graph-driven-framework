@@ -1,32 +1,31 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Carrier
-version: 25
-updated_at: 2026-10-27 19:59:57 +0400
+  active: Atom/(.Role:=Operations)/Workflow
+  passive:
+  - Entity
+  - Term//Artifact
+  - Atom
+  - Entity/Object/Continuant/Governing Objects/Atom.Content Role
+  - Entity/Object/Continuant/Structural Unit/Scope Unit.Type
+  - Atom.Status
+  - Scope Unit
+  - Carrier
+version: 31
+updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
 atom_id: CA-R-1521
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Resolve lifecycle changes from applicable Status models
 
-## Scope
+## Claim scope
 
 Workflows that change an Entity's Status.
 

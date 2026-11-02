@@ -1,0 +1,13 @@
+{
+  "selector": "**",
+  "meaning": "all dependent Properties recursively, excluding the selected bearer",
+  "example": "Atom/(.Role: Analysis).Content.**[string]{1}",
+  "count_scope": "each matched Property",
+  "sibling_names": "unique per bearer",
+  "different_entities": [
+    "x.y.z",
+    "x.z"
+  ],
+  "analysis": "freeform, with inherited shared Atom constraints",
+  "current_changed": false
+}

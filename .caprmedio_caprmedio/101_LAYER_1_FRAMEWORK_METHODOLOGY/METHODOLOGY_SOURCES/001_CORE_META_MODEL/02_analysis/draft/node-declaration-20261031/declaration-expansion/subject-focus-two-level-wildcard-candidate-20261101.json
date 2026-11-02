@@ -1,0 +1,58 @@
+{
+  "status": "user_selected_two_layers_interpretation_and_scope_gates",
+  "latest_user_expressions": {
+    "model": "Node/** {:0}((*))",
+    "instances": "Node/**// {:0}((*))",
+    "example_instance_exception": "Journal// {:0+}((CONTAINS)) Event Record//"
+  },
+  "semantics_candidate": {
+    "model_default": "On selected model entities, each selected Host has zero outgoing named Relation links by default. An applicable named model-level allowance replaces this default for that Host, Relation and endpoint class.",
+    "instance_default": "On selected instances, each selected Host has zero outgoing named Relation links by default. An applicable named instance-level allowance replaces this default only for that instance layer.",
+    "no_cross_layer_leakage": "A model-level Relation permission is not by itself an instance-level permission, and an instance-level permission is not by itself a model-level permission. Shared inherited declarations/overrides are resolved within the relevant layer of the selected effective MODEL.",
+    "resolution": "Apply applicable inherited defaults/permissions and valid explicit local MODEL overrides, then apply named exception over matching wildcard fallback. A named explicit {:0} remains a hard restriction unless a valid MODEL override replaces that named rule. Conflicting equally applicable named rules or unresolved inherited sources do not pass.",
+    "ownership": "Each Declaration constrains its own active Subject Host and outgoing count; the counterpart owns its own outgoing count. Derived inverse views do not create second authored facts.",
+    "not_a_grant": "Neither wildcard nor Node instance selection grants an unspecified relation or a link to every matching endpoint."
+  },
+  "scope_evidence_and_gates": {
+    "root": "Current CFEL explicitly says Node/** selects narrower entities and excludes Node itself. The explicit latest expressions therefore do not currently establish whether Node root itself is default-closed. Do not silently add or exclude the root contrary to intended complete coverage.",
+    "properties": "Current selector says Node/**, .** also includes recursive dependent Properties; Node/** alone does not explicitly cover them. Determine how model-Property declarations receive the model-layer default without making duplicate local zero rules.",
+    "instances": "Node/**// combines a recursive kind selection with instantiation, but this combination is not documented by inspected CFEL. Define whether it means the union of instances of the selected Primary kinds; existing Kind// already includes instances of its narrower kinds. Do not interpret it as Property//.",
+    "property_occurrences": "Existing model forbids instantiating a Property; applying a declared Property to an instance is a bound occurrence, not a new Property instance. If occurrence-level relation permissions are intended, define their binding explicitly without inventing Property//.",
+    "allowed_value": "User question is pending: determine whether ALLOWED VALUE names a graph Relation or means the existing literal-value/domain mechanism; do not choose or introduce value Nodes."
+  },
+  "known_example": {
+    "expression": "Journal// {:0+}((CONTAINS)) Event Record//",
+    "meaning": "This instance-layer named permission supersedes the instance wildcard for those Journal Hosts and Event Record Targets. It does not grant CONTAINS on the Journal model entity, does not create all possible links, and does not set Event Record\u2019s outgoing containment count."
+  },
+  "limits": "Latest user supersedes earlier Node//** candidate. No selection broadening, relation naming or pending ALLOWED VALUE answer is invented. No repo edits or runtime claims.",
+  "sources": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+      "sha256": "f33d4db8ee3c4ee2bcfd5a75bed1d708fbfb89f9287c9b29a8244ebb0397d962"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--bind-instance-variables.md",
+      "sha256": "139276e901ca8311f8ec061d193bb949f67ab0520b8eb33f92ecec8ae542143d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--bind-direct-property-values.md",
+      "sha256": "246941c35a1d1676cdf715c1d5972e1202afc5c38b76896b0b6545ffba5e6ee9"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-narrowing.md",
+      "sha256": "ae36655e293fd251fee680751fd5739ecdc0b2589b002b8b6096b3fb4e12a84a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md",
+      "sha256": "c73ae3a15ec87ea649e77b7832c193858fefe84aa4ea2f917a52bf4e4d08555d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+      "sha256": "e0944d98e067faacc2ddfb9b5a9f4680013f450cdf3a5b0ef3eb181b13e70ab8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "sha256": "d32ee6c1214fdc0b1d1e932588c011ed27b5eec0e9e170fbe345f62ab7be5e99"
+    }
+  ]
+}

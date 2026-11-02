@@ -1,0 +1,56 @@
+{
+  "scope": "Seven standalone role writers only; output and execution tests are separate.",
+  "reviewed": [
+    {
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/C-concern.prompt.md",
+      "sha256": "be250766eea3a4d8ff028417c5fc7a27bbf704d8e1d72d90ee2af9cf4bdfdbd5"
+    },
+    {
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/D-delivery.prompt.md",
+      "sha256": "0942aa874c1b3743a3080175008bf162c0aede4f6e950703763e5a58a08f73ed"
+    },
+    {
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/E-evaluation.prompt.md",
+      "sha256": "61c68a0fe5e2cba521cecd303a86598b0e98b300f729203108bfffc731fb3466"
+    },
+    {
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/M-method.prompt.md",
+      "sha256": "891ae7b6a94c7f50991a4a7034fdb1c0ef8f2f6dddd728e3c8c6fb94be591f2d"
+    },
+    {
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/O-operations.prompt.md",
+      "sha256": "91a5fb77a15b1ae5f9c65fc823a154397cd60275ac6af851e4dab66efd61fc7f"
+    },
+    {
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/P-plan.prompt.md",
+      "sha256": "bb8df4d560f63f3fc832397532e5cbefce35585ce28fbac6a3cefbf45a6dd786"
+    },
+    {
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/R-requirement.prompt.md",
+      "sha256": "66d16c1bcea22fd80bb545d025f75afc5a43d601bbe939dbeae52de4de2f0ec1"
+    }
+  ],
+  "issues": [
+    {
+      "severity": "medium",
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/O-operations.prompt.md",
+      "quote": "A Step defines\nits call to a reusable Action or Workflow, plus its parameters, required\ninputs, and returned results.",
+      "reason": "This requires a call from every Step, although the allowed containing Step orders its own Substeps and need not call an Action or Workflow itself.",
+      "minimal_fix": "Say \u201cA leaf Step defines its call to a reusable Action or Workflow, with its parameters, required inputs and returned results; a containing Step defines its Substeps.\u201d"
+    },
+    {
+      "severity": "medium",
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/P-plan.prompt.md",
+      "quote": "Definition of Done: \u201cThe migration plan identifies the work for both legacy and new input formats.\u201d",
+      "reason": "The example gives a positive completion statement and the prompt omits the required falsifying Condition Expression, even though the supplied Plan authoring authority specifies it.",
+      "minimal_fix": "State that the Definition of Done uses the required falsifying Condition Expression; rewrite the example as \u201cThe Plan is not Done if the migration plan does not identify the work for both legacy and new input formats.\u201d"
+    },
+    {
+      "severity": "medium",
+      "file": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/R-requirement.prompt.md",
+      "quote": "For a required result, state what must be true, what behavior is observable, and any conditions, bounds, timing, performance, delivery, error, or admissibility limits.",
+      "reason": "The phrasing can demand observable behavior for every required result, even when the supplied Requirement describes a condition or model without runtime behavior.",
+      "minimal_fix": "Say \u201cState what must be true and any supplied applicable behavior, conditions or limits.\u201d"
+    }
+  ]
+}

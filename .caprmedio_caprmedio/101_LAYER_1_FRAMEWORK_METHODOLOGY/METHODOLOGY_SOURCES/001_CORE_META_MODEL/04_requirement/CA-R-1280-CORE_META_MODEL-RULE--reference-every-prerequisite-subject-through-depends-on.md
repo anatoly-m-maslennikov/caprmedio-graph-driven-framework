@@ -1,34 +1,33 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: DEPENDS_ON'
-  depends_on:
-  - Subject
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-version: 28
-updated_at: 2026-10-27 19:59:52 +0400
+  active: CFEL <+ Relation//DEPENDS_ON
+  passive:
+  - Entity
+  - Atom.Subjects
+  - Atom.Content
+  - Atom.Content.Summary
+version: 34
+updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
 atom_id: CA-R-1280
-content_role: Requirement
-type: Rule
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Reference Every Prerequisite Subject through DEPENDS_ON
 
-## Scope
+## Claim scope
 
 coverage of canonical Subject Target mentions by an Atom's Subjects.
 
 ## Claim
 
-an Atom's Subjects, **when** present, **must** be exactly the distinct canonical Subject Targets independently mentioned **in** its Markdown Main Content, **not** an Atom citation label rendered under `CA-M-301-CORE_META_MODEL-METHOD--make-atom-claims-easy-to-understand` as the referenced Atom's complete filename **without** its `.md` extension **or** directory path: zero **or** one GOVERNS target for its Claim, **and** DEPENDS_ON targets for **every** other mentioned Subject Target.
+an Atom's Subjects, **when** present, **must** be exactly the distinct canonical Subject Targets independently mentioned **in** its Markdown Main Content, **not** an Atom citation label rendered under `CA-M-444-CORE_META_MODEL-METHOD--make-atom-claims-easy-to-understand` as the referenced Atom's complete filename **without** its `.md` extension **or** directory path: zero **or** one GOVERNS target for its Claim, **and** DEPENDS_ON targets for **every** other mentioned Subject Target.
 
 ## Details
 

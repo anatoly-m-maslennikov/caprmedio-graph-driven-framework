@@ -1,0 +1,92 @@
+{
+  "comparison_sha256": "bbb8771d1382db859a9697dce1319fccba75cc83de1c778d51b146ae5f5894ac",
+  "counts": {
+    "total": 8,
+    "pass": 3,
+    "needs_changes": 5,
+    "needs_context": 0
+  },
+  "results": [
+    {
+      "key": "B03",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "area": "Summary",
+          "generated_quote": "Preserve needed information and expose a complete, justified task view",
+          "source_quote": "keep **all** unexposed preserved information so it can be retrieved.",
+          "problem": "The title does not convey keeping the unexposed preserved information retrievable, a central part of the method.",
+          "minimal_fix": "Show what is needed; keep the rest"
+        }
+      ]
+    },
+    {
+      "key": "B08",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "area": "Summary",
+          "generated_quote": "Show safe gateway diagnostics without replacing execution history",
+          "source_quote": "recent Tool calls;",
+          "problem": "Generic gateway diagnostics do not identify the central health and call-history function or its read-only boundary.",
+          "minimal_fix": "Expose bounded, read-only MCP health and call history"
+        }
+      ]
+    },
+    {
+      "key": "B09",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "area": "Summary",
+          "generated_quote": "Review candidates against bound policy and actual evidence without editing",
+          "source_quote": "It assesses the complete bound applicable Method-policy set",
+          "problem": "“Candidates” and “policy” are too broad for this code-candidate and applicable Method-policy review.",
+          "minimal_fix": "Review code-candidate evidence and bound applicable Method policy without editing"
+        }
+      ]
+    },
+    {
+      "key": "B10",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "area": "Summary",
+          "generated_quote": "Invoke the shared review Action with explicit phase and complete bound context",
+          "source_quote": "Shared Implementation Review Step **means**",
+          "problem": "The title does not say the shared Action reviews code; phase and input detail take the place of the operation’s main purpose.",
+          "minimal_fix": "Review code in shared implementation context"
+        }
+      ]
+    },
+    {
+      "key": "B14",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B15",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "area": "Summary",
+          "generated_quote": "MCP owns the provider-neutral Model Context Protocol interface",
+          "source_quote": "discovery, schema, **and** dispatch interface",
+          "problem": "The generic “interface” does not convey the three central responsibilities.",
+          "minimal_fix": "MCP owns provider-neutral discovery, schema and dispatch"
+        }
+      ]
+    },
+    {
+      "key": "B17",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "key": "B23",
+      "verdict": "Pass",
+      "issues": []
+    }
+  ],
+  "scope": "Summary meaning and five writing-style areas. Full logical-fidelity audit is assigned separately; no source or output edits."
+}

@@ -1,35 +1,34 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
-version: 22
-updated_at: 2026-10-27 19:59:56 +0400
+  active: Entity/Aspect/Engineering/Architecture/Component Structure
+  passive:
+  - Project
+  - Scope Unit//PROJECT_CONFIGURATION
+  - Scope Unit//CORE_META_MODEL
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - Atom/(.Role := Operations)
+  - Entity/Object/Continuant/Package/Project Implementation
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - Package
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   depends_on:
   - CA-R-1519
 atom_id: CA-R-1514
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Keep Implementation specifications independent of production Workflows
 
-## Scope
+## Claim scope
 
 the CAPRMEDIO Project's governing RMED for an Implementation.
 

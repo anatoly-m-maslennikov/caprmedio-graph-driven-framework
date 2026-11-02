@@ -1,0 +1,70 @@
+{
+  "decisions": {
+    "population": "Status Active only; not Current group",
+    "scope": "One direct container; not top-level ancestry",
+    "snapshot": "Current evaluated Project snapshot, not state history",
+    "positive_format": "Existing supplied-positive-int constraint unchanged for all Statuses"
+  },
+  "normalization": [
+    "Formal Claims use colon Role qualifiers, not Subject-only :=.",
+    "Selector arguments select instances using //; no missing-instantiation shortcut.",
+    "AND/OR were already admitted; no new Boolean syntax introduced."
+  ],
+  "changed": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-unique-property-tuples.md",
+      "sha256": "dd075f259d390c5231492ae4d7013ac6bce97127544888fd94b50aab583440e7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md",
+      "sha256": "d477d86a5837973b89b0b08a246b47c08444422294cd60846cd7c8e4dbaf000f"
+    }
+  ],
+  "examples": [
+    {
+      "case": "two_active_same_container_same_number",
+      "outcome": "violation"
+    },
+    {
+      "case": "active_siblings_different_numbers",
+      "outcome": "satisfied"
+    },
+    {
+      "case": "task1_and_its_subtask1",
+      "outcome": "satisfied_different_direct_containers"
+    },
+    {
+      "case": "active1_done1_same_container",
+      "outcome": "satisfied_done_excluded"
+    },
+    {
+      "case": "active1_canceled1_same_container",
+      "outcome": "satisfied_canceled_excluded"
+    },
+    {
+      "case": "active1_backlog_or_draft_or_archived1",
+      "outcome": "satisfied_other_statuses_excluded"
+    },
+    {
+      "case": "active_missing_number",
+      "outcome": "no_uniqueness_key_other_rules_separate"
+    },
+    {
+      "case": "active_number_missing_container",
+      "outcome": "violates_required_group_dependency"
+    },
+    {
+      "case": "same_container_different_reference_spelling",
+      "outcome": "resolved_identity_groups_together"
+    },
+    {
+      "case": "unknown_condition_or_parent_reference",
+      "outcome": "error_not_pass"
+    }
+  ],
+  "purpose": "User resolved: model contains number constraints only; Workflow for P execution owns execution ordering. No additional navigation Method created.",
+  "limits": [
+    "No runtime/parser implementation",
+    "No navigation renumbering performed"
+  ]
+}

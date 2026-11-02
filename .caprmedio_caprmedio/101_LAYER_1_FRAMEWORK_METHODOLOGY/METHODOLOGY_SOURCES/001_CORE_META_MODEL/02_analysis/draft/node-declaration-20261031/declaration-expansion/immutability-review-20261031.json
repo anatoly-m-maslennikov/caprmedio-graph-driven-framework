@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "closed": [
+    "After activation, every later version must provide one matching valid scalar, including when a guard becomes false or an optional Property is removed."
+  ],
+  "checks": [
+    "Three worker-result hashes match",
+    "Eleven illustrative cases include optional-property removal"
+  ],
+  "limits": [
+    "Model cases are not parser or runtime tests",
+    "Register integration is separate"
+  ]
+}

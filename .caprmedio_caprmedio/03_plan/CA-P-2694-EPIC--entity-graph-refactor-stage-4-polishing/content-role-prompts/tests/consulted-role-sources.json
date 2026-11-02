@@ -1,0 +1,52 @@
+[
+  {
+    "id": "CA-R-1336",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-DEFINITION--define-concern-content-role.md",
+    "sha256": "cc18b16d2e8b9dccd2334e69e5b6a5752a884627e7dd5fec6a89f7a23bceb7cd"
+  },
+  {
+    "id": "CA-R-1231",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1231-CORE_META_MODEL-RULE--register-core-type-values-for-concern-atoms.md",
+    "sha256": "6f300ce2db6ba416e919aeb5e15054bef1d624635e44bd5b2a3bc847376738f6"
+  },
+  {
+    "id": "CA-R-1338",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-DEFINITION--define-plan-content-role.md",
+    "sha256": "2ea39f094da5313bd3180dff774e5a0ff49c70b3c40661bf67dd44cfaa2eda2a"
+  },
+  {
+    "id": "CA-R-1339",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-DEFINITION--define-requirement-content-role.md",
+    "sha256": "2d83baa44df9828f8103a34fe475d42bc8805d9b37be7a5f1733b09d1e4abad8"
+  },
+  {
+    "id": "CA-R-1340",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-DEFINITION--define-method-content-role.md",
+    "sha256": "c0664f74a3aa7062aedb9499850d81c90648a91e34d6274a127ad3cedf08eadf"
+  },
+  {
+    "id": "CA-R-1341",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-DEFINITION--define-evaluation-content-role.md",
+    "sha256": "ef5b991f7c6502b9eb9d6ae33efc4e5a48295ea80b5b5a1bee42005c95591b3b"
+  },
+  {
+    "id": "CA-R-1342",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-DEFINITION--define-delivery-content-role.md",
+    "sha256": "a3aa572d66e9f72a3e4670084cab0bf1413a8fef86f80f7c5dfbafeca111187b"
+  },
+  {
+    "id": "CA-R-1530",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-DEFINITION--define-the-operations-content-role.md",
+    "sha256": "501e8ff45c8e88d9a30f3116f203f207badf9fcedc2479c3ddcc9903d6776af6"
+  },
+  {
+    "id": "CA-R-2453",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2453-CORE_META_MODEL-ENTITY_DEFINITION--define-method-type-term-definition.md",
+    "sha256": "2992ce2b0a8a911de038f1811c337b82eb932cb7ffe81913e39cca8ef0ec01e2"
+  },
+  {
+    "id": "CA-D-470",
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+    "sha256": "488ed33d4825acdbed3afff0986f04eba35d7b1ef4f93f90b490aa9745f98d00"
+  }
+]

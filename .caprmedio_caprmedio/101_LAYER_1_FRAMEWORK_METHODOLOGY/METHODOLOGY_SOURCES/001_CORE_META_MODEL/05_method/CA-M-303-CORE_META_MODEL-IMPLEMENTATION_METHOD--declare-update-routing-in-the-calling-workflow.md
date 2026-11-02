@@ -1,31 +1,30 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - Subject/caprmedio/Action//Assess Atom Update Identity
-version: 20
-updated_at: 2026-10-27 19:59:41 +0400
+  active: Atom/(.Role:=Operations)/Workflow
+  passive:
+  - Actor
+  - Atom/(.Role:=Operations)/Action
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - Entity/Object/Occurrent/Execution/Workflow Run
+  - Atom
+  - Atom.Content.Summary
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Atom Update Identity'
+version: 26
+updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
 atom_id: CA-M-303
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Declare update routing **in** the calling Workflow
 
-## Scope
+## Claim scope
 
 Atom update routing for a calling Workflow.
 
@@ -40,5 +39,3 @@ Atom update routing for a calling Workflow.
 - include reassessment **when** the proposal changes **or** its evidence becomes stale **before** persistence. a changed Summary remains a replacement under CA-R-1464-CORE_META_MODEL-REQUIREMENT--keep-summary-fixed-for-atom-identity even **when** the request began as an update.
 
 this Method constrains how an Author expresses the caller's graph. it is **not** another Workflow, executable routing service, **or** requirement **to** build the executor through a particular Workflow.
-
-## Details

@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-01",
+  "decision": "Keep Projection Declaration formal-only; process belongs to Operations; Carrier mapping belongs to Delivery",
+  "declaration": {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection.md",
+    "before_sha256": "c2045cd21751820e44908deb97b4613fae4bdcc22541c983e7ea35562e041f39",
+    "after_sha256": "112f7fc1740de797a9833654b1918b83f6296e6f30b04b498b4f4ce1681302d6",
+    "claim": "Projection {:0}((IS_PROPERTY_OF))",
+    "semantics": "A Projection is a derived view of source Atoms. It does not establish or override their Claims."
+  },
+  "deferred_operations_notes": {
+    "status": "Tracking notes only; no Workflow instance created or reviewed",
+    "clauses": [
+      "A Projection is produced from its declared source selection through a Workflow.",
+      "Changes are made in its authoritative sources; the Projection is rebuilt through its Workflow."
+    ]
+  },
+  "authority_boundary": "Plain Semantics replaces the unexplained non-authoritative label; source Atom Claims remain governing",
+  "versioned_sources": "Constraint already belongs to Projection.Sources; no duplicate in the Primary Declaration",
+  "delivery_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--deliver-projections-to-markdown-files.md",
+  "delivery_expression": "Projection// >> Carrier/Markdown_file//",
+  "current_sources_changed": false,
+  "runtime_changed": false
+}

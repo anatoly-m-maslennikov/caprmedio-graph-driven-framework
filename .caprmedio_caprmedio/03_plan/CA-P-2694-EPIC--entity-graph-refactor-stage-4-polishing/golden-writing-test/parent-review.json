@@ -1,0 +1,29 @@
+{
+  "reviewed_sample": 20,
+  "sample_corrections": 2,
+  "project_tier0_outside_sample": 18,
+  "summary_restoration_suggestions": {
+    "decision": "Do not rename clear Current Summaries merely to match old wording exactly. Similar meaning and simple style do not require exact phrase matching. Short instructions and statements both remain valid.",
+    "sample_numbers": [
+      11,
+      12,
+      13,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  "accepted_meaning_fixes": [
+    {
+      "number": 3,
+      "fix": "Restore governed use rather than intended use."
+    },
+    {
+      "number": 12,
+      "fix": "The existing Workflow owns required operations, not recording steps alone."
+    }
+  ],
+  "latest_operator_overrides_preserved": true,
+  "no_business_model_change": true
+}

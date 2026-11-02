@@ -1,0 +1,128 @@
+{
+  "comparison_sha256": "b5f518b84308d80c634ef76c58ff3f3cbd1c0ad713e19e1abe6895d46aad9d4a",
+  "prompt_sha256": "7e6af49f90d9326dbef05ea9868d44ac9a5d1a7e2074c0c0e3b0f3aa47b45b9a",
+  "counts": {
+    "total": 11,
+    "pass": 4,
+    "needs_changes": 7,
+    "needs_context": 0
+  },
+  "results": [
+    {
+      "key": "B03",
+      "verdict": "NeedsChanges",
+      "summary_issues": [
+        {
+          "generated_quote": "Keep needed information retrievable and show only a complete, justified set for the task",
+          "source_quote": "keep **all** unexposed preserved information so it can be retrieved.",
+          "problem": "The title narrows recovery to needed information; the Claim covers all unexposed preserved information.",
+          "smallest_fix": "Show what is needed; keep the rest"
+        }
+      ],
+      "body_style_issues": []
+    },
+    {
+      "key": "B08",
+      "verdict": "NeedsChanges",
+      "summary_issues": [
+        {
+          "generated_quote": "Show non-authoritative gateway health, recent Tool and Workflow observations, and safe errors at `/health` while preserving machine readiness",
+          "source_quote": "A health GET reads the existing snapshot **only**.",
+          "problem": "The title lists secondary details while omitting the central read-only and bounded nature of the diagnostic view.",
+          "smallest_fix": "Expose bounded, read-only MCP health and call history"
+        }
+      ],
+      "body_style_issues": []
+    },
+    {
+      "key": "B09",
+      "verdict": "NeedsChanges",
+      "summary_issues": [
+        {
+          "generated_quote": "Review code candidates read-only against complete bound Method-policy obligations and current Evaluation evidence",
+          "source_quote": "It assesses the complete bound applicable Method-policy set",
+          "problem": "The title omits “applicable,” making the stated scope potentially broader than the bound applicable set.",
+          "smallest_fix": "Review code-candidate evidence and bound applicable Method policy without editing"
+        }
+      ],
+      "body_style_issues": []
+    },
+    {
+      "key": "B10",
+      "verdict": "NeedsChanges",
+      "summary_issues": [
+        {
+          "generated_quote": "Review implementation candidates against bound policy and evidence in explicit preliminary or final Integrated context",
+          "source_quote": "review-code-candidate-evidence-and-applicable-method-policy-without-editing",
+          "problem": "“Implementation candidates” is broader than code candidates, and phase detail displaces the code-review purpose.",
+          "smallest_fix": "Review code in shared implementation context"
+        }
+      ],
+      "body_style_issues": []
+    },
+    {
+      "key": "B14",
+      "verdict": "NeedsChanges",
+      "summary_issues": [
+        {
+          "generated_quote": "Check Project-wide foundation and Core support, authority, breadth, Local Tiers, and Content Roles",
+          "source_quote": "The Project-wide foundation and Core set Evaluation",
+          "problem": "The title lists evaluation categories instead of stating the main check.",
+          "smallest_fix": "Check the Project-wide foundation and Core set"
+        }
+      ],
+      "body_style_issues": []
+    },
+    {
+      "key": "B15",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B17",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B23",
+      "verdict": "NeedsChanges",
+      "summary_issues": [
+        {
+          "generated_quote": "All caprmedio outputs delivered to root Implementation Folders form the Framework, with downstream Layers and direct Project Features",
+          "source_quote": "must** comprise **all** outputs",
+          "problem": "“Form the Framework” can imply that these outputs are its complete composition; the Claim says the Framework comprises all those outputs.",
+          "smallest_fix": "Define Framework composition"
+        }
+      ],
+      "body_style_issues": []
+    },
+    {
+      "key": "B02",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B19",
+      "verdict": "NeedsChanges",
+      "summary_issues": [
+        {
+          "generated_quote": "Create and evolve the CAPRMEDIO Framework so any Operator can use AI Agents to create, deliver, run and maintain Projects",
+          "source_quote": "Given enough resources",
+          "problem": "The Summary asserts the capability for Projects without the source’s resource and feasibility qualifications, changing the condition rather than merely omitting a secondary detail.",
+          "smallest_fix": "Create and evolve a working CAPRMEDIO Framework"
+        }
+      ],
+      "body_style_issues": []
+    },
+    {
+      "key": "B37",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    }
+  ],
+  "scope": "Summary meaning and five writing areas; deep body-fidelity review is separate. Titles may omit secondary details, but must not assert a changed condition or central scope. No source/output edits."
+}

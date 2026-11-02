@@ -1,0 +1,21 @@
+{
+  "status": "FIX",
+  "findings": [
+    {
+      "source": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-form.md",
+      "issue": "Admitted literal membership alone does not establish atomic unit or exclude an explicitly admitted placeholder; preserve prose or independently guarantee both."
+    },
+    {
+      "source": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md",
+      "issue": "Relation short-notation admissions are not yet established as this Property admission set; bind to same-Definition Relation using a justified bridge or retain prose."
+    },
+    {
+      "source": "candidate_rule ADMITTED_VALUES",
+      "issue": "Do not invent full-set local replacement. Resolve existing effective MODEL and fail on circular, incomplete, or unknown admissions; omit unnecessary ModelCase, Source, AuthoritativeEpoch labels."
+    }
+  ],
+  "limits": [
+    "Candidate only; no runtime or parser review",
+    "Known empty must remain distinct from unresolved"
+  ]
+}

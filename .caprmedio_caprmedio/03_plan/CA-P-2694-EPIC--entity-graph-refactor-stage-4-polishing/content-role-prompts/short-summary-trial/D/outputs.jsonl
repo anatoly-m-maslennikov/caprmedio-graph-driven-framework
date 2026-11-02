@@ -1,0 +1,2 @@
+{"case":"D1","markdown":"## Summary\n\n`status` key represents Atom.Status in YAML frontmatter\n\n## Claim\n\nAtom.Status is represented by the `status` key in the YAML frontmatter of its Markdown carrier. Do not duplicate that value in Markdown content."}
+{"case":"D2","markdown":"## Summary\n\nMinimal, governed YAML frontmatter for Markdown Atom Carriers\n\n## Claim\n\nKeep frontmatter limited to governed machine-readable fields while preserving parsing, validation, extensibility and readability. No exact field set is given here."}

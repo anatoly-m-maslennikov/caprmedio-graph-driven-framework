@@ -1,27 +1,26 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  depends_on: []
-version: 26
-updated_at: 2026-10-27 20:00:01 +0400
+  active: Projection
+  passive: []
+version: 30
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-1697
   - CA-R-1708
 atom_id: CA-R-1706
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Requirement — Provide lineage-impact Projections
 
-## Scope
+## Claim scope
 
 lineage-impact Projections for changed, replaced, or archived Atom revisions.
 
@@ -36,5 +35,3 @@ the Projection **may** group **and** prioritize work, but it **must not** change
 ## Primary claim
 
 a changed, replaced, **or** archived ancestor produces a derived review surface for **every** affected descendant while historical lineage remains intact.
-
-## Details

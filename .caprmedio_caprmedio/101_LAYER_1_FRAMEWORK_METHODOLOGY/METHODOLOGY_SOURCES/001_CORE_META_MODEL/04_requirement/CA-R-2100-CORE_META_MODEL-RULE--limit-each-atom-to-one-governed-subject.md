@@ -1,25 +1,24 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Relation/Type: GOVERNS'
+  active: Atom.Subjects
+  passive:
+  - CFEL > Relation//GOVERNS
 atom_id: CA-R-2100
-content_role: Requirement
-type: Rule
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-version: 5
-updated_at: 2026-10-27 20:00:07 +0400
-author: Anatoly Maslennikov
+version: 8
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 1
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Limit each Atom to one governed Subject
 
-## Scope
+## Claim scope
 
 The direct GOVERNS Subject Relations recorded in an Atom's Subjects.
 

@@ -1,0 +1,56 @@
+{
+  "scope": "Standalone prompt files and supporting examples only; no source Atom migration, runtime or tool edits.",
+  "protocol": "Agent-based development trial. Each case generated once from source facts under its sampled final prompt, with internal self-check allowed. Independent review followed. Prompt development had earlier rounds; this is not a blind or statistically representative trial.",
+  "sample_count": 15,
+  "sample_paths": {
+    "C": ".caprmedio_tmp/content-role-prompts-20261030/tests-v2/c",
+    "P": ".caprmedio_tmp/content-role-prompts-20261030/tests-v3/p",
+    "R": ".caprmedio_tmp/content-role-prompts-20261030/tests-v2/r",
+    "M": ".caprmedio_tmp/content-role-prompts-20261030/tests/m",
+    "E": ".caprmedio_tmp/content-role-prompts-20261030/tests-v3/e",
+    "D": ".caprmedio_tmp/content-role-prompts-20261030/tests/d",
+    "O": ".caprmedio_tmp/content-role-prompts-20261030/tests-v3/o"
+  },
+  "consulted_role_source_files_unchanged": [
+    "CA-R-1336",
+    "CA-R-1231",
+    "CA-R-1338",
+    "CA-R-1339",
+    "CA-R-1340",
+    "CA-R-1341",
+    "CA-R-1342",
+    "CA-R-1530",
+    "CA-R-2453",
+    "CA-D-470"
+  ],
+  "final_raw_review_counts": {
+    "total": 15,
+    "pass": 14,
+    "needs_changes": 1,
+    "needs_context": 0
+  },
+  "limits": [
+    "Two simple cases per role plus a containing Step case; some resemble in-prompt examples.",
+    "Does not test arbitrary new specifications, every Type/template, missing context, or broad source rewriting.",
+    "O3 review asks for the explicit no-own-call boundary; raw output is kept without a fix."
+  ],
+  "sampled_prompt_sha256": {
+    "C-concern.prompt.md": "aafed25d32dcedf0d6e2845c40a29293d9ef2fa3faef455ace5a1b1b11e5a69a",
+    "D-delivery.prompt.md": "0942aa874c1b3743a3080175008bf162c0aede4f6e950703763e5a58a08f73ed",
+    "E-evaluation.prompt.md": "fb6e40678de3b8bfaf82a066a5935456a16b2dc673e64bcce1d514450170efa9",
+    "M-method.prompt.md": "891ae7b6a94c7f50991a4a7034fdb1c0ef8f2f6dddd728e3c8c6fb94be591f2d",
+    "O-operations.prompt.md": "3a4d5981cd50ead354c5b8bb93c9064115e754998d04e790c17f5ff3f465abc4",
+    "P-plan.prompt.md": "c2148e707b86d2bffe1d3d9ac366a08e3d4d2c742baee63ccfeb83a75d479738",
+    "R-requirement.prompt.md": "574c1224f4a1fe6402214bc20ff49a40de33fcba4c5b94618e5644eb116a5f21"
+  },
+  "current_prompt_sha256": {
+    "C-concern.prompt.md": "6fd9f612d21c4105be4048d2aa47d6bc6dd03cc925f876c11a28ac211e82cac5",
+    "D-delivery.prompt.md": "bdffb82c7074a13412326c369be8a9a9951e5214948a02b5bc4ce4f90e648ac2",
+    "E-evaluation.prompt.md": "80786b4a3765c2f9aadc02db69313928230f358aa127fd345a48d0b1f100fc66",
+    "M-method.prompt.md": "b29f8f69a28a4a881ef73e056ce25eed70098bba808e32f3d8c7c404ad04a80b",
+    "O-operations.prompt.md": "28546c16f1421db4600ad13402cb16164f29606262e2ee80e8baabc7fc242ff2",
+    "P-plan.prompt.md": "f8c599c004b7c1de28c17ede58cb2e06d0cb0189debf67c890475b7e55baa488",
+    "R-requirement.prompt.md": "ab172e50c2ff9c60fe05fdd421e38c0a329b1faa376ad4f38038e9c93dd8338d"
+  },
+  "post_trial_change": "Preserve Operator wording with minimal grammar/structure correction. Default faithful Summary restored, with explicit Form overrides such as R/Declaration. Existing generation trials predate these changes."
+}

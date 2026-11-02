@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-01",
+  "latest_user_decision": "Still Core Meta-model. R defines what updated_at should be; Workflow defines how and the process.",
+  "responsibility": {
+    "Core_Meta_Model_R": "Required values, meaning and invariants",
+    "Workflow": "Process for producing compliant results",
+    "Engine": "Implementation"
+  },
+  "timestamp_declarations": "Keep existing Core data contracts unchanged",
+  "archive_requirement": "Keep the existing Core Workflow-subject R as an outcome requirement, not an Operations procedure",
+  "preserved_drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "sha256_unchanged": "acdedca110359a2109f5ee3a5b8f86dec91e64a6d805dd1c14e0c44755b5af0c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+      "sha256_unchanged": "d4380a25897ced421f7c301a7f72babead36bdfe1767c2fe11fa8357b7c31d9e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--preserve-atom-version-and-updated-at-when-archiving.md",
+      "sha256_unchanged": "76841a8435d918bca0fd7243eeefc0af903880fa9ef6f89c4fcb287546352e02"
+    }
+  ],
+  "new_drafts": 0,
+  "scope_moves": 0,
+  "new_syntax": false,
+  "runtime_changed": false,
+  "remaining_node_prose_claims": 13
+}

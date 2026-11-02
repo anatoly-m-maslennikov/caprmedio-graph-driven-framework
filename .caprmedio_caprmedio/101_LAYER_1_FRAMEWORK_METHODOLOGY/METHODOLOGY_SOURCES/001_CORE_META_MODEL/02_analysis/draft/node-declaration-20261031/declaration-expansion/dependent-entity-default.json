@@ -1,0 +1,10 @@
+{
+  "decision": "Forbid undeclared dependent entities with explicit .[]{0}",
+  "resolve_first": [
+    "local declarations",
+    "inherited declarations"
+  ],
+  "declared_but_incomplete": "not treated as absent",
+  "omitted_cardinality": "still undefined",
+  "current_changed": false
+}

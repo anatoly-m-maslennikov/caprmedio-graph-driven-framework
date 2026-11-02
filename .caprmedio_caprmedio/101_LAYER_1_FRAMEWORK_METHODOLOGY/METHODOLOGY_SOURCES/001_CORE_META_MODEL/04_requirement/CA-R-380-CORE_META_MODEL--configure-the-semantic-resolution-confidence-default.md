@@ -1,34 +1,31 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Confidence.Semantic Resolution Threshold
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-version: 37
-updated_at: 2026-10-27 20:00:09 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Semantic Resolution Threshold
+  passive:
+  - Entity/Aspect/Engineering/Execution Control/Decision Confidence
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Object/Continuant/Actor/Operator
+version: 42
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-M-115
+  - CA-M-443
 atom_id: CA-R-380
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 4
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Configure the semantic-resolution confidence default
 
-## Scope
+## Claim scope
 
 semantic-resolution Confidence Threshold instance defaults.
 
 ## Claim
 
 the semantic-resolution Confidence Threshold **must** have an Operator-configurable instance default.
-
-## Details

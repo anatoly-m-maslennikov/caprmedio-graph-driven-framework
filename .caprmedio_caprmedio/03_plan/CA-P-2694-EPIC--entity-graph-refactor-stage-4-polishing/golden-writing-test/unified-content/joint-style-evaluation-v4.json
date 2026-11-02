@@ -1,0 +1,90 @@
+{
+  "comparison_sha256": "6558378f4e6830715087331d48b07c70957008ae90e5cac9f215a68f3165fff4",
+  "prompt_sha256": "4ac89c939a01eda47f66b02eb335267f280130b26b4f7f0e45a88f87c8bcbc6a",
+  "counts": {
+    "total": 12,
+    "pass": 12,
+    "needs_changes": 0,
+    "needs_context": 0
+  },
+  "results": [
+    {
+      "key": "B08",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B09",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B10",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B14",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B15",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B17",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B23",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B02",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B19",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B37",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B36",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    },
+    {
+      "key": "B16",
+      "verdict": "Pass",
+      "summary_issues": [],
+      "body_style_issues": []
+    }
+  ],
+  "joint_reading_note": "Summaries are titles read with the source-preserving body: omitted bound, resource and other conditions are supplied by their Claims and do not on their own make the whole Atom misleading. B10 identifies code review in the shared implementation Workflow; B14 states an evaluation purpose rather than requiring every check in the title.",
+  "verification": {
+    "all_generated_bodies_match_source": true,
+    "source_and_outputs_unchanged": true
+  },
+  "scope": "Summary and five writing-style areas; deep logical fidelity review is assigned separately."
+}

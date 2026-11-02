@@ -1,0 +1,26 @@
+---
+atom_id: CA-R-2522@2
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+subjects:
+  active: Atom/(.Role := Requirement)/(.Form := Relation Definition).Content.notation_for_subject
+version: 2
+relations: {}
+tier: 3
+updated_at: 2026-11-02 00:18:22 +0400
+role: Requirement
+form: Declaration
+---
+## Summary
+
+Declare Atom/(.Role := Requirement)/(.Form := Relation Definition).Content.notation_for_subject
+
+## Claim
+
+When a short subject notation is admitted for the Relation, this Property is required.
+
+```CFEL
+Atom/(.Role: Requirement)/(.Form: Relation Definition).Content.notation_for_subject{:0..1}: [string]{:1};
+Atom/(.Role: Requirement)/(.Form: Relation Definition).Content.notation_for_subject.*[]{:0}
+```

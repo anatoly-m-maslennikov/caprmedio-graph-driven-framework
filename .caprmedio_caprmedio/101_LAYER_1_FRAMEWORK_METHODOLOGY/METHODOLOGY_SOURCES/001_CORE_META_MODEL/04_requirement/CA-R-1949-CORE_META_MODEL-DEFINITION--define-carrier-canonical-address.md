@@ -1,25 +1,24 @@
 ---
 atom_id: CA-R-1949
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier.Canonical Address
+  active: Carrier.Canonical Address
 relations:
   child_of:
   - CA-R-1174
-version: 8
-updated_at: 2026-10-27 20:00:06 +0400
+version: 11
+updated_at: 2026-11-02 00:18:22 +0400
 tier: 3
-type: Definition
+role: Requirement
+form: Entity Definition
 ---
-# Summary
+## Summary
 
 Define Carrier.Canonical Address
 
-## Scope
+## Claim scope
 
 Canonical locators of Carriers.
 
@@ -31,4 +30,4 @@ A Carrier's Canonical Address **means** its designated locator under the applica
 
 CA-D-267 refers to registered canonical Carrier addresses; CA-D-301 governs address segments. The Operator distinguishes Carrier ID from filename/path. CA-D-267's non-Atom property-derivation policy is not made universal here.
 
-Active CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.
+Active CA-R-2515 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.

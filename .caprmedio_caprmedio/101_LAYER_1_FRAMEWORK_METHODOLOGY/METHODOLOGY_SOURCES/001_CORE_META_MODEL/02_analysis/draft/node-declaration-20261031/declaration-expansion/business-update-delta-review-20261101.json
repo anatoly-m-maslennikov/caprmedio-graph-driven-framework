@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checked": [
+    "One update Event Record per accepted business update",
+    "Delta-only constraint applies to change delta; each changed Property includes complete path and old/new value or absence",
+    "Promotion is an update; changed Version and Status are included",
+    "Carrier-only moves create no update event and Carrier changes are excluded from mixed-update deltas"
+  ],
+  "limits": [
+    "Derived Updated At, Event schema and target encoding remain open",
+    "No runtime review"
+  ]
+}

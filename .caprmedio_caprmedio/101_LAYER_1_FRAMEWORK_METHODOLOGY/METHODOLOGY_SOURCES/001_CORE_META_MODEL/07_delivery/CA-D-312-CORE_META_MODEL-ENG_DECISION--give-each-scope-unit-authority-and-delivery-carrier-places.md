@@ -1,31 +1,28 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-version: 24
-updated_at: 2026-10-27 19:59:23 +0400
+  active: Carrier
+  passive:
+  - Scope Unit
+  - Atom/(.Role := Delivery)
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-312
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Give Each Scope Unit Authority and Delivery Carrier Places
 
-## Scope
+## Claim scope
 
 Scope Unit authority and Delivery Carrier places.
 
 ## Claim
 
 **every** Scope Unit **must** have one authority Carrier place **and** one Delivery Carrier place **without** treating its Delivery place as another Scope Unit.
-
-## Details

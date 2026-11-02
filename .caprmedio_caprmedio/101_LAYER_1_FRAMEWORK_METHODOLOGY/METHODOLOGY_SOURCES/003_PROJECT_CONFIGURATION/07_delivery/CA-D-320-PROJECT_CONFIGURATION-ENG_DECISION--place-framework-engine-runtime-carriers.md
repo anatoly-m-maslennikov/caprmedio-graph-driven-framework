@@ -1,24 +1,23 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on: []
-version: 20
-updated_at: 2026-10-27 19:59:23 +0400
+  active: Carrier
+  passive: []
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-320
-content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Place Framework Engine Runtime Carriers
 
-## Scope
+## Claim scope
 
 Framework Engine executable installation and mutable execution-state Carriers in a CAPRMEDIO Project.
 

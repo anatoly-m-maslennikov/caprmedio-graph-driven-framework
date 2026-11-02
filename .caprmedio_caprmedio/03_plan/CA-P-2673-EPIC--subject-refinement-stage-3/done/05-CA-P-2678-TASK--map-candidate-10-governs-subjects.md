@@ -9,8 +9,8 @@ author: Anatoly Maslennikov
 status: Done
 subjects:
   governs: Subject
-version: 5
-updated_at: 2026-10-27 19:51:10 +0400
+version: 6
+updated_at: 2026-10-29 21:51:04 +0400
 relations:
   IS_CONTAINED_BY:
   - CA-P-2673
@@ -41,9 +41,9 @@ Every selected Current Governs Subject has an evidenced proposed target, unchang
 
 ## References
 
-- [A1218 — Candidate #10](../../../02_analysis/CA-A-1218-SPECIFICATION_PROPOSAL--subject-model-candidate-10.md).
-- [A1219 — Mixed Subject targets](../../../02_analysis/CA-A-1219-SPECIFICATION_PROPOSAL--clarify-mixed-subject-targets.md).
-- [A1220 — Project as a whole entity](../../../02_analysis/CA-A-1220-SPECIFICATION_PROPOSAL--define-project-as-a-whole-entity.md).
+- [A1218 — Candidate #10](../../../02_analysis/done/CA-A-1218-SPECIFICATION_PROPOSAL--subject-model-candidate-10.md).
+- [A1219 — Mixed Subject targets](../../../02_analysis/done/CA-A-1219-SPECIFICATION_PROPOSAL--clarify-mixed-subject-targets.md).
+- [A1220 — Project as a whole entity](../../../02_analysis/done/CA-A-1220-SPECIFICATION_PROPOSAL--define-project-as-a-whole-entity.md).
 - [P2675 — Existing thin Draft/change inventory](02-CA-P-2675-TASK--draft-main-subject-definitions.md).
 
 ## Progress
@@ -53,12 +53,12 @@ Fresh inventory: 2,258 Current RMEDO Atoms. The first 803 Engineering, UX and Do
 
 ### Retained temporal classifications
 
-Decision: [A1221](../../../02_analysis/CA-A-1221-SPECIFICATION_PROPOSAL--retain-continuant-and-occurrent-subjects.md). R1967 and R1972 are Subject-mapping Drafts; their meanings are unchanged.
+Decision: [A1221](../../../02_analysis/done/CA-A-1221-SPECIFICATION_PROPOSAL--retain-continuant-and-occurrent-subjects.md). R1967 and R1972 are Subject-mapping Drafts; their meanings are unchanged.
 
 ### Formal references and generic Type rules
 
-- [CA-A-1222](../../../02_analysis/CA-A-1222-SPECIFICATION_PROPOSAL--update-formal-subject-references.md).
-- [CA-A-1223](../../../02_analysis/CA-A-1223-SPECIFICATION_PROPOSAL--govern-nodes-with-generic-type-rules.md).
+- [CA-A-1222](../../../02_analysis/done/CA-A-1222-SPECIFICATION_PROPOSAL--update-formal-subject-references.md).
+- [CA-A-1223](../../../02_analysis/done/CA-A-1223-SPECIFICATION_PROPOSAL--govern-nodes-with-generic-type-rules.md).
 
 ## Result
 

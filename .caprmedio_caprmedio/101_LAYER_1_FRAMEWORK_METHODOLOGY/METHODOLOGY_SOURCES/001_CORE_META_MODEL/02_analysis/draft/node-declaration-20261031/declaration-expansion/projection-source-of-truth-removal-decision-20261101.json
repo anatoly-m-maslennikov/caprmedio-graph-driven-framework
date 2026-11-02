@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-01",
+  "decision": "Remove Projection.Source Of Truth; use the existing Sources Property",
+  "withdrawn_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/declaration-expansion/withdrawn-projection-source-of-truth-20261101.json",
+  "updated_drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "before_sha256": "d820f67cf931bbb69b6d1756e5c0e283e3167fe5f5ea2e24e268e43b5d830f47",
+      "after_sha256": "cc51da1424dbc37d52ccf8dbedfbc6d9a06c1e49ba649a9a1dce1d4e6bf2d91a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "before_sha256": "c96a1a9d609871ef3f996089328d16cd5cf175572c18cc17bf318de2e5ebede5",
+      "after_sha256": "c2045cd21751820e44908deb97b4613fae4bdcc22541c983e7ea35562e041f39"
+    }
+  ],
+  "projection_id_basis": [
+    "Form",
+    "Named Selection"
+  ],
+  "sources_not_added_to_id_basis": "Actual versioned Sources may change on rebuild; keep existing stable-ID invariant",
+  "named_selection_path": "Existing path retained pending the open .source parent question",
+  "current_sources_changed": false
+}

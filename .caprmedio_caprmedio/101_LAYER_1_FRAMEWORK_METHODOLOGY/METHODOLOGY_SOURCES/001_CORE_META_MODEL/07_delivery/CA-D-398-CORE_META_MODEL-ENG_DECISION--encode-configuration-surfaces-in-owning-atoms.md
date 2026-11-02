@@ -1,36 +1,37 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Frontmatter
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-version: 20
-updated_at: 2026-10-27 19:59:24 +0400
+  active: Atom
+  passive:
+  - Atom.Content
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+  - Project.Settings
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   depends_on:
   - CA-D-311
   - CA-R-1750
 atom_id: CA-D-398
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Encode configuration surfaces **in** owning Atoms
 
-## Scope
+## Claim scope
 
 configuration surfaces carried by their owning Atoms.
 
 ## Claim
 
-an owning Atom **may** carry an optional machine-readable representation of its own Claim **only** **if** it faithfully preserves that Claim **and** is **not** an independent source. legacy `project_scope_unit_graph` **or** `project_graph_state` YAML maps **may** be read as migration evidence; they **must not** own current Scope Unit declarations, paths, Name/order values, Project identity, Atom prefix, **or** selected Authority Modes. Project initialization inputs belong **to** Project Settings; instance defaults belong **to** Framework Instance Settings; unit declarations **and** explicit unit overrides belong **to** Project Structure. this format does **not** require creation **or** consumption of a structural Projection.
+An owning Atom may carry its explicitly defined machine-readable Properties in YAML frontmatter. Its RMED Claim remains in Markdown, with an optional R-only nested Formal claim; frontmatter is not a second Claim or independent source. legacy `project_scope_unit_graph` **or** `project_graph_state` YAML maps **may** be read as migration evidence; they **must not** own current Scope Unit declarations, paths, Scope Unit Name/order values, Project identity, Project Prefix, **or** selected Authority Modes. Project initialization inputs belong **to** Project Settings; instance defaults belong **to** Framework Instance Settings; unit declarations **and** explicit unit overrides belong **to** Project Structure. this format does **not** require creation **or** consumption of a structural Projection.
 
-## Details
+### Current source pin
+
+Proposed N+1 successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-398-CORE_META_MODEL-ENG_DECISION--encode-configuration-surfaces-in-owning-atoms.md`, CA-D-398@24, SHA-256 `256cbe9a58a3d46138774de8baef3061b7a0520d292867474cc2a13f56c80bc9`. Current bytes remain unchanged; this Draft does not restore legacy frontmatter metadata as authority.

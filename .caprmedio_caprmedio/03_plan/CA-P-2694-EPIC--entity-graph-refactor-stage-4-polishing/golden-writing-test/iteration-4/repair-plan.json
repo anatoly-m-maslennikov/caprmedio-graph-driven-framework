@@ -1,0 +1,12 @@
+{
+  "base_run": 3,
+  "targeted_revisions": 8,
+  "accepted_titles_frozen": 30,
+  "original_summaries_hidden": true,
+  "input_change": "Generated candidate and independent issue feedback added, without suggested answer",
+  "full_rerun4_counts": {
+    "total": 38,
+    "pass": 23,
+    "needs_changes": 15
+  }
+}

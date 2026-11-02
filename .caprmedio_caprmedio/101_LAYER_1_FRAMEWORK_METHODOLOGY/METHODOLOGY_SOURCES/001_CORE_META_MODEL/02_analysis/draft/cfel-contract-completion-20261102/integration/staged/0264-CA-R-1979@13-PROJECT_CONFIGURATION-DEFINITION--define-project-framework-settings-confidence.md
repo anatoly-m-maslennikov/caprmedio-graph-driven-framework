@@ -1,0 +1,37 @@
+---
+atom_id: CA-R-1979@13
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Archived
+subjects:
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence
+relations:
+  child_of:
+  - CA-R-1176
+version: 13
+updated_at: 2026-11-02 00:18:22 +0400
+tier: 3
+role: Requirement
+form: Entity Definition
+---
+## Summary
+
+Define Project.Framework Settings.Confidence
+
+## Claim scope
+
+the Confidence grouping in the Project's Framework Settings.
+
+## Claim
+
+Confidence **means** the group of Framework Settings defaults for the declared Confidence Thresholds.
+
+### Formal claim
+
+```text
+Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence{0}
+```
+
+## Details
+
+Evidence: CA-R-1652 defines the necessary-information threshold default; CA-R-380 defines the semantic-resolution threshold default. These define the child settings, not the parent grouping. Candidate #6 decision 8 retains Settings as the default source, and decision 18 distinguishes Project settings from the framework's name. This grouping adds no threshold, override layer or mandatory value. Concrete CAPRMEDIO setting definitions belong in Project Configuration.

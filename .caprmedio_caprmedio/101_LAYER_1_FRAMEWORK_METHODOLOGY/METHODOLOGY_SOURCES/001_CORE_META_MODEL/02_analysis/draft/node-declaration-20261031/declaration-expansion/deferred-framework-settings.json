@@ -1,0 +1,7 @@
+{
+  "status": "deferred by Operator",
+  "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-framework-settings.md",
+  "sha256": "d9abff33a84d7ffb34cda16cc9c22263d26a0c530f1ab8fda9199e707b18e656",
+  "draft_content": "---\natom_id: CA-R-draft\ncontent_role: Requirement\ntype: Declaration\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Draft\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: 'Project.Framework Settings'\nversion: 1\nupdated_at: \"2026-10-31 01:40:13 +0400\"\nrelations: {}\ntier: 3\n---\n\n## Summary\n\nDeclare Project Framework Settings\n\n## Claim\n\nFramework Settings contains explicit Operator-selected behavior and configuration choices.\n\n```GFEL\nProject.Framework Settings: []{0}\n```\n",
+  "current_sources_unchanged": true
+}

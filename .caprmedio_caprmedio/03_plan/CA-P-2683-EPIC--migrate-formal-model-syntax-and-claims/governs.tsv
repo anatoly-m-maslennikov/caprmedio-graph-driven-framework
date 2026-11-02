@@ -1,0 +1,1133 @@
+Atom ID	old Subject	new Subject	status
+CA-R-001	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-R-004	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-007	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-014	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-024	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement	Applied
+CA-R-025	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-R-028	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-029	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Authority Modes	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes	Applied
+CA-R-030	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Relations	Applied
+CA-R-033	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-035	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-037	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Relations	Applied
+CA-R-038	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Relations	Applied
+CA-R-040	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-047	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-053	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1056	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-1057	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator	Entity/Object/Continuant/Actor/Operator	Applied
+CA-R-1058	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-1178	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering	Entity/Aspect/Engineering	Applied
+CA-R-1179	Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation	Entity/Aspect/Documentation Aspect	Applied
+CA-R-1180	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-1181	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release	Entity/Object/Continuant/History/Release	Applied
+CA-R-1182	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-1183	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1407	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering	Entity/Aspect/Engineering	Applied
+CA-R-1420	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator	Entity/Object/Continuant/Actor/Operator	Applied
+CA-R-1421	Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration	Entity/Object/Continuant/Governing Objects/Governing Configuration	Applied
+CA-R-1423	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-1424	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-1426	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability	Entity/Aspect/Engineering/Observability	Applied
+CA-R-1486	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1490	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1799	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-2156	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type	Entity/Object/Continuant/Actor	Applied
+CA-R-2157	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator	Entity/Object/Continuant/Actor/Operator	Applied
+CA-R-2158	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent	Entity/Object/Continuant/Actor/AI Agent	Applied
+CA-R-632	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-633	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-634	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-635	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern	Applied
+CA-R-642	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-R-644	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-R-686	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-705	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-706	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-R-707	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-709	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-712	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-775	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-815	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-818	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-819	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-826	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-827	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-831	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-832	Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration	Entity/Object/Continuant/Governing Objects/Governing Configuration	Applied
+CA-R-844	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Project Boundary Position	Entity/Object/Continuant/Structural Unit/Scope Unit.Project Boundary Position	Applied
+CA-R-846	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent.Permissions	Entity/Object/Continuant/Actor/AI Agent.Permissions	Applied
+CA-R-881	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-975	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Project Boundary Position	Entity/Object/Continuant/Structural Unit/Scope Unit.Project Boundary Position	Applied
+CA-M-001	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-M-002	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-M-003	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-M-005	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-M-006	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-M-091	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-M-093	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-M-094	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-M-095	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization	Entity/Aspect/Engineering/Execution Control/Effect Authorization	Applied
+CA-M-096	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-M-097	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization	Entity/Aspect/Engineering/Execution Control/Effect Authorization	Applied
+CA-M-098	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization	Entity/Aspect/Engineering/Execution Control/Effect Authorization	Applied
+CA-M-099	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization	Entity/Aspect/Engineering/Execution Control/Effect Authorization	Applied
+CA-M-100	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization	Entity/Aspect/Engineering/Execution Control/Effect Authorization	Applied
+CA-M-105	Subject	Entity	Applied
+CA-M-138	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring	Entity/Aspect/Engineering/Authoring	Applied
+CA-M-139	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator	Entity/Object/Continuant/Actor/Operator	Applied
+CA-M-262	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation	Entity/Object/Continuant/Package/Project Implementation	Applied
+CA-M-263	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator	Entity/Object/Continuant/Actor/Operator	Applied
+CA-M-266	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization	Entity/Aspect/Engineering/Execution Control/Effect Authorization	Applied
+CA-M-270	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design	Entity/Aspect/Engineering/Verification/Test Design	Applied
+CA-M-296	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-E-001	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification	Entity/Aspect/Engineering/Verification	Applied
+CA-E-002	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification	Entity/Aspect/Engineering/Verification	Applied
+CA-E-206	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification	Entity/Aspect/Engineering/Verification	Applied
+CA-E-208	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-E-209	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator	Entity/Object/Continuant/Actor/Operator	Applied
+CA-E-210	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Principle Universe	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-E-228	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-E-229	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-E-230	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent.Permissions	Entity/Object/Continuant/Actor/AI Agent.Permissions	Applied
+CA-E-434	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement	Applied
+CA-E-435	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis	Entity/Aspect/Engineering/Verification/Static Analysis	Applied
+CA-E-436	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-E-437	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-E-438	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation	Entity/Object/Continuant/Package/Project Implementation	Applied
+CA-E-442	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design	Entity/Aspect/Engineering/Verification/Test Design	Applied
+CA-E-656	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-R-1172	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-1173	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology	Entity/Object/Continuant/Projection/Type: Applicable Methodology	Applied
+CA-R-1177	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-1425	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-1014	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit	Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit	Applied
+CA-R-1016	Subject/CAPRMEDIO/Graph/Relation/Type: rationale_for	Entity/Graph Syntax > Relation//rationale_for	Applied
+CA-R-1017	Subject/CAPRMEDIO/Graph/Relation/Type: method_for	Entity/Graph Syntax > Relation//method_for	Applied
+CA-R-1018	Subject/CAPRMEDIO/Graph/Relation/Type: evaluation_for	Entity/Graph Syntax > Relation//evaluation_for	Applied
+CA-R-1019	Subject/CAPRMEDIO/Graph/Relation/Type: delivery_for	Entity/Graph Syntax > Relation//delivery_for	Applied
+CA-R-1020	Subject/CAPRMEDIO/Graph/Relation/Type: implementation_of	Entity/Graph Syntax > Relation//implementation_of	Applied
+CA-R-1021	Subject/CAPRMEDIO/Graph/Relation/Type: evidence_for	Entity/Graph Syntax > Relation//evidence_for	Applied
+CA-R-1022	Subject/CAPRMEDIO/Graph/Relation/Type: concern_about	Entity/Graph Syntax > Relation//concern_about	Applied
+CA-R-1023	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1024	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1025	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1026	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation//depends_on	Applied
+CA-R-1027	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1029	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1030	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1032	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1033	Subject	Entity	Applied
+CA-R-1034	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1035	Subject	Entity	Applied
+CA-R-1036	Subject	Entity	Applied
+CA-R-1037	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1038	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1039	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1040	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1044	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence	Entity/Aspect/Engineering/Execution Control/Decision Confidence	Applied
+CA-R-1045	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence	Entity/Aspect/Engineering/Execution Control/Decision Confidence	Applied
+CA-R-1051	Subject/CAPRMEDIO/Graph/Node/Project Model/History	Entity/Object/Continuant/History	Applied
+CA-R-1052	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings	Applied
+CA-R-1078	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author	Entity/Object/Continuant/Governing Objects/Atom.Author	Applied
+CA-R-1080	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author	Entity/Object/Continuant/Governing Objects/Atom.Author	Applied
+CA-R-117	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-118	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1193	Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property	Entity/Object/Continuant/Term//Property	Applied
+CA-R-1194	Subject	Entity	Applied
+CA-R-1198	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects	Entity/Object/Continuant/Governing Objects/Atom.Subjects	Applied
+CA-R-1199	Subject/CAPRMEDIO/Graph/Relation/Type: GOVERNS	Entity/Graph Syntax > Relation//GOVERNS	Applied
+CA-R-1200	Subject/CAPRMEDIO/Graph/Relation/Type: DEPENDS_ON	Entity/Graph Syntax > Relation//DEPENDS_ON	Applied
+CA-R-1202	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects	Entity/Object/Continuant/Governing Objects/Atom.Subjects	Applied
+CA-R-1203	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-R-1206	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization	Entity/Aspect/Engineering/Execution Control/Effect Authorization	Applied
+CA-R-1207	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION	Entity/Object/Continuant/Structural Unit/Scope Unit//PROJECT_CONFIGURATION	Applied
+CA-R-121	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1217	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1218	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION	Entity/Object/Continuant/Structural Unit/Scope Unit//PROJECT_CONFIGURATION	Applied
+CA-R-1219	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1220	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1231	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern/Type	Applied
+CA-R-1232	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type	Applied
+CA-R-1243	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1244	Subject/CAPRMEDIO/Graph/Relation/Type: NARROWER_THAN	Entity/Graph Syntax > Relation//NARROWER_THAN	Applied
+CA-R-1245	Subject	Entity	Applied
+CA-R-1246	Subject/CAPRMEDIO/Graph/Relation/Type	Entity/Graph Syntax > Relation	Applied
+CA-R-1247	Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Dependent Entity	Entity/Object/Continuant/Term//Dependent Entity	Applied
+CA-R-1248	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1250	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor	Entity/Object/Continuant/Actor	Applied
+CA-R-1251	Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property	Entity/Object/Continuant/Term//Property	Applied
+CA-R-1256	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1259	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1260	Subject/CAPRMEDIO/Graph/Relation/Type: IS_BORNE_BY	Entity/Graph Syntax > Relation//IS_BORNE_BY	Applied
+CA-R-1261	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1262	Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact	Entity/Object/Continuant/Term//Artifact	Applied
+CA-R-1264	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1267	Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Dependent Entity	Entity/Object/Continuant/Term//Dependent Entity	Applied
+CA-R-1269	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom.Content.Claim	Applied
+CA-R-1270	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-R-1271	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-R-1273	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary	Entity/Object/Continuant/Governing Objects/Atom.Content.Summary	Applied
+CA-R-1274	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary	Entity/Object/Continuant/Governing Objects/Atom.Content.Summary	Applied
+CA-R-1275	Subject	Entity	Applied
+CA-R-1276	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects	Entity/Object/Continuant/Governing Objects/Atom.Subjects	Applied
+CA-R-1278	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects	Entity/Object/Continuant/Governing Objects/Atom.Subjects	Applied
+CA-R-1279	Subject/CAPRMEDIO/Graph/Relation/Type: GOVERNS	Entity/Graph Syntax > Relation//GOVERNS	Applied
+CA-R-1280	Subject/CAPRMEDIO/Graph/Relation/Type: DEPENDS_ON	Entity/Graph Syntax > Relation//DEPENDS_ON	Applied
+CA-R-1281	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Atom Subjects Graph	Entity/Object/Continuant/Projection/Type: Atom Subjects Graph	Applied
+CA-R-1283	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-R-1284	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1285	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1286	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1292	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1293	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit	Applied
+CA-R-1294	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit	Applied
+CA-R-1297	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name	Entity/Object/Continuant/Structural Unit/Scope Unit.Name	Applied
+CA-R-1308	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Status	Applied
+CA-R-1309	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement.Status	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement.Status	Applied
+CA-R-1312	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Status	Applied
+CA-R-1313	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Status	Applied
+CA-R-1318	Subject/CAPRMEDIO/Graph/Node/Project Model/Term	Entity/Object/Continuant/Term	Applied
+CA-R-1319	Subject/CAPRMEDIO/Graph/Node/Project Model/Term	Entity/Object/Continuant/Term	Applied
+CA-R-1320	Subject/CAPRMEDIO/Graph/Node/Project Model/Term	Entity/Object/Continuant/Term	Applied
+CA-R-1321	Subject	Entity	Applied
+CA-R-1324	Subject/CAPRMEDIO/Graph/Node/Project Model/Term.Name	Entity/Object/Continuant/Term.Name	Applied
+CA-R-1325	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog	Entity/Object/Continuant/Projection/Type: Catalog	Applied
+CA-R-1335	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Terms Graph	Entity/Object/Continuant/Projection/Type: Terms Graph	Applied
+CA-R-1336	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern	Applied
+CA-R-1337	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis	Applied
+CA-R-1338	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-R-1339	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement	Applied
+CA-R-1340	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method	Applied
+CA-R-1341	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation	Applied
+CA-R-1342	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery	Applied
+CA-R-1345	Subject/CAPRMEDIO/Graph/Relation/Type: NARROWER_THAN	Entity/Graph Syntax > Relation//NARROWER_THAN	Applied
+CA-R-1346	Subject/CAPRMEDIO/Graph/Relation/Type: IS_ALLOWED_VALUE_OF	Entity/Graph Syntax > Relation//IS_ALLOWED_VALUE_OF	Applied
+CA-R-1347	Subject/CAPRMEDIO/Graph/Node/Project Model/Term	Entity/Object/Continuant/Term	Applied
+CA-R-1348	Subject/CAPRMEDIO/Graph/Node/Project Model/Term.Type	Entity/Object/Continuant/Term//Type	Applied
+CA-R-1349	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1350	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1351	Subject/CAPRMEDIO/Graph/Relation/Type: IS_BORNE_BY	Entity/Graph Syntax > Relation//IS_BORNE_BY	Applied
+CA-R-1352	Subject/CAPRMEDIO/Graph/Node/Project Model/Term.Type	Entity/Object/Continuant/Term//Type	Applied
+CA-R-1358	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-R-1359	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-R-1360	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation	Entity/Aspect/Engineering/Data Handling/Data Transformation	Applied
+CA-R-1361	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Canonical Scope Signature	Entity/Object/Continuant/Projection/Type: Canonical Scope Signature	Applied
+CA-R-1363	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Governed Subject	Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs	Applied
+CA-R-1368	Subject/CAPRMEDIO/Graph/Relation/Type: CONTAINS	Entity/Graph Syntax > Relation//CONTAINS	Applied
+CA-R-1375	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Expansion Boundary	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1382	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label	Entity/Object/Continuant/Structural Unit/Scope Unit.Label	Applied
+CA-R-1397	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method.Status	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method.Status	Applied
+CA-R-1398	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation.Status	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation.Status	Applied
+CA-R-1399	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery.Status	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery.Status	Applied
+CA-R-1401	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings	Applied
+CA-R-1402	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-R-1404	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-R-1405	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1406	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1408	Subject	Entity	Applied
+CA-R-1409	Subject	Entity	Applied
+CA-R-1410	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1412	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status	Entity/Object/Continuant/Governing Objects/Atom.Status	Applied
+CA-R-1415	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number	Entity/Object/Continuant/Governing Objects/Atom.Version Number	Applied
+CA-R-1416	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At	Entity/Object/Continuant/Governing Objects/Atom.Updated At	Applied
+CA-R-1417	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-R-1418	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary	Entity/Object/Continuant/Governing Objects/Atom.Content.Summary	Applied
+CA-R-1419	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status: Archived	Entity/Object/Continuant/Governing Objects/Atom.Status: Archived	Applied
+CA-R-1422	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator	Entity/Object/Continuant/Actor/Operator	Applied
+CA-R-1427	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence	Entity/Aspect/Engineering/Execution Control/Decision Confidence	Applied
+CA-R-1428	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence	Entity/Aspect/Engineering/Execution Control/Decision Confidence	Applied
+CA-R-1429	Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration	Entity/Object/Continuant/Governing Objects/Governing Configuration	Applied
+CA-R-1430	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Authority Modes	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes	Applied
+CA-R-1432	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1435	Subject/CAPRMEDIO/Graph/Relation/Type: NARROWER_THAN	Entity/Graph Syntax > Relation//NARROWER_THAN	Applied
+CA-R-1436	Subject/CAPRMEDIO/Graph/Relation/Type: IS_ALLOWED_VALUE_OF	Entity/Graph Syntax > Relation//IS_ALLOWED_VALUE_OF	Applied
+CA-R-1437	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1438	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph	Entity/Object/Continuant/Projection/Type: Entities Graph	Applied
+CA-R-1439	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode.Effects	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction	Applied
+CA-R-1440	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction	Applied
+CA-R-1441	Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration	Entity/Object/Continuant/Governing Objects/Governing Configuration	Applied
+CA-R-1443	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-R-1447	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection	Entity/Object/Continuant/Selection	Applied
+CA-R-1448	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1449	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1452	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action	Applied
+CA-R-1454	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Terms Graph	Entity/Object/Continuant/Projection/Type: Terms Graph	Applied
+CA-R-1455	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog	Entity/Object/Continuant/Projection/Type: Catalog	Applied
+CA-R-1456	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph	Entity/Object/Continuant/Projection/Type: Entities Graph	Applied
+CA-R-1459	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Extended Entities Graph	Entity/Object/Continuant/Projection/Type: Extended Entities Graph	Applied
+CA-R-1460	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1461	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Reconciled Projection	Entity/Object/Continuant/Projection/Type: Reconciled Projection	Applied
+CA-R-1463	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1464	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary	Entity/Object/Continuant/Governing Objects/Atom.Content.Summary	Applied
+CA-R-1465	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary	Entity/Object/Continuant/Governing Objects/Atom.Content.Summary	Applied
+CA-R-1466	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure	Entity/Aspect/Engineering/Architecture/Component Structure	Applied
+CA-R-1467	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Artifact Change Log	Entity/Object/Continuant/Projection/Type: Artifact Change Log	Applied
+CA-R-1468	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Process Log	Entity/Object/Continuant/Projection/Type: Process Log	Applied
+CA-R-1470	Subject/CAPRMEDIO/Graph/Rule	Entity	Applied
+CA-R-1471	Subject	Entity	Applied
+CA-R-1472	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1483	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-R-1484	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1485	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-R-1487	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL	Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL	Applied
+CA-R-1488	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Implementation Retry Limit	Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit	Applied
+CA-R-1489	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit	Applied
+CA-R-1491	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal	Entity/Object/Continuant/History/Journal	Applied
+CA-R-1493	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1494	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1495	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection.Updated At	Entity/Object/Continuant/Projection.Updated At	Applied
+CA-R-1497	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1498	Subject/CAPRMEDIO/Graph/Rule//Recursive Containment	Entity	Applied
+CA-R-1499	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1500	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1501	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1502	Subject/CAPRMEDIO/Graph/Node/Project Model/Continuant	Entity/Object/Continuant	Applied
+CA-R-1503	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation	Applied
+CA-R-1504	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage	Entity/Aspect/Engineering/Verification/Coverage	Applied
+CA-R-1505	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation	Applied
+CA-R-1506	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation/Type	Applied
+CA-R-1507	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1508	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-R-1509	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Atom/Content Role: Operations/Type: Step	Applied
+CA-R-151	Subject	Entity	Applied
+CA-R-1510	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Entity/Object/Occurrent/Execution/Workflow Run	Applied
+CA-R-1511	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run	Entity/Object/Occurrent/Execution/Step Run	Applied
+CA-R-1519	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-R-1520	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Entity/Object/Occurrent/Execution/Workflow Run	Applied
+CA-R-1521	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-R-1525	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Entity/Object/Occurrent/Execution/Workflow Run	Applied
+CA-R-1526	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action.Execution Kind	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind	Applied
+CA-R-1527	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context	Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context	Applied
+CA-R-1528	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution	Entity/Object/Occurrent/Execution	Applied
+CA-R-1530	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations	Applied
+CA-R-1531	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-R-1534	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-R-1539	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status	Applied
+CA-R-154	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1541	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Current Plan Scope	Entity/Object/Continuant/Selection//Current Plan Scope	Applied
+CA-R-1542	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-R-1545	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status: Canceled	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Canceled	Applied
+CA-R-1548	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection	Entity/Object/Continuant/Selection	Applied
+CA-R-1549	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-R-1550	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-R-1551	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor	Entity/Object/Continuant/Actor	Applied
+CA-R-1552	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent	Entity/Object/Continuant/Actor/AI Agent	Applied
+CA-R-1554	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent	Entity/Object/Continuant/Actor/AI Agent	Applied
+CA-R-1555	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent	Entity/Object/Continuant/Actor/AI Agent	Applied
+CA-R-1556	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent	Entity/Object/Continuant/Actor/AI Agent	Applied
+CA-R-1557	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent	Entity/Object/Continuant/Actor/AI Agent	Applied
+CA-R-1558	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent	Entity/Object/Continuant/Actor/AI Agent	Applied
+CA-R-1559	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent	Entity/Object/Continuant/Actor/AI Agent	Applied
+CA-R-1561	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent	Entity/Object/Continuant/Actor/AI Agent	Applied
+CA-R-1562	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action	Applied
+CA-R-1563	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-R-1565	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type	Applied
+CA-R-1567	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1568	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1569	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step	Applied
+CA-R-1570	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-R-1574	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan	Applied
+CA-R-1575	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-R-1576	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label	Applied
+CA-R-1577	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label	Applied
+CA-R-1578	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1580	Subject/CAPRMEDIO/Graph/Relation/Type: BLOCKS	Entity/Graph Syntax > Relation//BLOCKS	Applied
+CA-R-1581	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Definition of Done	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done	Applied
+CA-R-1583	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status	Applied
+CA-R-1584	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Assignee	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee	Applied
+CA-R-1585	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Assignee	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee	Applied
+CA-R-1586	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Details	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Details	Applied
+CA-R-1587	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Autonomous Confidence Threshold	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Autonomous Confidence Threshold	Applied
+CA-R-1588	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Target Scope Unit	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Target Scope Unit	Applied
+CA-R-1589	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-R-1590	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-R-1591	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Autonomous Confidence Threshold	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Autonomous Confidence Threshold	Applied
+CA-R-1592	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-R-1593	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1594	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Label	Entity/Object/Continuant/Governing Objects/Atom.Label	Applied
+CA-R-1595	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit	Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit	Applied
+CA-R-1596	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit	Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit	Applied
+CA-R-1597	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects	Entity/Object/Continuant/Governing Objects/Atom.Subjects	Applied
+CA-R-1598	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1599	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Definition of Done	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done	Applied
+CA-R-1608	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern.Status	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Status	Applied
+CA-R-1609	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1610	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status	Entity/Object/Continuant/Governing Objects/Atom.Status	Applied
+CA-R-1611	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability	Entity/Aspect/Engineering/Traceability	Applied
+CA-R-1624	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Details	Entity/Object/Continuant/Governing Objects/Atom.Content.Details	Applied
+CA-R-1627	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling	Entity/Aspect/Engineering/Data Handling	Applied
+CA-R-1628	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode	Applied
+CA-R-1629	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern.Priority	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Priority	Applied
+CA-R-1630	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1631	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-R-1632	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1633	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1634	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type	Entity/Object/Continuant/Projection/Type	Applied
+CA-R-1638	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Implementation Overview	Entity/Object/Continuant/Projection/Type: Implementation Overview	Applied
+CA-R-1639	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1643	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record	Entity/Object/Continuant/History/Journal > Event Record	Applied
+CA-R-1644	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record	Entity/Object/Continuant/History/Journal > Event Record	Applied
+CA-R-1646	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability	Entity/Aspect/Engineering/Traceability	Applied
+CA-R-1648	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis	Applied
+CA-R-1649	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1650	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation	Entity/Aspect/Engineering/Data Handling/Data Validation	Applied
+CA-R-1652	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Confidence.Necessary Information Threshold	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold	Applied
+CA-R-1654	Subject/CAPRMEDIO/Graph/Relation/Type: feature_realization	Entity/Graph Syntax > Relation//feature_realization	Applied
+CA-R-1655	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1656	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1657	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1658	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Parent	Entity/Object/Continuant/Structural Unit/Scope Unit.Parent	Applied
+CA-R-1659	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1660	Subject/CAPRMEDIO/Graph/Relation/Type: structural_parent	Entity/Graph Syntax > Relation//structural_parent	Applied
+CA-R-1661	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path	Entity/Object/Continuant/Structural Unit/Scope Unit.Path	Applied
+CA-R-1664	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: Rationale	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: Rationale	Applied
+CA-R-1667	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method/Type: Implementation Method	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Implementation Method	Applied
+CA-R-1669	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-R-1671	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1672	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1673	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Constraint	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Constraint	Applied
+CA-R-1674	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method/Type: External Implementation Method	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: External Implementation Method	Applied
+CA-R-1675	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method/Type: Method Binding	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Method Binding	Applied
+CA-R-1676	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1677	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1678	Subject/CAPRMEDIO/Graph/Rule	Entity/Aspect/Engineering/Execution Control	Applied
+CA-R-1679	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization	Entity/Aspect/Engineering/Execution Control/Effect Authorization	Applied
+CA-R-1681	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Structural Unit/Scope Unit//CORE_META_MODEL	Applied
+CA-R-1682	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Content.Claim	Applied
+CA-R-1683	Subject/CAPRMEDIO/Graph/Rule	Entity	Applied
+CA-R-1684	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal	Entity/Object/Continuant/History/Journal	Applied
+CA-R-1685	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1686	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Relations	Applied
+CA-R-1687	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability	Entity/Aspect/Engineering/Traceability	Applied
+CA-R-1688	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path	Entity/Object/Continuant/Structural Unit/Scope Unit.Path	Applied
+CA-R-1689	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1690	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Governance Origin	Applied
+CA-R-1691	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-R-1694	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement	Applied
+CA-R-1695	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability	Entity/Aspect/Engineering/Traceability	Applied
+CA-R-1696	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL	Entity/Object/Continuant/Structural Unit/Scope Unit//CORE_META_MODEL	Applied
+CA-R-1697	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1698	Subject/CAPRMEDIO/Graph/Node/Project Model/History	Entity/Object/Continuant/History	Applied
+CA-R-1699	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1700	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type	Entity/Object/Continuant/Governing Objects/Atom.Type	Applied
+CA-R-1701	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1702	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-R-1703	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Implementation Overview	Entity/Object/Continuant/Projection/Type: Implementation Overview	Applied
+CA-R-1704	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-R-1705	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: Rationale	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: Rationale	Applied
+CA-R-1706	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1707	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement	Applied
+CA-R-1708	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1709	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1710	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-R-1712	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal	Entity/Object/Continuant/History/Journal	Applied
+CA-R-1713	Subject/CAPRMEDIO/Graph/Rule	Entity/Aspect/Engineering/Execution Control/Decision Confidence	Applied
+CA-R-1714	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-R-1715	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-R-1716	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-1717	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation	Entity/Aspect/Engineering/Data Handling/Data Transformation	Applied
+CA-R-1718	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-R-1719	Subject/CAPRMEDIO/Graph/Rule	Entity	Applied
+CA-R-1720	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal	Entity/Object/Continuant/History/Journal	Applied
+CA-R-1721	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1722	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1723	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1724	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-R-1725	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis	Applied
+CA-R-1726	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern.Status	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Status	Applied
+CA-R-1727	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis.Status	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis.Status	Applied
+CA-R-1728	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1729	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations	Applied
+CA-R-1730	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1732	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit	Applied
+CA-R-1734	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-R-1735	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-1738	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings	Applied
+CA-R-1739	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Scope Unit Graph	Entity/Object/Continuant/Projection/Type: Scope Unit Graph	Applied
+CA-R-1740	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Scope Unit Graph	Entity/Object/Continuant/Projection/Type: Scope Unit Graph	Applied
+CA-R-1741	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation	Applied
+CA-R-1742	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification	Entity/Aspect/Engineering/Verification	Applied
+CA-R-1743	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal	Entity/Object/Continuant/History/Journal	Applied
+CA-R-1744	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Structural Unit/Scope Unit//CORE_META_MODEL	Applied
+CA-R-1745	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal	Entity/Object/Continuant/History/Journal	Applied
+CA-R-1746	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1747	Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact	Entity/Object/Continuant/Term//Artifact	Applied
+CA-R-1748	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1749	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1750	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-R-1754	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1755	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization	Entity/Aspect/Engineering/Execution Control/Effect Authorization	Applied
+CA-R-1756	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Children	Entity/Object/Continuant/Structural Unit/Scope Unit.Children	Applied
+CA-R-1757	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1758	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type	Entity/Object/Continuant/Structural Unit/Scope Unit/Type	Applied
+CA-R-1759	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1760	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type: Ordered	Entity/Object/Continuant/Structural Unit/Scope Unit/Type: Ordered	Applied
+CA-R-1761	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type: Unordered	Entity/Object/Continuant/Structural Unit/Scope Unit/Type: Unordered	Applied
+CA-R-1762	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-1763	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Local Order	Entity/Object/Continuant/Structural Unit/Scope Unit.Local Order	Applied
+CA-R-1764	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path	Entity/Object/Continuant/Structural Unit/Scope Unit.Path	Applied
+CA-R-1765	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1767	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method	Applied
+CA-R-1768	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method	Applied
+CA-R-1770	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern.Owning Scope Unit	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Local Scope Unit	Applied
+CA-R-1771	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Children	Entity/Object/Continuant/Structural Unit/Scope Unit.Children	Applied
+CA-R-1772	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Minimum Model	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1773	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Project Principle Universe	Entity/Object/Continuant/Selection//Project Principle Universe	Applied
+CA-R-1774	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Principle Universe	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1775	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Goal	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal	Applied
+CA-R-1776	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Graph Dimensions	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1788	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At	Entity/Object/Continuant/Governing Objects/Atom.Updated At	Applied
+CA-R-1789	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Invocation Context	Entity/Object/Occurrent/Execution/Step Run.Invocation Context	Applied
+CA-R-1790	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run	Entity/Object/Occurrent/Execution/Step Run	Applied
+CA-R-1791	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run	Entity/Object/Occurrent/Execution/Step Run	Applied
+CA-R-1792	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run	Entity/Object/Occurrent/Execution/Step Run	Applied
+CA-R-1793	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run	Entity/Object/Occurrent/Execution/Step Run	Applied
+CA-R-1873	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation	Entity/Object/Continuant/Package/Project Implementation	Applied
+CA-R-1874	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations.Status	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations.Status	Applied
+CA-R-1875	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis.Status	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis.Status	Applied
+CA-R-1931	Subject	Entity/Graph Syntax	Applied
+CA-R-1943	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection.ID	Entity/Object/Continuant/Projection.ID	Applied
+CA-R-1944	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor.Name	Entity/Object/Continuant/Actor.Name	Applied
+CA-R-1945	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Enabled Relations.Contains	Entity/Object/Continuant/Governing Objects/Atom.Enabled Relations.Contains	Applied
+CA-R-1946	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Semantics	Entity/Object/Continuant/Governing Objects/Atom.Content.Semantics	Applied
+CA-R-1947	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status	Entity/Object/Continuant/Governing Objects/Atom.Status	Applied
+CA-R-1948	Subject/CAPRMEDIO/Carrier.Canonical Address.Segment	Entity/Carrier.Canonical Address.Segment	Applied
+CA-R-1949	Subject/CAPRMEDIO/Carrier.Canonical Address	Entity/Carrier.Canonical Address	Applied
+CA-R-1950	Subject/CAPRMEDIO/Carrier.Format	Entity/Carrier.Format	Applied
+CA-R-1951	Subject/CAPRMEDIO/Carrier.ID	Entity/Carrier.ID	Applied
+CA-R-1952	Subject/CAPRMEDIO/Carrier/Directory.Name	Entity/Carrier/Directory.Name	Applied
+CA-R-1953	Subject/CAPRMEDIO/Carrier/Directory.Numeric Prefix	Entity/Carrier/Directory.Numeric Prefix	Applied
+CA-R-1954	Subject/CAPRMEDIO/Carrier/Directory.Path	Entity/Carrier/Directory.Path	Applied
+CA-R-1955	Subject/CAPRMEDIO/Carrier/Database	Entity/Carrier/Database	Applied
+CA-R-1956	Subject/CAPRMEDIO/Carrier/Directory	Entity/Carrier/Directory	Applied
+CA-R-1957	Subject/CAPRMEDIO/Carrier/File	Entity/Carrier/File	Applied
+CA-R-1958	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-R-1959	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent	Entity/Object/Continuant/Actor/AI Agent	Applied
+CA-R-1961	Subject/CAPRMEDIO/Graph/Node/Project Model/History	Entity/Object/Continuant/History	Applied
+CA-R-1962	Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration	Entity/Object/Continuant/Governing Objects/Governing Configuration	Applied
+CA-R-1963	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Replaced: CA-R-2247
+CA-R-1965	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Direct Relation Registry	Entity/Object/Continuant/Projection/Type: Direct Relation Registry	Applied
+CA-R-1966	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection	Entity/Object/Continuant/Selection	Applied
+CA-R-1967	Subject/CAPRMEDIO/Graph/Node/Project Model/Continuant	Entity/Object/Continuant	Applied
+CA-R-1968	Subject/CAPRMEDIO/Graph/Node/Project Model/Event	Entity/Object/Occurrent/Event	Applied
+CA-R-1969	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Action Run	Entity/Object/Occurrent/Execution/Action Run	Applied
+CA-R-1970	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution	Entity/Object/Occurrent/Execution	Applied
+CA-R-1971	Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Session	Entity/Object/Occurrent/Runtime/Session	Applied
+CA-R-1972	Subject/CAPRMEDIO/Graph/Node/Project Model/Occurrent	Entity/Object/Occurrent	Applied
+CA-R-1973	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution.Execution ID	Entity/Object/Occurrent/Execution.ID	Applied
+CA-R-1974	Subject/CAPRMEDIO/Carrier/File.Extension	Entity/Carrier/File.Extension	Applied
+CA-R-1975	Subject/CAPRMEDIO/Carrier/File.Filename	Entity/Carrier/File.Filename	Applied
+CA-R-1976	Subject/CAPRMEDIO/Carrier/File.Path	Entity/Carrier/File.Path	Applied
+CA-R-1984	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Operator Registry	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry	Applied
+CA-R-1985	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Identifier	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Identifier	Applied
+CA-R-1986	Subject/CAPRMEDIO/Graph/Relation.Source Reference	Entity/Graph Syntax > Relation	Replaced: CA-R-2247
+CA-R-1987	Subject/CAPRMEDIO/Graph/Relation.Target Reference	Entity/Graph Syntax > Relation	Replaced: CA-R-2247
+CA-R-1988	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.ID	Entity/Object/Continuant/Structural Unit/Scope Unit.ID	Applied
+CA-R-1989	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status	Entity/Object/Continuant/Governing Objects/Atom.Status	Applied
+CA-R-1990	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Enabled Relations.Contains	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Enabled Relations.Contains	Applied
+CA-R-1991	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow.Enabled Relations.Contains	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow.Enabled Relations.Contains	Applied
+CA-R-1992	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step.Enabled Relations.Contains	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step.Enabled Relations.Contains	Applied
+CA-R-1993	Subject/CAPRMEDIO/Graph/Relation/Type: CARRIES	Entity/Graph Syntax > Relation//CARRIES	Applied
+CA-R-1994	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-R-1995	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Entity Definition	Replaced: CA-R-2227
+CA-R-1996	Subject/CAPRMEDIO/Graph/Rule.Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Entity Definition	Replaced: CA-R-2227
+CA-R-1997	Subject/CAPRMEDIO/Graph/Rule.Applies To	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Entity Definition	Replaced: CA-R-2227
+CA-R-1998	Subject/CAPRMEDIO/Graph/Rule.Condition	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Entity Definition	Replaced: CA-R-2227
+CA-R-1999	Subject/CAPRMEDIO/Graph/Rule.Default Value	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Entity Definition	Replaced: CA-R-2227
+CA-R-2000	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Rule	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Rule	Applied
+CA-R-2001	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Graph Rule	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Entity Definition	Replaced: CA-R-2227
+CA-R-2002	Subject/CAPRMEDIO/Graph/Relation/Type: INSTANCE_OF	Entity/Graph Syntax > Relation//INSTANCE_OF	Applied
+CA-R-2003	Subject/CAPRMEDIO/Graph/Relation/Type: IS_BORNE_BY	Entity	Applied
+CA-R-2004	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects	Entity/Object/Continuant/Governing Objects/Atom.Subjects	Applied
+CA-R-2006	Subject	Entity	Replaced: CA-R-1248
+CA-R-2100	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects	Entity/Object/Continuant/Governing Objects/Atom.Subjects	Applied
+CA-R-2102	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-2110	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Definition	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Entity Definition	Replaced: CA-R-2227
+CA-R-2115	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation/Type: Policy	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation/Type: Eval Policy	Replaced: CA-R-2266
+CA-R-2116	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation/Type: Eval Case	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation/Type: Eval Case	Applied
+CA-R-2119	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method/Type: Eng Policy	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Eng Policy	Applied
+CA-R-2120	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method/Type: Eng Decision	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Eng Decision	Applied
+CA-R-2121	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery/Type: Eng Policy	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type: Policy	Replaced: CA-R-2267
+CA-R-2122	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery/Type: Eng Decision	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type: Decision	Replaced: CA-R-2268
+CA-R-2124	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-R-2125	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-R-2130	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-R-2131	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-R-2132	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-R-2133	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path	Entity/Object/Continuant/Structural Unit/Scope Unit.Path	Applied
+CA-R-2134	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path	Entity/Object/Continuant/Structural Unit/Scope Unit.Path	Applied
+CA-R-2148	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Stored Governing RMED Relation Occurrences	Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences	Applied
+CA-R-2149	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Relations	Applied
+CA-R-2150	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Subject Graph	Entity/Object/Continuant/Projection/Type: Subject Graph	Applied
+CA-R-2152	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Project Goal	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal	Applied
+CA-R-2160	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content.Scope	Entity/Object/Continuant/Governing Objects/Atom.Content.Claim Scope	Applied
+CA-R-2170	Subject/CAPRMEDIO/Graph/Relation/Type: IS_DERIVED_RELATION_OF	Entity/Graph Syntax > Relation//IS_DERIVED_RELATION_OF	Applied
+CA-R-2171	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release	Entity/Object/Continuant/History/Release	Applied
+CA-R-2172	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID	Entity/Object/Continuant/History/Release.ID	Applied
+CA-R-2173	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation	Entity/Object/Continuant/Package/Project Implementation	Applied
+CA-R-2174	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code	Entity/Object/Continuant/Package	Applied
+CA-R-2175	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Function	Entity/Object/Continuant/Package > Module > Code Unit/Function	Applied
+CA-R-2176	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Class	Entity/Object/Continuant/Package > Module > Code Unit/Class	Applied
+CA-R-2177	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Module	Entity/Object/Continuant/Package > Module	Applied
+CA-R-2178	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Package	Entity/Object/Continuant/Package	Applied
+CA-R-2179	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Prompts	Entity/Object/Continuant/Package > Prompt	Applied
+CA-R-2180	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Documentation	Entity/Object/Continuant/Package > Documentation	Applied
+CA-R-2181	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Documentation/Document	Entity/Object/Continuant/Package > Documentation/Document	Applied
+CA-R-2182	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Documentation/Section	Entity/Object/Continuant/Package > Documentation/Document > Section	Applied
+CA-R-2183	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Documentation/Paragraph	Entity/Object/Continuant/Package > Documentation/Paragraph	Applied
+CA-R-2184	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Documentation/Sentence	Entity/Object/Continuant/Package > Documentation/Sentence	Applied
+CA-R-2185	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Documentation/List	Entity/Object/Continuant/Package > Documentation/List	Applied
+CA-R-2186	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Documentation/Table	Entity/Object/Continuant/Package > Documentation/Table	Applied
+CA-R-2187	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Documentation/Code Block	Entity/Object/Continuant/Package > Documentation/Code Block	Applied
+CA-R-2188	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Documentation/Diagram	Entity/Object/Continuant/Package > Documentation/Diagram	Applied
+CA-R-2189	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources	Entity/Object/Continuant/Package > Asset	Replaced: CA-R-2237
+CA-R-2190	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Configuration	Entity/Object/Continuant/Package > Asset/Configuration	Applied
+CA-R-2191	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Schema	Entity/Object/Continuant/Package > Asset/Schema	Applied
+CA-R-2192	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Template	Entity/Object/Continuant/Package > Asset/Template	Applied
+CA-R-2193	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Test Fixture	Entity/Object/Continuant/Package > Asset/Test Fixture	Applied
+CA-R-2194	Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime	Entity/Object/Occurrent/Runtime	Applied
+CA-R-2195	Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run	Entity/Object/Occurrent/Runtime/Container Run	Applied
+CA-R-2196	Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Process Run	Entity/Object/Occurrent/Runtime/Process Run	Applied
+CA-R-2197	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool	Entity/Aspect/Engineering/Architecture/Communication/API	Replaced: CA-R-2238
+CA-R-2204	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool.Effect Result	Entity/Aspect/Engineering/Architecture/Communication/API/Result Contract	Replaced: CA-R-2230
+CA-R-2205	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool.Self Description	Entity/Aspect/Engineering/Architecture/Communication/API/Self Documentation	Replaced: CA-R-2231
+CA-R-2206	Subject/CAPRMEDIO	Entity	Replaced: CA-R-1194
+CA-R-2207	Subject	Entity/Object/Continuant/Governing Objects/Atom.Subjects	Replaced: CA-R-2004
+CA-R-2208	Subject/CAPRMEDIO/Graph	Entity/Graph Syntax	Replaced: CA-R-2244
+CA-R-2209	Subject/CAPRMEDIO/Graph/Node/Project Model	Entity/Object	Replaced: CA-R-2226
+CA-R-2210	Subject/CAPRMEDIO/Graph/Node/Aspect	Entity/Aspect	Applied
+CA-R-2211	Subject/CAPRMEDIO/Graph/Node/Aspect/Product	Entity/Aspect/Product	Applied
+CA-R-2212	Subject/CAPRMEDIO/Graph/Node/Aspect/Project	Entity/Aspect/Project Aspect	Applied
+CA-R-2213	Subject/CAPRMEDIO/Graph/Node/Aspect/Domain	Entity/Aspect/Domain	Applied
+CA-R-2214	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering	Entity/Aspect/Engineering	Applied
+CA-R-2215	Subject/CAPRMEDIO/Graph/Node/Aspect/UX	Entity/Aspect/UX	Applied
+CA-R-2216	Subject/CAPRMEDIO/Graph/Node/Aspect/Design	Entity/Aspect/Design	Applied
+CA-R-2217	Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation	Entity/Aspect/Documentation Aspect	Applied
+CA-R-2218	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor	Entity/Object/Continuant/Actor	Applied
+CA-R-2219	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: Specification Proposal	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: Spec Proposal	Applied
+CA-R-2220	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-2221	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Subject Graph Primary Subjects	Entity/Object/Continuant/Projection/Type: Subject Graph Primary Subjects	Applied
+CA-R-2222	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Subject Graph Properties	Entity/Object/Continuant/Projection/Type: Subject Graph Properties	Applied
+CA-R-2223	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Subject Graph Instances	Entity/Object/Continuant/Projection/Type: Subject Graph Instances	Applied
+CA-R-2224	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Subject Graph Dependency-only Subjects	Entity/Object/Continuant/Projection/Type: Subject Graph Dependency-only Subjects	Applied
+CA-R-2225	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-366	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-380	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Confidence.Semantic Resolution Threshold	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Semantic Resolution Threshold	Applied
+CA-R-626	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Scope Unit Graph	Entity/Object/Continuant/Projection/Type: Scope Unit Graph	Applied
+CA-R-643	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-R-655	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-718	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit	Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit	Applied
+CA-R-728	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID	Entity/Object/Continuant/Governing Objects/Atom.ID	Applied
+CA-R-740	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-R-771	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-796	Subject/CAPRMEDIO/Graph/Relation/Type: child_of	Entity/Graph Syntax > Relation//child_of	Applied
+CA-R-806	Subject/CAPRMEDIO/Graph/Relation/Type	Entity/Graph Syntax > Relation	Applied
+CA-R-807	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-808	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-825	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Boundary	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Boundary	Applied
+CA-R-829	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-833	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection	Entity/Object/Continuant/Selection	Applied
+CA-R-837	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-850	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-852	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent.Permissions	Entity/Object/Continuant/Actor/AI Agent.Permissions	Applied
+CA-R-853	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution	Entity/Object/Occurrent/Execution	Applied
+CA-R-862	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-879	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-886	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit	Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit	Applied
+CA-R-913	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Previous Unit	Entity/Object/Continuant/Selection//Previous Unit	Applied
+CA-R-915	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-916	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-917	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-920	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit	Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit	Applied
+CA-R-922	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-923	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-924	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type	Entity/Object/Continuant/Governing Objects/Atom.Type	Applied
+CA-R-925	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Goal	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal	Applied
+CA-R-926	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Goal	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal	Applied
+CA-R-927	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-932	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Demand	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand	Applied
+CA-R-933	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Demand	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand	Applied
+CA-R-934	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-935	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-940	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-R-941	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-R-942	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection	Entity/Object/Continuant/Selection	Applied
+CA-R-944	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit	Applied
+CA-R-945	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-947	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit	Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit	Applied
+CA-R-951	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Demand	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand	Applied
+CA-R-954	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Demand	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand	Applied
+CA-R-960	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-961	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Project Boundary Position	Entity/Object/Continuant/Structural Unit/Scope Unit.Project Boundary Position	Applied
+CA-R-962	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name	Entity/Object/Continuant/Structural Unit/Scope Unit.Name	Applied
+CA-R-964	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-R-970	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name	Entity/Object/Continuant/Structural Unit/Scope Unit.Name	Applied
+CA-R-971	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name	Entity/Object/Continuant/Structural Unit/Scope Unit.Name	Applied
+CA-R-972	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label	Entity/Object/Continuant/Structural Unit/Scope Unit.Label	Applied
+CA-R-976	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-R-978	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Navigational Order Number	Entity/Object/Continuant/Structural Unit/Scope Unit.Navigational Order Number	Applied
+CA-R-979	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit/Type	Entity/Object/Continuant/Structural Unit/Scope Unit/Type	Applied
+CA-R-980	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label	Entity/Object/Continuant/Structural Unit/Scope Unit.Label	Applied
+CA-R-981	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Navigational Order Number	Entity/Object/Continuant/Structural Unit/Scope Unit.Navigational Order Number	Applied
+CA-R-982	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Label	Entity/Object/Continuant/Structural Unit/Scope Unit.Label	Applied
+CA-R-983	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Navigational Order Number	Entity/Object/Continuant/Structural Unit/Scope Unit.Navigational Order Number	Applied
+CA-R-991	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Work Sequence Number	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Work Sequence Number	Applied
+CA-R-992	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Work Sequence Number	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Work Sequence Number	Applied
+CA-R-997	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Work Sequence Number	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Work Sequence Number	Applied
+CA-R-999	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection	Entity/Object/Continuant/Selection	Applied
+CA-M-111	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring	Entity/Aspect/Engineering/Authoring	Applied
+CA-M-112	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-M-113	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English	Entity/Aspect/Engineering/Authoring/Controlled English	Applied
+CA-M-114	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-M-115	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring	Entity/Aspect/Engineering/Authoring	Applied
+CA-M-116	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-M-120	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Direct Relation Registry	Entity/Object/Continuant/Projection/Type: Direct Relation Registry	Applied
+CA-M-121	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection	Entity/Object/Continuant/Selection	Applied
+CA-M-122	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English	Entity/Aspect/Engineering/Authoring/Controlled English	Applied
+CA-M-123	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-M-125	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects	Entity/Object/Continuant/Governing Objects/Atom.Subjects	Applied
+CA-M-127	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English	Entity/Aspect/Engineering/Authoring/Controlled English	Applied
+CA-M-135	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability	Entity/Aspect/Engineering/Traceability	Applied
+CA-M-228	Subject	Entity	Applied
+CA-M-229	Subject/CAPRMEDIO/Graph/Node/Project Model/Term	Entity/Object/Continuant/Term	Applied
+CA-M-230	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English	Entity/Aspect/Engineering/Authoring/Controlled English	Applied
+CA-M-231	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-M-232	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Subject Graph	Entity/Object/Continuant/Projection/Type: Subject Graph	Applied
+CA-M-233	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring	Entity/Aspect/Engineering/Authoring	Applied
+CA-M-234	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English	Entity/Aspect/Engineering/Authoring/Controlled English	Applied
+CA-M-235	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English	Entity/Aspect/Engineering/Authoring/Controlled English	Applied
+CA-M-236	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English	Entity/Aspect/Engineering/Authoring/Controlled English	Applied
+CA-M-237	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-M-239	Subject/CAPRMEDIO/Graph/Relation/Type: depends_on	Entity/Graph Syntax > Relation//depends_on	Applied
+CA-M-240	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation	Entity/Aspect/Engineering/Data Handling/Data Transformation	Applied
+CA-M-241	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation	Entity/Aspect/Engineering/Data Handling/Data Transformation	Applied
+CA-M-264	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation	Applied
+CA-M-265	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation	Applied
+CA-M-271	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence	Entity/Aspect/Engineering/Execution Control/Decision Confidence	Applied
+CA-M-273	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection	Entity/Object/Continuant/Selection	Applied
+CA-M-275	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name	Entity/Object/Continuant/Structural Unit/Scope Unit.Name	Applied
+CA-M-276	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID	Entity/Object/Continuant/Governing Objects/Atom.ID	Applied
+CA-M-279	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Parameter Resolution	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution	Applied
+CA-M-287	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-M-288	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-M-291	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-M-294	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-M-295	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Implementation Retry Limit	Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit	Applied
+CA-M-297	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_LEXICOGRAPHIC	Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC	Applied
+CA-M-298	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring	Entity/Aspect/Engineering/Authoring	Applied
+CA-M-299	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name	Entity/Object/Continuant/Structural Unit/Scope Unit.Name	Applied
+CA-M-301	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-M-303	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-M-304	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring	Entity/Aspect/Engineering/Authoring/Prompt Authoring	Applied
+CA-M-305	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-M-306	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan	Applied
+CA-M-307	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-M-308	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-M-309	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Content	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content	Applied
+CA-M-310	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement.Content.Claim	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement.Content.Claim	Applied
+CA-M-311	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method.Content.Claim	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method.Content.Claim	Applied
+CA-M-312	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation.Content.Claim	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation.Content.Claim	Applied
+CA-M-313	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery.Substance	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery.Content.Claim	Applied
+CA-M-314	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type	Applied
+CA-M-315	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-M-385	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph	Entity/Object/Continuant/Projection/Type: Entities Graph	Applied
+CA-M-394	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Content.Claim	Replaced: CA-R-1269
+CA-M-438	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-E-006	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-E-240	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-E-241	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-E-243	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Demand	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand	Applied
+CA-E-246	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects	Entity/Object/Continuant/Governing Objects/Atom.Subjects	Applied
+CA-E-249	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Expansion Boundary	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-E-382	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Terms Graph	Entity/Object/Continuant/Projection/Type: Terms Graph	Applied
+CA-E-383	Subject	Entity	Applied
+CA-E-384	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-E-387	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-E-402	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-E-403	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-E-404	Subject/CAPRMEDIO/Graph/Relation/Type: depends_on	Entity/Graph Syntax > Relation//depends_on	Applied
+CA-E-405	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation	Entity/Aspect/Engineering/Data Handling/Data Transformation	Applied
+CA-E-407	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation	Entity/Aspect/Engineering/Data Handling/Data Transformation	Applied
+CA-E-425	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-E-440	Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent	Entity/Object/Continuant/Actor/AI Agent	Applied
+CA-E-443	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence	Entity/Aspect/Engineering/Execution Control/Decision Confidence	Applied
+CA-E-444	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog	Entity/Object/Continuant/Projection/Type: Catalog	Applied
+CA-E-446	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-E-448	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID	Entity/Object/Continuant/Governing Objects/Atom.ID	Applied
+CA-E-449	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph	Entity/Object/Continuant/Projection/Type: Entities Graph	Applied
+CA-E-450	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Parameter Resolution Validation	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution	Applied
+CA-E-457	Subject/CAPRMEDIO/Carrier/File	Entity/Carrier/File	Applied
+CA-E-458	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-E-459	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings	Applied
+CA-E-460	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection	Entity/Object/Continuant/Selection	Applied
+CA-E-461	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-E-462	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record	Entity/Object/Continuant/History/Journal > Event Record	Applied
+CA-E-463	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary	Entity/Object/Continuant/Governing Objects/Atom.Content.Summary	Applied
+CA-E-464	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal	Entity/Object/Continuant/History/Journal	Applied
+CA-E-466	Subject	Entity	Applied
+CA-E-469	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-E-470	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-E-472	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-E-476	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal	Entity/Object/Continuant/History/Journal	Applied
+CA-E-481	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection	Entity/Object/Continuant/Selection	Applied
+CA-E-482	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-E-486	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-E-489	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-E-490	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-E-494	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Entity/Object/Occurrent/Execution/Workflow Run	Applied
+CA-E-495	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context	Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context	Applied
+CA-E-496	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record	Entity/Object/Continuant/History/Journal > Event Record	Applied
+CA-E-497	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Invocation Context	Entity/Object/Occurrent/Execution/Step Run.Invocation Context	Applied
+CA-E-500	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-E-501	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan	Applied
+CA-E-502	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-E-504	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-E-505	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-E-506	Subject/CAPRMEDIO/Carrier/File	Entity/Carrier/File	Applied
+CA-E-511	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit	Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit	Applied
+CA-E-512	Subject/CAPRMEDIO/Graph/Node/Project Model/Term	Entity/Object/Continuant/Term	Applied
+CA-E-520	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-E-522	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-E-523	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-E-620	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-E-621	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-E-622	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-E-623	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern.Priority	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Priority	Applied
+CA-E-624	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability	Entity/Aspect/Engineering/Traceability	Applied
+CA-E-654	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-E-655	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-E-657	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-E-658	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role	Entity/Object/Continuant/Governing Objects/Atom/Content Role	Applied
+CA-D-262	Subject/CAPRMEDIO/Carrier/File.Format	Entity/Carrier/File.Format	Applied
+CA-D-264	Subject/CAPRMEDIO/Graph/Rule	Entity/Carrier/Directory	Applied
+CA-D-266	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-D-267	Subject/CAPRMEDIO/Carrier.Canonical Address	Entity/Carrier.Canonical Address	Applied
+CA-D-268	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-D-269	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects	Entity/Object/Continuant/Governing Objects/Atom.Subjects	Applied
+CA-D-270	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-D-274	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author	Entity/Object/Continuant/Governing Objects/Atom.Author	Applied
+CA-D-276	Subject/CAPRMEDIO/Carrier/File.YAML Frontmatter	Entity/Carrier/File.YAML Frontmatter	Applied
+CA-D-277	Subject/CAPRMEDIO/Carrier/File.YAML Frontmatter.Scalar	Entity/Carrier/File.YAML Frontmatter.Scalar	Applied
+CA-D-279	Subject/CAPRMEDIO/Carrier/File.Main Content.Paragraph	Entity/Carrier/File.Main Content.Paragraph	Applied
+CA-D-280	Subject/CAPRMEDIO/Carrier/File.Main Content.CCE Operator	Entity/Carrier/File.Main Content.CCE Operator	Applied
+CA-D-282	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary	Entity/Object/Continuant/Governing Objects/Atom.Content.Summary	Applied
+CA-D-283	Subject/CAPRMEDIO/Carrier/File.Filename	Entity/Carrier/File.Filename	Applied
+CA-D-284	Subject/CAPRMEDIO/Carrier/File.Filename	Entity/Carrier/File.Filename	Applied
+CA-D-287	Subject/CAPRMEDIO/Carrier/File.Filename	Entity/Carrier/File.Filename	Applied
+CA-D-289	Subject/CAPRMEDIO/Carrier.Canonical Address.Segment	Entity/Carrier.Canonical Address.Segment	Applied
+CA-D-290	Subject/CAPRMEDIO/Carrier.Canonical Address.Segment	Entity/Carrier.Canonical Address.Segment	Applied
+CA-D-291	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit	Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit	Applied
+CA-D-292	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Project Goal	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal	Applied
+CA-D-296	Subject/CAPRMEDIO/Carrier.Canonical Address	Entity/Carrier.Canonical Address	Applied
+CA-D-297	Subject/CAPRMEDIO/Carrier/Directory.Name	Entity/Carrier/Directory.Name	Applied
+CA-D-298	Subject/CAPRMEDIO/Carrier/Directory.Name	Entity/Carrier/Directory.Name	Applied
+CA-D-299	Subject/CAPRMEDIO/Carrier/Directory.Name	Entity/Carrier/Directory.Name	Applied
+CA-D-301	Subject/CAPRMEDIO/Carrier.Canonical Address.Segment	Entity/Carrier.Canonical Address.Segment	Applied
+CA-D-302	Subject/CAPRMEDIO/Carrier/File.Filename.Scope Unit Token	Entity/Carrier/File.Filename.Scope Unit Token	Applied
+CA-D-303	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-D-304	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-308	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal	Entity/Object/Continuant/History/Journal	Applied
+CA-D-309	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-310	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection.Updated At	Entity/Object/Continuant/Projection.Updated At	Applied
+CA-D-311	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-312	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-317	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-D-318	Subject/CAPRMEDIO/Carrier/Directory	Entity/Carrier/Directory	Applied
+CA-D-329	Subject/CAPRMEDIO/Graph/Node/Project Model/History	Entity/Object/Continuant/History	Applied
+CA-D-330	Subject/CAPRMEDIO/Carrier/File	Entity/Carrier/File	Applied
+CA-D-331	Subject/CAPRMEDIO/Carrier/Directory	Entity/Carrier/Directory	Applied
+CA-D-333	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Scope Unit Graph	Entity/Object/Continuant/Projection/Type: Scope Unit Graph	Applied
+CA-D-336	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-D-338	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record	Entity/Object/Continuant/History/Journal > Event Record	Applied
+CA-D-340	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record	Entity/Object/Continuant/History/Journal > Event Record	Applied
+CA-D-341	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-342	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Project Goal	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal	Applied
+CA-D-346	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Canonical Signature	Entity/Object/Continuant/Projection/Type: Canonical Signature	Applied
+CA-D-347	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Canonical Scope Signature	Entity/Object/Continuant/Projection/Type: Canonical Scope Signature	Applied
+CA-D-352	Subject/CAPRMEDIO/Carrier.Canonical Address.Segment	Entity/Carrier.Canonical Address.Segment	Applied
+CA-D-356	Subject/CAPRMEDIO/Carrier/File	Entity/Carrier/File	Applied
+CA-D-357	Subject/CAPRMEDIO/Carrier/File.Main Content	Entity/Carrier/File.Main Content	Applied
+CA-D-358	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Identifier	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Identifier	Applied
+CA-D-359	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-D-360	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-D-361	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-D-362	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Identifier	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Identifier	Applied
+CA-D-363	Subject/CAPRMEDIO/Carrier/File.Filename	Entity/Carrier/File.Filename	Applied
+CA-D-364	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings	Applied
+CA-D-365	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings	Applied
+CA-D-366	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings	Applied
+CA-D-368	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Confidence.Necessary Information Threshold	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold	Applied
+CA-D-369	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Confidence.Semantic Resolution Threshold	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Semantic Resolution Threshold	Applied
+CA-D-370	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Framework Control-Root Locator	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Framework Control-Root Locator	Applied
+CA-D-371	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Code-Root Locators	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Code-Root Locators	Applied
+CA-D-372	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Tool Selections	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Tool Selections	Applied
+CA-D-373	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Extension Selections	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Extension Selections	Applied
+CA-D-374	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-D-375	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Project Name	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Project Name	Applied
+CA-D-376	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Atom Prefix	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Atom Prefix	Applied
+CA-D-377	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-378	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID	Entity/Object/Continuant/Governing Objects/Atom.ID	Applied
+CA-D-380	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Navigational Order Number	Entity/Object/Continuant/Structural Unit/Scope Unit.Navigational Order Number	Applied
+CA-D-381	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Work Sequence Number	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Work Sequence Number	Applied
+CA-D-383	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-D-386	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern.Priority	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Priority	Applied
+CA-D-387	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-D-389	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type	Applied
+CA-D-390	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Artifact Timestamp Timezone	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Artifact Timestamp Timezone	Applied
+CA-D-391	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection//PROJECT_SCOPE_UNIT_GRAPH	Entity/Object/Continuant/Projection//PROJECT_SCOPE_UNIT_GRAPH	Applied
+CA-D-392	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Scope Unit Graph	Entity/Object/Continuant/Projection/Type: Scope Unit Graph	Applied
+CA-D-393	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type	Entity/Object/Continuant/Governing Objects/Atom.Type	Applied
+CA-D-394	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-395	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-398	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Frontmatter	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-D-399	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type	Applied
+CA-D-400	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation/Type	Applied
+CA-D-401	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern/Type	Applied
+CA-D-402	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type	Applied
+CA-D-404	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type	Applied
+CA-D-407	Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration	Entity/Object/Continuant/Governing Objects/Governing Configuration	Applied
+CA-D-408	Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration	Entity/Object/Continuant/Governing Objects/Governing Configuration	Applied
+CA-D-416	Subject/CAPRMEDIO/Carrier/File	Entity/Carrier/File	Applied
+CA-D-434	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-440	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-D-441	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-D-442	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-D-443	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-D-444	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-D-445	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Entity/Object/Continuant/Structural Unit/Scope Unit	Applied
+CA-D-446	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID	Entity/Object/Continuant/Governing Objects/Atom.ID	Applied
+CA-D-447	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.implementation.retry_limit	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit	Applied
+CA-D-451	Subject/CAPRMEDIO/Carrier/Directory	Entity/Carrier/Directory	Applied
+CA-D-452	Subject/CAPRMEDIO/Carrier/File	Entity/Carrier/File	Applied
+CA-D-457	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type	Applied
+CA-D-460	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-D-461	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status	Applied
+CA-D-463	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-D-464	Subject/CAPRMEDIO/Carrier/Directory	Entity/Carrier/Directory	Applied
+CA-D-465	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-D-466	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-467	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-D-469	Subject/CAPRMEDIO/Carrier/File.Filename	Entity/Carrier/File.Filename	Applied
+CA-D-470	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-D-471	Subject/CAPRMEDIO/Graph/Relation	Entity/Graph Syntax > Relation	Applied
+CA-D-472	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Autonomous Confidence Threshold	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Autonomous Confidence Threshold	Applied
+CA-D-473	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Assignee	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee	Applied
+CA-D-475	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status: Backlog	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Backlog	Applied
+CA-D-478	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-D-479	Subject/CAPRMEDIO/Carrier/File.Main Content	Entity/Carrier/File.Main Content	Applied
+CA-D-480	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-D-482	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit	Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit	Applied
+CA-D-483	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status	Entity/Object/Continuant/Governing Objects/Atom.Status	Applied
+CA-D-485	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-D-494	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Operator Registry	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry	Applied
+CA-D-495	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content	Entity/Object/Continuant/Governing Objects/Atom.Content	Applied
+CA-D-505	Subject/CAPRMEDIO/Graph/Relation/Type: CARRIES	Entity/Graph Syntax > Relation//CARRIES	Applied
+CA-D-506	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-D-507	Subject/CAPRMEDIO/Graph/Node	Entity	Applied
+CA-D-508	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID	Entity/Object/Continuant/Governing Objects/Atom.ID	Applied
+CA-D-549	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal	Entity/Object/Continuant/History/Journal	Applied
+CA-D-550	Subject/CAPRMEDIO/Carrier/Directory	Entity/Carrier/Directory	Applied
+CA-D-559	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal	Entity/Object/Continuant/History/Journal	Applied
+CA-D-565	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status: Archived	Entity/Object/Continuant/Governing Objects/Atom.Status: Archived	Applied
+CA-D-568	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID	Entity/Object/Continuant/Governing Objects/Atom.ID	Applied
+CA-D-570	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status: Draft	Entity/Object/Continuant/Governing Objects/Atom.Status: Draft	Applied
+CA-D-634	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph	Entity/Object/Continuant/Projection/Type: Entities Graph	Applied
+CA-D-635	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-D-636	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-637	Subject/CAPRMEDIO/Graph/Rule	Entity/Carrier/File.Main Content	Replaced: CA-D-479
+CA-D-650	Subject/CAPRMEDIO/Carrier/File.Filename	Entity/Carrier/File.Filename	Applied
+CA-D-651	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-D-652	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier	Entity/Object/Continuant/Governing Objects/Atom.Tier	Applied
+CA-D-653	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection	Entity/Object/Continuant/Projection	Applied
+CA-R-1213	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology	Entity/Object/Continuant/Projection/Type: Applicable Methodology	Applied
+CA-R-1222	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION	Entity/Object/Continuant/Structural Unit/Scope Unit//PROJECT_CONFIGURATION	Applied
+CA-R-1226	Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration	Entity/Object/Continuant/Governing Objects/Governing Configuration	Applied
+CA-R-1228	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources	Entity/Object/Continuant/Selection//Methodology Sources	Applied
+CA-R-1314	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology.Member	Entity/Object/Continuant/Projection/Type: Applicable Methodology.Member	Applied
+CA-R-1315	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources	Entity/Object/Continuant/Selection//Methodology Sources	Applied
+CA-R-1316	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology	Entity/Object/Continuant/Projection/Type: Applicable Methodology	Applied
+CA-R-1317	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology	Entity/Object/Continuant/Projection/Type: Applicable Methodology	Applied
+CA-R-1354	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization	Entity/Aspect/Engineering/Execution Control/Effect Authorization	Applied
+CA-R-1355	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Entity/Aspect/UX/Discovery and Navigation	Applied
+CA-R-1356	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization	Entity/Aspect/Engineering/Execution Control/Effect Authorization	Applied
+CA-R-1373	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology.Conflict	Entity/Object/Continuant/Projection/Type: Applicable Methodology.Conflict	Applied
+CA-R-1434	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL	Entity/Object/Continuant/Structural Unit/Scope Unit//CORE_META_MODEL	Applied
+CA-R-1514	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure	Entity/Aspect/Engineering/Architecture/Component Structure	Applied
+CA-R-1515	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations	Applied
+CA-R-1517	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool	Entity/Object/Continuant/Package	Applied
+CA-R-1518	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation	Applied
+CA-R-1560	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization	Entity/Aspect/Engineering/Execution Control/Effect Authorization	Applied
+CA-R-1612	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Realization Graph	Entity/Object/Continuant/Projection/Type: Realization Graph	Applied
+CA-R-1616	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Realization Graph	Entity/Object/Continuant/Projection/Type: Realization Graph	Applied
+CA-R-1620	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Realization Graph	Entity/Object/Continuant/Projection/Type: Realization Graph	Applied
+CA-R-1621	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Realization Graph	Entity/Object/Continuant/Projection/Type: Realization Graph	Applied
+CA-R-1635	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification	Entity/Aspect/Engineering/Verification	Applied
+CA-R-1637	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry	Entity/Aspect/UX/Entry	Applied
+CA-R-1640	Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration	Entity/Object/Continuant/Governing Objects/Governing Configuration	Applied
+CA-R-1641	Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration	Entity/Object/Continuant/Governing Objects/Governing Configuration	Applied
+CA-R-1642	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-R-1645	Subject/CAPRMEDIO/Graph/Rule	Entity/Object/Continuant/Governing Objects/Atom.Governance Origin	Applied
+CA-R-1647	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog	Entity/Object/Continuant/Projection/Type: Catalog	Applied
+CA-R-1651	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan	Applied
+CA-R-1662	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation/Type	Applied
+CA-R-1663	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern/Type	Applied
+CA-R-1665	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type	Applied
+CA-R-1666	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type	Applied
+CA-R-1668	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method/Type: Eng Decision	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Eng Decision	Applied
+CA-R-1680	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Entity/Object/Continuant/Structural Unit/Scope Unit/Project	Applied
+CA-R-1692	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID	Entity/Object/Continuant/History/Release.ID	Applied
+CA-R-1711	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan	Applied
+CA-R-1736	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-1752	Subject/caprmedio/Workflow//Applicable Methodology Compilation	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation	Applied
+CA-R-1753	Subject/caprmedio/Workflow//Applicable Methodology Compilation	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation	Applied
+CA-R-1769	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection	Entity/Aspect/Engineering/Data Handling/Source Selection	Applied
+CA-R-1778	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-1779	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Logging	Entity/Aspect/Engineering/Observability/Logging	Applied
+CA-R-1780	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Logging	Entity/Aspect/Engineering/Observability/Logging	Applied
+CA-R-1781	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Logging	Entity/Aspect/Engineering/Observability/Logging	Applied
+CA-R-1782	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Logging	Entity/Aspect/Engineering/Observability/Logging	Applied
+CA-R-1783	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Logging	Entity/Aspect/Engineering/Observability/Logging	Applied
+CA-R-1784	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Failure Handling	Entity/Aspect/Engineering/Execution Control/Failure Handling	Applied
+CA-R-1785	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability	Entity/Aspect/Engineering/Observability	Applied
+CA-R-1786	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Monitoring	Entity/Aspect/Engineering/Observability/Monitoring	Applied
+CA-R-1787	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification	Entity/Aspect/Engineering/Verification	Applied
+CA-R-1795	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering	Entity/Aspect/Engineering	Applied
+CA-R-1796	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering	Entity/Aspect/Engineering	Applied
+CA-R-1798	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering	Entity/Aspect/Engineering	Applied
+CA-R-1800	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool	Entity/Object/Continuant/Package	Applied
+CA-R-1888	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type	Applied
+CA-R-1889	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: FPF Analysis Report	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: FPF Analysis Report	Applied
+CA-R-1977	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Artifact Timestamp Timezone	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Artifact Timestamp Timezone	Applied
+CA-R-1978	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Code-Root Locators	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Code-Root Locators	Applied
+CA-R-1979	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Confidence	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence	Applied
+CA-R-1980	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Framework Control-Root Locator	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Framework Control-Root Locator	Applied
+CA-R-1981	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Identifier	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Identifier	Applied
+CA-R-1982	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction	Applied
+CA-R-1983	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Parameter Resolution	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution	Applied
+CA-R-2123	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom	Entity/Object/Continuant/Governing Objects/Atom	Applied
+CA-R-2198	Subject/CAPRMEDIO/Carrier/Docker Image	Entity/Carrier/Docker Image	Applied
+CA-R-2199	Subject/CAPRMEDIO/Carrier/Git Commit	Entity/Carrier/Git Commit	Applied
+CA-R-2200	Subject/CAPRMEDIO/Carrier/Git Branch	Entity/Carrier/Git Branch	Applied
+CA-R-2201	Subject/CAPRMEDIO/Carrier/Pull Request	Entity/Carrier/Pull Request	Applied
+CA-R-2202	Subject/CAPRMEDIO/Carrier/Git Index	Entity/Carrier/Git Index	Applied
+CA-R-2203	Subject/CAPRMEDIO/Carrier/Git Repository	Entity/Carrier/Git Repository	Applied
+CA-R-621	Subject/CAPRMEDIO/Carrier/File	Entity/Carrier/File	Applied
+CA-R-622	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings	Applied
+CA-M-225	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology	Entity/Object/Continuant/Projection/Type: Applicable Methodology	Applied
+CA-M-260	Subject/caprmedio/Workflow//Applicable Methodology Compilation	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation	Applied
+CA-M-277	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode: silent	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode: silent	Applied
+CA-M-278	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Interaction.Reporting Mode: verbose	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode: verbose	Applied
+CA-M-300	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Constraint	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Constraint	Applied
+CA-M-345	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: FPF Analysis Report	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: FPF Analysis Report	Applied
+CA-E-207	Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL	Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL	Applied
+CA-E-379	Subject/caprmedio/Workflow//Applicable Methodology Compilation	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation	Applied
+CA-E-439	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution	Entity/Object/Occurrent/Execution	Applied
+CA-E-441	Subject/caprmedio/Action//Implementation Retry Control	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Implementation Retry Control	Applied
+CA-E-445	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-E-465	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record	Entity/Object/Continuant/History/Journal > Event Record	Applied
+CA-E-471	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure	Applied
+CA-E-473	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Implementation Retry Limit	Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit	Applied
+CA-E-474	Subject/caprmedio/Workflow//Release Readiness	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Release Readiness	Applied
+CA-E-477	Subject/caprmedio/Workflow//RMEDO Conflict Resolution	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//RMEDO Conflict Resolution	Applied
+CA-E-483	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication	Entity/Aspect/Engineering/Architecture/Communication	Applied
+CA-E-487	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure	Entity/Aspect/Engineering/Architecture/Component Structure	Applied
+CA-E-488	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool	Entity/Object/Continuant/Package	Applied
+CA-E-491	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow	Applied
+CA-E-510	Subject/caprmedio/Action//Reconcile Navigation Numbers	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Reconcile Navigation Numbers	Applied
+CA-E-513	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-E-521	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At	Entity/Object/Continuant/Governing Objects/Atom.Updated At	Applied
+CA-E-588	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: FPF Analysis Report	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: FPF Analysis Report	Applied
+CA-E-652	Subject/caprmedio/Workflow//Implementation Workflow	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow	Applied
+CA-D-253	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology	Entity/Object/Continuant/Projection/Type: Applicable Methodology	Applied
+CA-D-305	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology.Member	Entity/Object/Continuant/Projection/Type: Applicable Methodology.Member	Applied
+CA-D-306	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology	Entity/Object/Continuant/Projection/Type: Applicable Methodology	Applied
+CA-D-307	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology	Entity/Object/Continuant/Projection/Type: Applicable Methodology	Applied
+CA-D-320	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-321	Subject/CAPRMEDIO/Carrier/Directory	Entity/Carrier/Directory	Applied
+CA-D-322	Subject/CAPRMEDIO/Carrier/Directory	Entity/Carrier/Directory	Applied
+CA-D-323	Subject/CAPRMEDIO/Carrier/Directory	Entity/Carrier/Directory	Applied
+CA-D-324	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-325	Subject/CAPRMEDIO/Carrier/Directory	Entity/Carrier/Directory	Applied
+CA-D-326	Subject/CAPRMEDIO/Carrier/File	Entity/Carrier/File	Applied
+CA-D-327	Subject/CAPRMEDIO/Carrier/Directory	Entity/Carrier/Directory	Applied
+CA-D-328	Subject/CAPRMEDIO/Carrier/File	Entity/Carrier/File	Applied
+CA-D-337	Subject/CAPRMEDIO/Carrier/File	Entity/Carrier/File	Applied
+CA-D-339	Subject/CAPRMEDIO/Carrier/File	Entity/Carrier/File	Applied
+CA-D-344	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry	Entity/Aspect/UX/Entry	Applied
+CA-D-388	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-396	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-397	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type	Entity/Object/Continuant/Projection/Type	Applied
+CA-D-405	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-435	Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record	Entity/Object/Continuant/History/Journal > Event Record	Applied
+CA-D-453	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection//PROJECT_SCOPE_UNIT_GRAPH	Entity/Object/Continuant/Projection//PROJECT_SCOPE_UNIT_GRAPH	Applied
+CA-D-454	Subject/CAPRMEDIO/Graph/Node/Project Model/Projection//PROJECT_SCOPE_UNIT_GRAPH	Entity/Object/Continuant/Projection//PROJECT_SCOPE_UNIT_GRAPH	Applied
+CA-D-496	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Entity/Object/Occurrent/Execution/Workflow Run	Applied
+CA-D-497	Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings	Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Applied
+CA-D-498	Subject/CAPRMEDIO/Carrier/File.Filename	Entity/Carrier/File.Filename	Applied
+CA-D-499	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-500	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-501	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-502	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-503	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-504	Subject/CAPRMEDIO/Carrier	Entity/Carrier	Applied
+CA-D-581	Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis/Type: FPF Analysis Report	Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: FPF Analysis Report	Applied
+CA-R-1174	Subject/caprmedio/Product: CAPRMEDIO Framework	Entity/Aspect/Product: CAPRMEDIO Framework	Applied
+CA-R-1175	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection	Entity/Aspect/Engineering/Data Handling/Source Selection	Applied
+CA-R-1176	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION	Entity/Object/Continuant/Structural Unit/Scope Unit//PROJECT_CONFIGURATION	Applied
+CA-D-654		Entity/Object/Occurrent	Created or completed
+CA-M-141		Entity/Aspect/Engineering/Execution Control	Created or completed
+CA-M-261		Entity/Object/Continuant/Package/Project Implementation	Created or completed
+CA-R-2226		Entity/Object	Created or completed
+CA-R-2227		Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Entity Definition	Created or completed
+CA-R-2228		Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Relation Definition	Created or completed
+CA-R-2229		Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Term Definition	Created or completed
+CA-R-2230		Entity/Aspect/Engineering/Architecture/Communication/API/Result Contract	Created or completed
+CA-R-2231		Entity/Aspect/Engineering/Architecture/Communication/API/Self Documentation	Created or completed
+CA-R-2232		Entity/Object/Continuant/Package > Module > Code Unit	Created or completed
+CA-R-2233		Entity/Object/Continuant/Package/Eval Package	Created or completed
+CA-R-2234		Entity/Object/Continuant/History/Journal > Event Record	Created or completed
+CA-R-2235		Entity/Object/Occurrent/Execution.Result	Created or completed
+CA-R-2236		Entity/Object/Continuant/Governing Objects	Created or completed
+CA-R-2237		Entity/Object/Continuant/Package > Asset	Created or completed
+CA-R-2238		Entity/Aspect/Engineering/Architecture/Communication/API	Created or completed
+CA-R-2239		Entity/Object/Continuant/Package/Project Implementation	Created or completed
+CA-R-2240		Entity/Object/Continuant/Package/Runtime Package	Created or completed
+CA-R-2241		Entity/Object/Continuant/Structural Unit	Created or completed
+CA-R-2242		Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Atom/Content Role: Operations/Type: Step >{0+} Atom/Content Role: Operations/Type: Sub-step	Created or completed
+CA-R-2243		Entity/Graph Syntax > Cardinality	Created or completed
+CA-R-2244		Entity/Graph Syntax	Created or completed
+CA-R-2245		Entity/Graph Syntax > Relation//IS_EXECUTION_OF	Created or completed
+CA-R-2246		Entity/Graph Syntax > Relation//RECORDS	Created or completed
+CA-R-2247		Entity/Graph Syntax > Relation	Created or completed
+CA-R-2248		Entity/Graph Syntax > Format	Created or completed
+CA-R-2249		Entity/Graph Syntax > Format/bool	Created or completed
+CA-R-2250		Entity/Graph Syntax > Format/int	Created or completed
+CA-R-2251		Entity/Graph Syntax > Format/float	Created or completed
+CA-R-2252		Entity/Graph Syntax > Format/decimal	Created or completed
+CA-R-2253		Entity/Graph Syntax > Format/string	Created or completed
+CA-R-2254		Entity/Graph Syntax > Format/datetime	Created or completed
+CA-R-2255		Entity/Graph Syntax > Relation//EXECUTES	Created or completed
+CA-R-2256		Entity/Aspect/Product: CAPRMEDIO Framework	Created or completed
+CA-R-2257		Entity/Graph Syntax > Format/scalar	Created or completed
+CA-R-2258		Entity/Aspect/Product: CAPRMEDIO Framework	Created or completed
+CA-R-2259		Entity/Aspect/Product: CAPRMEDIO Framework	Created or completed
+CA-R-2260		Entity/Aspect/Product: CAPRMEDIO Framework	Created or completed
+CA-R-2261		Entity/Aspect/Product: CAPRMEDIO Framework	Created or completed
+CA-R-2262		Entity/Aspect/Product: CAPRMEDIO Framework	Created or completed
+CA-R-2263		Entity/Aspect/Product: CAPRMEDIO Framework	Created or completed
+CA-R-2264		Entity/Object/Continuant/Package/Project Implementation	Created or completed
+CA-R-2265		Entity/Aspect/Product: CAPRMEDIO Framework	Created or completed
+CA-R-2266		Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation/Type: Eval Policy	Created or completed
+CA-R-2267		Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type: Policy	Created or completed
+CA-R-2268		Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type: Decision	Created or completed
+CA-R-2269		Entity/Carrier/File	Created or completed
+CA-R-2270		Entity/Object/Continuant/Actor/AI Agent.Permissions	Created or completed
+CA-R-2271		Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings	Created or completed
+CA-R-2272		Entity/Object/Continuant/Projection/Type: Canonical Signature	Created or completed
+CA-R-2273		Entity/Object/Occurrent/Execution/Step Run.Invocation Context	Created or completed
+CA-R-515		Entity/Object/Continuant/Structural Unit/Scope Unit	Created or completed
+CA-R-636		Entity/Object/Continuant/Governing Objects/Atom	Created or completed
+CA-R-637		Entity/Aspect/Engineering/Verification	Created or completed
+CA-R-690		Entity/Aspect/Product: CAPRMEDIO Framework	Created or completed

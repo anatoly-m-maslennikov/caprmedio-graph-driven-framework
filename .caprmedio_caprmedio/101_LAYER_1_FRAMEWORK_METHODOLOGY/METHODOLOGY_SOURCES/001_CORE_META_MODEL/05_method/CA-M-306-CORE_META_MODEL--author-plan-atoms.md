@@ -1,38 +1,36 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Assignee'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Definition of Done'
-  - Subject/CAPRMEDIO/Graph/Relation
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Carrier/File
-version: 25
-updated_at: 2026-10-27 19:59:41 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - Atom.Content
+  - Atom.Content.Summary
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+  - CFEL > Relation
+  - Entity/Aspect/Engineering/Execution Control/Decision Confidence
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit'
+  - Scope Unit
+  - Carrier/File
+version: 30
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   depends_on:
   - CA-R-1588
 atom_id: CA-M-306
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Author Plan Atoms
 
-## Scope
+## Claim scope
 
 Plan Atoms.
 
@@ -49,6 +47,4 @@ Plan Atoms.
 7. express required start dependencies with `BLOCKS`; **when** a Plan is contained by another Plan, declare `IS_CONTAINED_BY` on the child and derive `CONTAINS`; do **not** infer execution dependencies from leading numbers **or** folder placement.
 8. resolve confidence **and** retry values from their applicable sources; store **only** explicitly selected overrides on this Plan.
 9. keep supporting Details within Objective **and** its restrictions **without** another intended outcome. review Objective against the completed Details **and** Definition of Done; explicitly revise Objective **if** needed **and** recheck their agreement.
-10. **only after** that review, derive Summary from the finalized Objective under CA-R-1418 **and** CA-R-1465. retain the established Summary across Revisions; **if** it needs changing, replace the Atom identity under CA-R-1464.
-
-## Details
+10. **only after** that review, derive Summary from the finalized Objective under CA-R-1418 **and** CA-R-2499. retain the established Summary across Revisions; **if** it needs changing, replace the Atom identity under CA-R-1464.

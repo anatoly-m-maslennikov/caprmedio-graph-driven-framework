@@ -1,0 +1,26 @@
+[
+  {
+    "source_atom_id": "CA-R-1484",
+    "source": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1484-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+    "source_sha256": "ac00adf07abd06d690795122d0415e9b9b0493f7b2f3c3a2b39bf84c901b9301",
+    "draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-1484@21-draft-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+    "draft_sha256": "e1effcfe84c9ca74bf6fe89714f882777eff86ef89070571fb5e2c38e0031336",
+    "status": "Draft; reviewed and corrected; adoption pending"
+  },
+  {
+    "source_atom_id": "CA-D-442",
+    "source": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+    "source_sha256": "d64c6167060109f13b86a674fec276ae05c5fe3d6a7768ec800c1f60c7da6605",
+    "draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/scope-unit-governance-20261031/CA-D-442@24-draft-CORE_META_MODEL-DECISION--encode-scope-unit-declaration-fields.md",
+    "draft_sha256": "d9438b27a088d8054367283316b97ba07e1d598ff32b7f4cdac8d9974079b4da",
+    "status": "Draft; reviewed and corrected; adoption pending"
+  },
+  {
+    "source_atom_id": "CA-D-297",
+    "source": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-297-CORE_META_MODEL-ENG_DECISION--serialize-scope-unit-authority-directory-names.md",
+    "source_sha256": "c9e4691762740fa5c33baab46bbb53df0c6753605416cb5262f9c1d482b2819f",
+    "draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/scope-unit-governance-20261031/CA-D-297@30-draft-CORE_META_MODEL-DECISION--serialize-scope-unit-authority-directory-names.md",
+    "draft_sha256": "e30ff1d4764345c8d948894b14b5ccda029731f2a46a707fa846b6f60ec49344",
+    "status": "Draft; reviewed and corrected; adoption pending"
+  }
+]

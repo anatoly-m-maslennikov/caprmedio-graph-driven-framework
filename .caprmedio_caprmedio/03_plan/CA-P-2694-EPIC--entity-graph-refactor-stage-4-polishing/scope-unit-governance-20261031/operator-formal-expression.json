@@ -1,0 +1,8 @@
+{
+  "expression": "(Atom//.Role = Requirement & .Form = Scope Unit Declaration & .subjects.active = Scope Unit//){:1}",
+  "earlier_expression_superseded": "(Atom//.Role = Scope Unit Declaration & .subjects.active = Scope Unit//){:1}",
+  "subject_field_evidence": "Core/property-expansion/declare-atom-subjects-active.md",
+  "parser_validation": false,
+  "current_sources_changed": false,
+  "mapping_resolution": "Role = Requirement; Form = Scope Unit Declaration; subjects.active names the declared Scope Unit instance, not Atom.Status."
+}

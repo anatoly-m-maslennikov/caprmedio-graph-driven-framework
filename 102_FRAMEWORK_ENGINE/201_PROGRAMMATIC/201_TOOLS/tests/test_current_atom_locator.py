@@ -80,6 +80,21 @@ class CurrentAtomLocatorTests(unittest.TestCase):
             CurrentAtomLocator(self.root).assert_unique_current_claim(legacy_id, first)
         self.assertEqual("atom-identity-duplicate", caught.exception.code)
 
+    def test_configured_project_root_role_folder_resolves_current_plan(self):
+        current = self.atom(self.control / "03_plan" / "CA-P-101--root-plan.md", "CA-P-101", role="Plan")
+        locator = CurrentAtomLocator(self.root)
+
+        self.assertEqual(current.relative_to(self.root).as_posix(), locator.locate("CA-P-101", self.hint))
+        locator.assert_unique_current_claim("CA-P-101", current)
+
+    def test_duplicate_between_project_root_and_registered_scope_unit_refuses(self):
+        root_source = self.atom(self.control / "03_plan" / "CA-P-101--root-plan.md", "CA-P-101", role="Plan")
+        self.atom(self.scope / "03_plan" / "CA-P-101--scope-plan.md", "CA-P-101", role="Plan")
+
+        with self.assertRaises(CurrentAtomLocatorError) as caught:
+            CurrentAtomLocator(self.root).assert_unique_current_claim("CA-P-101", root_source)
+        self.assertEqual("atom-identity-duplicate", caught.exception.code)
+
     def test_unique_current_claim_ignores_unregistered_000_and_projection_copies(self):
         current = self.atom(self.scope / "04_requirement" / "CA-R-101--current.md")
         self.atom(self.control / "000" / "04_requirement" / "CA-R-101--unregistered.md")

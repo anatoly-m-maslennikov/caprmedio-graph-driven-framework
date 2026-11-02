@@ -1,0 +1,38 @@
+{
+  "added": [
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-GFEL--bind-instance-variables.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md"
+  ],
+  "drafts": 104,
+  "primary_declarations": 24,
+  "property_declarations": 47,
+  "roots": {
+    "Scope Unit": "Scope Unit/Project",
+    "Package": "Package/Implementation"
+  },
+  "properties": [
+    "Scope Unit.structural_level",
+    "Package.structural_level"
+  ],
+  "root_level": 0,
+  "edge_constraint": "child.structural_level = parent.structural_level + 1",
+  "derivation": "Derived solely from IS_CONTAINED_BY links; not independent hierarchy input",
+  "withdrawn_recursive_relation_syntax": true,
+  "review": "Independent semantic review PASS after explicit derivation was added to both Property Claims",
+  "current_changes": false,
+  "runtime_changes": false,
+  "formal_only_claims": 45,
+  "remaining_node_claim_prose": {
+    "root": 1,
+    "primary_descendants": 3,
+    "properties": 23
+  },
+  "remaining_node_descendant_and_property_claims": 26,
+  "operator_registry_and_11_pins_unchanged": true,
+  "current_epic_version": 38,
+  "current_epic_unchanged": true,
+  "successor_draft_version": 39,
+  "parser_runtime_implementation": false
+}

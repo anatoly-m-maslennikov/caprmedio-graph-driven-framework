@@ -98,6 +98,31 @@ class SubjectBatchProject:
         self.packet = json.loads(self.packet_path.read_bytes())
         self.golden._semantic_update_parameters = self.parameters
 
+    def use_legacy_subject_transition(self, *, leave_legacy_dependency=False):
+        """Configure one disposable legacy-to-approved packet after its baseline commit."""
+        path = self.paths[0]
+        raw = path.read_bytes().replace(
+            b"governs: Atom/Test", b'governs: "Entity/Graph Syntax > Relation"'
+        )
+        if leave_legacy_dependency:
+            raw = raw.replace(b"depends_on: []", b'depends_on: ["Entity/Graph Syntax > Relation"]')
+        path.write_bytes(raw)
+        self.git("add", path.relative_to(self.root).as_posix())
+        self.git("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+                 "commit", "--quiet", "-m", "Fixture legacy Subject source")
+        target = carrier_descriptor(self.root, path.relative_to(self.root).as_posix())
+        self.packet.update(
+            source_subject_profile="legacy",
+            git_checkpoint=self.git("rev-parse", "HEAD").strip(),
+            atoms=[{"target": target, "subject_patches": [{
+                "field": "governs", "old": "Entity/Graph Syntax > Relation",
+                "new": "Entity/Graph Syntax <+ Relation",
+            }]}],
+        )
+        self.targets, self.paths = [target], [path]
+        self.before = {path: raw}
+        self.save_packet()
+
     def execution(self, run_id="subject-batch-fixture", *, request_transform=None):
         request = self.golden.request(request_id=run_id)
         frontier, effects = subject_batch_frontier(self.packet, root=self.root)

@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-01",
+  "status": "Subject ownership fixes and wildcard semantics prepared; concrete global scope and effective-whitelist completion remain open",
+  "changes": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+      "before_sha256": "e0944d98e067faacc2ddfb9b5a9f4680013f450cdf3a5b0ef3eb181b13e70ab8",
+      "after_sha256": "d3e9b43f00d8da862c72a2ccfcfcb5a95c2660c64c0d06f4545d66100d472c83",
+      "reason": "Move independent MODEL resolution constraints to MODEL; keep Node inheritance/whitelist consequences"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-model.md",
+      "before_sha256": "4b9a315df49683e8809764372dfb8d6bffdc224a625f265f39a97b65df0d6fde",
+      "after_sha256": "f78ba27468412df5d566211487fd2b57f23dd334a284e5d824eb729ab05d0f02",
+      "reason": "MODEL owns actual override-resolution invariants; retain no possibility boilerplate or duplicate owner-count rule"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "before_sha256": "d7f38688c4f8a88803319014ae826b5a2de89421978379f845b8a17bca8d3350",
+      "after_sha256": "76e5c5ae19616407a85b2579d5156c14e1cf8d2e2423e0083024c3c31c283431",
+      "reason": "Acyclicity remains in Property-bearing Relation Definition; literal binding remains in shared direct-value Rule"
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/draft/node-declaration-20261031/CA-R-draft-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "before_sha256": "404b9624ecc3a7c067a8f5183681e406292c43b7b71e03a18b76760d9b8183fc",
+      "after_sha256": "e6ce7527bdaa2042febeda609db601aba37db4918fb6cf4c0629188307c1c7b1",
+      "reason": "Bind ENGINE Scope requirements to active Project Structure and its required Scope record; preserve permission boundary and unit order"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+      "before_sha256": "f33d4db8ee3c4ee2bcfd5a75bed1d708fbfb89f9287c9b29a8244ebb0397d962",
+      "after_sha256": "f171092984ba5ce1e5e4662bfe4d4ec2e11608442f0516259a82b8735a797772",
+      "reason": "Admit the user-defined model/instance selector composition; preserve Property non-instantiation"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "after_sha256": "1975b3e56e1a3ae863c4a31cb4fae0646df37e958f8f825b8bb46429929718d1",
+      "new": true,
+      "reason": "User-approved wildcard default plus separate model and instance scopes; concrete full-root selector choice pending"
+    }
+  ],
+  "two_layers": {
+    "model": "Node/**",
+    "instance": "Node/**//",
+    "superseded": "Node//**"
+  },
+  "allowed_value": "User confirmed {:x} as allowed-value notation, not a new Node-to-Node Relation",
+  "remaining_choice": "Whether model default also covers Node root and recursive Properties; pending user answer",
+  "default_policy": "Specific applicable named constraints take precedence over wildcard fallback, with original named bounds preserved",
+  "no_runtime_change": true,
+  "scope_preservation_correction": "ENGINE metamodel references stay passive-only; actions are not listed as Subjects; explicit Scope replacement remains possible"
+}

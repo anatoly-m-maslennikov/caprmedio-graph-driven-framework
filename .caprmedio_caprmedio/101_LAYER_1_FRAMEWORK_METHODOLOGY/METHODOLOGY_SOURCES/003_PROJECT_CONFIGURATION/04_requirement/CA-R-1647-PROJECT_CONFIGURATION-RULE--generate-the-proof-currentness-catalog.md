@@ -1,31 +1,26 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog'
-  depends_on: []
-version: 25
-updated_at: 2026-10-27 19:59:59 +0400
-relations:
-  resolution_of:
-  - CAPRMEDIO-GOV-CONC-054--how-should-proof-currentness-be-represented
+  active: Projection/(.Form:=Catalog)
+  passive: []
+version: 32
+updated_at: 2026-11-02 08:06:47 +0400
+relations: {}
 atom_id: CA-R-1647
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Generate the proof currentness Catalog
 
-## Scope
+## Claim scope
 
 proof-currentness Catalogs generated from governed proof dependency frontiers and their additional invalidation conditions.
 
 ## Claim
 
 CAPRMEDIO generates a non-authoritative proof-currentness Catalog from governed proof dependency frontiers encoded under GOV REQU 010 **and** their additional invalidation conditions. the Catalog reports **every** proof as `current`, `stale`, **or** `unknown`, marks **only** the smallest direct **and** transitive dependency closure affected by a change, never infers currentness from timestamps alone, **and** never mutates the historical proof record.
-
-## Details

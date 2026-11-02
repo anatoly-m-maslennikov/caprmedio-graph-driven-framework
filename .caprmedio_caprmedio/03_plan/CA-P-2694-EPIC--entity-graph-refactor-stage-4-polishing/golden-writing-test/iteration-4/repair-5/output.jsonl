@@ -1,0 +1,5 @@
+{"key": "B03", "generated_summary": "Preserve all information needed for governed use and keep unexposed information retrievable; show only the complete, currently justified task-sufficient set.", "ambiguity": null}
+{"key": "B08", "generated_summary": "Expose bounded, read-only MCP /health browser diagnostics; preserve machine readiness and keep gateway health distinct from Tool and Workflow execution success.", "ambiguity": null}
+{"key": "B09", "generated_summary": "Read-only code-candidate review of all applicable bound Method policy and current evidence; preliminary clearance is not acceptance.", "ambiguity": null}
+{"key": "B10", "generated_summary": "The shared implementation Step invokes exactly one read-only code review Action with explicit Integrated context, phase and complete source-bound inputs, passing results directly to the Workflow.", "ambiguity": null}
+{"key": "B17", "generated_summary": "The Project has exactly five Layers in a fixed Local Order.", "ambiguity": null}

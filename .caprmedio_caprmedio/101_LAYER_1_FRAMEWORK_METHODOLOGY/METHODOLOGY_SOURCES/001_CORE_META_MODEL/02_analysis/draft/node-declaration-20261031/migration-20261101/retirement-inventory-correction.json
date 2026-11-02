@@ -1,0 +1,33 @@
+{
+  "status": "APPLIED: retained concepts represented by replacement Declarations",
+  "latest_operator_decision": "we still have continuant and occurrent",
+  "retained_concepts": {
+    "CA-R-1967": "Continuant",
+    "CA-R-1972": "Occurrent"
+  },
+  "protected_related_current_atoms": [
+    "CA-R-1502",
+    "CA-D-654"
+  ],
+  "previous_planned_definition_carriers": 291,
+  "actually_retired": 291,
+  "list": "retirement-review-list.md",
+  "previous_plans_ready_to_apply": false,
+  "disposition_counts": {
+    "Replacement candidate; concept disposition separate": 68,
+    "Earlier retirement candidate; review required": 221,
+    "Retain — latest Operator correction": 2
+  },
+  "reason": "The previous plan conflated retirement of Definition carriers with removal of concepts and omitted retained Continuant/Occurrent.",
+  "pre_adoption_status": "inventory_correction; no Current lifecycle changes",
+  "retained_replacements": {
+    "CA-R-1967": "CA-R-2589@2",
+    "CA-R-1972": "CA-R-2590@2"
+  },
+  "current_evidence": [
+    "retained-concept-replacements.json",
+    "publication-receipt.json",
+    "final-source-readback.json"
+  ],
+  "note": "The old candidate plan remains historical. The publication receipt records the applied archive and promotion operations. Continuant and Occurrent concepts remain; their former Definition carriers are archived."
+}

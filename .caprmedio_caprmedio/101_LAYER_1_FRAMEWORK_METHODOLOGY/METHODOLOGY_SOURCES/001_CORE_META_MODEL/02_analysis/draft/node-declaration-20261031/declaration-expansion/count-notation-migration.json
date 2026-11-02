@@ -1,0 +1,799 @@
+{
+  "status": "complete",
+  "baseline_path": "/tmp/caprmedio-cardinality-ownership-20261031/before.json",
+  "baseline_registered_drafts": 104,
+  "register_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/draft-register.json",
+  "register_sha256_unchanged": "ed87e35e9322994abcd2eb975c8ede893e1661caebfde57f000ab92ab237afe3",
+  "changed_file_count": 66,
+  "changed_files": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "before_sha256": "f38d0e39fcf02a1a1b321768f067369c6662693c76474f811faee550a3b281f1",
+      "after_sha256": "2f0a10f5824f97ebbfa706d75a31948b2291c365b140741804c8774a8139a41a",
+      "count_tokens_changed": {
+        "0": 1,
+        "0..1": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "4d5ae9e4846505ae3e3812a06e9ae475a5bffc0a3f4fa313d2af21078ac61122"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "before_sha256": "4f5a14df717c4ffbdabf8870cdeeec1d3950f35fa9af2d4b71f66f23e4d522c6",
+      "after_sha256": "b77d238a4350dc8198e917492e44c3197cc16987afa38b5a0a251c3772f99b52",
+      "count_tokens_changed": {
+        "1+": 1,
+        "1": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "6e126bfbb637a210f0a1b75a5ffb99704be15abc435d749bdb8c809d9ac67018"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "before_sha256": "d163c28a6cd155236258df9cb9685a7c9867301776f92e841938a9bed919788c",
+      "after_sha256": "8b9e8ced4c5f3c76db7fd895c54ff361c707176a082576f25abc975db7a6c914",
+      "count_tokens_changed": {
+        "1+": 2,
+        "1": 3,
+        "0": 2
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "04f2dbc7c8a3bc53d88ff472eabf91c87ae08c14135686180ae7153111ae93a7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "before_sha256": "a0706d0f9a13dd6f8dee5a1074a17c7bb5182214baa7bd73a53799071d57e588",
+      "after_sha256": "f99abd06c605950eb35c4a25d30abf61321bd5a3c5cc96e6b6b6bd515d817649",
+      "count_tokens_changed": {
+        "0+": 1,
+        "1": 2
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "a4647d009d86aa8369dacc20ec49ef740c40ca47f28c9fe7acff462431b1275f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "before_sha256": "f2ee1eb6e9692c8774cdcb45e7119f06d7a0625ce3f8d450f18b1757b1a6a2ba",
+      "after_sha256": "99b95c3f00d62870bfa3ece62999228adb349fc1013d5818384d7c544fa3b1f1",
+      "count_tokens_changed": {
+        "0+": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "60b5bddab4add16de028a562c89290e38b661e46153343d834e36e17d14c41ef"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+      "before_sha256": "b4b15c3937a1b4ec3a02dc813faddfa67d94c1e291d0461c9e8a9fe6263c14dc",
+      "after_sha256": "957faa36a27d0ab1cb05d773017b10ee032273985bd6591101a0ef90744c0020",
+      "count_tokens_changed": {
+        "1": 2
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "ff31eef3997c32ab9ee6af58c618a33666b7be767fe1bdc6e8236a15d535421a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-GFEL--use-node-graph-notation.md",
+      "before_sha256": "9969be8497630f19e97cb86a5d0f9fb7e65ce3545ed39fed12edf1cca982ec3b",
+      "after_sha256": "cbe4fdc92ace7b6091de9b04642fc59862a745ebf8686bc663c3bfa0ed0208b5",
+      "count_tokens_changed": {
+        "f": 1,
+        "r": 1,
+        "n": 1
+      },
+      "language_wording_edits": 1,
+      "frontmatter_sha256_before_after": "9ded605a0052117235bfbbc9e8ee741bc37f014b8da38bdbb336f430466f1bf2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-GFEL--separate-property-value-and-child-constraints.md",
+      "before_sha256": "d6910c1169f45d2a376e11659f320297381ba274c1347d33b3fe1476fa10125b",
+      "after_sha256": "1f3ae70b58e075a7984f13de1530ed3cb71a945ca7550a78537c776000c40883",
+      "count_tokens_changed": {
+        "n": 5,
+        "m": 1,
+        "0": 1,
+        "1": 5,
+        "0..1": 2,
+        "0+": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "c1320a5f06b7c36e7bcc0041a7f51a29961348c775ffcd5c54a3bdf74b612f5e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-instantiation.md",
+      "before_sha256": "450cb8a16b1a2946691c6cf5fddfcf9f348ff3397c2535b1c9f738ca283cccd9",
+      "after_sha256": "ea3d31966bd02eb2a7a98f5256b871e1408e5c3d9bd9350064c7b05576dae149",
+      "count_tokens_changed": {
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "644d4865fb0b1773183deddc18b9e179e683a2f6bb47cf8837a82f77e23ffdcd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-status.md",
+      "before_sha256": "76631df49051ca17e6f219efb603e40dac75f3bbabdd4c386176dcdb8ce2f42f",
+      "after_sha256": "506059c8f49b21494a7b864937f667f2dc098e52426bf438d3353c5a18fdb57e",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "2fef3a15018fb12d2fd8b2c896dccd89425555434600ee784f8051a34c87cead"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "before_sha256": "890c532cce3ba733ded2cbb11999eb4eac38d0355d361de5af7fd1eb0532947f",
+      "after_sha256": "6947bf18f1c2597aed5cb135f13fcf5525515d512e7c29fe732d8dc1fe513ca1",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "8eda792a368b5f24060d46392ffe0ccd18a46073f5b9b964c365811b88bce0e9"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md",
+      "before_sha256": "9db7ee0026a206c6923816c9436a72f7a23b90ee2b7ebf7de12dc0ad37bd11fd",
+      "after_sha256": "1663ffe6cc214eff00f0cf61fd96a104fdae47167b0f796c26ab46677ee43f41",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "0": 1,
+        "1": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "eaf5ab7a17567e45d9426a352a994256d91d55ea19f885354c9109ae6b350403"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md",
+      "before_sha256": "298e309c9710a0e9311a4ee1b59951f8a8919abb6d0c530f95a01993ececf6dc",
+      "after_sha256": "3020ea995fd82f70b57256bb5eab913089d76240b919465652a683101ffb142b",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "5b9c610aa959a1167640ef33f48c164a0ef2e7017a59723aa605d89b7fa8f7f7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md",
+      "before_sha256": "7c114cf7a2a9108f9ee1d7655ed5b91c7d742496997a87812a77b4f722922b2a",
+      "after_sha256": "bf866a126194000c7ef5efc451154785ed2d91aff7713182b985b5f2c901c7af",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "42cde4d0a6b519b8d513d0772168bfe61651820cbcd9ca77b7297deb3daa4937"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "before_sha256": "a95a6fa2518782c54e251e515ba41374d51a35a15ee085ab6b08516470bc51a9",
+      "after_sha256": "e3cd2d068796ca827dbee28be34156addfe530139820d7542da8ddad1aaec573",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "77a29fc8b328b912a6033ca81aebce7a2e7d25408646b84534d3614dc85f065d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-role.md",
+      "before_sha256": "5ae8694938fa4838ff3ecbc95f088351e80a5cfe4ade98260f283d7711de88f4",
+      "after_sha256": "f9e1b22ae3967b880cccf5717823b976e46f0282886587f4f174264425df8d04",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "90b8d77e52b4b179a0356e8eb78f1763e512cbb603465cb4f78662ec5606d954"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-form.md",
+      "before_sha256": "cc4fcea5873e7c587d9b2a2f3268b68e4b1862514973e30554bd978a341c3533",
+      "after_sha256": "b26c6dbd675765132ca2385f9a5a4c44d2d1a71e9a9a6715a9f62bd7a3fb5683",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "fc8d1d656772ce3b42d71d38a490395dab6b5c84bc26bb92f4464ba4a97f8590"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-version.md",
+      "before_sha256": "6a0df6590fb0fe4948d873fa09ef6a37a2499ac4c84c41e7796feb0e3c3b1fdf",
+      "after_sha256": "e1074917135ca34243d223fc4e4b42f91e251b1c71721dbd7cc5eaf6f824a93a",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "7494446bde0c0bb0a91a27fffd58beab89d8be2e2fd4b5bb6501596be286237b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-label.md",
+      "before_sha256": "3ccfa8ed859717fc213d33f001e1a8c48479c8da1837dd3c5047bd2ccb1ea99e",
+      "after_sha256": "b94a307e012548b64c2cf43fa22513ccb250774864db3e573e9c3753f77cfe60",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "048073ef803b2acbb474aff7bd961476ddd83bb7513378a7bdf1542a84ff6d30"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+      "before_sha256": "92e8dd76533f0d3da8131b532850cb460990bf8c2e7a8a9cbb3c8369d28d345f",
+      "after_sha256": "c7221674d1c784fa1fafec5fc1bea5f420403829fc391aa326fe0f44cb454306",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1,
+        "0+": 2
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "60c7fd6b9c4f65f60cea54c8f339baa3ba7453a726a4128533a41643b2e35e76"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+      "before_sha256": "3d5648711db2d047d4c3da012629911d4623294d3fdb681bb78d4f3e1b382f4a",
+      "after_sha256": "fa9a97a823ceabbaa15214d9cd1dcc3958ded2a64e1e875c21a9efbadcccb6af",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "7cfb87838a589c8c0aeebd33cf2157b3582ae4f54b370fb05b61c0529f29e0d1"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "before_sha256": "638a4238a9b382ccc3ab6d7ae9d0496661272c87eb4442e2bb29c53fbd7575ca",
+      "after_sha256": "bdd21bbb469e6cdb9aa13c8d6442bf9f761b18ddd5fa84d20bd5485b992aa5a9",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "34c56be35a7c062bca68707b7c66e64c5f9128e03856d04a1e3436bf4ad7e6de"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-scope.md",
+      "before_sha256": "d59b64cd31dedd300f3b79ba8c7c97b0f1442dbc8e736b3af84bdaf90b04a04b",
+      "after_sha256": "fe9d38531863a771a3c14b36dda503767f7b4d4e4f60cda55ecbfa71db24aa3c",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "d3b3295e0dad5b12775c8402f9dc1e1fa4965f7d57d7580223eac0b243e757e6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-semantics.md",
+      "before_sha256": "b5c7adea3b3c84d54358ac324f9371ce575786cc5632adb71a7b575e7ebd9b94",
+      "after_sha256": "7a9ecbcec35b16d0105fa6ce40fbe575fce780529bb70d4619377ca52040aed5",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "d47a8cdf40579c3cc49f1ab3b09fe2000f0722cee0a1019b810df30497d96ba8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-details.md",
+      "before_sha256": "aa3418c7d1beec34b1f2e755ee60dc41ebf114a786ed0834d796f3d7a1abd1d4",
+      "after_sha256": "952c37a17e6ac827178dfe6526709941bcd9f59b7c5b20d4e8cb9e9f78293928",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0+": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "b1167c86bba8437f8e0f6c2f788b2fafa7c5f2ad5e383ac93188193f483ca33e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+      "before_sha256": "03adcb73e710f59e101a4340bdd8a84b6afc4a89f0280a56bc0846a857e72472",
+      "after_sha256": "f9749c40adba0fb95d1d0acaba8f9917a6dfddf3bcffa4896a57ab2fcd51c3fc",
+      "count_tokens_changed": {
+        "1": 2,
+        "0..1": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "1745802bc0152697c52e1cb574152e230dbb14857508b78bf971ce410f0f35d5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier-label.md",
+      "before_sha256": "7ca75914edcd3847ab1dd36957586c9aae5f20408447538788388448f3e8d7d1",
+      "after_sha256": "e696ddd5a773b6f61e039e0b3656a87d9225ad013e8d20dc8f0f7e075dcc64cb",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "ced4db78ac1ecd1c7fd015d3c722c3d8d4abf672e83fb9e04842336fa04e7776"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive.md",
+      "before_sha256": "92b0b14cf8ee1295622043fd64a79a81da280ebe84d32568dd05d3cc520059e3",
+      "after_sha256": "dae9f421b28748021782e2c02e02a00973ef6008e2b5ac6e0c1df7524241127c",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "0+": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "cdff6b6b061fae51bd70a7bf5d2a906876870cb9f9b0cf45589e3a1d85733596"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-relations.md",
+      "before_sha256": "f189defb8273c0756b3abe27a90031071c9a6fa2a446c2490f33297941da693c",
+      "after_sha256": "0dd03ef1689c677ad60bc97c852d5f06884ee5eb5b4679c08912c29bb20bdf64",
+      "count_tokens_changed": {
+        "1": 1,
+        "0": 1,
+        "0+": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "153803e3b1140727ce33a3c1e6c96f3e9e0b6fdfdea0e7d0c10feff77e1139e2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-concern-priority.md",
+      "before_sha256": "5a5692e79b6a8bfdd5a356fe98ae556b5e85646355f948396595be1bd09d665a",
+      "after_sha256": "934f94367950415e123d7e08a7f1593befd366d220d153bd1d30985916897aab",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "0bc1db573fc12c74b2a11770a912b8c69b56bae19bfab61674dbb80346e44be4"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-confidence-threshold.md",
+      "before_sha256": "41c3b0914cfba303724be6ae309abcf46caa6357bdf99130e7ec6da7889879dd",
+      "after_sha256": "4cbf6abdf8f6d9a176a37e5af1598053235f2a18f059705c59aa4625119215bb",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "7d044ef6038eb70dc8056daa85016949f0e533b1dd825edf5b8e156ae2010576"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-implementation-retry-limit.md",
+      "before_sha256": "2c8db662b53004973482b53d1082efcfa5d3e303ed6e246dcc644a5e1ba1ca40",
+      "after_sha256": "573fc637044f4e6066ae57f26eb16a2505f8fd7bd6da682759411d86dd61de2f",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "4cbae369752f6ec8d6659882fe7e01478dfd4c0289843dc4957a1b37600f6fa0"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md",
+      "before_sha256": "86207957d47e435366f1ef8d6d008c71ebf9fc31ca19f001566197682191c6e0",
+      "after_sha256": "5a253be40e7aa6a3a4162d73df63e112510e5a3f73c18c2227068de1471420c9",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "e6199b830fb3379738b251073a4b8b4c0faefd21b8d931df1ba83568d8052303"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action-execution-kind.md",
+      "before_sha256": "57de3d97a470ae6a12b1cec83de46cea817dc790a6865d76f92fa1d653389d22",
+      "after_sha256": "194c572d3f2fe5af8fc682bf6304d1b8f99b72e0a3cf8647ce947349337c2e05",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "c718f948d3a3b60810449a3c7f0fa36dab0748730ed11b195c879264002715f2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md",
+      "before_sha256": "68bafb9173bdfda3bf5b0e591617183723d5a562ecb45b7b48d7c4214fd923ee",
+      "after_sha256": "2b6769451eb9f1f84ffb358d8277a5bed64d52682e8315490319a7669e2892ec",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "9bdc6cba4150f9a4cd9c915ec813882bf76aea76e3cfd1c45081e53b2277cea8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "before_sha256": "ec9cb46f332d2e468bc9beec951e74f0ddd6a6bdf1afb58192b2018020bacc3d",
+      "after_sha256": "633284b2453119f8199bf6dd9ac2be07d5624c8ae408c7d1e502f1b51625d8b9",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "0+": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "ec3582f5fe4c4274000e44dda8ddb89c472d2edc793d7db768fcb6b59568544b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "before_sha256": "6b9722dd841c808c5f19456711773591d39dcfff61c564b1359652846ba4fdbf",
+      "after_sha256": "4adabba7973ccd51f0383d526a0176d9fa3c5541fd82fdabd8746fa939daebd7",
+      "count_tokens_changed": {
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "aadaa726572c779af0b91bc2df14b6364d07f4e6d50f9a895fc18fdbfa5b84ca"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "before_sha256": "56c2c503a5001021ee1d369deca18692e4d0f6b6cdde8fd58b21535fce671b39",
+      "after_sha256": "ab545d66e0c851c196a7825b10bd167d2059cd1bb27bfda7369e2c21c4b684f6",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "0+": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "ecc1c8dd310257550d2a1283df527c6f817a0b4a100c3ca43c617dc1e6bf07a5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "before_sha256": "3127ffd54ff3c721a8a3992503075e6fb100024de80b3906382adb3f8e0a9933",
+      "after_sha256": "3a2009c9a3be118f0a9be050db2a7862ce3a2cc7dde4604b04df8eac2d49ea2f",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "7b50339acc344420b759b4f9062946d570475d653788c213cffd886d13b71ba7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-name.md",
+      "before_sha256": "cab64fb301b1188cffc7e5d8ae4195984d6edaf8a53669abe2b36eaf2d7bb7e4",
+      "after_sha256": "bdc71b710d68c34b530f701819171b6442a419f64af276ab60b39e73be873611",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "dab2618d783f4a0773cfad1d70a712fc9e0a5b743973c859001c15be3772b6b8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-label.md",
+      "before_sha256": "4a9a80dec66ba9f3c41811743e2a27155ab74082d80b27357eaac07b18feab12",
+      "after_sha256": "f34221427ab39743e58f70f7edadad4f21a21c95e1da94fd4297105e8ea90b1f",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "a7d71d44b1ade1bd531df060db91e2a8ad0eb05425e2633c14881b139ceb471d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-local-order.md",
+      "before_sha256": "c8a00c460119221d57cc3df44a8688a4a50635fcf4d737f6b90fce04617db76c",
+      "after_sha256": "b16f17143dcdae8d830908ca02882a78a3f67d06dd0ea2c9e5b688aceedf97c0",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "d689ee0c558be212a0c558458128f543d983d1fa46da1511aff6c1b42f2d1d80"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-navigational-order-number.md",
+      "before_sha256": "80976eee2e4283bdbf6fd1264bff63db5b6d7c9d664bfd483572cf3055c965d5",
+      "after_sha256": "58b477dd681b636648fa94ea9bd0be9436bff0fa11d8ac0749f19e2d3e98492a",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "0078225107dd7743910a8ebb940e45307fb0ff7a2d4d32070cea311dbf68dce6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "before_sha256": "cc3371c5e47c564508e9cc5d784fed7e56162e72b53c5c652dc4e93a78a54dc5",
+      "after_sha256": "e64fa157f6e7adfc68964f7f87d34ba2a1ccdc05fbf68360ef01e4eeb2dccf4a",
+      "count_tokens_changed": {
+        "1": 1,
+        "1+": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "4ac39b887a3c411ffb098a41d56da6ae4e03c947a0e018d75fcf69dcd2334cdd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-project-boundary-position.md",
+      "before_sha256": "276c32c30141ee639db21146d1e817e91060d810ada5ef28a97f8aa9219c7b3f",
+      "after_sha256": "3a71e181f9ff3574fedfed99136c91b2edc9701752c78d1dfe85a453c9130d33",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "728b25792c9338f025740ac7f5819472c301e841d146bff2c74fd6b77a2dbea8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "before_sha256": "2a312d8289afed5c4d01c2015b56485cf407d0bfd977447a4526a2be89726b90",
+      "after_sha256": "8e72e94fb30e7b566bf2e4bd78767ebc6a8bb6bd59c44a82fa3059b035f8df65",
+      "count_tokens_changed": {
+        "1": 1,
+        "0": 1,
+        "2": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "a368bde66adab110430770e5680f1f89b0feb7db153681710d31f56d2df7a236"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings-name.md",
+      "before_sha256": "01df4bc3060b8b17441af98d4a569a559ff39953d1fcbc538bfd6d72984e18b8",
+      "after_sha256": "d4a7c5ea545c1b577a06d7c0029bcb8a85b07e725efeb6ab1235abeb1456b21d",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "fe70af00ede1497815460dbedb52c90c5fe15d6f14e10888a85ed481affcbca7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-settings-prefix.md",
+      "before_sha256": "0f5ea5f848bf35335531c4c389d42f27d9ed384bdda66999fdc47d3e273fb102",
+      "after_sha256": "ea14af0c74a41889f5745901ebfbc905dd97cdaf1f90198fce21891816f80982",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "97dd9df1796e5b8865ea13d8f5219123cbe10fbb6d4fa79ce77adb207c97037c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "before_sha256": "0f9dbf5acfaf7089671141e59dfd104b33438fc7733d7c74c95049b8bedab8f3",
+      "after_sha256": "f596f5fb7b9dc156d2c4f3c33ecfefab99abf28c1c19ea01a7a30775b712c27d",
+      "count_tokens_changed": {
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "099f98601695b24b769e7e73cafc0578d979ec08d13328a426423b2dedfc7c52"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "before_sha256": "efa7b228ea1ace66777e3c2ee642ced0be11394590d94ab258f65291135fbc0a",
+      "after_sha256": "c8699dd88359f90527170aae7c1c251a53c75a254c5dd8a28393dd2b0406bb53",
+      "count_tokens_changed": {
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "af5a0da3fed18f3fefe77e74fe22eca6c1cdc41a46f50b32cb7f6331673b5bde"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "before_sha256": "824d16361c19bad1f5ffbede6b3f0f886a13180ad750d894eb49b5f0d5ce46cf",
+      "after_sha256": "9d0e6e1d3dd7244d3164738df36b92666eed83387fdd9ee601e44adc499eccee",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "7b067beb78260596fd3ec12731c0f17c9e58aff15c953032918951e0ceced77a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-type.md",
+      "before_sha256": "a83b10a4373241b5d44d4471b6cad97917c0705908754ebb63fa6bfe33479b04",
+      "after_sha256": "704ae1899972f3d4417878f0dbfe80517977868f6193fa9c3bedcef9ba7726cf",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "1effe54d1524082ad9007ed89d2a11a3c4b642fa4d6471d2d193387b6d477ad5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+      "before_sha256": "f2fdac67059506d7a609e48dc67b970a160c737902275d583d8b8204cc91d32c",
+      "after_sha256": "58b8005e6436438fdfa256bdc6f3e24e1d3674df8c335562fed8289a84bbc71d",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "5c7d390de75c2c749856e0924d8c0dfe0a8db90de76f17282342b0fab45221c9"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-sources.md",
+      "before_sha256": "2f35a53550cd9e3627de1d3f90bfffc079b1338dfee8930357f10fb4d1325ad5",
+      "after_sha256": "60bb4ddc8652cd4567b6004eb7b424dba043cbad744cda28bb73655e25153fc3",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "0+": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "1ea3aa5ce78c93fe0773ebd2e1508c79070fbec9d524146b8cdfb0ca992c29af"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-named-selection.md",
+      "before_sha256": "7801916711d4e0b49a8bff9492c2a923603ac169c0db426924b7ce144080df59",
+      "after_sha256": "40d4f678c6a8dcce9b14a64cbc411474abf7b2e35a1722519d54adb5b88c648d",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "087b0551d7046d9e818275856e1f24928873d8fd542e58a740c04404c7b81f93"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-of-truth.md",
+      "before_sha256": "70c37b199db5b3dce3eec0e2c30a462ac0f8181aad17179a86015d6ececac947",
+      "after_sha256": "41fff2e9d12eca20c6238ea04066f60fb74b66188618d51b16ac7b3861648d7a",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "133aa65e547fd64ff68a929e87260e19f8e26d494e68ba3bf2ebcdcfd19cdd42"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-actor-name.md",
+      "before_sha256": "d5d7508022896ad315cb5a5afae9080bac0407793be7b803e497d1cb803910fb",
+      "after_sha256": "6d8127cf3e25b99f6d2daceb1918e3273da3df9f18c55f4b0fb75455b9d9684a",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "64346f551a17e7537a08747f3da304ae48b95393c970ed7cc9cb664ee260dc66"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects.md",
+      "before_sha256": "cc758db92b35bb38943e2380b81e63433c580f582b4281d2168115f88dbacc6b",
+      "after_sha256": "21dcd1f5716245c4f9f9ad73b24c4028c9a24576e237a7df21391ccf07d6736b",
+      "count_tokens_changed": {
+        "1": 1,
+        "0": 1,
+        "0..2": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "a8c5da74d82027d00bde0ef60f8aa667a79f012080b5acc46b8f63529dc30301"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-active.md",
+      "before_sha256": "4f5f1e04e6d85f32d38f1a33671002a483e930249eb3328d2ac471e7b917366d",
+      "after_sha256": "7ddd7d19239d6a80d0d6ea186862a78a8d9dfeb8cbd8c07380b17a911dc3002e",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "23f4e037a61fe39b3b486c27498dcd97af79b9189fec3f12dc00d25f6ab95f60"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "before_sha256": "6b75f8f7f342d58beb42cc637bc03a6dd00ec68e6cd33f229f4e36a8a5b0f2a4",
+      "after_sha256": "b858cb361e5cabbe1b6616693fb1943f16d9e56db8961877bcd569cdc24542a1",
+      "count_tokens_changed": {
+        "1": 4,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "c467416b81489ee21dc276574b51766c915e86b75dda25e06ee5ef797b4f3bff"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-GFEL--bind-instance-variables.md",
+      "before_sha256": "88e03d84e934745f992a762812ac5434e3f1f12b4310fea89c5ff6050826fcb5",
+      "after_sha256": "04e6436f7ac4dd522e2a243ad1dc42ebb8d886c020e31237845582f8888d3da2",
+      "count_tokens_changed": {
+        "n": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "627e32de23c00cc5d556d78c4127198ea8640fb4e46711b2b8c7acd41765bf5d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+      "before_sha256": "ce0ba74c9412143248359ac389d6ce2b7a263a15c7047547a429b9b9e3e54381",
+      "after_sha256": "ad8cc2fbeed5d75564c9a8d8d13778ad57b033a220dcf2cb42c36cf3ea3f77de",
+      "count_tokens_changed": {
+        "1": 1,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "1cc5b90d5f41871f950ee83bad277565f9635a85b0ca56f51c3fba790676c776"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+      "before_sha256": "9b122fe25c9ba8f30d40facc157daefcf55f576cde97c04a8024188ddcd5f018",
+      "after_sha256": "e27a5255ab48dcee7d9875fc66032dcee54585baed5ebf5d0973e46059fc0a90",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "197f748219617a02f8b680e81b9d32491e92797f0876dc94df00d45225002a7e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+      "before_sha256": "ea1395c8ff6de7de40acf6e0802b2c1c91203723e8c5805b0e5f5324869252be",
+      "after_sha256": "4ca1ad557a5bda7d8e33b29b236f19b97bf4eba567a908222d28014e34b0e0c8",
+      "count_tokens_changed": {
+        "1": 2,
+        "0": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "cac663cb3d1bea009c0fac5591e0192d51fb2b182540aa7fcba8342f6b1e341d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md",
+      "before_sha256": "11f772827aa7bc8789b97d5df3f207ea8c63304488a9c4d2512c9c62c5f4a89e",
+      "after_sha256": "76c44d2a2a2a8773560b3dd6183410645679d5cdcf118e786dfcc74a156c0dca",
+      "count_tokens_changed": {
+        "0..1": 1,
+        "1": 4,
+        "0+": 1
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "cdb855961125a547e682c25e6b8757e205e86d06045a21916793a09963343a09"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/draft/CA-P-2694@39-draft-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "before_sha256": "cd27e31aac9b3cce89ab6c1a33b4c06810b06af3a669ebb0977e79b91da6c9c8",
+      "after_sha256": "9dba63f7af1ed2d226fd6a88bee0bab803c89f10d088b166a52bfcfa83e5131f",
+      "count_tokens_changed": {
+        "0": 1,
+        "1": 3
+      },
+      "language_wording_edits": 0,
+      "frontmatter_sha256_before_after": "4b907e666077a405919c3043a77ad2e6cbce08ed3a87d2218cc82f495db5ef2f"
+    }
+  ],
+  "totals": {
+    "registered_draft_numeric_and_metavariable_count_tokens": {
+      "0..1": 25,
+      "0..2": 1,
+      "0+": 11,
+      "1+": 4,
+      "0": 55,
+      "1": 88,
+      "2": 1,
+      "f": 1,
+      "r": 1,
+      "n": 7,
+      "m": 1
+    },
+    "all_count_tokens_changed": {
+      "0..1": 26,
+      "0..2": 1,
+      "0+": 12,
+      "1+": 4,
+      "0": 56,
+      "1": 95,
+      "2": 1,
+      "f": 1,
+      "r": 1,
+      "n": 7,
+      "m": 1
+    },
+    "language_wording_edits": 1,
+    "frontmatter_changes": 0
+  },
+  "assertions": {
+    "all_registered_draft_source_hashes_matched_baseline_before_write": true,
+    "only_registered_drafts_active_spec_proposal_and_epic_draft_changed": true,
+    "frontmatter_preserved_byte_for_byte": true,
+    "empty_braces_and_existing_condition_or_conclusion_counts_preserved": true,
+    "English placeholder tokens in proposal preserved": true,
+    "no_current_source_register_or_runtime_edits": true
+  }
+}

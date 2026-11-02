@@ -1,0 +1,25 @@
+---
+atom_id: CA-R-2485@2
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+subjects:
+  active: CFEL <+ Relation//HAS_INVERSE
+version: 2
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+tier: 3
+role: Requirement
+form: Relation Definition
+---
+## Summary
+
+Define HAS_INVERSE
+
+## Claim
+
+HAS_INVERSE links a direct Relation to its derived inverse. The inverse swaps the direct Relation's Host and Target. Its links are derived from the direct links and are not authored separately.
+
+```CFEL
+Relation// ((HAS_INVERSE)) Relation//
+```

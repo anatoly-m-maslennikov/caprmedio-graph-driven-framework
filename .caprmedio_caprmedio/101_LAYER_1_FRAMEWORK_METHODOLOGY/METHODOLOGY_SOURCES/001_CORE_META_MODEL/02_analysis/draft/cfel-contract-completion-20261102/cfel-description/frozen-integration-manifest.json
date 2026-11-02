@@ -1,0 +1,48 @@
+{
+  "status": "frozen candidate manifest; no Current mutation",
+  "core_candidates": [
+{"path":"CA-R-2487@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md","sha256":"6eaccea1a11ebe687df8a75f0b34b20589ec781cfb5d3f59082270451100e017"},
+{"path":"CA-R-2243@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality-notation.md","sha256":"8b57813089fd91d42ff0a3298fa6f734be518998234b9d96d1f51470391447c9"},
+    {"path":"CA-R-2472@3-draft-CORE_META_MODEL-CFEL--separate-property-value-and-child-constraints.md","sha256":"4ae2c709e07339af5944eef1156a85a7e4bdbe8e8659dc8176311d53c944f518"},
+    {"path":"CA-C-draft-CORE_META_MODEL-QUESTION--should-recursive-property-counts-aggregate-descendant-identities.md","sha256":"9c1410095d04966c27528c594f0733a58bea91f12d0660422071889b7ba403df"},
+    {"path":"recursive-count-examples.json","sha256":"7e560485ae00e53f5dfbaf8d42d5e0cf2f4c2d87c0a956bb3dc87c44c1a0f836"}
+  ],
+  "operator_declarations": {
+"base": {"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md","sha256":"9cee9554227202473204de4523d6e63f781a19d8594e7510bacb7d01388aeef2"},
+    "members": [
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-addition.md","sha256":"0b389085bf5b24d8858280c7a9c7d6f8a53b77da6885edd06f4eb7887ec9fd2f"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-allowed-value.md","sha256":"f86dcd093dd8c8634d0ce1d96901a27a7c88c5b5f8aa92b55df49177477048a9"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-conclusion.md","sha256":"bd2ccbf1ba1d565e4d6133c65d88f130bd7da5a634d687da9aa263c6da1fdd0a"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-condition.md","sha256":"b362c674ff49b3070d160cae4ff8a4fe7fe13ee25e7cfc3e081baae013a58623"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-declared-reference.md","sha256":"5145df34cbb388d242b05a29fb6429d9e8849ba58874ed9701c4336485dd2bb0"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-delivery.md","sha256":"bcf13c733f24ca65f71ed27c8d512695b8c5e7a15944d319b3bd5f2a9a4864ca"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-expression-separator.md","sha256":"78470f1c4169a705336007b8498009fce2c7c93f3b7bfdc7f57db3ca84e9079b"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-fallback.md","sha256":"4cb8425b742e3c79c52bea9507a9ce19be859042a30cb6480125bb366a4a1b77"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-greater-or-equal.md","sha256":"7a17f27adcf03042d12bd977581bfa28669ad5c7ba37b05e2016b968f8338bce"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-greater-than.md","sha256":"b668e4befeff7f509a6bad146579bcef028b3ca2309db4338ffb0d63e758237c"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-grouping.md","sha256":"fe745a0bfd0494a4abcf5242bf288088d2d0152b4ffa35e69250905d84904015"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-immediate-wildcard.md","sha256":"eb32966dfa863aa761c023cd9278e304180f8085e618f89e440b2947d2fb90c1"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-inequality.md","sha256":"a0e6eaa781552ec0913f65cb0ce3ea5f55863c5bb5d84b6640d83b7de179eeb3"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-instance-binding.md","sha256":"61df050e0cffd854eb8ebb7493f99e5be46d875113ce45cf4011ee741b735b09"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-instance.md","sha256":"646d6a901ae7b5e034a7224c913845195a7e3fdfa49c82ee309ebad17592f0e0"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-less-or-equal.md","sha256":"ba419b194dc6e3e3f8a2cd0d9c40124f0a90801a20b61bab9f90895cba9bd4c6"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-less-than.md","sha256":"c77330caa4d987da1ecf1242a196277ce9eea265c98b36cb43c56f50147eab8d"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-membership.md","sha256":"bfc07881216c63bc263e2e63952142abc51d32fe3a9fff17dcfe04935a451c6e"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md","sha256":"4109cf68438ae5bdbf65d31ed792f67ad8e15235142502e1504d8ba707ca6f42"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-narrowing.md","sha256":"1b86acf1b44ef559c0169b56961d58f787dcaca8093d147b9b6f05893567c98d"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-property.md","sha256":"f9c2389a4c04832bd6f35cb27750c066c09e814e4d80dd45e6e61007d5c5f95e"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-recursive-wildcard.md","sha256":"40e0e3a6d0f7b62774ed79aa799dbb85c0ffd07646745ef5792c25c56982c776"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-relation-endpoint-signature.md","sha256":"9d399256a40d0afc180d674092ea97710003e5badc8648515457af02e1eaa376"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-selection-exclusion.md","sha256":"ec7a3581d7dfb72c3fed76478d3ad83850600812a279ce7b470b487f4bb73e4c"},
+{"path":"operator-declarations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-subject-value-selection.md","sha256":"1fd033f86dac950b9b7824c086fcfb087ebda27f7157949e09e74e6f2af82529"}
+    ]
+  },
+  "r2244_consumer_dispositions": [
+    {"source":"04_requirement/CA-R-1321-CORE_META_MODEL--define-subject-expression.md","source_sha256":"b97d1ac9a3958a6f39dda03eb07e26042990afefbbe8b9a1009e643cf54a16b3","candidate":"consumer-patches/CA-R-1321@34-draft-CORE_META_MODEL--define-subject-expression.md","candidate_sha256":"8bb6cf3f52741e1931603bcdf56dc5568cc4f055f370c52e50115f039bc35119","action":"redirect R2244 to R2487 and normalize examples"},
+    {"source":"04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md","source_sha256":"a81f68ddb41eff9724640443f6af2d69739ab1bb01014f838a0ae7d30cbc0f22","candidate":"consumer-patches/CA-R-2276@3-draft-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md","candidate_sha256":"ebdcbbb363ec2e25249e27a7529c6b3960d0f84cb3f1e99d7496c3ea923cddaa","action":"redirect R2244 to R2487"},
+    {"source":"04_requirement/CA-R-2327-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md","source_sha256":"8dc7296195ec2e1bbd56485b872626d18205d330c7331c6d264021c314809b22","owner":"lane A","action":"redirect R2244 to R2487 if source meaning matches"},
+    {"source":"04_requirement/CA-R-2328-CORE_META_MODEL-ENTITY_DEFINITION--define-format.md","source_sha256":"817b7fcf9a7d7e4eb5346bcfa64f1ac7f395dd1fb1e182e519f91936678a5d16","owner":"lane A","action":"retire"},
+    {"source":"04_requirement/CA-R-2329-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md","source_sha256":"148536450fb3dc9bd9808c93f87247ba2125b0abbf5c9b0c0d9348acf01848df","owner":"lane A","action":"retire"}
+  ],
+  "integration_gate": "All listed candidate hashes must match before adoption. CA-R-2244 archives only after all five dispositions are applied."
+}

@@ -149,8 +149,11 @@ def _scalar_path(value: str, *, subject_profile: str = "legacy") -> str:
 
 def _checked_subject_path(path: str, *, subject_profile: str) -> str:
     try:
-        graph._subject_parts(path, subject_profile=subject_profile)
-    except graph.EntityGraphError as error:
+        if subject_profile == "approved":
+            graph.subject_notation.parse_subject_expression(path, subject_profile=subject_profile)
+        else:
+            graph._subject_parts(path, subject_profile=subject_profile)
+    except (graph.EntityGraphError, ValueError) as error:
         raise _UnsupportedForm("subject-path-malformed") from error
     # Preserve the complete source string: no terminalization or path rewrite.
     return path

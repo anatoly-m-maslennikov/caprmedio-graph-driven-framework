@@ -1,0 +1,109 @@
+{
+  "decision": "Same Atom.ID implies same Summary only in Current + Archived",
+  "examples": [
+    {
+      "case": "current_A_draft_B_same_id",
+      "rows": [
+        {
+          "group": "Current",
+          "id": "X",
+          "summary": "A"
+        },
+        {
+          "group": "Draft",
+          "id": "X",
+          "summary": "B"
+        }
+      ],
+      "outcome": "dependency_satisfied_draft_excluded"
+    },
+    {
+      "case": "current_A_archived_B_same_id",
+      "rows": [
+        {
+          "group": "Current",
+          "id": "X",
+          "summary": "A"
+        },
+        {
+          "group": "Archived",
+          "id": "X",
+          "summary": "B"
+        }
+      ],
+      "outcome": "dependency_violated"
+    },
+    {
+      "case": "current_A_archived_A_same_id",
+      "rows": [
+        {
+          "group": "Current",
+          "id": "X",
+          "summary": "A"
+        },
+        {
+          "group": "Archived",
+          "id": "X",
+          "summary": "A"
+        }
+      ],
+      "outcome": "dependency_satisfied"
+    },
+    {
+      "case": "different_ids_same_summary",
+      "rows": [
+        {
+          "group": "Current",
+          "id": "X",
+          "summary": "A"
+        },
+        {
+          "group": "Archived",
+          "id": "Y",
+          "summary": "A"
+        }
+      ],
+      "outcome": "dependency_satisfied"
+    },
+    {
+      "case": "draft_missing_summary",
+      "rows": [
+        {
+          "group": "Draft",
+          "id": "X"
+        }
+      ],
+      "outcome": "dependency_ignores_excluded_tuple_fields_other_rules_separate"
+    },
+    {
+      "case": "unknown_group",
+      "rows": [
+        {
+          "group": null,
+          "id": "X",
+          "summary": "A"
+        }
+      ],
+      "outcome": "evaluation_error_not_skipped"
+    }
+  ],
+  "changed": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-functional-dependencies.md",
+      "sha256": "4be59336b716d1f9b4c21b02b3b6e06fd8c9b3a036fdf665b88e771c1ac1c931"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+      "sha256": "65d72917a830a73246733baf98a6389269f34929298da565821f1e46787396ad"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-summary-for-the-complete-contribution.md",
+      "sha256": "05cb8af27edc85e6f51d007ca01a3988ecadcd2a0d6a163ed4ca8572194a6f9f"
+    }
+  ],
+  "relocation_proof": "Summary coverage retained as the approved authoring Method; original formal block preserved at relocation. Subsequent state-filter change is explicit.",
+  "limits": [
+    "Model examples, not parser tests",
+    "No lifecycle Workflow or runtime implementation"
+  ]
+}

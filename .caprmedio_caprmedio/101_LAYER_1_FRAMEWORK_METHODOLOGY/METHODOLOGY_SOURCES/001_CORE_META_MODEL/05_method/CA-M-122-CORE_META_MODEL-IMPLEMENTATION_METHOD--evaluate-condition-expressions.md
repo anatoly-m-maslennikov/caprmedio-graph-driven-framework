@@ -1,28 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Parsing
-version: 24
-updated_at: 2026-10-27 19:59:39 +0400
+  active: Entity/Aspect/Engineering/Authoring/Controlled English
+  passive:
+  - Entity/Aspect/Engineering/Authoring/Controlled English
+  - Entity/Aspect/Engineering/Data Handling/Parsing
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-M-113
 atom_id: CA-M-122
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 5
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Evaluate Condition Expressions
 
-## Scope
+## Claim scope
 
 evaluation of CCE Condition Expressions.
 
@@ -45,5 +44,3 @@ evaluation of CCE Condition Expressions.
 13. evaluate **none** as true **only** **when** its predicate is false for **every** member of its population.
 14. evaluate **where** as restriction of one population **to** members whose predicate is true.
 15. use another logical function **only** **when** an active CCE Method gives that function **`=1`** logical meaning.
-
-## Details

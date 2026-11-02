@@ -1,33 +1,32 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Parsing
-  - Subject
-version: 21
-updated_at: 2026-10-27 19:59:53 +0400
+  active: Entity/Aspect/Engineering/Data Handling/Data Transformation
+  passive:
+  - Atom.Content
+  - Entity/Aspect/Engineering/Data Handling/Parsing
+  - Entity
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-2102
 atom_id: CA-R-1360
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Definition
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 Define Restricted CCE Canonical Signature
 
-## Scope
+## Claim scope
 parenthesized restricted Boolean expression occurrences **in** Atom Claims.
 
 ## Claim
 
-a Canonical Signature **means** **`=1`** derived non-authoritative comparison value for **`=1`** parenthesized restricted Boolean expression occurrence **in** one Atom Claim, **where** the following constraints apply:
+Where a Canonical Signature is interpreted for a parenthesized restricted Boolean expression occurrence in one Atom Claim, the interpretation **must** produce **`=1`** derived non-authoritative comparison value, subject to the following constraints:
 
 - the grammar is:
   - `group ::= (operand **and** operand [**and** operand ...]) | (operand **or** operand [**or** operand ...])`;
@@ -44,5 +43,3 @@ a Canonical Signature **means** **`=1`** derived non-authoritative comparison va
   - unrecognized bold token;
   - unbalanced parentheses;
   - unparseable prose.
-
-## Details

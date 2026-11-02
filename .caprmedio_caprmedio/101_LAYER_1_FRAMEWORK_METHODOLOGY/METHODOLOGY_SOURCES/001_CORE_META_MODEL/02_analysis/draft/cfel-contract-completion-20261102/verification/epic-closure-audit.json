@@ -1,0 +1,115 @@
+{
+  "status": "OPEN_WORK_REMAINS",
+  "checked_at": "2026-11-02",
+  "sources": [
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "sha256": "8992808b485a25b9e7c50a4a0cf5d6c94a08e5ab6a8601f9831d4248cd8b863d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/draft/CA-P-2694@39-draft-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "sha256": "0dd4afddf8643e9819ab3234cb24da4e2f225f16ef8623c5e745fbafb71b9ec4"
+    }
+  ],
+  "current_epic": {
+    "id": "CA-P-2694",
+    "version": 38,
+    "status": "Active",
+    "closure": "Remain Active until the authorized expanded work is completed and checked. The @39 Draft does not itself change Current status."
+  },
+  "children": [
+    {
+      "id": "CA-P-2695",
+      "version": 4,
+      "status": "Done",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/01-CA-P-2695-TASK--fill-dependency-only-subject-coverage.md",
+      "sha256": "1954e8719a152971d63f69167676a83b785dc10adec5eccf375fbd1809365203"
+    },
+    {
+      "id": "CA-P-2696",
+      "version": 7,
+      "status": "Done",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/02-CA-P-2696-TASK--establish-one-defining-requirement-per-model-entity.md",
+      "sha256": "07abe4220370a2547d003f9d3c29164c7362811d6348a34701af89dd06a1e1e0"
+    },
+    {
+      "id": "CA-P-2697",
+      "version": 4,
+      "status": "Done",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/03-CA-P-2697-TASK--review-combined-entity-definitions-for-coherence-and-conflicts.md",
+      "sha256": "ac96d80d10387c59314cf3f0db77dc8c1fc9a981345ac10c9c57f124c5022455"
+    },
+    {
+      "id": "CA-P-2698",
+      "version": 4,
+      "status": "Done",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/04-CA-P-2698-TASK--fix-definition-review-findings-and-recheck-the-graph.md",
+      "sha256": "45cbf6e8c588ff56e2b45770cad56394337f25a67e388dbb5100e4b416be92c2"
+    },
+    {
+      "id": "CA-P-2699",
+      "version": 5,
+      "status": "Done",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/05-CA-P-2699-TASK--review-current-atom-placement-between-methodology-and-engine.md",
+      "sha256": "956681e14e1ae4adb2c8306149c58597c97b571c71354355bc11a543cf761166"
+    },
+    {
+      "id": "CA-P-2700",
+      "version": 2,
+      "status": "Done",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/06-CA-P-2700-TASK--trial-scope-definitions-and-summary-coherence-on-one-hundred-atoms.md",
+      "sha256": "86bcda86f17bb0b81e670325c4553b0369a30d0cf5f91c0c122daf297db5cc42"
+    },
+    {
+      "id": "CA-P-2701",
+      "version": 7,
+      "status": "Done",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/07-CA-P-2701-TASK--adopt-goals-outside-and-tier-zero-scope-contracts.md",
+      "sha256": "666c1b37aeb061d9b882cfcc9a9c8e48485c565503ef1874b52061fd8197cfe0"
+    },
+    {
+      "id": "CA-P-2703",
+      "version": 6,
+      "status": "Done",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/08-CA-P-2703-TASK--review-deferred-foundation-and-notation-drafts.md",
+      "sha256": "c372f3e3badf495edc05a13dbeb7e20146e2280e594b2fef8f4669db65aa70b0"
+    }
+  ],
+  "historical_task_disposition": "Existing P2695\u2013P2698 results and the later Done tasks retain their historic status. The older one-Entity-Definition/specialized Relation Definition methodology is superseded in the new scope, not retroactively evidence that the new work was performed. Do not cancel a completed Task merely because the current model changed.",
+  "remaining_acceptance": [
+    {
+      "gate": "Diagnostic dispositions",
+      "requires": "Resolve and apply a source-backed disposition for each of the 31 reported diagnostics, without hiding or dropping Current meaning; verify actual post-apply sources."
+    },
+    {
+      "gate": "Relation declarations",
+      "requires": "Adopt source-pinned Declaration replacements for all modeled canonical and derived Relations, with Semantics, source-backed endpoint/notation and derivation/inverse metadata; preserve independent permissions and repair consumers. The direct/derived policy decision remains pending and cannot be inferred."
+    },
+    {
+      "gate": "CFEL coverage",
+      "requires": "Align the actual CFEL description and operator declarations with the admitted notation; preserve source clauses, resolve duplicate-owner and consumer dispositions, and verify explicit source bindings."
+    },
+    {
+      "gate": "Complete contract graph",
+      "requires": "Rebuild from actual Current sources with each selected entity\u2019s own, inherited and shared available Claim clauses, relation permissions, formats and cardinalities; retain unsupported/prose evidence and report gaps/conflicts as failures."
+    },
+    {
+      "gate": "Source adoption and recheck",
+      "requires": "Archive exact predecessors, apply and read back reviewed candidates, repair direct consumers, rebuild affected narrowing/contract views, and verify source IDs, Versions and coverage. A candidate packet or preview is not adoption."
+    },
+    {
+      "gate": "Task and Epic lifecycle",
+      "requires": "Once the above evidence exists, confirm all adopted child Tasks remain Done/Canceled, record reviewed outcomes in the Epic successor and use the normal lifecycle to close the Epic. No additional approval is inferred beyond session authority."
+    }
+  ],
+  "explicit_exclusions": [
+    "A general CFEL evaluator",
+    "Runtime/MCP implementation",
+    "Actual Workflow/Step/Substep/Action instance redesign",
+    "Git publication"
+  ],
+  "limitations": [
+    "Audit reads planning carriers and selected evidence only; it does not establish completion of new work.",
+    "Current 38 remains authoritative until the 39 successor is actually applied."
+  ]
+}

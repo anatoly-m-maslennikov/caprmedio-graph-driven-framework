@@ -1,31 +1,30 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status: Draft'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-version: 16
-updated_at: 2026-10-27 19:59:27 +0400
+  active: Atom.ID
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom.Status: Draft'
+  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - Atom
+version: 19
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   depends_on:
   - CA-D-650
   - CA-D-378
   - CA-D-446
 atom_id: CA-D-568
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-type: Eng Decision
-author: Anatoly Maslennikov
 tier: 4
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Bind Draft Identity Continuity Evidence
 
-## Scope
+## Claim scope
 
 identity continuity when a Draft Atom is created, updated or admitted to a non-Draft Status.
 

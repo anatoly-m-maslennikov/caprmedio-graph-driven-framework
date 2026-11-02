@@ -77,6 +77,15 @@ class GraphRuleBodyTests(unittest.TestCase):
         self.assertEqual(check.findings, [])
         self.assertEqual(check.gaps, [])
 
+    def test_endpoint_syntax_accepts_structured_notation_and_rejects_bad_operators(self) -> None:
+        original = "Entity/Node/Continuant/Atom/Content Role: Evaluation"
+        for expression in ("Part {1}+>{2..4} Whole", "Entity/(.Color:Blue)", "@(Entity.Property)", "Entity.Property[Text]{2}"):
+            with self.subTest(expression=expression):
+                self.assertFalse(self.validate(WHITELIST.replace(original, expression)).findings)
+        for expression in ("Part -> Whole", "Entity/(.Color)", "Entity{4..2}"):
+            with self.subTest(expression=expression):
+                self.assertTrue(self.validate(WHITELIST.replace(original, expression)).findings)
+
     def test_extraction_returns_validated_payload_and_exact_carrier_text(self) -> None:
         check = Recorder()
         extracted = validated_graph_rule_payload(WHITELIST, check)  # type: ignore[arg-type]

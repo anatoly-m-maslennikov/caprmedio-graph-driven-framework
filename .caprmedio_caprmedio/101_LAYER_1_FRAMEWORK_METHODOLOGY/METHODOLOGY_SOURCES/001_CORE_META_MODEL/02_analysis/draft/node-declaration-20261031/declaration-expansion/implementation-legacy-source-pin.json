@@ -1,0 +1,13 @@
+{
+  "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2239-CORE_META_MODEL-ENTITY_DEFINITION--define-project-implementation.md",
+  "sha256": "fa73fd4768c954db127f40a42924b712fce1dff31111bb7e088c6db5b98ad513",
+  "id": "CA-R-2239",
+  "version": 2,
+  "status": "Active",
+  "structural_clause_selected": "single root Package with no enclosing Package",
+  "nonstructural_clauses_not_claimed_migrated": [
+    "realizes RMED",
+    "may be directly edited",
+    "not automatically a Projection merely by realization"
+  ]
+}

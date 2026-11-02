@@ -1,0 +1,19 @@
+{
+  "iteration": 4,
+  "cases": 38,
+  "focus_keys": [
+    "B03",
+    "B08",
+    "B09",
+    "B10",
+    "B14",
+    "B15",
+    "B17",
+    "B23"
+  ],
+  "model_role": "terra_worker",
+  "same_inputs_as_run": 3,
+  "same_style_guide_as_run": 3,
+  "changed": "Summary instruction only",
+  "source_atoms_read_only": true
+}

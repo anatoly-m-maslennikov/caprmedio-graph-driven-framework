@@ -1,0 +1,42 @@
+{
+  "applied": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "before_sha256": "b77d238a4350dc8198e917492e44c3197cc16987afa38b5a0a251c3772f99b52",
+      "after_sha256": "8c5daaef267b1334925b394fda17f456112fa6b5b6ad55afd405475c63c1d908",
+      "ownership_change": "Move Workflow-to-Step degree onto Workflow's outgoing CONTAINS relation and normalize it to `{:1+}`."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "before_sha256": "8b9e8ced4c5f3c76db7fd895c54ff361c707176a082576f25abc975db7a6c914",
+      "after_sha256": "52ad5418b65dfecce451e42b36af34cd5f7b3d5141b099f066d0bb15afd96268",
+      "ownership_change": "Replace the foreign Workflow degree with Step's own one-parent inverse view. Preserve the exclusive Step alternatives while normalizing each outgoing degree."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "before_sha256": "f99abd06c605950eb35c4a25d30abf61321bd5a3c5cc96e6b6b6bd515d817649",
+      "after_sha256": "c0a670420fd8bc1d55ed583642f5e3a13350a8950dac6edec4912334c0d2f07c",
+      "ownership_change": "Replace the foreign Step degree with Substep's own one-parent inverse view and normalize RUN."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "before_sha256": "99b95c3f00d62870bfa3ece62999228adb349fc1013d5818384d7c544fa3b1f1",
+      "after_sha256": "23f45ff6f6d0a06437f085e2c0866f25ce690d718b0c895bf6f09c04b5c335e0",
+      "ownership_change": "Normalize the Action-hosted caller degree; the target union is a permitted target-kind reference."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "before_sha256": "633284b2453119f8199bf6dd9ac2be07d5624c8ae408c7d1e502f1b51625d8b9",
+      "after_sha256": "23079021c92c15a9232dd84241a45c99180d18712d3f46bd42cc47f0eb929bf6",
+      "ownership_change": "Split the previous source/target count into its owning outgoing parent and outgoing contains directions. Preserve Container, Project-root exception, and structural-level equation."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "before_sha256": "ab545d66e0c851c196a7825b10bd167d2059cd1bb27bfda7369e2c21c4b684f6",
+      "after_sha256": "a24b042a14fe0c16426d2eb26afb2e238806a192183ba03a0a6017ffe3dfdfb4",
+      "ownership_change": "Split the previous source/target count into its owning outgoing parent and outgoing contains directions. Preserve Container, Implementation-root exception, and structural-level equation."
+    }
+  ],
+  "policy_rule": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-form-registration.md",
+  "no_current_or_runtime_changes": true
+}

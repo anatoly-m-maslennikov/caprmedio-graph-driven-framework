@@ -1,0 +1,97 @@
+{
+  "review": "Stage 1 independent alignment review",
+  "packet_files_reviewed": 6,
+  "result": "aligned_with_one_wording_defect",
+  "counts": {
+    "defects": 1,
+    "unsettled_decisions_correctly_preserved": 3,
+    "false_adoption_claims": 0,
+    "embedded_goal_claims": 0,
+    "forced_single_contract_or_all_roles": 0
+  },
+  "defects": [
+    {
+      "id": "D1",
+      "file": ".caprmedio_caprmedio/02_analysis/draft/CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md",
+      "line": 25,
+      "observed": "It may contain multiple statements about its ID, Name, ordered/unordered contents, Label, Navigation Number and connections.",
+      "conflicts_with_direct_decision": "A Declaration can cover declared Scope Unit ID, Name, ordered/unordered, Label, even Navigation Number, and connections.",
+      "why": "'contents' changes the decided Scope Unit property into a claim about its contents and adds ambiguity not present in the Operator wording.",
+      "minimal_fix": "Replace 'ordered/unordered contents' with 'ordered/unordered status' (or the exact decision wording 'ordered/unordered')."
+    }
+  ],
+  "confirmed_alignment": [
+    {
+      "topic": "latest Goals correction",
+      "decision_quote": "exactly ONE Declaration and ONE OR MORE separate Goals outside the declared Scope Unit. Do not put Goals into Declaration operative Claim.",
+      "evidence": [
+        "CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md:21-35",
+        "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-governance.md:24-32",
+        "CA-M-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md:23-27",
+        "CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md:21-25"
+      ]
+    },
+    {
+      "topic": "plural internal Contracts, RMEDO as applicable",
+      "decision_quote": "Inside: Scope Contract ATOMS, plural, tier 0, RMEDO as applicable; not exactly one and not forced all five roles.",
+      "evidence": [
+        "CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md:37-43",
+        "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-governance.md:30-34",
+        "CA-M-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md:25-31"
+      ]
+    },
+    {
+      "topic": "multiple-statement Declaration Form and no invented GFEL",
+      "decision_quote": "Declaration can contain multiple statements, in prose, GFEL formal expressions, or both, about one coherent topic. No invented GFEL syntax/functions.",
+      "evidence": [
+        "CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md:25-27,51-57",
+        "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration-form.md:22-30",
+        "CA-D-draft-CORE_META_MODEL-DECISION--carry-scope-unit-declarations-as-governing-atoms.md:22-28"
+      ]
+    },
+    {
+      "topic": "no separate per-unit Definition",
+      "decision_quote": "Rejected extra per-unit Definition Atom: Declaration plus Contracts sufficient.",
+      "evidence": [
+        "CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md:43",
+        "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-governance.md:24-34"
+      ]
+    },
+    {
+      "topic": "Draft-only form-field proposal and no present reader admission",
+      "decision_quote": "Technical type-to-form field is deliberately proposed Draft field only, not reader admission.",
+      "evidence": [
+        "CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md:57",
+        "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration-form.md:30"
+      ]
+    },
+    {
+      "topic": "no premature Current/TOML/runtime adoption claim",
+      "decision_quote": "Adoption/cutover not yet authorized in this Draft task.",
+      "evidence": [
+        "CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md:47-49,79-81",
+        "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-governance.md:34",
+        "CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md:25",
+        "CA-D-draft-CORE_META_MODEL-DECISION--carry-scope-unit-declarations-as-governing-atoms.md:24-28"
+      ]
+    }
+  ],
+  "unsettled_decisions_not_defects": [
+    {
+      "question": "Who owns and where is the Project's external Declaration carried?",
+      "packet_evidence": "CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md:72-77; CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-governance.md:36-38",
+      "reason": "The packet preserves the express decision that Project Goal ownership does not settle Project Declaration ownership."
+    },
+    {
+      "question": "Is Navigation Number authored or derived from declared order?",
+      "packet_evidence": "CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md:74-77; CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-governance.md:36-38",
+      "reason": "The packet records the gap and creates no format or derivation rule."
+    },
+    {
+      "question": "Must every declared unit have at least one explicit local Contract?",
+      "packet_evidence": "CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md:74-76; CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-governance.md:30-32",
+      "reason": "The latest decision rejects exactly-one and all-roles requirements but does not decide a minimum; the packet does not falsely resolve it."
+    }
+  ],
+  "review_boundary": "No edits to reviewed Drafts or any Current, TOML, code, runtime, projection, or promotion carrier were made."
+}

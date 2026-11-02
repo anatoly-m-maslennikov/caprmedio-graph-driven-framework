@@ -1,0 +1,17 @@
+{
+  "summary_coverage": "Authoring Method rule",
+  "method": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-summary-for-the-complete-contribution.md",
+  "declaration": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+  "new_summary_on_update": {
+    "id": "fresh Atom.ID",
+    "draft_version": 1
+  },
+  "new_draft_is_new_atom": "Each Draft is a new Atom instance; repeated Atom.ID across versions is permitted when this accepted-state Summary constraint holds.",
+  "scope": "Draft methodology; lifecycle Workflow details deferred",
+  "formal_block_preserved_by_method_relocation": true,
+  "subsequent_user_change": "Summary dependency now filters Current and Archived only",
+  "summary_invariant_scope": [
+    "Current",
+    "Archived"
+  ]
+}

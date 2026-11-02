@@ -1,0 +1,28 @@
+---
+cce_version: cce_1
+cce_form: obligation
+version: 29
+updated_at: 2026-10-29 09:35:50 +0400
+relations:
+  child_of:
+  - CA-R-1420
+subjects:
+  governs: Entity/Aspect/Engineering/Verification
+  depends_on:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-002@29
+status: Archived
+content_role: Evaluation
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
+type: Eval Policy
+tier: 1
+---
+## Summary
+Show evidence and limits
+
+## Claim
+
+**every** governed conclusion offered for reliance **must** be bound **to** recoverable evidence, recoverable material uncertainty, **and** recoverable conditions under which reliance begins, changes, **and** ends.

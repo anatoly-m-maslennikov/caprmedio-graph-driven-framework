@@ -1,28 +1,27 @@
 ---
 atom_id: CA-D-496
-content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
-version: 21
-updated_at: 2026-10-27 19:59:25 +0400
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Carrier/File
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  active: Entity/Object/Occurrent/Execution/Workflow Run
+  passive:
+  - Atom
+  - Atom/(.Role := Evaluation)
+  - Carrier/File
+  - Projection
 relations: {}
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Store one review report per source Atom
 
-## Scope
+## Claim scope
 
 temporary evidence Carriers of a local RMED Atom review Run.
 

@@ -1,0 +1,23 @@
+{
+  "status": "Reviewed Draft application; final review PASS",
+  "changes": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "before_sha256": "31ccd51d29f6568d44aa12e9714fec7e6e825dad25bfcf70351b4dcc900611e7",
+      "after_sha256": "67672de09167100165cf3cfda40f5bdd6004e84a10a619b223cc98ac095c8a23"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-ai-agent-confidence-threshold.md",
+      "before_sha256": "98965f89349a9f7ccf3aa4b372aba832ce658008525a95b60b8242dd706b35d5",
+      "after_sha256": "f56a510eff330ae5e2208f989330e4f8842c00bbf63a91d6756de769ed75793b"
+    }
+  ],
+  "project_binding": "Unique Project in the current Project evaluation context; no containment path to Project required.",
+  "nonwriting": true,
+  "p_optional": true,
+  "project_default_required": true,
+  "retry_property_stays_withdrawn": true,
+  "runtime_implemented": false,
+  "review_correction": "Restored evaluated fallback-expression cycle error, separately from LOOKUP traversal cycles.",
+  "final_review": "confidence-fallback-final-review-20261101.json"
+}

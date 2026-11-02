@@ -1,6 +1,6 @@
 ---
-version: 34
-updated_at: 2026-10-27 19:59:49 +0400
+version: 37
+updated_at: 2026-11-02 00:18:22 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -12,20 +12,22 @@ relations:
   - CA-R-2157
   - CA-R-2158
 subjects:
-  governs: 'Subject/caprmedio/Product: CAPRMEDIO Framework'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Continuant/Actor/AI Agent
 cce_version: cce_1
 cce_form: obligation
 atom_id: CA-R-1058
 status: Active
-content_role: Requirement
-author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-type: Rule
 tier: 5
+role: Requirement
+form: Rule
 ---
-# Require operator authority for governed change
+## Summary
+Require operator authority for governed change
+
+## Claim
 
 CAPRMEDIO **must** establish **or** change governed Project meaning **only** through explicit per-action acceptance by the Operator **or** active authority explicitly delegated by the Operator **to** the identified AI Agent performing the change.

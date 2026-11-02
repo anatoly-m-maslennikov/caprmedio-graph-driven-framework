@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "bounded architecture Draft semantic review",
+  "findings": [],
+  "checked": [
+    "typed roots and MODEL self-definition",
+    "optional local MODEL and unrestricted local rule override with unchanged base",
+    "effective per-MODEL ownership",
+    "separate Node narrowing and model inheritance",
+    "ENGINE scope boundary",
+    "ordered CAPRMEDIO Units and external formal Scope",
+    "108 registered hashes and recorded withdrawal"
+  ],
+  "limits": [
+    "selection and override binding and inheritance relation naming remain open",
+    "no Current adoption or parser/runtime verification"
+  ]
+}

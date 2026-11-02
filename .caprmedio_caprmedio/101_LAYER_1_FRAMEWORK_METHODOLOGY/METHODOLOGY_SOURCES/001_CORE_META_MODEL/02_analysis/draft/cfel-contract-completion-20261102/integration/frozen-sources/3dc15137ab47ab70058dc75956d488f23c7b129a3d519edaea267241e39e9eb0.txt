@@ -1,0 +1,39 @@
+---
+subjects:
+  active: Journal
+  passive:
+  - Event Record
+  - Carrier
+  - History
+  - Actor
+version: 36
+updated_at: 2026-11-02 07:11:14 +0400
+relations: {}
+atom_id: CA-R-1644@36-draft
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Recover Work Journal coverage without invention
+
+## Claim scope
+
+recovered observations retained by a Journal.
+
+## Claim
+
+a Journal **may** retain an Event Record recovered from evidence **only** for facts established by **any** of:
+
+- observed Carrier state;
+- preserved history;
+- Artifact movement;
+- native targets;
+- review records; **or**
+- bounded session state.
+
+the Journal **must** preserve unresolved Actor, time, intent, scope, **or** outcome as explicit uncertainty rather than fabricated history.

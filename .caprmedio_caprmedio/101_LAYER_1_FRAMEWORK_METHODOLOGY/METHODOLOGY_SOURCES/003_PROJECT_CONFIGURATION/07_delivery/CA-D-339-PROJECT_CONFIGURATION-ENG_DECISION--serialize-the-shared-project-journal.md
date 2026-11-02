@@ -1,30 +1,29 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier/File
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-version: 24
-updated_at: 2026-10-27 19:59:23 +0400
+  active: Carrier/File
+  passive:
+  - Entity/Aspect/Engineering/Data Handling/Serialization
+  - Entity/Object/Continuant/History/Journal > Event Record
+  - Project
+  - Journal
+  - Scope Unit
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-339
-content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize the shared Project Journal
 
-## Scope
+## Claim scope
 
 the shared Project-control Work Journal's serialization.
 

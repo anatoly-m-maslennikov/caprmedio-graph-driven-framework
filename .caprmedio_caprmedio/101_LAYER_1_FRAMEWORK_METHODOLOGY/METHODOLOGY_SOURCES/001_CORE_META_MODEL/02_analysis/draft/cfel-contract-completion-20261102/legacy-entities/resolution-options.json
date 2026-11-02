@@ -1,0 +1,725 @@
+{
+  "status": "options_only_no_new_source_changes",
+  "groups": {
+    "framework_settings": {
+      "ids": [
+        "CA-R-1977",
+        "CA-R-1978",
+        "CA-R-1979",
+        "CA-R-1980",
+        "CA-R-1981",
+        "CA-R-1982",
+        "CA-R-1983"
+      ],
+      "evidence": "These are actual Project Configuration contracts, not merely a retired taxonomy: R1977 sets timestamp timezone, R1978 requires code-root locators, R1980 control-root locator, R1981 settings identity, and R1979/R1982/R1983 define confidence, interaction and resolution groupings. R1978 cites D371 as requiring code-root locators. The project settings file also references artifact_timestamps.timezone.",
+      "alternative_a": "Retain each as a Rule about an explicitly resolved Framework Settings topic and preserve the same constraints; map to a free Subject only after establishing that topic’s exact identity. This does not invent Core Property Nodes.",
+      "alternative_b": "Admit a Project-local Settings/Property model with declarations and map each source there, only if separately selected; this expands model scope.",
+      "remaining_question": "What admitted Subject identifies Framework Settings and its fields in the Project Configuration? Without it, neither spelling nor retirement can be lossless.",
+      "sources": [
+        {
+          "id": "CA-R-1977",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1977-PROJECT_CONFIGURATION-DEFINITION--define-project-framework-settings-artifact-timestamp-timezone.md",
+          "current_sha256": "15888d0d7af9a330c5ebd74990a8fbc534562cd9bfa0c11be0843af8c7a3b309",
+          "summary": "Define Project.Framework Settings.Artifact Timestamp Timezone",
+          "active_subject": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Artifact Timestamp Timezone",
+          "claim_exact": "Artifact Timestamp Timezone **means** the Framework Settings value that supplies the timezone interpretation used when emitting Artifact timestamps.\n\n### Formal claim\n\n```text\nEntity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Artifact Timestamp Timezone[string]{0..1}\n```",
+          "consumers": [],
+          "exact_legacy_subject_consumers": [
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL-ENG_DECISION--configure-the-artifact-timestamp-timezone.md",
+              "occurrences": 1,
+              "sha256": "85ce702384042578c8c6c2e5106980134c4f2599f66e6a7f118f02e638b2bedf"
+            }
+          ],
+          "exact_legacy_subject_occurrences": 1
+        },
+        {
+          "id": "CA-R-1978",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1978-PROJECT_CONFIGURATION-DEFINITION--define-project-framework-settings-code-root-locators.md",
+          "current_sha256": "7ab9884392b5329b343eb7ba22381353379045f608d41d49c150444f052f9e0d",
+          "summary": "Define Project.Framework Settings.Code-Root Locators",
+          "active_subject": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Code-Root Locators",
+          "claim_exact": "Code-Root Locators **means** the Framework Settings references to the framework code roots used by the Project.\n\n### Formal claim\n\n```text\nEntity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Code-Root Locators[string]{1+}\n```",
+          "consumers": [],
+          "exact_legacy_subject_consumers": [
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-371-CORE_META_MODEL-ENG_DECISION--serialize-framework-code-root-locators.md",
+              "occurrences": 1,
+              "sha256": "ad662fac6bfcc2a7ed43f643e1ac2ac75fbfb447814419306e35de1230abbdd4"
+            }
+          ],
+          "exact_legacy_subject_occurrences": 1
+        },
+        {
+          "id": "CA-R-1979",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1979-PROJECT_CONFIGURATION-DEFINITION--define-project-framework-settings-confidence.md",
+          "current_sha256": "7b1f58c5c6a89503028036253d5394343fbf3351986d520f87ec2b034a748e39",
+          "summary": "Define Project.Framework Settings.Confidence",
+          "active_subject": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence",
+          "claim_exact": "Confidence **means** the group of Framework Settings defaults for the declared Confidence Thresholds.\n\n### Formal claim\n\n```text\nEntity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence{0}\n```",
+          "consumers": [],
+          "exact_legacy_subject_consumers": [
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL--configure-necessary-information-confidence-threshold.md",
+              "occurrences": 1,
+              "sha256": "7e44c3b6fbc2ebc0357512b2428dc274f4bff51082e625606bb6a63c481992d0"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL--configure-the-semantic-resolution-confidence-default.md",
+              "occurrences": 1,
+              "sha256": "3298a038c86dc8c2ecf42512a055307c280147a671b5ad0d867ae423abd7a8eb"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL-ENG_DECISION--serialize-the-necessary-information-confidence-default.md",
+              "occurrences": 1,
+              "sha256": "4391041c657e1512903ef9cc8191c7681f410f63e553a46c8a410bcdd5742c21"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-369-CORE_META_MODEL-ENG_DECISION--serialize-the-semantic-resolution-confidence-default.md",
+              "occurrences": 1,
+              "sha256": "54dd203ef25ed4c182588ee816253415fefe94c84583866b74b5f3b209b4a601"
+            }
+          ],
+          "exact_legacy_subject_occurrences": 4
+        },
+        {
+          "id": "CA-R-1980",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1980-PROJECT_CONFIGURATION-DEFINITION--define-project-framework-settings-framework-control-root-locator.md",
+          "current_sha256": "1a4d0ed1b0d6b664e12a6a2fa7fee4dcf4b6f4e5f99f6092e6fae81dc1dc4e8c",
+          "summary": "Define Project.Framework Settings.Framework Control-Root Locator",
+          "active_subject": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Framework Control-Root Locator",
+          "claim_exact": "Framework Control-Root Locator **means** the Framework Settings reference to the Project's governed framework control directory.\n\n### Formal claim\n\n```text\nEntity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Framework Control-Root Locator[string]{1}\n```",
+          "consumers": [],
+          "exact_legacy_subject_consumers": [
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-370-CORE_META_MODEL-ENG_DECISION--serialize-the-framework-control-root-locator.md",
+              "occurrences": 1,
+              "sha256": "5b385e01de2858bab72a897d95fd3396c386b9c888ff47a0c659f0e5a47dfd58"
+            }
+          ],
+          "exact_legacy_subject_occurrences": 1
+        },
+        {
+          "id": "CA-R-1981",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1981-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-identifier.md",
+          "current_sha256": "d11919e575f6f1d56ce7bdbd27d26cbbecc682ac9cd7f992ae3f318eed262577",
+          "summary": "Define Project.Framework Settings.Identifier",
+          "active_subject": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Identifier",
+          "claim_exact": "Framework Settings Identifier identifies the Project's authoritative Framework Settings configuration, **not** an Atom.\n\n### Formal claim\n\n```text\nEntity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Identifier[string]{1}\n```",
+          "consumers": [],
+          "exact_legacy_subject_consumers": [
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL-ENG_DECISION--identify-framework-settings-artifact.md",
+              "occurrences": 1,
+              "sha256": "a660df016f1a0b1c7816375545b5dc7076d2c16a404f588f7f780627f6ced8df"
+            }
+          ],
+          "exact_legacy_subject_occurrences": 1
+        },
+        {
+          "id": "CA-R-1982",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1982-PROJECT_CONFIGURATION-DEFINITION--define-project-framework-settings-interaction.md",
+          "current_sha256": "6e6da032ca5093dff43608a5e74f78a3838c954dfd4ae1ef5ff3fb4a89a035b3",
+          "summary": "Define Project.Framework Settings.Interaction",
+          "active_subject": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction",
+          "claim_exact": "Interaction **means** the group of Framework Settings choices that govern presentation of information to the Operator.\n\n### Formal claim\n\n```text\nEntity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction{0}\n```",
+          "consumers": [],
+          "exact_legacy_subject_consumers": [
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1439-CORE_META_MODEL--limit-reporting-mode-effects-to-presentation.md",
+              "occurrences": 2,
+              "sha256": "fee2902aa062cfb94984630a96d3ed5dc5e200fa056d5ceaa9d6cd983e44d969"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL--preserve-mandatory-information-in-every-reporting-mode.md",
+              "occurrences": 2,
+              "sha256": "6be1e817914b0e7051c2a691cfa71110dfa8a0dbd077b6cc76fdef8cff78ba20"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1628-CORE_META_MODEL-RULE--allow-silent-and-verbose-reporting-modes.md",
+              "occurrences": 1,
+              "sha256": "351d13946d54250baa04511aa72fcf9c1aaf4f3038b091d536f3bc519016f3f9"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-ENG_DECISION--serialize-interaction-reporting-mode.md",
+              "occurrences": 1,
+              "sha256": "579d86a2d880c197656d732c0f36d52bb7381c4f6744a3c0faea787767ea06e5"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-277-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-silent-mode.md",
+              "occurrences": 3,
+              "sha256": "b38b3ceb719cadd061352f79d4b837867caa62e08d8da5a75a1fbbe4cc6050da"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-278-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-verbose-mode.md",
+              "occurrences": 3,
+              "sha256": "65441b93b40c6638ae46b8627d82786cb47e468e396a1fbbf5e7bfa8c8d91b60"
+            }
+          ],
+          "exact_legacy_subject_occurrences": 12
+        },
+        {
+          "id": "CA-R-1983",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1983-PROJECT_CONFIGURATION-DEFINITION--define-project-framework-settings-parameter-resolution.md",
+          "current_sha256": "50fa73227c83242644929b7cbb03fdcedbfe445b532ad0f70d14f15a4a92f2cb",
+          "summary": "Define Project.Framework Settings.Parameter Resolution",
+          "active_subject": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution",
+          "claim_exact": "Parameter Resolution **means** selecting the effective framework parameter value from explicit Framework Settings **or** Default Settings under the parameter's governing rules.\n\n### Formal claim\n\n```text\nEntity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution{0}\n```",
+          "consumers": [],
+          "exact_legacy_subject_consumers": [
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings.md",
+              "occurrences": 1,
+              "sha256": "34c27df424b1105c131d979ff6ecae9926d591ec4aadf0fa49145a3e8c4351b0"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md",
+              "occurrences": 1,
+              "sha256": "fdac3c7136885122fb0dd53ccd5774ab3c4864a20a8d6c5441fa812d4c9a4bf2"
+            }
+          ],
+          "exact_legacy_subject_occurrences": 2
+        }
+      ]
+    },
+    "projection_forms": {
+      "ids": [
+        "CA-R-1213",
+        "CA-R-1616",
+        "CA-R-2272"
+      ],
+      "evidence": "R2538 declares Projection.Form with Catalog, Map and Hub admitted cases; colon cases are not necessarily exhaustive. Project Configuration R1621 already registers Realization Graph, and the three old sources carry substantive derivation, evidence and authority rules.",
+      "alternative_a": "Keep a Rule/meaning source about `Projection/(.Form := <existing registered form>)`, preserving each Claim and consumer reference; this is a candidate qualified address, not automatic evidence for an additional selected Node or its admission.",
+      "alternative_b": "If each is an individual named Projection rather than a Form, bind to the evidenced `Projection//<name>` and keep job-specific rules on the actual identified instance; verify identity before choosing.",
+      "remaining_question": "Which qualified Form values are admitted and does using their qualified addresses create distinct declared Nodes under the agreed selected inventory?",
+      "sources": [
+        {
+          "id": "CA-R-1213",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1213-PROJECT_CONFIGURATION-RULE--define-applicable-methodology-as-a-compiled-projection.md",
+          "current_sha256": "a84083a779ea383f5fe71460f78c5013cc4f45176e82a586599b23c29c82f915",
+          "summary": "Define Applicable Methodology as a Compiled Projection",
+          "active_subject": "'Entity/Object/Continuant/Projection/Type: Applicable Methodology'",
+          "claim_exact": "Member identifies a projected Atom member by its source identity and Version; these references identify the members without changing their content or making the Projection authoritative. Each projected member retains the exact source relation required by CA-R-1314.\n\nthe Applicable Methodology **must** be a non-authoritative Reconciled Projection compiled by direct, content-preserving derivation from current active Atom Revisions **in** selected Methodology Source Scope Units, preserving the selected source Atoms **and** their final selected Revisions unchanged. Applicable Methodology is **not** a Scope Unit **and** **must not** be the Claim Target Scope Unit of a Goal Atom.\n\ndirect **and** content-preserving describe this derivation, **not** a Carrier persistence strategy; its Reconciled Projection classification does **not** select such a strategy. trace metadata **may** be added **to** projected Carriers **only** as governed by applicable Delivery authority, **without** changing the source Atom Revision **or** its Claim authority.\n\n### Formal claim\n\n```text\nEntity/Object/Continuant/Projection/Type: Applicable Methodology.Member[string]{0+}\n```",
+          "consumers": [],
+          "exact_legacy_subject_consumers": [
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-1178-CAPRMEDIO-SCOPE_CONTRACT-GOAL--reduce-tokens-mistakes-and-context-clutter.md",
+              "occurrences": 1,
+              "sha256": "156a9333511f0ab4d4f49299808eb08ecf45e1d60e6417bfe022f7c49d1c7860"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-1424-GOAL--provide-tools-to-maintain-methodology-alignment.md",
+              "occurrences": 1,
+              "sha256": "0d4c01339b19b266e32bf79c496446515fc41d200a391feb95e4c41b767bc478"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/05_method/CA-M-296-IMPLEMENTATION_METHOD--do-not-rely-on-memory-files.md",
+              "occurrences": 1,
+              "sha256": "e1a695de5a463c42c84838b82d707c881e4f05f122338b0ac77d4b44942e3d72"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/06_evaluation/CA-E-437-POLICY--evaluate-methodology-alignment-support.md",
+              "occurrences": 1,
+              "sha256": "4af92d33422384c02334f8766859854e22bcae92625f82b92bb1829f5be948e8"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1219-CORE_META_MODEL-DEFINITION--define-methodology-source.md",
+              "occurrences": 1,
+              "sha256": "75c2a9837315fe45c572eacf885b87d88a9d498a496f417f1f3f9b6a8da8cc9c"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1246-CORE_META_MODEL-RULE--keep-relation-vocabularies-graph-specific.md",
+              "occurrences": 1,
+              "sha256": "2fa5a512fe0085dbe7d35e71f2954b48eaab2063039518a3fec73186950be6ce"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md",
+              "occurrences": 1,
+              "sha256": "b8a3b5cf96971ae59f6c19877c75241cf82ecd2004bd985c9b6310d4b95cc6a2"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1519-CORE_META_MODEL-RULE--require-conforming-workflow-execution.md",
+              "occurrences": 1,
+              "sha256": "ed25a13ab18d84a90d987dd0f9f95dd8b20f785fd028a72311c455b9ecb7e360"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1577-CORE_META_MODEL-DEFINITION--define-plan-authoring-subtypes.md",
+              "occurrences": 1,
+              "sha256": "d4251b4777035add6f25acdef4cde29c44c71f06bc6b658486f50c5ebee979ae"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL--compile-the-direct-relation-registry.md",
+              "occurrences": 1,
+              "sha256": "7c973ec1c5d561f3e98e4ac6999043457d5d39d5d4b7f11b247976a8976f9a03"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-446-CORE_META_MODEL-EVAL_CASE--validate-settings-boundaries-and-observed-project-structure.md",
+              "occurrences": 1,
+              "sha256": "6a310b802b54a8b9cc9c5a05894b7feea975016e5e1254f264307d8483536a3f"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-POLICY--validate-atom-replacement-event-evidence.md",
+              "occurrences": 1,
+              "sha256": "57f888238c485d6ab43ed4eae978c80b32dfee07d2a2cd9731e3512b2fc18f5c"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-EVAL_CASE--check-the-journal-storage-boundary.md",
+              "occurrences": 1,
+              "sha256": "5d745b655cdca97769bc37d33e6a4c376950f85c31133e6b216871973346a6ee"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+              "occurrences": 1,
+              "sha256": "efedce1a9c911a292a65d832fdff6a2f107c38d86cf1dcbd916b9a28358b3e67"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-ENG_DECISION--serialize-work-journal-event-properties.md",
+              "occurrences": 1,
+              "sha256": "2c111d8968e14a4d78f4dc51787e9078211d6d5230bb73e876a2056577c75c87"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL-ENG_DECISION--centralize-project-projection-carriers.md",
+              "occurrences": 1,
+              "sha256": "05b21339aca665755a2c66a7658850bc416bc31cf84404f398ec33a026735cfc"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1314-PROJECT_CONFIGURATION-RULE--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+              "occurrences": 1,
+              "sha256": "eb2b76e385c5f82bc9705ec92ea0a19e25a43d78d29a7c81e98655b54563fb06"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1316-PROJECT_CONFIGURATION-RULE--forbid-claim-synthesis-and-merge-during-compilation.md",
+              "occurrences": 1,
+              "sha256": "10fbc9e35b56249a6a6c5ca055d46a389fa74f2d7c860ddde423c4b310c01480"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1317-PROJECT_CONFIGURATION-RULE--fail-closed-on-unresolved-methodology-conflicts.md",
+              "occurrences": 1,
+              "sha256": "e2d083ffc746e6d377327db12539502b74066e54c304ce09ebba6ebb107f6f87"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1373-PROJECT_CONFIGURATION--define-applicable-methodology-conflict.md",
+              "occurrences": 3,
+              "sha256": "2bd79d8675b7a5497ab642e76655b244051cbd2a35f9dff56c33a9e166932ff9"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-225-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--retrieve-applicable-methodology-mechanically.md",
+              "occurrences": 2,
+              "sha256": "fb1bf7b206e6c977718edd3768c8b45e46be76ee45d34c48cb18d1b4be8903ac"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md",
+              "occurrences": 1,
+              "sha256": "4078eab132b5c92fd1e46a2a48ff590aaec40907e7127c1dbd6bc9bf7b5e367e"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-253-PROJECT_CONFIGURATION-ENG_DECISION--place-applicable-methodology-and-its-sources.md",
+              "occurrences": 2,
+              "sha256": "fd052066f556b44aeeccfa4cd6c2e9dca82e3cff0ea806925e7a1d577e463a37"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-305-PROJECT_CONFIGURATION-ENG_DECISION--carry-projected-atoms-without-new-identity.md",
+              "occurrences": 2,
+              "sha256": "934e56c1e138517d504f7d951d608610ada2ebdf4a20e7fa0abdb7c5eb4d2a09"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-306-PROJECT_CONFIGURATION-ENG_DECISION--materialize-applicable-methodology-as-projected-atom-files.md",
+              "occurrences": 2,
+              "sha256": "eb5f70705d64262dca5ce382b51ad9ee1bce0621b50adf89efa24c73536b119c"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-307-PROJECT_CONFIGURATION-ENG_DECISION--prohibit-persistent-applicable-methodology-subject-indexes.md",
+              "occurrences": 1,
+              "sha256": "2f3e0237b1ae19cb3bdda6edfdb437b2a25d0035ea24ba640bc50f52f8a394f8"
+            }
+          ],
+          "exact_legacy_subject_occurrences": 32
+        },
+        {
+          "id": "CA-R-1616",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1616-PROJECT_CONFIGURATION-DEFINITION--define-realization-graph.md",
+          "current_sha256": "23eb46bdc670e514e4b3ae97a93566ab2c19538c5c2c64f119b2ac3567506494",
+          "summary": "Define Realization Graph",
+          "active_subject": "'Entity/Object/Continuant/Projection/Type: Realization Graph'",
+          "claim_exact": "Realization Graph **means** a non-authoritative Projection of Entities **and** typed Relations derived from a declared selection of existing Implementation sources **and** available evidence, used **to** understand that Implementation **and** support reverse engineering into proposed RMED.\n\n- the Projection **must** retain source traceability under CA-R-2535 **and** generation identity under CA-R-1493, using **only** the source kinds selected for the job; legacy Implementation need **not** have pre-existing RMED **or** Journal records.\n- missing evidence **and** uncertain interpretations **must** be reported. observed structure **or** behavior does **not** establish intended Requirements, a passed Evaluation, **or** completeness outside the checked selection.\n- the Artifact kind remains Projection, including **when** delivered as an Implementation output under CA-R-1568. views derive from its source-backed facts **without** creating another source of truth.",
+          "consumers": [],
+          "exact_legacy_subject_consumers": [
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1612-PROJECT_CONFIGURATION-RULE--allow-pre-runtime-pass-only-with-sufficient-evidence.md",
+              "occurrences": 1,
+              "sha256": "ff992034b3be81eda0c3ab82d45270f3a48cb16591a82b91be72fd2fbef69ccd"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1620-PROJECT_CONFIGURATION-DEFINITION--define-the-realization-graph-dependency-view.md",
+              "occurrences": 1,
+              "sha256": "6a4f42e5752170874a31324702d174edea34ca2cf9ef737cd6bef883d14cad25"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1621-PROJECT_CONFIGURATION-RULE--register-realization-graph-projection-type.md",
+              "occurrences": 2,
+              "sha256": "79bc37b58592d124ced3b8f4d6f248afdd95ad483d02b44b6ac02d832cce9b76"
+            }
+          ],
+          "exact_legacy_subject_occurrences": 4
+        },
+        {
+          "id": "CA-R-2272",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-2272-PROJECT_CONFIGURATION-ENTITY_DEFINITION--define-canonical-signature-projection.md",
+          "current_sha256": "9dd1c151ba66f55570284e49df4deebaa8ac89b227c337f020fc6d197bcff049",
+          "summary": "Define Canonical Signature Projection",
+          "active_subject": "'Entity/Object/Continuant/Projection/Type: Canonical Signature'",
+          "claim_exact": "A Canonical Signature Projection reports the canonicalized CCE signatures of selected source expression occurrences, their exact source frontier and exclusions. It is a derived external report, not an Atom or proof that two Claims are equivalent. Its input evidence and delivery remain governed by CA-D-346 and the existing canonicalization rules.\n\n### Formal claim\n\n```text\nEntity/Object/Continuant/Projection/Type: Canonical Signature\n```",
+          "consumers": [],
+          "exact_legacy_subject_consumers": [
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL-ENG_DECISION--deliver-cce-canonical-signatures-as-external-report-projections.md",
+              "occurrences": 1,
+              "sha256": "35ce22b238eddd2f6636c4abc54af94a24a9243b5c4c79750bb93b3e3f67fb4e"
+            }
+          ],
+          "exact_legacy_subject_occurrences": 1
+        }
+      ]
+    },
+    "applicable_conflict": {
+      "ids": [
+        "CA-R-1373"
+      ],
+      "evidence": "The source calls Conflict an incompatible candidate selection in one compiler frontier and declares a no-direct-value group; the selected inventory has Projection.Source but no corresponding Conflict Property.",
+      "alternative_a": "Preserve it as a compiler conflict Rule at the admitted compilation topic, retaining the current source until its lossless target is known.",
+      "alternative_b": "Declare a scoped Conflict Property only after it is explicitly selected and its complete value/child slots are known.",
+      "remaining_question": "Is Conflict a reported compiler outcome or a modeled Projection Property in the selected model?",
+      "sources": [
+        {
+          "id": "CA-R-1373",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1373-PROJECT_CONFIGURATION--define-applicable-methodology-conflict.md",
+          "current_sha256": "2bd79d8675b7a5497ab642e76655b244051cbd2a35f9dff56c33a9e166932ff9",
+          "summary": "Define Applicable Methodology Conflict",
+          "active_subject": "'Entity/Object/Continuant/Projection/Type: Applicable Methodology.Conflict'",
+          "claim_exact": "an Applicable Methodology/Conflict **means** one compiler-detected incompatible candidate selection within one exact Applicable Methodology source frontier.\n\n### Formal claim\n\n```text\nEntity/Object/Continuant/Projection/Type: Applicable Methodology.Conflict{0}\n```",
+          "consumers": [],
+          "exact_legacy_subject_consumers": [],
+          "exact_legacy_subject_occurrences": 0
+        }
+      ]
+    },
+    "fpf_report": {
+      "ids": [
+        "CA-R-1889"
+      ],
+      "evidence": "R1888 registers FPF Analysis Report as an Analysis Type; source R1889 preserves findings/evidence limits without adopting recommendations. R2481 establishes Role/Form naming.",
+      "alternative_a": "Rule at candidate `Atom/(.Role := Analysis)/(.Form := FPF Analysis Report)` with existing meaning and evidence-boundary preserved; migrate old qualifier references.",
+      "alternative_b": "Use a free reporting topic and keep Form registration separately; this avoids implying a new declared Node but needs the topic binding.",
+      "remaining_question": "Does the qualified Form address require its own Node Declaration, or may a Rule address the already admitted Form case without adding one?",
+      "sources": [
+        {
+          "id": "CA-R-1889",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION--define-fpf-analysis-report.md",
+          "current_sha256": "e77fe1f2fd603cf66185382b4088d59fd30a9d8ba14303d5ff59f9d8c5b15078",
+          "summary": "Define FPF Analysis Report",
+          "active_subject": "'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: FPF Analysis Report'",
+          "claim_exact": "an FPF Analysis Report **means** a specialized Analysis Report whose bounded inquiry **or** interpretation product records an FPF analytical command, composition, **or** directly related analytical follow-up, retaining its findings **and** stated evidence limits as reporting content rather than adopting them as normative authority.",
+          "consumers": [
+            {
+              "id": "CA-R-1888",
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1888-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+              "sha256": "f381457fcd06801b5a74bcfec58d6294f8b73f57f742a3913bae46254399bbc7"
+            },
+            {
+              "id": "CA-M-345",
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+              "sha256": "64696b9984077df4e9f0902e2a709a8ff1b90c0632113ddee76c780b3a246faf"
+            },
+            {
+              "id": "CA-E-588",
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+              "sha256": "37126aceacf424d0c14f60e5622ddc9b5efa636c09fe39a99e52698f0fd9f49f"
+            }
+          ],
+          "exact_legacy_subject_consumers": [
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+              "occurrences": 1,
+              "sha256": "64696b9984077df4e9f0902e2a709a8ff1b90c0632113ddee76c780b3a246faf"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+              "occurrences": 1,
+              "sha256": "37126aceacf424d0c14f60e5622ddc9b5efa636c09fe39a99e52698f0fd9f49f"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-581-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+              "occurrences": 1,
+              "sha256": "966132e827ab004ed82e109f01ed9d6df85d5983cf8a87e1bdad4b6422979914"
+            }
+          ],
+          "exact_legacy_subject_occurrences": 3
+        }
+      ]
+    },
+    "product_aspect": {
+      "ids": [
+        "CA-R-2256"
+      ],
+      "evidence": "The source explicitly distinguishes CAPRMEDIO Framework product from Project Settings and says it is produced by the caprmedio Project. Aspect is retained, but no exact named Product Aspect instance is proved.",
+      "alternative_a": "Retain a Rule on an explicitly identified project product topic or evidenced Aspect instance, preserving product distinctness.",
+      "alternative_b": "If the product is instead modeled through an existing Project relationship, bind to its admitted target only after identity evidence; do not equate the Project and product.",
+      "remaining_question": "What existing Subject denotes the CAPRMEDIO Framework product without creating an unapproved Aspect instance?",
+      "sources": [
+        {
+          "id": "CA-R-2256",
+          "current_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-2256-CAPRMEDIO-ENTITY_DEFINITION--define-the-caprmedio-framework-product.md",
+          "current_sha256": "9d58afebbaca431d849f82b12ade421e0c5b5ac715bc0da3a59fc511b00aa9fe",
+          "summary": "Define the CAPRMEDIO Framework product",
+          "active_subject": "'Entity/Aspect/Product: CAPRMEDIO Framework'",
+          "claim_exact": "CAPRMEDIO Framework is the product produced by the caprmedio Project. This Subject identifies that product and its required capabilities. Project Settings identify the Project; this project-local definition identifies its product.\n\n### Formal claim\n\n```text\nEntity/Aspect/Product: CAPRMEDIO Framework\n```",
+          "consumers": [],
+          "exact_legacy_subject_consumers": [
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-004-RULE--keep-the-framework-under-operator-control.md",
+              "occurrences": 1,
+              "sha256": "13eed386afb3568bc34b054d320955dad146ae08920f3252cd9f288745e24048"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-007-RULE--full-minimal-traceability.md",
+              "occurrences": 1,
+              "sha256": "96d21407108071bb8fa15ac0ef15b5c2b7c5acb8c6c4b9bdef2e48feb5692eb4"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-024-CAPRMEDIO-RULE--govern-requirement-conflicts-by-tier.md",
+              "occurrences": 1,
+              "sha256": "95fdfbb5e94545619f36f1e208667cce905626cb3309b13de892ce9081c8b051"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-028-RULE--provide-means-to-resolve-atom-conflicts.md",
+              "occurrences": 1,
+              "sha256": "62efc68f5c9ad8e9e04bc7361a07d58d4c6d81095303a3d69e84c41b5421a0cb"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-035-CAPRMEDIO-RULE--identify-necessary-information-by-confidence.md",
+              "occurrences": 1,
+              "sha256": "197a01c08d0007a4c77c336d2ecec249857da77ddb3ff77bf1b4ffa57f2746e9"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-047-RULE--separate-self-improvement-stages.md",
+              "occurrences": 1,
+              "sha256": "682262c0b0a6b8e0f8f494c2ade50073b46acc79b18eab26f3fda9ab9af42624"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-053-RULE--bound-improvement-claims-to-a-comparison-frame.md",
+              "occurrences": 1,
+              "sha256": "ded9a7b52837e073ebc40fde06eb22115d2cb12a968575c11ec7683c688dc9c9"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-1056-GOAL--minimum-sufficient-guidance.md",
+              "occurrences": 1,
+              "sha256": "03af6784592514c7fd57197aec70d07800412f634a4c9d5a0b517951910bff18"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-1057-GOAL--expose-only-task-necessary-distinctions.md",
+              "occurrences": 1,
+              "sha256": "01fecc2171948f39bb1773db55b39c31f12a8d9ec8de419f5a8f5183b1bc5e4b"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-1058-RULE--require-operator-authority-for-governed-change.md",
+              "occurrences": 1,
+              "sha256": "68030c691eb40ce984c1be60d2437ec0ac8c2269f5a0d28fec6b182fc8b40e8f"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-1179-CAPRMEDIO-SCOPE_CONTRACT-GOAL--help-operators-use-caprmedio-to-achieve-project-goals.md",
+              "occurrences": 1,
+              "sha256": "8a4fae77bd67428883cc28de2a89929593fb99b1c0612179704b26d380332a94"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-1180-CAPRMEDIO-SCOPE_CONTRACT-GOAL--provide-caprmedio-maintained-optional-extensions.md",
+              "occurrences": 1,
+              "sha256": "a62e5ec11141aa7c5512a53771d2d85f095bd626682a361e72bbda3ed16cf263"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-1181-CAPRMEDIO-SCOPE_CONTRACT-GOAL--provide-usable-caprmedio-versions-and-release-notes.md",
+              "occurrences": 1,
+              "sha256": "0717d34dcb26283e4f5d7745e04839e38e619dc9c8b314e8142218ce75d922e2"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-1420-CAPRMEDIO-SCOPE_CONTRACT-GOAL--support-informed-operator-decisions.md",
+              "occurrences": 1,
+              "sha256": "ef8f76bdfe3111aae403447b806950d5be00f1d6b1815cc36c575e93e36ee7eb"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-1423-CAPRMEDIO-SCOPE_CONTRACT-GOAL--support-improvement-from-observed-outcomes.md",
+              "occurrences": 1,
+              "sha256": "342c259328fd6aba6c618557958f3ac13a799345ba59d0042245d4bc37f5751a"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-1424-GOAL--provide-tools-to-maintain-methodology-alignment.md",
+              "occurrences": 1,
+              "sha256": "0d4c01339b19b266e32bf79c496446515fc41d200a391feb95e4c41b767bc478"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-1799-RULE--provide-capabilities-without-forcing-their-execution.md",
+              "occurrences": 1,
+              "sha256": "103bc30cb4abaee817b1661169edc872655c9b0d29065e4d8520ea21baac7b79"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-2444-CAPRMEDIO-SCOPE_CONTRACT-GOAL--collect-input-from-other-caprmedio-users.md",
+              "occurrences": 1,
+              "sha256": "d6895c61cb65628c06853fcbc6477652da22d6181b2fdf0819ac2435b96f1416"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-2445-CAPRMEDIO-SCOPE_CONTRACT-GOAL--catalog-externally-maintained-extension-packages.md",
+              "occurrences": 1,
+              "sha256": "79445043850e0a259c1d5c3c224cf34af433aebe86cd94cb832033c48a3e01df"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-2448-CAPRMEDIO-SCOPE_CONTRACT-GOAL--keep-valuable-project-information-recoverable.md",
+              "occurrences": 1,
+              "sha256": "4087b7eca3f33fb99595310dcb184460617952e1c4052c9694e4fe917e30419f"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-632-RULE--distinguish-framework-and-project-improvement-targets.md",
+              "occurrences": 1,
+              "sha256": "02d2ccf5787b3cc63060e87c293e093463a80657187ed4799b299ecc02cc6b70"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-633-RULE--target-framework-improvement-at-the-operating-framework.md",
+              "occurrences": 1,
+              "sha256": "68f634b60924de1ed08fad48da97c69f04e736cd1975d6f19db3ba263c47a306"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-634-RULE--target-project-improvement-at-the-system-being-developed.md",
+              "occurrences": 1,
+              "sha256": "1687db64fb68888d64dc3f9e75543fd4e091e00c0b1310e70b542843d0908607"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-686-RULE--separate-core-extension-and-project-configuration-authority.md",
+              "occurrences": 1,
+              "sha256": "3d77ba778db00bc686c11c254c39467268daa1e9b96b28908bc94d1869d194a1"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-815-GOAL--follow-the-operator-s-priorities.md",
+              "occurrences": 1,
+              "sha256": "b5dd654ddc0c556c129ac0d727db42efb4589505c578490a12a76e94dec4785d"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-818-GOAL--help-operators-optimize-the-active-rule-set.md",
+              "occurrences": 1,
+              "sha256": "ae343eafac57914c46237945730b134dbfce56d5b2eda0ce28e76267e587260b"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-819-CAPRMEDIO-SCOPE_CONTRACT-RULE--do-not-require-human-participants-to-master-or-personally-perform-specialist-work.md",
+              "occurrences": 1,
+              "sha256": "04eb8447bd9d3335ee445dff6485e5951c5685f13e105c369a2b197e617a72f7"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-826-BOUNDARY--codex-native-support-only.md",
+              "occurrences": 1,
+              "sha256": "c0ab82fb78019c66fc19b4d7fa5f295549f43b9b10f5d621f4e51590c38e0d46"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-827-BOUNDARY--keep-the-project-under-operator-control.md",
+              "occurrences": 1,
+              "sha256": "a88f5a385635569e6e26c92364dfe72668d80a2ee8a722c7021b3113830b2329"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-831-RULE--add-reusable-capabilities-through-extensions.md",
+              "occurrences": 2,
+              "sha256": "fc6fc03f8e61e100c7590d2fef5338bdbc8f3e661a3f8684760a5c398c21ad38"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-832-GOAL--select-optional-capabilities-through-configuration.md",
+              "occurrences": 1,
+              "sha256": "6307c18bf0a3ffa0d750d5dcecec3e2db6b4d2bc97a8cee8edc974ebca070537"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/04_requirement/CA-R-846-GOAL--let-the-operator-control-ai-permissions.md",
+              "occurrences": 1,
+              "sha256": "dfd8ae6b134f87b132b0a13f1bd35102fc9708501c9a6e9c2574498a7568a055"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/05_method/CA-M-094-IMPLEMENTATION_METHOD--optimize-delivered-result-performance-at-its-declared-priority.md",
+              "occurrences": 1,
+              "sha256": "ffc4bbcda22c1c17363ae09b7328787722806b57896c3fde30ebc0fa5ee9fc08"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/05_method/CA-M-138-IMPLEMENTATION_METHOD--author-in-canonical-framework-language.md",
+              "occurrences": 1,
+              "sha256": "f345482e0f1edeee6fcc4f237ce87d5af5c98c79b55b13e2729c76647525f467"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/05_method/CA-M-139-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md",
+              "occurrences": 1,
+              "sha256": "0acb7ae8523b0a6e7ca871b8146136f6e5f2b7e7ef3d67a1d5e0f20d006b5b51"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/05_method/CA-M-263-IMPLEMENTATION_METHOD--make-information-clear-to-the-operator.md",
+              "occurrences": 1,
+              "sha256": "4aa248a0d86815069643c6e31953178fea875249f172eaf3d0804a24db61055e"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/06_evaluation/CA-E-228-POLICY--evaluate-operator-control-over-the-caprmedio-instance.md",
+              "occurrences": 1,
+              "sha256": "22cf6f5fba0fb7475c22c6182b5f0f288a38df37e28c17d77e16214346014dd5"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/06_evaluation/CA-E-229-POLICY--evaluate-operator-control-outside-the-framework-instance.md",
+              "occurrences": 1,
+              "sha256": "0c15b3d4d3300d78a9df90caa1a3e7668e30428d2bfe5030e4c6a9143accfe69"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/06_evaluation/CA-E-437-POLICY--evaluate-methodology-alignment-support.md",
+              "occurrences": 1,
+              "sha256": "4af92d33422384c02334f8766859854e22bcae92625f82b92bb1829f5be948e8"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1772-CORE_META_MODEL-RULE--minimal-default-project-model.md",
+              "occurrences": 1,
+              "sha256": "61dc66c90b07531651f11aec8cbcda0eb8efa58118f87d91eeb96c08dacee048"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1776-CORE_META_MODEL-RULE--separate-graph-dimensions.md",
+              "occurrences": 1,
+              "sha256": "188a90c7c7e09e1361ca84c967d183f4cbada254d1da3bd4a54b8fad57d4d466"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVAL-POLICY--check-rmed-atom-coherence.md",
+              "occurrences": 1,
+              "sha256": "5d1b3dd901408bf5eec92167a5de7c7c1064883577ea6aae13c9013212f40b4b"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1645-PROJECT_CONFIGURATION-RULE--define-self-hosted-governance-origins.md",
+              "occurrences": 1,
+              "sha256": "7ae178ce2670a6f98b755c098c66066f95f5d343109469cad7add6289a6c7485"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1736-PROJECT_CONFIGURATION-RULE--define-the-caprmedio-expansion.md",
+              "occurrences": 1,
+              "sha256": "23b29b7007df792c6dfa82af53e2f19886371d07e7698f203183a55836ae577e"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1778-PROJECT_CONFIGURATION-RULE--name-the-framework-caprmedio.md",
+              "occurrences": 1,
+              "sha256": "ed8947de4c2d2f4247b6f281169d309468c8db1127876cf024a8f1b1782d4ffb"
+            },
+            {
+              "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/04_requirement/CA-R-1174-METHODOLOGY_SOURCES-GOAL-CORE_META_MODEL--provide-the-minimal-self-applicable-canonical-methodology-model.md",
+              "occurrences": 1,
+              "sha256": "b01e34f22e3f092cd87c224b68dda2839be85aa333585d5ee0eb9c8e0303cdd3"
+            }
+          ],
+          "exact_legacy_subject_occurrences": 47
+        }
+      ]
+    }
+  },
+  "first_question": {
+    "question": "For the seven existing Project Configuration Framework Settings definitions, should we preserve their current behavior as Rules about Framework Settings topics, keeping the seven fields outside the selected Core Node inventory?",
+    "before_example": "CA-R-1978 uses `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Code-Root Locators` and requires one or more string references.",
+    "after_example": "A Rule addresses an admitted Framework Settings Code-Root Locators topic and keeps the one-or-more code-root requirement; exact topic spelling remains to be established, not invented.",
+    "blast_radius": "Seven source Definitions (R1977–R1983), their code-root, timezone, control-root, settings identity, confidence, interaction and parameter-resolution semantics; existing project configuration and runtime consumers retain their contracts. Exact ID and Subject references are recorded per source."
+  },
+  "limits": [
+    "Source references and exact legacy Subject matches cover currently existing 1,101 published RMED paths only; not a complete runtime consumer inventory.",
+    "Examples show candidates, not admitted CFEL, new Node authority, actual publication, or proof of identity.",
+    "No Current, register, graph or runtime mutation."
+  ]
+}

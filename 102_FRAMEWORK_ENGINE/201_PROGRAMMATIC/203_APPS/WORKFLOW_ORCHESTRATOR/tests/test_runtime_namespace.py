@@ -21,6 +21,40 @@ class RuntimeNamespaceTests(unittest.TestCase):
                 self.assertEqual(expected, config.control_directory())
                 self.assertEqual(namespace == "docker", config.docker_runtime())
 
+    def test_isolated_namespaces_have_distinct_native_scheduler_paths(self):
+        base = ".caprmedio_install/workflow_orchestrator/isolated"
+        observed = set()
+        for namespace, expected_id in (
+            ("isolated:adoption-20261030", "adoption-20261030"),
+            ("isolated:review-20261030", "review-20261030"),
+        ):
+            with self.subTest(namespace=namespace), patch.dict(
+                os.environ, {"CAPRMEDIO_RUNTIME_NAMESPACE": namespace}
+            ):
+                path = config.control_directory()
+                self.assertEqual(f"{base}/{expected_id}", path)
+                self.assertFalse(config.docker_runtime())
+                self.assertTrue(config.isolated_runtime())
+                observed.add(path)
+        self.assertEqual(2, len(observed))
+
+    def test_invalid_isolated_namespace_selectors_are_rejected(self):
+        invalid = (
+            "isolated:",
+            "isolated:too/many",
+            "isolated:has.dot",
+            "isolated:one:extra",
+            "isolated:-leading",
+            "isolated:trailing-",
+            "isolated:" + "a" * 64,
+            "isolated:UPPER",
+        )
+        for namespace in invalid:
+            with self.subTest(namespace=namespace), patch.dict(
+                os.environ, {"CAPRMEDIO_RUNTIME_NAMESPACE": namespace}
+            ), self.assertRaisesRegex(ValueError, "Unsupported runtime namespace"):
+                config.control_directory()
+
     def test_retired_release_host_never_falls_back_to_ordinary_startup(self):
         with patch.dict(os.environ, {"CAPRMEDIO_RUNTIME_NAMESPACE": "release-host"}):
             for selector in (

@@ -22,7 +22,7 @@ TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp/tests/test_current_entity_sources"
 class CurrentEntitySourcesTests(unittest.TestCase):
     def setUp(self):
         TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT)
+        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
         self.repository = Path(self.temporary.name)
         self.selected = self.repository / "sources"
@@ -208,29 +208,20 @@ class CurrentEntitySourcesTests(unittest.TestCase):
         self.assertEqual(
             {
                 ("NARROWER_THAN", "Artifact/Atom", "Artifact"),
-                ("IS_BORNE_BY", "Artifact/Atom.Status", "Artifact/Atom"),
-                ("IS_ALLOWED_VALUE_OF", "Artifact/Atom.Status: Active", "Artifact/Atom.Status"),
-                ("IS_BORNE_BY", "Workflow.State", "Workflow"),
-                ("NARROWER_THAN", "Atom/Content Role: Plan", "Atom"),
+                ("IS_PROPERTY_OF", "Artifact/Atom.Status", "Artifact/Atom"),
+                ("IS_ALLOWED_VALUE_OF", "Artifact/Atom.Status:Active", "Artifact/Atom.Status"),
+                ("IS_PROPERTY_OF", "Workflow.State", "Workflow"),
+                ("NARROWER_THAN", "Atom/Content Role", "Atom"),
+                ("IS_ALLOWED_VALUE_OF", "Atom/Content Role:Plan", "Atom/Content Role"),
             },
             actual,
         )
-        self.assertNotIn("Atom/Content Role", names.values())
+        self.assertIn("Atom/Content Role", names.values())
 
-    def test_malformed_subject_is_visible_as_a_diagnostic_without_guessed_edges(self):
+    def test_malformed_subject_fails_without_guessed_nodes(self):
         self.write("CA-R-9001", "Atom///Broken")
-        graph, provenance = self.build()
-        self.assertEqual(["Atom///Broken"], [row["identity"] for row in graph["nodes"]])
-        self.assertEqual([], graph["edges"])
-        self.assertTrue(graph["diagnostics"])
-        document = render_inherency(
-            graph,
-            provenance,
-            updated_at="2026-10-15 19:00:00 +0400",
-            source_selection="current fixture",
-        )
-        self.assertIn("Atom///Broken", document)
-        self.assertTrue(any(str(message) in document for message in graph["diagnostics"]))
+        with self.assertRaisesRegex(ValueError, "Subject projection failed"):
+            self.build()
 
 
 if __name__ == "__main__":

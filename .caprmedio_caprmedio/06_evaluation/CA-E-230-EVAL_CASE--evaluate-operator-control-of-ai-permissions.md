@@ -1,34 +1,35 @@
 ---
-version: 21
-updated_at: 2026-10-27 19:59:30 +0400
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-846
   evaluation_for:
   - CA-R-846
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent.Permissions'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  active: Entity/Object/Continuant/Actor/AI Agent.Permissions
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Aspect/Engineering/Execution Control/Effect Authorization
+  - Entity/Object/Continuant/Actor/AI Agent
+  - Carrier
+  - Entity/Aspect/Engineering/Verification/Dynamic Testing
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-230
 status: Active
-content_role: Evaluation
-author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-type: Eval Case
 tier: 5
+role: Evaluation
+form: Eval Case
 ---
-# Evaluate Operator control of AI permissions
+## Summary
 
-## Claim checked
+Evaluate Operator control of AI permissions
+
+## Claim
 
 the Operator can create, inspect, limit, modify, suspend, **and** revoke AI Agent Delegations **and** mandatory authorization rules for identified AI Agents.
 

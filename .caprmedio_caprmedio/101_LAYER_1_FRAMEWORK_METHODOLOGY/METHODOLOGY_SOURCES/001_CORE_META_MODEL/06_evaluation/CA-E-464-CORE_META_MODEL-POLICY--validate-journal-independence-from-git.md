@@ -1,34 +1,33 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Artifact Change Log'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Process Log'
-version: 19
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Journal
+  passive:
+  - Scope Unit//CORE_META_MODEL
+  - Scope Unit
+  - 'Entity/Object/Continuant/Projection/Type: Artifact Change Log'
+  - 'Entity/Object/Continuant/Projection/Type: Process Log'
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-1466
   - CA-R-1720
   - CA-R-1463
-  - CA-R-1467
-  - CA-R-1468
+  - CA-R-1467@19
+  - CA-R-1468@20
 atom_id: CA-E-464
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 4
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Validate Journal independence from Git
 
-## Scope
+## Claim scope
 
 Core Meta-Model rules concerning Journal recording, replacement evidence, and canonical log Projections.
 
@@ -37,5 +36,3 @@ Core Meta-Model rules concerning Journal recording, replacement evidence, and ca
 the Evaluation **must** reject a Core Meta-Model rule that makes Journal recording, replacement evidence, **or** either canonical log Projection depend on Git installation, commit topology, hooks, **or** commit messages.
 
 with no Git Extension selected, admitted Journal records **and** their Artifact Change Log **and** Process Log Projections **must** remain valid under their applicable authority. with the Git Extension selected, its commit references **may** add provenance but **must not** create a second authoritative event history. changing **or** removing secondary Git history **must not** destroy the recorded identity **and** evidence needed **to** rebuild the two logs. a missing **or** invalid authoritative Journal remains a failure **in** either case.
-
-## Details

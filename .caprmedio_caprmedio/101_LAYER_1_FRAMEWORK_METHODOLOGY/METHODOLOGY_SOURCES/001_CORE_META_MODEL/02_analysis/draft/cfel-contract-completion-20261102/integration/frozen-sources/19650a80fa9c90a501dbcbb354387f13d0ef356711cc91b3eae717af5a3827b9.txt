@@ -1,0 +1,29 @@
+---
+subjects:
+  active: CFEL > Relation
+  passive:
+  - CFEL > Relation//IS_BORNE_BY
+  - 'Entity/Object/Continuant/Projection/Type: Entities Graph'
+  - CFEL > Relation
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1243
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Derive BEARS as the Inverse of IS_BORNE_BY
+
+## Claim scope
+
+BEARS and IS_BORNE_BY in the Entities Graph.
+
+## Claim
+
+BEARS **must** be the derived inverse view of IS_BORNE_BY **in** the Entities Graph **and** **must not** be another primitive Relation Kind of that graph.

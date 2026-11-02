@@ -1,0 +1,80 @@
+{
+  "comparison_sha256": "7960374ab5a76e233c898e9bf0667f134513a396a2faf7ac73e06ee19ef539df",
+  "prompt_sha256": "bd04d4f3e1f5c313cdda69e610104801379985649eefefb104be88bc1e36a4f6",
+  "source_count": 12,
+  "results": [
+    {
+      "key": "B08",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Entire source body is unchanged after removing the added Summary."
+    },
+    {
+      "key": "B09",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Entire source body is unchanged after removing the added Summary."
+    },
+    {
+      "key": "B10",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Entire source body is unchanged after removing the added Summary."
+    },
+    {
+      "key": "B14",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Entire source body is unchanged after removing the added Summary."
+    },
+    {
+      "key": "B15",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Entire source body is unchanged after removing the added Summary."
+    },
+    {
+      "key": "B17",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Entire source body is unchanged after removing the added Summary."
+    },
+    {
+      "key": "B23",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Entire source body is unchanged after removing the added Summary."
+    },
+    {
+      "key": "B02",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Entire source body is unchanged after removing the added Summary."
+    },
+    {
+      "key": "B19",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Entire source body is unchanged after removing the added Summary."
+    },
+    {
+      "key": "B37",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Entire source body is unchanged after removing the added Summary."
+    },
+    {
+      "key": "B36",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Entire source body is unchanged after removing the added Summary."
+    },
+    {
+      "key": "B16",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Entire source body is unchanged after removing the added Summary."
+    }
+  ],
+  "scope": "Full body fidelity only; excludes Summary quality and model or runtime validation."
+}

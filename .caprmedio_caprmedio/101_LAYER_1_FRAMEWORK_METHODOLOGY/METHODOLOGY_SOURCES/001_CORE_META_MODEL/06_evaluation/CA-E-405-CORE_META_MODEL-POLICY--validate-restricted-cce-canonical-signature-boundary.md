@@ -1,29 +1,28 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
-version: 24
-updated_at: 2026-10-27 19:59:34 +0400
+  active: Entity/Aspect/Engineering/Data Handling/Data Transformation
+  passive:
+  - Atom.Content
+  - Entity/Aspect/Engineering/Data Handling/Data Validation
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-1360
   - CA-M-240
 atom_id: CA-E-405
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 5
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Validate Restricted CCE Canonical Signature Boundary
 
-## Scope
+## Claim scope
 
 Canonical Signature derivations evaluated against the restricted CCE boundary.
 
@@ -38,5 +37,3 @@ the Evaluation **must** reject a Canonical Signature derivation **if** any of th
 - it fails **to** flatten nested same-operator groups.
 - it retains duplicate atomic predicates.
 - it yields different Canonical Signatures from Boolean groups that differ **only** by operand order.
-
-## Details

@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from artifact_metadata import atom_identifier
+from carrier_aliases import carrier_read_view
 from current_subject_graph import compose_current_graph
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import (
     CarrierError,
@@ -91,6 +92,7 @@ def _read_atom(path: Path, repository: Path) -> dict[str, Any] | None:
     if parsed is None:
         return None
     metadata = parsed.metadata
+    read_view = carrier_read_view(metadata)
     if str(metadata.get("artifact_form", "")).lower() in {"projection", "journal"}:
         return None
     if str(metadata.get("status", "")).strip().lower() in {"draft", "archived"}:
@@ -112,8 +114,9 @@ def _read_atom(path: Path, repository: Path) -> dict[str, Any] | None:
     }
     return {
         "source": source,
-        "subjects": metadata.get("subjects"),
+        "subjects": read_view.get("subjects"),
         "metadata": metadata,
+        "read_view": read_view,
         "body": parsed.body,
         "raw_body": _raw_body(parsed.text, path),
         "raw": raw,
@@ -131,8 +134,57 @@ def read_current_carriers(source_root: Path, repository: Path) -> list[dict[str,
     return carriers
 
 
+def current_model_carriers(carriers: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Select only model Declarations and Relation Definitions."""
+
+    selected = []
+    for carrier in carriers:
+        view = carrier.get("read_view")
+        if not isinstance(view, dict) or view.get("content_role") != "Requirement":
+            continue
+        if view.get("type") in {"Declaration", "Relation Definition"}:
+            selected.append(carrier)
+    return selected
+
+
+def read_current_model_carriers(source_root: Path, repository: Path) -> list[dict[str, Any]]:
+    """Read the Current model frontier without treating Rules as model targets."""
+
+    return current_model_carriers(read_current_carriers(source_root, repository))
+
+
 def build_current_graph(
     source_root: Path, repository: Path
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     """Discover current carriers afresh, then pass only their data to the pure core."""
     return compose_current_graph(read_current_carriers(source_root, repository))
+
+
+def build_enhanced_current_graph(
+    source_root: Path, repository: Path
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Discover current carriers and add diagnostic-only model/CFEL records."""
+
+    from current_subject_graph import compose_enhanced_current_graph
+
+    return compose_enhanced_current_graph(read_current_carriers(source_root, repository))
+
+
+def build_current_model_graph(
+    source_root: Path, repository: Path
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Build the bounded Current model view from its Declaration frontier."""
+
+    from current_subject_graph import compose_enhanced_current_graph
+
+    return compose_enhanced_current_graph(read_current_model_carriers(source_root, repository))
+
+
+def build_current_contract_graph(
+    source_root: Path, repository: Path,
+) -> dict[str, Any]:
+    """Build the source-bound contract view from one explicit Current selection."""
+
+    from contract_graph import compose_contract_graph
+
+    return compose_contract_graph(read_current_carriers(source_root, repository))

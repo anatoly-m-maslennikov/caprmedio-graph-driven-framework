@@ -1,29 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Term
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Name
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
-  - Subject/CAPRMEDIO/Carrier/File.Main Content.CCE Operator
-version: 26
-updated_at: 2026-10-27 19:59:40 +0400
+  active: Term
+  passive:
+  - Entity/Aspect/Engineering/Authoring/Controlled English
+  - Scope Unit.Name
+  - Actor
+  - Carrier/File.Main Content.CCE Operator
+version: 31
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-M-229
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Render Governed Terms and CCE Operators Distinctly
 
-## Scope
+## Claim scope
 
 CAPRMEDIO content lexical-case rendering.
 
@@ -36,5 +34,3 @@ CAPRMEDIO content lexical-case rendering.
 - preserve the lowercase spelling of **every** ordinary English word at the start of a sentence **or** list item **unless** an active rule requires an exact-case token.
 - preserve the required case of canonical Terms, Scope Unit Names, **and** exact registered references, including at sentence **and** list-item starts.
 - preserve the canonical spelling of **every** registered CCE Operator. use CA-D-280 for its representation **in** Markdown Atom Carrier Main Content.
-
-## Details

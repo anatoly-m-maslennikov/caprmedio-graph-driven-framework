@@ -1,0 +1,75 @@
+{
+  "status": "APPLIED",
+  "path": ".caprmedio_caprmedio/_projection/CA-PROJ-018-CAPRMEDIO--Entities-Graph--Current-Subject-Narrowing-Tree.md",
+  "sha256": "6b3ec3dfad74556b6262e4109b059bd5a4f9bbaba203773ed4231ab36e90b9ad",
+  "source_frontier": "current-source-frontier.json",
+  "source_count": 1101,
+  "projection_source_count": 125,
+  "nodes": 44,
+  "narrowing_edges": 39,
+  "diagnostics": [
+    "CA-R-1213@38: Entity Definition `Entity/Object/Continuant/Projection/Type: Applicable Methodology` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-1373@27: Entity Definition `Entity/Object/Continuant/Projection/Type: Applicable Methodology.Conflict` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-1616@21: Entity Definition `Entity/Object/Continuant/Projection/Type: Realization Graph` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-1889@15: Entity Definition `Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis/Type: FPF Analysis Report` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-1977@13: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Artifact Timestamp Timezone` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-1978@13: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Code-Root Locators` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-1979@13: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-1980@13: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Framework Control-Root Locator` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-1981@14: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Identifier` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-1982@13: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-1983@13: Entity Definition `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-2247@3: retained Entity Definition `CFEL > Relation` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2248@2: retained Entity Definition `CFEL > Format` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2249@3: retained Entity Definition `CFEL > Format/bool` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2250@3: retained Entity Definition `CFEL > Format/int` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2251@3: retained Entity Definition `CFEL > Format/float` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2252@3: retained Entity Definition `CFEL > Format/decimal` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2253@3: retained Entity Definition `CFEL > Format/string` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2254@3: retained Entity Definition `CFEL > Format/datetime` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2256@2: Entity Definition `Entity/Aspect/Product: CAPRMEDIO Framework` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-2257@2: retained Entity Definition `CFEL > Format/scalar` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2272@3: Entity Definition `Entity/Object/Continuant/Projection/Type: Canonical Signature` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-2277@2: Entity Definition `Entity/Object/Continuant/Selection//Extension Sources` is outside retained CFEL, Carrier, Term roots.",
+    "CA-R-2327@3: retained Entity Definition `CFEL > Entity/Cardinality` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2328@3: retained Entity Definition `CFEL > Entity/Format` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2329@3: retained Entity Definition `CFEL > Entity/Relation` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2352@2: retained Entity Definition `CFEL > Format.Data Type` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2353@2: retained Entity Definition `CFEL > Format.Uniqueness Selection` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2354@2: retained Entity Definition `CFEL > Relation.Meaning` is unsupported: unexpected reserved character or trailing expression.",
+    "CA-R-2355@2: retained Entity Definition `CFEL > Relation.Name` is unsupported: unexpected reserved character or trailing expression.",
+    "Event Record: no explicit NARROWER_THAN parent; rendered as a root."
+  ],
+  "event": {
+    "event_id": "24d6b7e9-3f7e-42dd-aa23-c3deab4a698d",
+    "happened_at": "2026-11-02 02:56:38 +0400",
+    "inserted_at": "2026-11-02T02:56:38.902468+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-PROJ-018",
+      "updated_at": "2026-11-02 02:56:38 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  "journal_receipts": [
+    {
+      "event_id": "24d6b7e9-3f7e-42dd-aa23-c3deab4a698d",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 420
+    }
+  ],
+  "checks": {
+    "current_source_hashes_unchanged": 1101,
+    "declared_Node_inventory_covered": 30,
+    "tree_nodes": 44,
+    "tree_edges": 39,
+    "roots": 5,
+    "journal_readback": "PASS",
+    "graph_tests_passed": 343,
+    "diff_check": "PASS: renderer scope"
+  }
+}

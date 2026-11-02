@@ -1,35 +1,34 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-version: 33
-updated_at: 2026-10-27 20:00:01 +0400
+  active: Entity/Object/Continuant/History/Release.ID
+  passive:
+  - Entity/Object/Continuant/History/Release.ID
+  - Entity/Object/Continuant/History/Journal > Event Record
+  - Entity/Aspect/Engineering/Traceability
+  - Atom/(.Role := Operations)
+  - Entity/Object/Continuant/Package/Project Implementation
+  - Atom/(.Role := Delivery)
+  - Atom/(.Role := Evaluation)
+  - Scope Unit
+  - Scope Unit//PROJECT_CONFIGURATION
+version: 36
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   depends_on:
   - CA-R-1712
 atom_id: CA-R-1692
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Requirement — Freeze a version only at release
 
-## Scope
+## Claim scope
 
 target Versions and their selected authorized release events.
 

@@ -17,7 +17,7 @@ if str(TOOLS) not in sys.path:
 
 import atom_operations as operations  # noqa: E402
 import atom_subject_patch as subject_patch  # noqa: E402
-from subject_notation import SubjectNotationError, get_profile, parse_subject  # noqa: E402
+from subject_notation import SubjectNotationError, get_profile, parse_subject_expression  # noqa: E402
 from subject_grammar_corpus import grammar_carriers  # noqa: E402
 
 
@@ -103,7 +103,7 @@ class SubjectPatchPreviewTests(unittest.TestCase):
 
     def _notation_code(self, value: str, subject_profile: object) -> str:
         with self.assertRaises(SubjectNotationError) as context:
-            parse_subject(value, subject_profile=subject_profile)
+            parse_subject_expression(value, subject_profile=subject_profile)
         return context.exception.code
 
     def test_replaces_exact_subject_spans_and_preserves_crlf_unicode_unknown_and_body(self) -> None:
@@ -190,11 +190,22 @@ class SubjectPatchPreviewTests(unittest.TestCase):
         self.assertEqual(context.exception.code, self._notation_code("Atom@Status", "approved"))
         validate.assert_not_called()
 
+    def test_approved_structured_patches_preserve_direction_counts_and_grouping(self) -> None:
+        for expression in ("Part {1}+>{2..4} Whole", "Whole {2..4}<+{1} Part", "Entity/(.Color:Blue)", "@(Entity.Property)", "Entity.Property[Text]{2}"):
+            with self.subTest(expression=expression):
+                preview = self._preview(self._payload([{"field": "governs", "old": "Atom/Status", "new": expression}]), subject_profile="approved")
+                self.assertEqual(preview["atoms"][0]["patches"][0]["new"], expression)
+        for expression in ("Part -> Whole", "Entity/(.Color)", 'atom(atom_id="CA-R-501")'):
+            with self.subTest(expression=expression), patch.object(operations, "_validate_complete_carrier") as validate:
+                with self.assertRaises(operations.ToolError):
+                    subject_patch.preview_subject_patches(self.root, self._payload([{"field": "governs", "old": "Atom/Status", "new": expression}]), subject_profile="approved")
+                validate.assert_not_called()
+
     def test_approved_selector_patches_are_literal_and_seal_current_profile_evidence(self) -> None:
         """Selectors are syntax only; quoted separators stay inside one token."""
 
         old = 'atom(content_role="Plan/Type: Exact",type="Plan").Status'
-        new = 'atom(atom_id="CA-R-501").Status: Accepted'
+        new = 'atom(content_role="Requirement").Status: Accepted'
         self.path.write_bytes(
             self.path.read_bytes().replace(b'governs: "Atom/Status"', f"governs: {old!r}".encode("utf-8"))
         )

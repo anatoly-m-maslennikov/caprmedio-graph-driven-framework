@@ -1,24 +1,23 @@
 ---
 atom_id: CA-D-503
-content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on: []
-version: 9
-updated_at: 2026-10-27 19:59:26 +0400
+  active: Carrier
+  passive: []
+version: 12
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Minimize sensitive data in production logs
 
-## Scope
+## Claim scope
 
 production logs that can contain personal, customer, **or** commercially sensitive data.
 

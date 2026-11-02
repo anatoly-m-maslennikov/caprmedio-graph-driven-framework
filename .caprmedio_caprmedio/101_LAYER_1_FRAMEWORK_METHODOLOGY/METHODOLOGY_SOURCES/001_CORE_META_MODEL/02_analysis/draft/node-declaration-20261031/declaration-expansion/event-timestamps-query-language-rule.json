@@ -1,0 +1,55 @@
+{
+  "status": "read-only generic CFEL Rule candidate; no consumer, Event Record schema, data policy, or runtime implementation admitted",
+  "syntax": [
+    "Kind//(condition, ...).p",
+    "MAX(selection)"
+  ],
+  "exact_rule_text": "`Kind//(c1, ...).p` selects p from candidate instances of Kind in the explicit current-Project instance snapshot for which every relative condition holds. Relative fields bind the same candidate instance: in `Event Record//(.object = $x, .action = update).timestamp`, both `.object` and `.action` are fields of that Event Record. Commas inside these filter parentheses mean AND only; they do not change the existing comma selector-union meaning outside filter parentheses. Existing AND, OR, and grouping may appear inside a condition. A missing, invalid, or unresolved evaluated filter is an error, not false. Reference comparison uses the existing resolved target-identity binding, never raw IDs or Carrier data; unresolved or ambiguous identity is an error. The selector does not implicitly expand lifecycle history beyond the explicit current-Project snapshot. Each selected instance must have exactly one valid scalar p. `MAX(selection)` returns the greatest selected scalar under p's Format-defined ordering. Numeric and datetime Formats are orderable; datetime values compare as instants, not lexical strings. Empty, incomplete, incompatible, or non-orderable selections error. Equal greatest values return that scalar value; MAX selects no event row. Both operations are read-only and create no record, Property, relation, value, or lifecycle transition.",
+  "model_cases": [
+    {
+      "case": "same-candidate-relative-fields",
+      "input": "Two Event Records; only one has both object equal to $x and action update.",
+      "result": "Only that one contributes p; filters do not cross-bind fields from separate records."
+    },
+    {
+      "case": "comma-scope",
+      "input": "`Kind//(.a = x, .b = y).p`.",
+      "result": "Requires both conditions for each Kind instance; top-level selector commas retain their existing union semantics."
+    },
+    {
+      "case": "invalid-filter",
+      "input": "A candidate has unresolved .object target identity.",
+      "result": "error, not exclusion as false."
+    },
+    {
+      "case": "reference-not-raw-id",
+      "input": "Two references have the same raw identifier text but resolve to different targets.",
+      "result": "They compare unequal; raw text does not decide the filter."
+    },
+    {
+      "case": "datetime-offsets",
+      "input": "Selected datetime values `2026-11-01T09:00:00Z` and `2026-11-01T10:00:00+01:00`.",
+      "result": "MAX returns their equal instant; lexical spelling does not order them."
+    },
+    {
+      "case": "equal-maxima",
+      "input": "Two selected records hold the same greatest numeric or datetime value.",
+      "result": "MAX returns that scalar; no record-row tie breaker is needed."
+    },
+    {
+      "case": "empty-or-nonorderable",
+      "input": "No selected value, or one selected value has an unordered/nonmatching Format.",
+      "result": "error."
+    }
+  ],
+  "explicit_nonassumptions": [
+    "No Event Record object/action/timestamp Property is declared here.",
+    "No assertion that Atom identity is an immutable ID-plus-Version tuple; stable event-reference binding remains a data-policy gate.",
+    "No decision whether initial creation emits update, and no consumer Claim.",
+    "No COUNT, additional filter function, historical-population expansion, or write/materialization semantics."
+  ],
+  "mutations": {
+    "repository_files_changed": false,
+    "output": "/tmp/caprmedio-event-timestamps-20261101/query-language-rule.json"
+  }
+}

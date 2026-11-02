@@ -1,25 +1,24 @@
 ---
 atom_id: CA-R-2158
-content_role: Requirement
-type: Rule
 current_scope_unit: caprmedio
-author: Anatoly Maslennikov
 status: Active
 tier: 4
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
-version: 7
-updated_at: 2026-10-27 20:00:08 +0400
+  active: Entity/Object/Continuant/Actor/AI Agent
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Aspect/Engineering/Execution Control/Effect Authorization
+version: 10
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-2157
 cce_version: cce_1
 cce_form: permission
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 AI Agents act within permission
 

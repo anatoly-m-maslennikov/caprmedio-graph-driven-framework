@@ -1,20 +1,20 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-version: 40
-updated_at: 2026-10-27 19:59:30 +0400
+  active: Projection
+  passive:
+  - Atom.Content
+  - Atom.Content.Summary
+  - Entity/Aspect/Engineering/Execution Control/Decision Confidence
+  - Entity/Object/Continuant/Actor/Operator
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - Atom
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+version: 45
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
-  - CA-M-111
-  - CA-M-115
+  - CA-M-442
+  - CA-M-443
   - CA-M-114
   - CA-M-271
   - CA-R-1591
@@ -22,19 +22,18 @@ relations:
   - CA-R-941
   - CA-R-1273
 atom_id: CA-E-241
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate CCE Claims and derived Projections
 
-## Scope
+## Claim scope
 
 active and draft Atom Claims, their Summaries, and requested Translation and terminology Projections.
 
@@ -53,5 +52,3 @@ create valid active **and** draft Atom Claims for **every** admitted Content Rol
 ### Failure disposition
 
 record a Concern naming the affected Claim **or** Projection.
-
-## Details

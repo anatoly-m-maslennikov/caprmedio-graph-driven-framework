@@ -1,0 +1,15 @@
+{
+  "status": "FIX",
+  "findings": [
+    "Replace \u201csame-chain Project\u201d in two examples with \u201ccontextual Project\u201d; the terminal Project is not required to lie on the containment chain."
+  ],
+  "checked": [
+    "Existing singleton contextual Project supports explicit bound scalar read",
+    "Optional Plan shape and independent required Project leaf preserved",
+    "Nearest authored applicable source, lazy invalid/error handling and no-write semantics are stated"
+  ],
+  "limits": [
+    "Project default remains independently required despite lazy fallback",
+    "No parser/runtime verification"
+  ]
+}

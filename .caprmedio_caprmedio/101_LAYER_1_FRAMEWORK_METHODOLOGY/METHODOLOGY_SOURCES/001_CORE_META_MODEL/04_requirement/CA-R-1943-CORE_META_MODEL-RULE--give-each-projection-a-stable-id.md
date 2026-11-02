@@ -1,29 +1,28 @@
 ---
 atom_id: CA-R-1943
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection.ID
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-version: 12
-updated_at: 2026-10-27 20:00:05 +0400
+  active: Projection.ID
+  passive:
+  - Projection
+  - Entity/Object/Continuant/Projection/Type
+  - Entity/Object/Continuant/Selection
+version: 15
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   depends_on:
-  - CA-R-1746
+  - CA-R-2535
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Give each Projection a stable ID
 
-## Scope
+## Claim scope
 
 Projection identity across rebuilds.
 

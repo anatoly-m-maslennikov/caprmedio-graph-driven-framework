@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-01",
+  "status": "Event schema and both timestamp Claims prepared as reviewed Drafts",
+  "user_pattern": "Atom//$atom.updated_at == MAX(Event Record//(.object=$atom, (.action=create OR .action=update)).happened_at); Projection uses the same pattern.",
+  "intended_location": "Core Requirement invariant; Workflow process and Engine implementation remain separate",
+  "pending_question": null,
+  "subsequent_dependencies": [
+    "Declare event target binding, action and timestamp without violating the rule that real instance relations live under Relations.",
+    "Disambiguate Atom versions. Bare Atom.ID must not conflate versions; the event reference must remain resolvable through Draft Version reassignment and promotion. Do not silently assume a mutable (ID,Version) tuple is a permanently stable reference.",
+    "Bind timestamp to event occurrence/completion time and resolve the complete current-Project Journal population.",
+    "Specify filtered-selection and typed MAX semantics, including empty/unresolved inputs."
+  ],
+  "unchanged": [
+    "Current sources",
+    "Runtime and actual Event Records"
+  ],
+  "resolved_update_qualification": "Accepted completed updates, including completed Projection rebuilds",
+  "excluded_update_events": [
+    "No-ops",
+    "Failed attempts",
+    "Archiving"
+  ],
+  "resolved_creation_policy": "Select accepted create and update events together; creation supplies initial Updated At",
+  "old_new_record_direction": "User: old \u2192 new, one record",
+  "resolved_promotion_behavior": "Promotion is update; its accepted event timestamp advances the promoted Atom Updated At.",
+  "resolved_delta": "Only changed logical Property old/new values; exclude Carrier filename/directory changes.",
+  "resolved_delta_updated_at": "May include changed Updated At as derived audit data; event-timestamp MAX remains authoritative and the copy causes no new business update.",
+  "resolved_time_fields": {
+    "happened_at": "Event time; MAX input",
+    "inserted_at": "Journal insertion time; separate fact"
+  },
+  "event_schema_status": "ID, happened_at and inserted_at declared; author/action/object fields pending",
+  "resolved_atom_io": {
+    "each_present_side": [
+      "Atom.ID",
+      "Atom.Version",
+      "Atom.Updated At"
+    ],
+    "input": "Before change",
+    "output": "After change",
+    "ids_may_differ": true
+  },
+  "excluded_content": "Atom.Content and recursive descendants, including paths and values; accepted Content-only updates still qualify",
+  "resolved_projection_version": "No Projection.Version; input/output pair ID and Updated At",
+  "schema_status": "Common descriptors, action and Actor link declared; both timestamp queries formal-only"
+}

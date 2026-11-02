@@ -69,10 +69,13 @@ class RenderEntityTreeTests(unittest.TestCase):
         self.assertLessEqual(started, moment)
         self.assertLessEqual(moment, dt.datetime.now(dt.UTC))
         self.assertEqual(dt.timedelta(0), moment.utcoffset())
-        self.assertEqual(["CA-R-9001@7"], metadata["sources"])
+        self.assertEqual(["CA-R-9001@7"], metadata["source"]["atoms"])
         self.assertEqual("CA-PROJ-901", metadata["projection_id"])
-        self.assertEqual("Current Atoms", metadata["named_selection"])
-        self.assertEqual(["sources"], metadata["source_of_truth"])
+        self.assertEqual("Map", metadata["form"])
+        self.assertEqual("Named Selection//Current Atoms", metadata["source"]["named_selection"])
+        self.assertNotIn("type", metadata)
+        self.assertNotIn("source_of_truth", metadata)
+        self.assertNotIn("sources", metadata)
         self.assertEqual(stdout.stdout.split("---\n", 2)[2], document.split("---\n", 2)[2])
         self.assertIn("sources", document)
         self.assertNotIn("Saved snapshot", document)
@@ -97,6 +100,30 @@ class RenderEntityTreeTests(unittest.TestCase):
         self.assertNotIn("CA-R-123", result.stdout)
         self.assertEqual(before, self.source_bytes())
 
+    def test_model_view_renders_constraint_sections_without_publishing(self):
+        self.source.write_text(
+            atom(subject="Node.Property: literal").replace(
+                "# Source\n", "# Source\n\n## Claim\n\n```CFEL\nNode.Property: [string]{:1};\nIF Node THEN Property\n```\n"
+            ), encoding="utf-8",
+        )
+        before = self.source_bytes()
+        result = self.run_cli(view="model")
+        self.assertEqual(0, result.returncode, result.stderr)
+        for heading in ("## Model graph", "## Properties", "## Allowed literals", "## Constraints", "## Unsupported CFEL"):
+            self.assertIn(heading, result.stdout)
+        self.assertFalse(self.output.exists())
+        self.assertEqual(before, self.source_bytes())
+
+    def test_model_view_uses_model_graph_filename(self):
+        model_output = self.projection / "CA-PROJ-901-CORE--Model-Graph--Current-Atoms.md"
+        result = self.run_cli(model_output, view="model")
+        self.assertEqual(0, result.returncode, result.stderr)
+        self.assertTrue(model_output.exists())
+        self.assertFalse(self.output.exists())
+        wrong_name = self.run_cli(self.output, view="model")
+        self.assertEqual(1, wrong_name.returncode)
+        self.assertIn("Model-Graph", wrong_name.stderr)
+
     def test_identity_mismatch_or_wrong_filename_preserves_existing_output(self):
         self.assertEqual(0, self.run_cli(self.output).returncode)
         document = self.output.read_bytes()
@@ -114,6 +141,29 @@ class RenderEntityTreeTests(unittest.TestCase):
         self.assertEqual(1, result.returncode)
         self.assertIn("Existing Projection identity", result.stderr)
         self.assertEqual(mismatched, self.output.read_bytes())
+
+    def test_legacy_type_header_is_read_compatibly_then_rewritten_as_form(self):
+        self.output.write_text(
+            "---\n"
+            "artifact_form: Projection\n"
+            "projection_id: CA-PROJ-901\n"
+            "type: Entities Graph\n"
+            "named_selection: Current Atoms\n"
+            "source_of_truth:\n"
+            "- sources\n"
+            "updated_at: 2026-11-01 00:00:00 +0000\n"
+            "sources:\n"
+            "- CA-R-9001@7\n"
+            "---\n\n## Inherency tree\n\nlegacy body\n",
+            encoding="utf-8",
+        )
+        result = self.run_cli(self.output)
+        self.assertEqual(0, result.returncode, result.stderr)
+        metadata = yaml.safe_load(self.output.read_text(encoding="utf-8").split("---\n", 2)[1])
+        self.assertEqual("Map", metadata["form"])
+        self.assertEqual("Named Selection//Current Atoms", metadata["source"]["named_selection"])
+        self.assertEqual(["CA-R-9001@7"], metadata["source"]["atoms"])
+        self.assertNotIn("type", metadata)
 
     def test_next_run_reflects_live_subject_version_and_ignores_stale_snapshot(self):
         first = self.run_cli(self.output)

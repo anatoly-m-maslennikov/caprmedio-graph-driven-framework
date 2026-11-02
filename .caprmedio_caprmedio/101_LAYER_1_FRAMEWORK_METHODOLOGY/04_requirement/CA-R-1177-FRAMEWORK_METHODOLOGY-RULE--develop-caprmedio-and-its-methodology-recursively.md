@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs: 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+  governs: 'Entity/Aspect/Product: CAPRMEDIO Framework'
   depends_on:
-  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-version: 15
-updated_at: 2026-10-27 19:59:51 +0400
+  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project
+version: 17
+updated_at: 2026-10-29 07:45:26 +0400
 relations:
   child_of:
   - CA-R-1486
@@ -21,6 +21,9 @@ atom_id: CA-R-1177
 type: Rule
 tier: 1
 ---
-# Develop CAPRMEDIO and its methodology recursively
+## Summary
+Develop CAPRMEDIO and its methodology recursively
+
+## Claim
 
 FRAMEWORK_METHODOLOGY **must** provide Methodology for developing CAPRMEDIO—including its own Methodology—within the caprmedio Project.

@@ -9,11 +9,13 @@ import signal
 import tempfile
 import time
 import unittest
+from unittest.mock import patch
 
 APP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(APP))
 from contracts import Enqueue  # noqa: E402
 from engine import Coordinator, Interrupted  # noqa: E402
+from orchestrator import _worker_paths, run  # noqa: E402
 
 
 def report(context, issues=False):
@@ -70,6 +72,38 @@ class OrchestratorTests(unittest.TestCase):
         self.request = Enqueue(run_id='mock-run', selection=[{'atom_id': 'MOCK-R-1', 'path': 'atom.md'}],
                                criteria_paths=['rules.md'], author='mock-operator', scope='MOCK',
                                confidence_threshold=90.0, allow_fixes=True)
+
+    def test_isolated_worker_log_is_private_while_legacy_paths_remain_shared(self):
+        legacy = self.root / '.caprmedio_install/workflow_orchestrator/worker.log'
+        for namespace in ('', 'docker'):
+            with self.subTest(namespace=namespace), patch.dict(
+                os.environ, {'CAPRMEDIO_RUNTIME_NAMESPACE': namespace}
+            ):
+                _, _, log_path = _worker_paths(self.root)
+                self.assertEqual(legacy, log_path)
+        with patch.dict(os.environ, {'CAPRMEDIO_RUNTIME_NAMESPACE': 'isolated:adoption-20261030'}):
+            _, _, log_path = _worker_paths(self.root)
+        self.assertEqual(
+            self.root / '.caprmedio_install/workflow_orchestrator/isolated/adoption-20261030/worker.log',
+            log_path,
+        )
+
+    def test_isolated_runtime_ignores_docker_transport_marker(self):
+        from docker_bridge import MARKER
+
+        marker = Coordinator(self.root, None).store.path(MARKER)
+        marker.parent.mkdir(parents=True, exist_ok=True)
+        marker.write_text('{}')
+        native_result = {'outcome': 'queued', 'run_id': self.request.run_id}
+        with (
+            patch.dict(os.environ, {'CAPRMEDIO_RUNTIME_NAMESPACE': 'isolated:bridge-regression'}),
+            patch('orchestrator._run_native', return_value=(False, None)),
+            patch('orchestrator.enqueue', return_value=native_result) as enqueue_native,
+            patch('docker_bridge.invoke') as invoke_docker,
+        ):
+            self.assertEqual(run(self.root, self.request), native_result)
+        invoke_docker.assert_not_called()
+        enqueue_native.assert_called_once_with(self.root, self.request)
 
     def test_runtime_binding_uses_selected_project_definition(self):
         from engine import runtime_fingerprint

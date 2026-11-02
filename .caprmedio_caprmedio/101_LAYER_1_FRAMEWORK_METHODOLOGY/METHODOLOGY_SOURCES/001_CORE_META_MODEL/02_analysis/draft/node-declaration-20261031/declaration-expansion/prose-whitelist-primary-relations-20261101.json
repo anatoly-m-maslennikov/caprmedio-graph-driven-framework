@@ -1,0 +1,1232 @@
+{
+  "status": "read-only primary relation inventory; not a source change",
+  "scope": {
+    "registered_declarations": 28,
+    "primary_node_marked": 26,
+    "classification_missing": 2,
+    "register_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/draft-register.json",
+    "register_sha256": "e96607070676bafb7156b912175df703137fde0b67655cf16d32113ad7608b1c",
+    "register_status": "Selected Declaration contracts prepared; semantic/relation-whitelist review remains",
+    "live_declaration_hashes_verified": true,
+    "classification_counts": {
+      "Primary Node": 26,
+      "classification missing": 2
+    }
+  },
+  "matrix": [
+    {
+      "summary": "Declare Node",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "d7f38688c4f8a88803319014ae826b5a2de89421978379f845b8a17bca8d3350",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Node"
+      },
+      "formal_claim_excerpt": "IS_PROPERTY_OF must be acyclic, including no self-loop. A Primary Node has no direct value. Property values on instances are literals governed by the Property declaration.\n\n```CFEL\nNode {:0}((IS_PROPERTY_OF));\n(Node, Node/**, .**) {:0..1}((IS_PROPERTY_OF));\nIF ((Node, Node/**, .**) {=0}((IS_PROPERTY_OF)))\nTHEN ((Node, Node/**, .**) >| (Independence == Primary Node));\nIF ((Node, Node/**, .**) {=1}((IS_PROPERTY_OF)))\nTHEN ((Node, Node/**, .**) >| (Independence == Property))\nAND ((Node, Node/**, .**) {==0}((HAS_NARROWER)))\nAND ((Node, Node/**, .**) {==0}((HAS_INSTANCE)))\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "IS_PROPERTY_OF",
+          "direction": "Node -> Property? (generic bearer direction is Property -> Node; this clause sets Node outgoing count)",
+          "target": "Property / immediate bearer relation",
+          "condition": "always",
+          "status": "explicit zero for this relation only",
+          "expression": "Node {:0}((IS_PROPERTY_OF))",
+          "note": "Does not close unrelated Relation families.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "IS_PROPERTY_OF",
+          "direction": "each selected Node -> Property-bearing relation count",
+          "target": "Property / immediate bearer relation",
+          "condition": "for (Node, Node/**, .**)",
+          "status": "local/global bound for this relation only",
+          "expression": "(Node, Node/**, .**) {:0..1}((IS_PROPERTY_OF))",
+          "note": "Node with zero is classified Primary Node; with one is classified Property.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "0..1",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "HAS_NARROWER",
+          "direction": "Property -> narrower Primary Node",
+          "target": "Primary Node",
+          "condition": "IF Node has exactly one IS_PROPERTY_OF link",
+          "status": "explicit zero for this relation only",
+          "expression": "IF (... {=1}((IS_PROPERTY_OF))) THEN (... {==0}((HAS_NARROWER)))",
+          "note": "HAS_NARROWER is derived inverse of NARROWER_THAN.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "HAS_INSTANCE",
+          "direction": "Property -> instances",
+          "target": "Primary Node instances",
+          "condition": "IF Node has exactly one IS_PROPERTY_OF link",
+          "status": "explicit zero for this relation only",
+          "expression": "IF (... {=1}((IS_PROPERTY_OF))) THEN (... {==0}((HAS_INSTANCE)))",
+          "note": "HAS_INSTANCE is derived inverse of INSTANCE_OF.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [
+        "Node instances have outgoing IS_PROPERTY_OF count 0.",
+        "Property instances have outgoing HAS_NARROWER and HAS_INSTANCE count 0 under the one-IS_PROPERTY_OF condition."
+      ],
+      "inheritance_basis": "Root declaration. Its `Node/**` selector covers descendants only when their Node-branch membership is established; shared Relation inheritance Rule applies effective parent constraints.",
+      "other_nonrelation_constraints": [
+        "No direct value on a Primary Node.",
+        "Property/Primary independence classification is conditional on IS_PROPERTY_OF cardinality."
+      ],
+      "whitelist_completeness": "Incomplete as an all-Relation whitelist: it constrains only IS_PROPERTY_OF plus conditional HAS_NARROWER/HAS_INSTANCE; unrelated Relation families are not explicitly zeroed.",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Operations",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "sha256": "bd18b4465a0dd7ead038bf18399acc3e4c95f2cce9f86918a40e53682da49690",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Operations)"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Operations)\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Atom slice selected by Role=Operations; applies Atom/Node baseline when this effective qualified Node path inherits it.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Workflow",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "2cda46e500b16c197c151371b89a8e29b86cc1caeaf954abb46b2f83a196620a",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Operations)/Workflow"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Operations)/Workflow;\nWorkflow//{:1+}((CONTAINS)) Step//\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "CONTAINS",
+          "direction": "Workflow -> Step",
+          "target": "Step",
+          "condition": "always",
+          "status": "positive permission",
+          "expression": "Workflow//{:1+}((CONTAINS)) Step//",
+          "note": "IS_CONTAINED_BY is its derived inverse.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "1+",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Atom/(Role=Operations) and Atom/Node baseline; no local blanket whitelist.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Step",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "be43cd211af5a8765e90dc8c7f8844c9fb57d55ce7a6828c45157e0a48dc07a1",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Operations)/Step"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Operations)/Step;\nStep//{:1}((IS_CONTAINED_BY)) Workflow//;\n((Step//{:1+}((CONTAINS)) Substep//)\nAND (Step//{:0}((RUN)) Action//))\nOR\n((Step//{:0}((CONTAINS)) Substep//)\nAND (Step//{:1}((RUN)) Action//))\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "IS_CONTAINED_BY",
+          "direction": "Step -> Workflow",
+          "target": "Workflow",
+          "condition": "always",
+          "status": "positive permission",
+          "expression": "Step//{:1}((IS_CONTAINED_BY)) Workflow//",
+          "note": "CONTAINS is its derived inverse.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 1,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "CONTAINS",
+          "direction": "Step -> Substep",
+          "target": "Substep",
+          "condition": "branch A: Step has 1+ Substeps and 0 RUN Action",
+          "status": "positive, conditional",
+          "expression": "Step//{:1+}((CONTAINS)) Substep//",
+          "note": "A or branch B.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "1+",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "RUN",
+          "direction": "Step -> Action",
+          "target": "Action",
+          "condition": "branch A: Step has 1+ Substeps and 0 RUN Action",
+          "status": "explicit zero, conditional",
+          "expression": "Step//{:0}((RUN)) Action//",
+          "note": "A or branch B.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "CONTAINS",
+          "direction": "Step -> Substep",
+          "target": "Substep",
+          "condition": "branch B: Step has 0 Substeps and 1 RUN Action",
+          "status": "explicit zero, conditional",
+          "expression": "Step//{:0}((CONTAINS)) Substep//",
+          "note": "A or branch B.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "RUN",
+          "direction": "Step -> Action",
+          "target": "Action",
+          "condition": "branch B: Step has 0 Substeps and 1 RUN Action",
+          "status": "positive, conditional",
+          "expression": "Step//{:1}((RUN)) Action//",
+          "note": "RUN inverse is IS_RUN_BY.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 1,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Atom/(Role=Operations) and Atom/Node baseline.",
+      "other_nonrelation_constraints": [
+        "Exactly one of the two CONTAINS/RUN alternatives holds."
+      ],
+      "whitelist_completeness": "Only named Step relations are constrained; unrelated Relation families are not explicitly zeroed.",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Substep",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "sha256": "d9e37c2b8740d343ca63b3d1eb3b6822f56369228b0a4d9ca90bbc1206a24ad8",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Operations)/Substep"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Operations)/Substep;\nSubstep//{:1}((IS_CONTAINED_BY)) Step//;\nSubstep//{:1}((RUN)) Action//\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "IS_CONTAINED_BY",
+          "direction": "Substep -> Step",
+          "target": "Step",
+          "condition": "always",
+          "status": "positive permission",
+          "expression": "Substep//{:1}((IS_CONTAINED_BY)) Step//",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 1,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "RUN",
+          "direction": "Substep -> Action",
+          "target": "Action",
+          "condition": "always",
+          "status": "positive permission",
+          "expression": "Substep//{:1}((RUN)) Action//",
+          "note": "Inverse view is IS_RUN_BY.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 1,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Atom/(Role=Operations) and Atom/Node baseline.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Action",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "a912b6f43e8cabfe50fd1aa8c5715d2b969290f92d8408511086e56cf7e9447b",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Operations)/Action"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Operations)/Action;\nAction//{:0+}((IS_RUN_BY)) (in (Step, Substep))//\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "IS_RUN_BY",
+          "direction": "Action -> Step or Substep",
+          "target": "(Step, Substep)",
+          "condition": "always",
+          "status": "derived inverse view",
+          "expression": "Action//{:0+}((IS_RUN_BY)) (in (Step, Substep))//",
+          "note": "RUN direct edges are from Step/Substep to Action.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "0+",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Atom/(Role=Operations) and Atom/Node baseline.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Atom",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "8bf3f2270b3bb007771af15fda6e1aef7a053a538865d3d597ec8f0a2aac3f66",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom;\nUNIQUE(Atom//, (.ID, .Version))\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Primary Atom Node; explicit Atom primary identity constraint, plus applicable Node root/Role rules where the effective Model places it in that branch.",
+      "other_nonrelation_constraints": [
+        "UNIQUE(Atom//, (.ID, .Version)) is an identity constraint, not a Relation permission."
+      ],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Atom/(.Role := Concern)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-concern.md",
+      "sha256": "b2b242bd5a56f0335eae8ea4f0a880bcf64aa252e958d7ee480cc74fcfe90c87",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Concern)"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Concern)\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Role-qualified Atom slice; inherits applicable Atom/Node constraints; qualifier does not itself add a Relation edge.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Atom/(.Role := Analysis)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-analysis.md",
+      "sha256": "137256803246b4f53ab81acdafc8991cc7139a8a396e368f65d915c3daeaa31e",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Analysis)"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Analysis)\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Role-qualified Atom slice; inherits applicable Atom/Node constraints; qualifier does not itself add a Relation edge.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Atom/(.Role := Plan)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "62d372e9529d88e0c38176d52e7e867fe04de661449efe318fa8e18972ff6c16",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Plan)"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Plan)\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Role-qualified Atom slice; inherits applicable Atom/Node constraints; qualifier does not itself add a Relation edge.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Atom/(.Role := Requirement)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "sha256": "b5d393aca314e0297eb0b2d17894ee237fa2eb68ddefdf9f086c3734a092314a",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Requirement)"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Requirement)\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Role-qualified Atom slice; inherits applicable Atom/Node constraints; qualifier does not itself add a Relation edge.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Atom/(.Role := Method)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "sha256": "f97988d05131b8bb547e70df4d85da5e2ef126fc41d0495e37f5b7115900fa9f",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Method)"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Method)\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Role-qualified Atom slice; inherits applicable Atom/Node constraints; qualifier does not itself add a Relation edge.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Atom/(.Role := Evaluation)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "sha256": "c61cde2a319735bda2ba062ccaff5977790a4175a0dbb756d23d7e8ad11921a5",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Evaluation)"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Evaluation)\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Role-qualified Atom slice; inherits applicable Atom/Node constraints; qualifier does not itself add a Relation edge.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Atom/(.Role := Delivery)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "sha256": "7e95d5c2fd9df9e751e08bc3c811b8129e17fd4bf64d907c1d65e44db2820eaa",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Delivery)"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Delivery)\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Role-qualified Atom slice; inherits applicable Atom/Node constraints; qualifier does not itself add a Relation edge.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Atom/(.Role := Requirement)/(.Form := Declaration)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration.md",
+      "sha256": "f369536747cf380cd689e0b5605431a846b2affc7530de7e92a40f527ed49325",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Requirement)/(.Form := Declaration)"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Requirement)/(.Form: Declaration)\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Role/Form-qualified Atom slice; inherits applicable Requirement/Atom/Node constraints where effective MODEL bindings establish that parent path; qualifier is not itself a Relation edge.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Atom/(.Role := Requirement)/(.Form := Relation Definition)",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-relation-definition.md",
+      "sha256": "cfbf52ca20a40887f5c8c31d2e8bfb90e587c71771c7bbd2080449c90d3da905",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Atom/(.Role := Requirement)/(.Form := Relation Definition)"
+      },
+      "formal_claim_excerpt": "```CFEL\nAtom/(.Role: Requirement)/(.Form: Relation Definition)\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Role/Form-qualified Atom slice; inherits applicable Requirement/Atom/Node constraints where effective MODEL bindings establish that parent path; qualifier is not itself a Relation edge.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Scope Unit",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "sha256": "c6401eaf05d8be0fbd4ace0d6d2b65214c8668803b555693401b324f5556b40d",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Scope Unit"
+      },
+      "formal_claim_excerpt": "```CFEL\nScope Unit >| (Container == yes);\nScope Unit//{:0..1}((IS_CONTAINED_BY)) Scope Unit//;\nScope Unit//{:0+}((CONTAINS)) Scope Unit//;\nIF (Scope Unit//$unit not in (Scope Unit/Project//))\nTHEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//);\nIF (Scope Unit//$contained ((IS_CONTAINED_BY)) Scope Unit//$container)\nTHEN ($contained.structural_level = $container.structural_level + 1)\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "HAS_CLASSIFICATION",
+          "direction": "Scope Unit -> Container axis",
+          "target": "Container == yes",
+          "condition": "always",
+          "status": "classification relation, not containment grant",
+          "expression": "Scope Unit >| (Container == yes)",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "classification asserted",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "IS_CONTAINED_BY",
+          "direction": "Scope Unit -> Scope Unit",
+          "target": "Scope Unit",
+          "condition": "all Scope Units",
+          "status": "base allowed range",
+          "expression": "Scope Unit//{:0..1}((IS_CONTAINED_BY)) Scope Unit//",
+          "note": "CONTAINS inverse.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "0..1",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "CONTAINS",
+          "direction": "Scope Unit -> Scope Unit",
+          "target": "Scope Unit",
+          "condition": "all Scope Units",
+          "status": "positive permission",
+          "expression": "Scope Unit//{:0+}((CONTAINS)) Scope Unit//",
+          "note": "Derived inverse view of IS_CONTAINED_BY.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "0+",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "IS_CONTAINED_BY",
+          "direction": "non-Project Scope Unit -> Scope Unit",
+          "target": "Scope Unit",
+          "condition": "IF unit not in Scope Unit/Project",
+          "status": "required parent",
+          "expression": "IF (...) THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)",
+          "note": "Project is excluded from this required parent rule.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 1,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Root Scope Unit Primary Node; no explicit CONTAINS permissions for Atom, Projection, Package, Journal or other kinds.",
+      "other_nonrelation_constraints": [
+        "For each existing IS_CONTAINED_BY link, contained.structural_level = container.structural_level + 1; this is a Property equation, not another Relation grant."
+      ],
+      "whitelist_completeness": "Explicitly names Scope Unit-to-Scope Unit containment only; Container=yes does not authorize edges to arbitrary contained kinds.",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Project",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "e380f357db963e857c5b6b31d124d5ba575b5eb02df854d4ecdc45810ce91df8",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Project"
+      },
+      "formal_claim_excerpt": "```CFEL\nScope Unit/Project;\nScope Unit/Project//{:1};\nProject >| (Container == yes);\nProject// {:0}((IS_CONTAINED_BY)) Scope Unit//;\nScope Unit/Project//$project.structural_level = 0\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "HAS_CLASSIFICATION",
+          "direction": "Project -> Container axis",
+          "target": "Container == yes",
+          "condition": "always",
+          "status": "classification relation, not containment grant",
+          "expression": "Project >| (Container == yes)",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "classification asserted",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "IS_CONTAINED_BY",
+          "direction": "Project -> Scope Unit",
+          "target": "Scope Unit",
+          "condition": "always",
+          "status": "explicit zero for this Relation only",
+          "expression": "Project// {:0}((IS_CONTAINED_BY)) Scope Unit//",
+          "note": "Root Project; no parent.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Explicit Scope Unit/Project child; receives applicable Scope Unit declarations. Inherited Scope Unit CONTAINS Scope Unit 0+ remains the only explicit child relation here.",
+      "other_nonrelation_constraints": [
+        "Exactly one Project instance in context; structural_level=0. Neither is a Relation permission."
+      ],
+      "whitelist_completeness": "No explicit Project permissions for children other than inherited Scope Unit containment; no universal Container-child grant.",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Package",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "sha256": "aa78279859f486da639ce14ab9f2d9e7f449cd5206c7cffef9ee3a4e009755ad",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Package"
+      },
+      "formal_claim_excerpt": "```CFEL\nPackage >| (Container == yes);\nPackage//{:0..1}((IS_CONTAINED_BY)) Package//;\nPackage//{:0+}((CONTAINS)) Package//;\nIF (Package//$package not in (Package/Implementation//))\nTHEN ($package {==1}((IS_CONTAINED_BY)) Package//);\nIF (Package//$contained ((IS_CONTAINED_BY)) Package//$container)\nTHEN ($contained.structural_level = $container.structural_level + 1)\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "HAS_CLASSIFICATION",
+          "direction": "Package -> Container axis",
+          "target": "Container == yes",
+          "condition": "always",
+          "status": "classification relation, not containment grant",
+          "expression": "Package >| (Container == yes)",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "classification asserted",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "IS_CONTAINED_BY",
+          "direction": "Package -> Package",
+          "target": "Package",
+          "condition": "all Packages",
+          "status": "base allowed range",
+          "expression": "Package//{:0..1}((IS_CONTAINED_BY)) Package//",
+          "note": "CONTAINS inverse.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "0..1",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "CONTAINS",
+          "direction": "Package -> Package",
+          "target": "Package",
+          "condition": "all Packages",
+          "status": "positive permission",
+          "expression": "Package//{:0+}((CONTAINS)) Package//",
+          "note": "Derived inverse view.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "0+",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "IS_CONTAINED_BY",
+          "direction": "non-Implementation Package -> Package",
+          "target": "Package",
+          "condition": "IF package not in Package/Implementation",
+          "status": "required parent",
+          "expression": "IF (...) THEN ($package {==1}((IS_CONTAINED_BY)) Package//)",
+          "note": "Implementation excluded.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 1,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Package root Primary Node. Package/Implementation inherits these constraints except where its own declaration narrows/overrides IS_CONTAINED_BY.",
+      "other_nonrelation_constraints": [
+        "structural_level = parent.structural_level + 1 for each existing parent link."
+      ],
+      "whitelist_completeness": "Only Package-to-Package containment is explicitly permitted; Container=yes does not grant other child kinds.",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Projection",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "sha256": "112f7fc1740de797a9833654b1918b83f6296e6f30b04b498b4f4ce1681302d6",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Projection"
+      },
+      "formal_claim_excerpt": "```CFEL\nProjection {:0}((IS_PROPERTY_OF))\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "IS_PROPERTY_OF",
+          "direction": "Projection -> bearer relation",
+          "target": "Node",
+          "condition": "always",
+          "status": "explicit zero for this Relation only",
+          "expression": "Projection {:0}((IS_PROPERTY_OF))",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Primary Node baseline where Projection is established within Node branch.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "Zero IS_PROPERTY_OF only; other Relation permissions unresolved/not granted absent complete whitelist.",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Journal",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "sha256": "fa3cc333bbd71a3eb2cd5b7be8ff01084e1b7c16d8853b843b99ef2f720fd6c4",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Journal"
+      },
+      "formal_claim_excerpt": "```CFEL\nJournal {:0}((IS_PROPERTY_OF));\nJournal//{:1};\nJournal >| (Container == yes);\nJournal// {:0+}((CONTAINS)) Event Record//\n```\n\n- A Journal is an ordered table of accepted Event Records.\n- Accepted Event Records are immutable.",
+      "direct_relation_clauses": [
+        {
+          "relation": "IS_PROPERTY_OF",
+          "direction": "Journal -> bearer relation",
+          "target": "Node",
+          "condition": "always",
+          "status": "explicit zero for this Relation only",
+          "expression": "Journal {:0}((IS_PROPERTY_OF))",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "HAS_CLASSIFICATION",
+          "direction": "Journal -> Container axis",
+          "target": "Container == yes",
+          "condition": "always",
+          "status": "classification relation, not containment grant",
+          "expression": "Journal >| (Container == yes)",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "classification asserted",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "CONTAINS",
+          "direction": "Journal -> Event Record",
+          "target": "Event Record",
+          "condition": "latest user correction",
+          "status": "positive permission",
+          "expression": "Journal//{:0+}((CONTAINS)) Event Record//",
+          "note": "IS_CONTAINED_BY is inverse; this is not an ordered relation.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "0+",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Primary Node baseline where Journal is established within Node branch.",
+      "other_nonrelation_constraints": [
+        "Journal//{:1} selects exactly one Journal in the evaluation context; it is not a Relation.",
+        "Latest user correction removes ordered-table wording and moves record immutability to Event Record; do not treat stale prose as a relation constraint."
+      ],
+      "whitelist_completeness": "Names only IS_PROPERTY_OF and CONTAINS; other Relation families not explicitly closed by this claim.",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Actor",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-actor.md",
+      "sha256": "d95e7ada980d30d746d5b8e7f55321422ec93bcd302421255ebf48f5e1d1d1fd",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Actor"
+      },
+      "formal_claim_excerpt": "```CFEL\nActor\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "No direct relation clause; parent/Node inheritance must be resolved in the effective MODEL.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Aspect",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "sha256": "44c5c4bc233a84c7c82ab48629b54b2fc195f2288a4f288d4915f0e0f16d6b62",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Aspect"
+      },
+      "formal_claim_excerpt": "```CFEL\nAspect\n```",
+      "direct_relation_clauses": [],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "No direct relation clause; parent/Node inheritance must be resolved in the effective MODEL.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "not proven by this declaration",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Implementation",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+      "sha256": "60c9e4af45a9cbbd5da9f261bd2b5752d6d54524c5588414b3c727587d5b0020",
+      "register_classification": null,
+      "classification_gap": true,
+      "subjects": {
+        "governs": "Package/Implementation"
+      },
+      "formal_claim_excerpt": "```CFEL\nPackage/Implementation;\nPackage/Implementation//{:1};\nPackage/Implementation// {:0}((IS_CONTAINED_BY)) Package//;\nPackage/Implementation//$implementation.structural_level = 0\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "IS_CONTAINED_BY",
+          "direction": "Implementation -> Package",
+          "target": "Package",
+          "condition": "always",
+          "status": "explicit zero for this Relation only",
+          "expression": "Package/Implementation// {:0}((IS_CONTAINED_BY)) Package//",
+          "note": "Overrides Package non-Implementation parent requirement.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "HAS_CLASSIFICATION",
+          "direction": "Implementation -> Container axis",
+          "target": "Container == yes",
+          "condition": "through Package/Implementation narrowing",
+          "status": "inherited classification",
+          "expression": "Package >| (Container == yes)",
+          "note": "No local removal stated.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "inherited from Package",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Explicit Package/Implementation narrower kind; inherits Package CONTAINS Package 0+ and Container classification unless overridden.",
+      "other_nonrelation_constraints": [
+        "Exactly one Implementation instance; structural_level=0."
+      ],
+      "whitelist_completeness": "Direct zero IS_CONTAINED_BY does not zero inherited CONTAINS Package or unrelated Relation families.",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Event Record",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "sha256": "25f7d665aadd41bf7812dc5e7a1590ed8b88c143943d6d0a228497893620342a",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "Event Record"
+      },
+      "formal_claim_excerpt": "```CFEL\nEvent Record {:0}((IS_PROPERTY_OF));\nEvent Record// {:1}((IS_CONTAINED_BY)) Journal//\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "IS_PROPERTY_OF",
+          "direction": "Event Record -> bearer relation",
+          "target": "Node",
+          "condition": "always",
+          "status": "explicit zero for this Relation only",
+          "expression": "Event Record {:0}((IS_PROPERTY_OF))",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "IS_CONTAINED_BY",
+          "direction": "Event Record -> Journal",
+          "target": "Journal",
+          "condition": "always",
+          "status": "positive permission",
+          "expression": "Event Record// {:1}((IS_CONTAINED_BY)) Journal//",
+          "note": "Inverse view is Journal CONTAINS Event Record 0+.",
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 1,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Primary Node baseline where Event Record is established within Node branch.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "Names IS_PROPERTY_OF and IS_CONTAINED_BY only; no complete whitelist for unrelated Relation families is demonstrated.",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare MODEL",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-model.md",
+      "sha256": "109cffe78e98a3f071df8771b3ab82480e9cf29a43a4a6452d44820acb7241fe",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "MODEL"
+      },
+      "formal_claim_excerpt": "```CFEL\nMODEL {:0}((IS_PROPERTY_OF));\nMODEL >| (Container == yes)\n```\n\n- A Project uses CAPRMEDIO's MODEL.\n- A Project may define a local MODEL.\n- A local MODEL inherits CAPRMEDIO's MODEL.\n- It may override any inherited rule.",
+      "direct_relation_clauses": [
+        {
+          "relation": "IS_PROPERTY_OF",
+          "direction": "MODEL -> bearer relation",
+          "target": "Node",
+          "condition": "always",
+          "status": "explicit zero for this Relation only",
+          "expression": "MODEL {:0}((IS_PROPERTY_OF))",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "HAS_CLASSIFICATION",
+          "direction": "MODEL -> Container axis",
+          "target": "Container == yes",
+          "condition": "always",
+          "status": "classification relation, not containment grant",
+          "expression": "MODEL >| (Container == yes)",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "classification asserted",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Primary Node baseline where MODEL is established within Node branch.",
+      "other_nonrelation_constraints": [
+        "Prose says Project uses CAPRMEDIO MODEL; local MODEL may inherit and override rules. This is governance/inheritance, not a CONTAINS relation grant."
+      ],
+      "whitelist_completeness": "No explicit contained-child Relation grants.",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare PROJECT STRUCTURE",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-project-structure.md",
+      "sha256": "a33d1ff6df92a5bff208b29ef815774b09288daf1bf830b6ab74d0afead7ffb0",
+      "register_classification": "Primary Node",
+      "classification_gap": false,
+      "subjects": {
+        "governs": "PROJECT STRUCTURE"
+      },
+      "formal_claim_excerpt": "```CFEL\nPROJECT STRUCTURE {:0}((IS_PROPERTY_OF));\nPROJECT STRUCTURE >| (Container == yes)\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "IS_PROPERTY_OF",
+          "direction": "PROJECT STRUCTURE -> bearer relation",
+          "target": "Node",
+          "condition": "always",
+          "status": "explicit zero for this Relation only",
+          "expression": "PROJECT STRUCTURE {:0}((IS_PROPERTY_OF))",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        },
+        {
+          "relation": "HAS_CLASSIFICATION",
+          "direction": "PROJECT STRUCTURE -> Container axis",
+          "target": "Container == yes",
+          "condition": "always",
+          "status": "classification relation, not containment grant",
+          "expression": "PROJECT STRUCTURE >| (Container == yes)",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": "classification asserted",
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Primary Node baseline where PROJECT STRUCTURE is established within Node branch.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "No explicit contained-child Relation grants.",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    },
+    {
+      "summary": "Declare Named Selection",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-named-selection.md",
+      "sha256": "37f5d929dd74325d7c687422272b86cb81014e7703ffb3e7df42ef0ff9c5226a",
+      "register_classification": null,
+      "classification_gap": true,
+      "subjects": {
+        "governs": "Named Selection"
+      },
+      "formal_claim_excerpt": "```CFEL\nNamed Selection {:0}((IS_PROPERTY_OF))\n```",
+      "direct_relation_clauses": [
+        {
+          "relation": "IS_PROPERTY_OF",
+          "direction": "Named Selection -> bearer relation",
+          "target": "Node",
+          "condition": "always",
+          "status": "explicit zero for this Relation only",
+          "expression": "Named Selection {:0}((IS_PROPERTY_OF))",
+          "note": null,
+          "degree_scope": "active Subject outgoing degree only",
+          "active_subject_outgoing_cardinality": 0,
+          "target_outgoing_degree_note": "Not constrained by this Declaration; the target’s own active-Subject Declaration governs its outgoing degree."
+        }
+      ],
+      "explicit_zero_constraints": [],
+      "inheritance_basis": "Classification metadata is missing; primary-node branch/inheritance must be resolved before applying Node baseline.",
+      "other_nonrelation_constraints": [],
+      "whitelist_completeness": "Only IS_PROPERTY_OF zero is explicit; no other relation permissions asserted.",
+      "atom_id": "CA-R-draft",
+      "version": 1,
+      "role": "Requirement",
+      "form": "Declaration",
+      "status": "Draft"
+    }
+  ],
+  "shared_inheritance_and_whitelist_rule": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+      "sha256": "e0944d98e067faacc2ddfb9b5a9f4680013f450cdf3a5b0ef3eb181b13e70ab8",
+      "claim": "For Node1/Node2, Node2's instances receive Node1's applicable:\n\n- Relation cardinalities.\n- Declared Properties.\n- Property Formats and value domains.\n- Direct-value and nested-Property cardinalities.\n\nApplicable local Node constraints also apply. Inheritance does not copy actual values or Relation facts. Reuse an inherited Property's Declaration; an inherited lookup creates no new Property or bearer.\n\nMODEL inheritance is separate from Node narrowing. An explicit local MODEL override replaces the matching inherited effective rule in that MODEL. Unchanged inherited Declarations are reused. This does not modify the base MODEL or require duplicate effective owners.\n\nEach Node's effective Declaration resolves its complete Relation whitelist, including permissions, directions, endpoints and cardinalities. A Relation absent from that effective whitelist is forbidden. An unresolved whitelist does not grant permission."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+      "sha256": "f33d4db8ee3c4ee2bcfd5a75bed1d708fbfb89f9287c9b29a8244ebb0397d962",
+      "claim": "In Subject addresses and Formal Claims, `X/Y` selects a narrower Primary Node and `X//Name` an instance of a Primary Node. A Property cannot narrow or instantiate. `X.p` addresses a Property borne by X; an unchanged inherited Property is resolved to its existing declaration rather than redeclared or given another bearer. In Subject addresses, `X/(.p := V)` admits V as a Property value and selects the whole Primary Node X where p equals V. The case does not exclude other allowed values from X.p. `(Node, Node/**, .**)` selects the Node root and its declared branch; it is not a narrowing assertion.\n\n`Part +> Whole` and `Whole <+ Part` are opposite written views of one composition fact, not narrowing. `X >| Axis` and `Axis |< X` are opposite views of one classification fact. `:` marks an allowed value. `=` tests a condition; `==` establishes a required or derived conclusion. Parentheses group expressions; `in (a, b)` expresses membership. `@X` refers to the existing target without copying or reparenting it.\n\nFor `Source {:f}((RELATION)){:r} Target`, the pre-operator cardinality constrains the allowed number of outgoing Relation instances per selected source, and the post-operator cardinality constrains the allowed number of reverse links per selected target; reversal swaps their positions. The same notation constrains Properties, instances, and Relations. `{:n}` declares an allowed cardinality, not an actual value; `{=n}` tests a cardinality, and `{==n}` states a required conclusion. Repeated references in a rule, including its conditions and conclusions and both Step alternatives, bind the same selected member. An omitted cardinality annotation leaves that cardinality undefined, as in Current CA-R-2243; it is not an implicit zero or permission. Omitted-domain behavior requires a separate decision before parser adoption.\n\nSubjects remain addresses and do not contain complete Formal Claims. In Subjects, `:=` combines allowed value and condition, including `Atom.Status := Draft` and `Atom/(.Role := Method)`; it does not write an instance value. Formal Claims retain separate `:` and `=` meanings. The withdrawn `..` form is not adopted; `::` has no assigned meaning here."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+      "sha256": "56a46f61b6c4fd80b23a896f7adf58bd2550ee8c3e6d98f7c6b1702d728fd45d",
+      "claim": "Evaluate ownership within the selected effective MODEL. Each member selected by (Node, Node/**, .**), including the root and each Property, has exactly one effective Current authoritative Requirement/Form: Declaration addressing that Node.\n\nCount inherited Current Declarations and explicit local replacements after MODEL override resolution. A replaced base Declaration remains available in its base MODEL and is not a second effective owner in the local MODEL. Drafts and archives are not Current owners. Other Atoms may address the same Node.\n\n```CFEL\nAtom/(.Role: Requirement)/(.Form: Declaration)// ((HAS_ACTIVE_SUBJECT)){:1} (Node, Node/**, .**)\n```\n\nThe count uses only the effective Current Declaration-to-Node links in that MODEL. HAS_ACTIVE_SUBJECT is derived from the dedicated Subject field. Each complete Current Atom's single Active Subject is governed by Atom.Subjects.Active.",
+      "relevance": "Derives exactly one Current Declaration-to-Node HAS_ACTIVE_SUBJECT link per Node in effective MODEL; this is a shared derived relation, not a duplicate local permission clause in each Primary Declaration."
+    }
+  ],
+  "relation_definitions": [
+    {
+      "summary": "Define Property bearing and its inverse",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md",
+      "sha256": "ec4a924b5e8a5ba057d5e451a67c95f182e12496fbd361439de44d2217b80a84",
+      "formal_claims": [
+        "((Node, Node/**, .**) >| Independence = Property) ((IS_PROPERTY_OF)) (Node, Node/**, .**);\nIS_PROPERTY_OF ((HAS_INVERSE)) HAS_PROPERTY"
+      ],
+      "role": "endpoint/meaning definition only; does not by itself grant a Primary permission"
+    },
+    {
+      "summary": "Define NARROWER_THAN",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-narrowing.md",
+      "sha256": "ae36655e293fd251fee680751fd5739ecdc0b2589b002b8b6096b3fb4e12a84a",
+      "formal_claims": [
+        "((Node, Node/**, .**) >| Independence = Primary Node) ((NARROWER_THAN)) ((Node, Node/**, .**) >| Independence = Primary Node);\nNARROWER_THAN ((HAS_INVERSE)) HAS_NARROWER"
+      ],
+      "role": "endpoint/meaning definition only; does not by itself grant a Primary permission"
+    },
+    {
+      "summary": "Define INSTANCE_OF",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-instantiation.md",
+      "sha256": "d9c82801d21eebab2a708e8ae65f83e9e3f8c8b859a5fede8771be0f66e058b5",
+      "formal_claims": [
+        "Node// ((INSTANCE_OF)) ((Node, Node/**, .**) >| Independence = Primary Node);\nINSTANCE_OF ((HAS_INVERSE)) HAS_INSTANCE;\n((Node, Node/**, .**) >| Independence = Property) {:0}((HAS_INSTANCE))"
+      ],
+      "role": "endpoint/meaning definition only; does not by itself grant a Primary permission"
+    },
+    {
+      "summary": "Define classification and its written reverse",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-classification.md",
+      "sha256": "ca475b831c7753c1bd7379e7a2c5247d3f088a031c0a272243761c8cb2356e2f",
+      "formal_claims": [
+        "(Node, Node/**, .**) >| Axis"
+      ],
+      "role": "endpoint/meaning definition only; does not by itself grant a Primary permission"
+    },
+    {
+      "summary": "Define composition and its inverse",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-composition.md",
+      "sha256": "a64a7e51cd82f1e6524ccf918c2a902d062334482e7b7b8b2673264be56643ee",
+      "formal_claims": [
+        "(Node, Node/**, .**) ((IS_CONTAINED_BY)) ((Node, Node/**, .**) >| Container = yes);\nIS_CONTAINED_BY ((HAS_INVERSE)) CONTAINS"
+      ],
+      "role": "endpoint/meaning definition only; does not by itself grant a Primary permission"
+    },
+    {
+      "summary": "Define the derived active Subject link",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-active-subject-link.md",
+      "sha256": "1c815761dabe669b3d2e8316159e376eca09eaa1a2e61b7a01aa7826352487c3",
+      "formal_claims": [
+        "Atom/(.Role: Requirement)/(.Form: Declaration)// ((HAS_ACTIVE_SUBJECT)) (Node, Node/**, .**)"
+      ],
+      "role": "endpoint/meaning definition only; does not by itself grant a Primary permission"
+    },
+    {
+      "summary": "Define RUN",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-run.md",
+      "sha256": "50aeb0f71eb18631a16cd5e7449e078f10a25d0b74348623b17a1da39977415a",
+      "formal_claims": [
+        "(in (Step, Substep))// ((RUN)) Action//;\nAction// ((IS_RUN_BY)) (in (Step, Substep))//;\nRUN ((HAS_INVERSE)) IS_RUN_BY"
+      ],
+      "role": "endpoint/meaning definition only; does not by itself grant a Primary permission"
+    },
+    {
+      "summary": "Define HAS_INVERSE",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-has-inverse.md",
+      "sha256": "0a3e5926e56c0c2609ab18a86d94dc0cbc3897b3d08631c387c2151516c8ea2d",
+      "formal_claims": [
+        "Relation// ((HAS_INVERSE)) Relation//"
+      ],
+      "role": "endpoint/meaning definition only; does not by itself grant a Primary permission"
+    },
+    {
+      "summary": "Define HAS_EVENT_AUTHOR",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-event-author-link.md",
+      "sha256": "2fa7046bac95b9e4388bc7243d6d8218b3e189298f3a0ea6278b3ea9bbbdbabe",
+      "formal_claims": [
+        "Event Record// ((HAS_EVENT_AUTHOR)) Actor//;\nHAS_EVENT_AUTHOR ((HAS_INVERSE)) IS_EVENT_AUTHOR_OF"
+      ],
+      "role": "endpoint/meaning definition only; does not by itself grant a Primary permission"
+    }
+  ],
+  "journal_latest_decision": {
+    "formal_relation_to_use": "Journal// {:0+}((CONTAINS)) Event Record//",
+    "meaning": "Zero or more Event Records per Journal; inverse view of Event Record IS_CONTAINED_BY Journal. Do not infer order from CONTAINS.",
+    "user_correction": "Move record immutability to Event Record and remove ordered-table wording from Journal; current live Journal prose still contains the old wording at read time.",
+    "matrix_treatment": "The corrected formal CONTAINS count is captured. The live Journal Draft still has ordered-table and immutability prose; per latest user decision those are to be removed from Journal and record immutability moved to Event Record. They are not used as Relation whitelist clauses."
+  },
+  "genuine_gaps": [
+    {
+      "gap": "Complete whitelist expression/completeness",
+      "evidence": "The shared Rule requires each effective Node Declaration to resolve a complete Relation whitelist and says an absent relation is forbidden, but the 28 CFEL Claims enumerate only individual Relation expressions/conditions; there is no explicit complete-list marker or syntax shown in these Primary claims. Register status itself says relation-whitelist review remains.",
+      "consequence": "For a listed Relation, report its explicit constraint. For an unlisted Relation, report no grant/unresolved whitelist; do not silently call it explicit zero or allowed."
+    },
+    {
+      "gap": "No blanket implication from IS_PROPERTY_OF zero",
+      "evidence": "Explicit zero constraints name only IS_PROPERTY_OF (and in specific cases other named relations). Relation Definitions are separate endpoint/meaning definitions.",
+      "consequence": "A zero IS_PROPERTY_OF count closes only that Relation in the stated scope; it does not determine HAS_CLASSIFICATION, IS_CONTAINED_BY, RUN, INSTANCE_OF, or any other Relation."
+    },
+    {
+      "gap": "Container classification is not a child permission",
+      "evidence": "HAS_CLASSIFICATION / `>| (Container == yes)` marks a target as Container. IS_CONTAINED_BY definition allows a Node target classified Container, but no generic all-child grant is declared by Container classification.",
+      "consequence": "Scope Unit, Package, Project, Journal, MODEL and PROJECT STRUCTURE classify as Container where stated, but each has only its explicit contained-child relation permissions; do not infer arbitrary children."
+    },
+    {
+      "gap": "Relation endpoint definitions do not grant Primary edges",
+      "evidence": "IS_PROPERTY_OF, NARROWER_THAN, INSTANCE_OF, IS_CONTAINED_BY, RUN, HAS_ACTIVE_SUBJECT, HAS_CLASSIFICATION, HAS_INVERSE, and HAS_EVENT_AUTHOR definitions describe relation direction/endpoints/inverses; they do not assert a relation instance for every matching pair.",
+      "consequence": "Use per-Primary CFEL relation constraints to identify direct permissions. In particular, Event Record → Actor HAS_EVENT_AUTHOR has a defined endpoint signature but no Primary Declaration grant in this packet."
+    },
+    {
+      "gap": "Inheritance path for two registered primaries",
+      "evidence": "Implementation and Named Selection are registered Declaration rows but lack `classification: Primary Node`; Named Selection claim is a bare kind and Implementation is Package/Implementation. Shared inheritance applies only along resolved narrower-kind paths.",
+      "consequence": "The Effective Model/register should classify and bind these paths before asserting inherited Node/Package whitelist constraints. Do not invent ancestor clauses in each Claim."
+    },
+    {
+      "gap": "Workflow/Journal prose versus formal relation constraints",
+      "evidence": "Workflow and Journal content contains prose/semantics about purpose/history. Only formal relation expressions constrain the typed edge/cardinality matrix. Latest Journal decision removes ordered wording and relocates immutability.",
+      "consequence": "Do not use ordered Journal prose or Workflow meaning as a graph edge permission."
+    }
+  ],
+  "mutation_boundary": {
+    "repository_files_changed": false,
+    "draft_register_changed": false,
+    "runtime_or_mcp_changed": false
+  },
+  "degree_scope_decision": {
+    "user_decision": "Each Declaration constrains only its own active Subject’s outgoing degree.",
+    "consequence": "Omitted reverse/target-side counts are not local completeness gaps; counterpart Declarations govern their own outgoing degree. No duplicated two-ended cardinality clauses were added.",
+    "notation": "The relation/cardinality entries below record only this Declaration’s active Subject outgoing degree. A target-side degree belongs to that target’s Declaration and is not duplicated here."
+  },
+  "relation_definitions_scope": "Relation Definitions define direct edge meaning/endpoints and inverse derivation. They do not grant each Primary a local edge, and they do not add target-side cardinality constraints to a source Declaration.",
+  "permission_interpretation": {
+    "explicit_zero": "A listed Relation with an explicit zero is closed for the stated Subject selector and condition only.",
+    "listed_positive_or_range": "A listed positive/range clause grants only the stated local outgoing edges, target kinds and cardinality under its condition.",
+    "not_listed": "A Relation absent from this Declaration’s extracted direct CFEL clauses is not treated as a grant or explicit zero by this inventory. The shared Rule says a Relation absent from a resolved effective whitelist is forbidden; where the effective complete whitelist is not shown as resolved, permission is unresolved and must not be inferred.",
+    "target_degree": "Target outgoing degree is governed by the target’s own active-Subject Declaration, per the latest user decision."
+  }
+}

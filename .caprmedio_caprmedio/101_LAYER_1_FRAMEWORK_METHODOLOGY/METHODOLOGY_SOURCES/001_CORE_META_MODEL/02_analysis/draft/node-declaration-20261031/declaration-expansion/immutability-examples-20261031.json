@@ -1,0 +1,334 @@
+{
+  "title": "Atom.ID immutability lifecycle examples",
+  "status": "model_examples_only_not_runtime_validation",
+  "rule_scope": {
+    "logical_bearer_identity": "Each case uses a stable logical_bearer label independent of its Atom.ID value, version number, status group, and carrier. All versions listed under one label are versions of that same logical Atom.",
+    "freeze_boundary": "Atom.ID freezes when a logical Atom is first promoted to Current or Archived. Direct Draft-to-Archived promotion is included. The frozen ID applies to every version of that logical Atom, including later Draft versions. An initial Draft with no earlier Current or Archived promotion is not barred by this immutability constraint from changing ID; separate workflow policy may constrain that edit.",
+    "identity_evidence": "A Current-only lookup is insufficient: archived history and complete logical-bearer lineage must be considered. Missing or ambiguous lineage cannot be treated as proof that an ID is mutable.",
+    "selected_property_contract": {
+      "property": "Atom.ID",
+      "declaration_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "declaration_version": 1,
+      "presence": "{:1}",
+      "value_format": "[string]",
+      "value_cardinality": "{:1}",
+      "dependent_property_count": "Atom.ID.*[]{:0}",
+      "note": "The cardinalities say each Atom version has one scalar string ID and no dependent properties. Immutability is an additional cross-version lifecycle constraint; this property shape alone does not enforce it."
+    }
+  },
+  "authority_pins": [
+    {
+      "pin": "approved_immutability_boundary",
+      "kind": "latest decision recorded in analysis note",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/zero-prose-claims-pass-20261031.md",
+      "lines": "21-23",
+      "sha256": "c1946f3dd13243b6e63420c4242e631211cc0993c4cf8a0c42130c6a250486d2",
+      "decision": "First promotion to Current or Archived freezes ID; direct Draft-to-Archived is included. The note records the boundary decision but does not add an implementation or formal predicate."
+    },
+    {
+      "pin": "atom_id_declaration",
+      "kind": "Draft property declaration",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "lines": "1-20",
+      "sha256": "3387259c0deb8948e496c0e37d83ae92bb8cc29d155b443dfd51324bffec03be",
+      "claim_contract": "Atom.ID{:1}: [string]{:1}; Atom.ID.*[]{:0}"
+    },
+    {
+      "pin": "journal_admitted_record_immutability",
+      "kind": "Current source rule",
+      "atom_id": "CA-R-1745",
+      "version": 34,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL--define-journal-artifact-form.md",
+      "lines": "26-30",
+      "sha256": "6a1cc6d2420477b3186a0a2d47e1fd4fd889cfb6c86aaa7b964458fa61c4cf17",
+      "rule": "Accepted Journal records must not be edited, reordered, or removed; corrections append new traceable records without rewriting accepted history."
+    },
+    {
+      "pin": "approved_all_versions_scope",
+      "kind": "explicit user decision conveyed in task instruction",
+      "source": "conversation decision; no repository path or hash",
+      "decision": "The first Current or Archived promotion freezes Atom.ID across ALL versions of the logical Atom, including later Draft versions.",
+      "scope": "Cross-version identity constraint; this clarifies the boundary beyond the repository analysis note."
+    },
+    {
+      "pin": "generic_immutability_definition",
+      "kind": "proposed CFEL Rule",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-scalar-immutability.md",
+      "note": "After-activation optional removal closure added during independent review."
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "initial_draft_id_change",
+      "logical_bearer": "atom-A",
+      "state_history": [
+        {
+          "version": 1,
+          "status_group": "Draft",
+          "id": "A-100",
+          "carrier": "draft-carrier-1"
+        }
+      ],
+      "proposed_transition": {
+        "version": 1,
+        "status_group": "Draft",
+        "id": "A-101",
+        "carrier": "draft-carrier-1"
+      },
+      "expected_constraint_outcome": "allowed_by_this_immutability_constraint",
+      "rationale": "No version of this logical Atom has yet been promoted to Current or Archived. A separate workflow rule may restrict changing an unpromoted Draft ID.",
+      "source_pins": [
+        "approved_immutability_boundary",
+        "atom_id_declaration"
+      ]
+    },
+    {
+      "case_id": "draft_to_current_freezes_id",
+      "logical_bearer": "atom-B",
+      "state_history": [
+        {
+          "version": 1,
+          "status_group": "Draft",
+          "id": "B-200",
+          "carrier": "draft-carrier-2"
+        }
+      ],
+      "proposed_transition": {
+        "version": 1,
+        "status_group": "Current",
+        "id": "B-200",
+        "carrier": "current-carrier-2"
+      },
+      "expected_constraint_outcome": "allowed_and_freezes_id",
+      "rationale": "First promotion to Current establishes B-200 as the stable ID for every version of this logical Atom.",
+      "source_pins": [
+        "approved_immutability_boundary",
+        "atom_id_declaration"
+      ]
+    },
+    {
+      "case_id": "draft_to_archived_freezes_without_current",
+      "logical_bearer": "atom-C",
+      "state_history": [
+        {
+          "version": 1,
+          "status_group": "Draft",
+          "id": "C-300",
+          "carrier": "draft-carrier-3"
+        }
+      ],
+      "proposed_transition": {
+        "version": 1,
+        "status_group": "Archived",
+        "id": "C-300",
+        "carrier": "archive-carrier-3"
+      },
+      "expected_constraint_outcome": "allowed_and_freezes_id",
+      "rationale": "Direct Draft-to-Archived is an explicit first-promotion path and freezes the ID even though this Atom was never Current.",
+      "source_pins": [
+        "approved_immutability_boundary",
+        "atom_id_declaration"
+      ]
+    },
+    {
+      "case_id": "later_draft_cannot_change_frozen_id",
+      "logical_bearer": "atom-D",
+      "state_history": [
+        {
+          "version": 1,
+          "status_group": "Current",
+          "id": "D-400",
+          "carrier": "current-carrier-4"
+        }
+      ],
+      "proposed_transition": {
+        "version": 2,
+        "status_group": "Draft",
+        "id": "D-401",
+        "carrier": "draft-carrier-4"
+      },
+      "expected_constraint_outcome": "rejected",
+      "rationale": "The first Current promotion froze D-400 across all versions, including later Draft versions.",
+      "source_pins": [
+        "approved_immutability_boundary",
+        "atom_id_declaration",
+        "approved_all_versions_scope"
+      ]
+    },
+    {
+      "case_id": "later_draft_may_keep_frozen_id",
+      "logical_bearer": "atom-E",
+      "state_history": [
+        {
+          "version": 1,
+          "status_group": "Archived",
+          "id": "E-500",
+          "carrier": "archive-carrier-5"
+        }
+      ],
+      "proposed_transition": {
+        "version": 2,
+        "status_group": "Draft",
+        "id": "E-500",
+        "carrier": "draft-carrier-5"
+      },
+      "expected_constraint_outcome": "allowed_if_other_lifecycle_rules_allow_the_transition",
+      "rationale": "A later Draft may retain the already-frozen ID. Immutability alone does not authorize or prohibit the lifecycle transition.",
+      "source_pins": [
+        "approved_immutability_boundary",
+        "atom_id_declaration",
+        "approved_all_versions_scope"
+      ]
+    },
+    {
+      "case_id": "current_to_archived_keeps_same_id",
+      "logical_bearer": "atom-F",
+      "state_history": [
+        {
+          "version": 1,
+          "status_group": "Current",
+          "id": "F-600",
+          "carrier": "current-carrier-6"
+        }
+      ],
+      "proposed_transition": {
+        "version": 1,
+        "status_group": "Archived",
+        "id": "F-600",
+        "carrier": "archive-carrier-6"
+      },
+      "expected_constraint_outcome": "ID_constraint_allows_status_change_when_version_and_ID_are_preserved",
+      "rationale": "Archiving changes status and carrier while preserving this logical Atom version and its frozen ID. The example asserts no workflow admission rule.",
+      "source_pins": [
+        "approved_immutability_boundary",
+        "atom_id_declaration"
+      ]
+    },
+    {
+      "case_id": "version_and_carrier_change_do_not_reset_identity",
+      "logical_bearer": "atom-G",
+      "state_history": [
+        {
+          "version": 1,
+          "status_group": "Current",
+          "id": "G-700",
+          "carrier": "carrier-path-one"
+        },
+        {
+          "version": 2,
+          "status_group": "Draft",
+          "id": "G-700",
+          "carrier": "carrier-path-two"
+        }
+      ],
+      "proposed_transition": {
+        "version": 2,
+        "status_group": "Draft",
+        "id": "G-701",
+        "carrier": "carrier-path-two"
+      },
+      "expected_constraint_outcome": "rejected",
+      "rationale": "Version and carrier location changes do not create a new logical Atom. The stable logical-bearer lineage preserves the frozen G-700 ID.",
+      "source_pins": [
+        "approved_immutability_boundary",
+        "atom_id_declaration",
+        "approved_all_versions_scope"
+      ]
+    },
+    {
+      "case_id": "different_logical_atom_may_have_different_id",
+      "logical_bearer": "atom-H-new",
+      "state_history": [],
+      "proposed_transition": {
+        "version": 1,
+        "status_group": "Draft",
+        "id": "H-800",
+        "carrier": "draft-carrier-8"
+      },
+      "expected_constraint_outcome": "allowed_by_this_immutability_constraint",
+      "rationale": "A new logical Atom has no prior frozen identity. This rule does not prohibit creating a distinct Atom with a different ID.",
+      "source_pins": [
+        "approved_immutability_boundary",
+        "atom_id_declaration"
+      ]
+    },
+    {
+      "case_id": "unknown_lineage_cannot_pass_current_only_rematch",
+      "logical_bearer": "atom-lineage-unknown",
+      "state_history": [
+        {
+          "version": "unknown",
+          "status_group": "unknown_or_archived",
+          "id": "I-900",
+          "carrier": "unverified-carrier"
+        }
+      ],
+      "proposed_transition": {
+        "version": 3,
+        "status_group": "Draft",
+        "id": "I-901",
+        "carrier": "draft-carrier-9"
+      },
+      "current_only_lookup_result": "no_current_instance_found",
+      "expected_constraint_outcome": "cannot_pass_insufficient_lineage",
+      "rationale": "A missing Current match does not establish that the logical Atom has never been Current or Archived; an Archived version may hold the frozen ID. Require trustworthy lineage/history or fail closed. Do not infer mutability from rematching only Current.ID.",
+      "source_pins": [
+        "approved_immutability_boundary",
+        "atom_id_declaration"
+      ]
+    },
+    {
+      "case_id": "admitted_journal_event_record_id_is_unchanged",
+      "logical_bearer": "journal-record-J",
+      "object_kind": "admitted Journal Event Record",
+      "state_history": [
+        {
+          "version": 1,
+          "status_group": "admitted_record",
+          "id": "J-1000",
+          "carrier": "journal-carrier-10"
+        }
+      ],
+      "proposed_transition": {
+        "version": 1,
+        "status_group": "admitted_record",
+        "id": "J-1001",
+        "carrier": "journal-carrier-10"
+      },
+      "expected_constraint_outcome": "rejected_record_edit",
+      "rationale": "The Journal rule prohibits editing an accepted record. A correction must be a new traceable appended record, not an in-place ID change. This is Journal-record immutability, distinct from the Atom first-promotion rule.",
+      "source_pins": [
+        "journal_admitted_record_immutability"
+      ]
+    },
+    {
+      "case_id": "activated_optional_property_cannot_be_removed",
+      "logical_bearer": "generic-bearer-K",
+      "object_kind": "generic scalar Property with optional authored occurrence",
+      "state_history": [
+        {
+          "version": 1,
+          "property_present": true,
+          "scalar_value": "kept",
+          "guard": true
+        }
+      ],
+      "proposed_transition": {
+        "version": 2,
+        "property_present": false,
+        "guard": false
+      },
+      "expected_constraint_outcome": "rejected_missing_immutable_value",
+      "rationale": "Once activated, IMMUTABLE requires the bound scalar value in every later version, even when an optional-Property presence guard becomes false.",
+      "source_pins": [
+        "generic_immutability_definition"
+      ]
+    }
+  ],
+  "limitations": [
+    "These cases are illustrative expected outcomes of the stated constraints, not parser, lifecycle, or runtime results.",
+    "They do not define a version allocation algorithm, carrier identity scheme, archival workflow, or recovery procedure.",
+    "Where an expected outcome says other lifecycle rules may apply, this file evaluates only the ID immutability constraint."
+  ]
+}

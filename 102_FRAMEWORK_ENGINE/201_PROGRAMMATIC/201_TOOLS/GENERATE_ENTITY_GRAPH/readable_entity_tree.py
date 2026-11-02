@@ -37,18 +37,39 @@ def _fence(lines: list[str]) -> list[str]:
     return [marker + "text", *lines, marker]
 
 
+def named_selection_reference(value: object) -> str:
+    """Render the carrier value as the declared Named Selection reference."""
+    selection = text(value, "Projection.Source.Named Selection")
+    return selection if selection.startswith("Named Selection//") else "Named Selection//" + selection
+
+
+def _projection_frontmatter(
+    provenance: Record,
+    updated_at: str,
+    projection_identity: Record | None,
+    *,
+    form: str,
+) -> Record:
+    """Build the admitted Projection carrier fields for a rendered view."""
+    identity = record(projection_identity)
+    return {
+        "artifact_form": "Projection",
+        "projection_id": text(identity.get("projection_id"), "projection_id"),
+        "form": text(form, "Projection.Form"),
+        "source": {
+            "named_selection": named_selection_reference(identity.get("named_selection")),
+            "atoms": _sources(provenance),
+        },
+        "updated_at": text(updated_at, "updated_at"),
+    }
+
+
 def _header(
     provenance: Record, updated_at: str, source_selection: str,
     projection_identity: Record | None = None,
 ) -> list[str]:
     frontmatter = yaml.safe_dump(
-        {
-            "artifact_form": "Projection",
-            "type": "Entities Graph",
-            **(projection_identity or {}),
-            "updated_at": text(updated_at, "updated_at"),
-            "sources": _sources(provenance),
-        },
+        _projection_frontmatter(provenance, updated_at, projection_identity, form="Map"),
         allow_unicode=True,
         sort_keys=False,
     ).rstrip()
@@ -64,10 +85,10 @@ def _header(
         "Display selection: supplied graph nodes and Inherency relations; "
         "dependent entities appear in detail sections.",
         "",
-        "Notation: / NARROWER_THAN; // INSTANCE_OF; . IS_BORNE_BY; "
-        ": IS_ALLOWED_VALUE_OF. Relations are traversed from broader to narrower, "
+        "Notation: / NARROWER_THAN; // INSTANCE_OF; . IS_PROPERTY_OF; "
+        ": IS_ALLOWED_VALUE_OF; <+ CONTAINS (derived reverse of IS_CONTAINED_BY); >| HAS_CLASSIFICATION. Relations are traversed from broader to narrower, "
         "kind to named instance (the source INSTANCE_OF direction is instance to kind), "
-        "bearer to dependent, and property to allowed value.",
+        "bearer to dependent, Entity to allowed value, whole to part, and Entity to classification.",
         "",
         "This is a derived Projection, not independent model authority.",
         "",
@@ -83,7 +104,7 @@ def _details(
     shown: set[str] = set(appearances)
     cycles: set[str] = set()
     for primary in appearances:
-        if any(edge["kind"] == "IS_BORNE_BY" for _, edge in children[primary]):
+        if any(edge["kind"] in {"IS_PROPERTY_OF", "IS_BORNE_BY"} for _, edge in children[primary]):
             lines, visited, found_cycles = tree(primary, dependents, nodes, children)
             body.extend(["### " + nodes[primary]["identity"], "", *_fence(lines), ""])
             shown.update(visited)
@@ -152,4 +173,107 @@ def render_inherency(
     body.extend(
         _limitations(graph, nodes, omitted, provisional, dependents - shown, cycles | detail_cycles)
     )
+    return "\n".join(body)
+
+
+def _model_header(
+    provenance: Record, updated_at: str, source_selection: str,
+    projection_identity: Record | None,
+) -> list[str]:
+    frontmatter = yaml.safe_dump(
+        _projection_frontmatter(provenance, updated_at, projection_identity, form="Map"),
+        allow_unicode=True,
+        sort_keys=False,
+    ).rstrip()
+    return [
+        "---", frontmatter, "---", "", "## Model graph", "",
+        "Source selection: " + text(source_selection, "source selection"), "",
+        "Display selection: direct Declaration targets, selected Subject expressions, "
+        "Relations, classifications and constraint records. Literal values, Formats "
+        "and cardinalities remain constraints, not graph Nodes.", "",
+        "This is a derived Projection, not independent model authority.", "",
+    ]
+
+
+def _model_rows(title: str, rows_to_render: list[Record], formatter) -> list[str]:
+    lines = ["## " + title, ""]
+    if not rows_to_render:
+        return [*lines, "- None supplied.", ""]
+    lines.extend("- " + formatter(row) for row in rows_to_render)
+    lines.append("")
+    return lines
+
+
+def _occurrences(row: Record) -> str:
+    values = row.get("occurrence_ids")
+    return "" if not values else " — " + ", ".join(str(value) for value in values)
+
+
+def _cfel_diagnostic_text(row: Record) -> str:
+    expression = row.get("expression")
+    if isinstance(expression, str) and expression.strip():
+        return expression
+    return text(row.get("message"), "CFEL diagnostic message")
+
+
+def render_model(
+    graph: Record, provenance: Record, *, updated_at: str, source_selection: str,
+    projection_identity: Record | None = None,
+) -> str:
+    """Render the bounded enhanced graph view without evaluating CFEL."""
+
+    graph = record(graph)
+    model = record(graph.get("model"))
+    body = _model_header(provenance, updated_at, source_selection, projection_identity)
+    body.extend(_model_rows(
+        "Primary Nodes", rows(model.get("primary_nodes")),
+        lambda row: "`" + text(row.get("identity"), "node identity") + "`" + _occurrences(row),
+    ))
+    body.extend(_model_rows(
+        "Properties", rows(model.get("properties")),
+        lambda row: "`" + text(row.get("identity"), "Property identity") + "`" + _occurrences(row),
+    ))
+    body.extend(_model_rows(
+        "Instances", rows(model.get("instances")),
+        lambda row: "`" + text(row.get("identity"), "instance identity") + "`" + _occurrences(row),
+    ))
+    def relation_text(row: Record) -> str:
+        if "identity" in row:
+            return "`" + text(row.get("identity"), "Relation identity") + "`"
+        return "`" + text(row.get("kind"), "Relation") + "` `" + text(row.get("source"), "Relation source") + "` → `" + text(row.get("target"), "Relation target") + "`"
+
+    def classification_text(row: Record) -> str:
+        return "`" + text(row.get("source"), "classification subject") + "` >| `" + text(row.get("target"), "classification axis") + "`"
+
+    body.extend(_model_rows(
+        "Relations", rows(model.get("relations")),
+        lambda row: relation_text(row) + _occurrences(row),
+    ))
+    body.extend(_model_rows(
+        "Classifications", rows(model.get("classifications")),
+        lambda row: classification_text(row) + _occurrences(row),
+    ))
+    body.extend(_model_rows(
+        "Allowed literals", rows(model.get("allowed_literals")),
+        lambda row: "`" + text(row.get("property"), "literal Property") + ": "
+        + text(row.get("literal"), "literal value") + "`" + _occurrences(row),
+    ))
+    body.extend(_model_rows(
+        "Selected Subject Expressions", rows(model.get("selected_subject_expressions")),
+        lambda row: "`" + text(row.get("expression"), "Subject expression") + "`"
+        + " — " + text(record(row.get("source")).get("atom_id"), "Subject source Atom"),
+    ))
+    body.extend(_model_rows(
+        "Constraints", rows(graph.get("constraints")),
+        lambda row: "`" + text(row.get("kind"), "constraint kind") + "`: `"
+        + text(row.get("expression"), "constraint expression") + "`"
+        + " — " + text(record(row.get("source")).get("atom_id"), "constraint source Atom"),
+    ))
+    body.extend(_model_rows(
+        "Unsupported CFEL", rows(graph.get("cfel_diagnostics")),
+        lambda row: "`" + text(row.get("code"), "CFEL diagnostic code") + "`: `"
+        + _cfel_diagnostic_text(row) + "`"
+        + (" — " + text(record(row.get("source")).get("atom_id"), "CFEL source Atom")
+           if row.get("source") else ""),
+    ))
     return "\n".join(body)

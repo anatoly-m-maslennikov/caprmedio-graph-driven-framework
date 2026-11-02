@@ -1,31 +1,28 @@
 ---
 subjects:
-  governs: 'Subject/caprmedio/Product: CAPRMEDIO Framework'
-  depends_on: []
-version: 21
-updated_at: 2026-10-27 20:00:03 +0400
+  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  passive: []
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-M-002
+  - CA-M-446
 atom_id: CA-R-1778
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Name the Framework CAPRMEDIO
 
-## Scope
+## Claim scope
 
 the Framework name.
 
 ## Claim
 
 the Framework name **must** be `CAPRMEDIO`.
-
-## Details

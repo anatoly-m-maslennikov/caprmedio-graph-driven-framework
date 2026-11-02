@@ -1,0 +1,91 @@
+{
+  "status": "read-only CFEL candidate; latest user decision applied; no Draft or runtime change made",
+  "supersedes": "The existing fallback rule's same-bearer/literal-only limit only for the explicit ordered IS_CONTAINED_BY lookup described here.",
+  "terms": {
+    "plan_property": "Atom/(.Role: Plan).AI Agent Confidence Threshold",
+    "project_terminal_property": "Project.Settings.AI Agent Confidence Threshold",
+    "terminal_contract_required_by_user": "Project.Settings.AI Agent Confidence Threshold{:1}: [int]{:1}; Project.Settings.AI Agent Confidence Threshold.*[]{:0}",
+    "plan_contract_optional": "Atom/(.Role: Plan).AI Agent Confidence Threshold{:0..1}: [int]{:1}; Atom/(.Role: Plan).AI Agent Confidence Threshold.*[]{:0}"
+  },
+  "candidate_extension": {
+    "name": "Ordered containment fallback lookup",
+    "grammar": [
+      "p ?= LOOKUP(R, q)",
+      "p ?= LOOKUP(R, T{:1}, q)",
+      "p ?= e1 ?= e2"
+    ],
+    "exact_rule_text": [
+      "`p ?= e1 ?= e2` is one ordered fallback chain. Evaluate p's authored occurrence first. Only when p has occurrence `{=0}` evaluate e1; only when e1 is absent evaluate e2. An authored occurrence of p, including an invalid one, is never skipped.",
+      "`LOOKUP(R, q)` starts at p's selected bearer and follows one-or-more existing R links away from that bearer. It returns the value of the nearest bearer that has an authored occurrence of compatible logical Property q. Nearer matches take precedence over farther matches.",
+      "`LOOKUP(R, T{:1}, q)` follows that same ordered R chain to exactly one terminal selected by T, then returns q on that terminal bearer. The `{:1}` terminal binding is part of this expression: zero or more-than-one matching terminal is an error.",
+      "Each traversed bearer is inspected only for q resolved by full Property declaration identity in the selected effective MODEL. Equal bare names from another declaration do not match. If q is not applicable to a bearer, no q slot, Property, or value is invented there.",
+      "Absence of an applicable authored q occurrence permits the next lookup step. A present q that violates its declaration, has missing or multiple required values, or is otherwise unresolved is invalid and errors; it is not skipped. An unresolved or multiple R target at any traversed step, a cycle, an unresolved terminal, or incompatible fallback value errors.",
+      "The fallback remains non-writing: it resolves an effective value without copying a value to p, changing p's authored occurrence, creating a Property, or creating an R link. It cannot satisfy a required authored occurrence.",
+      "Lookup is lazy. An unevaluated later branch need not resolve; once an earlier authored or valid fallback value is selected, later branches—including a malformed chain—are not evaluated."
+    ],
+    "scope_boundary": "This is one reusable relation-chain lookup shape, not a general path, ancestry, projection, or inherited-instance-value language. It follows only the named R chain in the expression."
+  },
+  "exact_plan_claim_after": "```CFEL\nAtom/(.Role: Plan).AI Agent Confidence Threshold{:0..1}: [int]{:1};\nAtom/(.Role: Plan).AI Agent Confidence Threshold.*[]{:0};\nAtom/(.Role: Plan).AI Agent Confidence Threshold ?= LOOKUP(IS_CONTAINED_BY, Atom/(.Role: Plan).AI Agent Confidence Threshold) ?= LOOKUP(IS_CONTAINED_BY, Project//{:1}, Project.Settings.AI Agent Confidence Threshold)\n```",
+  "consumer_trace": {
+    "current_source": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-confidence-threshold.md:21-25",
+    "new_plan_name": "Latest user decision replaces Autonomous Confidence Threshold with AI Agent Confidence Threshold.",
+    "preserved": [
+      "Plan Property remains optional, one int when authored, with no children.",
+      "A present Plan value is its own authored value and is not copied or rewritten.",
+      "The terminal Project Settings leaf is required by latest user decision, but its new Declaration is root-owned and not created here."
+    ],
+    "not_assumed": "No source Property is declared on Scope Unit merely because it lies on an IS_CONTAINED_BY chain. Only an already applicable, identity-matching declaration can be a nearest lookup match."
+  },
+  "examples": [
+    {
+      "name": "plan-authored-value-short-circuits",
+      "state": "Plan has authored valid value 80; containment chain is cyclic or unavailable.",
+      "result": "effective 80; LOOKUP branches are not evaluated."
+    },
+    {
+      "name": "nearest-compatible-ancestor-wins",
+      "state": "Plan omits the Property; nearest chain bearer has an authored valid occurrence resolved to the same Plan-property declaration identity with value 75; terminal required Project Settings value is 60.",
+      "result": "effective 75; terminal branch is not evaluated."
+    },
+    {
+      "name": "inapplicable-scope-unit-does-not-create-slot",
+      "state": "Plan omits the Property; an intervening Scope Unit has no applicable matching declaration; same-chain Project terminal has required value 60.",
+      "result": "effective 60; no Scope Unit Property is inferred."
+    },
+    {
+      "name": "same-bare-name-is-not-a-match",
+      "state": "Plan omits the Property; an ancestor bears a different declaration also named AI Agent Confidence Threshold with value 70; Project terminal has 60.",
+      "result": "effective 60; the different declaration identity is ignored."
+    },
+    {
+      "name": "invalid-nearest-source-errors",
+      "state": "Plan omits the Property; nearest compatible authored source has two values or a non-int value; Project terminal has 60.",
+      "result": "error; invalid source is not skipped to the terminal."
+    },
+    {
+      "name": "missing-required-terminal-errors",
+      "state": "Plan and all compatible ancestors omit the Property; same-chain Project Settings leaf is absent.",
+      "result": "error; the required terminal contract has been violated and no value is fabricated."
+    },
+    {
+      "name": "multiple-parent-step-errors",
+      "state": "Plan omits the Property and one traversed bearer has two IS_CONTAINED_BY targets.",
+      "result": "error; lookup never chooses an arbitrary path."
+    },
+    {
+      "name": "multiple-project-terminals-error",
+      "state": "Plan omits the Property and its chain resolves two Project terminals.",
+      "result": "error; Project//{:1} is not satisfied."
+    }
+  ],
+  "implementation_gates": [
+    "Resolve full Property declaration identity and applicability in the selected effective MODEL before each source lookup.",
+    "Resolve each IS_CONTAINED_BY step and terminal Project binding deterministically from existing links; do not infer links from Carrier layout or names.",
+    "Root adds the required Project.Settings.AI Agent Confidence Threshold declaration and extends Project.Settings child names/count from 2 to 3 before this consumer is admitted."
+  ],
+  "policy_question": null,
+  "mutations": {
+    "repository_files_changed": false,
+    "output": "/tmp/caprmedio-confidence-fallback-20261101/language-candidate.json"
+  }
+}

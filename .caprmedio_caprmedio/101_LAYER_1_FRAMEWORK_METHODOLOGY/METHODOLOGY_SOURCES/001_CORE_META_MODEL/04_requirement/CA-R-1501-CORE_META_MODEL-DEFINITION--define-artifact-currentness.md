@@ -1,33 +1,32 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - Subject/CAPRMEDIO/Graph/Node
-version: 14
-updated_at: 2026-10-27 19:59:56 +0400
+  active: Atom
+  passive:
+  - Term//Artifact
+  - Entity
+version: 21
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-M-001
+  - CA-M-447
 atom_id: CA-R-1501
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Definition
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Define Artifact Currentness
 
-## Scope
+## Claim scope
 
 the exact applicable Artifact Revision in a declared context.
 
 ## Claim
 
-Currentness **means** which exact applicable Artifact Revision is presently effective **in** the declared context.
 
-## Details
+For an Atom as a governed Artifact, Currentness must mean which exact applicable Artifact Revision is presently effective in the declared context.
+

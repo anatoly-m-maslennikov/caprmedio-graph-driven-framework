@@ -1,0 +1,37 @@
+{
+  "status": "two_source_pinned_candidates_corrected_not_applied",
+  "rows": [
+    {
+      "source_id": "CA-D-305",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-305-PROJECT_CONFIGURATION-ENG_DECISION--carry-projected-atoms-without-new-identity.md",
+      "source_sha256": "934e56c1e138517d504f7d951d608610ada2ebdf4a20e7fa0abdb7c5eb4d2a09",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/draft/cfel-contract-completion-20261102/subject-migration/CA-D-305@31-draft-PROJECT_CONFIGURATION-ENG_DECISION--carry-projected-atoms-without-new-identity.md",
+      "candidate_sha256": "2f986d2ed24c82a0cbbcb7308c8c39d4b35949fe28dd484e75791f5a5149301f",
+      "candidate_body_sha256": "196d167927776be3c0b2ce7cbaaf37fe8650ad6f4ac6eda56b8c9a1456a7c33b",
+      "source_summary": "Carry Projected Atoms without New Identity",
+      "candidate_subject": "Projection/(.Form := Applicable Methodology)",
+      "change": "Active Subject is the whole qualified Projection; Claim scope identifies projected members and source binding. Retain per-member direct source identity and Carrier constraints."
+    },
+    {
+      "source_id": "CA-R-1314",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1314-PROJECT_CONFIGURATION-RULE--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+      "source_sha256": "eb2b76e385c5f82bc9705ec92ea0a19e25a43d78d29a7c81e98655b54563fb06",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/draft/cfel-contract-completion-20261102/subject-migration/CA-R-1314@33-draft-PROJECT_CONFIGURATION-RULE--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+      "candidate_sha256": "85ef592d4ea7a8adcfb08a15bfa2eaca894f1905fd405575b932ba00c7bfd420",
+      "candidate_body_sha256": "8f866bbabc97e74eab39750e5c301b14c880937f01803cbb57b059d387928161",
+      "source_summary": "Preserve Source Atom Revision Identity in Applicable Methodology",
+      "candidate_subject": "Projection/(.Form := Applicable Methodology)",
+      "change": "Active Subject is the whole qualified Projection; Claim scope identifies projected members and source binding. Retain per-member direct source identity and Carrier constraints."
+    }
+  ],
+  "question": {
+    "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/01_concern/draft/cfel-contract-completion-20261102/legacy-entities/CA-C-draft-QUESTION--identify-applicable-methodology-members.md",
+    "sha256": "4b2b33ed48f6f3c39249f59e465a9e44cf04046c711812047cbb5a1c0a1204b1",
+    "summary": "Identify Applicable Methodology members"
+  },
+  "limits": [
+    "Shared lane manifest intentionally unchanged; root must exclude its two stale rows and use these refreshed candidate hashes.",
+    "No new Member Property or equivalence of output members with Projection.Source.Atoms.",
+    "No Current, Git, runtime or graph mutation."
+  ]
+}

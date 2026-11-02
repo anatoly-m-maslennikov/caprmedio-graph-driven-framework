@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "findings": [],
+  "hash_mismatches": [],
+  "checked": [
+    "Moved structural-level equations and active Plan parent condition",
+    "Carrier constraints explicitly scoped to delivering Atom",
+    "No concrete global wildcard default claimed; root and Property scope pending"
+  ],
+  "limits": [
+    "Concrete Node root/Property default scope remains pending",
+    "No parser/runtime or complete whitelist verification"
+  ],
+  "closure": "ENGINE base Scope permits metamodel Declaration references only through passive Subjects, separates instance creation permissions, and allows explicit Scope-contract replacement."
+}

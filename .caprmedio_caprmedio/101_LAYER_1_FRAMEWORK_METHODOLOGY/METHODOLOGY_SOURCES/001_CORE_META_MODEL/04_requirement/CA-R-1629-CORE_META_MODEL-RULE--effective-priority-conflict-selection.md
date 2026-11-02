@@ -1,28 +1,27 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern.Priority'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-version: 35
-updated_at: 2026-10-27 19:59:59 +0400
+  active: Atom/(.Role := Concern).Priority
+  passive:
+  - Atom/(.Role := Concern)
+  - Scope Unit
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Object/Continuant/Actor/Operator
+version: 39
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1629
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Effective priority conflict selection
 
-## Scope
+## Claim scope
 
 priority-conflict selection for Concern Atoms.
 
@@ -42,5 +41,3 @@ the Framework Instance Settings Artifact exposes **`=2`** selection modes:
 - `auto_by_effective_priority`, which **may** select **only** one uniquely eligible winner.
 
 the selection mode **must** ask the Operator **if** ties, incomparable structure, uncertainty, **or** multiple winners occur. mutually unsatisfiable external obligations stop for Operator **or** external resolution. PRMEDO Tier precedence, deterministic replacement, explicit scoped override, stale-view routing, **and** Implementation drift follow their own semantics rather than this selection mode.
-
-## Details

@@ -1,27 +1,26 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path
-  depends_on: []
-version: 33
-updated_at: 2026-10-27 20:00:01 +0400
+  active: Scope Unit.Path
+  passive: []
+version: 38
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-M-001
+  - CA-M-447
   - CA-R-1776
 atom_id: CA-R-1688
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Scope path does not change semantic coordinates
 
-## Scope
+## Claim scope
 
 Scope paths in the current project.
 
@@ -30,5 +29,3 @@ Scope paths in the current project.
 Scope path is a project-relative address containing **`>=0`** operator-labeled structural scopes ordered from broader parent **to** narrower child.
 
 the current project is ambient. Scope **may** govern ownership, applicability, **and** inheritance, but it never changes stable Artifact identity, Artifact form, Content Role, **or** Governance locus.
-
-## Details

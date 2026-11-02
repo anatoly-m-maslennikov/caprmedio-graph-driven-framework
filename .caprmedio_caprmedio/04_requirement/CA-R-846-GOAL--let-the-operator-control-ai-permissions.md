@@ -1,29 +1,31 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-version: 26
-updated_at: 2026-10-27 20:00:11 +0400
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-2157
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent.Permissions'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
-  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+  active: Entity/Object/Continuant/Actor/AI Agent.Permissions
+  passive:
+  - Entity/Object/Continuant/Actor/AI Agent
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Aspect/Engineering/Execution Control/Effect Authorization
+  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-846
 status: Active
-content_role: Requirement
-author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-type: Goal
 tier: 4
 claim_target_scope_unit: FRAMEWORK_ENGINE
+role: Requirement
+form: Goal
 ---
-# Let the Operator control AI permissions
+## Summary
+Let the Operator control AI permissions
+
+## Claim
 
 CAPRMEDIO **must** let the Operator create AI Agent Delegations **and** mandatory authorization rules for **every** identified AI Agent **and** inspect, limit, modify, suspend, **and** revoke **every** such delegation **or** rule.

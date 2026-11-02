@@ -1,0 +1,27 @@
+---
+subjects:
+  governs: Entity/Object/Continuant/History/Journal > Event Record
+  depends_on: []
+version: 26
+updated_at: 2026-10-29 10:13:50 +0400
+relations: {}
+atom_id: CA-D-338@26
+content_role: Delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+author: Anatoly Maslennikov
+tier: 2
+type: Decision
+---
+## Summary
+
+Serialize Completed Projection Rebuild Results
+
+## Claim scope
+
+completed Projection Rebuild Event results.
+
+## Claim
+
+**every** completed Projection Rebuild Event **must** serialize the published Projection Updated At value, output Carrier reference, **and** content digest.

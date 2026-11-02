@@ -1,31 +1,30 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery.Substance'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term
-  - Subject/CAPRMEDIO/Graph/Relation
-version: 21
-updated_at: 2026-10-27 19:59:41 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Delivery).Content.Claim'
+  passive:
+  - Atom/(.Role := Delivery)
+  - Carrier
+  - Atom.Subjects
+  - Term
+  - CFEL <+ Relation
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-M-307
 atom_id: CA-M-313
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 6
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Write Delivery Claims with the Delivery CCE Profile
 
-## Scope
+## Claim scope
 
 authoring Delivery Substance with the applicable Delivery CCE Role Profile.
 
@@ -42,4 +41,3 @@ a Delivery Substance **must** use the applicable Delivery CCE Role Profile with 
 ## Details
 
 Entity, property and Carrier-kind definitions belong to Requirement. Delivery uses those definitions to specify representation. Do not invent a filename, format or lifecycle condition merely to fill a template. YAML fields and Markdown sections can represent properties inside one File Carrier without a separate binding record for each property.
-

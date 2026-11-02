@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-01",
+  "decision": "Remove the Operator ownership requirement for Project Goals; do not create a replacement Core R",
+  "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+  "before_sha256": "5f7274b51b9523e7eb6121e1b97b657663d9d5e0cc53ea03f9d8ccb26fdecf41",
+  "after_sha256": "363d26dcb51764c7d320ac3a54748629d0d5c8b8914e99ce346c320b29380412",
+  "formal_block_unchanged": true,
+  "operator_registry_unchanged": true,
+  "scope": "Removal of Project Goal ownership clause only; no numeric rule or target mapping added"
+}

@@ -1,0 +1,2 @@
+{"case":"M1","markdown":"## Summary\n\nDRY\n\n## Claim scope\n\nOperating the Project\n\n## Claim\n\nApply DRY (Don’t repeat yourself)."}
+{"case":"M2","markdown":"## Summary\n\nAdd new mechanisms only when needed\n\n## Claim\n\nAdd a new mechanism only when existing mechanisms cannot preserve the required outcome or a material distinction. Convenience alone is insufficient."}

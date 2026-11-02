@@ -1,25 +1,24 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method/Type'
-  depends_on:
-  - Subject/CAPRMEDIO/Carrier
-version: 22
-updated_at: 2026-10-27 19:59:24 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type'
+  passive:
+  - Carrier
+version: 28
+updated_at: 2026-11-02 00:55:09 +0400
 relations: {}
 atom_id: CA-D-404
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Serialize Method Type Tokens
 
-## Scope
+## Claim scope
 
 Method Atom File Carriers.
 
@@ -29,6 +28,6 @@ a Method Atom File Carrier **must** serialize its effective Label within the Ato
 
 ## Details
 
-These examples govern filename representation; they do **not** rename a Type, admit a new Type, **or** prescribe a YAML Type value. The YAML `type` field remains the single admitted Type value under CA-D-276; the filename token is the effective-Label carrier encoding. An explicit `label` field takes precedence; when it is absent, CA-R-1594 supplies the Type name as the effective Label. Do not infer the Atom Type from a filename token; derive the filename token from the effective Label.
+These examples govern filename representation; they do **not** rename a Type, admit a new Type, **or** prescribe a YAML Type value. The YAML `form` field carries the Atom Form under CA-D-657; the filename token is the effective-Label carrier encoding. An explicit `label` field takes precedence; when it is absent, CA-R-2497 supplies the Type name as the effective Label. Do not infer the Atom Type from a filename token; derive the filename token from the effective Label.
 
 Within PROGRAMMATIC and its declared descendants, Current Method and Delivery Atoms use only Eng Policy or Eng Decision under CA-R-2123; legacy Implementation Method and Implementation Decision names are not additional admitted values there. Existing specialized values remain governed by their own definitions outside that scope.

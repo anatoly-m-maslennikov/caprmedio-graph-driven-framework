@@ -1,0 +1,7 @@
+{
+  "result": "Pass",
+  "cases": 12,
+  "training_targets_disjoint": true,
+  "external_repair_rounds": 0,
+  "comparison_sha256": "7960374ab5a76e233c898e9bf0667f134513a396a2faf7ac73e06ee19ef539df"
+}

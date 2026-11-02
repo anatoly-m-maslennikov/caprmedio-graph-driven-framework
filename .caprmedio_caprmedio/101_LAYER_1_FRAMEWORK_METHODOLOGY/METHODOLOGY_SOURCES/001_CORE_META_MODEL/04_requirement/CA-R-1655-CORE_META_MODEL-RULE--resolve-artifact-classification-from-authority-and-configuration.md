@@ -1,33 +1,33 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Scope Unit Graph'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Authority Modes
-version: 39
-updated_at: 2026-10-27 20:00:00 +0400
+  active: Entity
+  passive:
+  - Term//Artifact
+  - Atom
+  - Entity/Object/Continuant/Governing Objects/Atom.Content Role
+  - Entity/Object/Continuant/Projection.Type
+  - 'Entity/Object/Continuant/Projection/(.Type: Applicable Methodology)'
+  - Scope Unit//PROJECT_CONFIGURATION
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+  - 'Entity/Object/Continuant/Projection/(.Type: Scope Unit Graph)'
+  - Journal
+  - Projection
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes
+version: 44
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-1655
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Resolve Artifact Classification from Authority and Configuration
+## Summary
+Resolve Artifact Classification from Authority and Configuration
 
-## Scope
+## Claim scope
 
 Artifact classifications resolved from Applicable Methodology and Project Configuration with structural context from authoritative Project Structure.
 
@@ -41,5 +41,3 @@ CAPRMEDIO **must** resolve **every** Artifact's applicable classification from A
 - classify an unknown, disabled, stale, multiply mapped, **or** ambiguous value as an unresolved **or** failed classification, **not** as an accepted one.
 
 a derived Scope Unit Graph **must not** replace Project Structure as structural authority. reporting a classification failure does **not** itself impose a universal mutation **or** execution prohibition; the applicable Authority Mode **and** admission rules govern that consequence.
-
-## Details

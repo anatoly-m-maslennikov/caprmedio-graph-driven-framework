@@ -1,27 +1,26 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-version: 26
-updated_at: 2026-10-27 19:59:40 +0400
+  active: Entity/Aspect/Engineering/Authoring
+  passive:
+  - Atom
+  - Atom.Content
+  - Entity/Aspect/Engineering/Authoring/Controlled English
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-M-233
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Prefer Positive Normative Statements
 
-## Scope
+## Claim scope
 
 normative Atom prose authored **in** CCE.
 

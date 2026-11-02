@@ -1,30 +1,27 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node
-version: 21
-updated_at: 2026-10-27 20:00:13 +0400
+  active: Entity/Object/Continuant/Selection
+  passive:
+  - Entity
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-R-999
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Definition
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Define Scope Expression
 
-## Scope
+## Claim scope
 
 Scope Expressions.
 
 ## Claim
 
 a Scope Expression **means** one deterministic expression that identifies Governed Entities through atomic references, explicit Atom IDs, parentheses, registered set **or** logical operators, **and** field predicates including **where**.
-
-## Details

@@ -1,0 +1,4728 @@
+[
+  {
+    "event_id": "8e4398ae-2abc-5b41-9fa7-fec553f15ae6",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.387916+04:00",
+    "action": "archive",
+    "object_output": {
+      "id": "CA-R-1243",
+      "version": 27,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1243",
+      "version": 27,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "3ee14e7e-1e28-51c7-8121-33613b68edda",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.389364+04:00",
+    "action": "archive",
+    "object_output": {
+      "id": "CA-R-1260",
+      "version": 34,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1260",
+      "version": 34,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "4ed547b4-f162-5bab-af55-f6c2c7cf4913",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.390706+04:00",
+    "action": "archive",
+    "object_output": {
+      "id": "CA-R-1436",
+      "version": 25,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1436",
+      "version": 25,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "6758a0b5-7514-5237-967c-3e30b790c8af",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.392038+04:00",
+    "action": "archive",
+    "object_output": {
+      "id": "CA-R-2244",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2244",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "e0ce594c-bc21-5b64-9147-3abd7894aab8",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.393213+04:00",
+    "action": "archive",
+    "object_output": {
+      "id": "CA-R-2328",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2328",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "f436529e-be37-5e80-9ddf-c08381afd912",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.394382+04:00",
+    "action": "archive",
+    "object_output": {
+      "id": "CA-R-2329",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2329",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "c0056422-5d0f-5795-8bdf-0c491a231461",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.395555+04:00",
+    "action": "archive",
+    "object_output": {
+      "id": "CA-R-2416",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2416",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "cf7f0659-14a1-5720-ad1f-897b37ca4090",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.396728+04:00",
+    "action": "archive",
+    "object_output": {
+      "id": "CA-R-2479",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2479",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "cda6a021-f451-5fa9-92e6-70dda2d824bd",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.397934+04:00",
+    "action": "archive",
+    "object_output": {
+      "id": "CA-R-2517",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2517",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "29e79f82-e767-55e0-8d86-0507ea7982ad",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.399137+04:00",
+    "action": "archive",
+    "object_output": {
+      "id": "CA-R-2522",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2522",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "dd7fb653-7b70-5357-bdc7-0151832a3358",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.400475+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-253",
+      "version": 30,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-253",
+      "version": 28,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "ab5eb9fe-023b-531d-9a31-5fa227d5f310",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.401763+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-266",
+      "version": 29,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-266",
+      "version": 27,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "cd1ee6d9-2044-572f-bbc9-3c15d3b3a92a",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.403001+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-268",
+      "version": 30,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-268",
+      "version": 28,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "d1e411a3-aa64-52bd-b3c7-c7c14f98088e",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.404305+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-305",
+      "version": 32,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-305",
+      "version": 30,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "46e8db52-7f47-58d5-9c46-7cadc8d08c60",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.405580+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-306",
+      "version": 30,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-306",
+      "version": 28,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "807630e3-c3b4-5dae-a709-bf01be5fdc4d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.406882+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-307",
+      "version": 28,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-307",
+      "version": 26,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "ebb1ab4d-b630-57b2-8669-dd2963f60e63",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.408278+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-333",
+      "version": 34,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-333",
+      "version": 32,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "50fc269e-bcbc-549b-9300-ba000fa65b5f",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.409550+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-338",
+      "version": 29,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-338",
+      "version": 27,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "ccd5c17c-e359-5391-a468-a638bfd5c348",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.410934+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-340",
+      "version": 33,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-340",
+      "version": 31,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "b33f9bce-7ded-529e-b6a0-9e80bd4ba535",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.412443+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-346",
+      "version": 34,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-346",
+      "version": 32,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "febf5d03-b552-5c06-9c65-f36e6ab17652",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.413795+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-347",
+      "version": 29,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-347",
+      "version": 27,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "d775eb25-efdc-573d-bd2a-53a4aa91dd76",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.415156+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-376",
+      "version": 28,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-376",
+      "version": 26,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "2c950bf9-ae86-5f70-990d-9f05c72b1e8a",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.416486+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-397",
+      "version": 26,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-397",
+      "version": 24,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "23e76b6d-71af-5630-ac60-a826f34d8032",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.417807+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-435",
+      "version": 25,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-435",
+      "version": 23,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "42c57550-78cd-558b-bfe0-a6bb5ef9d0ba",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.419329+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-467",
+      "version": 26,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-467",
+      "version": 24,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "75717397-b7ba-5333-aa66-818eee08b794",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.420715+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-471",
+      "version": 24,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-471",
+      "version": 22,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "a0ca7876-ab8c-5c3b-a828-18bb075f39d0",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.422144+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-472",
+      "version": 27,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-472",
+      "version": 25,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "8588b724-b16b-5d0e-a934-9a4c7f5361c0",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.423459+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-565",
+      "version": 20,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-565",
+      "version": 18,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "8b5d9463-0ade-5d5e-8ccb-c49be1d3fb4c",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.424806+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-570",
+      "version": 24,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-570",
+      "version": 22,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "9b6f394b-753e-544c-9c88-33e0a8fb50f3",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.426264+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-634",
+      "version": 23,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-634",
+      "version": 21,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "92080a5c-ee2c-5b2b-a9e7-683f844d9aa8",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.427514+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-D-662",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-D-662",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "74109f7c-7c4e-5841-b237-cb0d7eed4244",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.429344+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-383",
+      "version": 43,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-383",
+      "version": 41,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "5ed441d3-d635-586e-88f8-ce930ba9da3d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.430730+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-402",
+      "version": 33,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-402",
+      "version": 31,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "92ca5c94-fef6-5638-98c4-c7169862ee60",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.432188+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-403",
+      "version": 36,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-403",
+      "version": 34,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "01c047f2-212e-5b16-b767-5f53fdcf7856",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.433873+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-436",
+      "version": 28,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-436",
+      "version": 26,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "907637fd-d596-57c3-8e77-1dd0f6badea6",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.435614+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-438",
+      "version": 29,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-438",
+      "version": 25,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "dd1d80af-c0e3-53dd-bbc8-34d1a7dcfd88",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.437760+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-449",
+      "version": 44,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-449",
+      "version": 42,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "7e584c53-a9db-533d-96c1-3367c5852ff9",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.439335+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-462",
+      "version": 33,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-462",
+      "version": 31,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "d2a46f63-7203-5bd1-a3a3-41206e7a7c03",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.440747+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-465",
+      "version": 25,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-465",
+      "version": 23,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "3dc536cc-dbae-52be-b73f-5b0ee3272886",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.442386+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-486",
+      "version": 23,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-486",
+      "version": 21,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "6060595a-794f-56bb-9790-3cd2831b535d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.443945+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-489",
+      "version": 23,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-489",
+      "version": 21,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "cc0fe0fb-fb18-5d98-9cd6-43cd23e75a10",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.445440+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-490",
+      "version": 23,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-490",
+      "version": 21,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "698f9928-1459-5424-b478-360650b1be89",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.447182+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-491",
+      "version": 25,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-491",
+      "version": 23,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "922bb5c1-b66c-55e4-9714-7a392d363b72",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.448753+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-496",
+      "version": 22,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-496",
+      "version": 20,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "90623a43-2915-56cf-8bc7-5aea45775927",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.450333+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-500",
+      "version": 26,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-500",
+      "version": 24,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "7478fc55-f753-5425-93c6-995a4d36f203",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.451539+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-620",
+      "version": 33,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-620",
+      "version": 31,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "612ef5cc-d67f-54a8-bada-503136f94b60",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.453340+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-622",
+      "version": 51,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-622",
+      "version": 49,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "73e5f393-96bf-590a-acca-369102c2a4c7",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.455082+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-658",
+      "version": 11,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-658",
+      "version": 9,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "c9e228dc-ad09-5d96-9c0b-8d4e9c53f91e",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.457153+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-E-661",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-E-661",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "d558e0c6-ee02-5a66-a5ae-fbef760338c5",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.458740+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-M-120",
+      "version": 41,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-M-120",
+      "version": 39,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "0194b037-ff84-5ef5-a660-1626b756f8ec",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.460035+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-M-225",
+      "version": 33,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-M-225",
+      "version": 31,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "0cb2e1f7-ebcd-5793-8358-9d639671cff1",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.461406+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-M-237",
+      "version": 33,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-M-237",
+      "version": 31,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "4a1d6deb-2570-5eb0-b237-d87edf5dd83d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.462765+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-M-261",
+      "version": 18,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-M-261",
+      "version": 14,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "b45816a1-e74c-5b03-9582-bee1ae650f7e",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.464306+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-M-262",
+      "version": 27,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-M-262",
+      "version": 23,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "7c2bb8fa-255e-5f3d-8c24-47002ba5fd8b",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.465605+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-M-287",
+      "version": 25,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-M-287",
+      "version": 23,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "89b02928-7979-5381-a2e7-84035d0dae8a",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.467180+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-M-303",
+      "version": 26,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-M-303",
+      "version": 24,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "d87139d7-40ec-5253-a7aa-3cb1c05ee971",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.468620+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-M-305",
+      "version": 22,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-M-305",
+      "version": 20,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "95c11103-a84b-5c27-a76d-fae185e28266",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.470109+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-M-307",
+      "version": 26,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-M-307",
+      "version": 24,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "731ccde3-8940-52c2-b081-047df666fb7d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.471498+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-M-385",
+      "version": 24,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-M-385",
+      "version": 22,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "a84c7a44-6951-5844-b714-c386c6206491",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.472746+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1016",
+      "version": 30,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1016",
+      "version": 28,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "649651cc-44ac-594d-b4cd-81a6c811522e",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.473988+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1017",
+      "version": 30,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1017",
+      "version": 28,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "8fd49e78-489d-503e-8389-42ac500d996c",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.475399+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1018",
+      "version": 37,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1018",
+      "version": 35,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "84067395-fa97-57ff-92f0-37fec77818aa",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.476642+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1019",
+      "version": 29,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1019",
+      "version": 27,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "d2a777dc-6b4b-5a24-b07d-a873684bfe46",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.477889+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1020",
+      "version": 29,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1020",
+      "version": 27,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "4aa155d0-0832-5c0c-b2a5-669f504a5d9c",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.479130+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1021",
+      "version": 29,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1021",
+      "version": 27,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "4ee9f935-b65f-5cef-89a1-cbaa6b78fd22",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.480412+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1022",
+      "version": 31,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1022",
+      "version": 29,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "b651d2dc-0a5b-5732-add7-e9b0fd71e189",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.481591+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1023",
+      "version": 26,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1023",
+      "version": 24,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "b2fded1a-ff35-5a50-b736-614c4db217fa",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.482778+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1024",
+      "version": 27,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1024",
+      "version": 25,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "3eef3314-2aab-5b01-9333-f236652519f5",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.483955+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1025",
+      "version": 27,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1025",
+      "version": 25,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "8d450963-a11c-517e-b5f7-3f8398d40251",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.485266+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1026",
+      "version": 32,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1026",
+      "version": 30,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "9e89a141-d50a-57dc-be1e-2e33d68fa5b2",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.486500+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1027",
+      "version": 28,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1027",
+      "version": 26,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "b47bc7ba-d263-5765-bda6-e1bf45458ad1",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.487685+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1029",
+      "version": 26,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1029",
+      "version": 24,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "2f2dd393-631c-54fc-bdbf-95a826a6a6bb",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.488863+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1030",
+      "version": 26,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1030",
+      "version": 24,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "0dcafec5-feec-57c7-a6c2-9d5a2ea98309",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.490063+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1032",
+      "version": 27,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1032",
+      "version": 25,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "3ec4c149-7787-5f94-a68d-4e607aa11e47",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.491298+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1038",
+      "version": 27,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1038",
+      "version": 25,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "a924e491-8b77-5507-9d57-df837302b5c8",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.492471+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1039",
+      "version": 27,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1039",
+      "version": 25,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "c12c3af3-89ba-5195-837f-3f3504195ba2",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.493651+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1040",
+      "version": 30,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1040",
+      "version": 28,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "445dae55-9483-5f1e-bc1a-7122c946f8b4",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.494881+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-117",
+      "version": 31,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-117",
+      "version": 29,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "921afe62-8dde-5467-ad96-4a89397f3abf",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.496179+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-118",
+      "version": 35,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-118",
+      "version": 33,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "128404cb-8b71-5e03-923e-c4036b22ac2b",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.497552+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1199",
+      "version": 36,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1199",
+      "version": 34,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "9f12bb2b-c916-54f2-9928-275ac961487c",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.499063+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1200",
+      "version": 39,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1200",
+      "version": 37,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "e73e94e7-9989-564b-8469-612957fe8eaa",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.500299+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-121",
+      "version": 31,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-121",
+      "version": 29,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "3334bc98-c6b0-587b-89e9-9eefa997b7fd",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.501789+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1213",
+      "version": 40,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1213",
+      "version": 38,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "6f31cbeb-c42e-5221-acc8-19e3cb2a30d7",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.503047+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1245",
+      "version": 28,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1245",
+      "version": 26,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "7247d1f7-3764-5f00-a545-855e88d8d2e7",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.504335+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1246",
+      "version": 34,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1246",
+      "version": 32,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "baca38d0-f2d1-5f9a-9d10-245f7285a97f",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.505639+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1280",
+      "version": 34,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1280",
+      "version": 32,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "94b60280-38a5-5dfe-9f26-c924aa70f8af",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.506851+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1283",
+      "version": 30,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1283",
+      "version": 28,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "756ce400-3a28-5d9f-876e-392196d95bbc",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.508123+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1314",
+      "version": 34,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1314",
+      "version": 32,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "0fb042fe-4e7a-5f25-9585-fe5492d3621f",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.509354+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1316",
+      "version": 32,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1316",
+      "version": 30,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "df2792a5-af77-5885-b604-ccf72a1813d9",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.510720+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1317",
+      "version": 31,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1317",
+      "version": 29,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "ee28d076-6c44-54f4-a878-d49f437f32a5",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.512134+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1321",
+      "version": 35,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1321",
+      "version": 34,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "95a4ecaf-6143-5bdb-8511-5229ef91e204",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.513383+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1345",
+      "version": 29,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1345",
+      "version": 27,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "e07e8430-018b-5839-b67d-9289ae935307",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.514654+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1346",
+      "version": 28,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1346",
+      "version": 26,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "49a334cd-8979-5e20-83a8-bb970d61da05",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.516046+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1358",
+      "version": 35,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1358",
+      "version": 33,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "c8a66e8f-a0d3-5e0b-9373-860c446eeeb9",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.517375+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1359",
+      "version": 30,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1359",
+      "version": 28,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "0ad69a5d-44e9-5df5-abc5-72c83e0223eb",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.518638+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1373",
+      "version": 29,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1373",
+      "version": 27,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "85102c9d-b1bf-538e-b17a-de1240320c37",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.520046+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1405",
+      "version": 29,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1405",
+      "version": 27,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "af6dcfc8-e5e5-57bb-b5c2-d27e7814a40c",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.521275+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1415",
+      "version": 28,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1415",
+      "version": 26,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "23964a0e-0faf-5256-a86e-7d3bb0c6fd79",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.522584+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1419",
+      "version": 23,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1419",
+      "version": 21,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "fce27242-0de5-5102-a3e3-aab8118f12b8",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.523955+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1437",
+      "version": 30,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1437",
+      "version": 28,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "87612094-7bdb-532b-9a6d-55b29d0cb679",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.525678+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1456",
+      "version": 39,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1456",
+      "version": 37,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "607ee7ac-97e8-5c64-9e2f-d977788c4b90",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.527018+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1472",
+      "version": 28,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1472",
+      "version": 26,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "22409eac-d66e-51c1-b344-d8103808e1b9",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.528564+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1519",
+      "version": 25,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1519",
+      "version": 23,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "ba84391a-ea31-5c4d-affb-36b43c16bfa8",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.530016+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1521",
+      "version": 31,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1521",
+      "version": 29,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "008e93d6-cc6a-5c71-98b7-effe10157d4c",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.531378+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1550",
+      "version": 28,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1550",
+      "version": 26,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "1bbf0a65-f39c-5f1a-bf60-1131dfdd7b4d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.532754+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1562",
+      "version": 27,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1562",
+      "version": 25,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "446b23db-b54a-5f5c-9b30-0f31669c8d7a",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.534212+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1563",
+      "version": 27,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1563",
+      "version": 25,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "9eb5e128-5d2c-5e5f-936f-4e10fb5f2ae8",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.535668+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1569",
+      "version": 25,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1569",
+      "version": 23,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "f5fd077d-ec63-54cb-b8b7-4324dde12c42",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.537072+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1570",
+      "version": 24,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1570",
+      "version": 22,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "1366b241-956b-5d8a-9e05-5061b0e7ba45",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.538481+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1580",
+      "version": 26,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1580",
+      "version": 24,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "3bb0ecdc-799a-5978-bcbe-47b5c108f278",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.539910+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1587",
+      "version": 24,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1587",
+      "version": 22,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "2606bff3-7db0-5cd7-ad4e-658ea03d88a8",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.541314+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1591",
+      "version": 26,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1591",
+      "version": 24,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "940a455b-952b-5636-9367-4195b8bc9c8d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.542626+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1612",
+      "version": 24,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1612",
+      "version": 22,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "d327f699-e5ee-5c56-82db-3a09f762e9af",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.544152+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1616",
+      "version": 23,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1616",
+      "version": 21,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "c481d6d2-e764-562e-93ec-c41db448f4dc",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.545430+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1620",
+      "version": 21,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1620",
+      "version": 19,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "a39c8a9d-f958-597f-836b-1a36ee5e746f",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.546895+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1621",
+      "version": 19,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1621",
+      "version": 17,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "a646ab38-4e2d-525e-b271-3521141c8295",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.548074+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1632",
+      "version": 34,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1632",
+      "version": 32,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "3e4662b5-d074-541a-bfa2-711b82dd2747",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.549483+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1634",
+      "version": 45,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1634",
+      "version": 43,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "60e2c88b-62e4-5fbb-959c-d0c2dfae9ba1",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.550731+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1639",
+      "version": 37,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1639",
+      "version": 35,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "b4346416-e0bd-5bf7-8b96-d878b29d1259",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.551980+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1643",
+      "version": 40,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1643",
+      "version": 38,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "0116aad3-70b1-530d-8b2c-eb5146f9d8b1",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.553285+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1644",
+      "version": 37,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1644",
+      "version": 35,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "ad840f45-14ec-522e-a04c-a36cc9142d27",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.554492+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1647",
+      "version": 32,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1647",
+      "version": 30,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "acb3c90e-6232-5e70-9324-6734eee5d349",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.555793+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1654",
+      "version": 37,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1654",
+      "version": 35,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "b3c82618-4092-5a7f-92d5-ebb68dceae2f",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.556970+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1657",
+      "version": 32,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1657",
+      "version": 30,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "b2470d16-ab81-5158-9a36-72f5204ae886",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.558204+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1659",
+      "version": 30,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1659",
+      "version": 28,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "44715ef0-083e-5494-ab24-f9c69e6198e6",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.559493+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1660",
+      "version": 35,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1660",
+      "version": 33,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "9e637a11-9d41-5eb6-86f6-bab00c4e88d3",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.560729+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1676",
+      "version": 36,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1676",
+      "version": 34,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "7b5e2004-88ca-5aea-bd80-88c8135386fc",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.561987+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1697",
+      "version": 35,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1697",
+      "version": 33,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "b2d426ae-cbf4-52e2-a43d-a0bff258dd7b",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.563183+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1699",
+      "version": 36,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1699",
+      "version": 34,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "105e3411-fcb1-58f8-ad26-0800fac27a1d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.564824+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1702",
+      "version": 48,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1702",
+      "version": 46,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "a5d7defb-6f23-5f78-932a-6ae1292a4e15",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.566124+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1704",
+      "version": 35,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1704",
+      "version": 33,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "87b7aafa-02a9-5fa9-995a-e3bb39396ac8",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.567415+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1718",
+      "version": 37,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1718",
+      "version": 35,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "e558b626-ec2e-5962-9c77-087046a3f937",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.568693+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1734",
+      "version": 28,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1734",
+      "version": 26,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "d1214c5c-cf3a-58fa-a7eb-8b8412e81aba",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.570074+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1735",
+      "version": 27,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1735",
+      "version": 25,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "e77c9e41-4ae0-5af9-83b3-1664528ab8f0",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.571702+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1740",
+      "version": 40,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1740",
+      "version": 38,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "83ddda28-67d4-5e0c-b56c-0f87415eba98",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.573030+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1873",
+      "version": 20,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1873",
+      "version": 18,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "18fff483-10ce-5998-9247-f250fd1d5df6",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.574516+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1889",
+      "version": 17,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1889",
+      "version": 15,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "929a42c0-2758-50c5-91b4-523cd933cc83",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.575794+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1977",
+      "version": 15,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1977",
+      "version": 13,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "56fcfc92-4a8d-5ffc-82d5-93445052fe2f",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.577064+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1978",
+      "version": 15,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1978",
+      "version": 13,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "02432df0-833f-5378-a2f7-7543158a9985",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.578322+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1979",
+      "version": 15,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1979",
+      "version": 13,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "1e1be884-df18-5a8e-a2d8-1ebd405194f1",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.579608+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1980",
+      "version": 15,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1980",
+      "version": 13,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "a024aa69-d799-5f9a-b9ec-4a243b6bbc66",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.580853+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1981",
+      "version": 16,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1981",
+      "version": 14,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "3431a3ba-e52e-5808-affd-e674672303e9",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.582105+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1982",
+      "version": 15,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1982",
+      "version": 13,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "acb035e8-6544-59d9-9979-80d81b648d79",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.583359+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1983",
+      "version": 15,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1983",
+      "version": 13,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "4ae63da4-159f-531b-a6b6-0400b1337ac7",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.584754+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1992",
+      "version": 15,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1992",
+      "version": 13,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "f3163c00-700a-5e8f-b3b0-02b5b418e09e",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.586116+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-1993",
+      "version": 19,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-1993",
+      "version": 17,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "11c8c3f4-8852-54d8-89e6-e5c65f07ca18",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.587373+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2170",
+      "version": 9,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2170",
+      "version": 7,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "2d8f9861-9cc1-5812-9ce5-d0e914a251da",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.588639+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2173",
+      "version": 8,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2173",
+      "version": 6,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "2ce01c4d-0ee6-56f9-9966-fee63b15bed5",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.590041+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2243",
+      "version": 7,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2243",
+      "version": 5,
+      "updated_at": "2026-11-02 00:55:09 +0400"
+    }
+  },
+  {
+    "event_id": "8a904bf1-ff61-51aa-adba-1990e93f8562",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.591430+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2245",
+      "version": 7,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2245",
+      "version": 5,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "59c6eefc-a06c-505d-bba1-1934c163ec67",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.592729+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2246",
+      "version": 7,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2246",
+      "version": 5,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "b9d6a3d8-b498-5b76-9ac6-6c44dc4c621b",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.593885+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2247",
+      "version": 5,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2247",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "c4287193-8f8c-561a-aed2-8843c79190f8",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.595048+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2248",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2248",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "b478f5bf-af4f-5033-8b66-26a653c7afe1",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.596284+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2249",
+      "version": 5,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2249",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "25f3e5ef-4e1d-5b13-a844-df7fc8b7353e",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.597516+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2250",
+      "version": 5,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2250",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "5083d5dc-f7e5-574a-9b60-e47f5d99e383",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.598752+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2251",
+      "version": 5,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2251",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "a7a9be78-2fd5-5fc2-b5c7-8b1e1be38faa",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.599987+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2252",
+      "version": 5,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2252",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "a868a70d-d242-5471-8144-74db7be4b434",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.601218+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2253",
+      "version": 5,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2253",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "ee252d97-4562-5927-b0c1-2179a7f3dac0",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.602448+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2254",
+      "version": 5,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2254",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "fbbfdfa6-7c87-592b-8cfa-d8104c0bd014",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.603735+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2255",
+      "version": 8,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2255",
+      "version": 6,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "70682a24-0f8c-59b4-895f-a8dab3758f29",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.604860+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2256",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2256",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "c80d2a21-cbd1-5ef0-9635-6a04b685bf44",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.605990+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2257",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2257",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "15f7e4bd-c88f-560f-8658-94436909676a",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.607179+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2272",
+      "version": 5,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2272",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "384dadcb-4b67-5612-bd90-cb2ca94fcfab",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.608443+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2276",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2276",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "cedb1761-2aef-5b18-b4e3-5deda6139cc8",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.609576+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2277",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2277",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "8ac64478-3ab9-58f0-b947-a4854bc7cf30",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.610748+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2279",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2279",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "2a95da96-aab0-5a1e-80cf-1400ab776c16",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.611912+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2327",
+      "version": 5,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2327",
+      "version": 3,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "d3110883-60bb-5790-9133-bf54a43c0627",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.613072+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2352",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2352",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "e88abf7a-ceb0-5f56-8009-65b581b8ddec",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.614237+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2353",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2353",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "0cf1df71-8ade-5433-97f4-0e7e2fd808a7",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.615422+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2354",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2354",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "19c18742-cfb5-5434-8fc6-6462ad929b46",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.616585+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2355",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2355",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "74cd999d-8acf-56b7-a4e9-b0f00233270d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.617760+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2417",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2417",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "7b4cc69c-58b3-5015-bc61-ae90df8db2d3",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.618923+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2418",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2418",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "cf5ce9c0-0fe8-52af-9b44-236486a59746",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.620096+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2420",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2420",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "3c55d0c7-d6df-56a9-941a-887d5cbbf6d1",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.621259+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2421",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2421",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "3dffe915-a6b2-5e9d-98f9-2fd716ab9bc7",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.622420+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2422",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2422",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "9ca38e0b-9c3f-5cdd-8638-b6adfbc2a684",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.623567+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2469",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2469",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "9c447270-b4b4-5354-a817-ed894cc7d4be",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.624712+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2471",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2471",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "2a66cfba-f859-5ebc-9269-008f5fa53fe4",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.625858+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2472",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2472",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "75b9f612-e992-5d87-bfbf-fab49827ce73",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.627033+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2473",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2473",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "7a9cd59a-9669-51d0-8777-d700d97a7859",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.628203+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2475",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2475",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "d7f52840-93ec-5989-ba1a-6b1df9ad35b9",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.629369+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2476",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2476",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "7dc5c812-d49b-5778-91b8-a80ffe0160c3",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.630543+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2477",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2477",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "1412a784-b8f5-5008-b126-2ea9332daa18",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.631708+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2478",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2478",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "5c61aa00-4dfc-5241-9a39-e763ad459952",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.632866+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2480",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2480",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "9371a894-569f-5d5d-9cd6-d82f37187ab6",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.634025+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2485",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2485",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "9eb35979-1ce7-5485-9108-531e399d4f45",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.635199+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2486",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2486",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "7f17cd5e-f837-567e-997b-b42a6d39918f",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.636347+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2487",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2487",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "1e377fb0-8155-54b6-84b8-2e20d36bef2e",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.637533+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2516",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2516",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "747e1db0-6a3f-568f-a073-b284841874db",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.638674+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2532",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2532",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "cfc9cee6-3e21-51f0-af59-1d52d095b8f9",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.639819+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2557",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2557",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "82a06ba6-9f72-57b8-a2f3-ea76b94947ec",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.640994+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-2583",
+      "version": 4,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-2583",
+      "version": 2,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "7f06416d-e974-5865-8a82-eb9c6212b08e",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.642555+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-626",
+      "version": 42,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-626",
+      "version": 40,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "f0fe63fe-68e3-5725-a19b-ad9760115082",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.643858+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-740",
+      "version": 38,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-740",
+      "version": 36,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "6a5301a9-4457-5cf2-8be1-ee77e015fbac",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.645300+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-796",
+      "version": 43,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-796",
+      "version": 41,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "e83a2e88-5a4d-50d9-bd87-109762787a34",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.646573+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-806",
+      "version": 42,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-806",
+      "version": 40,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "ac7364ef-49e6-566e-b4f8-94a13da1e7a7",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.647757+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-807",
+      "version": 33,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-807",
+      "version": 31,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "39fc81ec-8571-5bef-b147-75b7752187fc",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.649077+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-808",
+      "version": 34,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-808",
+      "version": 32,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "4324e504-34c0-5f81-8fa1-9620b5945c49",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.650306+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-879",
+      "version": 32,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-879",
+      "version": 30,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "c54a9cc5-c3f5-5b43-8ca0-5f605476c931",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.651876+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-881",
+      "version": 35,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-881",
+      "version": 31,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "b965366e-11c3-5ce1-a459-09a053472800",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.653123+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-915",
+      "version": 32,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-915",
+      "version": 30,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "17f0e878-4b1d-5d20-a326-e0dc16b72ba6",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.654489+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-916",
+      "version": 37,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-916",
+      "version": 35,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "04eb1f2f-35b5-5736-8643-555e7b1e4a55",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.655729+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-934",
+      "version": 30,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-934",
+      "version": 28,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "f8105388-c596-5cd0-ab1f-68ea8b08f214",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.657120+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-935",
+      "version": 37,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-935",
+      "version": 35,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "48924032-3d3f-59bd-80db-9871b9bd38a2",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.658527+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-945",
+      "version": 38,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-945",
+      "version": 36,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "dd9b33e4-5f94-50f6-b9fc-b70163097e4c",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.659756+04:00",
+    "action": "update",
+    "object_output": {
+      "id": "CA-R-976",
+      "version": 31,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    },
+    "object_input": {
+      "id": "CA-R-976",
+      "version": 29,
+      "updated_at": "2026-11-02 00:18:22 +0400"
+    }
+  },
+  {
+    "event_id": "7981a659-7aa6-5f27-a0c2-c4fe6af29215",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.661069+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-C-627",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "79cd22f9-2869-5332-be77-4e09d1148a42",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.662215+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-C-629",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "4744206f-29b1-573e-bfaa-037e8ffb5d39",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.663322+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2617",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "5ca13752-4e1c-519c-9429-840dc78ac60a",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.664495+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2618",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "1daa261d-0811-595c-866d-f6f1d2d0463d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.665609+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2619",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "48f11c0d-38d3-5829-8486-1a6d849b012f",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.666721+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2620",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "143e4e16-7272-5a79-b8ed-e9d7005106aa",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.667834+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2621",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "b6d92c7d-d575-53d7-aec6-6d41a30bf140",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.668941+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2622",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "91f86cb2-94ff-5f7a-887e-d9819f28b382",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.670183+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-C-623",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "ed708041-eb00-542c-9498-2109fa820845",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.671300+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2623",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "be4bdb32-dcec-5eaf-9b6b-889a118e5374",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.672458+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-C-624",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "fbd76921-8711-523b-aa85-1aa80762e098",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.673600+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2616",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "2417bcd3-1212-5f67-af2e-4068b295541c",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.674751+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2591",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "7bb89dda-bc2d-53ad-9f06-eba16fb978bf",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.675904+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2592",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "bd062347-be73-5772-97f3-efe87d81de73",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.677055+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2593",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "85f3f5ce-ca5c-59e4-874d-86c7525b0fea",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.678210+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2594",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "6715b592-ca51-5441-b403-538f88653619",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.679366+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2595",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "82edb653-3cb3-56c1-a7c1-d7c383b621a1",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.680533+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2596",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "c3fd9ae4-b93c-556a-991d-ac14b2a94e2e",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.681691+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2597",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "b6761c12-3f1a-5b01-be34-84e298afd71e",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.682845+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2598",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "a8876cb1-9014-5e25-84ca-585b8105fbfe",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.684006+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2599",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "98b85252-8320-5ffa-af39-716457c38744",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.685165+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2600",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "950b299a-9b02-597a-9872-4a75117da78d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.686320+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2601",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "25bcd854-fb03-55ab-bca8-3fa6877878db",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.687474+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2602",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "01f1adac-5953-53c6-83ae-76250cd038e0",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.688629+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2603",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "150c040a-07dc-56ca-8f82-1f972739dbe9",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.689781+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2605",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "6b8a29df-a927-58a9-b88a-c3154a599f8d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.690941+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2604",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "d7be6600-a027-5035-b255-8d919db230ec",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.692097+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2606",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "592bfeb2-be0c-5705-b4c7-d797d1866021",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.693254+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2607",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "1fa7b2f3-763b-50e4-8cac-b5e7f5091d82",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.694412+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2608",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "2c1aa77c-05d7-5c64-b9dc-045b3d6bee51",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.695574+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2609",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "131b55c5-be11-5ec5-bb49-b075bbcaf457",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.696732+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2610",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "4c2cb2a4-eef7-580c-ad21-2bb56b3fa019",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.697875+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2611",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "ff615a75-6bb2-5bcd-bbb6-f2751fc8ed7d",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.699031+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2612",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "20a52aed-632b-51be-b221-7ed28c8c57a5",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.700197+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2613",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "a99c1226-d7c8-58b3-a4e6-f2ecc9988053",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.701351+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2614",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "e7212742-a5c9-51cc-988d-1d9a7943f085",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.702510+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2615",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "a7a60a05-95ee-5537-8061-a0516c3af236",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.703789+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-C-628",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "05aa1bf1-f9e0-51fe-a287-3b7fccbcb0d9",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.704875+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-C-620",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "50868700-3f27-5fee-9c56-0bfcf4a0954c",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.705943+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-C-618",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "a2cf3c42-52ff-5651-8d2a-1bbc2e053366",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.707008+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-C-626",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "4c74475d-2e44-5940-92b5-e2536eca318b",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.708137+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2636",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "c83fda18-2086-5862-80c5-39d239841fbf",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.709269+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2632",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "9c4fc0ed-ea4c-5203-974a-0f99f20ca967",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.710439+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2633",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "41914266-14ff-5012-9198-3277a0cdce21",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.711589+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2634",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "69dc9201-229f-5d07-a164-6e0208d5f425",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.712739+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2624",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "c56da35e-c3c7-529d-b97e-a62c3d02942b",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.713880+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2625",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "68b73b16-4fcb-5d28-8215-9683967aee21",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.715028+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-C-619",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "c3ed43a0-aa94-54c3-a08d-ef31cc3e6f5b",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.716297+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2627",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "47d6ae8a-da01-58e9-83b4-510b04759a40",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.717496+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2635",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "01d7e0d8-589e-511b-a163-9e1000dc75da",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.718669+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2626",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "0a10224e-46f3-5914-8c39-e1ef6a7ec677",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.719881+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2631",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "34b506bf-2192-5f45-abed-c1efbd44de3c",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.721086+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2629",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "c832a201-cbbe-5c9c-81c0-99f153f791bf",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.722278+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2630",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "bfff833c-21e1-5a99-adcd-975e6e5faf7f",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.723431+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-C-622",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "84c0cda5-4a94-5e0c-828d-852ac1afb093",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.724613+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-R-2628",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "6ca30f37-4a92-573c-b690-d473520b8b3a",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.725785+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-C-625",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  {
+    "event_id": "fe4c7609-1db4-5663-b58c-a23d33b97496",
+    "happened_at": "2026-11-02 08:06:47 +0400",
+    "inserted_at": "2026-11-02T08:06:48.726933+04:00",
+    "action": "create",
+    "object_output": {
+      "id": "CA-C-621",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  }
+]

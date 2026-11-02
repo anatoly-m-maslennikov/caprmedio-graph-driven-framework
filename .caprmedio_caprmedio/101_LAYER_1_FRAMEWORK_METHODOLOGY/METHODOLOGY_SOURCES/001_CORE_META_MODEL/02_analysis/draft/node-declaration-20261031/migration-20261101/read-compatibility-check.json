@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "carriers": 137,
+  "errors": [],
+  "scope": "shared carrier parsing and alias read view; authored schema admission not checked",
+  "excluded_api": "connector parse_atom requires a full logical canonical ID; Draft-marked identities use separate lifecycle operations"
+}

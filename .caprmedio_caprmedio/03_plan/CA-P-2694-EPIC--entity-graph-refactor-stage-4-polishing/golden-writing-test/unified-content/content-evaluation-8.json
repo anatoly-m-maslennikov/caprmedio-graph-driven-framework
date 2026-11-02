@@ -1,0 +1,55 @@
+{
+  "comparison_sha256": "bbb8771d1382db859a9697dce1319fccba75cc83de1c778d51b146ae5f5894ac",
+  "source_count": 8,
+  "results": [
+    {
+      "key": "B03",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Body matches source apart from operator emphasis and sentence-initial capitalization."
+    },
+    {
+      "key": "B08",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Body matches source apart from operator emphasis and sentence-initial capitalization."
+    },
+    {
+      "key": "B09",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Body matches source apart from operator emphasis and sentence-initial capitalization."
+    },
+    {
+      "key": "B10",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Body matches source apart from operator emphasis and sentence-initial capitalization."
+    },
+    {
+      "key": "B14",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Body matches source apart from operator emphasis and sentence-initial capitalization."
+    },
+    {
+      "key": "B15",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Body matches source apart from operator emphasis and sentence-initial capitalization."
+    },
+    {
+      "key": "B17",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Body matches source apart from operator emphasis and sentence-initial capitalization."
+    },
+    {
+      "key": "B23",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Body matches source apart from operator emphasis and sentence-initial capitalization."
+    }
+  ],
+  "scope": "Body meaning only; excludes Summary quality and runtime/model design."
+}

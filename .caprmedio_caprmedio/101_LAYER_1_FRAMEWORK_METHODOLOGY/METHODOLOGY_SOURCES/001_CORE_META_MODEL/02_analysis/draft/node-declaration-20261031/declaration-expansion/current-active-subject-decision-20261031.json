@@ -1,0 +1,15 @@
+{
+  "answer": "Current",
+  "required": "Exactly one Active Subject for every Current-group Atom",
+  "status_examples": [
+    "Backlog",
+    "Active",
+    "Done",
+    "Canceled"
+  ],
+  "completeness_exception": false,
+  "other_status_groups": "Existing contract unchanged",
+  "formal_block_unchanged": true,
+  "declaration_sha256": "795bc77a6186b0ba719fedff6e903bd66d6967bde9d8ec8070c1fab0448ccc71",
+  "limits": "Draft methodology only; no runtime implementation"
+}

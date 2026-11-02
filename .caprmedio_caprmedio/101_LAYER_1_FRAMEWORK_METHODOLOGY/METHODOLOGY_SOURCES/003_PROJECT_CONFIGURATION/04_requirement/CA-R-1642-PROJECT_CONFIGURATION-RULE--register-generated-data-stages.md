@@ -1,26 +1,25 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on: []
-version: 28
-updated_at: 2026-10-27 19:59:59 +0400
+  active: Carrier
+  passive: []
+version: 32
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   depends_on:
   - CA-R-1717
 atom_id: CA-R-1642
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Register generated-data stages
 
-## Scope
+## Claim scope
 
 the ordered generated-data pipeline stages.
 
@@ -36,5 +35,3 @@ the following ordered generated-data pipeline stages **must** be registered, ref
 | `biz` | aggregated CAPRMEDIO artifact **and** implementation metrics, including point-in-time snapshots **and** historical trends. |
 
 dependencies **must** move forward through `src → stg → mrt → biz`; a stage **may** depend on **any** earlier registered stage but **must not** depend on a later stage.
-
-## Details

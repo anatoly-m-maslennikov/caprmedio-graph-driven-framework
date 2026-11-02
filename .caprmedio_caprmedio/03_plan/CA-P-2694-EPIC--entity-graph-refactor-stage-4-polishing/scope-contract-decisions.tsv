@@ -1,0 +1,131 @@
+atom_id	action	status	draft_keys	reason	issues
+CA-R-1757	Revise	Reviewed	scope-unit-responsibility	Retain the Scope Unit definition, containment, parentage, formal claim and details while adding accepted responsibility and local Tier 0 meaning.	
+CA-R-925	Revise	Reviewed	goal-parent-owner	Preserve Goal Type, one target, one desired result and Project Goal distinction; make the accepted parent ownership explicit.	
+CA-R-2152	Keep	Reviewed		Retain Project Goal identity, Operator Actor owner and Target Project; accepted model continues this exception.	
+CA-R-2132	Keep	Reviewed		Retain explicit Tier -1 Project Goal, verified identity, Actor ownership and derived ordering context; A1313 does not change these.	
+CA-R-1443	Revise	Reviewed	tier-zero-scope-contract	Replace the Project-only restriction on Tier 0 with the accepted local scope model; Scope Contract is a Tier Label, not a Type or Atom Label.	
+CA-R-1773	Revise	Reviewed	project-foundational-invariants	Replace the retired Project Principle universe Selection definition with a Project-governing Rule preserving the same Project-wide invariants, without defining a new Selection entity.	
+CA-R-1774	Revise	Reviewed	project-invariant-canonical-authority	Preserve the former exactly-one active Project Principle authority per Project-wide invariant, now expressed by a Project-owned Tier 0 Atom; one Atom may cover multiple invariants.	
+CA-R-2274	Revise	Reviewed	tier-label-retire-principle	Replace the retired Principle Tier 0 readable label with Scope Contract while preserving all other labels, numeric order and the distinction from Atom.Label.	
+CA-E-482	Revise	Reviewed	evaluate-contract-role-semantics	Replace Principle-specific role classification with local Tier 0 semantics; retain all source role distinctions and allow Operations Types.	
+CA-E-654	Revise	Reviewed	evaluate-tier-ordering	Permit non-Project Tier 0 and test only admitted equal-Tier M/E/D/O-to-R exception; preserve all source-selection, ancestry, prerequisite and fail-closed checks.	
+CA-R-655	Revise	Reviewed	atom-goal-contract-ordering	Preserve all Atom, endpoint and authority conditions; translate the Project Principle case and add only the admitted same-Scope Tier 0 M/E/D/O-to-R relation exception.	
+CA-E-210	Revise	Reviewed	evaluate-project-contract	Preserve E210’s exact Project-wide invariant and Core-set checks, complete failure and reporting conditions, and faithful specialization exception; no expansion to all local Tier 0.	
+CA-E-655	Revise	Reviewed	project-contract-alignment	Preserve E655’s original complete-set, Project-wide conflict and lower-tier interpretation checks, restricted to the invariants formerly governed as Project Principles.	
+CA-R-1551	Revise	Reviewed	project-contract-conflict	Preserve non-delegable Operator resolution for conflicts between active Project-wide invariants and the existing delegation and confidence conditions for other conflicts.	
+CA-R-2149	Revise	Reviewed	governing-tier-zero-exception	Add admitted same-Scope Tier 0 M/E/D/O-to-R exception without widening source-declared selection or authorizing any new relation.	
+CA-R-2130	Revise	Reviewed	admit-numeric-tiers	Clarify that the ordinary nonnegative range includes all Scope Units, while preserving Project Goal -1 and no role or type restriction.	
+CA-R-2148	Keep	Reviewed		Existing RMED selection and registered relation admissions remain unchanged. An Operations source may use the narrow exception only if independently admitted by an existing typed governing relation; do not invent one.	
+CA-R-1056	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-R-1057	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-R-1172	Keep	Reviewed		Parent-owned outcome for the target child; conversion would discard its external expectation.	
+CA-R-1173	Keep	Reviewed		Parent-owned outcome for the target child; conversion would discard its external expectation.	
+CA-R-1174	Keep	Reviewed		Parent-owned outcome for the target child; conversion would discard its external expectation.	
+CA-R-1175	Keep	Reviewed		Parent-owned outcome for the target child; conversion would discard its external expectation.	
+CA-R-1176	Keep	Reviewed		Parent-owned outcome for the target child; conversion would discard its external expectation.	
+CA-R-1178	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-R-1179	Keep	Reviewed		Parent-owned outcome for the target child; conversion would discard its external expectation.	
+CA-R-1180	Keep	Reviewed		Parent-owned outcome for the target child; conversion would discard its external expectation.	
+CA-R-1181	Keep	Reviewed		Parent-owned outcome for the target child; conversion would discard its external expectation.	
+CA-R-1182	Keep	Reviewed		Parent-owned outcome for the target child; conversion would discard its external expectation.	
+CA-R-1183	Keep	Reviewed		Parent-owned outcome for the target child; conversion would discard its external expectation.	
+CA-R-1184	Convert	Reviewed	scope-contract-ca-r-1184	Standing local responsibility and ownership boundary; propose a Requirement Rule at numeric Tier 0, owned by the named unit.	Target metadata is absent; the Claim explicitly names PROGRAMMATIC.
+CA-R-1185	Convert	Reviewed	scope-contract-ca-r-1185	Standing local responsibility and ownership boundary; propose a Requirement Rule at numeric Tier 0, owned by the named unit.	Target metadata is absent; the Claim explicitly names AGENTIC.
+CA-R-1186	Hold	Held		TOOLS standing responsibility names group structure that conflicts with registered unit names; resolve before promotion.	CONNECTORS and CAPRMEDIO_TOOLS are not registered; source also describes explicit exclusions and classification.
+CA-R-1188	Convert	Reviewed	scope-contract-ca-r-1188	Standing local responsibility and ownership boundary; propose a Requirement Rule at numeric Tier 0, owned by the named unit.	
+CA-R-1189	Convert	Reviewed	scope-contract-ca-r-1189	Standing local responsibility and ownership boundary; propose a Requirement Rule at numeric Tier 0, owned by the named unit.	Target metadata is absent; the Claim explicitly names SKILLS.
+CA-R-1420	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-R-1421	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-R-1423	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-R-1424	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-R-1426	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-R-1434	Hold	Held		Header owns and targets PROJECT_CONFIGURATION but the Claim and governing Subject identify CORE_META_MODEL; authority cannot be silently reassigned.	Conflicting target and declaring ownership.
+CA-R-1463	Hold	Held		Local specialized operational outcome or implementation constraint, not evidently a foundational unit-wide commitment; preserve its full content pending correct non-Goal classification.	Self-targeted Goal does not fit ordinary external parent-to-child form; Tier 0 promotion is unsubstantiated.
+CA-R-1469	Hold	Held		Claim explicitly names GIT, which is not registered; no target or unit is invented.	Missing target metadata and unregistered named scope GIT.
+CA-R-1474	Hold	Held		Claim explicitly names FPF, which is not registered; no target or unit is invented.	Missing target metadata and unregistered named scope FPF.
+CA-R-1482	Hold	Held		Claim explicitly names FPF, which is not registered; no target or unit is invented.	Missing target metadata and unregistered named scope FPF.
+CA-R-1486	Keep	Reviewed		Parent-owned outcome for the target child; conversion would discard its external expectation.	
+CA-R-1487	Hold	Held		Local specialized operational outcome or implementation constraint, not evidently a foundational unit-wide commitment; preserve its full content pending correct non-Goal classification.	Self-targeted Goal does not fit ordinary external parent-to-child form; Tier 0 promotion is unsubstantiated.
+CA-R-1490	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-R-1600	Convert	Reviewed	scope-contract-ca-r-1600	Standing local responsibility and ownership boundary; propose a Requirement Rule at numeric Tier 0, owned by the named unit.	Target metadata is absent; the Claim explicitly names PROMPTS.
+CA-R-1601	Hold	Held		Claim explicitly names ACTION_PROMPTS, which is not registered; no target or unit is invented.	Missing target metadata and unregistered named scope ACTION_PROMPTS.
+CA-R-1602	Hold	Held		Claim explicitly names OPERATOR_PROMPTS, which is not registered; no target or unit is invented.	Missing target metadata and unregistered named scope OPERATOR_PROMPTS.
+CA-R-1603	Convert	Reviewed	scope-contract-ca-r-1603	Standing local responsibility and ownership boundary; propose a Requirement Rule at numeric Tier 0, owned by the named unit.	Target metadata is absent; the Claim explicitly names GRAPH_SERVER.
+CA-R-1604	Convert	Reviewed	scope-contract-ca-r-1604	Standing local responsibility and ownership boundary; propose a Requirement Rule at numeric Tier 0, owned by the named unit.	Target metadata is absent; the Claim explicitly names GRAPH_UI.
+CA-R-1605	Convert	Reviewed	scope-contract-ca-r-1605	Standing local responsibility and ownership boundary; propose a Requirement Rule at numeric Tier 0, owned by the named unit.	Target metadata is absent; the Claim explicitly names WORKFLOW_ORCHESTRATOR.
+CA-R-1606	Hold	Held		Claim explicitly names AGENT_HOST_PLUGINS, which is not registered; no target or unit is invented.	Missing target metadata and unregistered named scope AGENT_HOST_PLUGINS.
+CA-R-1625	Hold	Held		The Framework Engine contains SKILLS; the remaining issue is whether this specific integration belongs in a foundational local contract or a specialized requirement.	Local foundational status versus specialization is unresolved.
+CA-R-1801	Hold	Held		Local specialized operational outcome or implementation constraint, not evidently a foundational unit-wide commitment; preserve its full content pending correct non-Goal classification.	Self-targeted Goal does not fit ordinary external parent-to-child form; Tier 0 promotion is unsubstantiated.
+CA-R-1803	Hold	Held		Local specialized operational outcome or implementation constraint, not evidently a foundational unit-wide commitment; preserve its full content pending correct non-Goal classification.	Self-targeted Goal does not fit ordinary external parent-to-child form; Tier 0 promotion is unsubstantiated.
+CA-R-2007	Hold	Held		Local specialized operational outcome or implementation constraint, not evidently a foundational unit-wide commitment; preserve its full content pending correct non-Goal classification.	Self-targeted Goal does not fit ordinary external parent-to-child form; Tier 0 promotion is unsubstantiated.
+CA-R-2155	Keep	Reviewed		Operator-owned external Project Goal; retain its root Actor owner and target.	
+CA-R-815	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-R-818	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-R-832	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-R-846	Keep	Reviewed		Human-approved Project-owned external Goal targeting FRAMEWORK_ENGINE; the Framework wording does not create a target conflict.	
+CA-E-001	Keep	Reviewed		Project-wide checkability of governed commitments and results is a foundational evaluation commitment. Its existing Tier 0 is read as Scope Contract; current Type and body remain unchanged.	
+CA-E-002	Hold	Held	p2701-ca-e-002	Evidence and uncertainty for every governed conclusion are broader than R-1420’s Operator communication requirement; this obligation does not itself test that communication. A direct evaluation_for link is not established by the Claim. Hold promotion and relation correction for review.	The existing child_of to R-1420 cannot remain at equal Tier 0; evaluation_for would assert an unproven evaluation.
+CA-E-208	Keep	Reviewed		Representative lifecycle acceptance and reporting operationalize R-819 rather than state a separate foundational commitment.	
+CA-E-434	Keep	Reviewed		Pass/fail criteria for requirement checkability specialize E-001.	
+CA-M-001	Keep	Reviewed		MECE is a foundational conditional method for canonical project decompositions. Its existing Tier 0 is read as Scope Contract; current Type and body remain unchanged.	
+CA-M-002	Keep	Reviewed		Reuse of canonical authority and representations governs the project as a whole. Its existing Tier 0 is read as Scope Contract; current Type and body remain unchanged.	
+CA-M-003	Promote	Reviewed	p2701-ca-m-003	The method preserves information and exposes the justified sufficient set; it supports R-1420’s informed Operator communication. Promote with a direct method_for relation in place of the existing child_of relation.	
+CA-M-005	Keep	Reviewed		Necessity of mechanisms is a foundational project method. Its existing Tier 0 is read as Scope Contract; current Type and body remain unchanged.	
+CA-M-006	Keep	Reviewed		Mutual coherence across interacting project authority and implementation is a foundational method. Its existing Tier 0 is read as Scope Contract; current Type and body remain unchanged.	
+CA-M-105	Keep	Reviewed		One canonical entity per information kind and its escalation procedure specialize reuse and coherence.	
+CA-M-138	Keep	Reviewed		Authoring vocabulary and syntax implement project coherence in a narrower activity.	
+CA-M-261	Keep	Reviewed		Rebuildability is a specific implementation-evolution method; the unusual missing-authority wording is preserved without broadening it.	
+CA-M-263	Keep	Reviewed		The Operator-specific representation and adaptation procedure specializes information exposure.	
+CA-M-296	Keep	Reviewed		Memory-file and handoff handling is a detailed development method, not a general foundational contract.	
+CA-R-001	Keep	Reviewed		Topology and navigation distinctions are a specific Project Structure rule.	
+CA-R-007	Hold	Held	p2701-ca-r-007	Tracing each governed authority to its real Implementation contributes to the connected graph of graphs required by R-1407. Treat child_of R-1407 as a plausible real governing dependency rather than discard it to force promotion; retain R-007 at Tier 1 pending review.	Promotion would place R-007 and its governing R-1407 at equal Tier 0. Existing Method links also lack a justified mechanical inversion.
+CA-R-029	Keep	Reviewed		Settings and override mechanics specialize authority-mode governance.	
+CA-R-047	Keep	Reviewed		The named contributions and sequence boundaries specialize the self-improvement cycle.	
+CA-R-053	Keep	Reviewed		The comparison-frame prerequisites apply to the specific act of claiming improvement.	
+CA-R-1407	Keep	Reviewed		The connected graph-of-graphs relationship across Framework Instance and Implementation is a foundational architecture invariant. Its existing Tier 0 is read as Scope Contract; current Type and body remain unchanged.	
+CA-R-2256	Keep	Reviewed		A distinct canonical product entity definition should remain an entity definition, not be recast as a contract.	
+CA-R-632	Keep	Reviewed		The explicit one-target rule specializes improvement-cycle operation.	
+CA-R-635	Keep	Reviewed		Concern closure and recurrence-risk criteria specialize improvement and issue handling.	
+CA-R-642	Keep	Reviewed		Universe, axis and assignment details specialize the MECE decomposition method.	
+CA-R-644	Keep	Reviewed		Materialized representation admission and examples specialize the necessity principle.	
+CA-R-686	Hold	Held	p2701-ca-r-686	Distinct core, extension and configuration authority is a project-wide boundary. M-001 governs complete nonoverlapping canonical decompositions, while R-686 does not establish a complete decomposition; M-006 governs coherence and does not directly establish no transfer. Neither inversion is sufficiently evidenced by these Claims.	The two existing child_of Method edges require an evidenced replacement or removal before equal-Tier promotion; do not mechanically invert them.
+CA-R-705	Keep	Reviewed		Existing Tier 0 project-topology rule remains current, with its Type and body unchanged. Whether this concrete rule belongs in the foundational scope contract remains a classification question.	Foundation classification needs review; no retirement, move, or tier change is proposed.
+CA-R-707	Keep	Reviewed		Existing Tier 0 project-topology rule remains current, with its Type and body unchanged. Whether this concrete rule belongs in the foundational scope contract remains a classification question.	Foundation classification needs review; no retirement, move, or tier change is proposed.
+CA-R-709	Keep	Reviewed		Existing Tier 0 project-topology rule remains current, with its Type and body unchanged. Whether this concrete rule belongs in the foundational scope contract remains a classification question.	Foundation classification needs review; no retirement, move, or tier change is proposed.
+CA-R-712	Keep	Reviewed		Existing Tier 0 project-topology rule remains current, with its Type and body unchanged. Whether this concrete rule belongs in the foundational scope contract remains a classification question.	Foundation classification needs review; no retirement, move, or tier change is proposed.
+CA-R-819	Keep	Reviewed		The framework must not require humans to master or perform specialist work across feasible project lifecycles; this is a foundational product commitment of this Project. Its existing Tier 0 is read as Scope Contract; current Type and body remain unchanged.	
+CA-R-831	Keep	Reviewed		The Extension mechanism and declared compatibility specialize reusable-capability architecture.	
+CA-R-844	Keep	Reviewed		The specific RELEASES order is a narrow Project Structure rule.	
+CA-R-881	Keep	Reviewed		Demand-specific relation ownership and ancestry constraints specialize relation-family governance.	
+CA-R-975	Keep	Reviewed		The specific CORE_EXTENSIONS order is a narrow Project Structure rule.	
+	Hold	Held		Legacy Project Principle consumer lacks canonical Atom metadata and its heading/summary names the retired concept; resolve identity and version before a successor.	Missing canonical Atom identity and modern properties.
+CA-D-276	Revise	Reviewed	consumer-ca-d-276	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-E-445	Revise	Reviewed	consumer-ca-e-445	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-E-477	Revise	Reviewed	consumer-ca-e-477	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-E-520	Revise	Reviewed	consumer-ca-e-520	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-M-438	Revise	Reviewed	consumer-ca-m-438	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-005	Revise	Reviewed	consumer-ca-o-005	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-006	Revise	Reviewed	consumer-ca-o-006	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-008	Revise	Reviewed	consumer-ca-o-008	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-017	Revise	Reviewed	consumer-ca-o-017	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-028	Revise	Reviewed	consumer-ca-o-028	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-090	Revise	Reviewed	consumer-ca-o-090	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-122	Revise	Reviewed	consumer-ca-o-122	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-125	Revise	Reviewed	consumer-ca-o-125	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-141	Revise	Reviewed	consumer-ca-o-141	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-144	Revise	Reviewed	consumer-ca-o-144	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-223	Revise	Reviewed	consumer-ca-o-223	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-224	Revise	Reviewed	consumer-ca-o-224	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-225	Revise	Reviewed	consumer-ca-o-225	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-226	Revise	Reviewed	consumer-ca-o-226	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-227	Revise	Reviewed	consumer-ca-o-227	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-229	Revise	Reviewed	consumer-ca-o-229	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-O-230	Revise	Reviewed	consumer-ca-o-230	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-R-024	Revise	Reviewed	consumer-ca-r-024	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-R-030	Revise	Reviewed	consumer-ca-r-030	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-R-035	Revise	Reviewed	consumer-ca-r-035	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-R-037	Revise	Reviewed	consumer-ca-r-037	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-R-2124	Revise	Reviewed	consumer-ca-r-2124	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-R-2125	Revise	Reviewed	consumer-ca-r-2125	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-R-2131	Revise	Reviewed	consumer-ca-r-2131	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	
+CA-R-706	Revise	Reviewed	consumer-ca-r-706	Replace obsolete terminology or owner range with current Tier 0 scope while retaining existing scope and behavior.	

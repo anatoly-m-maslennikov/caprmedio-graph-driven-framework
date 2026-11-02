@@ -1,25 +1,24 @@
 ---
 atom_id: CA-D-500
-content_role: Delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Logging
-version: 10
-updated_at: 2026-10-27 19:59:26 +0400
+  active: Carrier
+  passive:
+  - Entity/Aspect/Engineering/Observability/Logging
+version: 13
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Select material production log events
 
-## Scope
+## Claim scope
 
 production log emission under Logging Policies for production-relevant components.
 

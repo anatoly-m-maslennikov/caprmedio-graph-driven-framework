@@ -6,6 +6,8 @@ hits are derived only from parsed YAML fields, never from carrier body text.
 
 from __future__ import annotations
 
+from carrier_aliases import carrier_read_view
+
 import hashlib
 import re
 import tomllib
@@ -16,7 +18,7 @@ from typing import Any, Iterable
 import yaml
 
 from atom_operations import ATOM_ID, ROLE_DIRECTORY, ToolError, _inside, _lifecycle, _role_directory, control_root, safe_path
-from subject_notation import SubjectNotationError, get_profile, parse_subject, profile_evidence
+from subject_notation import SubjectNotationError, get_profile, parse_subject_expression, profile_evidence
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError, parse_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import LimitReached, ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
@@ -44,7 +46,7 @@ def _request(args: Any) -> tuple[str, set[str], str, set[str], str | None, Any]:
     try:
         profile = get_profile(profile_name)
         if match in {"exact", "prefix"}:
-            parse_subject(subject, subject_profile=profile.name)
+            parse_subject_expression(subject, subject_profile=profile.name)
     except SubjectNotationError as error:
         raise ToolError(error.code, str(error)) from error
     field = getattr(args, "subject_field", None) or "both"
@@ -104,14 +106,14 @@ def _owner_for(path: Path, owners: dict[str, Path]) -> str | None:
     return max(matches, key=lambda item: len(item[0].parts))[1] if matches else None
 
 
-def _subject_match(value: str, subject: str, mode: str, separators: tuple[str, ...]) -> bool:
+def _subject_match(value: str, subject: str, mode: str, separators: tuple[str, ...], *, subject_profile: str | None = None) -> bool:
     from connector_atom_parse import subject_matches
 
-    return subject_matches(value, subject, mode, separators)
+    return subject_matches(value, subject, mode, separators, subject_profile=subject_profile)
 
 
 def _structured_subjects(metadata: dict[str, Any], fields: set[str]) -> Iterable[tuple[str, int | None, str]]:
-    subjects = metadata.get("subjects")
+    subjects = carrier_read_view(metadata).get("subjects")
     if not isinstance(subjects, dict):
         raise ValueError("subjects must be one mapping")
     value = subjects.get("governs")
@@ -308,7 +310,7 @@ def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> 
         except CarrierError:
             diagnostics.append(_diagnostic("source-invalid", path, "carrier cannot be parsed"))
             continue
-        metadata = parsed.metadata
+        metadata = carrier_read_view(parsed.metadata)
         if "projection" in metadata:
             continue
         atom_id, version, status = metadata.get("atom_id"), metadata.get("version"), metadata.get("status")
@@ -343,7 +345,7 @@ def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> 
             continue
         try:
             for _, _, value in source_subjects:
-                parse_subject(value, subject_profile=profile.name)
+                parse_subject_expression(value, subject_profile=profile.name)
         except SubjectNotationError as error:
             diagnostics.append(_diagnostic(error.code, path, str(error)))
             continue
@@ -383,7 +385,7 @@ def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> 
             continue
         subjects = _structured_subjects(metadata, fields)
         for field, index, value in subjects:
-            if _subject_match(value, subject, match_mode, profile.separators):
+            if _subject_match(value, subject, match_mode, profile.separators, subject_profile=profile.name):
                 occurrences.append({"atom_id": metadata["atom_id"], "version": metadata["version"], "status": metadata["status"],
                                     "owner": metadata["current_scope_unit"], "current_scope_unit": metadata["current_scope_unit"],
                                     "relative_path": relative, "sha256": digest, "updated_at": metadata.get("updated_at"),

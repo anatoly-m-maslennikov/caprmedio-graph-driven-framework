@@ -1,0 +1,24 @@
+{
+  "reviewer": "terra_declaration_consistency",
+  "result": "One selection defect repaired; bounded review otherwise passed",
+  "repaired": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "issue": "Classification conclusions selected root only",
+      "change": "Both conclusions now use the same root-inclusive branch scope as their conditions"
+    }
+  ],
+  "verified": [
+    "Project.Settings has only Name and Prefix",
+    "Carrier delivery uses frontmatter and recursive Content selection",
+    "Object remains a Term for Node instance",
+    "No accidental replacement of Node// instance selector"
+  ],
+  "pending": [
+    "Effective relation whitelists and reference mappings"
+  ],
+  "limits": [
+    "No parser, runtime, instance-data, adoption or promotion review"
+  ],
+  "resolved_object_decision": "Object remains a Term meaning Node instance. Existing Node// instance notation is retained; no Object classification or Node//** notation is introduced."
+}

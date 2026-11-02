@@ -10,10 +10,13 @@ import json
 import os
 import re
 from functools import lru_cache
+from dataclasses import fields, is_dataclass, replace
 from pathlib import Path
 from typing import cast
 
 from authoritative_status_models import StatusModelError, resolve_status_model
+from subject_notation import (DeclaredReference, Name, Path as SubjectPath, SubjectNotationError,
+                              parse_subject_expression, render_subject)
 
 from .authority import Record, _verified, diagnostic
 from .check_support import Check, _integer, _plan, _string, _strings
@@ -558,6 +561,35 @@ def _subject_targets(metadata: Record, check: Check) -> list[tuple[str, str]]:
     return targets
 
 
+def _subject_references(node: object) -> list[str]:
+    if isinstance(node, DeclaredReference):
+        entity = node.entity
+        return [render_subject(SubjectPath(entity, (), None, None, entity.span)) if isinstance(entity, Name) else render_subject(entity)]
+    if isinstance(node, tuple):
+        return [name for child in node for name in _subject_references(child)]
+    if is_dataclass(node) and not isinstance(node, type):
+        return [name for field in fields(node) if field.name != "span"
+                for name in _subject_references(getattr(node, field.name))]
+    return []
+
+
+def _expanded_subject(node: object) -> object:
+    if isinstance(node, DeclaredReference):
+        return node.entity
+    if isinstance(node, tuple):
+        return tuple(_expanded_subject(child) for child in node)
+    if isinstance(node, SubjectPath) and isinstance(node.head, DeclaredReference):
+        entity = node.head.entity
+        if isinstance(entity, SubjectPath) and not node.steps and node.value_format is None and node.value_cardinality is None:
+            return entity
+        if isinstance(entity, SubjectPath) and entity.value_format is None and entity.value_cardinality is None:
+            return replace(node, head=entity.head, steps=entity.steps + node.steps)
+    if is_dataclass(node) and not isinstance(node, type):
+        return replace(node, **{field.name: _expanded_subject(getattr(node, field.name))
+                                for field in fields(node) if field.name != "span"})
+    return node
+
+
 def _subject_declarations(check: Check) -> dict[str, list[Record]]:
     # GOVERNS declarations identify the canonical Entity. A dependent mention, a
     # reusable terminal Term, or several governing Claims does not create another
@@ -572,7 +604,12 @@ def _subject_declarations(check: Check) -> dict[str, list[Record]]:
             else None
         )
         if _string(governed) and (data.get("status") == "Active" or record.get("binding")):
-            declarations.setdefault(str(governed), []).append(record)
+            try:
+                parsed = parse_subject_expression(governed)
+            except SubjectNotationError:
+                continue
+            if not _subject_references(parsed.expression):
+                declarations.setdefault(render_subject(parsed), []).append(record)
     return declarations
 
 
@@ -616,6 +653,21 @@ def subjects_resolution(metadata: Record, body: str, check: Check) -> None:
         return
     declarations = _subject_declarations(check)
     for field, target in targets:
+        try:
+            parsed = parse_subject_expression(target)
+        except SubjectNotationError as error:
+            _fail(check, field, str(error))
+            continue
+        references = _subject_references(parsed.expression)
+        for reference in references:
+            matches = declarations.get(reference, [])
+            if not matches:
+                _gap(check, field, "Declared Entity reference has no admitted governing declaration in the bounded context: " + reference + ".")
+            else:
+                _subject_revision(check, matches, field, reference)
+        if references and any(reference not in declarations for reference in references):
+            continue
+        target = render_subject(cast(SubjectPath, _expanded_subject(parsed.expression)))
         matches = declarations.get(target, [])
         if not matches:
             _gap(

@@ -1,0 +1,19 @@
+{"key":"B01","generated_summary":"FRAMEWORK_ENGINE provides `ca` as the primary Skill entry point for methodology Workflows and MCP Step exchanges.","ambiguity":null}
+{"key":"B02","generated_summary":"PROGRAMMATIC owns all and only deterministic FRAMEWORK_ENGINE behavior.","ambiguity":null}
+{"key":"B03","generated_summary":"Show only the complete, currently justified information set needed for a task.","ambiguity":null}
+{"key":"B04","generated_summary":"Apply DRY (Don’t repeat yourself).","ambiguity":null}
+{"key":"B05","generated_summary":"GRAPH_UI is an optional human-facing interface that is not required for headless graph access, Tools, or MCP.","ambiguity":null}
+{"key":"B06","generated_summary":"FIELD collects feedback, questions, suggestions, and problem reports from CAPRMEDIO users.","ambiguity":null}
+{"key":"B07","generated_summary":"COMMUNITY_EXTENSIONS catalogs external Extension packages without making them CAPRMEDIO-owned Scope Units.","ambiguity":null}
+{"key":"B08","generated_summary":"MCP exposes a bounded, non-authoritative, read-only browser diagnostic view at `/health`.","ambiguity":null}
+{"key":"B09","generated_summary":"Code Candidate Semantic Review read-only assesses complete bound Method-policy obligations and evidence.","ambiguity":null}
+{"key":"B10","generated_summary":"Shared Implementation Review Step invokes Code Candidate Semantic Review in explicit Integrated context.","ambiguity":null}
+{"key":"B11","generated_summary":"Evaluate RMEDO Conflict Resolution for preserved required authority.","ambiguity":null}
+{"key":"B12","generated_summary":"Implementation provides a full traceable Run record in its report and correlated Project Journal Records.","ambiguity":null}
+{"key":"B13","generated_summary":"The CAPRMEDIO Framework Instance keeps all valuable Project information recoverable across sessions, handoffs, context loss, and Implementation changes.","ambiguity":null}
+{"key":"B14","generated_summary":"Evaluate the Project-wide foundation and Core set for canonical, non-conflicting authority.","ambiguity":null}
+{"key":"B15","generated_summary":"MCP owns the provider-neutral Model Context Protocol discovery, schema, and dispatch interface.","ambiguity":null}
+{"key":"B16","generated_summary":"Markdown Atom Carrier YAML Frontmatter uses the least syntax and nesting that preserves deterministic parsing, validation, extensibility, and readability.","ambiguity":null}
+{"key":"B17","generated_summary":"The Project has exactly five ordered Layers.","ambiguity":null}
+{"key":"B18","generated_summary":"PROMPTS owns prompt-based implementations for AI Agents and Operators.","ambiguity":null}
+{"key":"B19","generated_summary":"The caprmedio Project evolves a Framework that enables AI Agents to create, deliver, run, and maintain any feasible Project.","ambiguity":null}

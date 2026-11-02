@@ -1,0 +1,15 @@
+{
+  "values": "p: [format]{count}",
+  "occurrence": "p{0..1}: [format]{count}",
+  "immediate_names": "p.*[format]{count}",
+  "recursive_names": "p.**[format]{count}",
+  "combined": "p.*[name format]{name count}: [value format]{value count}",
+  "name_count": "total selected properties, not names per Property",
+  "separator": ";",
+  "content_format": "markdown",
+  "shared_content_rule": "Atom.Content.**[string]{0+}: [markdown]{1}",
+  "claim_path": "Atom.Content.Claim",
+  "formal_part": "optional GFEL fenced block, not a separate heading/Property",
+  "representation": ">>",
+  "current_changed": false
+}

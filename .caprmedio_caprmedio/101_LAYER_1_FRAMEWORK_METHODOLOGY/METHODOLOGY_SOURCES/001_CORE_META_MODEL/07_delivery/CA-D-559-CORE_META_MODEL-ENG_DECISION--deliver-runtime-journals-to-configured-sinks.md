@@ -1,28 +1,27 @@
 ---
 atom_id: CA-D-559
-content_role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Carrier
-version: 14
-updated_at: 2026-10-27 19:59:27 +0400
+  active: Journal
+  passive:
+  - Entity/Aspect/Engineering/Data Handling/Output Publication
+  - Projection
+  - Journal
+  - Carrier
+version: 17
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 tier: 3
-type: Eng Decision
+role: Delivery
+form: Decision
 ---
-# Summary
+## Summary
 
 Deliver runtime Journals to configured sinks
 
-## Scope
+## Claim scope
 
 technical and business runtime Journal Carriers.
 

@@ -48,9 +48,17 @@ class _Item(_Closed):
     draft: _Pin | None = None
 
 
-class _Packet(_Closed):
+class _PacketV1(_Closed):
     schema_version: Literal[1]
     subject_profile: Literal["approved"]
+    git_checkpoint: str = Field(pattern=r"^(?:[0-9a-f]{40}|[0-9a-f]{64})$")
+    atoms: list[_Item] = Field(min_length=1)
+
+
+class _PacketV2(_Closed):
+    schema_version: Literal[2]
+    subject_profile: Literal["approved"]
+    source_subject_profile: Literal["legacy"]
     git_checkpoint: str = Field(pattern=r"^(?:[0-9a-f]{40}|[0-9a-f]{64})$")
     atoms: list[_Item] = Field(min_length=1)
 
@@ -64,7 +72,7 @@ def load_subject_batch(root: Path, parameters: Mapping[str, Any]) -> dict[str, A
     value = json.loads(source.read_bytes(), object_pairs_hook=_unique_keys)
     if not isinstance(value, dict) or type(value.get("schema_version")) is not int:
         raise ValueError("Subject batch schema version must be an integer")
-    packet = _Packet.model_validate(value).model_dump()
+    packet = (_PacketV1 if value["schema_version"] == 1 else _PacketV2).model_validate(value).model_dump()
     for item in packet["atoms"]:
         if item["draft"] is None:
             item.pop("draft")
@@ -82,6 +90,8 @@ def load_subject_batch(root: Path, parameters: Mapping[str, Any]) -> dict[str, A
                 "subject_patches": item["subject_patches"],
                 "subject_intent_sha256": "0" * 64,
                 "subject_profile": "approved",
+                **({"source_subject_profile": packet["source_subject_profile"]}
+                   if "source_subject_profile" in packet else {}),
             }
         )
         relative = target["path"]

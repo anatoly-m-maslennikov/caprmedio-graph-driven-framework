@@ -1,0 +1,107 @@
+{
+  "status": "read-only subject-focus audit of all 60 registered Property Declarations",
+  "baseline_layers": {
+    "model_entities": "Node/** {:0}((*))",
+    "instances": "Node/**// {:0}((*))",
+    "application": "These are shared default layers only. Property Declarations must not duplicate them; a matching common/local signature may narrow the default only for its own endpoints, direction, and source-side degree."
+  },
+  "audit_summary": {
+    "property_declarations": 60,
+    "foreign_actual_constraints": 1,
+    "safe_contextual_invariants": 7,
+    "duplicate_inherited_common_relation_constraints": 0,
+    "schema_only_or_schema_shape_declarations": 50,
+    "scope_rule": "A Property Claim may read same-bearer context, selected populations for tuples, or declared derived inputs, but must not require, write, or cardinally constrain another active Property/Node as its own conclusion."
+  },
+  "foreign_actual_constraint": {
+    "subject": "Atom/(.Role := Plan).Work Sequence Number",
+    "file": "04_requirement/draft/node-declaration-20261031/primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md:26-27",
+    "clause": "IF Active Plan has Work Sequence Number THEN Relations.contained_by{==1}",
+    "why_foreign": "The active subject is Work Sequence Number, but the conclusion requires occurrence of the separate Relations.contained_by Property.",
+    "minimal_safe_candidate": "Move only that IF/THEN to the Plan Primary Declaration or a Plan grouping Rule. Retain Work Sequence Number's own optional-int/positive contract and both UNIQUE tuple constraints here; their Status and contained_by reads are contextual tuple inputs, not foreign conclusions.",
+    "counterexample": "An Active Plan with a sequence number but no contained_by is rejected by a Work Sequence Number Claim even though the conclusion changes a different Property's required occurrence."
+  },
+  "safe_contextual_invariants": [
+    {
+      "subject": "Atom.Updated At",
+      "file": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md:21-25",
+      "classification": "derived input",
+      "reason": "Event Record filter and MAX determine the active Atom.Updated At value; the Claim does not require/write Event Record fields."
+    },
+    {
+      "subject": "Projection.Updated At",
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md:21-24",
+      "classification": "derived input",
+      "reason": "Event Record fields are read-only aggregate inputs to the active Projection.Updated At value."
+    },
+    {
+      "subject": "Atom.Content.Summary",
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md:21-30",
+      "classification": "population functional dependency",
+      "reason": "DETERMINES constrains Summary for selected Atom instances; ID/Status are tuple selectors, not foreign required facts."
+    },
+    {
+      "subject": "Projection.ID",
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md:21-25",
+      "classification": "population functional dependency",
+      "reason": "Form and Source.Named Selection are tuple basis inputs to ID; neither is written or cardinally constrained."
+    },
+    {
+      "subject": "Atom/(.Role := Plan).AI Agent Confidence Threshold",
+      "file": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-plan-ai-agent-confidence-threshold.md:21-26",
+      "classification": "derived fallback input",
+      "reason": "LOOKUP reads containment-chain and Project Settings fallback values without creating a source Property or changing source occurrences."
+    },
+    {
+      "subject": "Atom.Tier.Label",
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier-label.md:21-29",
+      "classification": "same-bearer condition",
+      "reason": "Tier is read to constrain the active Label's allowed derived value; Tier itself is not changed."
+    },
+    {
+      "subject": "Event Record.ID",
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-event-record-id.md:21-25",
+      "classification": "population uniqueness",
+      "reason": "UNIQUE compares the active ID Property across Event Record instances, without constraining another Property."
+    }
+  ],
+  "prose_and_schema_assessment": [
+    {
+      "subject": "Scope Unit.Path",
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md:21-27",
+      "classification": "necessary derived meaning",
+      "finding": "The containment-chain prose describes the active Path's value meaning; it does not constrain a foreign Scope Unit. Keep until a reusable ancestry-value operator exists."
+    },
+    {
+      "subject": "Atom.Tier",
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-tier.md:21-27",
+      "classification": "same-subject conditional domain policy",
+      "finding": "Project Goal/owner wording constrains Tier values, not those external subjects. It is not a subject-focus defect, but formalization still needs admitted Goal/owner selectors."
+    },
+    {
+      "subject": "Atom/(.Role := Requirement)/(.Form := Relation Definition).Content.notation_for_subject",
+      "file": "primary-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-relation-definition-notation-for-subject.md:21-25",
+      "classification": "same-subject conditional occurrence",
+      "finding": "Relation admission is contextual input to the active notation Property. No foreign occurrence is required; retain prose until ADMITTED_VALUES is admitted."
+    },
+    {
+      "subject": "Projection.Source.Atoms",
+      "file": "property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-source-atoms.md:21-27",
+      "classification": "value-format meaning",
+      "finding": "Atom ID/Version wording constrains each active Property value representation; it grants no edge and changes no Atom."
+    }
+  ],
+  "common_relation_reuse": {
+    "no_local_duplicates": "No Property Claim duplicates IS_PROPERTY_OF, NARROWER_THAN/HAS_NARROWER, INSTANCE_OF/HAS_INSTANCE, or the new wildcard defaults.",
+    "property_bearing": "IS_PROPERTY_OF remains common Property -> bearer topology; HAS_PROPERTY inverse degree belongs to bearer-side constraints.",
+    "value_boundary": "Colon allowed values and HAS_VALUE stay non-graph bindings. Typed reference formats do not grant graph Relations."
+  },
+  "real_open_question": {
+    "question": "Does ALLOWED VALUE mean the existing non-graph colon/HAS_VALUE binding or a new graph Relation named ALLOWED_VALUE?",
+    "reason": "Only the latter would need an exception to either wildcard layer and new endpoint/cardinality semantics."
+  },
+  "mutations": {
+    "repository_files_changed": false,
+    "output": "/tmp/caprmedio-prose-whitelists-20261101/property-subject-focus.json"
+  }
+}

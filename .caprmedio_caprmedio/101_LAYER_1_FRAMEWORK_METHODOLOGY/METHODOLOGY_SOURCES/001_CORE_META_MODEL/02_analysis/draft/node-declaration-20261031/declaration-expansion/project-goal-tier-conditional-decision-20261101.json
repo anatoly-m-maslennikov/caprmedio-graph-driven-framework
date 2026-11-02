@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-01",
+  "user_expression": "IF (atom.target scope unit = project AND atom.form = Goal) THEN Tier == -1",
+  "other_goals": "No extra Tier rule, explicitly confirmed",
+  "status": "Ownership clause removed; numeric formalization remains pending exact Subject-to-Scope binding",
+  "known_gap": "No unique active-Subject-to-target-Scope mapping for arbitrary Subjects is yet declared. A new relation name alone does not establish this mapping.",
+  "not_decided": [],
+  "tier_declaration_changed": true,
+  "target_scope_source": "Resolve from active Subject; explicitly confirmed by user",
+  "target_scope_property": "Do not add a Target Scope Unit Property",
+  "operator_ownership": "Removed by explicit user decision; no separate Core R",
+  "non_goal_clause": "Preserved for ordinary Scope Unit-owned non-Goal Atoms; does not impose a new rule on other Goals"
+}

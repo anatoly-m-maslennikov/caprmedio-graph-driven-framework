@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
-version: 31
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  passive:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Object/Continuant/Governing Objects/Governing Configuration
+version: 35
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
-  - CA-R-1402
+  - CA-R-1402@27
   - CA-R-1430
   - CA-R-1429
   - CA-D-317
@@ -19,19 +19,18 @@ relations:
   - CA-R-1441
   - CA-M-279
 atom_id: CA-E-458
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Policy
 tier: 6
+role: Evaluation
+form: Eval Policy
 ---
-# Summary
+## Summary
 
 Validate Authoritative Framework Settings Artifact
 
-## Scope
+## Claim scope
 
 Framework Instance Settings.
 

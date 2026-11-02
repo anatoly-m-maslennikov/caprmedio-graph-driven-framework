@@ -1,33 +1,32 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  depends_on: []
-version: 29
-updated_at: 2026-10-27 20:00:02 +0400
+  active: Atom/(.Role := Method)
+  passive: []
+version: 34
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-M-001
+  - CA-M-447
 atom_id: CA-R-1767
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 1
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Distinguish Implementation Methods from Implementation Decisions
 
-## Scope
+## Claim scope
 
-Eng Policy and Eng Decision Method and Delivery Types.
+Method Eng Policy/Eng Decision and Delivery Policy/Decision Types.
 
 ## Claim
 
-an Eng Policy governs reusable policy for how accepted specification is realized, while an Eng Decision selects one concrete approach for a bounded realization target. **neither** Eng Policy **nor** Eng Decision is an execution Plan **or** native Implementation.
+A Method Eng Policy governs reusable engineering policy and an Eng Decision selects a bounded engineering approach. A Delivery Policy governs a reusable representation or delivery family, while a Delivery Decision selects a bounded representation or delivery choice. **neither** Eng Policy **nor** Eng Decision is an execution Plan **or** native Implementation.
 
 ## Details
 
-These names replace the legacy Implementation Method and Implementation Decision labels for this distinction. Eng Policy ownership requires an actual declared child and automatic application to every child under genuine topic or environment conditions; Eng Decision does not automatically inherit to every child. A named technology alone does not select either Type. This distinction does not impose a Type-to-Tier restriction; the applicable Method and Delivery definitions are CA-R-2119 through CA-R-2122.
+These names replace the legacy Implementation Method and Implementation Decision labels for this distinction. Eng Policy ownership requires an actual declared child and automatic application to every child under genuine topic or environment conditions; Eng Decision does not automatically inherit to every child. A named technology alone does not select either Type. This distinction does not impose a Type-to-Tier restriction; the applicable Method definitions are CA-R-2119@8 and CA-R-2120@8; Delivery uses CA-R-2267@2 and CA-R-2268@1. The Method actual-child rule is not an extra prerequisite on the Core representation-policy family.

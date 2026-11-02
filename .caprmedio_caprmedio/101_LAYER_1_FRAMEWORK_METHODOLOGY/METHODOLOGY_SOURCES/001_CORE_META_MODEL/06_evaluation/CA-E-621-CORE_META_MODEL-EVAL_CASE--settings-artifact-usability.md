@@ -1,33 +1,32 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Authority Modes
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-version: 32
-updated_at: 2026-10-27 19:59:38 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  passive:
+  - Project.Settings
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes
+  - Entity/Object/Continuant/Actor/Operator
+version: 35
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-1052
-  - CA-R-1402
+  - CA-R-1402@27
   - CA-R-1750
   - CA-R-1430
 atom_id: CA-E-621
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 3
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Settings Artifact Usability
 
-## Scope
+## Claim scope
 
 the Operator has no undocumented Framework knowledge **and** **must not** edit the Framework Catalog.
 

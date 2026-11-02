@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.Authority Modes
-version: 34
-updated_at: 2026-10-27 19:59:28 +0400
+  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  passive:
+  - Project.Settings
+  - Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes
+version: 38
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-D-361
@@ -21,28 +21,27 @@ relations:
   - CA-R-1052
   - CA-R-1430
   - CA-R-1441
-  - CA-R-1483
+  - CA-R-1483@21
   - CA-R-1628
   - CA-R-1630
   - CA-R-1655
   - CA-R-1740
 atom_id: CA-E-006
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 7
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 Canonical Settings Selection
 
-## Scope
+## Claim scope
 Framework Instance Settings, Project Settings, **and** Project Structure selections.
 
 ## Claim
-### Claim checked
+**Claim checked.**
 
 the Framework Instance Settings Artifact **and** Project Settings Artifact accept exactly their registered values, resolve deterministically, **and** fail closed on invalid **or** unknown selections; Project Structure owns current unit declarations **and** explicit per-unit overrides **without** duplicating Settings selections **or** requiring a structural Projection.
 
@@ -63,5 +62,3 @@ the Framework Instance Settings Artifact **and** Project Settings Artifact accep
 ### Failure disposition
 
 record a Concern naming the accepted invalid value, rejected valid value, **or** non-deterministic result **and** stop settings-schema readiness.
-
-## Details

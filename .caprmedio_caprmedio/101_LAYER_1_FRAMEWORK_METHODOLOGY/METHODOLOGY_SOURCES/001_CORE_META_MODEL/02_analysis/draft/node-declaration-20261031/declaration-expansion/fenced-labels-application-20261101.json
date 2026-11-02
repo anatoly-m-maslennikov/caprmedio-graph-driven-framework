@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-01",
+  "scope": "User approved fenced-only restriction; indented code excluded.",
+  "new_rule": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--select-fenced-markdown-labels.md",
+  "consumer": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+  "before_claim": "\n- At most one CFEL block is present.\n- Other fenced blocks are not allowed in Claim.\n\n```CFEL\nAtom/(.Role in RMED).Content.Claim{:1}: [markdown]{:1};\nAtom/(.Role in RMED).Content.Claim.*[]{:0}\n```\n",
+  "after_claim": "```CFEL\nAtom/(.Role in RMED).Content.Claim{:1}: [markdown]{:1};\nAtom/(.Role in RMED).Content.Claim.*[]{:0};\nFENCED_LABELS(Atom/(.Role in RMED).Content.Claim): [in (CFEL)]{:0..1}\n```",
+  "before_sha256": "83e8c9b378ab6f38b59e6e4b816b150a3b864ce16fcca30d059330a0465fc474",
+  "after_sha256": "6b3ea6f9332640a808a8c29f2d0937698f2bfb3c2e5cd34bf6e7b6645d7f4633",
+  "property_contract_preserved": true,
+  "new_syntax": "One FENCED_LABELS selector; existing finite Format and value-cardinality annotations",
+  "label_policy": "Preserve governing CFEL label meaning; raw info-string binding remains parser-adoption work.",
+  "runtime_implemented": false
+}

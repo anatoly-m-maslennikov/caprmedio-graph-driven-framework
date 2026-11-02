@@ -1,25 +1,24 @@
 ---
 atom_id: CA-R-2225
-content_role: Requirement
-type: Rule
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-  - Subject
+  active: Projection
+  passive:
+  - Scope Unit
+  - Entity/Object/Continuant/Selection
+  - Entity
 relations:
   depends_on:
-  - CA-R-2150
+  - CA-R-2150@15
 tier: 2
-version: 1
-updated_at: 2026-10-27 23:53:05 +0400
+version: 4
+updated_at: 2026-11-02 00:18:22 +0400
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Select Subject Graph views by Scope Units and branches
 

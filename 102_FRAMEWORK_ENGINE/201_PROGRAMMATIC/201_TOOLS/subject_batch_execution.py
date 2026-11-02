@@ -15,14 +15,16 @@ from subject_batch_drafts import finish_subject_draft_promotion
 PROGRESS = "subject_batch_progress.json"
 
 
-def _parameters(root: Path, item: Mapping[str, Any]) -> dict[str, Any]:
+def _parameters(root: Path, item: Mapping[str, Any], source_subject_profile: str | None) -> dict[str, Any]:
     prepared = prepare_subject_intent(
-        root, item["target"], item["subject_patches"], subject_profile="approved"
+        root, item["target"], item["subject_patches"], subject_profile="approved",
+        source_subject_profile=source_subject_profile,
     )
     return {
         "target": item["target"],
         "subject_patches": item["subject_patches"],
         "subject_profile": "approved",
+        **({"source_subject_profile": source_subject_profile} if source_subject_profile else {}),
         "subject_intent_sha256": prepared["subject_intent_sha256"],
     }
 
@@ -72,12 +74,13 @@ def _record_change(
 
 
 def _execute_target(
-    root: Path, frozen: Mapping[str, Any], session: Any, item: Mapping[str, Any], ordinal: int
+    root: Path, frozen: Mapping[str, Any], session: Any, item: Mapping[str, Any], ordinal: int,
+    source_subject_profile: str | None,
 ) -> dict[str, Any]:
     run_id = frozen["request"]["run_id"]
     identities = subject_batch_run_ids(run_id, ordinal)
     actual = [session.start_run(identity) for identity in identities]
-    parameters = _parameters(root, item)
+    parameters = _parameters(root, item, source_subject_profile)
     result = subject_update_action(
         root,
         parameters,
@@ -151,7 +154,8 @@ def execute_subject_batch(root: Path, frozen: Mapping[str, Any], session: Any) -
             progress["in_flight"] = {"ordinal": ordinal, "target": item["target"]}
             atomic_write(path, progress)
             try:
-                row = _execute_target(root, frozen, session, item, ordinal)
+                row = _execute_target(root, frozen, session, item, ordinal,
+                                      state.packet.get("source_subject_profile"))
             except Exception as error:
                 row = {
                     "ordinal": ordinal,

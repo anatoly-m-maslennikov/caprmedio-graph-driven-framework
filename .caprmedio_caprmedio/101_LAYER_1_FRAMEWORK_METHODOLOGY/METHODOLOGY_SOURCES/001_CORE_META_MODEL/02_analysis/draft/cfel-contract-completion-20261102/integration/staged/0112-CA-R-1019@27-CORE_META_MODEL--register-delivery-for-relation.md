@@ -1,0 +1,28 @@
+---
+subjects:
+  active: CFEL > Relation//delivery_for
+  passive:
+  - CFEL > Relation
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1019@27
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+tier: 1
+role: Requirement
+form: Relation Definition
+---
+## Summary
+
+Register delivery_for relation
+
+## Claim scope
+
+`delivery_for` relations.
+
+## Claim
+
+`delivery_for` **means** the direct relation from a Delivery Atom to the Atom
+that the Delivery realizes.

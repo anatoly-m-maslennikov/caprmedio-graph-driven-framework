@@ -1,28 +1,27 @@
 ---
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Assignee'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Definition of Done'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Details'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
-version: 25
-updated_at: 2026-10-27 19:59:36 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - Atom.Content
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Details'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+  - Scope Unit
+  - Entity/Aspect/Engineering/Execution Control/Decision Confidence
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
-  - CA-R-1574
+  - CA-R-1574@21
   - CA-R-1575
-  - CA-R-1576
+  - CA-R-1576@21
   - CA-R-1577
-  - CA-R-1581
+  - CA-R-1581@23
   - CA-R-1599
-  - CA-R-1583
+  - CA-R-1583@26
   - CA-R-1584
   - CA-R-1587
   - CA-R-1588
@@ -30,19 +29,18 @@ relations:
   - CA-M-306
   - CA-D-470
 atom_id: CA-E-501
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate common Plan authoring
 
-## Scope
+## Claim scope
 
 Plan authoring under the common model.
 

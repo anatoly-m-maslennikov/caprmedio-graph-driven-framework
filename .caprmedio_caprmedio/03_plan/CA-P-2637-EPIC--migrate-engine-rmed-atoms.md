@@ -12,8 +12,8 @@ subjects:
   depends_on:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/Scope Unit
-version: 6
-updated_at: 2026-10-26 23:25:22 +0400
+version: 9
+updated_at: "2026-10-30 00:24:42 +0400"
 relations: {}
 tier: 3
 ---
@@ -27,7 +27,6 @@ After the Methodology migration is complete, revise the Engine Subject system
 and Scope Unit structure, then migrate all Current Engine RMED Atoms,
 including PROGRAMMATIC, APPS, TOOLS and the other Engine descendants.
 
-## Details
 
 ### Engineering Subject cleanup — next prerequisite
 
@@ -151,7 +150,220 @@ included. Existing C/A and Engine P instance migration are not added by this
 RMED-only scope. Spec needs no named Selection: directly select Active RMED
 Atoms in the specified Scope Unit.
 
-## Definition of Done
+### Deferred Scope Goal follow-up
+
+[CA-P-2702](CA-P-2637-EPIC--migrate-engine-rmed-atoms/backlog/CA-P-2702-TASK--reconcile-deferred-engine-scope-goals.md) records the four legacy Engine Scope Goals not changed by P2701. Resolve them with this Epic’s Subject/Scope Unit revision; no new Scope Units, code or runtime change is implied.
+
+
+### Published sample/authoring-method handoff — 30 October 2026
+
+Record this source handoff and the bounded downstream consumer inventory, not
+implementation work within this RMED migration Epic. P2702 remains only the
+four deferred Scope Goals described above. Runtime adoption belongs to a
+separately authorized PROGRAMMATIC pass, including the existing P2577/P2636
+follow-up; neither this checkpoint nor the source receipt expands this Epic
+to code, tests, deployment or release.
+
+#### Source evidence and identity succession
+
+- Completed receipt:
+  `.caprmedio_tmp/p2701-sample-corrections/completed-result.json`.
+  State `complete`; 104 applied rows: 20 sample successors, three
+  writing-method successors and 81 reference-only updates.
+  SHA-256:
+  `d5bb7cd8c28819d45e05b29257e9c27fc5aba0ac1d4e3e365ba3c0449f6f7e6c`.
+- Durable review:
+  `.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/sample-20-content-corrections.md`,
+  SHA-256
+  `af121989c4bbcc3a6c886983e647590fa8038fa4b8f463ae20bd45d954579e4a`.
+  Its thin `.tsv` has SHA-256
+  `761b3e5f8a18320f88d3ec1fe1c8a2d11803d0aa7da228525d633b66b3bd91c7`.
+- Read-only source inspection matched all 104 Current file hashes with no
+  duplicate IDs/paths and confirmed all 23 successor mappings. That verifies
+  this bounded source frontier, not full graph/schema/runtime conformance.
+- Preserve recovery provenance: the initial `publication-result.json`
+  stopped after 25 rows with a `'status'` error at CA-C-278. The completed
+  `reference-completion-result.json` supplies 79 further rows; the final
+  aggregate is complete. Do not replay the stopped batch or describe the
+  initial attempt as uninterrupted success.
+
+The predecessor column is historical identity context, not a list of live
+dependencies or permission for automatic runtime aliases:
+
+| Historical predecessor | Published Current successor |
+|---|---|
+| CA-R-1625 | CA-R-2429 |
+| CA-R-1184 | CA-R-2430 |
+| CA-M-003 | CA-M-440 |
+| CA-M-002 | CA-M-441 |
+| CA-R-1604 | CA-R-2431 |
+| CA-R-1183 | CA-R-2432 |
+| CA-R-1182 | CA-R-2433 |
+| CA-R-2007 | CA-R-2434 |
+| CA-O-225 | CA-O-236 |
+| CA-O-230 | CA-O-237 |
+| CA-E-477 | CA-E-663 |
+| CA-R-1803 | CA-R-2435 |
+| CA-R-1490 | CA-R-2436 |
+| CA-E-660 | CA-E-664 |
+| CA-R-1188 | CA-R-2437 |
+| CA-D-276 | CA-D-656 |
+| CA-R-707 | CA-R-2438 |
+| CA-R-1600 | CA-R-2439 |
+| CA-R-2155 | CA-R-2440 |
+| CA-E-662 | CA-E-665 |
+| CA-M-111 | CA-M-442 |
+| CA-M-115 | CA-M-443 |
+| CA-M-301 | CA-M-444 |
+
+Successor chains also matter: historical CA-E-210 passed through CA-E-660 to
+CA-E-664; CA-E-655 passed through CA-E-662 to CA-E-665. CA-R-2440 is the
+successor of the previously normalized external Project Goal CA-R-2155.
+Re-resolve Current authority rather than treating an earlier handoff's
+intermediate ID, version, path or digest as the latest admitted source.
+
+The source owner reports three Methodology/project RMED views rebuilt from
+1,261 Current sources. That is not the same artifact as the runtime-read
+SHARED_CONTEXT frontier projection below, and is not runtime or full-suite
+acceptance. This record does not overwrite or rebuild either selection.
+
+#### Actual bounded consumer findings
+
+The checked production/source-binding scope has direct uses of predecessor
+O225/O230, D276, R1803 and M301; M002/M003 were found in migration-only scripts.
+No direct active matches for the other 16 predecessors or in PROJECT_TOOLS
+were found within that scan. Negative literal search is not proof about
+dynamic lookups, installed images, every projection or runtime admission.
+
+The Current implementation Workflow is CA-O-016@27, entry CA-O-231; its
+review route reaches Step CA-O-237@1, which invokes Action CA-O-236@1 in
+Integrated context. Observed source hashes are:
+
+- O016@27:
+  `495e046f49d8cbe1aaeb877c847230b9888b6003edafded34caa5cc716182447`.
+- O237@1:
+  `1e1724560d5b5960b9d9fa927d3b0e03ad2e9f7a4c1327d56a804baebae6d2f7`.
+- O236@1:
+  `7d62144f52ec3b507c82a2eb474d19bd62cc820cbce477b6945f0e6075e60ca2`.
+
+The following are candidate implementation follow-ups, not completed work:
+
+1. Workflow Orchestrator code still carries O230-to-O225 review identities.
+   Under `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/`,
+   inspect `selected_implementation_packet.py` (review tuples/observations),
+   `shared_context_validation_sources.py` (CURRENT_ACTIONS, version profiles,
+   source bindings), `shared_context_validation.py` (phase/packet validation)
+   and `selected_integrated_action_outcome.py` (review postcondition).
+   Dispatch/profile/resume consumers include
+   `selected_integrated_dispatch_profile.py`,
+   `selected_integrated_dispatch.py` and `selected_integrated_resume.py`.
+   The MCP adapter `204_MCP/selected_route_workflow_profiles.py` consumes those
+   profiles. Current graph admission requires a semantic/source review; merely
+   adding version 27 to an allowlist or replacing two strings is not proof.
+2. The runtime prompt/frontier boundary under
+   `102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/IMPLEMENTATION_WORKFLOW/`
+   includes `SHARED_CONTEXT/CA-O-230.prompt.md`,
+   `SHARED_CONTEXT/definition_frontier.projection.json`,
+   `SHARED_CONTEXT/README.md` and `implementation_actions.py`.
+   Orchestrator `selected_integrated_action_contract.py` reads the frontier.
+   Bound IDs, paths, versions and digests must match one admitted generation;
+   do not bypass exact-source validation or infer activation from rendered views.
+3. D276 remains in validator authority/field consumers:
+   `201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/registry.json`,
+   `check_schema_extended.py`, `check_structure_extended.py`,
+   `registry_refresh.py` and `proposed_carrier.py`.
+   `201_TOOLS/GENERATE_ENTITY_GRAPH/core_entity_admission.py` also pins its
+   path/digest. Review these against Current CA-D-656 and the complete
+   applicable authority closure, not a filename-only replacement.
+4. Under the Agentic `ACTION_PROMPTS/RMED_ATOM_REVIEW/` boundary,
+   `source_bindings.json` still names D276, R1803 and M301 with old source
+   pins. The corresponding users include `evaluate_properties.prompt.md`,
+   `evaluate_cce.prompt.md`, `repair/propose_repair.prompt.md` and the
+   associated README files. Reconcile them with D656, R2435 and M444 in the
+   separately authorized consumer pass.
+5. `201_TOOLS/migrations/distribute_project_principles_across_rmedo.py` and
+   `reorder_project_principle_filename_segments.py` contain M002/M003.
+   These are migration-only references; do not treat them as an active
+   runtime dependency or run them unchanged against Current sources.
+
+Tool paths abbreviated with `201_TOOLS/` above are relative to
+`102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/`. Agentic source paths are the
+existing implementation paths, not instructions to move Scope Units.
+
+#### Follow-up boundaries
+
+Preserve deliberately frozen workflow worlds, historical projections, quoted
+paths and hash-bound evidence. A versioned fixture may legitimately retain
+O225/O230 or other predecessor IDs. Separate a new Current-source case from
+that historical fixture rather than performing a blanket identity rewrite.
+The selected-workflow binding JSONs had no direct predecessor literals in the
+bounded scan; that does not establish their version/path/hash freshness.
+
+Source publication does not authorize consumer edits, tests, an image build,
+deployment or release. P2702's deferred R1186/R1601/R1602/R1606 review remains
+unchanged; do not create or restore Scope Units to fit those old Goals, and do
+not reactivate the separately deferred GIT/FPF Goals. No runtime implementation
+or readiness is claimed by this source/backlog handoff.
+
+
+
+### P2703 Text Writing Style and held adapter proposal — 30 October 2026
+
+Current CA-R-2441@1 defines the Aspect `Entity/Aspect/Text Writing Style`;
+it does not create another Property identity or a File Carrier. Current
+CA-M-445@1 is the readable-model-name Eng Policy owned by
+METHODOLOGY_SOURCES. Its applicability is authored Methodology Sources and
+their applicable children: use governed readable model names, and identify
+technical spellings as Carrier keys or serialization examples. It does not
+authorize renaming Engine keys, values, canonical concepts or runtime schemas.
+
+Observed Current source hashes:
+
+- CA-R-2441@1:
+  `bfa31288a296f184387554be6d107d46a833d1bf1ccfcb3c00f1abfcdab819e7`.
+- CA-M-445@1:
+  `036a02805d7431214aec70314b2636d8852f68f14e5140b0c536d5240fcdd612`.
+
+The separate Engine ADAPTERS Draft is not Current and has not been edited
+by this handoff. Its reviewed replacement body/header are proposal
+`index: 5`, disposition `Hold`, in
+`.caprmedio_tmp/p2703-review/style/handoff.json`, SHA-256
+`ea5435069219844cdc913078bfc880ad064c2fd3d28bba9163314c498945f8b3`.
+The unchanged shared Draft is:
+
+`.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/007_FEATURE_GROUP_ADAPTERS/05_method/draft/text-writing-style/CA-M-draft-ADAPTERS-ENG_DECISION--normalize-metadata-key-spelling-in-file-adapters.md`
+
+Its source hash still matches the review packet:
+`f6be5f96ba6663e4e58c1a52890fc14781537f5b64384a674e4b971fd9ce33c6`.
+The proposed header addresses the same Text Writing Style Aspect; the proposed
+body/header must not be mistaken for an applied Draft revision or a Current
+Method.
+
+For a later Engine disposition, the candidate concerns key spelling in the
+Markdown file adapter's YAML Frontmatter and the TOML adapter only:
+
+- lowercase English letters, replace spaces with underscores, then remove
+  characters outside `a-z`, `0-9` and underscore;
+- require a nonempty key and reject collisions between distinct source names
+  within the same destination mapping/table; do not add suffixes or aliases;
+- convert declared nested keys separately, preserving nesting and values;
+  do not normalize readable model names or flatten Property paths;
+- retain admitted field mappings and Delivery-controlled field placement,
+  encoding, quoting and syntax. A generated spelling neither creates a field
+  nor authorizes renaming an existing governed field. TOML does not acquire
+  Markdown's Frontmatter/Content regions.
+
+P2703 remains Active pending Operator disposition and coordinated
+Term/classification preparation. Preserve the shared Draft and re-resolve
+applicable Current field mappings before any later Engine proposal/adoption.
+This note does not promote the Draft, rewrite Terms, migrate keys, change
+parser/schema code, or authorize deployment. This Epic's source-only scope and
+P2702's separate deferred Goal review remain unchanged.
+
+
+## Details
+
+### Definition of Done
 
 - Methodology completion is recorded before Engine migration starts.
 - Engine Subjects and Scope Units are reviewed and their accepted model saved.

@@ -1,0 +1,136 @@
+{
+  "hashes": {
+    ".caprmedio_tmp/content-role-prompts-20261030/tests-v2/c/input.jsonl": "64f0fbbeb56ba60076a89bc5a705dc29a1080b448f697bf6f2633256ffd69e78",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests-v2/c/output.jsonl": "fb7af4d724ccb55138b73b42cce6a84001f2a3f2048dc3d8dae82bdb055bf41d",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests-v3/p/input.jsonl": "2715b5d2eb94ce262cf92e0013970cb8cff6ad537b4943f580d896781cbf0d5d",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests-v3/p/output.jsonl": "e600b45d0b7a0f697f9b0f20f5ab919880dbedfd3bec6470aa641f2330edffca",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests-v2/r/input.jsonl": "0e0b7e0f9fb3c3ad287d2751db3c486818e5c5c9ee62c0ec6fe449cd8795ea20",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests-v2/r/output.jsonl": "e76b6dbdd3911e5fa5f9218558eb469a0750b496d65c2502672e22b7ac522e48",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests/m/input.jsonl": "c36656c3f25b6bee4b5501f94385fd0152fe76071527dc30f925643ec4d49cfc",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests/m/output.jsonl": "dfcfde074b78e8f44c2ca0da599c5cb2df0e6b5a295191e5b60606ae72578686",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests-v3/e/input.jsonl": "d53b4f5febcbd795da0ebd013f1a231c713258164c55b36e4aefa7f5f8a28ce7",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests-v3/e/output.jsonl": "ff52681b39678cebe776e66fd464fbacf2e150fdf50f2fddf5ee94dd3ada366e",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests/d/input.jsonl": "86aa0867313aa55dac72303cd40bf6da1beaddcea67d408de7b456e22ef39021",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests/d/output.jsonl": "670a4f642d6ada9c23fc110065c9c777d37da2ec46536a85c928a1e564535657",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests-v3/o/input.jsonl": "3a0c085cf05ace1b30ae4dcfc6d136e28cfaddf571fab2c6eeda33650db69829",
+    ".caprmedio_tmp/content-role-prompts-20261030/tests-v3/o/output.jsonl": "f70fb91920fc6a3f64c503309fd0292504c6232530ffd4be38528236dce0a860",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/C-concern.prompt.md": "aafed25d32dcedf0d6e2845c40a29293d9ef2fa3faef455ace5a1b1b11e5a69a",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/D-delivery.prompt.md": "0942aa874c1b3743a3080175008bf162c0aede4f6e950703763e5a58a08f73ed",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/E-evaluation.prompt.md": "fb6e40678de3b8bfaf82a066a5935456a16b2dc673e64bcce1d514450170efa9",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/M-method.prompt.md": "891ae7b6a94c7f50991a4a7034fdb1c0ef8f2f6dddd728e3c8c6fb94be591f2d",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/O-operations.prompt.md": "3a4d5981cd50ead354c5b8bb93c9064115e754998d04e790c17f5ff3f465abc4",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/P-plan.prompt.md": "c2148e707b86d2bffe1d3d9ac366a08e3d4d2c742baee63ccfeb83a75d479738",
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/content-role-prompts/R-requirement.prompt.md": "574c1224f4a1fe6402214bc20ff49a40de33fcba4c5b94618e5644eb116a5f21"
+  },
+  "counts": {
+    "total": 15,
+    "pass": 14,
+    "needs_changes": 1,
+    "needs_context": 0
+  },
+  "results": [
+    {
+      "case": "C1",
+      "role": "C",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "C2",
+      "role": "C",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "P1",
+      "role": "P",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "P2",
+      "role": "P",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "R1",
+      "role": "R",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "R2",
+      "role": "R",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "M1",
+      "role": "M",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "M2",
+      "role": "M",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "E1",
+      "role": "E",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "E2",
+      "role": "E",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "D1",
+      "role": "D",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "D2",
+      "role": "D",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "O1",
+      "role": "O",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "O2",
+      "role": "O",
+      "verdict": "Pass",
+      "issues": []
+    },
+    {
+      "case": "O3",
+      "role": "O",
+      "verdict": "NeedsChanges",
+      "issues": [
+        {
+          "source_quote": "The Prepare Step has no Action or Workflow call of its own.",
+          "output_quote": "The Prepare Step contains these Substeps in order:",
+          "problem": "The generated Step does not introduce its own call, but omits the supplied explicit no-own-call boundary.",
+          "smallest_fix": "State that the Prepare Step has no Action or Workflow call of its own."
+        }
+      ]
+    }
+  ],
+  "review_notes": [
+    "P1 Definition of Done now includes review of the role definitions and follows the requested falsifying prose form.",
+    "E2 states the findings-only evaluation once and adds no pass/fail verdict.",
+    "O3 has no actual own call in the generated content, but its explicit no-own-call statement remains absent."
+  ],
+  "scope": "Bounded independent 15-case review of exact final prompts, inputs, and outputs; not a general performance guarantee. No sources, prompts, or outputs changed."
+}

@@ -1,27 +1,26 @@
 ---
 atom_id: CA-R-1612
-content_role: Requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Realization Graph'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
-version: 18
-updated_at: 2026-10-27 19:59:59 +0400
+  active: Projection/(.Form:=Realization Graph)
+  passive:
+  - Atom.Content
+  - Atom/(.Role := Evaluation)
+  - Entity/Aspect/Engineering/Verification
+version: 24
+updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Allow pre-runtime pass only with sufficient evidence
 
-## Scope
+## Claim scope
 
 Evaluations using a Realization Graph before runtime, for their declared input boundary.
 
@@ -34,5 +33,3 @@ an Evaluation using a Realization Graph **may** return `pass` **before** runtime
 - a possible inferred Relation is **not** an observed occurrence. **when** required runtime evidence is unavailable **or** a material condition remains unresolved, the Evaluation **must not** return a pre-runtime `pass`.
 
 this Claim constrains permission **to** report a result; the applicable E Atoms supply the checks. it does **not** require complete graph coverage for a Claim that needs **only** bounded evidence.
-
-## Details

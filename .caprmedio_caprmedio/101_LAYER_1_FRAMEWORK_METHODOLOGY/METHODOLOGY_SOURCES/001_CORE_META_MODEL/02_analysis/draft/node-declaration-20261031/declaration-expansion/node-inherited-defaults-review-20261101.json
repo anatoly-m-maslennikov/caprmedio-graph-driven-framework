@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "findings": [],
+  "hash_mismatches": [],
+  "checked": [
+    "Two separate selector layers",
+    "Property occurrence does not instantiate Property kind",
+    "Node primary zero does not transfer to dependent Properties",
+    "INSTANCE_OF primary-only target and nonautomatic inverse permissions",
+    "Classification cases and conditional guards"
+  ],
+  "limits": [
+    "Local whitelists and graph binding remain open",
+    "No parser/runtime verification"
+  ],
+  "closed": [
+    "Model HAS_PROPERTY named exception includes both Node and recursive dependent Property hosts, preserving nested Property inverse permission.",
+    "Selector scope and distinction between narrowing and dependence are stated in the shared Rule."
+  ]
+}

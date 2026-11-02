@@ -1,32 +1,30 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Expansion Boundary
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL
-version: 19
-updated_at: 2026-10-27 19:59:41 +0400
+  active: Entity/Aspect/Engineering/Authoring
+  passive:
+  - Scope Unit
+  - Scope Unit//PROJECT_CONFIGURATION
+  - Scope Unit//CORE_META_MODEL
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-M-006
   method_for:
   - CA-R-1375
 atom_id: CA-M-298
-content_role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
 tier: 2
-type: Implementation Method
+role: Method
+form: Implementation Method
 ---
-# Summary
+## Summary
 
 Describe methodology expansion mappings
 
-## Scope
+## Claim scope
 
 Methodology Source expansion mappings.
 
@@ -41,5 +39,3 @@ Methodology Source expansion mappings.
 - the applicable Core Meta-Model distinctions at **any** Local Tier.
 
 apply this same mapping convention **to** Extension **and** Project Configuration sources regardless of provenance. the convention supports CA-R-1375-CORE_META_MODEL-CORE-REQUIREMENT--restrict-methodology-source-expansion-to-core-permission's expansion boundary; it does **not** admit activation **or** reliance. CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings owns that admission Action **and** re-evaluation following material changes.
-
-## Details

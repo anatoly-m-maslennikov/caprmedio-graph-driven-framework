@@ -1,36 +1,39 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
-  - 'Subject/CAPRMEDIO/Graph/Relation/Type: GOVERNS'
-  - 'Subject/CAPRMEDIO/Graph/Relation/Type: DEPENDS_ON'
-  - Subject
-  - Subject/CAPRMEDIO/Graph/Relation/Type
-version: 24
-updated_at: 2026-10-27 19:59:23 +0400
+  active: Atom.Subjects
+  passive:
+  - Atom.Subjects
+  - CFEL > Relation//GOVERNS
+  - CFEL > Relation//DEPENDS_ON
+  - Entity
+  - CFEL > Relation
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 atom_id: CA-D-269
-content_role: Delivery
-type: Eng Decision
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
+role: Delivery
+form: Policy
 ---
-# Summary
+## Summary
 
 Serialize Atom Subjects in Frontmatter
 
-## Scope
+## Claim scope
 
-New **or** migrated Markdown Atom Carriers.
+New or migrated Markdown Atom carriers.
 
 ## Claim
 
-a new **or** migrated Markdown Atom Carrier **may** omit `subjects` when it has no Subject Relations. **when** present, `subjects.governs` **may** contain one scalar Subject Path **and** `subjects.depends_on` an unordered collection of **`>=0`** unique scalar Subject Paths; an absent `governs` key **means** zero governed Subjects **and** an absent dependency collection **means** zero dependencies. the `governs` **or** `depends_on` key encodes the Subject Relation Kind; the source Atom is implicit **and** the scalar value encodes its target's Subject Path, **not** the Subject Relation itself. these values resolve their canonical targets under CA-R-1202-CORE_META_MODEL-RULE--resolve-every-direct-subject-target-once **without** an intermediate Subject/Entity **or** Subject/Reference field **or** a repeated target-kind field.
+For Markdown Atom carriers, encode `subjects` as a mapping with one scalar nonempty Entity path under `active` and zero or more unique nonempty Entity paths as a YAML sequence under `passive`. An omitted `passive` means zero. The grouping mapping has no direct value; its child values are counted separately. A Draft may be incomplete before promotion.
+
+Preserve the decoded Entity paths exactly under the applicable notation and resolve targets under the applicable Subject rules. A defining Atom may introduce its target and path together. Do not add an intermediate reference object or a repeated target-type field. YAML quotes are not part of the decoded expression; preserve escapes and reference boundaries. Each YAML key occurs once within its own mapping. Preserve formal cardinality annotations and decoded Entity escapes exactly; do not serialize notation as extra YAML fields.
+
+The canonical keys are `active` and `passive`. Existing `governs` and `depends_on` remain readable during carrier migration. Mixed old and new aliases with unequal values are invalid. Equal aliases can be read during transition, without asserting additional Subjects.
 
 ## Details
 
-an existing unmigrated Carrier **may** temporarily retain `subjects.<governs|depends_on>.<continuant|occurrent>` **only** **until** its explicitly assigned carrier-migration Task is executed. this compatibility is migration-limited, preserves the same direct relation facts **and** target identities, **and** does **not** establish a second canonical representation. legacy temporal-classification authority **and** bulk Carrier conversion require their separately assigned migration Tasks.
+Reference migration preserves target identity and follows the governing Entity rules. Subject paths are distinct from formal Relation expressions in the body Claim.

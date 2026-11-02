@@ -1,0 +1,31 @@
+{
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Subjects",
+      "form": "Declaration",
+      "classification": "Property",
+      "source_ids": [
+        "CA-R-1198",
+        "CA-R-1363"
+      ],
+      "sha256": "2bb3d163f51f68d5fa6cd62bf0622186766e2a1a5656c561113556248d8f6d25"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-subjects-active.md",
+      "id": "CA-R-draft",
+      "summary": "Declare Atom.Subjects.Active",
+      "form": "Declaration",
+      "classification": "Property",
+      "source_ids": [
+        "CA-R-1198",
+        "CA-R-1363"
+      ],
+      "sha256": "06f74dc1956476f8416988d45872138f7379b85802c0c47aac235d2b6f9bec89"
+    }
+  ],
+  "basis": "Current completeness rule; Draft incompleteness retained",
+  "conditional_rule": "prose; no new GFEL completeness predicate",
+  "direct_and_dependent_slots": "explicit"
+}

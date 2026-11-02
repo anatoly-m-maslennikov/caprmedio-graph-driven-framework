@@ -9,8 +9,8 @@ author: Anatoly Maslennikov
 status: Done
 subjects:
   governs: Subject
-version: 3
-updated_at: 2026-10-27 20:03:46 +0400
+version: 4
+updated_at: 2026-10-29 21:51:04 +0400
 relations:
   IS_CONTAINED_BY:
   - CA-P-2673
@@ -41,9 +41,9 @@ The rebuilt primary Subject view reflects the adopted Current sources, with curr
 
 ## References
 
-- [A1218 — Candidate #10](../../../02_analysis/CA-A-1218-SPECIFICATION_PROPOSAL--subject-model-candidate-10.md).
-- [A1219 — Mixed Subject targets](../../../02_analysis/CA-A-1219-SPECIFICATION_PROPOSAL--clarify-mixed-subject-targets.md).
-- [A1220 — Project as a whole entity](../../../02_analysis/CA-A-1220-SPECIFICATION_PROPOSAL--define-project-as-a-whole-entity.md).
+- [A1218 — Candidate #10](../../../02_analysis/done/CA-A-1218-SPECIFICATION_PROPOSAL--subject-model-candidate-10.md).
+- [A1219 — Mixed Subject targets](../../../02_analysis/done/CA-A-1219-SPECIFICATION_PROPOSAL--clarify-mixed-subject-targets.md).
+- [A1220 — Project as a whole entity](../../../02_analysis/done/CA-A-1220-SPECIFICATION_PROPOSAL--define-project-as-a-whole-entity.md).
 - [P2675 — Existing thin Draft/change inventory](02-CA-P-2675-TASK--draft-main-subject-definitions.md).
 
 ## Progress

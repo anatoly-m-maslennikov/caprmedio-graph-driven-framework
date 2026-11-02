@@ -1,0 +1,20 @@
+{
+  "target_cases": 4,
+  "accepted_frozen": 34,
+  "training_examples": 5,
+  "training_keys": [
+    "B06",
+    "B25",
+    "B32",
+    "B33",
+    "B35"
+  ],
+  "target_keys": [
+    "B03",
+    "B08",
+    "B09",
+    "B10"
+  ],
+  "disjoint_training_targets": true,
+  "target_original_titles_hidden": true
+}

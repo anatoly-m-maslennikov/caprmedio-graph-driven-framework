@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-01",
+  "user_decision": "Move the writing rule to Method",
+  "action": "Reuse the existing Method; make only-when explicit; remove writing instruction from Property Declaration",
+  "changes": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "before_sha256": "d845449e1f616dd550043558b3074071dc5df561a08289deab0481a5b332f71a",
+      "after_sha256": "83e8c9b378ab6f38b59e6e4b816b150a3b864ce16fcca30d059330a0465fc474",
+      "formal_block_preserved": true,
+      "retained_prose": [
+        "At most one CFEL block is present.",
+        "Other fenced blocks are not allowed in Claim."
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--reuse-formal-notation-and-write-isolated-constraints-in-prose.md",
+      "before_sha256": "4a41c4a0e5ca32e6c00246abd71d0903799a079d930d860f66fec17f63692c28",
+      "after_sha256": "09ed7cc2ad09c6f1adbe2d127531051cf940b25600337cf988c5173b67143282",
+      "change": "when -> only when; all other Method clauses preserved"
+    }
+  ],
+  "new_drafts": 0,
+  "new_syntax": false,
+  "remaining_node_prose_claims": 17,
+  "runtime_changed": false
+}

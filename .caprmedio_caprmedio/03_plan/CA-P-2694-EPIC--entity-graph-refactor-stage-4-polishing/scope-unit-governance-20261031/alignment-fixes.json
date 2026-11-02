@@ -1,0 +1,10 @@
+{
+  "review": "alignment-review.json",
+  "fixes": [
+    {
+      "issue": "ordering terminology",
+      "resolution": "Use the Operator wording \u201cwhether it is ordered or unordered\u201d, without inventing a Scope Unit.Status property or asserting child-order semantics."
+    }
+  ],
+  "current_sources_changed": false
+}

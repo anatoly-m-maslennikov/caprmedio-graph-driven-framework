@@ -1,0 +1,103 @@
+{
+  "question": {
+    "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/draft/cfel-contract-completion-20261102/relation-consumers/CA-C-draft-CORE_META_MODEL-QUESTION--preserve-non-property-bearer-dependence.md",
+    "draft_id": "CA-C-draft",
+    "draft_sha256": "c14d1138209788fff8e27b1a9eec0a276dacd197c077b90f2ae2cb20455bb61d",
+    "status": "future extension question; nonblocking for the selected-model retirement"
+  },
+  "retirements": [
+    {
+      "source_id": "CA-R-1243",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1243-CORE_META_MODEL-RULE--derive-bears-as-the-inverse-of-is-borne-by.md",
+      "source_sha256": "19650a80fa9c90a501dbcbb354387f13d0ef356711cc91b3eae717af5a3827b9",
+      "effect": "proposed retirement only; no Current change",
+      "state": "adoption-ordered working choice: retire after IS_PROPERTY_OF and HAS_PROPERTY Declarations are adopted",
+      "question_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/draft/cfel-contract-completion-20261102/relation-consumers/CA-C-draft-CORE_META_MODEL-QUESTION--preserve-non-property-bearer-dependence.md",
+      "note": "Selected model uses Property for dependent Entity. Archive the complete historical source; preserve CA-R-1456/CA-E-449 provenance citations. The future-extension C/Question is nonblocking.",
+      "prerequisites": [
+        "adopt reviewed IS_PROPERTY_OF and HAS_PROPERTY Declarations",
+        "preserve exact predecessor source and historical citations",
+        "complete applicable lifecycle and reference checks"
+      ],
+      "decision_basis": [
+        "explicit Property=Dependent Entity decision for the selected model",
+        "CA-R-1456 marks IS_BORNE_BY/BEARS names superseded",
+        "CA-R-643 single authority",
+        "CA-M-446 DRY",
+        "CA-R-1718 coherent meaning",
+        "CA-R-1423 narrowest scope",
+        "CA-R-1558 explicit change request"
+      ]
+    },
+    {
+      "source_id": "CA-R-1260",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-DEFINITION--define-is-borne-by.md",
+      "source_sha256": "165bb662af1aef02a344f20c9f82c94d3b83ec83c0640a57ad6877a9da64394d",
+      "effect": "proposed retirement only; no Current change",
+      "state": "adoption-ordered working choice: retire after IS_PROPERTY_OF and HAS_PROPERTY Declarations are adopted",
+      "question_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/draft/cfel-contract-completion-20261102/relation-consumers/CA-C-draft-CORE_META_MODEL-QUESTION--preserve-non-property-bearer-dependence.md",
+      "note": "Selected model uses Property for dependent Entity. Archive the complete historical source; preserve CA-R-1456/CA-E-449 provenance citations. The future-extension C/Question is nonblocking.",
+      "prerequisites": [
+        "adopt reviewed IS_PROPERTY_OF and HAS_PROPERTY Declarations",
+        "preserve exact predecessor source and historical citations",
+        "complete applicable lifecycle and reference checks"
+      ],
+      "decision_basis": [
+        "explicit Property=Dependent Entity decision for the selected model",
+        "CA-R-1456 marks IS_BORNE_BY/BEARS names superseded",
+        "CA-R-643 single authority",
+        "CA-M-446 DRY",
+        "CA-R-1718 coherent meaning",
+        "CA-R-1423 narrowest scope",
+        "CA-R-1558 explicit change request"
+      ]
+    },
+    {
+      "source_id": "CA-R-2416",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2416-CORE_META_MODEL-RELATION_DEFINITION--define-bears-relation.md",
+      "source_sha256": "a3aae113a8348ee32e2cb06fe3e58b2cbe6d9e050b183665da2fda63ebb8598f",
+      "effect": "proposed retirement only; no Current change",
+      "state": "adoption-ordered working choice: retire after IS_PROPERTY_OF and HAS_PROPERTY Declarations are adopted",
+      "question_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/draft/cfel-contract-completion-20261102/relation-consumers/CA-C-draft-CORE_META_MODEL-QUESTION--preserve-non-property-bearer-dependence.md",
+      "note": "Selected model uses Property for dependent Entity. Archive the complete historical source; preserve CA-R-1456/CA-E-449 provenance citations. The future-extension C/Question is nonblocking.",
+      "prerequisites": [
+        "adopt reviewed IS_PROPERTY_OF and HAS_PROPERTY Declarations",
+        "preserve exact predecessor source and historical citations",
+        "complete applicable lifecycle and reference checks"
+      ],
+      "decision_basis": [
+        "explicit Property=Dependent Entity decision for the selected model",
+        "CA-R-1456 marks IS_BORNE_BY/BEARS names superseded",
+        "CA-R-643 single authority",
+        "CA-M-446 DRY",
+        "CA-R-1718 coherent meaning",
+        "CA-R-1423 narrowest scope",
+        "CA-R-1558 explicit change request"
+      ]
+    },
+    {
+      "source_id": "CA-R-1436",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1436-CORE_META_MODEL--define-is-allowed-value-of.md",
+      "source_sha256": "b1b15356c9899a93b149e49cbc2731346dd18cde1c9954fa78bf188692b4093e",
+      "effect": "proposed retirement only; no Current change",
+      "state": "candidate for retirement after operator Declaration and consumer changes are adopted",
+      "note": "Allowed values remain value qualifications, not Node-to-Node Relations."
+    },
+    {
+      "source_id": "CA-R-2479",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2479-CORE_META_MODEL-RELATION_DEFINITION--define-active-subject-link.md",
+      "source_sha256": "dc18a28d3aba4b913746d89092067dfcd8f3cbb1b264842c5e52183364234b1b",
+      "effect": "proposed retirement only; no Current change",
+      "state": "candidate for retirement after new-ID canonical HAS_ACTIVE_SUBJECT Declaration and consumer changes are adopted",
+      "replacement_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/cfel-contract-completion-20261102/relations/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+      "note": "Summary changes from derived to canonical; allocate a new ID."
+    }
+  ],
+  "consumer_draft_manifest": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/relations/consumer-drafts.json",
+  "operator_declaration": "CFEL<+Operator//AllowedValue",
+  "notes": [
+    "Each retirement must archive its exact Current predecessor and pass its applicable lifecycle and reference checks.",
+    "No Current source, Journal, projection, runtime or Git state was changed."
+  ],
+  "selected_frontier_evidence": "Selected Subject/CFEL scan found IS_BORNE_BY only on CA-R-1243 and CA-R-1260, and BEARS only on CA-R-2416; this bounded scan does not claim an exhaustive instance audit."
+}

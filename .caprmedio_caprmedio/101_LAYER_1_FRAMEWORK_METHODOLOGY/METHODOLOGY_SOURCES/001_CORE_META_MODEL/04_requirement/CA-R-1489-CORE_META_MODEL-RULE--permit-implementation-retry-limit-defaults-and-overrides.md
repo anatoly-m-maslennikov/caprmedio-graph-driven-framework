@@ -1,31 +1,30 @@
 ---
-version: 18
-updated_at: 2026-10-27 19:59:56 +0400
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
-  - CA-R-1488
+  - CA-R-1488@21
 subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan.implementation_retry_limit'
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings.implementation.retry_limit
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan).Implementation Retry Limit'
+  passive:
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit
+  - Entity/Object/Continuant/Actor/Operator
+  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Term//Property
 atom_id: CA-R-1489
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 4
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Permit implementation retry-limit defaults and overrides
 
-## Scope
+## Claim scope
 
 effective Implementation Retry Limit selection for a Plan or Framework Instance Settings.
 
@@ -36,5 +35,3 @@ an Implementation Retry Limit **must** take its effective value from applicable 
 - a Plan **may** have **<=1** explicit Implementation Retry Limit override, regardless of Label.
 - an omitted override **must** preserve inheritance **without** copying the inherited value into that Plan.
 - a retry decision **must** have **=1** valid effective limit; missing **or** ambiguous authority requires Operator disposition **before** another retry.
-
-## Details

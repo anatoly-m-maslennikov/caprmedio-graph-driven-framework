@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-01",
+  "user_input": "old \u2192 new, one record",
+  "agreed_surface": "One Event Record represents the old-to-new transition.",
+  "unresolved": "Exact event object-reference encoding remains a schema dependency; the abstract instance/state question is retired.",
+  "not_assumed": [
+    "Earlier Event Records are rewritten",
+    "Different Atom versions are merged",
+    "A new permanent Atom identifier is introduced",
+    "The timestamp formula follows a lineage automatically"
+  ],
+  "pending_question": null,
+  "timestamp_declarations_changed": false,
+  "event_schema_changed": false,
+  "runtime_changed": false,
+  "resolved_behavior": "Promotion is update; one Event Record carries old/new values of changed business Properties."
+}

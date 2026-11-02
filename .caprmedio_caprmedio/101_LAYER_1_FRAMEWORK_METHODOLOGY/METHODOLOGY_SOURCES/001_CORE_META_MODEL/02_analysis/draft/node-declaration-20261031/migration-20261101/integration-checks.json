@@ -1,0 +1,51 @@
+{
+  "status": "PASS: agreed source publication, direct compatibility repairs and graph refresh",
+  "updated_at": "2026-11-02 01:22:32 +0400",
+  "promoted": 139,
+  "selected_declarations": {
+    "primary": 30,
+    "property": 60
+  },
+  "retained_concepts": [
+    "Continuant",
+    "Occurrent"
+  ],
+  "retired_current_carriers": 302,
+  "predecessor_archives": 1276,
+  "followup_updates": 12,
+  "current_source_frontier": 1101,
+  "current_projection_rebuilt": true,
+  "projection_ids": [
+    "CA-PROJ-014",
+    "CA-PROJ-015",
+    "CA-PROJ-016",
+    "CA-PROJ-017"
+  ],
+  "model_projection_sources": 128,
+  "unsupported_subject_observations": 345,
+  "independent_source_readback": "final-source-readback.json",
+  "independent_projection_readback": "final-projection-readback.json",
+  "current_epic_38_unchanged": true,
+  "known_limits": [
+    "Bounded CFEL extraction, not full semantic validation or effective whitelist closure",
+    "Native runtime admission and complete legacy authority-pin migration not performed",
+    "Actual Operations instances deferred",
+    "Legacy source observations and unresolved ownership/authorization bindings remain explicit",
+    "Historical identity conflicts predate this change; no project/history-wide conformance claim",
+    "Journal input/output descriptors do not establish complete changed-Property audit delta conformance"
+  ],
+  "graph_tests": {
+    "command": ".venv/bin/python -m unittest discover -s 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests -p test_*.py",
+    "passed": 341
+  },
+  "grammar_profile_tests_passed": 33,
+  "notation_migration_tests_passed": 15,
+  "final_frontier_hashes": "PASS:1101",
+  "final_projection_hashes_and_journal_readback": "PASS:4",
+  "proposal_current_links": "PASS:139",
+  "projection_identity_transition": "projection-identity-transition.json; mapping documented, no history-wide validation claim",
+  "repository_diff_check": {
+    "result": "15 trailing-blank-line warnings in modified Current carriers",
+    "disposition": "Recorded; no extra source lifecycle changes for formatting outside the agreed semantic migration."
+  }
+}

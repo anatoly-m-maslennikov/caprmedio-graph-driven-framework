@@ -1,0 +1,62 @@
+{
+  "status": "read-only reconciliation of the user-selected wildcard default",
+  "baseline": {
+    "text": "Node//** {:0}((*))",
+    "interpretation_required": "A wildcard zero is the fallback for a relation signature absent from the effective whitelist. A more-specific named signature may allow its own source, target, direction, and source-side cardinality; it does not grant any other endpoint, direction, inverse, or override a named zero. Without this specificity rule, the wildcard is an absolute contradiction with every positive signature."
+  },
+  "common_exceptions_supported_by_live_model": [
+    {
+      "relation": "NARROWER_THAN",
+      "canonical_name": "NARROWER_THAN (not a new `NARROW THAN` spelling)",
+      "source": "CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-narrowing.md:21-25",
+      "signature": "Primary Node -> Primary Node only; HAS_NARROWER is derived inverse.",
+      "property_effect": "No Property grant. declare-node.md:29-32 requires HAS_NARROWER zero when the Node is a Property."
+    },
+    {
+      "relation": "IS_PROPERTY_OF",
+      "source": "CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md:21-25",
+      "signature": "Property -> immediate Node bearer, source cardinality exactly one; HAS_PROPERTY is derived inverse.",
+      "property_effect": "The common exception covers all Property Declarations through inheritance. No local duplication across 60 Properties is warranted."
+    },
+    {
+      "relation": "INSTANCE_OF",
+      "source": "CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-instantiation.md:21-24",
+      "signature": "Node instance -> Primary Node; HAS_INSTANCE is derived inverse; Property has HAS_INSTANCE zero.",
+      "why_required": "Node//** includes instances. If INSTANCE_OF is not a named exception or excluded from wildcard scope, the new baseline forbids the existing common instantiation signature."
+    },
+    {
+      "relation": "HAS_CLASSIFICATION",
+      "source": "CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-classification.md:21-25; CA-R-draft-CORE_META_MODEL-DECLARATION--declare-node.md:27-32",
+      "signature": "Only the explicit classification signatures already used by common/Primary constraints, including Node -> Independence for Primary Node/Property classification.",
+      "why_required": "`>| Independence` is a written classification relation in the live Node common constraint. The wildcard otherwise forbids the classification that distinguishes Property from Primary Node. This is not blanket permission for arbitrary axes."
+    }
+  ],
+  "non_graph_value_binding": {
+    "term": "ALLOWED VALUE",
+    "existing_semantics": "CFEL `p: literal` and `p: [format]{:n}` define an admitted value domain; HAS_VALUE binds an admitted literal to a Property instance.",
+    "evidence": "CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md:21-27; CA-R-draft-CORE_META_MODEL-RULE--bind-direct-property-values.md:21-23",
+    "reconciliation": "Neither colon nor HAS_VALUE is a Node-to-Node graph Relation, so neither is an exception to `((*))`. A typed reference value remains a value binding and does not create an endpoint edge."
+  },
+  "local_relation_constraints": {
+    "rule": "After the common fallback and exceptions resolve, each active Primary subject may add only its own outgoing signatures; inverse degree stays in the counterpart Declaration.",
+    "examples": [
+      "Event Record -> Actor HAS_EVENT_AUTHOR is owned by Event Record, not Event Record.Relations.HAS_EVENT_AUTHOR Property.",
+      "Containment, RUN, and other Primary-specific relations require their own declared endpoint signatures; common relation-definition mention alone is not permission."
+    ],
+    "no_local_property_duplication": "A Property path, relation-like child name, prose mention, or `[Actor//]`/other typed value format does not justify a local graph-edge grant."
+  },
+  "guardrails": [
+    "A named positive signature never ignores its endpoint selectors, direction, or source-side cardinality.",
+    "A named zero remains effective even when another relation is allowed.",
+    "Derived inverse views are not independently authored permissions.",
+    "Unresolved effective whitelist remains deny, as required by the inheritance/whitelist Rule."
+  ],
+  "one_user_question": {
+    "question": "Does `ALLOWED VALUE` mean the existing non-graph colon/HAS_VALUE value-domain binding, or do you intend a new graph Relation named ALLOWED_VALUE?",
+    "why_it_matters": "The first needs no wildcard exception and preserves typed references as values; the second needs a new Relation Definition, endpoints, cardinality, inverse policy, and changes the value-versus-edge boundary."
+  },
+  "mutations": {
+    "repository_files_changed": false,
+    "output": "/tmp/caprmedio-prose-whitelists-20261101/wildcard-common-relations.json"
+  }
+}

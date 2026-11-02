@@ -1,0 +1,14 @@
+{
+  "F1": {
+    "disposition": "accepted",
+    "severity": "medium",
+    "status": "needs Operator decision",
+    "reason": "Declared Scope Unit identity must be distinct from the Declaration Atom identity and owner, and required for the one-Declaration rule."
+  },
+  "F2": {
+    "disposition": "not a defect in this Draft packet",
+    "reason": "The Operator explicitly allowed CA-R-draft for new Atoms. These Drafts have unique file paths and hashes; relations are empty, and they are not published or consumed by Atom-ID keyed runtime. Unique canonical IDs must be allocated before promotion. Do not invent a new provisional-ID grammar."
+  },
+  "source_edits": false,
+  "new_open_question": "Q4: What identifies the governed Scope Unit in its external Declaration?"
+}

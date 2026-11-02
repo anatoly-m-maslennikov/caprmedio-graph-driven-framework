@@ -1,27 +1,24 @@
 ---
 atom_id: CA-E-652
-content_role: Evaluation
-type: Eval Case
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/caprmedio/Workflow//Implementation Workflow
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Implementation Retry Limit
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
-version: 15
-updated_at: 2026-10-27 19:59:38 +0400
+  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  passive:
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - Entity/Object/Continuant/Actor/AI Agent
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - Atom/(.Role := Method)
+  - Atom/(.Role := Evaluation)
+  - Entity/Aspect/Engineering/Verification/Test Design
+  - Entity/Object/Continuant/Actor/Operator
+  - Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  - Entity/Aspect/Engineering/Execution Control/Decision Confidence
+version: 20
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-O-016
@@ -39,19 +36,21 @@ relations:
   - CA-O-234
   - CA-O-096
   - CA-O-099
-  - CA-O-225
-  - CA-O-230
+  - CA-O-238
+  - CA-O-239
   - CA-O-100
   - CA-O-101
   - CA-O-102
   - CA-O-098
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Check shared-context test-first implementation and Method learning
 
-## Scope
+## Claim scope
 
 shared-context test-first implementation and Method-learning Workflow checks.
 

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checked": [
+    "Kind and narrower-kind population; outer bindings and errors",
+    "same-candidate AND filters, Project snapshot, scalar MAX and error semantics",
+    "datetime instant ordering and value-only tie behavior",
+    "read-only, no implicit lifecycle history"
+  ],
+  "limits": [
+    "Creation timestamp policy remains pending",
+    "No parser/runtime test"
+  ]
+}

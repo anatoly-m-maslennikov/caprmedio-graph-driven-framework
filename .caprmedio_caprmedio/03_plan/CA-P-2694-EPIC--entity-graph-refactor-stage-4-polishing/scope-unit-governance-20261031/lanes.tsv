@@ -1,0 +1,14 @@
+deliverable	owner	exclusive scope	dependency	acceptance	status
+R Drafts	scope_declaration_r_drafts	2 R Drafts	latest Operator decisions	Declaration model and Form exception	done
+MED Drafts	scope_declaration_med_drafts	3 MED Drafts	latest Operator decisions	methods, checks and carrier boundary	done
+Spec Proposal amendment	root	A1313@8-draft	latest Operator decisions	latest choices replace older alternatives	done
+Impact acquisition	scope_declaration_impact	impact-review.json	existing sources	bounded adoption gaps only	done
+Input alignment	scope_declaration_impact	alignment-review.json	all Drafts	latest human input wins	done: wording corrected
+Coherence and gaps	scope_governance_coherence	coherence-review.json	alignment corrections	internal coherence and important open choices	done
+Integration	root	index and metadata	reviews	parseable real Drafts, links and honest status	done
+Instance Drafts	root / scope_instance_draft_builder	45 instance Drafts	canonical source inventory	45 faithful Drafts; unique paths/subjects; unchanged sources	done; parent corrected initial builder defects
+Goal coverage and instance checks	scope_goal_coverage	read-only census and verification	instance Drafts	45 rows; 39 Goal source records; no invented Goals	done
+R source amendment	scope_declaration_r_drafts	R1484 successor Draft only	latest numbering and Declaration choices	preserve useful rules; no Current changes	done; six review fixes integrated
+D source amendments	scope_declaration_med_drafts	D442 and D297 successor Drafts only	latest numbering and Carrier choices	preserve paths and field validation; no Current changes	done; review corrections integrated
+Successor review	scope_fresh_coherence_review	read-only review of three successor Drafts	new R/D Drafts	latest-input and useful-source preservation	done; independent readback passed
+Current publication / Engine cutover	unassigned	outside this preparation packet	complete source adoption review	separate adoption and consumer cutover	not performed

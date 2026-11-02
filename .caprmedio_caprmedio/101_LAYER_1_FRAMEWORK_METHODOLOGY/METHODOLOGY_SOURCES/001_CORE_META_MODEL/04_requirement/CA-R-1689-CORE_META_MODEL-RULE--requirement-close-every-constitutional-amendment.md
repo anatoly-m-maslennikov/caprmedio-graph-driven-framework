@@ -1,26 +1,24 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Rule
-  depends_on: []
-version: 30
-updated_at: 2026-10-27 20:00:01 +0400
+  active: Atom
+version: 33
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-1698
 atom_id: CA-R-1689
-content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
 tier: 3
-type: Rule
+role: Requirement
+form: Rule
 ---
-# Summary
+## Summary
 
 Requirement — Close every constitutional amendment
 
-## Scope
+## Claim scope
 
 CORE_META_MODEL constitutional amendments.
 

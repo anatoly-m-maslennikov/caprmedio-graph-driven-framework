@@ -1,0 +1,11 @@
+{
+  "result": "Pass",
+  "cases": 12,
+  "batches": [
+    4,
+    4,
+    4
+  ],
+  "external_repair_rounds": 0,
+  "comparison_sha256": "6558378f4e6830715087331d48b07c70957008ae90e5cac9f215a68f3165fff4"
+}

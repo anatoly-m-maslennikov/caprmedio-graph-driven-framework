@@ -1,15 +1,15 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Invocation Context
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-version: 17
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Entity/Object/Occurrent/Execution/Step Run.Invocation Context
+  passive:
+  - Entity/Object/Occurrent/Execution/Step Run
+  - Entity/Object/Occurrent/Execution/Workflow Run
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - Entity/Object/Continuant/Actor/Operator
+  - Atom
+version: 20
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-M-304
@@ -19,19 +19,18 @@ relations:
   - CA-R-1792
   - CA-R-1793
 atom_id: CA-E-497
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate self-contained agentic invocations
 
-## Scope
+## Claim scope
 
 an Agentic Step invocation from its supplied context.
 

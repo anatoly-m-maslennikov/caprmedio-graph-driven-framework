@@ -9,6 +9,7 @@ from pathlib import Path
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from carrier_aliases import carrier_read_view
 from validate_atoms_workers.parsing import parse_carrier
 from project_selection import bound_selection
 
@@ -363,7 +364,7 @@ class Service:
                     issues.append('incomplete: total read limit reached')
                     break
                 parsed = parse_carrier(raw, path)
-                data = parsed.metadata
+                data = carrier_read_view(parsed.metadata)
                 if str(data.get('status', '')).lower() != 'active':
                     continue
                 identity = data.get('atom_id')
@@ -373,7 +374,7 @@ class Service:
                        'type': data.get('type'), 'content_role': data.get('content_role'),
                        'source_path': str(path.relative_to(self.root)),
                        'sha256': hashlib.sha256(raw).hexdigest(), 'content': parsed.body,
-                       'properties': json.loads(json.dumps(data, default=str))}
+                       'properties': json.loads(json.dumps(parsed.metadata, default=str))}
                 if identity in atoms:
                     issues.append(f'ambiguous Atom ID: {identity}')
                     atoms[identity] = None

@@ -1,0 +1,74 @@
+{
+  "comparison_sha256": "b5f518b84308d80c634ef76c58ff3f3cbd1c0ad713e19e1abe6895d46aad9d4a",
+  "prompt_sha256": "7e6af49f90d9326dbef05ea9868d44ac9a5d1a7e2074c0c0e3b0f3aa47b45b9a",
+  "source_count": 11,
+  "results": [
+    {
+      "key": "B03",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Full source body retained; differences are operator emphasis or sentence-initial capitalization only."
+    },
+    {
+      "key": "B08",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Full source body retained; differences are operator emphasis or sentence-initial capitalization only."
+    },
+    {
+      "key": "B09",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Full source body retained; differences are operator emphasis or sentence-initial capitalization only."
+    },
+    {
+      "key": "B10",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Full source body retained; differences are operator emphasis or sentence-initial capitalization only."
+    },
+    {
+      "key": "B14",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Full source body retained; differences are operator emphasis or sentence-initial capitalization only."
+    },
+    {
+      "key": "B15",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Full source body retained; differences are operator emphasis or sentence-initial capitalization only."
+    },
+    {
+      "key": "B17",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Full source body retained; differences are operator emphasis or sentence-initial capitalization only."
+    },
+    {
+      "key": "B23",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Full source body retained; differences are operator emphasis or sentence-initial capitalization only."
+    },
+    {
+      "key": "B02",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Full source body retained; differences are operator emphasis or sentence-initial capitalization only."
+    },
+    {
+      "key": "B19",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Full source body retained; differences are operator emphasis or sentence-initial capitalization only."
+    },
+    {
+      "key": "B37",
+      "verdict": "Pass",
+      "issues": [],
+      "evidence": "Full source body retained; differences are operator emphasis or sentence-initial capitalization only."
+    }
+  ],
+  "scope": "Body fidelity only; excludes Summary assessment and business-model or runtime review."
+}

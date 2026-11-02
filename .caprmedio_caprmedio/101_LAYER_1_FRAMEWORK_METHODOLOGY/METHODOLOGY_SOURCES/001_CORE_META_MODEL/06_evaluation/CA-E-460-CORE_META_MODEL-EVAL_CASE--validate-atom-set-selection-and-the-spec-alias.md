@@ -1,25 +1,22 @@
 ---
 atom_id: CA-E-460
-content_role: Evaluation
-type: Eval Case
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-  depends_on:
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
-version: 31
-updated_at: 2026-10-27 19:59:35 +0400
+  active: Entity/Object/Continuant/Selection
+  passive:
+  - Carrier
+  - Atom.Content
+  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - Atom.Status
+  - Entity/Object/Continuant/Selection
+  - Scope Unit
+  - Atom
+  - Atom.Tier
+version: 34
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-D-482
@@ -30,22 +27,23 @@ relations:
   - CA-R-1447
   - CA-R-1448
   - CA-R-1449
-  - CA-R-1595
+  - CA-R-1595@21
   - CA-R-1596
   - CA-R-942
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate Atom-set Selection **and** the spec Alias
 
-## Scope
-
+## Claim scope
 the four ownership **and** targeting selections for a Scope Unit, including the `spec` alias.
 
 ## Claim
 
-### Claim checked
+**Claim checked.**
 
 ownership **and** Claim targeting produce their respective direct **and** recursive Atom sets, **and** the alias `spec` selects **only** Active RMED Subtree-targeting Atoms.
 
@@ -53,7 +51,7 @@ ownership **and** Claim targeting produce their respective direct **and** recurs
 
 ### Test case
 
-construct Scope Unit `A`, its child Scope Unit `A_CHILD`, a sibling Scope Unit `B`, **and** nested Atom Collections inside `A`. the fixture Scope Units are Unordered. use the following distinct source Atoms; a Current-scope Atom explicitly carries its current Scope Unit as target. `d`, `e`, **and** `f` have Content Role Requirement **and** Type Demand under CA-R-932-CORE_META_MODEL-DEFINITION--define-demand-atom, with their applicable Demand conditions satisfied. the remaining rows are valid Current-scope Atoms with admitted non-relational Types; their resolved targets are carried internally under CA-D-482-CORE_META_MODEL-DELIVERY--carry-the-resolved-claim-target-scope-unit; equality **to** ownership does **not** make them Relational.
+construct Scope Unit `A`, its child Scope Unit `A_CHILD`, a sibling Scope Unit `B`, **and** nested Atom Collections inside `A`. the fixture Scope Units are Unordered. use the following distinct source Atoms; a Current-scope Atom explicitly carries its current Scope Unit as target. `d`, `e`, **and** `f` have Content Role Requirement **and** Type Demand under CA-R-932@37-CORE_META_MODEL-DEFINITION--define-demand-atom, with their applicable Demand conditions satisfied. the remaining rows are valid Current-scope Atoms with admitted non-relational Types; their resolved targets are carried internally under CA-D-482-CORE_META_MODEL-DELIVERY--carry-the-resolved-claim-target-scope-unit; equality **to** ownership does **not** make them Relational.
 
 | Atom | Current Scope Unit | Placement | Claim Target Scope Unit | Content Role | Status |
 |---|---|---|---|---|---|

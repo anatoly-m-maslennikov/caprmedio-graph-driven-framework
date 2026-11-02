@@ -1,0 +1,901 @@
+{
+  "scope": "49 non-Declaration registered Drafts only",
+  "generated_from": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/draft-register.json",
+  "generated_at": "2026-11-01",
+  "counts": {
+    "rows": 49,
+    "candidate_successor_or_consolidation": 28,
+    "new_prerequisite": 21
+  },
+  "rows": [
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-form-registration.md",
+      "draft_sha256": "3e0eb887970b15243db5711679cfec9744f2014cc9892460a0513396dfc7dd52",
+      "summary": "Register Declaration as a Requirement Form",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [
+        "CA-R-2227",
+        "CA-R-2228",
+        "CA-R-2229"
+      ],
+      "current_candidate_paths": {
+        "CA-R-2227": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2227-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-entity-definition.md"
+        ],
+        "CA-R-2228": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2228-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-relation-definition.md"
+        ],
+        "CA-R-2229": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2229-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-term-definition.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-one-owner-per-node.md",
+      "draft_sha256": "1bb2a7fd39d311cbc2f597994cbf72d21475783907b29046747724592b44ae3d",
+      "summary": "Require one Declaration for each Node",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+      "draft_sha256": "d3e9b43f00d8da862c72a2ccfcfcb5a95c2660c64c0d06f4545d66100d472c83",
+      "summary": "Inherit Declaration constraints and enforce Relation whitelists",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--use-node-graph-notation.md",
+      "draft_sha256": "abd7e69cbdb8ed839e29d31c57537b547f49e276950e74ae2b17054f7d9ca96a",
+      "summary": "Use distinct graph notation for Node relations",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [
+        "CA-R-1931",
+        "CA-R-2243",
+        "CA-R-2244"
+      ],
+      "current_candidate_paths": {
+        "CA-R-1931": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent@16.md"
+        ],
+        "CA-R-2243": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality-notation.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-2243-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality-notation@2.md"
+        ],
+        "CA-R-2244": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2244-CORE_META_MODEL-ENTITY_DEFINITION--define-graph-syntax.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-2244-CORE_META_MODEL-ENTITY_DEFINITION--define-graph-syntax@1.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--separate-property-value-and-child-constraints.md",
+      "draft_sha256": "68eba7f2e605076ea8643c0d2add0066f19c37ab349cb59840b096bd985d5de9",
+      "summary": "Separate Property names and values",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [
+        "CA-R-1193",
+        "CA-R-1247"
+      ],
+      "current_candidate_paths": {
+        "CA-R-1193": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-DEFINITION--define-property.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-1193-CORE_META_MODEL-DEFINITION--define-property@22.md"
+        ],
+        "CA-R-1247": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1247-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-1247-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path@22.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-property-bearing.md",
+      "draft_sha256": "c73ae3a15ec87ea649e77b7832c193858fefe84aa4ea2f917a52bf4e4d08555d",
+      "summary": "Define Property bearing and its inverse",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "current_candidate_ids": [
+        "CA-R-2454",
+        "CA-R-2455",
+        "CA-R-2003"
+      ],
+      "current_candidate_paths": {
+        "CA-R-2454": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2454-CORE_META_MODEL-RELATION_DEFINITION--define-is-property-of.md"
+        ],
+        "CA-R-2455": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2455-CORE_META_MODEL-RELATION_DEFINITION--define-has-property.md"
+        ],
+        "CA-R-2003": [
+          ".caprmedio_caprmedio/000_CAPRMEDIO_framework/sources/001_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL-CORE--require-exactly-one-immediate-bearer.md",
+          ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-2003-CORE_META_MODEL-CORE--require-exactly-one-immediate-bearer.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence@13.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--bind-direct-property-values.md",
+      "draft_sha256": "246941c35a1d1676cdf715c1d5972e1202afc5c38b76896b0b6545ffba5e6ee9",
+      "summary": "Bind direct Property values on instances",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-narrowing.md",
+      "draft_sha256": "ae36655e293fd251fee680751fd5739ecdc0b2589b002b8b6096b3fb4e12a84a",
+      "summary": "Define NARROWER_THAN",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "current_candidate_ids": [
+        "CA-R-1435",
+        "CA-R-1345"
+      ],
+      "current_candidate_paths": {
+        "CA-R-1435": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1435-CORE_META_MODEL--define-narrower-than.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-1435-CORE_META_MODEL--define-narrower-than@25.md"
+        ],
+        "CA-R-1345": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1345-CORE_META_MODEL-RULE--keep-the-narrower-than-graph-acyclic.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-instantiation.md",
+      "draft_sha256": "8d417e99de44234ef54d21acb0243d2efd7f7ad93e53bee142fcf842628b38e0",
+      "summary": "Define INSTANCE_OF",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "current_candidate_ids": [
+        "CA-R-2002"
+      ],
+      "current_candidate_paths": {
+        "CA-R-2002": [
+          ".caprmedio_caprmedio/000_CAPRMEDIO_framework/sources/001_CORE_META_MODEL/04_requirement/CA-R-2002-CORE_META_MODEL-CORE--define-instance-of.md",
+          ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-2002-CORE_META_MODEL-CORE--define-instance-of.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2002-CORE_META_MODEL--define-instance-of.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-classification.md",
+      "draft_sha256": "ca475b831c7753c1bd7379e7a2c5247d3f088a031c0a272243761c8cb2356e2f",
+      "summary": "Define classification and its written reverse",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "current_candidate_ids": [
+        "CA-R-2461"
+      ],
+      "current_candidate_paths": {
+        "CA-R-2461": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2461-CORE_META_MODEL-RELATION_DEFINITION--define-has-classification.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-composition.md",
+      "draft_sha256": "a64a7e51cd82f1e6524ccf918c2a902d062334482e7b7b8b2673264be56643ee",
+      "summary": "Define composition and its inverse",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "current_candidate_ids": [
+        "CA-R-2419",
+        "CA-R-1945",
+        "CA-R-1368"
+      ],
+      "current_candidate_paths": {
+        "CA-R-2419": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2419-CORE_META_MODEL-RELATION_DEFINITION--define-is-contained-by-relation.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-2419-CORE_META_MODEL-RELATION_DEFINITION--define-is-contained-by-relation@1.md"
+        ],
+        "CA-R-1945": [
+          ".caprmedio_caprmedio/000_CAPRMEDIO_framework/sources/001_CORE_META_MODEL/04_requirement/CA-R-1945-CORE_META_MODEL-GENERAL--define-atom-enabled-relations-contains.md",
+          ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-1945-CORE_META_MODEL-GENERAL--define-atom-enabled-relations-contains.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1945-CORE_META_MODEL--define-atom-enabled-relations-contains.md"
+        ],
+        "CA-R-1368": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1368-CORE_META_MODEL--define-containment-relation-pair.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-1368-CORE_META_MODEL--define-containment-relation-pair@27.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-active-subject-link.md",
+      "draft_sha256": "1c815761dabe669b3d2e8316159e376eca09eaa1a2e61b7a01aa7826352487c3",
+      "summary": "Define the derived active Subject link",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "current_candidate_ids": [
+        "CA-R-1198",
+        "CA-R-2150"
+      ],
+      "current_candidate_paths": {
+        "CA-R-1198": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-DEFINITION--define-atom-subjects.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-1198-CORE_META_MODEL-DEFINITION--define-atom-subjects@28.md"
+        ],
+        "CA-R-2150": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2150-CORE_META_MODEL--define-subject-graph.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-2150-CORE_META_MODEL--define-subject-graph@14.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-run.md",
+      "draft_sha256": "50aeb0f71eb18631a16cd5e7449e078f10a25d0b74348623b17a1da39977415a",
+      "summary": "Define RUN",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--name-model-concepts-with-canonical-terms.md",
+      "draft_sha256": "c62aff2868a6243cee871b61f926c884bef20e14165b9ff7d9b23ba105e9a561",
+      "summary": "Name Model Concepts with Canonical Terms",
+      "role": "Method",
+      "form": "Implementation Method",
+      "current_candidate_ids": [
+        "CA-M-439",
+        "CA-M-452"
+      ],
+      "current_candidate_paths": {
+        "CA-M-439": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-439-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-term-definition-content.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/archived/CA-M-439-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-term-definition-content@1.md"
+        ],
+        "CA-M-452": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-452-CORE_META_MODEL-TERM_DEFINITION--define-term.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--use-role-and-form.md",
+      "draft_sha256": "db635bee278f39bc7984f71bf5b8b7fbb6e65f78bcb2f7b50bc92245449c91f1",
+      "summary": "Use Role and Form for Declaration Atoms",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [
+        "CA-R-2102"
+      ],
+      "current_candidate_paths": {
+        "CA-R-2102": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declare-formal-scope.md",
+      "draft_sha256": "367b8c171a9e0e0ca8e4b2200c3e92046d3c429d686c5c37a75a005b11f921f7",
+      "summary": "Declare Formal Scope Independently of Scope Unit",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+      "draft_sha256": "f0f99964fe89b246f666db7bf52287980ebbe1fbd246d73e8f0280f8323e2b91",
+      "summary": "Encode Node Declarations in YAML",
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "current_candidate_ids": [
+        "CA-D-479"
+      ],
+      "current_candidate_paths": {
+        "CA-D-479": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archived/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties@25.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/node-declaration-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "draft_sha256": "834e693a4171e4cde71b507a6dc6d00752c417a1ff97417d7b80f1c39156ae24",
+      "summary": "Check Node Declaration migration readiness",
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "current_candidate_ids": [
+        "CA-E-449"
+      ],
+      "current_candidate_paths": {
+        "CA-E-449": []
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md",
+      "draft_sha256": "a06ccf9e3100743f14127135c8449aae4a08cb51d082869077fd3d6ccc3bafd2",
+      "summary": "Map Markdown headings to Property paths",
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "current_candidate_ids": [
+        "CA-D-479"
+      ],
+      "current_candidate_paths": {
+        "CA-D-479": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archived/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties@25.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/04_requirement/draft/node-declaration-20261031/CA-R-draft-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "draft_sha256": "e6ce7527bdaa2042febeda609db601aba37db4918fb6cf4c0629188307c1c7b1",
+      "summary": "Separate the CAPRMEDIO model from Project structure",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [
+        "CA-R-1264"
+      ],
+      "current_candidate_paths": {
+        "CA-R-1264": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1264-CORE_META_MODEL-RULE--keep-scope-unit-outside-the-atom-taxonomy.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--admit-container-classification.md",
+      "draft_sha256": "6e2e0a05e79c6dc99d8db86fc8b43918ad829bad73be9b7cd87439c5a5d26c63",
+      "summary": "Classify permission to have parts as Container",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [
+        "CA-R-1368"
+      ],
+      "current_candidate_paths": {
+        "CA-R-1368": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1368-CORE_META_MODEL--define-containment-relation-pair.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-1368-CORE_META_MODEL--define-containment-relation-pair@27.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-has-inverse.md",
+      "draft_sha256": "0a3e5926e56c0c2609ab18a86d94dc0cbc3897b3d08631c387c2151516c8ea2d",
+      "summary": "Define HAS_INVERSE",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+      "draft_sha256": "b3a06f11ad9385fc1a08fb53a2eda549687f74adb928d28b800c55e687899bcd",
+      "summary": "Declare Relation endpoints",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--reuse-formal-notation-and-write-isolated-constraints-in-prose.md",
+      "draft_sha256": "09ed7cc2ad09c6f1adbe2d127531051cf940b25600337cf988c5173b67143282",
+      "summary": "Reuse formal notation and write isolated constraints in prose",
+      "role": "Method",
+      "form": "Implementation Method",
+      "current_candidate_ids": [
+        "CA-M-444"
+      ],
+      "current_candidate_paths": {
+        "CA-M-444": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/archived/CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly@1.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "draft_sha256": "d6d3a6a57deae360d38568ee094cd35b626bf2f4a15673539e9b1395785f34f2",
+      "summary": "Define CFEL",
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "current_candidate_ids": [
+        "CA-R-2244"
+      ],
+      "current_candidate_paths": {
+        "CA-R-2244": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2244-CORE_META_MODEL-ENTITY_DEFINITION--define-graph-syntax.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-2244-CORE_META_MODEL-ENTITY_DEFINITION--define-graph-syntax@1.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-value-format.md",
+      "draft_sha256": "8bb939385679b3514b2817f220c3ccf3192a5463d408742580011054b60c82a1",
+      "summary": "Define markdown value Format",
+      "role": "Requirement",
+      "form": "Entity Definition",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--deliver-objects-to-carriers.md",
+      "draft_sha256": "daac852fe98f8158b0886cd6988474fa789c84aedca2b09c02ab62bdb620c224",
+      "summary": "Deliver Objects to Carriers",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [
+        "CA-R-1993"
+      ],
+      "current_candidate_paths": {
+        "CA-R-1993": [
+          ".caprmedio_caprmedio/000_CAPRMEDIO_framework/sources/001_CORE_META_MODEL/04_requirement/CA-R-1993-CORE_META_MODEL--define-carries.md",
+          ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-1993-CORE_META_MODEL--define-carries.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1993-CORE_META_MODEL-DEFINITION--define-carries.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "draft_sha256": "9b80e6e3037590d7396f82934aa937f848f05036119c71683e8f8d5b381218d5",
+      "summary": "Deliver Atoms to Markdown files",
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "current_candidate_ids": [
+        "CA-D-479",
+        "CA-D-303"
+      ],
+      "current_candidate_paths": {
+        "CA-D-479": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archived/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties@25.md"
+        ],
+        "CA-D-303": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-ENG_DECISION--replace-and-archive-atoms-as-whole-carriers.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-draft-CORE_META_MODEL-TERM_DEFINITION--define-object.md",
+      "draft_sha256": "7043e70bbc2ffbdce9221d1ea1c47fe8c609477171eefdcb56abd84bfe022673",
+      "summary": "Define Object",
+      "role": "Method",
+      "form": "Term Definition",
+      "current_candidate_ids": [
+        "CA-R-2226"
+      ],
+      "current_candidate_paths": {
+        "CA-R-2226": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2226-CORE_META_MODEL-ENTITY_DEFINITION--define-object.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--compare-numeric-values.md",
+      "draft_sha256": "e7ff060a7f8d509c36ed92673bbcdd977055e9643aa8a27da45b1a77cfb9b6a7",
+      "summary": "Compare and add numeric values in CFEL",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "draft_sha256": "67672de09167100165cf3cfda40f5bdd6004e84a10a619b223cc98ac095c8a23",
+      "summary": "Resolve a fallback when an optional Property is omitted",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [
+        "CA-R-1428"
+      ],
+      "current_candidate_paths": {
+        "CA-R-1428": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL--permit-confidence-threshold-defaults-and-overrides.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-1428-CORE_META_MODEL--permit-confidence-threshold-defaults-and-overrides@28.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-unique-property-tuples.md",
+      "draft_sha256": "dd075f259d390c5231492ae4d7013ac6bce97127544888fd94b50aab583440e7",
+      "summary": "Require unique Property tuples",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--bind-instance-variables.md",
+      "draft_sha256": "139276e901ca8311f8ec061d193bb949f67ab0520b8eb33f92ecec8ae542143d",
+      "summary": "Bind instance variables",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--keep-assertions-about-the-active-subject.md",
+      "draft_sha256": "4736dc195d7ccbc31e55e71eec6d111706089bd7572c82acd25b089f905ebe36",
+      "summary": "State assertions about the active Subject",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [
+        "CA-R-1198",
+        "CA-R-2150"
+      ],
+      "current_candidate_paths": {
+        "CA-R-1198": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-DEFINITION--define-atom-subjects.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-1198-CORE_META_MODEL-DEFINITION--define-atom-subjects@28.md"
+        ],
+        "CA-R-2150": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2150-CORE_META_MODEL--define-subject-graph.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archived/CA-R-2150-CORE_META_MODEL--define-subject-graph@14.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-scalar-immutability.md",
+      "draft_sha256": "f6bef2b55a7726ec6001d457cdc16c06669037782d4234fd3aa33b909d7d3645",
+      "summary": "Require scalar Property immutability",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [
+        "CA-R-2102"
+      ],
+      "current_candidate_paths": {
+        "CA-R-2102": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--require-functional-dependencies.md",
+      "draft_sha256": "4be59336b716d1f9b4c21b02b3b6e06fd8c9b3a036fdf665b88e771c1ac1c931",
+      "summary": "Require functional dependencies between Property tuples",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-summary-for-the-complete-contribution.md",
+      "draft_sha256": "05cb8af27edc85e6f51d007ca01a3988ecadcd2a0d6a163ed4ca8572194a6f9f",
+      "summary": "Write Summary for the Complete Contribution",
+      "role": "Method",
+      "form": "Implementation Method",
+      "current_candidate_ids": [
+        "CA-M-442"
+      ],
+      "current_candidate_paths": {
+        "CA-M-442": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-442-CORE_META_MODEL-IMPLEMENTATION_METHOD--an-atom-s-content-expresses-one-scoped-contribution-with-a-faithful-summary-and-translations.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--select-fenced-markdown-labels.md",
+      "draft_sha256": "638475a20796106a4bc566e77fed35c93aa630aa0158b7997abc3d89eebef829",
+      "summary": "Select fenced Markdown labels",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--preserve-atom-version-and-updated-at-when-archiving.md",
+      "draft_sha256": "76841a8435d918bca0fd7243eeefc0af903880fa9ef6f89c4fcb287546352e02",
+      "summary": "Preserve Atom Version and Updated At When Archiving",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [
+        "CA-D-303",
+        "CA-E-462"
+      ],
+      "current_candidate_paths": {
+        "CA-D-303": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-ENG_DECISION--replace-and-archive-atoms-as-whole-carriers.md"
+        ],
+        "CA-E-462": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-POLICY--validate-atom-replacement-event-evidence.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md",
+      "draft_sha256": "4ffb3d5a4f7e5469579367551e0aed81633ea43d3f9990fdaef4aab1e373e179",
+      "summary": "Filter instances and select maximum values",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--record-business-property-changes-in-one-update-event.md",
+      "draft_sha256": "59853202a220359bf32bf4c6c36d692b3af3c389d5ec8891c3afd3a7b95b8d19",
+      "summary": "Record business Property changes in one update Event Record",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--distinguish-event-time-from-record-insertion-time.md",
+      "draft_sha256": "74bb03553466ae1968c15b3baacb530dd3b6eed419acac33c9a31e1822dd5a8a",
+      "summary": "Distinguish event time from record insertion time",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--capture-atom-input-and-output-metadata.md",
+      "draft_sha256": "6d0b0054a390cf7a71aae21eff1734d463b536f9db79db842f715e1879657023",
+      "summary": "Capture Atom input and output metadata",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-event-author-link.md",
+      "draft_sha256": "2fa7046bac95b9e4388bc7243d6d8218b3e189298f3a0ea6278b3ea9bbbdbabe",
+      "summary": "Define HAS_EVENT_AUTHOR",
+      "role": "Requirement",
+      "form": "Relation Definition",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-RULE--capture-projection-input-and-output-metadata.md",
+      "draft_sha256": "c838af69e4239928d81f88c486f90b40d88286206279aeb6aa90843e7820e492",
+      "summary": "Capture Projection input and output metadata",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--count-property-values-and-distinct-values.md",
+      "draft_sha256": "81cdf9affdacde92944edcef903a5320dacdf14fc1b882b370c7fe499f570d2e",
+      "summary": "Count direct Property values and distinct values",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/node-declaration-20261031/CA-D-draft-CORE_META_MODEL-ENG_DECISION--deliver-projections-to-markdown-files.md",
+      "draft_sha256": "6f061f035e6c27d0edd63b61e172c68baa6d6a3db221144bf9831805a537f287",
+      "summary": "Deliver Projections to Markdown files",
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "current_candidate_ids": [
+        "CA-D-550"
+      ],
+      "current_candidate_paths": {
+        "CA-D-550": [
+          ".caprmedio_caprmedio/_projection/APPLICABLE_METHODOLOGY/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+          ".caprmedio_caprmedio/000_CAPRMEDIO_framework/sources/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+          ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL-ENG_DECISION--centralize-project-projection-carriers.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/node-declaration-20261031/CA-M-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-positive-claims-about-the-active-subject.md",
+      "draft_sha256": "d84c2994b28081bda58fa2f238b21424655938879a9070efa0463d026c217f7e",
+      "summary": "Write positive Claims about the active Subject",
+      "role": "Method",
+      "form": "Implementation Method",
+      "current_candidate_ids": [
+        "CA-M-444"
+      ],
+      "current_candidate_paths": {
+        "CA-M-444": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly.md",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/archived/CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly@1.md"
+        ]
+      },
+      "recommendation": "candidate successor/consolidation",
+      "confidence": "medium",
+      "reason": "Current source(s) overlap the Draft\u2019s subject; exact preservation and one-predecessor disposition must be checked before assigning successor identity."
+    },
+    {
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/CA-R-draft-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "draft_sha256": "f87c593241aae97d7694e2736729124d102d52fb2e9e05ba5679581b70fde530",
+      "summary": "Apply default Relation cardinalities",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_candidate_ids": [],
+      "current_candidate_paths": {},
+      "recommendation": "new prerequisite",
+      "confidence": "high",
+      "reason": "Introduces a reusable capability absent as one Current responsibility; preserve related Current sources until an explicit replacement package is scoped."
+    }
+  ],
+  "author_reconciliation": [
+    {
+      "current_id": "CA-R-1078",
+      "action": "archive without successor",
+      "reason": "Requires one Atom Author; Author removed from Atom artifacts."
+    },
+    {
+      "current_id": "CA-R-1080",
+      "action": "archive without successor",
+      "reason": "Defines Author fallback; Author removed from Atom artifacts."
+    },
+    {
+      "current_id": "CA-R-2356",
+      "action": "archive without successor",
+      "reason": "Defines Atom.Author; Author removed from Atom artifacts."
+    },
+    {
+      "current_id": "CA-D-274",
+      "action": "archive without successor",
+      "reason": "Serializes Atom Author; Author removed from Atom artifacts."
+    },
+    {
+      "current_id": "CA-R-655",
+      "action": "successor revision removing Atom.Author contract",
+      "reason": "Current Claim includes Atom.Author[string]{1}; keep unrelated ordering rules."
+    },
+    {
+      "current_id": "CA-R-2102",
+      "action": "successor revision removing Author from base properties",
+      "reason": "Keep remaining base-property requirements."
+    },
+    {
+      "current_id": "CA-D-463",
+      "action": "successor revision removing author header only if its body is otherwise unchanged",
+      "reason": "Current body governs carrier bundle, while the live carrier retains author metadata."
+    }
+  ],
+  "limits": [
+    "Candidate sources are not approved predecessor mappings.",
+    "Do not archive a Current source until the promoted successor preserves or explicitly retires each of its constraints.",
+    "No ID allocation, archive, promotion, or reference repair performed."
+  ]
+}

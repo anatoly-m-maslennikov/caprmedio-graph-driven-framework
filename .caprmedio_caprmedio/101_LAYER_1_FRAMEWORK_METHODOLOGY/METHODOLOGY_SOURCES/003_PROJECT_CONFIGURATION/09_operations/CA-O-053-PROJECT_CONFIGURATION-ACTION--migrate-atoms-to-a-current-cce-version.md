@@ -11,11 +11,11 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-version: 20
-updated_at: 2026-10-27 19:59:45 +0400
+version: 21
+updated_at: 2026-10-29 23:58:03 +0400
 relations:
   child_of:
-  - CA-M-115
+  - CA-M-443
   - CA-R-380
 atom_id: CA-O-053
 content_role: Operations

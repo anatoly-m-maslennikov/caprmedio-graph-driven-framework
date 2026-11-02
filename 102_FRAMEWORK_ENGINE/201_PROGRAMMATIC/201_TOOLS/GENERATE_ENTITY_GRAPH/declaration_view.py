@@ -13,7 +13,7 @@ from collections.abc import Mapping
 import yaml
 
 from readable_entity_tree import _fence as _text_fence
-from readable_entity_tree import _sources
+from readable_entity_tree import _projection_frontmatter
 
 
 _METADATA_FIELDS = (
@@ -233,17 +233,6 @@ def _limitations(catalog: dict[str, object], graph_rule_count: int) -> list[obje
     return lines
 
 
-def _source_of_truth(value: object) -> str | list[str]:
-    if isinstance(value, str):
-        return _required_text(value, "source_of_truth")
-    if isinstance(value, list) and value and all(
-        isinstance(item, str) and item.strip() and not any(char in item for char in "\r\n\t")
-        for item in value
-    ):
-        return value
-    raise ValueError("Invalid source_of_truth")
-
-
 def render_declarations(
     catalog: dict[str, object],
     provenance: dict[str, object],
@@ -259,7 +248,6 @@ def render_declarations(
     identity = {
         "projection_id": _required_text(projection_identity.get("projection_id"), "projection_id"),
         "named_selection": _required_text(projection_identity.get("named_selection"), "named_selection"),
-        "source_of_truth": _source_of_truth(projection_identity.get("source_of_truth")),
     }
     updated_at = _required_text(updated_at, "updated_at")
     source_selection = _required_text(source_selection, "source selection")
@@ -273,15 +261,7 @@ def render_declarations(
     graph_rules.sort(key=_graph_rule_key)
 
     frontmatter = yaml.safe_dump(
-        {
-            "artifact_form": "Projection",
-            "projection_id": identity["projection_id"],
-            "named_selection": identity["named_selection"],
-            "source_of_truth": identity["source_of_truth"],
-            "type": "Entities Graph",
-            "updated_at": updated_at,
-            "sources": _sources(provenance),
-        },
+        _projection_frontmatter(provenance, updated_at, identity, form="Catalog"),
         allow_unicode=True,
         sort_keys=False,
     ).rstrip()

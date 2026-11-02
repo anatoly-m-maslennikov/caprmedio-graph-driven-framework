@@ -1,16 +1,15 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Carrier/File
-  depends_on:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Author
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
-  - Subject/CAPRMEDIO/Graph/Relation
-  - Subject/CAPRMEDIO/Carrier/File
-version: 25
-updated_at: 2026-10-27 19:59:36 +0400
+  active: Carrier/File
+  passive:
+  - Atom
+  - Atom.Content
+  - Atom.Content.Summary
+  - Atom.Status
+  - CFEL > Relation
+  - Carrier/File
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
   - CA-R-1598
@@ -24,19 +23,18 @@ relations:
   - CA-D-460
   - CA-D-470
 atom_id: CA-E-506
-content_role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-author: Anatoly Maslennikov
-type: Eval Case
 tier: 4
+role: Evaluation
+form: Eval Case
 ---
-# Summary
+## Summary
 
 Validate self-sufficient Atom Carriers
 
-## Scope
+## Claim scope
 
 self-sufficiency **and** representation consistency of Markdown Atom Carriers.
 

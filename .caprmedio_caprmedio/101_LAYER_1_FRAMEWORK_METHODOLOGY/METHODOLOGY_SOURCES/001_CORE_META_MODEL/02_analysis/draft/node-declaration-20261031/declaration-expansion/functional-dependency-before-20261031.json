@@ -1,0 +1,12 @@
+[
+  {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+    "text": "---\natom_id: CA-R-draft\ncontent_role: Requirement\ntype: Declaration\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Draft\nsubjects:\n  governs: Atom.Content.Summary\nversion: 1\nupdated_at: 2026-10-31 01:26:40 +0400\nrelations: {}\ntier: 3\n---\n## Summary\n\nDeclare Atom.Content.Summary\n\n## Claim\n\n- The Summary covers the complete contribution.\n- Changing the Summary requires a new Atom ID.\n\n```CFEL\nAtom.Content.Summary{:1}: [markdown]{:1};\nAtom.Content.Summary.*[]{:0}\n```\n",
+    "sha256": "bbbd8b3d47f5784a220772b791e7238109aca7a1555d8cd264b15fd75ac0de1f"
+  },
+  {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/node-declaration-20261031/property-expansion/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+    "text": "---\natom_id: CA-R-draft\ncontent_role: Requirement\ntype: Declaration\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Draft\nsubjects:\n  governs: 'Projection.ID'\nversion: 1\nupdated_at: \"2026-10-31 01:40:56 +0400\"\nrelations: {}\ntier: 3\n---\n## Summary\n\nDeclare Projection.ID\n\n## Claim\n\n```CFEL\nProjection.ID{:1}: [string]{:1};\nProjection.ID.*[]{:0}\n```\n\nThe same Projection.Form, Projection.Named Selection and Projection.Source Of Truth keep the same Projection.ID across rebuilds. A change to any of them requires a different Projection.ID.\n",
+    "sha256": "72528500c0ceb3212dce80dbaaf35a87b3336293c8fa2f81f2989ac9241444c2"
+  }
+]

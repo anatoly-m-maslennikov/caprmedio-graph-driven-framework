@@ -1,0 +1,12 @@
+{
+  "status": "FIX",
+  "findings": [
+    "Explicitly include instances of narrower kinds in Kind// selection, matching the existing CFEL binding Rule.",
+    "Explicitly preserve already-bound outer variable identities across all candidate filters and reject unbound/ambiguous outer variables."
+  ],
+  "otherwise": "Candidate defines AND-filter scope, same-row fields, error handling, explicit snapshot, scalar/format MAX, equal maxima, and read-only semantics without imposing Event schema.",
+  "limits": [
+    "No consumer or creation timestamp policy reviewed",
+    "No parser or runtime verification"
+  ]
+}
