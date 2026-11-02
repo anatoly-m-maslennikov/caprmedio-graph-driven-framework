@@ -1,0 +1,294 @@
+{
+  "status": "CANDIDATES_PREPARED",
+  "source_pins": [
+    {
+      "id": "CA-R-2507",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2507-CORE_META_MODEL-DECLARATION--declare-atom-relations.md",
+      "sha256": "0606e618e8527ebaf69bebd81bc5e66e2b59dd87a3e6785a04bff075dd9bdb1c",
+      "use": "mandatory zero-value container pattern"
+    },
+    {
+      "id": "CA-R-2493",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2493-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "sha256": "fb5e63d1f8a318206e8e885df3ff21aa891e1988124b13e91be23ee75b2640a3",
+      "use": "mandatory string leaf and no-nested-properties pattern"
+    },
+    {
+      "id": "CA-R-2472",
+      "version": 8,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
+      "sha256": "5fd16835d0f6eefc728704754ea9721dd3043c14ee889c4417c537b368372b24",
+      "use": "separate child-name and direct-value counts"
+    },
+    {
+      "atom_id": "CA-D-664",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "f5e5b15a0c058ad4345eefcbf07a0b34f5bd03fd5e53b823b427a7f068548bff"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "CA-R-draft",
+      "subject": "Atom.Carrier Destination",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "frontmatter": {
+        "atom_id": "CA-R-draft",
+        "current_scope_unit": "CORE_META_MODEL",
+        "claim_target_scope_unit": "CORE_META_MODEL",
+        "status": "Draft",
+        "version": 1,
+        "relations": {},
+        "tier": 3,
+        "subjects": {
+          "active": "Atom.Carrier Destination"
+        },
+        "role": "Requirement",
+        "form": "Declaration"
+      },
+      "body": "## Summary\n\nDeclare Atom.Carrier Destination\n\n## Claim\n\n```CFEL\nAtom.Carrier Destination{:1}: []{:0};\nAtom.Carrier Destination.*[in (File)]{:1}\n```\n",
+      "kind": "new_declaration"
+    },
+    {
+      "id": "CA-R-draft",
+      "subject": "Atom.Carrier Destination.File",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "frontmatter": {
+        "atom_id": "CA-R-draft",
+        "current_scope_unit": "CORE_META_MODEL",
+        "claim_target_scope_unit": "CORE_META_MODEL",
+        "status": "Draft",
+        "version": 1,
+        "relations": {},
+        "tier": 3,
+        "subjects": {
+          "active": "Atom.Carrier Destination.File"
+        },
+        "role": "Requirement",
+        "form": "Declaration"
+      },
+      "body": "## Summary\n\nDeclare Atom.Carrier Destination.File\n\n## Claim\n\n```CFEL\nAtom.Carrier Destination.File{:1}: []{:0};\nAtom.Carrier Destination.File.*[in (Name, Path)]{:2}\n```\n",
+      "kind": "new_declaration"
+    },
+    {
+      "id": "CA-R-draft",
+      "subject": "Atom.Carrier Destination.File.Name",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "frontmatter": {
+        "atom_id": "CA-R-draft",
+        "current_scope_unit": "CORE_META_MODEL",
+        "claim_target_scope_unit": "CORE_META_MODEL",
+        "status": "Draft",
+        "version": 1,
+        "relations": {},
+        "tier": 3,
+        "subjects": {
+          "active": "Atom.Carrier Destination.File.Name"
+        },
+        "role": "Requirement",
+        "form": "Declaration"
+      },
+      "body": "## Summary\n\nDeclare Atom.Carrier Destination.File.Name\n\n## Claim\n\n```CFEL\nAtom.Carrier Destination.File.Name{:1}: [string]{:1};\nAtom.Carrier Destination.File.Name.*[]{:0}\n```\n\nCalculated full filename, including its extension.\n",
+      "kind": "new_declaration"
+    },
+    {
+      "id": "CA-R-draft",
+      "subject": "Atom.Carrier Destination.File.Path",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "frontmatter": {
+        "atom_id": "CA-R-draft",
+        "current_scope_unit": "CORE_META_MODEL",
+        "claim_target_scope_unit": "CORE_META_MODEL",
+        "status": "Draft",
+        "version": 1,
+        "relations": {},
+        "tier": 3,
+        "subjects": {
+          "active": "Atom.Carrier Destination.File.Path"
+        },
+        "role": "Requirement",
+        "form": "Declaration"
+      },
+      "body": "## Summary\n\nDeclare Atom.Carrier Destination.File.Path\n\n## Claim\n\n```CFEL\nAtom.Carrier Destination.File.Path{:1}: [string]{:1};\nAtom.Carrier Destination.File.Path.*[]{:0}\n```\n\nCalculated path of the containing directory, relative to the repository root.\n",
+      "kind": "new_declaration"
+    },
+    {
+      "id": "CA-D-664@3-draft",
+      "subject": "Atom",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "frontmatter": {
+        "atom_id": "CA-D-664@3-draft",
+        "current_scope_unit": "CORE_META_MODEL",
+        "claim_target_scope_unit": "CORE_META_MODEL",
+        "status": "Draft",
+        "subjects": {
+          "active": "Atom"
+        },
+        "version": 3,
+        "relations": {},
+        "tier": 3,
+        "role": "Delivery",
+        "form": "Eng Decision"
+      },
+      "body": "## Summary\n\nDeliver Atoms to Markdown files\n\n## Claim\n\nThe Carrier below is the Markdown file delivering this Atom.\n\nFrontmatter starts at the beginning of the file:\n\n1. An opening line containing `---`.\n2. YAML data.\n3. A closing line containing `---`.\n\nLocation is the directory path relative to the repository root.\n\n```CFEL\nAtom >> @Carrier//Markdown file;\nAtom.**!(.Content, .Content.**) >> @Carrier//Markdown file.frontmatter;\nAtom.Content.** >> @Carrier//Markdown file.markdown;\nAtom.Carrier Destination.File.Name >> @Carrier//Markdown file.filename;\nAtom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;\n@Carrier//Markdown file.filename{:1}: [string]{:1};\n@Carrier//Markdown file.location{:1}: [string]{:1};\n@Carrier//Markdown file.frontmatter.author{:0}\n```\n",
+      "kind": "delivery_successor",
+      "source_pin": {
+        "atom_id": "CA-D-664",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+        "sha256": "f5e5b15a0c058ad4345eefcbf07a0b34f5bd03fd5e53b823b427a7f068548bff"
+      }
+    },
+    {
+      "id": "CA-A-draft",
+      "subject": "Atom.Carrier Destination",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "frontmatter": {
+        "atom_id": "CA-A-draft",
+        "current_scope_unit": "CORE_META_MODEL",
+        "claim_target_scope_unit": "CORE_META_MODEL",
+        "status": "Draft",
+        "version": 1,
+        "relations": {},
+        "tier": 3,
+        "subjects": {
+          "active": "Atom.Carrier Destination"
+        },
+        "role": "Analysis & Advisory",
+        "form": "Specification Proposal"
+      },
+      "body": "## Summary\n\nDeclare stored Atom carrier destinations\n\n## Changes\n\n- Declare `Atom.Carrier Destination.File.Name` and `.Path` as mandatory Properties, each with `[string]{:1}`.\n- Name is the full calculated filename, including its extension.\n- Path is the calculated containing directory, relative to the repository root.\n- Store the calculated values in Atom frontmatter.\n- Deliver using those values.\n\n## Rationale\n\nThe Operator requested calculated destination Properties to simplify Delivery. The latest clarification makes both Properties mandatory. Existing filename, placement and Carrier rules keep their meaning.\n\nThe intermediate Properties declare the complete paths. Each container has zero direct values. File has exactly Name and Path. Each leaf has no dependent Properties.\n\n## Drafts\n\n| Draft marker | Active Subject | Carrier |\n| --- | --- | --- |\n| `CA-R-draft` | `Atom.Carrier Destination` | [CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md) |\n| `CA-R-draft` | `Atom.Carrier Destination.File` | [CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md) |\n| `CA-R-draft` | `Atom.Carrier Destination.File.Name` | [CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md) |\n| `CA-R-draft` | `Atom.Carrier Destination.File.Path` | [CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md) |\n| `CA-D-664@3-draft` | `Atom` | [CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md](../../07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md) |\n\nNew Drafts use ID-free markers. Their complete carrier paths distinguish them. Stable IDs are allocated on promotion.\n\n## Adoption\n\nReview this packet before promotion. Runtime calculation, frontmatter population and migration remain separate work.\n",
+      "kind": "proposal"
+    }
+  ],
+  "preflight": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "status": "FAIL",
+      "errors": [
+        {
+          "type": "ToolError",
+          "message": "new Atom carrier is incomplete, invalid, or unresolved",
+          "code": "complete-carrier-invalid"
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "required Project context is unreadable",
+          "code": null
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "Current frontmatter encoding authority is unreviewed",
+          "code": null
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "status": "FAIL",
+      "errors": [
+        {
+          "type": "ToolError",
+          "message": "new Atom carrier is incomplete, invalid, or unresolved",
+          "code": "complete-carrier-invalid"
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "required Project context is unreadable",
+          "code": null
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "Current frontmatter encoding authority is unreviewed",
+          "code": null
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "status": "FAIL",
+      "errors": [
+        {
+          "type": "ToolError",
+          "message": "new Atom carrier is incomplete, invalid, or unresolved",
+          "code": "complete-carrier-invalid"
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "required Project context is unreadable",
+          "code": null
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "Current frontmatter encoding authority is unreviewed",
+          "code": null
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "status": "FAIL",
+      "errors": [
+        {
+          "type": "ToolError",
+          "message": "new Atom carrier is incomplete, invalid, or unresolved",
+          "code": "complete-carrier-invalid"
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "required Project context is unreadable",
+          "code": null
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "Current frontmatter encoding authority is unreviewed",
+          "code": null
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "status": "FAIL",
+      "errors": [
+        {
+          "type": "ToolError",
+          "message": "new Atom carrier is incomplete, invalid, or unresolved",
+          "code": "complete-carrier-invalid"
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "required Project context is unreadable",
+          "code": null
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "Current frontmatter encoding authority is unreviewed",
+          "code": null
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "status": "FAIL",
+      "errors": [
+        {
+          "type": "ToolError",
+          "message": "new Atom carrier is incomplete, invalid, or unresolved",
+          "code": "complete-carrier-invalid"
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "required Project context is unreadable",
+          "code": null
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "Current frontmatter encoding authority is unreviewed",
+          "code": null
+        }
+      ]
+    }
+  ]
+}

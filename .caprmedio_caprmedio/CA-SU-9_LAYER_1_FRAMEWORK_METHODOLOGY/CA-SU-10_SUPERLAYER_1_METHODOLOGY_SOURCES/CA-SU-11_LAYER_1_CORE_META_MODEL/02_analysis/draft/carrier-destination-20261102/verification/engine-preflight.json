@@ -1,0 +1,133 @@
+{
+  "status": "BLOCKED_BEFORE_CANDIDATE_EVALUATION",
+  "reason": "Current frontmatter encoding authority is unreviewed",
+  "candidates": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "status": "FAIL",
+      "errors": [
+        {
+          "type": "ToolError",
+          "message": "new Atom carrier is incomplete, invalid, or unresolved",
+          "code": "complete-carrier-invalid"
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "required Project context is unreadable",
+          "code": null
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "Current frontmatter encoding authority is unreviewed",
+          "code": null
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "status": "FAIL",
+      "errors": [
+        {
+          "type": "ToolError",
+          "message": "new Atom carrier is incomplete, invalid, or unresolved",
+          "code": "complete-carrier-invalid"
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "required Project context is unreadable",
+          "code": null
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "Current frontmatter encoding authority is unreviewed",
+          "code": null
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "status": "FAIL",
+      "errors": [
+        {
+          "type": "ToolError",
+          "message": "new Atom carrier is incomplete, invalid, or unresolved",
+          "code": "complete-carrier-invalid"
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "required Project context is unreadable",
+          "code": null
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "Current frontmatter encoding authority is unreviewed",
+          "code": null
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "status": "FAIL",
+      "errors": [
+        {
+          "type": "ToolError",
+          "message": "new Atom carrier is incomplete, invalid, or unresolved",
+          "code": "complete-carrier-invalid"
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "required Project context is unreadable",
+          "code": null
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "Current frontmatter encoding authority is unreviewed",
+          "code": null
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "status": "FAIL",
+      "errors": [
+        {
+          "type": "ToolError",
+          "message": "new Atom carrier is incomplete, invalid, or unresolved",
+          "code": "complete-carrier-invalid"
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "required Project context is unreadable",
+          "code": null
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "Current frontmatter encoding authority is unreviewed",
+          "code": null
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "status": "FAIL",
+      "errors": [
+        {
+          "type": "ToolError",
+          "message": "new Atom carrier is incomplete, invalid, or unresolved",
+          "code": "complete-carrier-invalid"
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "required Project context is unreadable",
+          "code": null
+        },
+        {
+          "type": "ProposedCarrierError",
+          "message": "Current frontmatter encoding authority is unreviewed",
+          "code": null
+        }
+      ]
+    }
+  ],
+  "scope": "Engine admission is not claimed. Manual Draft authoring remains separate from promotion."
+}

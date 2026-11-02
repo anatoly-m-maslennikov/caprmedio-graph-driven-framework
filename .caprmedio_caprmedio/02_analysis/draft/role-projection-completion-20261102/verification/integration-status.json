@@ -5,14 +5,14 @@
   "source_publication": "APPLIED: ten Role updates and ten archives; lifecycle readback PASS",
   "official_projections": "APPLIED; six official views and six Journal events. Final published readback PASS against 1,128 Current RMED source pins.",
   "broad_validation": "Completed peer run: 519 modules, 4,229 tests, zero skipped, 134 failed modules; launcher immutable image/source fingerprint check failed. Peer cutover fixes continue after this run.",
-  "git": "Stable authorized snapshot prepared for amm/dev publication; exact publication result is verified through Git and reported in the chat.",
+  "git": "APPLIED: combined snapshot 67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb pushed to amm/dev; exact remote SHA verified. Later peer edits remain separate.",
   "limits": "Do not mistake a candidate graph or focused tests for integrated runtime validation",
   "coordination": "Explicitly authorized; shared checkpoint in use; this chat owns Git",
-  "next": "Save and push the stable combined snapshot; peer test fixes continue afterward.",
+  "next": "Carrier-destination promotion and runtime admission are separate; admission preflight currently stops on unreviewed Current frontmatter encoding authority.",
   "source_selection": "1,128 adopted Current RMED sources; final source hash readback PASS; zero graph coverage gaps.",
   "verification_reports": [
     "verification/final-published-projections.json",
     "verification/final-publication-inventory.json"
   ],
-  "carrier_destination": "Agreed names, meanings and stored calculated frontmatter values recorded; File occurrence cardinality question pending before Declaration Drafts."
+  "carrier_destination": "Six Drafts created and reviewed: four Declarations, D664 successor and Specification Proposal. Mandatory one-string Name and Path; calculated values stored in frontmatter. No Current/Carrier/runtime changes."
 }

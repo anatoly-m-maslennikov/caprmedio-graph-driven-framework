@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "scope": "Read-only final readback of the six physically materialized Drafts against the final manifest and candidate bodies. PASS is limited to Draft creation and exact source fidelity; engine admission remains explicitly blocked.",
+  "reviewed_artifacts": {
+    "manifest": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/manifest.json",
+      "sha256": "adb1a039dbc9afde73b612fc53f3007b474319f2d04dade6b9950bb50fda4a59"
+    },
+    "candidate_packet": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/candidate-carriers.json",
+      "sha256": "c1b1f6fbbc82d78e4d60ed34b670e091da4d4b77937bf767d3fd09b81b02b218",
+      "note": "The whole-file SHA changed only because final preflight results were recorded; each reviewed candidate body matches its materialized Draft."
+    },
+    "engine_preflight": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/verification/engine-preflight.json",
+      "sha256": "0b160fefe994717397b18a640544b6b72040eb8aae0bf321e5ea49f82b6249b4"
+    },
+    "drafts": {
+      "CA-R-draft:Atom.Carrier Destination": "dd21bc24efa563ef173b766f874d4b9ac3f080d002d72477d03b46a8c07e1dbc",
+      "CA-R-draft:Atom.Carrier Destination.File": "b2f85856453efc4deb1cd6c620a620bb5ecdeea27de2c582135d32b85e06dcc0",
+      "CA-R-draft:Atom.Carrier Destination.File.Name": "994acabb96f13a4417790e8016dca04708b8508f1e8ad7ef1db1616d0d44af51",
+      "CA-R-draft:Atom.Carrier Destination.File.Path": "bb486b0eb63360550584e66e491cd6f45e6880832886027f36e673c717c6fe7a",
+      "CA-D-664@3-draft": "f24f73bda63b66252101dba5c1e4f620cf9aeecc84cfcf9d94ac50311b9dc5af",
+      "CA-A-draft": "3cc161b038290d56f9e35bd1483febea38161ff4707710c7685dbae993235007"
+    }
+  },
+  "checks": [
+    {
+      "name": "manifest_and_exact_body_readback",
+      "status": "PASS",
+      "evidence": "All six actual file hashes match the manifest. Their frontmatter status, marker, version, role, form, tier, active-only Subject, and relations match the packet. Every post-frontmatter body byte matches its reviewed candidate body with only the expected Markdown boundary newline."
+    },
+    {
+      "name": "source_pins_and_semantics",
+      "status": "PASS",
+      "evidence": "All four pinned Current source hashes remain unchanged. The four new Declarations retain eight recognized CFEL constraints: mandatory zero-value containers, exactly File then Name and Path, and one string direct value with zero children on each leaf. The proposal's links and adoption boundary match the reviewed packet."
+    },
+    {
+      "name": "engine_admission_boundary",
+      "status": "PASS_WITH_LIMITATION",
+      "evidence": "engine-preflight records six failures before candidate evaluation with the common cause Current frontmatter encoding authority is unreviewed. The manifest correctly records manual identity/destination-only Draft preparation under the shared identity lock; it makes no promotion, admission, runtime, Current, or Journal claim."
+    }
+  ],
+  "blockers": [],
+  "admission_limit": "Engine admission is BLOCKED until the separate Current frontmatter encoding authority issue is reviewed. This gate neither requests nor performs an engine repair."
+}

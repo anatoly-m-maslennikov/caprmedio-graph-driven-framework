@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "Read-only semantic review of the fixed carrier-destination candidate packet. The JSON packet contains proposed carrier content only; this is not Current publication, runtime implementation, calculation execution, or stable-ID allocation.",
+  "reviewed_packet": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/candidate-carriers.json",
+    "sha256": "1730753fca62fa9098493c3a4c6eedddf2559f0157ff0dc3f80a3c656f8eb1a6",
+    "candidates": 6
+  },
+  "source_pins": {
+    "CA-R-2507@2": "0606e618e8527ebaf69bebd81bc5e66e2b59dd87a3e6785a04bff075dd9bdb1c",
+    "CA-R-2493@2": "fb5e63d1f8a318206e8e885df3ff21aa891e1988124b13e91be23ee75b2640a3",
+    "CA-R-2472@8": "5fd16835d0f6eefc728704754ea9721dd3043c14ee889c4417c537b368372b24",
+    "CA-D-664@2": "f5e5b15a0c058ad4345eefcbf07a0b34f5bd03fd5e53b823b427a7f068548bff"
+  },
+  "checks": [
+    {
+      "name": "source_pins_and_d664_minimality",
+      "status": "PASS",
+      "evidence": "All four live source hashes match. CA-D-664@3-draft retains the v2 Claim and Carrier constraints, differing only by the two destination-to-filename/location bindings (apart from the candidate body's frontmatter-boundary leading newline)."
+    },
+    {
+      "name": "mandatory_property_model",
+      "status": "PASS",
+      "evidence": "All four new Requirement/Declaration candidates have exactly one active Subject. Container declarations require one Property and zero direct values; File admits exactly Name and Path; each leaf requires one string direct value and explicitly has zero immediate children. The admitted constraint extractor recognizes all eight new CFEL expressions without diagnostics."
+    },
+    {
+      "name": "destination_meaning_and_delivery_scope",
+      "status": "PASS",
+      "evidence": "The proposal states Name as the calculated full filename including extension and Path as the calculated containing directory relative to repository root; calculated values are stored in frontmatter. It preserves existing Carrier meaning, filename, and placement rules, and does not add an algorithm, format invariant, or runtime calculation syntax."
+    },
+    {
+      "name": "proposal_markers_and_adoption_boundary",
+      "status": "PASS",
+      "evidence": "The Specification Proposal links each of the four ID-free CA-R-draft carriers by unique full path and the CA-D-664 successor; it explicitly defers stable-ID allocation to promotion. Its Adoption section keeps runtime calculation, frontmatter population, and migration as separate work."
+    }
+  ],
+  "blockers": [],
+  "scope_limits": [
+    "The packet preflight array is not used as semantic pass evidence while its producer may still be filling it.",
+    "Existing CA-D-664 CFEL remains outside the bounded projection extractor; this review does not claim runtime or evaluator conformance.",
+    "No Current, runtime, Git, Journal, or CA #8 cutover work was reviewed or changed."
+  ]
+}

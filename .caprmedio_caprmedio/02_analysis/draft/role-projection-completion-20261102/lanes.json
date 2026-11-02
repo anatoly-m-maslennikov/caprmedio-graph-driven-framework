@@ -44,7 +44,7 @@
         "source review; projection preflight"
       ],
       "acceptance": "integrated checks, zero graph gaps, verified remoteSHA",
-      "status": "running"
+      "status": "done"
     }
   ],
   "constraints": [
@@ -53,6 +53,6 @@
     "Actualworkflowinstance migration/fullCFELruntime/deployment excluded",
     "Root owns shared-state writes and Git"
   ],
-  "integration_constraint": "All peer workers are paused or complete for the authorized dev snapshot. Root owns Git. Broader validation remains failed; peer fixes continue after publication.",
+  "integration_constraint": "Combined snapshot published as 67aaf9d2a; CA #8 resumed independent runtime/fixture work. Carrier-destination Draft packet reviewed; engine admission remains blocked on existing encoding authority.",
   "final_inventory": "Read-only inventory complete; no concrete publication blocker. Refresh counts after peer freeze."
 }

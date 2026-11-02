@@ -1,15 +1,18 @@
 {
-  "status": "PREPARATION; no Atom Drafts created or Current changes made",
+  "status": "SIX_DRAFTS_CREATED_AND_REVIEWED",
   "agreed_fields": {
     "Atom.Carrier Destination.File.Name": "Calculated full filename including extension",
     "Atom.Carrier Destination.File.Path": "Calculated repository-relative containing directory"
   },
-  "pending_question": "Is File required for every Atom, or optional for file delivery?",
-  "later_cardinality_decision": "Whether File destination occurs for every Atom or only Atoms with file delivery.",
+  "pending_question": null,
   "source_scope": "CORE_META_MODEL",
   "runtime_changes": "None",
-  "source_warning": "Evidence report claim patterns are unvalidated candidates. Review nested-name and nested-value cardinalities before drafting.",
+  "source_warning": "Earlier evidence patterns are preparation inputs; actual Drafts and manifest have final readback PASS.",
   "updated_at": "2026-11-02T17:17:05.709703+00:00",
   "storage": "Store calculated values in Atom frontmatter.",
-  "delivery_consequence": "CA-D-664 already carries non-Content Properties to frontmatter; no destination exclusion is needed."
+  "delivery_consequence": "CA-D-664 already carries non-Content Properties to frontmatter; no destination exclusion is needed.",
+  "mandatory_properties": "Name and Path each [string]{:1}; intermediate containers occur once.",
+  "carrier_change": "None; D664 Draft uses the stored Name and Path without changing existing Carrier constraints.",
+  "engine_preflight": "BLOCKED: Current frontmatter encoding authority is unreviewed.",
+  "final_review": "verification/final-readback.json"
 }

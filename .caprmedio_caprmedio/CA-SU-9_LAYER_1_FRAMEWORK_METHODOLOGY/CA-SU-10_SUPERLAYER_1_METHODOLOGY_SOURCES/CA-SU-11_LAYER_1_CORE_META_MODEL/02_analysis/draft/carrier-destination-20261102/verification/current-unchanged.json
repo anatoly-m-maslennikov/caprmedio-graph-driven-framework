@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "source_frontier": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/current-source-frontier.json",
+  "source_frontier_sha256": "086527d582e14ff20a07f8dd382a20d2d5a3da98127e33b5a9e1f4cf675d390b",
+  "sources_checked": 1128,
+  "drift": [],
+  "checked_at": "2026-11-02T17:38:39.412915+00:00"
+}
