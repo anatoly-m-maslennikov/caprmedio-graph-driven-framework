@@ -165,12 +165,14 @@ class RevertChangesService:
 
     def __init__(self, observe: Callable[[str], str], apply_effect: Callable[[dict[str, Any]], Mapping[str, Any]], run_tracker: Any,
                  revalidate: Callable[[Mapping[str, Any]], list[str]] | None = None,
-                 capability_validator: Callable[[Mapping[str, Any]], list[str]] | None = None):
+                 capability_validator: Callable[[Mapping[str, Any]], list[str]] | None = None,
+                 observe_result: Callable[[Mapping[str, Any]], str] | None = None):
         self.observe = observe
         self.apply_effect = apply_effect
         self.run_tracker = run_tracker
         self.revalidate = revalidate or (lambda _request: [])
         self.capability_validator = capability_validator or (lambda _request: [])
+        self.observe_result = observe_result or (lambda effect: self.observe(effect["target_id"]))
 
     def handle(self, request: Mapping[str, Any]) -> dict[str, Any]:
         if not isinstance(request, Mapping):
@@ -252,7 +254,7 @@ class RevertChangesService:
                 outcome = "failed" if account["applied_effect_count"] == 0 else "partial_failure"
                 return self._terminal(outcome, manifest_id, request, account, start_receipt)
             try:
-                observed_result_hash = self.observe(effect["target_id"])
+                observed_result_hash = self.observe_result(effect)
             except Exception as exc:
                 account["effects"][index]["status"] = "uncertain"
                 account["effects"][index]["error"] = f"completed capability result observation unresolved: {exc}"
@@ -386,7 +388,7 @@ class RevertChangesService:
         return list(mismatches) if isinstance(mismatches, list) and all(isinstance(item, str) for item in mismatches) else ["revalidation_result"]
 
     def _already_satisfied(self, effects: list[Mapping[str, Any]]) -> bool:
-        return all(self.observe(effect["target_id"]) == effect["expected_result_hash"] for effect in effects)
+        return all(self.observe_result(effect) == effect["expected_result_hash"] for effect in effects)
 
     def _blocked(self, bindings: list[str], manifest_id: Any = None) -> dict[str, Any]:
         return {"outcome": "blocked", "manifest": None, "manifest_id": manifest_id,

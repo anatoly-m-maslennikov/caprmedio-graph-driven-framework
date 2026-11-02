@@ -201,7 +201,9 @@ class RevertChangesTests(unittest.TestCase):
         self.assertEqual([], runs.starts)
 
     def test_shared_run_tracker_preview_execute_and_canonical_journal(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
+        journal_parent = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
+        journal_parent.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=journal_parent) as temporary:
             root = Path(temporary)
             (root / ".git").mkdir()
             control = root / ".caprmedio_caprmedio"
@@ -231,14 +233,17 @@ class RevertChangesTests(unittest.TestCase):
                 result = service.execute_with_session(admitted["approved_reversal_manifest"], session, "action")
                 session.finish_run(workflow["run_id"], outcome="completed", result_ref=".caprmedio_runtime/revert_changes/workflow.json", effect_refs=[".caprmedio_runtime/revert_changes/effect"])
                 self.assertEqual("reverted", result["outcome"])
-            tracker = RunTracker(root, source_observer=observe_selected, executor=execute)
+            tracker = RunTracker(root, source_observer=observe_selected, executor=execute,
+                                 journal_context={"author": "test-user", "timezone": "UTC"})
             preview = tracker.run_selected_operation(request)
             self.assertEqual("preview", preview["disposition"])
             authorization = {"authorization_ref": "authorizations/revert.json", "authorization_freshness": {"state": "current", "digest": "f" * 64}, "request_id": request["request_id"], "operation_route": request["operation_route"], "proposal_receipt_digest": preview["proposal_receipt_digest"], "parameters_digest": request["parameters_digest"], "target_frontier_digest": request["target_frontier_digest"], "effects_digest": request["effects_digest"], "definition_manifest": request["definition_manifest"], "source_freshness": request["source_freshness"]}
             result = tracker.run_selected_operation({**request, "mode": "execute", "proposal_receipt": preview["proposal_receipt"], "proposal_receipt_digest": preview["proposal_receipt_digest"], "assigned_action_id": "CA-O-131", "operator_authorization": authorization})
             self.assertEqual("terminal", result["disposition"])
             self.assertEqual(["first", "second"], effects.calls)
-            journal = next((root / ".caprmedio_caprmedio/_journal").glob("*.ndjson"))
+            journals = list((root / ".caprmedio_caprmedio/_journal").glob("*.ndjson"))
+            self.assertTrue(journals, result)
+            journal = journals[0]
             self.assertEqual(4, len(journal.read_text(encoding="utf-8").splitlines()))
 
     def test_shared_session_logging_failure_is_nongating_without_retry(self) -> None:

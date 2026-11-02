@@ -27,6 +27,7 @@ from native_revert_provider import (  # noqa: E402
     NativeRevertProvider,
     NativeRevertProviderError,
     make_native_revert_service,
+    normalized_carrier_result_hash,
 )
 
 
@@ -124,6 +125,23 @@ class NativeRevertProviderTests(unittest.TestCase):
             encoding="utf-8",
         )
         return path
+
+    def test_result_observation_ignores_only_valid_generated_timestamp(self) -> None:
+        path = self._atom(self.root)
+        expected = normalized_carrier_result_hash(self.root, "CA-R-100")
+        original = path.read_text(encoding="utf-8")
+
+        path.write_text(original.replace("2026-10-01 00:00:00 +0000", "2026-10-02 00:00:00 +0000"), encoding="utf-8")
+        self.assertEqual(expected, normalized_carrier_result_hash(self.root, "CA-R-100"))
+
+        for old, new in (("Stable summary", "Changed summary"), ("status: Active", "status: Draft"), ("version: 1", "version: 2")):
+            with self.subTest(field=old):
+                path.write_text(original.replace(old, new), encoding="utf-8")
+                self.assertNotEqual(expected, normalized_carrier_result_hash(self.root, "CA-R-100"))
+
+        path.write_text(original.replace("2026-10-01 00:00:00 +0000", "not-a-timestamp"), encoding="utf-8")
+        with self.assertRaisesRegex(NativeRevertProviderError, "invalid updated_at"):
+            normalized_carrier_result_hash(self.root, "CA-R-100")
 
     @staticmethod
     def _proposal(path: Path) -> dict[str, str]:

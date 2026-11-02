@@ -113,5 +113,6 @@
   },
   "final_verification": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/verification/final-cutover-verification.json",
   "previous_git_owner": "CA #5: Main 2; this chat does not stage/commit/push",
-  "local_release_run_id": "local-20261103-tools-cleanup"
+  "local_release_run_id": "local-20261103-tools-cleanup-2",
+  "local_release_status": "Retry with approved stable Revert result contract; full suite before deployment"
 }

@@ -23,11 +23,15 @@ from typing import Any, AsyncIterator, Mapping
 APP = Path(__file__).resolve().parents[1]
 ROOT = APP.parents[3]
 TOOLS = APP.parents[1] / "FEATURE_TOOLS"
+REVERT_TOOLS = TOOLS / "WORKFLOW_OPERATIONS" / "REVERT_CHANGES"
 sys.path.insert(0, str(APP / "docker"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(REVERT_TOOLS))
 
 from atom_operations import atom_from_path, frontmatter_scalar  # noqa: E402
+import lifecycle_intents  # noqa: E402
+from native_revert_provider import normalized_carrier_result_hash  # noqa: E402
 from runtime import Runtime  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
 from current_code_e2e_context import load_test_context  # noqa: E402
@@ -502,9 +506,9 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(binding["evidence_refs"], receipt["evidence_refs"])
         native = receipt["native_result"]
         self.assertEqual("applied", native["outcome"], native)
-        self.assertEqual(effect["expected_result_hash"], hashlib.sha256(
-            json.dumps(native["observed"], sort_keys=True, separators=(",", ":")).encode()
-        ).hexdigest(), native)
+        target = binding["target"]
+        self.assertEqual(effect["expected_result_hash"], normalized_carrier_result_hash(root, target["atom_id"]), native)
+        self.assertEqual(native["observed"], lifecycle_intents.carrier_descriptor(root, target["atom_id"]), native)
         current_before = native["history"]["prior"]
         self.assertEqual(effect["expected_current_hash"], digest(current_before))
         prior = native["history"]["prior_revision"]

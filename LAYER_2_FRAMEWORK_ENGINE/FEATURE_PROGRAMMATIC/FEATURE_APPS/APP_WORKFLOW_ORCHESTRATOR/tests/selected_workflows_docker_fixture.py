@@ -688,7 +688,7 @@ class GoldenProject:
         if str(tools_root) not in sys.path:
             sys.path.insert(0, str(tools_root))
         import lifecycle_intents
-        from native_revert_provider import make_native_revert_service
+        from native_revert_provider import make_native_revert_service, normalized_carrier_result_hash
         from work_journal import canonical_json_bytes
 
         def record(name: str, value: object) -> dict[str, str]:
@@ -709,17 +709,15 @@ class GoldenProject:
             "change_class": "semantic_revision",
             "semantic_assessment_report": self._semantic_assessment_report(target, proposed),
         }
-        from unittest.mock import patch
-
         with tempfile.TemporaryDirectory(dir=self.root.parent, prefix="golden-w10-forecast-") as forecast_raw:
             forecast = Path(forecast_raw)
             (forecast / ".git").mkdir()
             shutil.copytree(self.root / ".caprmedio_caprmedio", forecast / ".caprmedio_caprmedio")
-            with patch.object(lifecycle_intents, "current_timestamp", return_value=W10_LIFECYCLE_TIMESTAMP):
-                forecast_target = lifecycle_intents.carrier_descriptor(forecast, "CA-R-100")
-                predicted = lifecycle_intents.update_atom_action(
-                    forecast, {**parameters, "target": forecast_target}, execute=True, authorized=True,
-                )
+            forecast_target = lifecycle_intents.carrier_descriptor(forecast, "CA-R-100")
+            predicted = lifecycle_intents.update_atom_action(
+                forecast, {**parameters, "target": forecast_target}, execute=True, authorized=True,
+            )
+            expected_result_hash = normalized_carrier_result_hash(forecast, "CA-R-100")
         if predicted.get("outcome") != "applied":
             raise GoldenCorpusError(f"W10 lifecycle forecast was not applied: {predicted}")
         before = "active version 1"
@@ -728,7 +726,7 @@ class GoldenProject:
             "effect_id": "golden-lifecycle-reversal", "target_id": "atom:CA-R-100",
             "expected_before": before, "expected_after": after,
             "expected_current_hash": digest(target),
-            "expected_result_hash": digest(predicted["observed"]),
+            "expected_result_hash": expected_result_hash,
             "before_evidence": "", "after_evidence": "",
             "capability_binding": {
                 "capability_id": "lifecycle.update_atom",

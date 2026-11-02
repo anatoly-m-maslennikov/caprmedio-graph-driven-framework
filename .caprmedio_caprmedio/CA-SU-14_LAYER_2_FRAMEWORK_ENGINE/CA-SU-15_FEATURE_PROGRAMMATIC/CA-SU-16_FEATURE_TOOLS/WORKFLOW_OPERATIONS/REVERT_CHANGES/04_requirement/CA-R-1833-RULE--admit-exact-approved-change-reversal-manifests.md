@@ -5,8 +5,8 @@ current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 11
-updated_at: 2026-10-27 20:00:04 +0400
+version: 12
+updated_at: 2026-11-03 02:46:04 +0400
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   depends_on:
@@ -33,6 +33,8 @@ REVERT_CHANGES **must** accept only a complete approved reversal manifest; it **
 ## Details
 
 The input is a `reversal_request` with: exact selected accepted change/Event/Revision references and before/after evidence; target identities; expected current Carrier/state hashes and affected-reference hashes; ordered approved effects and expected result; current governing-definition bindings; the recorded Operator decision binding exactly those effects; cancellation/recovery boundary; executor permission/capability evidence; and durable evidence location. Missing, stale, mismatched, revoked, unsupported, or unapproved input returns `blocked` before target mutation.
+
+For Atom reversals, the expected result compares the complete intended properties and Markdown content, including Status and Version, except the generated Updated At. The actual Updated At must be a valid timestamp. Current-target and evidence hashes remain exact.
 
 The manifest preserves those immutable request bindings plus an admission-time target/reference observation and a deterministic manifest ID. A manifest is invalid after any bound target, hash, authority, approval, permission, or effect ordering changes. It may represent an explicitly approved already-satisfied expected result, but still requires the same approval, currentness, history, and reference checks.
 

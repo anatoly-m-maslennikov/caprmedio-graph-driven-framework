@@ -7,7 +7,6 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
 
 
 TESTS = Path(__file__).resolve().parent
@@ -19,7 +18,6 @@ for location in (TESTS, APP, APP.parents[1] / "FEATURE_TOOLS", APP.parents[1] / 
 
 import test_selected_workflows_docker_e2e as docker_evidence  # noqa: E402
 import selected_workflows_docker_fixture as corpus  # noqa: E402
-import lifecycle_intents  # noqa: E402
 from selected_execution import SelectedExecution  # noqa: E402
 from selected_native_providers import SelectedNativeProviders  # noqa: E402
 from selected_routes import SelectedRouteAdapter  # noqa: E402
@@ -52,10 +50,7 @@ class SelectedW10EffectAssertions(unittest.TestCase):
         frozen = runner.freeze(
             {"operation": "enqueue_selected", "run_id": self.request_id, "execution": execution}
         )
-        # Forecast and actual execution must observe one fixture clock so the
-        # approved result hash covers the real lifecycle carrier bytes.
-        with patch.object(lifecycle_intents, "current_timestamp", return_value=corpus.W10_LIFECYCLE_TIMESTAMP):
-            self.selected = SelectedNativeProviders(self.root).execution(frozen).dispatch(frozen)
+        self.selected = SelectedNativeProviders(self.root).execution(frozen).dispatch(frozen)
         self.assertEqual("terminal", self.selected["disposition"], self.selected)
         self.graph = self.evidence._graph_result(self.root, self.request_id)
         self.native = self.evidence._w10_native_result(self.root, self.request_id, self.graph)
@@ -100,6 +95,14 @@ class SelectedW10EffectAssertions(unittest.TestCase):
         with self.assertRaises(AssertionError):
             self.evidence._assert_w10_effect_refs(
                 self.root, self.request_id, self.native, self.references
+            )
+
+    def test_forged_current_receipt_descriptor_is_rejected(self) -> None:
+        native = copy.deepcopy(self.native)
+        native["effect_account"]["effects"][0]["receipt"]["native_result"]["observed"]["status"] = "Draft"
+        with self.assertRaises(AssertionError):
+            self.evidence._assert_w10_effect_refs(
+                self.root, self.request_id, native, self.references
             )
 
 

@@ -5,8 +5,8 @@ current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 17
-updated_at: 2026-11-02 19:46:47 +0400
+version: 18
+updated_at: 2026-11-03 02:46:04 +0400
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   depends_on:
@@ -48,6 +48,8 @@ mcp_name = "revert_changes"
 ```
 
 The strict request has `operation` (`admit` or `execute`), `reversal_request` for admission, and `approved_reversal_manifest` for execution. No Journal-only recovery operation or `pending_recording_event` field is exposed. Unknown fields, mixed modes, missing exact bindings, or a raw inverse instruction are explicit errors. The strict result has `outcome`, `manifest_id`, `effect_account`, `evidence_refs`, and `run_receipt_refs`; an admitted result additionally carries its manifest, while blocked/error results name the exact invalid binding. Existing `run_receipt_refs` retain actual shared Run observations and logging diagnostics, not canonical Journal receipts or a durability, permission or source-effect completion claim. Plain Journal append/read adds no logging retry or recovery, and logging failure does not change an independently observed reversal outcome or authorize effect replay. Actual Run-start failure still blocks before effects; actual Run-terminal failure preserves the effect account and reports `run_error`. The Tool exposes no generic delete/reset parameter and no auto-apply mode.
+
+For Atom reversals, `expected_result_hash` is the hash of the intended target path, properties and exact Markdown content with `updated_at` omitted. The raw Carrier hash is not part of this result comparison because it includes that timestamp. Validate the actual `updated_at` separately. `expected_current_hash`, `current_hashes` and evidence hashes still bind the complete observed bytes and descriptors.
 
 For admission, every frozen evidence reference uses one `evidence_pin`:
 `{ evidence_ref, evidence_hash }`. `evidence_ref` is either an existing
