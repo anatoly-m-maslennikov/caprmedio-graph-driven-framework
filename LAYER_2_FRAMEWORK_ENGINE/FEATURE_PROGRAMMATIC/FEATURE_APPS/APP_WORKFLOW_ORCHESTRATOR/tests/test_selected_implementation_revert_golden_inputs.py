@@ -22,7 +22,11 @@ for path in (TOOLS, IMPLEMENTATION, REVERT, Path(__file__).resolve().parent):
 
 import implementation_actions  # noqa: E402
 import lifecycle_intents  # noqa: E402
-from native_revert_provider import NativeRevertProviderError, make_native_revert_service  # noqa: E402
+from native_revert_provider import (  # noqa: E402
+    NativeRevertProviderError,
+    make_native_revert_service,
+    normalized_carrier_result_hash,
+)
 from selected_workflows_docker_fixture import FixtureLease, GoldenCase, GoldenProject  # noqa: E402
 from frozen_selected_workflows import frozen_source_bytes, frozen_source_paths  # noqa: E402
 
@@ -99,7 +103,7 @@ class SelectedImplementationRevertGoldenInputsTest(unittest.TestCase):
             before = record("lifecycle-before.json", {"state": "active version 1"})
             after = record("lifecycle-after.json", {"state": "active version 2"})
             permission = record("lifecycle-permission.json", {"capability_id": "lifecycle.update_atom", "granted": True})
-            effect = {"effect_id": "lifecycle-update", "target_id": "atom:CA-R-100", "expected_before": "active version 1", "expected_after": "active version 2", "expected_current_hash": digest(target), "expected_result_hash": digest(predicted["observed"]), "before_evidence": before["evidence_ref"], "after_evidence": after["evidence_ref"],
+            effect = {"effect_id": "lifecycle-update", "target_id": "atom:CA-R-100", "expected_before": "active version 1", "expected_after": "active version 2", "expected_current_hash": digest(target), "expected_result_hash": normalized_carrier_result_hash(forecast, "CA-R-100"), "before_evidence": before["evidence_ref"], "after_evidence": after["evidence_ref"],
                 "capability_binding": {"capability_id": "lifecycle.update_atom", "parameters": parameters, "target": target, "permission_evidence": {"capability_id": "lifecycle.update_atom", "granted": True, **permission}, "evidence_refs": [before["evidence_ref"], after["evidence_ref"], history["evidence_ref"]]}}
             request = {"selected_change_refs": [selected["evidence_ref"]], "targets": ["atom:CA-R-100"], "affected_reference_hashes": {history["evidence_ref"]: history["evidence_hash"]}, "governing_definition_hash": "", "operator_decision": {"decision_id": "approved", "approved_effect_ids": ["lifecycle-update"], "status": "approved"}, "cancellation_boundary": {"after_effect_ids": ["lifecycle-update"]}, "executor_permission": {"capability": "governed-reversal", "granted": True}, "durable_evidence_location": "journal://fixture", "ordered_effects": [effect], "expected_result": {"state": "reverted"}, "history_reference_evidence": [history["evidence_ref"]], "current_hashes": {"atom:CA-R-100": digest(target)}, "selected_change": [selected], "history_record": [history], "affected_reference": [history], "before_record": [before], "after_record": [after]}
             definition_matches = [

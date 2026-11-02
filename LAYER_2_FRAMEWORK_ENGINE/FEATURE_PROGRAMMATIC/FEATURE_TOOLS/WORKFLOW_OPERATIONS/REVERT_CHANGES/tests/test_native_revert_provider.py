@@ -201,7 +201,7 @@ class NativeRevertProviderTests(unittest.TestCase):
                     execute=True,
                     authorized=True,
                 )
-                expected_result_hash = canonical_digest(forecast_result["observed"])
+                expected_result_hash = normalized_carrier_result_hash(forecast, "CA-R-100")
                 target = lifecycle_intents.carrier_descriptor(self.root, "CA-R-100")
                 before, after = "before:lifecycle-update", "after:lifecycle-update"
                 parameters = {"target": target, "proposed": self._proposal(target_path), "change_class": "semantic_revision"}

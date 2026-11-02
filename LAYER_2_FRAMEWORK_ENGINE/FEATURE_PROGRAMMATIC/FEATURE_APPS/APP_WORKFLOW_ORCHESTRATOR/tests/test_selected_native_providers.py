@@ -171,7 +171,7 @@ class SelectedNativeProvidersTests(unittest.TestCase):
                 target = lifecycle_intents.carrier_descriptor(self.root, "CA-R-100")
                 effect = {"effect_id": "lifecycle", "target_id": "atom:CA-R-100", "expected_before": "version 1",
                           "expected_after": "version 2", "expected_current_hash": revert_fixture.canonical_digest(target),
-                          "expected_result_hash": revert_fixture.canonical_digest(forecast_result["observed"]),
+                          "expected_result_hash": revert_fixture.normalized_carrier_result_hash(forecast, "CA-R-100"),
                           "before_evidence": "before:lifecycle", "after_evidence": "after:lifecycle",
                           "capability_binding": helper._binding("lifecycle.update_atom", {
                               "target": target, "proposed": helper._proposal(target_path), "change_class": "semantic_revision"},
