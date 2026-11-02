@@ -1,0 +1,258 @@
+{
+  "lane": "carrier-destination ambiguity review",
+  "examined": {
+    "paths_sha256": {
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/manifest.json": "adb1a039dbc9afde73b612fc53f3007b474319f2d04dade6b9950bb50fda4a59",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md": "dd21bc24efa563ef173b766f874d4b9ac3f080d002d72477d03b46a8c07e1dbc",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md": "b2f85856453efc4deb1cd6c620a620bb5ecdeea27de2c582135d32b85e06dcc0",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md": "994acabb96f13a4417790e8016dca04708b8508f1e8ad7ef1db1616d0d44af51",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md": "bb486b0eb63360550584e66e491cd6f45e6880832886027f36e673c717c6fe7a",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md": "f24f73bda63b66252101dba5c1e4f620cf9aeecc84cfcf9d94ac50311b9dc5af",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md": "3cc161b038290d56f9e35bd1483febea38161ff4707710c7685dbae993235007",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1975-CORE_META_MODEL-DEFINITION--define-file-carrier-filename.md": "c4d4e950ea8d0f2c241fb000c95adaa52a740abb356ffcea0af2761c09054d8d",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1954-CORE_META_MODEL-DEFINITION--define-directory-carrier-path.md": "e2790fada5f0a766de28957fa18492c04b4ec29002c5aa4c16efbcbad5b55f3c",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1993-CORE_META_MODEL-DECLARATION--define-carries.md": "71c7432901cf27301f393b92bd5fe3388306a2927a056f002b5d3d82339f9055",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md": "990e377beabb7016a2ee11ed4c0eafa261138d59d28aadedb9ac0729f7a33853",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md": "5bb3c2c3d0e70aa492ff729dc87e75b8ea0f614c91c755fcf8350ee3cba536a6",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-480-CORE_META_MODEL-ENG_DECISION--keep-atom-addresses-consistent-with-carried-properties.md": "bf0c3883b1c061c81a7c64322c874869bf592ce5a68684e04a7bff684edba270",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md": "4fb2543a51a184b13ebe3a5e6cbae7b275fc574067f4681dea2a951f311d97cb",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-291-CORE_META_MODEL-ENG_DECISION--serialize-the-current-scope-unit-in-atom-filenames.md": "28c3ed81954446516432b36b638c6dcc31af0c03e047da4fa9a2c195d67af628",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-284-CORE_META_MODEL-ENG_DECISION--serialize-filename-token-case.md": "7a7042e9b36f4937a406fd0dc13e197674cf249b66254ab81e568ea01484a786",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL-ENG_DECISION--require-portable-safe-carrier-addresses.md": "6d296272f18f15786d9e7beef9c9cc6cdd07b63e5a8e552cf48adc2ebc81d6e9",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md": "1eb9360f6e7eabd90f86743d21151fd11b585800dcbd06583f425938e93cbdbf",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-636-CORE_META_MODEL-ENG_DECISION--bind-carriers-to-their-represented-current-or-historical-entities.md": "36df6cb03554652c0ed955ae56f642bb2897f316bf91a4687b3c04bf3670bc29",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md": "f5e5b15a0c058ad4345eefcbf07a0b34f5bd03fd5e53b823b427a7f068548bff",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-667-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md": "2d1f64d76d65185bb0c5bbb7ade742a4837155ee8140193dd942cba7553e83ec",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-395-CORE_META_MODEL-ENG_DECISION--serialize-ambient-project-scope-paths.md": "9dc6e8fd7221df96b72a745d0000b745d7cd9a20fa905573e39d2867bff13c5e",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md": "4d156347e457d03890e4d3770efaf00b9bf1816a8b6a78277fc49659ccf3600a"
+    }
+  },
+  "findings": [
+    {
+      "id": "AMB-01",
+      "priority": "P2",
+      "title": "Normative frontmatter encoding for agreed destination paths is unstated",
+      "issue": "The agreed logical dotted Properties and the decision to store their values in Atom frontmatter are present, but the packet does not state the normative YAML encoding that maps those exact paths to frontmatter keys and scalar values. This is an encoding/documentation gap for later schema and Engine work, not an unconditional admission violation: the categorical unadmitted-field rule is in D657 Details, while current D664 only selects the frontmatter region and generic Carrier fields.",
+      "reading_a": "Encode the agreed logical paths as literal dotted YAML keys, for example carrier_destination.file.name and carrier_destination.file.path, each as one required scalar.",
+      "reading_b": "Encode the same agreed logical paths as nested YAML mappings, for example carrier_destination: {file: {name: ..., path: ...}}, while retaining the same logical Properties and frontmatter storage choice.",
+      "counterexample": "For an Atom delivered at docs/CA-R-123--example.md, reading A writes literal dotted keys carrier_destination.file.name and carrier_destination.file.path, while reading B writes a nested carrier_destination/file/name and path map. Both preserve the agreed logical values, but a consumer selecting the other YAML encoding cannot round-trip the field without an unstated alias rule.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+          "line_start": 21,
+          "line_end": 25,
+          "atom_id": "CA-A-draft",
+          "version": 1,
+          "excerpt": "Declare Name and Path as mandatory string Properties; store the calculated values in Atom frontmatter; deliver using those values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+          "line_start": 31,
+          "line_end": 38,
+          "atom_id": "CA-D-664@3-draft",
+          "version": 3,
+          "excerpt": "Atom.Carrier Destination.File.Name >> ...file.filename; ...File.Path >> ...file.location; filename and location are string leaves."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "line_start": 40,
+          "line_end": 51,
+          "atom_id": "CA-D-657",
+          "version": 2,
+          "excerpt": "Conflicting old and new names for the same Property are invalid; a new field requires authority that settles its canonical location, value type, cardinality, admission condition and permitted values; an admitted Property with an unsettled encoding is a schema gap, not permission to guess."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md",
+          "line_start": 31,
+          "line_end": 40,
+          "atom_id": "CA-D-478",
+          "version": 31,
+          "excerpt": "Use YAML Frontmatter for an Atom's metadata properties. Each applicable Atom Property has one canonical internal location; use the property names and canonical value encodings registered by the applicable D policy."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+          "line_start": 31,
+          "line_end": 36,
+          "atom_id": "CA-D-664",
+          "version": 2,
+          "excerpt": "Atom.**!(.Content, .Content.**) >> @Carrier//Markdown file.frontmatter; @Carrier//Markdown file.filename{:1}: [string]{:1}; @Carrier//Markdown file.location{:1}: [string]{:1};"
+        }
+      ],
+      "blast_radius": "Later schema, frontmatter writer/reader, and readback implementations may serialize the same agreed logical values differently or require an unstated alias.",
+      "minimal_fix": "Add a normative Delivery encoding clause for the already-agreed dotted Name and Path Properties: state their exact YAML key spelling/nesting, required scalar/cardinality, and prohibition on alternate aliases without changing their meaning or storage location.",
+      "decision_required": "Document the already-agreed encoding; do not reopen the Name/Path semantics or frontmatter storage choice.",
+      "confidence": "high"
+    }
+  ],
+  "nonfindings": [
+    {
+      "topic": "Canonical filename spelling",
+      "result": "No remaining ambiguity found in this lane.",
+      "reason": "The active definition makes Filename the name within the containing directory including its extension, CA-D-283 supplies the canonical Atom filename pattern, and CA-D-284 fixes token and slug/extension case. The Draft repeats the full-filename-with-extension decision and does not reopen it.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1975-CORE_META_MODEL-DEFINITION--define-file-carrier-filename.md",
+          "line_start": 23,
+          "line_end": 27,
+          "atom_id": "CA-R-1975",
+          "version": 12,
+          "excerpt": "Filename means the name within its containing directory, including any extension; it does not include the directory path."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md",
+          "line_start": 30,
+          "line_end": 32,
+          "atom_id": "CA-D-283",
+          "version": 32,
+          "excerpt": "Every identified Project-owned Markdown Atom filename must match the stated canonical pattern."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-284-CORE_META_MODEL-ENG_DECISION--serialize-filename-token-case.md",
+          "line_start": 18,
+          "line_end": 22,
+          "atom_id": "CA-D-284",
+          "version": 25,
+          "excerpt": "Structured filename tokens use uppercase ASCII; Summary Slug and extension use lowercase ASCII."
+        }
+      ]
+    },
+    {
+      "topic": "Calculated intended destination versus observed Carrier address",
+      "result": "No valid alternate reading; the prior observed-first/adopted-address reading is removed from findings.",
+      "reason": "The manifest records Name and Path as mandatory stored calculated values, and the proposal preserves existing filename, placement, and Carrier meaning. Active CA-D-480 requires an address to agree with the canonical internal value and forbids silent override. Choosing an observed legacy address as the destination would violate the settled decision and invariant. Any remaining mismatch error versus separately authorized move belongs to deferred Workflow/Engine behavior, not this Draft wording gate.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/manifest.json",
+          "line_start": 79,
+          "line_end": 82,
+          "atom_id": "manifest",
+          "version": null,
+          "excerpt": "Name: mandatory stored calculated full filename; Path: mandatory stored calculated repository-relative containing directory; existing Carrier rules retain their meaning."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+          "line_start": 27,
+          "line_end": 31,
+          "atom_id": "CA-A-draft",
+          "version": 1,
+          "excerpt": "Existing filename, placement and Carrier rules keep their meaning; the intermediate Properties declare the complete paths."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-480-CORE_META_MODEL-ENG_DECISION--keep-atom-addresses-consistent-with-carried-properties.md",
+          "line_start": 30,
+          "line_end": 34,
+          "atom_id": "CA-D-480",
+          "version": 23,
+          "excerpt": "An address represented by a filename or placement must agree with the canonical internal value; mismatch is invalid and must be reported; the address must not silently override it."
+        }
+      ]
+    },
+    {
+      "topic": "Repository-relative Path representation",
+      "result": "No current promotion-blocking ambiguity found; root-level sentinel and host-native alternatives are future/out-of-scope follow-up.",
+      "reason": "The current decision fixes the containing directory and repository-root base. Active placement derives the actual Scope Unit folders, while the portable-address rule excludes empty/reserved/unsafe segments. No two invariant-compliant current target bases remain. A root-directory sentinel is only relevant if a root-level Atom Carrier is later admitted; CA-D-395's empty value is specifically for Carrier scope_path and cannot be imported into this new destination Path property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+          "line_start": 21,
+          "line_end": 26,
+          "atom_id": "CA-R-draft",
+          "version": 1,
+          "excerpt": "Path is a mandatory string leaf; Calculated path of the containing directory, relative to the repository root."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-667-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md",
+          "line_start": 25,
+          "line_end": 38,
+          "atom_id": "CA-D-667",
+          "version": 1,
+          "excerpt": "Place each non-root folder under its respective parent's folder. Do not maintain the derived folder paths as independent values in Scope Unit Declarations."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL-ENG_DECISION--require-portable-safe-carrier-addresses.md",
+          "line_start": 25,
+          "line_end": 29,
+          "atom_id": "CA-D-301",
+          "version": 29,
+          "excerpt": "Every Project-owned Carrier address segment must use only portable automation-safe ASCII letters, digits, underscores, hyphens, and dots; segments must not contain path separators or empty segments."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-395-CORE_META_MODEL-ENG_DECISION--serialize-ambient-project-scope-paths.md",
+          "line_start": 22,
+          "line_end": 28,
+          "atom_id": "CA-D-395",
+          "version": 24,
+          "excerpt": "a Carrier encoding of scope_path must omit the ambient current Project and use an empty path for Project Scope."
+        }
+      ]
+    },
+    {
+      "topic": "Calculation epoch and update trigger",
+      "result": "Deferred Workflow/Engine follow-up; not a promotion-blocking wording ambiguity.",
+      "reason": "The proposal explicitly defers runtime calculation, frontmatter population, and migration. Active lifecycle rules constrain any valid changed result: a Current update advances to Version N+1 and archives the predecessor, while CA-D-480 rejects a mismatched address and requires an authorized correction. The former same-ID/same-version recomputation reading is therefore not an applicable invariant-compliant interpretation. Workflow/Engine may choose when to calculate within those constraints.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+          "line_start": 45,
+          "line_end": 47,
+          "atom_id": "CA-A-draft",
+          "version": 1,
+          "excerpt": "Review this packet before promotion. Runtime calculation, frontmatter population and migration remain separate work."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+          "line_start": 28,
+          "line_end": 34,
+          "atom_id": "CA-D-446",
+          "version": 28,
+          "excerpt": "When a Current Atom changes, archive the predecessor and the Current successor advances Version from N to N+1; an actual update is subject to Summary/replacement and other change rules."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-480-CORE_META_MODEL-ENG_DECISION--keep-atom-addresses-consistent-with-carried-properties.md",
+          "line_start": 30,
+          "line_end": 34,
+          "atom_id": "CA-D-480",
+          "version": 23,
+          "excerpt": "Address and canonical internal values must agree; mismatch is invalid and corrections require an authorized change."
+        }
+      ]
+    },
+    {
+      "topic": "Repeated CARRIES binding per destination leaf",
+      "result": "No new ambiguity found in this packet; retry idempotence is outside this bounded wording review.",
+      "reason": "The successor retains one Atom-to-Markdown-Carrier expression and adds field mappings only. Current CARRIES semantics define one relation fact with a derived inverse and explicitly reject separate bindings for each YAML field or Markdown section; direct relation serialization is once with unique target references.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1993-CORE_META_MODEL-DECLARATION--define-carries.md",
+          "line_start": 43,
+          "line_end": 49,
+          "atom_id": "CA-R-1993",
+          "version": 19,
+          "excerpt": "Forward and reverse directions are views of the same relation fact; no separate binding is required for each YAML field or Markdown section."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-636-CORE_META_MODEL-ENG_DECISION--bind-carriers-to-their-represented-current-or-historical-entities.md",
+          "line_start": 31,
+          "line_end": 35,
+          "atom_id": "CA-D-636",
+          "version": 16,
+          "excerpt": "A Carrier binding identifies the represented Entity; no separately registered binding is required for each field or section."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+          "line_start": 25,
+          "line_end": 31,
+          "atom_id": "CA-D-268",
+          "version": 30,
+          "excerpt": "Every authored direct relation is serialized once as a collection of unique canonical target references; derived inverses are not separately declared."
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Only the manifest, six materialized Drafts, and the cited Current definitions were used for semantic resolution; no Draft, Current, runtime, fixture, Git, or Journal source was edited.",
+    "The existing eight-expression extraction pass is treated as bounded parsing only; this review makes no CFEL semantic-evaluator or runtime-conformance claim.",
+    "The manifest records Current frontmatter encoding authority as blocked. The separate engine encoding-authority block, including any conflict between address-derived facts and stored metadata, was not recast as a wording finding here.",
+    "The review does not decide the user's already-set Name/Path meaning or change existing Carrier rules; AMB-01 is retained only as a P2 normative-encoding gap, not an unconditional admission blocker."
+  ]
+}

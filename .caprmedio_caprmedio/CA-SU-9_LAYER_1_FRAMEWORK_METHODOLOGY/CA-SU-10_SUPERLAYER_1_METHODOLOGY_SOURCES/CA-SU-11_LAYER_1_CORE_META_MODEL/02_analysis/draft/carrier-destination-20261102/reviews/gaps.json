@@ -1,0 +1,117 @@
+{
+  "lane": "carrier-destination proposal/Draft gaps",
+  "result": "2 actionable blockers found.",
+  "examined_paths_hashes": {
+    "manifest": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/manifest.json (adb1a039dbc9afde73b612fc53f3007b474319f2d04dade6b9950bb50fda4a59)",
+    "drafts": {
+      "Atom.Carrier Destination": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md (dd21bc24efa563ef173b766f874d4b9ac3f080d002d72477d03b46a8c07e1dbc)",
+      "Atom.Carrier Destination.File": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md (b2f85856453efc4deb1cd6c620a620bb5ecdeea27de2c582135d32b85e06dcc0)",
+      "Name": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md (994acabb96f13a4417790e8016dca04708b8508f1e8ad7ef1db1616d0d44af51)",
+      "Path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md (bb486b0eb63360550584e66e491cd6f45e6880832886027f36e673c717c6fe7a)",
+      "Delivery": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md (f24f73bda63b66252101dba5c1e4f620cf9aeecc84cfcf9d94ac50311b9dc5af)",
+      "Proposal": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md (3cc161b038290d56f9e35bd1483febea38161ff4707710c7685dbae993235007)"
+    }
+  },
+  "findings": [
+    {
+      "id": "CD-GAP-01",
+      "priority": "P2",
+      "title": "Exact YAML key encoding remains unset before promotion",
+      "issue": "The proposal requires stored frontmatter values, but supplies no authority that identifies their exact YAML key/nesting. CA-D-478's operative Claim establishes YAML Frontmatter as the location for metadata Properties, but does not settle this encoding. CA-D-657's categorical new-key closure is in Details. This is a pre-promotion readiness gap, not proof that a candidate was rejected or that creating these Drafts is defective.",
+      "counterexample": "During later population, an Atom author could choose either a nested `carrier_destination` mapping or flattened keys. The packet supplies no canonical choice for validation or migration.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+          "line_start": 21,
+          "line_end": 25,
+          "atom_id": "CA-A-draft",
+          "version": 1,
+          "excerpt": "Requires Name/Path, frontmatter storage, and delivery."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+          "line_start": 31,
+          "line_end": 39,
+          "atom_id": "CA-D-664@3-draft",
+          "version": 3,
+          "excerpt": "Maps the values to Markdown file.filename and .location; no YAML key mapping is defined."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md",
+          "line_start": 29,
+          "line_end": 40,
+          "atom_id": "CA-D-478",
+          "version": 31,
+          "excerpt": "The operative Claim places metadata Properties in YAML Frontmatter and requires applicable registered property names and encodings."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "line_start": 44,
+          "line_end": 52,
+          "atom_id": "CA-D-657",
+          "version": 2,
+          "excerpt": "Details states that a new field or nested key needs applicable authority and an unsettled encoding is a schema gap."
+        }
+      ],
+      "blast_radius": "Pre-promotion readiness for Atom Markdown carriers and any validator/authoring workflow that later populates or reads these mandatory fields.",
+      "minimal_fix": "Before promotion, add one narrow frontmatter-encoding authority for these two declared properties, specifying their exact YAML key/nesting and scalar encoding; retain the existing physical-address bindings and do not add a calculation algorithm.",
+      "decision_required": true,
+      "confidence": "high"
+    },
+    {
+      "id": "CD-GAP-02",
+      "priority": "P2",
+      "title": "Explicit adoption gate is missing before mandatory-field promotion",
+      "issue": "The Draft declarations make the entire destination hierarchy mandatory, while the proposal truthfully defers runtime calculation, frontmatter population, and migration. Its Adoption section nevertheless says only to review before promotion. It omits the minimum pre-promotion condition that Current carriers be populated and validated, or covered by an explicit, bounded transition exception. This is not a present contradiction in creating Drafts or authorization to skip migration.",
+      "counterexample": "An approver could promote the declarations after review while CA-D-664@2 and other Current Atoms still lack the mandatory hierarchy, without a recorded population/validation result or an explicit transition exception.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+          "line_start": 21,
+          "line_end": 23,
+          "atom_id": "CA-R-draft",
+          "version": 1,
+          "excerpt": "Carrier Destination and its File child each occur exactly once."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+          "line_start": 21,
+          "line_end": 23,
+          "atom_id": "CA-R-draft",
+          "version": 1,
+          "excerpt": "Name occurs once with one string value."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+          "line_start": 45,
+          "line_end": 47,
+          "atom_id": "CA-A-draft",
+          "version": 1,
+          "excerpt": "Review precedes promotion while population and migration remain separate."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "line_start": 51,
+          "line_end": 52,
+          "atom_id": "CA-D-657",
+          "version": 2,
+          "excerpt": "Migration exceptions must be explicit; legacy presence alone is not an exception."
+        }
+      ],
+      "blast_radius": "Pre-promotion readiness for the five proposed normative carriers and all existing Current Atom carriers.",
+      "minimal_fix": "Change the Adoption text to make promotion conditional on: approved field encoding, population and validation of every affected Current Atom, or an explicitly governed compatibility/migration exception. This is a readiness gate only, not a workflow-instance design.",
+      "decision_required": false,
+      "confidence": "high"
+    }
+  ],
+  "nonfindings": [
+    "No separate Atom-root inventory successor is needed: the existing model declares other immediate Atom properties directly in their own Declaration Atoms, matching these Drafts.",
+    "The stored values can remain calculations without a new CFEL formula: the proposed physical bindings plus CA-D-480@23 require agreement with the carrier address; calculation mechanics belong to Workflow/Engine.",
+    "Storing Atom properties in frontmatter does not conflict with Carrier-address non-duplication: CA-D-267@27 expressly routes Atom Properties to CA-D-478 and CA-D-480.",
+    "The common engine-preflight encoding-authority failure is not evidence that this candidate content is invalid."
+  ],
+  "changed_files": "reviews/gaps.json only",
+  "verification": "Manifest hashes for all six Drafts matched; all six frontmatter blocks parsed as YAML mappings with .venv/bin/python.",
+  "uncertainty": "No runtime calculation, migration execution, or workflow instance was reviewed. Findings concern only readiness of the proposed normative packet.",
+  "next_action": "Resolve CD-GAP-01 and CD-GAP-02 before treating this packet as promotion-ready."
+}

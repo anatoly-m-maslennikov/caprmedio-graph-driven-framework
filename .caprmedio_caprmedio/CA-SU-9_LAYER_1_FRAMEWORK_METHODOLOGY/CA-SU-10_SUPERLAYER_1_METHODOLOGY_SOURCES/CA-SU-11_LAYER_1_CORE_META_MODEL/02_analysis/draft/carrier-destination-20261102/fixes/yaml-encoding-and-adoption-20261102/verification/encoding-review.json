@@ -1,0 +1,148 @@
+{
+  "lane": "Core Meta-Model carrier-destination YAML encoding re-review",
+  "result": "PASS",
+  "encoding_result": "PASS",
+  "summary": "CD-REV-01 / AC-001 is closed at Claim level: the D664@4 Draft names exactly the nested YAML keys required for both mandatory Properties. The former dangling manifest verification pointer is resolved by the exact final-readback artifact now present at that pointer.",
+  "examined": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@4-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "b6bd7ca695ab0dbd590533bb87be2399eb51b205cd86eca9d37c3c1c1efbc3db",
+      "status": "Draft",
+      "id": "CA-D-664@4-draft",
+      "version": 4
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "sha256": "8d09d8a2eb5eeb3c1a198e7717b13f45f2d9df99ff301ab964c21053e580a0bb",
+      "status": "Draft",
+      "id": "CA-A-draft",
+      "version": 2
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "f5e5b15a0c058ad4345eefcbf07a0b34f5bd03fd5e53b823b427a7f068548bff",
+      "status": "Active",
+      "id": "CA-D-664",
+      "version": 2
+    }
+  ],
+  "passes": [
+    {
+      "id": "CD-REV-01",
+      "result": "PASS",
+      "reason": "D664@4 maps Name only to frontmatter.carrier_destination.file.name and Path only to frontmatter.carrier_destination.file.path. This supplies the property-name and canonical-encoding selection required by CA-D-478 Claim without depending on CA-D-657 Details.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@4-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+          "line_start": 31,
+          "line_end": 41,
+          "atom_id": "CA-D-664@4-draft",
+          "version": 4,
+          "excerpt": "The Claim retains generic frontmatter delivery, adds the two exact nested frontmatter mappings, and retains filename/location bindings and constraints."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md",
+          "line_start": 29,
+          "line_end": 40,
+          "atom_id": "CA-D-478",
+          "version": 31,
+          "excerpt": "The operative Claim requires YAML for metadata and registered canonical property encodings rather than an invented field from the display path."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+          "line_start": 21,
+          "line_end": 25,
+          "atom_id": "CA-A-draft",
+          "version": 2,
+          "excerpt": "The Proposal names the same nested keys for the mandatory calculated Name and Path values."
+        }
+      ]
+    },
+    {
+      "id": "ENC-REV-01",
+      "result": "PASS",
+      "reason": "The generic frontmatter delivery establishes the containing region; the two new mappings refine it to one leaf each. They do not add a second YAML value, modify Atom-to-Carrier binding, or alter the existing physical filename/location bindings.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@4-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+          "line_start": 32,
+          "line_end": 40,
+          "atom_id": "CA-D-664@4-draft",
+          "version": 4,
+          "excerpt": "One Atom-to-Carrier binding remains; Name and Path have one explicit frontmatter leaf each and retain their pre-existing filename/location representations."
+        }
+      ]
+    },
+    {
+      "id": "ENC-REV-02",
+      "result": "PASS",
+      "reason": "The receipt, frozen predecessors, and current manifest agree: D664@3-draft became D664@4-draft with version 4, and the Proposal advanced from version 1 to 2. All six current Draft and four current source-pin digests matched their manifest values; the four Requirement Declarations retain their prior digests.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/receipt.json",
+          "line_start": 1,
+          "line_end": 28,
+          "atom_id": "receipt",
+          "version": null,
+          "excerpt": "Receipt records only the D664 and Proposal Draft edits, exact predecessor/successor hashes, version advances, and unchanged four Declarations/current authority/runtime."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/manifest.json",
+          "line_start": 64,
+          "line_end": 78,
+          "atom_id": "packet-manifest",
+          "version": null,
+          "excerpt": "Current manifest pins D664@4-draft at version 4 and the Proposal at version 2 with hashes matching the actual files."
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "ENC-REV-03",
+      "status": "RESOLVED",
+      "priority": "P2",
+      "title": "Resolved: manifest latest-verification pointer previously was dangling",
+      "issue": "At the initial review, the refreshed packet manifest named fixes/yaml-encoding-and-adoption-20261102/verification/final-readback.json as latest_verification, but that file was absent. The root-owned final readback now exists at that exact path and identifies ENC-REV-03 as resolved.",
+      "counterexample": "Historical observation only: a consumer initially could not open manifest.latest_verification. It now resolves to the final readback artifact.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/manifest.json",
+          "line_start": 86,
+          "line_end": 88,
+          "atom_id": "packet-manifest",
+          "version": null,
+          "excerpt": "latest_verification points to verification/final-readback.json; the referenced file was absent."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/verification/final-readback.json",
+          "line_start": 1,
+          "line_end": 1,
+          "atom_id": "final-readback",
+          "version": null,
+          "excerpt": "The exact manifest target now exists, reports PASS, and lists ENC-REV-03 among resolved findings."
+        }
+      ],
+      "blast_radius": "Resolved. Packet-consumer traceability now reaches the advertised final readback; no Draft semantics changed.",
+      "minimal_fix": "Completed by creating the named final-readback artifact.",
+      "decision_required": false,
+      "confidence": "high"
+    }
+  ],
+  "nonfindings": [
+    "No duplicate logical storage: the generic frontmatter container mapping and explicit leaf mapping describe the same internal YAML region, while each Property has one named leaf.",
+    "No Carrier-semantics change: D664 retains Atom-to-Markdown-file delivery and the prior filename/location mappings; no new Carrier or CARRIES fact is introduced.",
+    "No unexpected Draft or pin drift: D664 marker/version/path agree with the receipt and Draft-marker form, the Proposal record agrees with the receipt, the four Requirement Declaration hashes are unchanged, and the current manifest hash eba4b7539c06c8c2829294336b5314f5b793e6e6efbf8ee7220145e4deefff5f matches receipt.new_manifest_sha256."
+  ],
+  "pointer_closure": {
+    "result": "PASS",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/verification/final-readback.json",
+    "sha256": "978285e96c638c18c234b82e869cd90f0d4fd5c1bda46415071a82653c82f69f",
+    "reason": "The manifest pointer resolves to this JSON readback, whose checks report PASS and whose resolved_findings include ENC-REV-03."
+  },
+  "limits": [
+    "No Current source, Runtime, fixture, Git, Journal, or non-assigned report was edited or re-reviewed.",
+    "The original absent-final-readback observation is retained above as resolved history."
+  ],
+  "next_action": "None for this encoding-review surface."
+}

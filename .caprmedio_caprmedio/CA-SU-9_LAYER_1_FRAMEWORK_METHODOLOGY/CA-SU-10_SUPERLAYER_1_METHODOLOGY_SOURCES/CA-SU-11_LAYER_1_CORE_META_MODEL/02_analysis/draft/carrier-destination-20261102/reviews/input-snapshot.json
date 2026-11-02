@@ -1,0 +1,35 @@
+{
+  "recorded_at": "2026-11-02T18:33:20.519144+00:00",
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "sha256": "dd21bc24efa563ef173b766f874d4b9ac3f080d002d72477d03b46a8c07e1dbc"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "sha256": "b2f85856453efc4deb1cd6c620a620bb5ecdeea27de2c582135d32b85e06dcc0"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "sha256": "994acabb96f13a4417790e8016dca04708b8508f1e8ad7ef1db1616d0d44af51"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "sha256": "bb486b0eb63360550584e66e491cd6f45e6880832886027f36e673c717c6fe7a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "f24f73bda63b66252101dba5c1e4f620cf9aeecc84cfcf9d94ac50311b9dc5af"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "sha256": "3cc161b038290d56f9e35bd1483febea38161ff4707710c7685dbae993235007"
+    }
+  ],
+  "latest_operator_decisions": {
+    "name": "Mandatory calculated full filename including extension; one string.",
+    "path": "Mandatory calculated containing directory relative to repository root; one string.",
+    "storage": "Stored in Atom frontmatter.",
+    "carrier": "Existing Carrier rules retain their meaning; simpler Delivery."
+  }
+}

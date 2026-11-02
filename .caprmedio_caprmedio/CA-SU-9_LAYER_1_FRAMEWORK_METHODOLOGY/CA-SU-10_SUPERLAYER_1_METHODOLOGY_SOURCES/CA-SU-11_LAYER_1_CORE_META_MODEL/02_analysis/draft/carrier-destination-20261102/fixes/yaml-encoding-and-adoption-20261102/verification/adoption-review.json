@@ -1,0 +1,140 @@
+{
+  "status": "PASS",
+  "scope": "Focused re-review of CD-REV-01 and CD-REV-02 only: the refreshed manifest, six live Drafts, and the fix receipt with frozen predecessors. No Current, runtime, migration execution, Git, or Journal state was reviewed or changed.",
+  "reviewed_fix": {
+    "receipt_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/receipt.json",
+    "receipt_status": "APPLIED_TO_DRAFTS_ONLY",
+    "predecessor_index_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/predecessors/index.json",
+    "frozen_predecessors": {
+      "delivery": "CA-D-664@3-draft (f24f73bda63b66252101dba5c1e4f620cf9aeecc84cfcf9d94ac50311b9dc5af)",
+      "proposal": "CA-A-draft@1 (3cc161b038290d56f9e35bd1483febea38161ff4707710c7685dbae993235007)"
+    }
+  },
+  "final_pins": {
+    "manifest": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/manifest.json",
+      "sha256": "eba4b7539c06c8c2829294336b5314f5b793e6e6efbf8ee7220145e4deefff5f"
+    },
+    "drafts": [
+      {
+        "subject": "Atom.Carrier Destination",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+        "sha256": "dd21bc24efa563ef173b766f874d4b9ac3f080d002d72477d03b46a8c07e1dbc",
+        "version": 1
+      },
+      {
+        "subject": "Atom.Carrier Destination.File",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+        "sha256": "b2f85856453efc4deb1cd6c620a620bb5ecdeea27de2c582135d32b85e06dcc0",
+        "version": 1
+      },
+      {
+        "subject": "Atom.Carrier Destination.File.Name",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+        "sha256": "994acabb96f13a4417790e8016dca04708b8508f1e8ad7ef1db1616d0d44af51",
+        "version": 1
+      },
+      {
+        "subject": "Atom.Carrier Destination.File.Path",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+        "sha256": "bb486b0eb63360550584e66e491cd6f45e6880832886027f36e673c717c6fe7a",
+        "version": 1
+      },
+      {
+        "subject": "Atom",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@4-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+        "sha256": "b6bd7ca695ab0dbd590533bb87be2399eb51b205cd86eca9d37c3c1c1efbc3db",
+        "version": 4
+      },
+      {
+        "subject": "Atom.Carrier Destination",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+        "sha256": "8d09d8a2eb5eeb3c1a198e7717b13f45f2d9df99ff301ab964c21053e580a0bb",
+        "version": 2
+      }
+    ]
+  },
+  "checks": [
+    {
+      "id": "CD-REV-01",
+      "status": "CLOSED",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@4-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+          "line_start": 32,
+          "line_end": 40,
+          "excerpt": "Name and Path map both to canonical nested frontmatter keys and to the existing physical filename/location values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+          "line_start": 21,
+          "line_end": 25,
+          "excerpt": "The Proposal names carrier_destination.file.name and carrier_destination.file.path, consistently with the Delivery Draft."
+        }
+      ],
+      "conclusion": "The exact nested encoding is now explicit and coherent without changing Carrier meanings or adding a calculation algorithm."
+    },
+    {
+      "id": "CD-REV-02",
+      "status": "CLOSED",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+          "line_start": 45,
+          "line_end": 53,
+          "excerpt": "Before promotion it requires packet review and affected Carrier boundary, canonical encoding, then population and validation or an explicit governed transition boundary; separate work must satisfy those conditions."
+        }
+      ],
+      "conclusion": "The Proposal now makes adoption readiness an explicit pre-promotion gate while correctly deferring runtime calculation, population, and migration implementation."
+    },
+    {
+      "id": "CD-REV-03",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+          "line_start": 21,
+          "line_end": 26,
+          "excerpt": "Name remains one mandatory string and a full filename including extension."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+          "line_start": 21,
+          "line_end": 26,
+          "excerpt": "Path remains one mandatory string and the repository-relative containing directory."
+        }
+      ],
+      "conclusion": "The four declarations remain unchanged and internally consistent with the refreshed Delivery and Proposal Drafts."
+    },
+    {
+      "id": "CD-REV-04",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/manifest.json",
+          "line_start": 64,
+          "line_end": 78,
+          "excerpt": "Manifest pins CA-D-664@4-draft at v4 and the Proposal at v2."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+          "line_start": 33,
+          "line_end": 41,
+          "excerpt": "All five Draft links resolve, including the v4 Delivery successor."
+        }
+      ],
+      "conclusion": "Live Draft versions, manifest pins, and Proposal links are mutually consistent."
+    }
+  ],
+  "verification": {
+    "manifest_and_draft_sha256_match": true,
+    "six_frontmatter_blocks_parse_as_yaml_mappings": true,
+    "proposal_draft_links_resolve": 5,
+    "new_findings": []
+  },
+  "limits": [
+    "PASS does not establish Current admission, runtime calculation, population, migration execution, or promotion.",
+    "The existing engine-admission limitation remains outside this focused re-review."
+  ],
+  "next_action": "Use the stated Proposal gates before promotion; execute and validate the separate population/migration work only within the affected Carrier boundary."
+}

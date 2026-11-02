@@ -1,0 +1,166 @@
+{
+  "Result": "ONE_P2_ENCODING_GAP; no operative-Claim contradiction or candidate-admission failure was established.",
+  "lane": "active-authority-conflict-review",
+  "Evidence": {
+    "hash_verification": "All six live Draft hashes matched the packet manifest. All 22 cited live Active sources matched the selected 1128-source frontier.",
+    "scope": "Live Draft carriers versus selected Active Core Meta-Model and directly relevant Project Configuration authority."
+  },
+  "examined": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "sha256": "dd21bc24efa563ef173b766f874d4b9ac3f080d002d72477d03b46a8c07e1dbc",
+      "status": "Draft",
+      "id": "CA-R-draft",
+      "version": 1
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "sha256": "b2f85856453efc4deb1cd6c620a620bb5ecdeea27de2c582135d32b85e06dcc0",
+      "status": "Draft",
+      "id": "CA-R-draft",
+      "version": 1
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "sha256": "994acabb96f13a4417790e8016dca04708b8508f1e8ad7ef1db1616d0d44af51",
+      "status": "Draft",
+      "id": "CA-R-draft",
+      "version": 1
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "sha256": "bb486b0eb63360550584e66e491cd6f45e6880832886027f36e673c717c6fe7a",
+      "status": "Draft",
+      "id": "CA-R-draft",
+      "version": 1
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "f24f73bda63b66252101dba5c1e4f620cf9aeecc84cfcf9d94ac50311b9dc5af",
+      "status": "Draft",
+      "id": "CA-D-664@3-draft",
+      "version": 3
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "sha256": "3cc161b038290d56f9e35bd1483febea38161ff4707710c7685dbae993235007",
+      "status": "Draft",
+      "id": "CA-A-draft",
+      "version": 1
+    }
+  ],
+  "findings": [
+    {
+      "id": "AC-001",
+      "priority": "P2",
+      "title": "Mandatory destination Properties lack a specified YAML field encoding",
+      "issue": "The Drafts require Name and Path to be mandatory strings stored in frontmatter, but the successor maps the Properties generally to frontmatter and separately to Carrier filename/location without selecting YAML keys or a nested/flat structure. CA-D-478 Claim requires property names and canonical encodings registered by an applicable D policy rather than invented from a display path. D664 selects the frontmatter region but not the serialized field form.",
+      "counterexample": "Both carrier_destination.file.name/.path and flattened keys such as carrier_destination_file_name/_path can carry the same calculated values. The Drafts choose neither representation, so a writer has no Claim-level basis to select one canonical encoding.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+          "line_start": 21,
+          "line_end": 25,
+          "atom_id": "CA-A-draft",
+          "version": 1,
+          "excerpt": "Name and Path are mandatory string Properties, stored in Atom frontmatter."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+          "line_start": 32,
+          "line_end": 39,
+          "atom_id": "CA-D-664@3-draft",
+          "version": 3,
+          "excerpt": "The generic non-Content-to-frontmatter mapping and Name/Path-to-filename/location mappings contain no YAML field-name or nesting encoding."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "line_start": 42,
+          "line_end": 52,
+          "atom_id": "CA-D-657",
+          "version": 2,
+          "excerpt": "Details says a new field or nested key needs applicable authority for canonical location, type, cardinality, admission, and permitted-value/reference resolution. This stronger closure wording is not in the Claim."
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md",
+          "line_start": 31,
+          "line_end": 40,
+          "atom_id": "CA-D-478",
+          "version": 31,
+          "excerpt": "Metadata belongs in YAML, using registered property names and canonical value encodings rather than a field invented from a display path."
+        }
+      ],
+      "blast_radius": "Leaves a writer or later migration without a selected canonical serialized form for the two fields. It does not alter any current Atom or existing filename/placement rule.",
+      "minimal_fix": "Add one explicit Delivery encoding for the two Property paths: exact YAML keys and nesting, scalar/string cardinality, and the calculation/agreement boundary. Do not change filename, placement, status, owner, Plan, or archive rules.",
+      "decision_required": true,
+      "confidence": "high for the missing encoding; medium for any admission consequence because that depends on whether D657 Details are normative."
+    }
+  ],
+  "nonfindings": [
+    {
+      "candidate": "Property/Carrier conflation",
+      "result": "Rejected. The Drafts declare an Atom Property hierarchy with zero-value containers and scalar leaves; they do not create Atom.Carrier, a CARRIES fact, or a replacement Carrier entity. Active CA-D-505 keeps Carrier references as Primary Entities."
+    },
+    {
+      "candidate": "Duplicated canonical-address fact",
+      "result": "Rejected. CA-D-267's no-duplication rule is scoped to non-Atom Artifact Properties and expressly directs Atom Properties to CA-D-478/480. CA-D-480 requires filename/placement agreement with the canonical internal Property; it does not prohibit the stored Atom values."
+    },
+    {
+      "candidate": "Draft identity or filename violation",
+      "result": "Rejected. The four new role-only CA-R-draft markers and CA-A-draft match CA-D-378's new-Atom Draft-marker form; CA-D-664@3-draft matches the existing-Atom revision form. All are Draft-only in their owning role's draft/ location."
+    },
+    {
+      "candidate": "Filename/status/owner/Plan/archive rule change",
+      "result": "Rejected. The proposal preserves existing Carrier meanings, and its Draft-only scope neither changes the Active filename/status/archive rules nor adds a Plan/owner field. CA-D-283, CA-D-290, CA-D-461, CA-D-483, and CA-D-565 remain applicable unchanged."
+    },
+    {
+      "candidate": "Engine-preflight error as an independent Draft contradiction",
+      "result": "Rejected. The existing Current frontmatter encoding authority is unreviewed preflight result is an external admission block; no actual candidate-admission failure was established in this review. AC-001 is limited to the missing Claim-level YAML encoding."
+    }
+  ],
+  "Sources": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "id": "CA-D-657",
+      "version": 2,
+      "sha256": "990e377beabb7016a2ee11ed4c0eafa261138d59d28aadedb9ac0729f7a33853"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md",
+      "id": "CA-D-478",
+      "version": 31,
+      "sha256": "5bb3c2c3d0e70aa492ff729dc87e75b8ea0f614c91c755fcf8350ee3cba536a6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-480-CORE_META_MODEL-ENG_DECISION--keep-atom-addresses-consistent-with-carried-properties.md",
+      "id": "CA-D-480",
+      "version": 23,
+      "sha256": "bf0c3883b1c061c81a7c64322c874869bf592ce5a68684e04a7bff684edba270"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-ENG_DECISION--derive-address-facts-without-duplicated-frontmatter.md",
+      "id": "CA-D-267",
+      "version": 27,
+      "sha256": "7a828f3474fa9b99a5139e41a9c489fdd1df61a641bc622d98097b030b093880"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "id": "CA-D-378",
+      "version": 28,
+      "sha256": "211d1d1446f095b0a79c416a420acfa2f2c9266baa5749f4ddf61889f8cfd0cc"
+    }
+  ],
+  "Rejected candidates": "See nonfindings: no Property/Carrier conflation, canonical-address duplication, Draft-marker violation, existing lifecycle-rule change, independent engine-preflight conflict, or proven operative-Claim admission contradiction.",
+  "Uncertainty": [
+    "The user decision settles semantic values and storage, but not the canonical YAML key/nesting syntax; AC-001 requires that narrow encoding decision.",
+    "D657 Details states the stronger new-field closure rule. If only Claim text is operative, AC-001 is an encoding gap rather than proof that the candidates are invalid or promotion-nonconformant.",
+    "No runtime or workflow-instance repair was reviewed; none is necessary to identify the missing encoding."
+  ],
+  "limits": [
+    "Read-only review before this authorized artifact write; no source, Draft, runtime, fixture, Git, or Journal carrier was changed.",
+    "No full suite or new engine preflight was run."
+  ],
+  "Next action": "Choose the canonical YAML representation and incorporate it into the promotion-ready Delivery Draft; determine separately whether D657 Details are normative for admission.",
+  "skipped": "Skipped runtime migration, workflow-instance repair, and full-suite execution because they are outside this lane.",
+  "risk": "Without an explicit encoding, different writers or migrations could select incompatible frontmatter shapes."
+}

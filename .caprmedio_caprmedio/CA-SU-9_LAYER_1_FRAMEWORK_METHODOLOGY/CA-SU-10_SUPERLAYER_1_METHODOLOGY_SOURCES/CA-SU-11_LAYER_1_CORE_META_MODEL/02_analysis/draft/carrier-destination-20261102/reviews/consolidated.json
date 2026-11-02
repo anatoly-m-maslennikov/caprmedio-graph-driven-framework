@@ -1,0 +1,166 @@
+{
+  "status": "REVIEW_COMPLETE_WITH_TWO_P2_GAPS",
+  "reviewed_at": "2026-11-02T22:49:03.552737+04:00",
+  "scope": "Six exact Draft carriers; four parallel review lanes; no target edits.",
+  "findings": [
+    {
+      "id": "CD-REV-01",
+      "priority": "P2",
+      "category": [
+        "active-authority dependency gap",
+        "encoding ambiguity"
+      ],
+      "title": "Exact frontmatter encoding is missing",
+      "merged_from": [
+        "AC-001",
+        "CD-GAP-01",
+        "AMB-01"
+      ],
+      "issue": "The packet requires stored values and selects frontmatter as their region, but gives no explicit YAML key/nesting encoding for the agreed property paths.",
+      "counterexample": "A writer can choose nested carrier_destination.file.name/path or flat/literal-dotted keys; readers choosing another form cannot round-trip the same Atom.",
+      "basis": "D478 operative Claim requires registered names/encodings and forbids inventing a field from the display path. D664 selects frontmatter and physical filename/location but does not register the concrete YAML keys.",
+      "minimal_fix": "Add explicit Delivery encoding for the already-agreed nested carrier_destination.file.name and carrier_destination.file.path keys, preserving the one-string declarations and existing physical-address rules.",
+      "decision_required": false,
+      "decision_note": "The user already settled the property paths, meanings, mandatory values and frontmatter storage. The missing work is normative encoding of that decision.",
+      "severity_limit": "D657 categorical invalid/unadmitted wording is in Details. This review does not claim a proven operative-Claim contradiction or a candidate-specific Engine rejection.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+          "line_start": 21,
+          "line_end": 25,
+          "sha256": "3cc161b038290d56f9e35bd1483febea38161ff4707710c7685dbae993235007"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+          "line_start": 32,
+          "line_end": 39,
+          "sha256": "f24f73bda63b66252101dba5c1e4f620cf9aeecc84cfcf9d94ac50311b9dc5af"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md",
+          "line_start": 31,
+          "line_end": 40,
+          "sha256": "5bb3c2c3d0e70aa492ff729dc87e75b8ea0f614c91c755fcf8350ee3cba536a6"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "line_start": 29,
+          "line_end": 38,
+          "sha256": "990e377beabb7016a2ee11ed4c0eafa261138d59d28aadedb9ac0729f7a33853"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "line_start": 44,
+          "line_end": 52,
+          "sha256": "990e377beabb7016a2ee11ed4c0eafa261138d59d28aadedb9ac0729f7a33853"
+        }
+      ]
+    },
+    {
+      "id": "CD-REV-02",
+      "priority": "P2",
+      "category": [
+        "adoption-readiness gap"
+      ],
+      "title": "Promotion prerequisites omit mandatory-field population and validation",
+      "merged_from": [
+        "CD-GAP-02"
+      ],
+      "issue": "The Declarations require the hierarchy, while the Adoption paragraph defers population and migration without stating the prerequisites for activating the new required schema.",
+      "counterexample": "An existing Current Atom such as CA-R-2508@2 has no carrier_destination fields. Activating the new mandatory schema without population or an explicit transition boundary leaves it unable to satisfy the new contract.",
+      "basis": "This is a readiness condition for later adoption, not a contradiction in preparing Drafts and not an instruction to implement migration in this review.",
+      "minimal_fix": "State that promotion waits for the approved encoding plus population and validation of affected carriers, or an explicitly governed transition boundary. Keep the detailed process in the later Workflow/Engine work.",
+      "decision_required": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+          "line_start": 21,
+          "line_end": 26,
+          "sha256": "994acabb96f13a4417790e8016dca04708b8508f1e8ad7ef1db1616d0d44af51"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+          "line_start": 45,
+          "line_end": 47,
+          "sha256": "3cc161b038290d56f9e35bd1483febea38161ff4707710c7685dbae993235007"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+          "line_start": 1,
+          "line_end": 20,
+          "sha256": "85c8290a2b3e62d8abeb8638cfa888485dfa819d262d72244ee51ccda14a577f"
+        }
+      ]
+    }
+  ],
+  "internal_conflicts": [],
+  "proven_operative_active_claim_contradictions": [],
+  "dispositions": [
+    {
+      "candidate": "Calculated versus observed destination",
+      "disposition": "No open choice: the user chose the calculated intended target; D480 already rejects silent address override."
+    },
+    {
+      "candidate": "Calculation epoch and refresh order",
+      "disposition": "Deferred operational process. Existing update and address-agreement invariants remain applicable; no new Draft blocker established."
+    },
+    {
+      "candidate": "Path root sentinel / future carrier layouts",
+      "disposition": "Non-blocking future/encoding follow-up; no competing valid current reading established."
+    },
+    {
+      "candidate": "Duplicate canonical address or extra Carrier per Property",
+      "disposition": "No conflict found: Atom Properties use D478/D480; no new CARRIES fact or Carrier entity is declared."
+    },
+    {
+      "candidate": "Draft markers or existing filename/status/archive behavior",
+      "disposition": "No new violation found under the applicable Draft marker and address rules."
+    }
+  ],
+  "assurance": {
+    "draft_hashes_unchanged": 6,
+    "selected_current_source_hashes_unchanged": 1128,
+    "runtime_tests_run": false,
+    "engine_preflight_rerun": false,
+    "source_or_draft_changes": false,
+    "promotion": false
+  },
+  "external_limit": "Creation-time Engine preflight reported unreviewed Current frontmatter encoding authority before candidate evaluation. It was not rerun or counted as a design finding.",
+  "lane_reports": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/reviews/internal.json",
+      "sha256": "677b1812cbde58664f51a332bae464ba5ccf6577cc8076ce5c03239e7371412e",
+      "findings": 0
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/reviews/active-conflicts.json",
+      "sha256": "0a66c7aaf5f6f50040684a93bab53b9934e2903c9d754d05cd957c1963700da4",
+      "findings": 1
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/reviews/gaps.json",
+      "sha256": "b4fe49b12bccf9f4ac77ee5a1d19786ee7115c9bdd666a2e386e773227424819",
+      "findings": 2
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/reviews/ambiguity.json",
+      "sha256": "3d23bf5a9685f35b2225e3c9f2b8d70e07536c3461104dd5102ba4bf9eff5865",
+      "findings": 1
+    }
+  ],
+  "resolution": {
+    "status": "CLOSED_BY_DRAFT_FIX",
+    "findings": [
+      "CD-REV-01",
+      "CD-REV-02"
+    ],
+    "receipt": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/receipt.json",
+    "verification": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/verification/final-readback.json",
+    "verification_sha256": "16d5b873c9c3ab908885d0a3a23a5273cd68637408c4963c155a83af37d69dff",
+    "draft_versions": {
+      "CA-D-664": "4-draft",
+      "Specification Proposal": 2
+    },
+    "scope": "Draft edits only; no promotion or Current/runtime changes."
+  }
+}

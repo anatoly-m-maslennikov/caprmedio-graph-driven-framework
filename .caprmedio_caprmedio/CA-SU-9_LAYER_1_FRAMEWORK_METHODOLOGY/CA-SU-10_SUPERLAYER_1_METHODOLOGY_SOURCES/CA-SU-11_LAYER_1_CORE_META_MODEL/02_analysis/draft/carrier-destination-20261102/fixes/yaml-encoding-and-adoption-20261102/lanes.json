@@ -1,0 +1,31 @@
+{
+  "lanes": [
+    {
+      "deliverable": "Explicit YAML encoding re-review",
+      "owner": "carrier_review_active",
+      "exclusive_edit_scope": "verification/encoding-review.json",
+      "dependencies": [
+        "fixed D664@4-draft"
+      ],
+      "acceptance": "Prior encoding gap closed; Carrier constraints unchanged",
+      "status": "done"
+    },
+    {
+      "deliverable": "Adoption gate and packet re-review",
+      "owner": "carrier_review_gaps",
+      "exclusive_edit_scope": "verification/adoption-review.json",
+      "dependencies": [
+        "fixed proposal@2 and refreshed manifest"
+      ],
+      "acceptance": "Prior readiness gap closed; no new contradiction",
+      "status": "done"
+    }
+  ],
+  "integration_owner": "root",
+  "scope": "Two findings only; no promotion or runtime repair",
+  "status": "complete",
+  "findings_closed": [
+    "CD-REV-01",
+    "CD-REV-02"
+  ]
+}

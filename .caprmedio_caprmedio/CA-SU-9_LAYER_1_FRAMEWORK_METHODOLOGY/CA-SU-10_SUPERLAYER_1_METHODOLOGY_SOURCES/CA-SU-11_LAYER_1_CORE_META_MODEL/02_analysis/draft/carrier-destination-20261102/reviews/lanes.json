@@ -1,0 +1,48 @@
+{
+  "scope": "Review only; no target edits, promotion or runtime changes",
+  "lanes": [
+    {
+      "deliverable": "Internal contradictions",
+      "owner": "carrier_review_internal",
+      "exclusive_edit_scope": "reviews/internal.json",
+      "dependencies": [
+        "six unchanged Drafts"
+      ],
+      "acceptance": "Concrete contradictions or explicit empty finding set, source lines and hashes",
+      "status": "done"
+    },
+    {
+      "deliverable": "Conflicts with Current Atoms",
+      "owner": "carrier_review_active",
+      "exclusive_edit_scope": "reviews/active-conflicts.json",
+      "dependencies": [
+        "live Current authority"
+      ],
+      "acceptance": "Opposing operative claims with exact Active/Current citations",
+      "status": "done"
+    },
+    {
+      "deliverable": "Missing constraints and dependencies",
+      "owner": "carrier_review_gaps",
+      "exclusive_edit_scope": "reviews/gaps.json",
+      "dependencies": [
+        "Drafts and relevant existing calculation rules"
+      ],
+      "acceptance": "Concrete bad-state counterexamples and smallest remedies",
+      "status": "done"
+    },
+    {
+      "deliverable": "Ambiguous wording and notation",
+      "owner": "carrier_review_ambiguity",
+      "exclusive_edit_scope": "reviews/ambiguity.json",
+      "dependencies": [
+        "Drafts and applicable current definitions"
+      ],
+      "acceptance": "Two materially different admissible readings per finding",
+      "status": "done"
+    }
+  ],
+  "consolidation_owner": "root",
+  "consolidation": "consolidated.md; consolidated.json",
+  "status": "complete"
+}

@@ -1,5 +1,5 @@
 {
-  "status": "DRAFTS_CREATED",
+  "status": "DRAFTS_FIXED",
   "created_at": "2026-11-02T17:35:35.371265+00:00",
   "creation_method": "Manual Draft authoring under shared identity lock with exclusive writes; identity/destination preflight and exact readback passed.",
   "engine_admission": "BLOCKED: Current frontmatter encoding authority is unreviewed. No promotion or runtime admission claim.",
@@ -62,23 +62,28 @@
       "sha256": "bb486b0eb63360550584e66e491cd6f45e6880832886027f36e673c717c6fe7a"
     },
     {
-      "id": "CA-D-664@3-draft",
+      "id": "CA-D-664@4-draft",
       "kind": "delivery_successor",
       "subject": "Atom",
-      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@3-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
-      "sha256": "f24f73bda63b66252101dba5c1e4f620cf9aeecc84cfcf9d94ac50311b9dc5af"
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@4-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "b6bd7ca695ab0dbd590533bb87be2399eb51b205cd86eca9d37c3c1c1efbc3db",
+      "version": 4
     },
     {
       "id": "CA-A-draft",
       "kind": "proposal",
       "subject": "Atom.Carrier Destination",
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
-      "sha256": "3cc161b038290d56f9e35bd1483febea38161ff4707710c7685dbae993235007"
+      "sha256": "8d09d8a2eb5eeb3c1a198e7717b13f45f2d9df99ff301ab964c21053e580a0bb",
+      "version": 2
     }
   ],
   "user_decisions": {
     "name": "Mandatory stored calculated full filename, including extension; one string.",
     "path": "Mandatory stored calculated repository-relative containing directory; one string.",
     "carrier": "Existing Carrier rules retain their meaning."
-  }
+  },
+  "latest_fix": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/receipt.json",
+  "latest_verification": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/verification/final-readback.json",
+  "creation_history_manifest": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/predecessors/manifest-before.json"
 }

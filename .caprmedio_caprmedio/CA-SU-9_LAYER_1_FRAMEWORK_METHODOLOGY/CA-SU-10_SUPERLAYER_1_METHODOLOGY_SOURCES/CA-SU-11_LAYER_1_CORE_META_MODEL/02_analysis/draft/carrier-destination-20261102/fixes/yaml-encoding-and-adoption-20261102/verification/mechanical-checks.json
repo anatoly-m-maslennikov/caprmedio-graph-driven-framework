@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-02T23:02:24.657951+04:00",
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "sha256": "dd21bc24efa563ef173b766f874d4b9ac3f080d002d72477d03b46a8c07e1dbc",
+      "status": "PASS"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "sha256": "b2f85856453efc4deb1cd6c620a620bb5ecdeea27de2c582135d32b85e06dcc0",
+      "status": "PASS"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "sha256": "994acabb96f13a4417790e8016dca04708b8508f1e8ad7ef1db1616d0d44af51",
+      "status": "PASS"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "sha256": "bb486b0eb63360550584e66e491cd6f45e6880832886027f36e673c717c6fe7a",
+      "status": "PASS"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@4-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "b6bd7ca695ab0dbd590533bb87be2399eb51b205cd86eca9d37c3c1c1efbc3db",
+      "status": "PASS"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "sha256": "8d09d8a2eb5eeb3c1a198e7717b13f45f2d9df99ff301ab964c21053e580a0bb",
+      "status": "PASS"
+    }
+  ],
+  "checks": [
+    "Six complete Drafts parse as YAML with matching markers and active Subjects",
+    "D664 Claim differs only by the two explicit frontmatter mappings",
+    "Four Property Declaration bytes unchanged",
+    "D664 marker/version/filename advanced consistently from 3 to 4",
+    "Proposal advanced to version 2 and links D664@4",
+    "Exact predecessor snapshots retained",
+    "1128 selected Current source hashes unchanged"
+  ],
+  "runtime_admission": "Not run; this is Draft verification only."
+}

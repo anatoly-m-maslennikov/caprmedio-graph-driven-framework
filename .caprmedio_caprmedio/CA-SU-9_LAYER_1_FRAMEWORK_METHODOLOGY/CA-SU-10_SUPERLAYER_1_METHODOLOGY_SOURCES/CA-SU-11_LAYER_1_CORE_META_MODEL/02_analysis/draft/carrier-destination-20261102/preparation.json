@@ -1,5 +1,5 @@
 {
-  "status": "SIX_DRAFTS_CREATED_AND_REVIEWED",
+  "status": "DRAFTS_FIXED_AND_REVIEWED",
   "agreed_fields": {
     "Atom.Carrier Destination.File.Name": "Calculated full filename including extension",
     "Atom.Carrier Destination.File.Path": "Calculated repository-relative containing directory"
@@ -13,6 +13,7 @@
   "delivery_consequence": "CA-D-664 already carries non-Content Properties to frontmatter; no destination exclusion is needed.",
   "mandatory_properties": "Name and Path each [string]{:1}; intermediate containers occur once.",
   "carrier_change": "None; D664 Draft uses the stored Name and Path without changing existing Carrier constraints.",
-  "engine_preflight": "BLOCKED: Current frontmatter encoding authority is unreviewed.",
-  "final_review": "verification/final-readback.json"
+  "engine_preflight": "Not rerun for this Draft correction; creation-time block remains historical evidence.",
+  "final_review": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/verification/final-readback.json",
+  "latest_fix": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/receipt.json"
 }

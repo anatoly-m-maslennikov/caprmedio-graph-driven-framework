@@ -8,11 +8,11 @@
   "git": "APPLIED: combined snapshot 67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb pushed to amm/dev; exact remote SHA verified. Later peer edits remain separate.",
   "limits": "Do not mistake a candidate graph or focused tests for integrated runtime validation",
   "coordination": "Explicitly authorized; shared checkpoint in use; this chat owns Git",
-  "next": "Carrier-destination promotion and runtime admission are separate; admission preflight currently stops on unreviewed Current frontmatter encoding authority.",
+  "next": "Promotion requires the new adoption gates; population, migration and runtime activation remain separate. Engine admission was not retested for this documentation correction.",
   "source_selection": "1,128 adopted Current RMED sources; final source hash readback PASS; zero graph coverage gaps.",
   "verification_reports": [
     "verification/final-published-projections.json",
     "verification/final-publication-inventory.json"
   ],
-  "carrier_destination": "Six Drafts created and reviewed: four Declarations, D664 successor and Specification Proposal. Mandatory one-string Name and Path; calculated values stored in frontmatter. No Current/Carrier/runtime changes."
+  "carrier_destination": "Six Drafts reviewed; both P2 findings closed by D664@4-draft and Proposal@2. Explicit nested YAML mappings and pre-promotion population/validation gate. Four Property Declaration bodies unchanged."
 }

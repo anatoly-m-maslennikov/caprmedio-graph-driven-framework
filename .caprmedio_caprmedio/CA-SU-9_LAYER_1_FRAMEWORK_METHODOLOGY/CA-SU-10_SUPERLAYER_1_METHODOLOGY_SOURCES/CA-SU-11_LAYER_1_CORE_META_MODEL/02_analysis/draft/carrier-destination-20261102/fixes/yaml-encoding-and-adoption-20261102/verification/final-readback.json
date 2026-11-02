@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "scope": "Two Draft fixes and exact final readback; no promotion or runtime claim.",
+  "verified_at": "2026-11-02T23:05:23.878204+04:00",
+  "manifest_sha256": "eba4b7539c06c8c2829294336b5314f5b793e6e6efbf8ee7220145e4deefff5f",
+  "drafts": [
+    {
+      "id": "CA-R-draft",
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "sha256": "dd21bc24efa563ef173b766f874d4b9ac3f080d002d72477d03b46a8c07e1dbc"
+    },
+    {
+      "id": "CA-R-draft",
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination.File",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "sha256": "b2f85856453efc4deb1cd6c620a620bb5ecdeea27de2c582135d32b85e06dcc0"
+    },
+    {
+      "id": "CA-R-draft",
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination.File.Name",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "sha256": "994acabb96f13a4417790e8016dca04708b8508f1e8ad7ef1db1616d0d44af51"
+    },
+    {
+      "id": "CA-R-draft",
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination.File.Path",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "sha256": "bb486b0eb63360550584e66e491cd6f45e6880832886027f36e673c717c6fe7a"
+    },
+    {
+      "id": "CA-D-664@4-draft",
+      "kind": "delivery_successor",
+      "subject": "Atom",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@4-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "b6bd7ca695ab0dbd590533bb87be2399eb51b205cd86eca9d37c3c1c1efbc3db",
+      "version": 4
+    },
+    {
+      "id": "CA-A-draft",
+      "kind": "proposal",
+      "subject": "Atom.Carrier Destination",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "sha256": "8d09d8a2eb5eeb3c1a198e7717b13f45f2d9df99ff301ab964c21053e580a0bb",
+      "version": 2
+    }
+  ],
+  "checks": {
+    "mechanical": "PASS",
+    "encoding_semantics": "PASS",
+    "adoption_gate": "PASS",
+    "four_declarations": "unchanged",
+    "current_sources": "1128 unchanged hashes",
+    "manifest_verification_pointer": "Resolved by creation and readback of this exact artifact"
+  },
+  "resolved_findings": [
+    "CD-REV-01",
+    "CD-REV-02",
+    "ENC-REV-03"
+  ],
+  "encoding_report_note": "Independent confirmation PASS: the exact latest-verification pointer resolves; the point-in-time receipt observation is closed.",
+  "limits": [
+    "Drafts only; no population, migration, Current or runtime changes.",
+    "Engine admission was not re-tested."
+  ],
+  "independent_reviews": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/verification/encoding-review.json",
+      "sha256": "987c227ae67323f0e4e519c22ab2caab4a4f252bf9d9835258293c28bb01b380",
+      "status": "PASS"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/verification/adoption-review.json",
+      "sha256": "31a9b541bfbdf23c2a69a739c19cf74531b25e30576b1fc5a7f6477f5e1bf340",
+      "status": "PASS"
+    }
+  ]
+}
