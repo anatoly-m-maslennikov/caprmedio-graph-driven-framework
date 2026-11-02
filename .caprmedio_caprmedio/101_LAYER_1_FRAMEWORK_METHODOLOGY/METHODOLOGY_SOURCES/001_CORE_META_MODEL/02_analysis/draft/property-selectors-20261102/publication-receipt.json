@@ -1,0 +1,94 @@
+{
+  "status": "APPLIED",
+  "accepted_at": "2026-11-02 14:59:48 +0400",
+  "operations": [
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2472",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
+      "source_sha256": "e5ce71d76f7442f0b579c333dc71930c06da9b565649b58a2a5baf09b5ca4a80",
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/property-selectors-20261102/CA-R-2472@7-draft-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
+      "draft_sha256": "6c15f8f156309db38221f44969b83e5a847d05ad82d7f5c323d8eb4046e376de",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2472@6-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
+      "archive_sha256": "fde3eeedfd74e88de775ef301599bcb26722d5f9cee4b8003d742733c8755d42",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
+      "candidate_sha256": "5fd16835d0f6eefc728704754ea9721dd3043c14ee889c4417c537b368372b24",
+      "old_version": 6,
+      "version": 8,
+      "status": "Active"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-C-624",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-624-CORE_META_MODEL-QUESTION--should-recursive-property-counts-aggregate-descendant-identities.md",
+      "source_sha256": "58dbb480cee973c600163541e55293d29b7cf98a0c1d803616c9eabf333e133d",
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/draft/property-selectors-20261102/CA-C-624@2-draft-CORE_META_MODEL-QUESTION--should-recursive-property-counts-aggregate-descendant-identities.md",
+      "draft_sha256": "3e558360585ef556d5e7832eedde1ea035a13cd9450efcc0e9cabbc0de7aa6ec",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/archive/CA-C-624@1-CORE_META_MODEL-QUESTION--should-recursive-property-counts-aggregate-descendant-identities.md",
+      "archive_sha256": "7221f2a10a6f793367d6d0f2feef3d61eb7be799f0aec97eb0e8bea7f97f97f7",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-624-CORE_META_MODEL-QUESTION--should-recursive-property-counts-aggregate-descendant-identities.md",
+      "candidate_sha256": "d3938815221e83ea0af6652a131af1b38b7086247b4820c4ecd0cc297be1c274",
+      "old_version": 1,
+      "version": 3,
+      "status": "Resolved"
+    }
+  ],
+  "retired_ids": [],
+  "scope": "Confirm direct/recursive counts, admit composed selectors and resolve C624; no evaluator change.",
+  "events": [
+    {
+      "event_id": "ae5ce772-59e3-4006-9e6f-682c86004ef6",
+      "happened_at": "2026-11-02 14:59:48 +0400",
+      "inserted_at": "2026-11-02T14:59:48.759280+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-R-2472",
+        "version": 6,
+        "updated_at": "2026-11-02 08:12:18 +0400"
+      },
+      "object_output": {
+        "id": "CA-R-2472",
+        "version": 8,
+        "updated_at": "2026-11-02 14:59:48 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "ee3c264f-de9c-44d6-bc57-c6504c135a5c",
+      "happened_at": "2026-11-02 14:59:48 +0400",
+      "inserted_at": "2026-11-02T14:59:48.759943+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-C-624",
+        "version": 1,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "object_output": {
+        "id": "CA-C-624",
+        "version": 3,
+        "updated_at": "2026-11-02 14:59:48 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    }
+  ],
+  "journal_receipts": [
+    {
+      "event_id": "ae5ce772-59e3-4006-9e6f-682c86004ef6",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 700
+    },
+    {
+      "event_id": "ee3c264f-de9c-44d6-bc57-c6504c135a5c",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 701
+    }
+  ]
+}

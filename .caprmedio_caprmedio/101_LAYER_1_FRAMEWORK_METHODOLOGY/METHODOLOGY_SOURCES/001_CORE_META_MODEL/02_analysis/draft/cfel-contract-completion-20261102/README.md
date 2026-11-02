@@ -39,3 +39,7 @@ The view preserves 137 formal clauses outside the bounded extractor. Complete di
 Actual Workflow-instance migration and general runtime admission remain separate Engine work. Twelve nonblocking Questions retain the bounded choices made under the Operator’s latest fallback instruction:
 
 CA-C-618; CA-C-619; CA-C-620; CA-C-621; CA-C-622; CA-C-623; CA-C-624; CA-C-625; CA-C-626; CA-C-627; CA-C-628; CA-C-629.
+
+## Follow-up — Property selectors
+
+The Operator confirmed recursive aggregation and direct-child selection. CA-R-2472@8 adds selector composition; CA-C-624@3 is Resolved. [Follow-up evidence](../property-selectors-20261102/README.md). Current source vectors and contract views are repinned by [the selector receipt](integration/projection-selectors-receipt.json).

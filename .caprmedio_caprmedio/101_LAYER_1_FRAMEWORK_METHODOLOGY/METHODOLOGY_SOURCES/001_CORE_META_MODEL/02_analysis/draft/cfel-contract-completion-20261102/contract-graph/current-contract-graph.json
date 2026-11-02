@@ -24904,9 +24904,9 @@
         {
           "source": {
             "atom_id": "CA-R-2472",
-            "version": 6,
+            "version": 8,
             "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
-            "sha256": "e5ce71d76f7442f0b579c333dc71930c06da9b565649b58a2a5baf09b5ca4a80"
+            "sha256": "5fd16835d0f6eefc728704754ea9721dd3043c14ee889c4417c537b368372b24"
           },
           "subject": "CFEL",
           "target": "CFEL",
@@ -24914,7 +24914,7 @@
           "blocks": [],
           "cfel_blocks": [],
           "clauses": [],
-          "prose": "- `p{:occurrence}` constrains occurrences of the named Property.\n- `p{:occurrence}: [value format]{:value count}` constrains its direct values.\n- `p.*[name format]{:child count}` constrains immediate dependent names.\n- `p.**[name format]{:recursive count}` constrains recursive dependent names\n  across every descendant depth.\n- `p.*[name format]{:child count}: [value format]{:value count}` also\n  constrains each selected immediate dependent Property's direct values.\n- The name count and value count are different counts. Separate complete\n  expressions use `;`.\n\nNames are unique within one bearer. `x.y.z` differs from `x.z`. Resolve local\ndeclarations first and inherited declarations next. If neither declares\ndependents for p, the effective immediate-child constraint is `p.*[]{:0}`:\nundeclared dependent entities are forbidden. An explicit applicable child-name\nselector, including an explicit wildcard selector, is the stated exception;\nit permits only the names and counts that it declares.\n\nMissing occurrence, direct-value, Format, and non-default count annotations\nremain unspecified. For `p.**`, the recursive count aggregates the selected\ndistinct descendant Property identities below p within each selected bearer.\nIt counts each selected descendant once regardless of depth; it neither counts\ndirect values nor combines descendants from different bearers. Sibling names\nremain unique within that bearer.",
+          "prose": "- `p{:occurrence}` constrains occurrences of the named Property.\n- `p{:occurrence}: [value format]{:value count}` constrains its direct values.\n- `p.*[name format]{:child count}` constrains immediate dependent names.\n- `p.**[name format]{:recursive count}` constrains recursive dependent names\n  across every descendant depth.\n- `p.*[name format]{:child count}: [value format]{:value count}` also\n  constrains each selected immediate dependent Property's direct values.\n- The name count and value count are different counts. Separate complete\n  expressions use `;`.\n\nProperty selectors compose from left to right:\n- `p.*.*` selects Properties exactly two levels below p.\n- `p.*.**` selects Properties two or more levels below p.\n\nNames are unique within one bearer. `x.y.z` differs from `x.z`. Resolve local\ndeclarations first and inherited declarations next. If neither declares\ndependents for p, the effective immediate-child constraint is `p.*[]{:0}`:\nundeclared dependent entities are forbidden. An explicit applicable child-name\nselector, including an explicit wildcard selector, is the stated exception;\nit permits only the names and counts that it declares.\n\nMissing occurrence, direct-value, Format, and non-default count annotations\nremain unspecified. For `p.**`, the recursive count aggregates the selected\ndistinct descendant Property identities below p within each selected bearer.\nIt counts each selected descendant once regardless of depth; it neither counts\ndirect values nor combines descendants from different bearers. Sibling names\nremain unique within that bearer.",
           "claim_scope": "",
           "semantics": "",
           "details": "```CFEL\nAtom.Content.**[string]{:0+}: [markdown]{:1}\n```",
@@ -24922,12 +24922,12 @@
             {
               "code": "cfel-fence-outside-claim",
               "message": "CFEL fence is outside Claim; its contents were not interpreted.",
-              "offset": 1494,
+              "offset": 1657,
               "source": {
                 "atom_id": "CA-R-2472",
-                "version": 6,
+                "version": 8,
                 "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
-                "sha256": "e5ce71d76f7442f0b579c333dc71930c06da9b565649b58a2a5baf09b5ca4a80"
+                "sha256": "5fd16835d0f6eefc728704754ea9721dd3043c14ee889c4417c537b368372b24"
               }
             }
           ],
@@ -25287,7 +25287,7 @@
         "CA-R-1321@35",
         "CA-R-1931@18",
         "CA-R-2471@4",
-        "CA-R-2472@6",
+        "CA-R-2472@8",
         "CA-R-2548@2",
         "CA-R-2549@2",
         "CA-R-2550@2",
@@ -45935,12 +45935,12 @@
     {
       "code": "cfel-fence-outside-claim",
       "message": "CFEL fence is outside Claim; its contents were not interpreted.",
-      "offset": 1494,
+      "offset": 1657,
       "source": {
         "atom_id": "CA-R-2472",
-        "version": 6,
+        "version": 8,
         "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
-        "sha256": "e5ce71d76f7442f0b579c333dc71930c06da9b565649b58a2a5baf09b5ca4a80"
+        "sha256": "5fd16835d0f6eefc728704754ea9721dd3043c14ee889c4417c537b368372b24"
       }
     },
     {

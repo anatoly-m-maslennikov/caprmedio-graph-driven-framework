@@ -1,0 +1,169 @@
+{
+  "status": "APPLIED",
+  "projections": [
+    {
+      "id": "CA-PROJ-014",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md",
+      "before_sha256": "41f414282ea3062a792a3df86a065703fbb9d48d9979f6d8f74f4defc804adaa",
+      "sha256": "a3f3e2af76ec7c0d17c5540b4dc7ea1c050905ae4bc22bf8cacd098eabd879e8",
+      "source_count": 1137,
+      "updated_at": "2026-11-02 15:00:34 +0400",
+      "named_selection": "Named Selection//Current-MODEL-Primary-Nodes",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/projection-predecessors/CA-PROJ-014-41f414282ea3062a792a3df86a065703fbb9d48d9979f6d8f74f4defc804adaa.txt"
+    },
+    {
+      "id": "CA-PROJ-015",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-015-CAPRMEDIO--Subject-Graph-Properties--Current-Methodology-and-Project-RMED.md",
+      "before_sha256": "ecd396d17fe180fbf7a4cc809907d937244e7a80b2227cf04675459c78844479",
+      "sha256": "c386d0deb4d9fe8e7adbb6e7eebc0430d6ed442eecdcd4d496e30ad666e4732c",
+      "source_count": 1137,
+      "updated_at": "2026-11-02 15:00:34 +0400",
+      "named_selection": "Named Selection//Current-MODEL-Properties",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/projection-predecessors/CA-PROJ-015-ecd396d17fe180fbf7a4cc809907d937244e7a80b2227cf04675459c78844479.txt"
+    },
+    {
+      "id": "CA-PROJ-016",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-016-CAPRMEDIO--Subject-Graph-Instances--Current-Methodology-and-Project-RMED.md",
+      "before_sha256": "e363292f34db9c59684f9c16c33239cc49adf3ba2ac95d68413a3cebb5e367ac",
+      "sha256": "4cb65bd8ddea2b1896986d9f1de71b1dfed6ccce4b229ee58466a58d3aad61ac",
+      "source_count": 1137,
+      "updated_at": "2026-11-02 15:00:34 +0400",
+      "named_selection": "Named Selection//Current-MODEL-Named-Relations",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/projection-predecessors/CA-PROJ-016-e363292f34db9c59684f9c16c33239cc49adf3ba2ac95d68413a3cebb5e367ac.txt"
+    },
+    {
+      "id": "CA-PROJ-019",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-019-CAPRMEDIO--MODEL-Formal-Contracts.md",
+      "before_sha256": "9c312fda75068b3c51642583c9e00f3a19672923f0e5f61a1c7163f4bf3a36a7",
+      "sha256": "00771a8390216e22f42a72429b1f2cb986f7d40c23bfc7ad76249a3a4f1d029a",
+      "source_count": 1137,
+      "updated_at": "2026-11-02 15:00:34 +0400",
+      "named_selection": "Named Selection//Current MODEL Formal Contracts",
+      "predecessor_copy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/projection-predecessors/CA-PROJ-019-9c312fda75068b3c51642583c9e00f3a19672923f0e5f61a1c7163f4bf3a36a7.txt"
+    }
+  ],
+  "coverage": {
+    "candidate_sources": 1137,
+    "bound_sources": 770,
+    "declared_entity_targets": 136,
+    "declared_component_targets": 43,
+    "declared_relation_targets": 41,
+    "shared_sources": 550,
+    "fenced_claim_blocks": 222,
+    "cfel_blocks": 195,
+    "recognized_clauses": 345,
+    "unsupported_clauses": 137,
+    "coverage_gaps": 0,
+    "outside_model_scope_sources": 367,
+    "duplicate_declarations": 0,
+    "missing_relation_semantics": 0,
+    "instance_kind_gaps": 0,
+    "inheritance_diagnostics": 0
+  },
+  "display_coverage": "complete",
+  "structured_cfel": "partial",
+  "tree_nodes": 54,
+  "tree_edges": 46,
+  "tree_diagnostics": [],
+  "source_frontier_sha256": "e3f4a5dfe24e1a4eaf3c1ea3a5d39390ee075073b2f42f37912c07b1c688f09c",
+  "events": [
+    {
+      "event_id": "ba3b510c-298d-4144-80b8-93966a6df322",
+      "happened_at": "2026-11-02 15:00:34 +0400",
+      "inserted_at": "2026-11-02T15:00:35.261979+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-PROJ-014",
+        "updated_at": "2026-11-02 15:00:34 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-PROJ-014",
+        "updated_at": "2026-11-02 08:12:36 +0400"
+      }
+    },
+    {
+      "event_id": "dac626d4-ebe8-4bd0-a36c-8cc9d37179fd",
+      "happened_at": "2026-11-02 15:00:34 +0400",
+      "inserted_at": "2026-11-02T15:00:35.306822+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-PROJ-015",
+        "updated_at": "2026-11-02 15:00:34 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-PROJ-015",
+        "updated_at": "2026-11-02 08:12:36 +0400"
+      }
+    },
+    {
+      "event_id": "32667a40-b139-44fa-a717-11c3aaa3a54c",
+      "happened_at": "2026-11-02 15:00:34 +0400",
+      "inserted_at": "2026-11-02T15:00:35.352200+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-PROJ-016",
+        "updated_at": "2026-11-02 15:00:34 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-PROJ-016",
+        "updated_at": "2026-11-02 08:12:36 +0400"
+      }
+    },
+    {
+      "event_id": "ffdec250-5398-4f5b-981f-b8239351fce9",
+      "happened_at": "2026-11-02 15:00:34 +0400",
+      "inserted_at": "2026-11-02T15:00:35.411281+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-PROJ-019",
+        "updated_at": "2026-11-02 15:00:34 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-PROJ-019",
+        "updated_at": "2026-11-02 08:12:36 +0400"
+      }
+    }
+  ],
+  "journal_receipts": [
+    {
+      "event_id": "ba3b510c-298d-4144-80b8-93966a6df322",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 702
+    },
+    {
+      "event_id": "dac626d4-ebe8-4bd0-a36c-8cc9d37179fd",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 703
+    },
+    {
+      "event_id": "32667a40-b139-44fa-a717-11c3aaa3a54c",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 704
+    },
+    {
+      "event_id": "ffdec250-5398-4f5b-981f-b8239351fce9",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "line": 705
+    }
+  ]
+}

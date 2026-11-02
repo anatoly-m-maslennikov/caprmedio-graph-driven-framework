@@ -899,7 +899,7 @@ source:
   - CA-R-2469@4
   - CA-R-2470@2
   - CA-R-2471@4
-  - CA-R-2472@6
+  - CA-R-2472@8
   - CA-R-2473@4
   - CA-R-2474@2
   - CA-R-2475@4
@@ -1142,7 +1142,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-02 08:12:36 +0400
+updated_at: 2026-11-02 15:00:34 +0400
 ---
 # Formal Contract Graph
 
@@ -7324,7 +7324,7 @@ Source ((RELATION_TYPE)) Target
     `(Node, Node.**)` selects model Entities in the Node branch; it does not limit other declared Entities. `(Node//, (Node//).**)` is the instance-layer selector. `Node//` selects Node instances including instances of narrower kinds. `(Node//).**` selects recursive Property occurrences of a Node instance; it does not independently instantiate a Property kind. The two layers have separate permissions. Repeated instance matches count once by identity.
     
     Subjects remain addresses and do not contain complete Formal Claims. In Subjects, `:=` combines allowed value and condition, including `Atom.Status := Draft` and `Atom/(.Role := Method)`; it does not write an instance value. Formal Claims retain separate `:` and `=` meanings. The withdrawn `..` form is not adopted; `::` has no assigned meaning here.
-- Shared RMED source (exact binding): `CA-R-2472@6`
+- Shared RMED source (exact binding): `CA-R-2472@8`
   - Remaining Claim prose:
     - `p{:occurrence}` constrains occurrences of the named Property.
     - `p{:occurrence}: [value format]{:value count}` constrains its direct values.
@@ -7335,6 +7335,10 @@ Source ((RELATION_TYPE)) Target
       constrains each selected immediate dependent Property's direct values.
     - The name count and value count are different counts. Separate complete
       expressions use `;`.
+    
+    Property selectors compose from left to right:
+    - `p.*.*` selects Properties exactly two levels below p.
+    - `p.*.**` selects Properties two or more levels below p.
     
     Names are unique within one bearer. `x.y.z` differs from `x.z`. Resolve local
     declarations first and inherited declarations next. If neither declares
@@ -14767,7 +14771,7 @@ THEN ($contained.structural_level = $container.structural_level + 1)
 - `CA-D-662@4`: Atom.Relations >> @Carrier//Markdown file.frontmatter.relations
 - `CA-R-2484@2`: Node >| Container: yes
 - `CA-R-2484@2`: Node >| Container: no
-- `CA-R-2472@6`: CFEL fence is outside Claim; its contents were not interpreted.
+- `CA-R-2472@8`: CFEL fence is outside Claim; its contents were not interpreted.
 - `CA-R-2549@2`: CFEL fence is outside Claim; its contents were not interpreted.
 - `CA-R-2550@2`: CFEL fence is outside Claim; its contents were not interpreted.
 - `CA-R-2550@2`: p ?= expression

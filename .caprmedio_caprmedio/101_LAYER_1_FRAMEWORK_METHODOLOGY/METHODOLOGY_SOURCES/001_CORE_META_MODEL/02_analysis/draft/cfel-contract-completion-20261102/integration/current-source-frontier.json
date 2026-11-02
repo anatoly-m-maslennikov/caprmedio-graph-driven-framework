@@ -6987,9 +6987,9 @@
     },
     {
       "base_id": "CA-R-2472",
-      "version": 6,
+      "version": 8,
       "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
-      "sha256": "e5ce71d76f7442f0b579c333dc71930c06da9b565649b58a2a5baf09b5ca4a80",
+      "sha256": "5fd16835d0f6eefc728704754ea9721dd3043c14ee889c4417c537b368372b24",
       "status": "Active"
     },
     {

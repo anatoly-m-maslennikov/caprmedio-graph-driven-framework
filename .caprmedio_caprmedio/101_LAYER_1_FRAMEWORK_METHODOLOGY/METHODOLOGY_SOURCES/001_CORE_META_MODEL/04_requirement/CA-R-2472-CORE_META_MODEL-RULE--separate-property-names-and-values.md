@@ -5,8 +5,8 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CFEL
-version: 6
-updated_at: 2026-11-02 08:12:18 +0400
+version: 8
+updated_at: 2026-11-02 14:59:48 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -28,6 +28,10 @@ Separate Property names and values
   constrains each selected immediate dependent Property's direct values.
 - The name count and value count are different counts. Separate complete
   expressions use `;`.
+
+Property selectors compose from left to right:
+- `p.*.*` selects Properties exactly two levels below p.
+- `p.*.**` selects Properties two or more levels below p.
 
 Names are unique within one bearer. `x.y.z` differs from `x.z`. Resolve local
 declarations first and inherited declarations next. If neither declares
