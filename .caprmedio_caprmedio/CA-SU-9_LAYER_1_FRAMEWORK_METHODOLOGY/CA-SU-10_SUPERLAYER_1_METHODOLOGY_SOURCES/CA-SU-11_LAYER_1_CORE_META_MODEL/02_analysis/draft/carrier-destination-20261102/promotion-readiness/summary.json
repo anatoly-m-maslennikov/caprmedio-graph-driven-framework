@@ -1,0 +1,28 @@
+{
+  "status": "SUPERSEDED_BY_EXPLICIT_SOURCE_ONLY_INSTRUCTION",
+  "checked_at": "2026-11-02T23:31:20.420904+04:00",
+  "request": "Promote the six carrier-destination Drafts.",
+  "promoted": [],
+  "adoption_gate": {
+    "scope": "Pinned 1128-source Current Methodology and direct Project RMED frontier, not every Current role/location.",
+    "checked_carriers": 1128,
+    "name_populated": 0,
+    "path_populated": 0,
+    "explicit_transition_found": false,
+    "census": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-readiness/carrier-census.json",
+    "census_sha256": "f537757e7fa6f95f24af1476feeb0326a6a755eca9a183219e66b899c69b792c"
+  },
+  "execution_route": {
+    "skill": ".agents/skills/ca/SKILL.md",
+    "available_caprmedio_tools": false,
+    "advertised_http_health": "http://127.0.0.1:8092/health",
+    "observed_health": "Connection refused (read-only subagent probe).",
+    "stdio_binding": "caprmedio is declared by the skill but not exposed to this context.",
+    "promotion_context": "Unavailable; no discovery/current Step context obtained.",
+    "manual_fallback": "Not substituted for the unavailable MCP operation."
+  },
+  "pending_question": "Prepare an explicit bounded transition then promote, or populate and validate first?",
+  "effects": "Readiness reports only; no Atom, ID, status, archive, runtime, Git, or Journal change.",
+  "resolution": "Operator answered: promote drafts only. No backfill or governed transition was introduced; source-only promotion is recorded separately.",
+  "promotion_receipt": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/receipt.json"
+}

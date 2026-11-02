@@ -1,0 +1,60 @@
+{
+  "status": "CENSUS_COMPLETE",
+  "frontier_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/current-source-frontier.json",
+  "frontier_sha256": "086527d582e14ff20a07f8dd382a20d2d5a3da98127e33b5a9e1f4cf675d390b",
+  "frontier_entries": 1128,
+  "selection": "Current Methodology and direct Project RMED after Scope Unit authority migration",
+  "counts": {
+    "total_read": 1128,
+    "destination_present": 0,
+    "file_map": 0,
+    "name_valid": 0,
+    "path_valid": 0,
+    "both_valid": 0,
+    "name_missing_or_invalid": 1128,
+    "path_missing_or_invalid": 1128
+  },
+  "role_counts": {
+    "Delivery": 172,
+    "Evaluation": 100,
+    "Method": 100,
+    "Requirement": 756
+  },
+  "problems": [],
+  "missing_examples": [
+    {
+      "id": "CA-D-253",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-253-PROJECT_CONFIGURATION-DECISION--place-applicable-methodology-and-its-sources.md",
+      "carrier_destination_present": false
+    },
+    {
+      "id": "CA-D-262",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-ENG_DECISION--register-current-file-carrier-formats.md",
+      "carrier_destination_present": false
+    },
+    {
+      "id": "CA-D-264",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "carrier_destination_present": false
+    },
+    {
+      "id": "CA-D-266",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "carrier_destination_present": false
+    },
+    {
+      "id": "CA-D-267",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-ENG_DECISION--derive-address-facts-without-duplicated-frontmatter.md",
+      "carrier_destination_present": false
+    }
+  ],
+  "transition_search": {
+    "scope": "Current Markdown under .caprmedio_caprmedio excluding draft, archive and archived paths and installed bundles; searched exact carrier_destination and carrier destination expressions",
+    "result": "No explicit governed transition covering these exact new fields found in this bounded search."
+  },
+  "limitations": [
+    "This is a pinned 1128-source RMED selection, not a complete census of all Current carrier roles and locations.",
+    "Nonempty strings counted by shape only; no path semantic validation claimed.",
+    "The two field value counts do not establish readiness for uncounted carriers."
+  ]
+}

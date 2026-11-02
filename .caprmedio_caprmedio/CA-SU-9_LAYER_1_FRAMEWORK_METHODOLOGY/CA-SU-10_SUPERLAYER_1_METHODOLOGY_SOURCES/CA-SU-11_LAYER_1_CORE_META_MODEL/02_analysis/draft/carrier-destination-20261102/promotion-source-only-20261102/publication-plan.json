@@ -1,0 +1,172 @@
+{
+  "status": "PREPARED_FOR_SOURCE_ONLY_REVIEW",
+  "operator_instruction": "promote drafts only",
+  "scope": {
+    "promote": 6,
+    "backfill": false,
+    "transition": false,
+    "migration": false,
+    "runtime": false,
+    "projection_refresh": false,
+    "corpus_conformance_claim": false
+  },
+  "authority_precedence": {
+    "scope": "Latest explicit source-only instruction supersedes the A-proposal population prerequisite for this source publication; permanent Property Claims are unchanged.",
+    "route": "Manual source publication follows the latest instruction after MCP and population blockers were disclosed; no MCP execution/admission result is claimed.",
+    "version": "Operator promotion formula is max(all observed same-ID versions)+1. D664 Current2/Draft4 -> Current5; legacy R1432 Current+1 wording is left unchanged and is not claimed conformant."
+  },
+  "timestamp_policy": "Only updated_at may be rebased to actual common acceptance instant after content review.",
+  "staged_at": "2026-11-03 00:07:21 +0400",
+  "operations": [
+    {
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "draft_sha256": "dd21bc24efa563ef173b766f874d4b9ac3f080d002d72477d03b46a8c07e1dbc",
+      "proposed_id": "CA-R-2692",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2692-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "destination_existed_at_census": false,
+      "candidate_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/staged/000-CA-R-2692-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md.txt",
+      "candidate_sha256": "a36fc745644fd05d4b67bfa97c80c089aa5a73df068722ed26ed5c992be9e87a",
+      "published_status": "Active"
+    },
+    {
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination.File",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "draft_sha256": "b2f85856453efc4deb1cd6c620a620bb5ecdeea27de2c582135d32b85e06dcc0",
+      "proposed_id": "CA-R-2693",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2693-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "destination_existed_at_census": false,
+      "candidate_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/staged/001-CA-R-2693-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md.txt",
+      "candidate_sha256": "3cf8f049418c30fccf3735634a09a54d1938d7c1dbf775ac286ce389039b619e",
+      "published_status": "Active"
+    },
+    {
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination.File.Name",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "draft_sha256": "994acabb96f13a4417790e8016dca04708b8508f1e8ad7ef1db1616d0d44af51",
+      "proposed_id": "CA-R-2694",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2694-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "destination_existed_at_census": false,
+      "candidate_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/staged/002-CA-R-2694-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md.txt",
+      "candidate_sha256": "6a93b9b9ccbbc1c5a81fc79224de53e6451a233ae094df9ca69008f951f1f071",
+      "published_status": "Active"
+    },
+    {
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination.File.Path",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "draft_sha256": "bb486b0eb63360550584e66e491cd6f45e6880832886027f36e673c717c6fe7a",
+      "proposed_id": "CA-R-2695",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2695-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "destination_existed_at_census": false,
+      "candidate_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/staged/003-CA-R-2695-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md.txt",
+      "candidate_sha256": "636a6cfeb7913ffde3ddf34571d37af03b3ea5b38f5c59d53cb35d3ba64ff39a",
+      "published_status": "Active"
+    },
+    {
+      "kind": "delivery_successor",
+      "subject": "Atom",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@4-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "draft_sha256": "b6bd7ca695ab0dbd590533bb87be2399eb51b205cd86eca9d37c3c1c1efbc3db",
+      "proposed_id": "CA-D-664",
+      "version": 5,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "destination_existed_at_census": true,
+      "predecessor_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "predecessor_version": 2,
+      "predecessor_sha256": "f5e5b15a0c058ad4345eefcbf07a0b34f5bd03fd5e53b823b427a7f068548bff",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-664@2-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "candidate_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/staged/004-CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md.txt",
+      "candidate_sha256": "fa945b340d8b357127075dc84344fd285ceb805d6a3b5db4ba7df8aa83998a6a",
+      "published_status": "Active"
+    },
+    {
+      "kind": "proposal",
+      "subject": "Atom.Carrier Destination",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "draft_sha256": "8d09d8a2eb5eeb3c1a198e7717b13f45f2d9df99ff301ab964c21053e580a0bb",
+      "proposed_id": "CA-A-1314",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/CA-A-1314-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "destination_existed_at_census": false,
+      "candidate_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/staged/005-CA-A-1314-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md.txt",
+      "candidate_sha256": "0f4a2394995ae62c581fe32650fe66c04539935d4865ef801901a09575b1a09b",
+      "published_status": "Active"
+    }
+  ],
+  "archive": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-664@2-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+    "candidate_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/staged/006-archive-D664@2.txt",
+    "sha256": "941fdef4478e56778d08223d58669278bf6f7f83fdebd4e77cd56c123de4ccd4",
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+    "source_sha256": "f5e5b15a0c058ad4345eefcbf07a0b34f5bd03fd5e53b823b427a7f068548bff",
+    "version": 2
+  },
+  "current_source_pins": [
+    {
+      "id": "CA-R-2507",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2507-CORE_META_MODEL-DECLARATION--declare-atom-relations.md",
+      "sha256": "0606e618e8527ebaf69bebd81bc5e66e2b59dd87a3e6785a04bff075dd9bdb1c",
+      "use": "mandatory zero-value container pattern"
+    },
+    {
+      "id": "CA-R-2493",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2493-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "sha256": "fb5e63d1f8a318206e8e885df3ff21aa891e1988124b13e91be23ee75b2640a3",
+      "use": "mandatory string leaf and no-nested-properties pattern"
+    },
+    {
+      "id": "CA-R-2472",
+      "version": 8,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
+      "sha256": "5fd16835d0f6eefc728704754ea9721dd3043c14ee889c4417c537b368372b24",
+      "use": "separate child-name and direct-value counts"
+    },
+    {
+      "atom_id": "CA-D-664",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "f5e5b15a0c058ad4345eefcbf07a0b34f5bd03fd5e53b823b427a7f068548bff"
+    }
+  ],
+  "graph_preflight": {
+    "baseline_sources": 1128,
+    "candidate_sources": 1132,
+    "coverage": {
+      "candidate_sources": 1132,
+      "bound_sources": 803,
+      "declared_entity_targets": 139,
+      "declared_component_targets": 43,
+      "declared_relation_targets": 41,
+      "shared_sources": 580,
+      "fenced_claim_blocks": 237,
+      "cfel_blocks": 210,
+      "recognized_clauses": 365,
+      "unsupported_clauses": 199,
+      "coverage_gaps": 0,
+      "outside_model_scope_sources": 329,
+      "duplicate_declarations": 0,
+      "missing_relation_semantics": 0,
+      "instance_kind_gaps": 0,
+      "inheritance_diagnostics": 0
+    },
+    "coverage_gaps": 0,
+    "duplicate_declarations": 0,
+    "missing_relation_semantics": 0
+  },
+  "journal_policy": {
+    "action": "update for all6",
+    "new_ids": "Omit object_input for fresh canonical identities; no invented canonical predecessor.",
+    "D664": "Input Draft4 with prior timestamp, output Current5; Current2 archive is separate history."
+  },
+  "tracking": "Current projections/frontier will not be refreshed; receipt records their staleness."
+}

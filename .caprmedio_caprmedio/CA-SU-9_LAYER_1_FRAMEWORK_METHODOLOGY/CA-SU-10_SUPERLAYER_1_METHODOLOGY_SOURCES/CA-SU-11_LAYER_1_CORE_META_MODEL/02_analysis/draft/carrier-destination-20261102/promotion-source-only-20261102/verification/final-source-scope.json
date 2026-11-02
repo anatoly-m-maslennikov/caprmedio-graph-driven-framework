@@ -1,0 +1,127 @@
+{
+  "lane": "final source-scope and contract check after source-only promotion",
+  "status": "PASS",
+  "result": "The six intended Current sources are present and equal their accepted candidates. The four Requirement and D664 substantive bodies equal their reviewed Draft inputs; the Proposal changes only its consumed-source table and publication scope. No source-scope or contract blocker was found.",
+  "examined": [
+    {
+      "id": "CA-R-2692",
+      "version": 1,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2692-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "sha256": "7b099ed8be2be111c5262e085f246a71b2f42c54a33d86305399b8999aa60468"
+    },
+    {
+      "id": "CA-R-2693",
+      "version": 1,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2693-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "sha256": "3b72ef397f87088910b46d235f2b607ba754a3b17c951d53b2e22f3bd0980fd0"
+    },
+    {
+      "id": "CA-R-2694",
+      "version": 1,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2694-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "sha256": "cbb750c69f49078332d5ca1d6197620d8bd869883907f1b64b1952d2890202e7"
+    },
+    {
+      "id": "CA-R-2695",
+      "version": 1,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2695-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "sha256": "53cb5b8b0c1f5c72c8dde9e9cb8ac48c4b3acb46861e4f927c0b1a7ca6d39e2b"
+    },
+    {
+      "id": "CA-D-664",
+      "version": 5,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "4f4837b4cf678e28db99550d032a7fe2a01911a3046012252a61056ce4aa1358"
+    },
+    {
+      "id": "CA-A-1314",
+      "version": 1,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/CA-A-1314-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "sha256": "ff3e193df839319e5cbfc1b0f29d233b8e7cb078e9b04554fc689bab38a7f30b"
+    }
+  ],
+  "checks": [
+    {
+      "name": "reviewed-draft-body-fidelity",
+      "status": "PASS",
+      "evidence": "The substantive bodies after frontmatter of CA-R-2692, CA-R-2693, CA-R-2694, CA-R-2695, and CA-D-664 are byte-equal to their corresponding frozen reviewed Draft inputs. Each current file is byte-equal to its accepted-candidate artifact."
+    },
+    {
+      "name": "proposal-currentization-and-source-only-contract",
+      "status": "PASS",
+      "evidence": "CA-A-1314 differs from its reviewed Draft only by Current metadata, the five-current-atom reference table, and the publication-scope replacement. Lines 45-49 limit promotion to those five source Atoms, deny existing-Carrier conformance, governed transition, and data exception, and retain property/filename/placement meanings."
+    },
+    {
+      "name": "permanent-name-path-and-yaml-encoding",
+      "status": "PASS",
+      "evidence": "CA-R-2694 lines 21-26 retain mandatory one-string Name and full filename including extension; CA-R-2695 lines 21-26 retain mandatory one-string Path and repository-relative containing directory. CA-D-664 lines 34-35 retain exact carrier_destination.file.name and carrier_destination.file.path frontmatter mappings, while lines 37-41 retain physical filename/location and Carrier constraints."
+    },
+    {
+      "name": "preexisting-source-delta",
+      "status": "PASS",
+      "evidence": "Against the 1128-record current-source frontier, all 1127 non-D664 pinned source hashes still match. D664 is the expected replacement from source v2 to Current v5. CA-R-2692 through CA-R-2695 and CA-A-1314 are absent from the old frontier and are the expected new Currents."
+    },
+    {
+      "name": "contract-graph-recomposition",
+      "status": "PASS",
+      "evidence": "The in-memory source-bound contract graph reports 1132 candidate sources: the prior 1128 selection with D664 replaced plus the four new Requirement sources. It reports coverage_gaps, duplicate_declarations, missing_relation_semantics, instance_kind_gaps, and inheritance_diagnostics all as zero; outcome is complete. CA-A-1314 is verified as a new Current advisory source but is not added to this selected contract-graph source basis."
+    },
+    {
+      "name": "D664-identity-and-version",
+      "status": "PASS",
+      "evidence": "CA-D-664 is Active at version 5 (lines 2-13). Receipt lines 120-123 record the controlling operator formula max(all observed same-ID versions)+1, Current2/Draft4 -> Current5; the legacy R1432 Current+1 discrepancy is recorded as left unchanged and not claimed conformant."
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "line_start": 31,
+      "line_end": 41,
+      "atom_id": "CA-D-664",
+      "version": 5,
+      "excerpt": "The Claim maps Name and Path to the exact nested frontmatter leaves and retains the existing physical filename/location bindings and constraints."
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/CA-A-1314-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "line_start": 33,
+      "line_end": 49,
+      "atom_id": "CA-A-1314",
+      "version": 1,
+      "excerpt": "Current source references replace the Draft table; the source-only publication scope explicitly denies carrier population, migration, runtime activation, existing-carrier conformance, governed transition, and data exception."
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/receipt.json",
+      "line_start": 111,
+      "line_end": 128,
+      "atom_id": "promotion-receipt",
+      "version": null,
+      "excerpt": "Receipt constrains promotion to six sources, disables backfill/transition/migration/runtime/projection refresh/corpus-conformance, records the operator version rule, and declares projections/frontier unrefreshed."
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/verification/candidate-contract-graph.json",
+      "line_start": 48720,
+      "line_end": 48739,
+      "atom_id": "candidate-contract-graph",
+      "version": null,
+      "excerpt": "Recomposed graph has 1132 candidate sources, zero requested gap/conflict categories, complete display coverage, partial structured CFEL, and complete outcome."
+    }
+  ],
+  "blockers": [],
+  "rejected_candidates": [
+    "No backfill, transition, migration, runtime activation, or corpus-conformance assertion: the receipt scope and Current Proposal expressly deny them.",
+    "No changed Carrier semantics or duplicate logical storage: D664 retains the existing Carrier binding and physical filename/location mappings while adding the already-reviewed exact YAML leaves.",
+    "No unexpected source drift: the only old-frontier hash delta is the authorized D664 replacement; the four Requirement and one Proposal IDs are new Currents."
+  ],
+  "limits": [
+    "Official projections and current-source-frontier remain deliberately stale at 1128 sources; no projection/frontier write was made. The 1132 count is confined to this in-memory contract recomposition.",
+    "Structured CFEL extraction remains partial and native admission was not performed; the complete graph outcome is limited to its recorded bounded extractor coverage.",
+    "No corpus backfill, transition, runtime activation, engine admission, or global conformance validation was performed or claimed."
+  ],
+  "next_action": "No action within this final source-scope lane. Refresh official projections/frontier only under separately authorized follow-up work."
+}

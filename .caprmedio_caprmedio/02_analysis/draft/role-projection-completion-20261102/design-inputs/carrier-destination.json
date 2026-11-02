@@ -1,5 +1,5 @@
 {
-  "status": "DRAFTS_FIXED_AND_REVIEWED",
+  "status": "PROMOTED_SOURCE_ONLY",
   "user_intent": "Calculated intended Carrier filename and path derived from other Atom Properties, separate from the observed real filename/path.",
   "user_candidates": [
     "atom.carrier.file.name",
@@ -12,7 +12,7 @@
     "atom.carrier_destination.file.path"
   ],
   "pending_question": null,
-  "authority_change": "Four new Declaration Drafts, D664 successor Draft and Specification Proposal Draft; no Current, Carrier Definition or runtime change.",
+  "authority_change": "Four new Active Property Declarations, D664@5 and A1314@1; no destination-field backfill or runtime activation.",
   "user_decision": "The path value is the containing directory only, relative to repository root.",
   "user_decisions": {
     "atom.carrier_destination.file.name": "Full calculated filename, including extension.",
@@ -20,9 +20,36 @@
     "storage": "Store calculated values in Atom frontmatter.",
     "mandatory": "Both Properties mandatory, one string value each."
   },
-  "latest_user_clarification": "Both Properties are mandatory, each [string]{:1}; unchanged Carrier rules; simpler Delivery.",
+  "latest_user_clarification": "promote drafts only",
   "evidence_packet": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102",
   "draft_manifest": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/manifest.json",
   "latest_fix": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/receipt.json",
-  "latest_verification": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/verification/final-readback.json"
+  "latest_verification": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/verification/final-readback.json",
+  "promotion_receipt": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/receipt.json",
+  "promoted_atoms": [
+    {
+      "id": "CA-R-2692",
+      "version": 1
+    },
+    {
+      "id": "CA-R-2693",
+      "version": 1
+    },
+    {
+      "id": "CA-R-2694",
+      "version": 1
+    },
+    {
+      "id": "CA-R-2695",
+      "version": 1
+    },
+    {
+      "id": "CA-D-664",
+      "version": 5
+    },
+    {
+      "id": "CA-A-1314",
+      "version": 1
+    }
+  ]
 }

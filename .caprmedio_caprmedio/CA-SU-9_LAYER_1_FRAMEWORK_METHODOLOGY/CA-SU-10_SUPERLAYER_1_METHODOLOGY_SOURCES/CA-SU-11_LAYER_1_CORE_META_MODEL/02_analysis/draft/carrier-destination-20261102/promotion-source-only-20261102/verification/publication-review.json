@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "scope": "Pre-publication read-only review of the six staged source-only promotions and the one D664 archive candidate. This PASS does not authorize effects and does not claim backfill, transition, migration, runtime, projection refresh, corpus conformance, or engine admission.",
+  "reviewed_artifacts": {
+    "publication_plan": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/publication-plan.json",
+      "sha256": "e2df2ecf12c276c9c96c9230182d8f1307cbba26ddfe8b1d202a023fc9fbc393"
+    },
+    "candidate_contract_graph": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/verification/candidate-contract-graph.json",
+      "sha256": "e307fee42cfdf285cbeb6cc23a452f0a3999671651137204d692d84b42b219b5"
+    },
+    "staged_candidates": {
+      "CA-R-2692": "a36fc745644fd05d4b67bfa97c80c089aa5a73df068722ed26ed5c992be9e87a",
+      "CA-R-2693": "3cf8f049418c30fccf3735634a09a54d1938d7c1dbf775ac286ce389039b619e",
+      "CA-R-2694": "6a93b9b9ccbbc1c5a81fc79224de53e6451a233ae094df9ca69008f951f1f071",
+      "CA-R-2695": "636a6cfeb7913ffde3ddf34571d37af03b3ea5b38f5c59d53cb35d3ba64ff39a",
+      "CA-D-664@5": "fa945b340d8b357127075dc84344fd285ceb805d6a3b5db4ba7df8aa83998a6a",
+      "CA-A-1314": "0f4a2394995ae62c581fe32650fe66c04539935d4865ef801901a09575b1a09b",
+      "CA-D-664@2 archive": "941fdef4478e56778d08223d58669278bf6f7f83fdebd4e77cd56c123de4ccd4"
+    }
+  },
+  "checks": [
+    {
+      "name": "latest_source_only_scope",
+      "status": "PASS",
+      "evidence": "The plan explicitly promotes exactly six Drafts and disables backfill, transition, migration, runtime, projection refresh, and corpus-conformance claims. The proposal states source-only scope and explicitly denies a governed transition, data exception, or existing-Carrier conformance claim."
+    },
+    {
+      "name": "identities_versions_and_destinations",
+      "status": "PASS",
+      "evidence": "The four new Requirement IDs and the new Analysis & Advisory ID have no existing Current carrier at the read-only census and each publishes version 1. D664 observes Current v2 and Draft v4, so its staged successor is v5 under the latest max-observed-version rule. The legacy R1432 Current+1 text is recorded as superseded for this operation, without editing or claiming it aligned."
+    },
+    {
+      "name": "draft_fidelity_and_archive",
+      "status": "PASS",
+      "evidence": "All staged candidate and Draft hashes match the plan. The four Requirement Claims and D664 Claim are byte-equal to their reviewed Draft Claims. The archive candidate preserves the D664 v2 body and every frontmatter value except atom_id CA-D-664@2 and status Archived."
+    },
+    {
+      "name": "proposal_and_constraint_preservation",
+      "status": "PASS",
+      "evidence": "CA-A-1314 changes its consumed-Draft table to the five staged Current atoms and replaces the Draft adoption section with the latest source-only publication scope. It introduces no waiver, exception, or positive conformance assertion. Requirement summaries/roles and D664 Summary/Role are preserved; D664 adds the planned frontmatter, filename, and location bindings without changing its existing Carrier constraints."
+    },
+    {
+      "name": "source_pins_collisions_and_graph",
+      "status": "PASS",
+      "evidence": "All four relevant Current source pins match. The source-only candidate contract graph has zero coverage gaps, duplicate declarations, and missing relation semantics. No proposed new ID is currently found among Markdown Atom IDs; final allocation and destination checks remain required under the shared identity lock immediately before effects."
+    }
+  ],
+  "blockers": [],
+  "effect_time_requirements": [
+    "Under the shared atom_identity_lock, re-run allocation, collision, destination-absence, source/Draft-hash, and D664 max-version checks before writing effects.",
+    "Only updated_at may be rebased to the common acceptance instant."
+  ]
+}

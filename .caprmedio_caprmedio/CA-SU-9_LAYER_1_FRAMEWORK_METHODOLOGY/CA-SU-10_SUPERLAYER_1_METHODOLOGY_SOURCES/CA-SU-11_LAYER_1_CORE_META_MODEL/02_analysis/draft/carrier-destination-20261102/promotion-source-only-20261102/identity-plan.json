@@ -1,0 +1,120 @@
+{
+  "status": "PROVISIONAL_NOT_RESERVED",
+  "basis": "Read-only _draft_promotion_identity allocator returned CA-R-2692 and CA-A-1314; successive Requirement identities are tentatively sequential subject to locked reservation and repeat collision checks.",
+  "operations": [
+    {
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "draft_sha256": "dd21bc24efa563ef173b766f874d4b9ac3f080d002d72477d03b46a8c07e1dbc",
+      "proposed_id": "CA-R-2692",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2692-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "destination_existed_at_census": false
+    },
+    {
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination.File",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "draft_sha256": "b2f85856453efc4deb1cd6c620a620bb5ecdeea27de2c582135d32b85e06dcc0",
+      "proposed_id": "CA-R-2693",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2693-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "destination_existed_at_census": false
+    },
+    {
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination.File.Name",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "draft_sha256": "994acabb96f13a4417790e8016dca04708b8508f1e8ad7ef1db1616d0d44af51",
+      "proposed_id": "CA-R-2694",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2694-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "destination_existed_at_census": false
+    },
+    {
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination.File.Path",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "draft_sha256": "bb486b0eb63360550584e66e491cd6f45e6880832886027f36e673c717c6fe7a",
+      "proposed_id": "CA-R-2695",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2695-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "destination_existed_at_census": false
+    },
+    {
+      "kind": "delivery_successor",
+      "subject": "Atom",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@4-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "draft_sha256": "b6bd7ca695ab0dbd590533bb87be2399eb51b205cd86eca9d37c3c1c1efbc3db",
+      "proposed_id": "CA-D-664",
+      "version": 5,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "destination_existed_at_census": true,
+      "predecessor_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "predecessor_version": 2,
+      "predecessor_sha256": "f5e5b15a0c058ad4345eefcbf07a0b34f5bd03fd5e53b823b427a7f068548bff",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-664@2-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md"
+    },
+    {
+      "kind": "proposal",
+      "subject": "Atom.Carrier Destination",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "draft_sha256": "8d09d8a2eb5eeb3c1a198e7717b13f45f2d9df99ff301ab964c21053e580a0bb",
+      "proposed_id": "CA-A-1314",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/CA-A-1314-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "destination_existed_at_census": false
+    }
+  ],
+  "source_pins": [
+    {
+      "id": "CA-R-2507",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2507-CORE_META_MODEL-DECLARATION--declare-atom-relations.md",
+      "sha256": "0606e618e8527ebaf69bebd81bc5e66e2b59dd87a3e6785a04bff075dd9bdb1c",
+      "use": "mandatory zero-value container pattern"
+    },
+    {
+      "id": "CA-R-2493",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2493-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "sha256": "fb5e63d1f8a318206e8e885df3ff21aa891e1988124b13e91be23ee75b2640a3",
+      "use": "mandatory string leaf and no-nested-properties pattern"
+    },
+    {
+      "id": "CA-R-2472",
+      "version": 8,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
+      "sha256": "5fd16835d0f6eefc728704754ea9721dd3043c14ee889c4417c537b368372b24",
+      "use": "separate child-name and direct-value counts"
+    },
+    {
+      "atom_id": "CA-D-664",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "f5e5b15a0c058ad4345eefcbf07a0b34f5bd03fd5e53b823b427a7f068548bff"
+    }
+  ],
+  "delivery_history": "Current @2 and Draft @4 observed; proposed successor @5; recheck all preserved versions and history under lock.",
+  "recheck": [
+    "Under shared atom_identity_lock, re-run allocation and check all proposed IDs including preserved history before publication; do not reuse an ID already reserved by a concurrent actor.",
+    "Recheck every source/Draft hash and destination absence; D664 Current path must equal its pinned predecessor and archive destination must be absent.",
+    "Recompute D664 maximum version and verify same-ID Summary/Role before archiving or publication.",
+    "This plan does not authorize or assert corpus backfill, transitions, runtime or conformance."
+  ],
+  "limits": [
+    "No identities reserved or carrier effects performed; IDs are a snapshot."
+  ],
+  "archive_authority": {
+    "decision": "Retain planned archive/CA-D-664@2-...md; live governing sources use the version marker in the Atom-ID segment.",
+    "sources": [
+      "CA-D-565@20 Claim",
+      "CA-D-289@24 Claim",
+      "CA-D-283@32 Claim",
+      "CA-R-1432 Current Claim"
+    ],
+    "runtime_conflict": "Current Engine archive_revision_destination produces archived/<stem>@version.md; it does not match the live source mapping for this non-Plan predecessor."
+  },
+  "delivery_version_conflict": "Current CA-R-1432 requires a same-ID update to increment Version exactly 1, while plan proposes D664@5 after Current@2 due Draft@4. This conflict requires disposition before publication; no conformance asserted."
+}

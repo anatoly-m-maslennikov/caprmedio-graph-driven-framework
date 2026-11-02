@@ -1,5 +1,5 @@
 {
-  "status": "DRAFTS_FIXED",
+  "status": "PROMOTED_SOURCE_ONLY",
   "created_at": "2026-11-02T17:35:35.371265+00:00",
   "creation_method": "Manual Draft authoring under shared identity lock with exclusive writes; identity/destination preflight and exact readback passed.",
   "engine_admission": "BLOCKED: Current frontmatter encoding authority is unreviewed. No promotion or runtime admission claim.",
@@ -84,6 +84,74 @@
     "carrier": "Existing Carrier rules retain their meaning."
   },
   "latest_fix": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/receipt.json",
-  "latest_verification": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/verification/final-readback.json",
-  "creation_history_manifest": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/predecessors/manifest-before.json"
+  "latest_verification": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/verification/final-promotion-readback.json",
+  "creation_history_manifest": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/fixes/yaml-encoding-and-adoption-20261102/predecessors/manifest-before.json",
+  "promoted_atoms": [
+    {
+      "id": "CA-R-2692",
+      "version": 1,
+      "status": "Active",
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2692-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "sha256": "7b099ed8be2be111c5262e085f246a71b2f42c54a33d86305399b8999aa60468"
+    },
+    {
+      "id": "CA-R-2693",
+      "version": 1,
+      "status": "Active",
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination.File",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2693-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "sha256": "3b72ef397f87088910b46d235f2b607ba754a3b17c951d53b2e22f3bd0980fd0"
+    },
+    {
+      "id": "CA-R-2694",
+      "version": 1,
+      "status": "Active",
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination.File.Name",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2694-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "sha256": "cbb750c69f49078332d5ca1d6197620d8bd869883907f1b64b1952d2890202e7"
+    },
+    {
+      "id": "CA-R-2695",
+      "version": 1,
+      "status": "Active",
+      "kind": "new_declaration",
+      "subject": "Atom.Carrier Destination.File.Path",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2695-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "sha256": "53cb5b8b0c1f5c72c8dde9e9cb8ac48c4b3acb46861e4f927c0b1a7ca6d39e2b"
+    },
+    {
+      "id": "CA-D-664",
+      "version": 5,
+      "status": "Active",
+      "kind": "delivery_successor",
+      "subject": "Atom",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "4f4837b4cf678e28db99550d032a7fe2a01911a3046012252a61056ce4aa1358"
+    },
+    {
+      "id": "CA-A-1314",
+      "version": 1,
+      "status": "Active",
+      "kind": "proposal",
+      "subject": "Atom.Carrier Destination",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/CA-A-1314-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md",
+      "sha256": "ff3e193df839319e5cbfc1b0f29d233b8e7cb078e9b04554fc689bab38a7f30b"
+    }
+  ],
+  "drafts_consumed": true,
+  "promotion_receipt": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102/promotion-source-only-20261102/receipt.json",
+  "source_only_scope": {
+    "promote": 6,
+    "backfill": false,
+    "transition": false,
+    "migration": false,
+    "runtime": false,
+    "projection_refresh": false,
+    "corpus_conformance_claim": false
+  },
+  "historical_input_note": "The drafts and current_source_pins fields retain historical promotion inputs. D664@2 is now archived; use promoted_atoms for accepted Current paths and versions."
 }

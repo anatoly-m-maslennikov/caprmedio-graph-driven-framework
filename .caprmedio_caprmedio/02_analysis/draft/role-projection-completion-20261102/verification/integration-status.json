@@ -8,11 +8,11 @@
   "git": "APPLIED: combined snapshot 67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb pushed to amm/dev; exact remote SHA verified. Later peer edits remain separate.",
   "limits": "Do not mistake a candidate graph or focused tests for integrated runtime validation",
   "coordination": "Explicitly authorized; shared checkpoint in use; this chat owns Git",
-  "next": "Promotion requires the new adoption gates; population, migration and runtime activation remain separate. Engine admission was not retested for this documentation correction.",
-  "source_selection": "1,128 adopted Current RMED sources; final source hash readback PASS; zero graph coverage gaps.",
+  "next": "No further source-promotion work pending. Carrier population, runtime activation and projection refresh remain separate from the latest source-only instruction.",
+  "source_selection": "The pre-promotion 1128-source frontier/official projections were not refreshed; their D664@2 pin is now historical. In-memory promoted-source check uses1132 sources with zero gaps/conflicts.",
   "verification_reports": [
     "verification/final-published-projections.json",
     "verification/final-publication-inventory.json"
   ],
-  "carrier_destination": "Six Drafts reviewed; both P2 findings closed by D664@4-draft and Proposal@2. Explicit nested YAML mappings and pre-promotion population/validation gate. Four Property Declaration bodies unchanged."
+  "carrier_destination": "Source-only promotion APPLIED and independently verified: R2692-R2695@1, D664@5, A1314@1; one D664@2 archive; six promotion events."
 }
