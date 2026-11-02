@@ -40,7 +40,7 @@ class BatchAdmission:
 
 
 def require_subject_profile_transition_authority(root: Path) -> None:
-    """Admit mixed-profile packets only after all three live contracts say so."""
+    """Admit mixed-profile packets only after all live contracts say so."""
     for path, clause in _TRANSITION_AUTHORITY:
         if path is None:
             raise ValueError("Subject profile transition delivery authority is unbound")

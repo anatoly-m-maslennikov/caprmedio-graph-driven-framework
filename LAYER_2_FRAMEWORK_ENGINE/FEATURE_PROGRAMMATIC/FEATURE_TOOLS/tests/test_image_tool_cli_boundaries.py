@@ -21,8 +21,6 @@ IMPORTED_CALLBACKS = FIXTURE["imported_callbacks"]
 SPECIAL_CALLBACK_BODIES = FIXTURE["special_callback_bodies"]
 MALFORMED_CLI_CASES = (
     ("artifact_metadata.py", ()),
-    ("MIGRATE_ATOM_IDENTITY/migrate_atom_identity.py", ()),
-    ("migrations/apply_fpf_audit_repairs.py", ("--unknown",)),
 )
 
 

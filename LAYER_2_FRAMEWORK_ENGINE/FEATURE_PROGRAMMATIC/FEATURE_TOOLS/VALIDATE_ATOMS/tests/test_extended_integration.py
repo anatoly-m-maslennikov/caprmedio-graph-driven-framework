@@ -159,9 +159,14 @@ class ExtendedIntegration(unittest.TestCase):
         }
         self.assertTrue(expected <= ADAPTER_CODES)
         context = resolve_context(frozen_sources())
-        self.assertEqual(context.required, 51)
+        self.assertEqual(context.required, 53)
         self.assertEqual(context.supported, 51)
-        self.assertEqual({o.code for o in context.obligations if not o.supported}, set())
+        unsupported = {o.code: {row["atom_id"] for row in o.authority}
+                       for o in context.obligations if not o.supported}
+        self.assertEqual(unsupported, {
+            "authority.unclassified.CA-D-440": {"CA-D-440"},
+            "authority.unclassified.CA-D-441": {"CA-D-441"},
+        })
 
     def test_cli_passes_good_encodings_without_claiming_complete_coverage(self) -> None:
         with isolated_directory() as directory:

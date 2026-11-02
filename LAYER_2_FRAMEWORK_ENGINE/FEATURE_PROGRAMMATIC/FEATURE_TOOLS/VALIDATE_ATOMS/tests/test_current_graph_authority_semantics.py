@@ -7,6 +7,7 @@ import hashlib
 import json
 from pathlib import Path
 import sys
+import tempfile
 import unittest
 from typing import Any
 
@@ -14,6 +15,7 @@ from typing import Any
 HERE = Path(__file__).resolve().parent
 TOOL = HERE.parent
 PROGRAMMATIC_TOOLS = TOOL.parent
+REPOSITORY = PROGRAMMATIC_TOOLS.parents[2]
 sys.path.insert(0, str(TOOL))
 sys.path.insert(0, str(PROGRAMMATIC_TOOLS))
 sys.path.insert(0, str(HERE))
@@ -23,6 +25,8 @@ from authoritative_status_models import (  # noqa: E402
     declarations_from_sources,
     resolve_status_domain,
 )
+from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
+from scope_unit_declarations import read_scope_unit_declarations  # noqa: E402
 from validate_atoms_workers.authority import AuthorityContext, Obligation  # noqa: E402
 from validate_atoms_workers.check_graph_extended import (  # noqa: E402
     _INVERSES,
@@ -46,10 +50,10 @@ EXTRAS = frozenset(
 # The four behavior-changing contracts are asserted from exact local bytes.
 # The remaining metadata-only refreshes are checked by graph_authority_refresh.
 CHANGED_PINS = {
-    "CA-D-268": (18, "eb33ffdb1ae992b8db8ea50dbb332ab3fd91b90040096c5be4965d89afc96888", "001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md"),
-    "CA-R-796": (23, "0a3a51c9f7854d1d22894b2afba837f9cbc919f8cb35b11ea15a4179de77b580", "001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md"),
-    "CA-R-1040": (17, "b8db24215ede0bfe54316b71ef915df0281d0ab910aab5de34bf3af3b6749f41", "001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md"),
-    "CA-R-1539": (9, "13b63bfdf55480496b734a408c3632d33c68b9522426ca8092b52038e7adbe0a", "001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md"),
+    "CA-D-268": (18, "eb33ffdb1ae992b8db8ea50dbb332ab3fd91b90040096c5be4965d89afc96888", "07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md"),
+    "CA-R-796": (23, "0a3a51c9f7854d1d22894b2afba837f9cbc919f8cb35b11ea15a4179de77b580", "04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md"),
+    "CA-R-1040": (17, "b8db24215ede0bfe54316b71ef915df0281d0ab910aab5de34bf3af3b6749f41", "04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md"),
+    "CA-R-1539": (9, "13b63bfdf55480496b734a408c3632d33c68b9522426ca8092b52038e7adbe0a", "04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md"),
 }
 SNAPSHOT_PINS = {
     **{key: (value[0], value[1]) for key, value in CHANGED_PINS.items()},
@@ -80,7 +84,7 @@ def _fixture_source(identifier: str) -> dict[str, Any]:
 
 def _check(
     metadata: dict[str, Any], sources: list[dict[str, Any]], *,
-    references: tuple[dict[str, Any], ...] = (), structure: dict[str, Any] | None = None,
+    references: tuple[dict[str, Any], ...] = (), structure: Any = None,
 ) -> Check:
     check = Check(Obligation("relations.resolution", [], True, "frozen current graph fixture"), AuthorityContext([], 0, 0, 0, [], (), {}, False))
     check.inputs = {
@@ -88,43 +92,43 @@ def _check(
         "references": list(references),
         "reference_complete": True,
         "path": Path("/inventory/child.md"),
+        "_project_identity": {"project": {"name": "demo"}},
     }
     if structure is not None:
-        check.inputs["structure"] = structure
+        check.inputs["scope_unit_declarations"] = structure
     relations_resolution(metadata, "", check)
     return check
 
 
-def _scope_units() -> dict[str, Any]:
-    return {
-        "schema_version": 1,
-        "scope_units": [
-            {
-                "scope_unit_name": "SOURCES", "parent": "PROJECT", "structural_level": 1,
-                "scope_unit_type": "Unordered", "scope_unit_label": "Layer",
-                "navigational_order_number": 1, "authority_path": ".caprmedio_demo/SOURCES",
-                "delivery_path": "src/SOURCES",
-            },
-            {
-                "scope_unit_name": "CORE", "parent": "SOURCES", "structural_level": 2,
-                "scope_unit_type": "Unordered", "scope_unit_label": "Layer",
-                "navigational_order_number": 1, "authority_path": ".caprmedio_demo/CORE",
-                "delivery_path": "src/CORE",
-            },
-            {
-                "scope_unit_name": "CONFIG", "parent": "SOURCES", "structural_level": 2,
-                "scope_unit_type": "Unordered", "scope_unit_label": "Layer",
-                "navigational_order_number": 1, "authority_path": ".caprmedio_demo/CONFIG",
-                "delivery_path": "src/CONFIG",
-            },
-        ],
-    }
+def _scope_units() -> Any:
+    if not hasattr(_scope_units, "fixture"):
+        scratch = REPOSITORY / ".caprmedio_tmp/tests/current-graph-authority"
+        scratch.mkdir(parents=True, exist_ok=True)
+        directory = tempfile.TemporaryDirectory(dir=scratch)
+        root = Path(directory.name)
+        control = root / ".caprmedio_demo"
+        control.mkdir()
+        (control / "caprmedio_project_settings.toml").write_text(
+            '[project]\nname = "demo"\n[paths]\ncontrol_root = ".caprmedio_demo"\n',
+            encoding="utf-8",
+        )
+        write_scope_unit_declarations(
+            root,
+            (
+                {"scope_unit_name": "SOURCES", "scope_unit_label": "Layer"},
+                {"scope_unit_name": "CORE", "parent": "SOURCES", "scope_unit_label": "Layer"},
+                {"scope_unit_name": "CONFIG", "parent": "SOURCES", "scope_unit_label": "Layer"},
+            ),
+            control_root=control,
+        )
+        _scope_units.fixture = (directory, read_scope_unit_declarations(root, control))
+    return _scope_units.fixture[1]
 
 
 def _rmed_atom(atom_id: str, scope: str, tier: int, **changes: Any) -> dict[str, Any]:
     return {
         "atom_id": atom_id, "version": 1, "content_role": "Requirement", "status": "Active",
-        "current_scope_unit": scope, "global_tier": tier, **changes,
+        "current_scope_unit": scope, "tier": tier, **changes,
     }
 
 
@@ -157,7 +161,8 @@ class CurrentGraphAuthoritySemanticsTests(unittest.TestCase):
                 "version": 16,
                 "sha256": "7b1c4f96426e7907c90e5a949b037f26f39458fd769ed04e2b451a16376cdd39",
                 "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/"
-                "METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/"
+                "CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/"
+                "CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/"
                 "CA-D-305-PROJECT_CONFIGURATION-CORE--carry-projected-atoms-without-new-identity.md",
             },
         )
@@ -195,7 +200,7 @@ class CurrentGraphAuthoritySemanticsTests(unittest.TestCase):
             "content_role": "Requirement",
             "status": "Active",
             "current_scope_unit": "CORE",
-            "global_tier": 9,
+            "tier": 9,
             "relations": {"IS_CONTAINED_BY": ["X-R-2"]},
         }
         result = _check(metadata, [_fixture_source("CA-D-268")])
@@ -210,9 +215,13 @@ class CurrentGraphAuthoritySemanticsTests(unittest.TestCase):
         positive = _check(child, sources, references=_parent_reference(parent), structure=_scope_units())
         self.assertFalse(positive.findings + positive.gaps)
 
+        greater = _check(
+            child, sources, references=_parent_reference({**parent, "tier": 10}), structure=_scope_units()
+        )
+        self.assertFalse(greater.findings + greater.gaps)
+
         negative_cases = (
             ("sibling", {**parent, "current_scope_unit": "CONFIG"}, _scope_units()),
-            ("greater-tier", {**parent, "global_tier": 10}, _scope_units()),
             ("missing-structure", parent, None),
         )
         for defect, candidate, structure in negative_cases:

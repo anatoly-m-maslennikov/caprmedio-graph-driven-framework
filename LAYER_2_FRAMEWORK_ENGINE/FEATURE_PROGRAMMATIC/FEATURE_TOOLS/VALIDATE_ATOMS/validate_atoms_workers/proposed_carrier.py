@@ -410,31 +410,30 @@ def _current_type_source(context: VerifiedSourceContext, metadata: Record) -> Re
 
 def _type_inputs(context: VerifiedSourceContext, metadata: Record) -> Record:
     """Load only the additional authority required by the actual proposed Type."""
+    inputs = dict(context.inputs)
+    known = {row["binding"]["atom_id"] for row in inputs["sources"]}
     if (
         any(reviewed_encoding_profile(row) == "current" for row in context.inputs["sources"])
         and isinstance(metadata.get("type"), str)
         and metadata["type"]
     ):
         source = _current_type_source(context, metadata)
-        inputs = dict(context.inputs)
-        known = {row["binding"]["atom_id"] for row in inputs["sources"]}
-        inputs["sources"] = [*inputs["sources"], *([] if source["binding"]["atom_id"] in known else [source])]
-        return inputs
+        if source["binding"]["atom_id"] not in known:
+            inputs["sources"] = [*inputs["sources"], source]
+            known.add(source["binding"]["atom_id"])
     if (metadata.get("content_role"), metadata.get("type")) == ("Requirement", "Goal"):
         identifiers = ("CA-R-924", "CA-R-925", "CA-R-926", "CA-R-947", "CA-R-1392",
                        "CA-R-1389", "CA-R-1390", "CA-R-1391")
     elif is_graph_rule(metadata):
         identifiers = GRAPH_RULE_SOURCES
     else:
-        return context.inputs
+        return inputs
     report: Record = {"bindings": {}, "coverage": {"gaps": []}}
     with bind_selection(context._selection):
         sources = [_source(context.root, identifier, context._reader, report)
                    for identifier in identifiers]
-    inputs = dict(context.inputs)
-    selected = {item["binding"]["atom_id"] for item in inputs["sources"]}
     inputs["sources"] = [*inputs["sources"],
-                         *[source for source in sources if source["binding"]["atom_id"] not in selected]]
+                         *[source for source in sources if source["binding"]["atom_id"] not in known]]
     return inputs
 
 

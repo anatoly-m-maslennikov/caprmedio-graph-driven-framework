@@ -112,6 +112,7 @@ class SubjectBatchProject:
                  "commit", "--quiet", "-m", "Fixture legacy Subject source")
         target = carrier_descriptor(self.root, path.relative_to(self.root).as_posix())
         self.packet.update(
+            schema_version=2,
             source_subject_profile="legacy",
             git_checkpoint=self.git("rev-parse", "HEAD").strip(),
             atoms=[{"target": target, "subject_patches": [{

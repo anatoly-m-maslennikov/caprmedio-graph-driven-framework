@@ -169,7 +169,7 @@ source:
   - CA-D-658@4
   - CA-D-662@4
   - CA-D-663@2
-  - CA-D-664@2
+  - CA-D-664@5
   - CA-D-665@2
   - CA-D-666@1
   - CA-D-667@1
@@ -1058,6 +1058,10 @@ source:
   - CA-R-2689@1
   - CA-R-2690@1
   - CA-R-2691@1
+  - CA-R-2692@1
+  - CA-R-2693@1
+  - CA-R-2694@1
+  - CA-R-2695@1
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1133,7 +1137,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-02 20:24:45 +0400
+updated_at: 2026-11-03 01:11:33 +0400
 ---
 # Formal Contract Graph
 
@@ -1141,16 +1145,16 @@ Bounded extraction only. CFEL blocks remain authoritative source text; this view
 
 ## Coverage
 
-- candidate sources: 1128
-- bound sources: 799
-- declared entity targets: 135
+- candidate sources: 1132
+- bound sources: 803
+- declared entity targets: 139
 - declared component targets: 43
 - declared relation targets: 41
 - shared sources: 580
-- fenced claim blocks: 233
-- cfel blocks: 206
-- recognized clauses: 357
-- unsupported clauses: 195
+- fenced claim blocks: 237
+- cfel blocks: 210
+- recognized clauses: 365
+- unsupported clauses: 199
 - coverage gaps: 0
 - outside model scope sources: 329
 - duplicate declarations: 0
@@ -1716,7 +1720,7 @@ Atom ((NARROWER_THAN)) @Continuant
     - a required Atom value selected by applying a default is still carried at its canonical internal location; equality **to** that default does **not** permit omitting the value.
     - an unselected optional override remains absent; do **not** copy an inherited effective setting into a locally selected override.
     - retain an explicit override even **when** it currently equals the inherited value, because later upstream changes **must not** change that selection.
-- Shared RMED source (exact binding): `CA-D-664@2`
+- Shared RMED source (exact binding): `CA-D-664@5`
   - Remaining Claim prose:
     The Carrier below is the Markdown file delivering this Atom.
     
@@ -1731,14 +1735,22 @@ Atom ((NARROWER_THAN)) @Continuant
 ```CFEL
 Atom >> @Carrier//Markdown file;
 Atom.**!(.Content, .Content.**) >> @Carrier//Markdown file.frontmatter;
+Atom.Carrier Destination.File.Name >> @Carrier//Markdown file.frontmatter.carrier_destination.file.name;
+Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.frontmatter.carrier_destination.file.path;
 Atom.Content.** >> @Carrier//Markdown file.markdown;
+Atom.Carrier Destination.File.Name >> @Carrier//Markdown file.filename;
+Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
 @Carrier//Markdown file.filename{:1}: [string]{:1};
 @Carrier//Markdown file.location{:1}: [string]{:1};
 @Carrier//Markdown file.frontmatter.author{:0}
 ```
   - Unresolved CFEL: `Atom >> @Carrier//Markdown file`
   - Unresolved CFEL: `Atom.**!(.Content, .Content.**) >> @Carrier//Markdown file.frontmatter`
+  - Unresolved CFEL: `Atom.Carrier Destination.File.Name >> @Carrier//Markdown file.frontmatter.carrier_destination.file.name`
+  - Unresolved CFEL: `Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.frontmatter.carrier_destination.file.path`
   - Unresolved CFEL: `Atom.Content.** >> @Carrier//Markdown file.markdown`
+  - Unresolved CFEL: `Atom.Carrier Destination.File.Name >> @Carrier//Markdown file.filename`
+  - Unresolved CFEL: `Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location`
   - Unresolved CFEL: `@Carrier//Markdown file.filename{:1}: [string]{:1}`
   - Unresolved CFEL: `@Carrier//Markdown file.location{:1}: [string]{:1}`
   - Unresolved CFEL: `@Carrier//Markdown file.frontmatter.author{:0}`
@@ -2172,6 +2184,10 @@ Atom.Content.** >> @Carrier//Markdown file.markdown;
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2637@1`
   - Fenced Claim block:
 ```CFEL
@@ -2292,6 +2308,10 @@ Atom/(.Role: "Analysis & Advisory")
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2509@2`
   - Fenced Claim block:
 ```CFEL
@@ -2333,6 +2353,10 @@ Atom/(.Role: Concern)
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2515@2`
   - Fenced Claim block:
 ```CFEL
@@ -2371,6 +2395,10 @@ Atom/(.Role: Delivery)
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2514@2`
   - Fenced Claim block:
 ```CFEL
@@ -2456,6 +2484,10 @@ Atom/(.Role: Evaluation)
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2513@2`
   - Fenced Claim block:
 ```CFEL
@@ -2508,6 +2540,10 @@ Atom/(.Role: Method)
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2463@2`
   - Fenced Claim block:
 ```CFEL
@@ -2561,6 +2597,10 @@ Atom/(.Role: Operations)
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2467@2`
   - Fenced Claim block:
 ```CFEL
@@ -2608,6 +2648,10 @@ Action//{:0+}((IS_RUN_BY)) (in (Step, Substep))//
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2465@4`
   - Fenced Claim block:
 ```CFEL
@@ -2669,6 +2713,10 @@ IF Step// {=0}((CONTAINS)) THEN Step// {:1}((RUNS)) (in (Action, Workflow))//
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2466@4`
   - Fenced Claim block:
 ```CFEL
@@ -2713,6 +2761,10 @@ Substep//{:1}((RUNS)) Action//
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2464@4`
   - Fenced Claim block:
 ```CFEL
@@ -2927,6 +2979,10 @@ Workflow//{:0+}((IS_RUN_BY)) Step//
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2511@2`
   - Fenced Claim block:
 ```CFEL
@@ -3076,6 +3132,10 @@ THEN (Atom/(.Role: Plan).Relations.contained_by{==1})`
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2512@2`
   - Fenced Claim block:
 ```CFEL
@@ -3146,6 +3206,10 @@ Atom/(.Role: Requirement)
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
+  - `Atom.Carrier Destination` — CA-R-2692@1
+  - `Atom.Carrier Destination.File` — CA-R-2693@1
+  - `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+  - `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - Declaration source: `CA-R-2516@5`
   - Remaining Claim prose:
     A Declaration states the applicable contract for its active Subject. Its Claim may contain several prose statements, CFEL formal expressions, or both when they form one coherent declaration about one topic.
@@ -5141,6 +5205,58 @@ Actor.Name.*[]{:0}
   - Nested Property contracts:
     - `Actor.Name` property; names=None; names count=0..1; values=string; values count=1
     - `Actor.Name` immediate_dependents; names=; names count=0; values=None; values count=undefined
+
+### `Atom.Carrier Destination` — property
+
+- Declaration source: `CA-R-2692@1`
+  - Fenced Claim block:
+```CFEL
+Atom.Carrier Destination{:1}: []{:0};
+Atom.Carrier Destination.*[in (File)]{:1}
+```
+  - Nested Property contracts:
+    - `Atom.Carrier Destination` property; names=None; names count=1; values=; values count=0
+    - `Atom.Carrier Destination` immediate_dependents; names=in (File); names count=1; values=None; values count=undefined
+
+### `Atom.Carrier Destination.File` — property
+
+- Declaration source: `CA-R-2693@1`
+  - Fenced Claim block:
+```CFEL
+Atom.Carrier Destination.File{:1}: []{:0};
+Atom.Carrier Destination.File.*[in (Name, Path)]{:2}
+```
+  - Nested Property contracts:
+    - `Atom.Carrier Destination.File` property; names=None; names count=1; values=; values count=0
+    - `Atom.Carrier Destination.File` immediate_dependents; names=in (Name, Path); names count=2; values=None; values count=undefined
+
+### `Atom.Carrier Destination.File.Name` — property
+
+- Declaration source: `CA-R-2694@1`
+  - Remaining Claim prose:
+    Calculated full filename, including its extension.
+  - Fenced Claim block:
+```CFEL
+Atom.Carrier Destination.File.Name{:1}: [string]{:1};
+Atom.Carrier Destination.File.Name.*[]{:0}
+```
+  - Nested Property contracts:
+    - `Atom.Carrier Destination.File.Name` property; names=None; names count=1; values=string; values count=1
+    - `Atom.Carrier Destination.File.Name` immediate_dependents; names=; names count=0; values=None; values count=undefined
+
+### `Atom.Carrier Destination.File.Path` — property
+
+- Declaration source: `CA-R-2695@1`
+  - Remaining Claim prose:
+    Calculated path of the containing directory, relative to the repository root.
+  - Fenced Claim block:
+```CFEL
+Atom.Carrier Destination.File.Path{:1}: [string]{:1};
+Atom.Carrier Destination.File.Path.*[]{:0}
+```
+  - Nested Property contracts:
+    - `Atom.Carrier Destination.File.Path` property; names=None; names count=1; values=string; values count=1
+    - `Atom.Carrier Destination.File.Path` immediate_dependents; names=; names count=0; values=None; values count=undefined
 
 ### `Atom.Content` — property
 
@@ -14837,12 +14953,16 @@ THEN ($contained.structural_level = $container.structural_level + 1)
 - `CA-R-2637@1`: Atom/(.Role: "Analysis & Advisory")
 - `CA-R-2686@1`: Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0}
 - `CA-D-665@2`: Projection// >> Carrier/Markdown_file//
-- `CA-D-664@2`: Atom >> @Carrier//Markdown file
-- `CA-D-664@2`: Atom.**!(.Content, .Content.**) >> @Carrier//Markdown file.frontmatter
-- `CA-D-664@2`: Atom.Content.** >> @Carrier//Markdown file.markdown
-- `CA-D-664@2`: @Carrier//Markdown file.filename{:1}: [string]{:1}
-- `CA-D-664@2`: @Carrier//Markdown file.location{:1}: [string]{:1}
-- `CA-D-664@2`: @Carrier//Markdown file.frontmatter.author{:0}
+- `CA-D-664@5`: Atom >> @Carrier//Markdown file
+- `CA-D-664@5`: Atom.**!(.Content, .Content.**) >> @Carrier//Markdown file.frontmatter
+- `CA-D-664@5`: Atom.Carrier Destination.File.Name >> @Carrier//Markdown file.frontmatter.carrier_destination.file.name
+- `CA-D-664@5`: Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.frontmatter.carrier_destination.file.path
+- `CA-D-664@5`: Atom.Content.** >> @Carrier//Markdown file.markdown
+- `CA-D-664@5`: Atom.Carrier Destination.File.Name >> @Carrier//Markdown file.filename
+- `CA-D-664@5`: Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location
+- `CA-D-664@5`: @Carrier//Markdown file.filename{:1}: [string]{:1}
+- `CA-D-664@5`: @Carrier//Markdown file.location{:1}: [string]{:1}
+- `CA-D-664@5`: @Carrier//Markdown file.frontmatter.author{:0}
 - `CA-R-2640@1`: Project//caprmedio.Name == "caprmedio"
 - `CA-R-2648@1`: Scope Unit//FRAMEWORK_METHODOLOGY.ID == "CA-SU-9"
 - `CA-R-2648@1`: Scope Unit//FRAMEWORK_METHODOLOGY.Name == "FRAMEWORK_METHODOLOGY"

@@ -17,7 +17,12 @@ import sys
 import tempfile
 from typing import Any, Iterator, Mapping
 
-from frozen_selected_workflows import frozen_selected_root_paths, frozen_source_bytes
+from frozen_selected_workflows import (
+    frozen_manifest,
+    frozen_selected_root_paths,
+    frozen_source_bytes,
+    frozen_source_paths,
+)
 
 
 APP = Path(__file__).resolve().parents[1]
@@ -26,7 +31,6 @@ CONTROL = Path(".caprmedio_caprmedio")
 MANIFEST_REF = ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json"
 # Runtime reads this corpus only; it never resolves a source from the host Project.
 FIXTURE_ROOT = Path(__file__).with_name("fixtures") / "container_lifecycle"
-PIN_FILE = FIXTURE_ROOT / "source_pins.json"
 ROUTE_SHAPE = FIXTURE_ROOT / "route_shape.json"
 TOOLS = PROGRAMMATIC / "FEATURE_TOOLS"
 MCP = PROGRAMMATIC / "FEATURE_MCP"
@@ -92,7 +96,7 @@ class ContainerLifecycleFixture:
             self.root = Path(root).resolve()
             self.root.mkdir(parents=True, exist_ok=True)
         self.manifest: dict[str, Any] | None = None
-        self._pin_cache: dict[str, dict[str, Any]] | None = None
+        self._current_pin_cache: dict[str, dict[str, Any]] | None = None
         self.scope_rows: dict[str, dict[str, Any]] | None = None
         self.parent_plan: Path | None = None
         self.child_plan: Path | None = None
@@ -116,6 +120,7 @@ class ContainerLifecycleFixture:
         self._write_settings()
         self._write_structure()
         (self.root / CONTROL / "_journal").mkdir(parents=True, exist_ok=True)
+        self._materialize_current_methodology_sources()
         self._materialize_pinned_closure()
         self._write_nested_plans()
         self._write_manifest()
@@ -164,26 +169,80 @@ class ContainerLifecycleFixture:
              "scope_unit_type": "Unordered", "scope_unit_label": "FIXTURE"},
         ))
 
-    def _load_pins(self) -> dict[str, dict[str, Any]]:
-        if self._pin_cache is not None:
-            return self._pin_cache
-        try:
-            value = json.loads(PIN_FILE.read_text(encoding="utf-8"))
-        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
-            raise ContainerLifecycleFixtureError("frozen lifecycle source pins are unavailable") from error
-        if value.get("schema_version") != 1 or value.get("route") != "change_atom_status":
-            raise ContainerLifecycleFixtureError("frozen lifecycle source pin schema is invalid")
-        rows = value.get("definitions")
-        if not isinstance(rows, list) or not rows:
-            raise ContainerLifecycleFixtureError("frozen lifecycle source pins are empty")
+    def _materialize_current_methodology_sources(self) -> None:
+        if self.scope_rows is None:
+            raise ContainerLifecycleFixtureError("scope declarations were not materialized")
+        core_authority = Path(self.scope_rows["CORE_META_MODEL"]["authority_path"])
+        project_configuration_authority = Path(
+            self.scope_rows["PROJECT_CONFIGURATION"]["authority_path"]
+        )
+        current_roots = (
+            (
+                Path(
+                    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/"
+                    "CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL"
+                ),
+                core_authority,
+            ),
+            (
+                Path(
+                    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/"
+                    "CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION"
+                ),
+                project_configuration_authority,
+            ),
+        )
+        for current_root, authority in current_roots:
+            for source_path in frozen_source_paths():
+                source = Path(source_path)
+                try:
+                    relative = source.relative_to(current_root)
+                except ValueError:
+                    continue
+                destination = authority / relative
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes(frozen_source_bytes(source_path))
+        support_source = FIXTURE_ROOT / "sources" / "CA-R-793.md"
+        raw = support_source.read_bytes()
+        if _digest(raw) != "64390748e2831226ce86ecff6aad4391bd5d5264c79dd715b9ed6f99a5996bfa":
+            raise ContainerLifecycleFixtureError("frozen support source is stale: CA-R-793")
+        destination = core_authority / "04_requirement" / (
+            "CA-R-793-CORE_META_MODEL--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md"
+        )
+        self._copy_source(raw, "CA-R-793", destination.relative_to(self.root).as_posix())
+
+    def _current_pins(self) -> dict[str, dict[str, Any]]:
+        if self._current_pin_cache is not None:
+            return self._current_pin_cache
         result: dict[str, dict[str, Any]] = {}
-        for row in rows:
-            if (not isinstance(row, dict) or set(row) != {
-                    "atom_id", "kind", "version", "source_path", "fixture_path", "sha256"}
-                    or row["atom_id"] in result):
-                raise ContainerLifecycleFixtureError("frozen lifecycle source pin is malformed")
-            result[row["atom_id"]] = dict(row)
-        self._pin_cache = result
+
+        def collect(value: object) -> None:
+            if isinstance(value, Mapping):
+                if all(key in value for key in ("atom_id", "source_path", "version", "digest")):
+                    atom_id = value["atom_id"]
+                    pin = {
+                        "atom_id": atom_id,
+                        "source_path": value["source_path"],
+                        "version": value["version"],
+                        "digest": value["digest"],
+                    }
+                    if not all(isinstance(pin[key], str) for key in ("atom_id", "source_path", "digest")):
+                        raise ContainerLifecycleFixtureError("current frozen source pin is malformed")
+                    if type(pin["version"]) is not int:
+                        raise ContainerLifecycleFixtureError("current frozen source pin has invalid version")
+                    previous = result.setdefault(atom_id, pin)
+                    if previous != pin:
+                        raise ContainerLifecycleFixtureError(
+                            f"current frozen source pins disagree for Atom: {atom_id}"
+                        )
+                for child in value.values():
+                    collect(child)
+            elif isinstance(value, list):
+                for child in value:
+                    collect(child)
+
+        collect(frozen_manifest())
+        self._current_pin_cache = result
         return result
 
     def _copy_source(self, raw: bytes, atom_id: str, destination: str) -> dict[str, Any]:
@@ -200,45 +259,46 @@ class ContainerLifecycleFixture:
 
     def _pin_from_source(self, atom_id: str, preferred: str | None,
                          forced_destination: str | None = None) -> dict[str, Any]:
-        frozen = self._load_pins().get(atom_id)
-        if frozen is not None:
-            source = FIXTURE_ROOT / _safe_relative(frozen["fixture_path"])
-            destination = frozen["source_path"]
+        current = self._current_pins().get(atom_id)
+        expected_digest: str | None = None
+        if current is not None:
+            source_path = current["source_path"]
+            expected_digest = current["digest"]
+        elif isinstance(preferred, str) and preferred:
+            source_path = preferred
             try:
-                raw = source.read_bytes()
-            except OSError as error:
-                raise ContainerLifecycleFixtureError(f"frozen source is unavailable: {atom_id}") from error
+                frozen_source_bytes(source_path)
+            except (AssertionError, OSError):
+                candidates = [
+                    path for path in frozen_source_paths()
+                    if Path(path).name.startswith(f"{atom_id}-")
+                ]
+                if len(candidates) != 1:
+                    raise ContainerLifecycleFixtureError(
+                        f"current frozen source for {atom_id} is unavailable or ambiguous"
+                    )
+                source_path = candidates[0]
         else:
-            if not isinstance(preferred, str) or not preferred:
-                raise ContainerLifecycleFixtureError(f"frozen route pin has no source path: {atom_id}")
-            destination = preferred
-            try:
-                raw = frozen_source_bytes(destination)
-            except (AssertionError, OSError) as error:
-                raise ContainerLifecycleFixtureError(f"selected frozen source is unavailable: {destination}") from error
-        if forced_destination is not None:
-            destination = forced_destination
+            raise ContainerLifecycleFixtureError(f"frozen route pin has no source path: {atom_id}")
+        destination = self._query_source_hints().get(atom_id, source_path)
+        try:
+            raw = frozen_source_bytes(source_path, expected_digest)
+        except (AssertionError, OSError) as error:
+            raise ContainerLifecycleFixtureError(f"selected frozen source is unavailable: {source_path}") from error
         observed = _metadata_bytes(raw, destination)
         actual_digest = _digest(raw)
         if observed["atom_id"] != atom_id:
             raise ContainerLifecycleFixtureError(f"source identity differs for {atom_id}")
-        if frozen is not None and (observed["version"] != frozen["version"] or actual_digest != frozen["sha256"]):
-            raise ContainerLifecycleFixtureError(f"frozen source pin is stale: {atom_id}")
         self._copy_source(raw, atom_id, destination)
         return {"atom_id": atom_id, "version": observed["version"],
                 "source_path": destination, "digest": actual_digest}
 
     def _materialize_pinned_closure(self) -> None:
-        pinned = self._load_pins()
         for relative in frozen_selected_root_paths():
-            if any(Path(relative).name.startswith(f"{atom_id}-") for atom_id in pinned):
-                continue
             raw = frozen_source_bytes(relative)
             target = self.root / _safe_relative(relative)
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(raw)
-        for atom_id in self._load_pins():
-            self._pin_from_source(atom_id, None)
 
     def _fresh_definition(self, raw: Mapping[str, Any], forced_destination: str | None = None) -> dict[str, Any]:
         atom_id = raw.get("atom_id")
@@ -269,6 +329,15 @@ class ContainerLifecycleFixture:
                 if isinstance(value.get("atom_id"), str) and isinstance(value.get("source_path"), str):
                     result[(route, value["atom_id"])] = value["source_path"]
         return result
+
+    @staticmethod
+    def _query_source_hints() -> dict[str, str]:
+        from selected_routes import _QUERY_SOURCE_ADMISSION_SPECS
+
+        paths = ContainerLifecycleFixture._query_paths(
+            {"query_source_admissions": _QUERY_SOURCE_ADMISSION_SPECS}
+        )
+        return {atom_id: path for (_route, atom_id), path in paths.items()}
 
     def _fresh_route(self, raw: Mapping[str, Any], query_paths: Mapping[tuple[str, str], str]) -> dict[str, Any]:
         route = deepcopy(dict(raw))
@@ -321,7 +390,7 @@ class ContainerLifecycleFixture:
             raise ContainerLifecycleFixtureError("selected source registry reference is missing")
         registry = self._pin_from_source("CA-A-1142", registry_path, registry_path)
         freshness = {
-            "selected_source_registry_ref": registry_path,
+            "selected_source_registry_ref": registry["source_path"],
             "selected_source_registry_version": registry["version"],
             "selected_source_registry_digest": registry["digest"],
             "selected_binding_ref": f"{MANIFEST_REF}#/routes",

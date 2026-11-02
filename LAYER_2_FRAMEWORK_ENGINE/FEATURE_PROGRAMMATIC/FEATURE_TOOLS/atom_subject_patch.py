@@ -22,7 +22,9 @@ import yaml
 from yaml.nodes import MappingNode, Node, ScalarNode, SequenceNode
 
 from carrier_aliases import carrier_read_view
-from subject_notation import GrammarPin, SubjectNotationError, get_profile, parse_subject_expression, profile_evidence
+from subject_notation import (
+    GrammarPin, GrammarSource, SubjectNotationError, get_profile, parse_subject_expression, profile_evidence,
+)
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import LimitReached, ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import CarrierValidationScope
@@ -61,6 +63,7 @@ class _SourceSnapshot:
     """One no-follow source read and the file identity that supplied it."""
 
     path: Path
+    relative_path: str
     raw: bytes
     fingerprint: tuple[int, int, int, int, int]
 
@@ -348,25 +351,42 @@ def _intent_from_plan(operations: Any, root: Path, plan: dict[str, Any], profile
 
 def _capture_grammar(operations: Any, root: Path, profile: Any) -> tuple[_SourceSnapshot, ...]:
     snapshots: list[_SourceSnapshot] = []
+    locator: Any | None = None
     for pin in profile.grammar_pins:
+        path = root / pin.path
+        selector = pin.path
         try:
-            snapshot = _read_source_snapshot(operations, root, root / pin.path, pin.path)
-            raw_metadata = operations.parse_carrier(snapshot.raw, Path(pin.path)).metadata
+            if isinstance(pin, GrammarSource) and not path.exists() and not path.is_symlink():
+                if locator is None:
+                    from current_atom_locator import CurrentAtomLocator
+                    locator = CurrentAtomLocator(root)
+                selector = locator.locate(pin.atom_id, pin.path)
+                path = root / selector
+            snapshot = _read_source_snapshot(operations, root, path, selector)
+            raw_metadata = operations.parse_carrier(snapshot.raw, snapshot.path).metadata
             metadata = carrier_read_view(raw_metadata)
         except (operations.ToolError, operations.CarrierError, ValueError) as error:
-            code = "subject-grammar-pin-symlink" if getattr(error, "code", None) == "subject-selector-symlink" else "subject-grammar-pin-stale"
+            code = "subject-grammar-pin-symlink" if getattr(error, "code", None) in {
+                "subject-selector-symlink", "atom-identity-source-unsafe",
+            } else "subject-grammar-pin-stale"
             raise operations.ToolError(code, "Subject grammar source cannot be read from its selected location") from error
         if (metadata.get("atom_id") != pin.atom_id or type(metadata.get("version")) is not int
                 or metadata["version"] < 1):
-            _fail(operations, "subject-grammar-pin-stale", "Subject grammar source metadata is invalid", {"path": pin.path})
+            _fail(operations, "subject-grammar-pin-stale", "Subject grammar source metadata is invalid", {"path": selector})
         if profile.name == "approved" and (
                 metadata.get("status") != "Active" or metadata.get("content_role") !=
                 {"R": "Requirement", "M": "Method", "E": "Evaluation"}.get(pin.atom_id[3:4])):
-            _fail(operations, "subject-grammar-pin-stale", "Current Subject grammar source metadata is invalid", {"path": pin.path})
+            _fail(operations, "subject-grammar-pin-stale", "Current Subject grammar source metadata is invalid", {"path": selector})
         if isinstance(pin, GrammarPin) and (
                 hashlib.sha256(snapshot.raw).hexdigest() != pin.sha256 or metadata["version"] != pin.version):
-            _fail(operations, "subject-grammar-pin-stale", "Subject grammar source differs from its declared pin", {"path": pin.path})
+            _fail(operations, "subject-grammar-pin-stale", "Subject grammar source differs from its declared pin", {"path": selector})
         snapshots.append(snapshot)
+    if locator is not None:
+        try:
+            locator.revalidate()
+        except operations.ToolError as error:
+            code = "subject-grammar-pin-symlink" if getattr(error, "code", None) == "atom-identity-source-unsafe" else "subject-grammar-pin-stale"
+            raise operations.ToolError(code, "Subject grammar source changed during current-source resolution") from error
     return tuple(snapshots)
 
 
@@ -374,7 +394,7 @@ def _captured_profile_evidence(operations: Any, profile: Any, snapshots: Sequenc
     pins = []
     for source, snapshot in zip(profile.grammar_pins, snapshots, strict=True):
         metadata = operations.parse_carrier(snapshot.raw, snapshot.path).metadata
-        pins.append(GrammarPin(source.atom_id, metadata["version"], source.path, hashlib.sha256(snapshot.raw).hexdigest()))
+        pins.append(GrammarPin(source.atom_id, metadata["version"], snapshot.relative_path, hashlib.sha256(snapshot.raw).hexdigest()))
     return profile_evidence(profile.name, grammar_pins=pins)
 
 
@@ -695,7 +715,8 @@ def _read_source_snapshot(operations: Any, root: Path, path: Path, selector: str
         os.close(descriptor)
     if _fingerprint(before) != _fingerprint(after):
         _fail(operations, "subject-source-changed", "Subject source changed while its pinned snapshot was read", {"selector": selector})
-    return _SourceSnapshot(path=path, raw=b"".join(chunks), fingerprint=_fingerprint(after))
+    return _SourceSnapshot(path=path, relative_path=path.relative_to(root).as_posix(),
+                           raw=b"".join(chunks), fingerprint=_fingerprint(after))
 
 
 def _open_no_follow(operations: Any, root: Path, path: Path, selector: str) -> int:

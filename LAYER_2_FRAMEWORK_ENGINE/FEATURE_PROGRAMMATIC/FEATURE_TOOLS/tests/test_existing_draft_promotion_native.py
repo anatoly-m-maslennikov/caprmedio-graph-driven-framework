@@ -109,7 +109,7 @@ class ExistingDraftPromotionNativeTest(unittest.TestCase):
         """Create one role-only Draft marker with no canonical target."""
 
         role_letter = next(row[1] for row in fixture_module.DOMAINS if row[0] == role)
-        role_root = self.fixture.root / fixture_module.CONTROL / "fixture" / ROLE_DIRECTORIES[role]
+        role_root = self.fixture.fixture_authority / ROLE_DIRECTORIES[role]
         draft_path = role_root / "draft" / f"CA-{role_letter}-draft--STATUS_FIXTURE-{role.upper()}--native.md"
         carrier = self.fixture.create_carrier(role, "Draft", number=number)
         carrier["path"] = draft_path.relative_to(self.fixture.root).as_posix()
@@ -141,7 +141,7 @@ class ExistingDraftPromotionNativeTest(unittest.TestCase):
         """Create the unchanged ID-free native promotion baseline."""
 
         role_letter = next(row[1] for row in fixture_module.DOMAINS if row[0] == role)
-        role_root = self.fixture.root / fixture_module.CONTROL / "fixture" / ROLE_DIRECTORIES[role]
+        role_root = self.fixture.fixture_authority / ROLE_DIRECTORIES[role]
         draft_path = role_root / "draft" / f"CA-{role_letter}--STATUS_FIXTURE-{role.upper()}--native-id-free.md"
         carrier = self.fixture.create_carrier(role, "Draft", number=number)
         carrier["path"] = draft_path.relative_to(self.fixture.root).as_posix()

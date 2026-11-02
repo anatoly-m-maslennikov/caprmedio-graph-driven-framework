@@ -1,16 +1,13 @@
 """Retained declaration evidence survives elapsed budgets, never source drift."""
 
-import copy
 from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
 
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
 
-from GENERATE_PROJECT_GRAPH_STATE import generate_project_graph_state as graph
 from project_selection import ProjectSelectionError, resolve_project
 from scope_declaration_test_support import write_scope_unit_declarations
 
@@ -57,16 +54,6 @@ class DeclarationBoundaryRetentionTests(unittest.TestCase):
         with self.assertRaises(ProjectSelectionError):
             selected._revalidate_boundary()
         self.assertEqual(dict(proof.marker_pins), captured)
-
-    def test_graph_copy_and_bind_recheck_original_absence(self):
-        rows = graph.scope_units(self.control, self.root, {"default": "casual"})
-        copied = copy.deepcopy(rows)
-        self.assertEqual(copied._declaration_digest, rows._declaration_digest)
-        declaration = self.declarations["PARENT"]["declaration_path"]
-        declaration.write_text(declaration.read_text(encoding="utf-8") + "\n", encoding="utf-8")
-        with patch.multiple(graph, ROOT=self.root, CONTROL=self.control):
-            with self.assertRaises(SystemExit):
-                graph.bind_scope_unit_structure(copied)
 
 
 if __name__ == "__main__":

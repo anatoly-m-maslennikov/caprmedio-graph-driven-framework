@@ -119,7 +119,7 @@ class DirectSubjectReaderTests(unittest.TestCase):
                     hidden.rename(self.root / "removed_source_target")
                 with self.assertRaises(ToolError) as caught:
                     self.search()
-                self.assertEqual("subject-source-verification-unavailable", caught.exception.code)
+                self.assertEqual("scope-unit-declarations-unavailable", caught.exception.code)
 
     def test_excluded_role_directory_symlink_is_not_a_selected_frontier_gate(self):
         hidden = self.root / "unrelated_analysis"

@@ -5,7 +5,7 @@ import re
 
 from atom_operations import frontmatter_scalar, split_frontmatter
 from connector_bindings import FileSource, capture_source
-from current_atom_locator import CurrentAtomLocator
+from current_atom_locator import CurrentAtomLocator, CurrentAtomLocatorError
 
 
 class CurrentDefinitionSources:
@@ -26,7 +26,15 @@ class CurrentDefinitionSources:
         current_reference = self.identities.get(atom_id)
         if current_reference is not None:
             if reference != current_reference and self.aliases.get((atom_id, reference)) != current_reference:
-                raise ValueError("definition identity has competing source paths")
+                if self.locator is None:
+                    self.locator = CurrentAtomLocator(self.root)
+                try:
+                    resolved = self.locator.locate(atom_id, reference)
+                except CurrentAtomLocatorError as error:
+                    raise ValueError("definition identity cannot resolve its source path") from error
+                if resolved != current_reference:
+                    raise ValueError("definition identity has competing source paths")
+                self.aliases[(atom_id, reference)] = resolved
             reference = current_reference
         source = self.sources.get(reference)
         if source is None:
@@ -78,6 +86,9 @@ class CurrentDefinitionSources:
 
     def revalidate(self) -> None:
         if self.locator is not None:
-            self.locator.revalidate()
+            try:
+                self.locator.revalidate()
+            except CurrentAtomLocatorError as error:
+                raise ValueError("Current definition sources changed during lookup") from error
         for source in self.sources.values():
             source.revalidate()

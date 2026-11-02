@@ -7,12 +7,22 @@ from pathlib import Path
 from typing import Any, Mapping
 
 from selected_route_manifest import canonical_digest
+from interactive_fixture_materialization import rewrite_source_paths
 
 
 def build_packet_and_request(
-    root: Path, manifest: Mapping[str, Any], fixture: Any
+    root: Path,
+    manifest: Mapping[str, Any],
+    fixture: Any,
+    *,
+    scope_rows: Mapping[str, Mapping[str, Any]] | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     parameters = fixture.native_implementation_parameters()
+    if scope_rows is not None:
+        rebound = rewrite_source_paths(parameters, root, scope_rows)
+        if not isinstance(rebound, dict):
+            raise TypeError("interactive fixture packet must remain a mapping")
+        parameters = rebound
     workspace = (root / "fixture" / "disposable-workspace").resolve()
     workspace.mkdir(parents=True, exist_ok=True)
     base = parameters["base_packet"]

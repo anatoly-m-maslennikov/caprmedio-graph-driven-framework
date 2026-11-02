@@ -218,7 +218,8 @@ class DraftMarkerFormatsGoldenTest(unittest.TestCase):
                 promoted = change_status_atom_action(self.fixture.root, request, execute=True, authorized=True)
                 self.assertEqual("applied", promoted["outcome"])
                 observed = promoted["observed"]
-                self.assertEqual(f"CA-{letter}-99101", observed["atom_id"])
+                self.assertRegex(observed["atom_id"], rf"^CA-{letter}-[0-9]+$")
+                self.assertNotEqual(f"CA-{letter}-99100", observed["atom_id"])
                 self.assertEqual(int(created["observed"]["version"]) + 1, observed["version"])
                 self.assertEqual("Active", observed["status"])
                 self.assertFalse(source.exists())

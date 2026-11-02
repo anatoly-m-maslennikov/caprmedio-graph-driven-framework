@@ -13,14 +13,16 @@ from unittest.mock import patch
 
 APP = Path(__file__).resolve().parents[1]
 TOOLS = APP.parents[1] / "FEATURE_TOOLS"
+MCP = APP.parents[1] / "FEATURE_MCP"
 REPOSITORY = APP.parents[3]
 TEST_TEMP_ROOT = REPOSITORY / ".caprmedio_tmp/tests" / Path(__file__).stem
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-for location in (APP, TOOLS):
+for location in (APP, TOOLS, MCP):
     if str(location) not in sys.path:
         sys.path.insert(0, str(location))
 
 from selected_execution import SelectedExecution, SelectedExecutionError, build_requested_runs, canonical_json  # noqa: E402
+from selected_routes import load_selected_manifest  # noqa: E402
 from workflow_run_support import RunTracker  # noqa: E402
 from selected_workflows_docker_fixture import GoldenCase, GoldenProject  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
@@ -44,7 +46,10 @@ class SelectedQueryExecutionTests(unittest.TestCase):
             encoding="utf-8",
         )
         declarations = write_scope_unit_declarations(self.root, (
-            {"scope_unit_name": "CORE_META_MODEL", "parent": "PROJECT", "scope_unit_type": "Unordered"},
+            {"scope_unit_name": "METHODOLOGY_SOURCES", "parent": "PROJECT", "scope_unit_type": "Unordered"},
+            {"scope_unit_name": "CORE_META_MODEL", "parent": "METHODOLOGY_SOURCES", "scope_unit_type": "Unordered"},
+            {"scope_unit_name": "INSTALLED_EXTENSIONS", "parent": "METHODOLOGY_SOURCES", "scope_unit_type": "Unordered"},
+            {"scope_unit_name": "PROJECT_CONFIGURATION", "parent": "METHODOLOGY_SOURCES", "scope_unit_type": "Unordered"},
         ))
         defaults = Path(declarations["CORE_META_MODEL"]["authority_path"])
         defaults.mkdir(parents=True)
@@ -56,7 +61,11 @@ class SelectedQueryExecutionTests(unittest.TestCase):
             encoding="utf-8",
         )
         fixture = GoldenProject(REPOSITORY, self.root, GoldenCase("W15", "find_and_fetch_journal_events"))
-        self.manifest = fixture._copy_reviewed_manifest()
+        fixture._scope_rows = declarations
+        fixture._copy_reviewed_manifest()
+        # Execution validates the current, declaration-resolved manifest
+        # digest; retain that result rather than the raw frozen input carrier.
+        self.manifest = load_selected_manifest(self.root)
 
     def _execution(self, route: str, parameters: dict[str, object], run_id: str) -> tuple[SelectedExecution, dict[str, object]]:
         manifest = self.manifest

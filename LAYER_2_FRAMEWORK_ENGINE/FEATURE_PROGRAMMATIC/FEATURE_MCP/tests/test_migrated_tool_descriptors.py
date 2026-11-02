@@ -21,10 +21,17 @@ from pydantic import TypeAdapter
 MCP_ROOT = Path(__file__).resolve().parents[1]
 PROGRAMMATIC_ROOT = MCP_ROOT.parent
 REPOSITORY_ROOT = PROGRAMMATIC_ROOT.parents[1]
+WORKFLOW_TESTS = PROGRAMMATIC_ROOT / "FEATURE_APPS" / "APP_WORKFLOW_ORCHESTRATOR" / "tests"
 if str(MCP_ROOT) not in sys.path:
     sys.path.insert(0, str(MCP_ROOT))
+if str(WORKFLOW_TESTS) not in sys.path:
+    sys.path.insert(0, str(WORKFLOW_TESTS))
 
 import registered_tool_registry as registry  # noqa: E402
+from frozen_selected_workflows import frozen_source_bytes, frozen_source_paths  # noqa: E402
+
+
+FROZEN_SOURCE_PATHS = frozenset(frozen_source_paths())
 
 
 @dataclass(frozen=True)
@@ -39,14 +46,17 @@ class _ProviderSpec:
     delivery_path: str
 
     def binding(self) -> dict[str, object]:
-        delivery = REPOSITORY_ROOT / self.delivery_path
+        if self.delivery_path in FROZEN_SOURCE_PATHS:
+            delivery_bytes = frozen_source_bytes(self.delivery_path)
+        else:
+            delivery_bytes = (REPOSITORY_ROOT / self.delivery_path).read_bytes()
         binding: dict[str, object] = {
             "name": self.name,
             "entrypoint": self.entrypoint,
             "action_ids": list(self.action_ids),
             "source_atom": self.delivery_id,
             "source_path": self.delivery_path,
-            "sha256": hashlib.sha256(delivery.read_bytes()).hexdigest(),
+            "sha256": hashlib.sha256(delivery_bytes).hexdigest(),
         }
         # An omitted MCP name and the established explicit empty name are
         # source-only descriptions, not an invitation to mint a public name.
@@ -112,31 +122,31 @@ PROVIDERS = (
         "VALIDATE_ATOMS", "",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms.py",
         "CA-D-519", ("CA-O-087",),
-        f"{_TOOLS_DELIVERIES}/CA-D-519-TOOLS--register-validate-atoms-discovery-binding.md",
+        f"{_TOOLS_DELIVERIES}/CA-D-519-TOOLS-ENG_DECISION--register-validate-atoms-discovery-binding.md",
     ),
     _ProviderSpec(
         "COMPILE_APPLICABLE_METHODOLOGY", None,
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
         "CA-D-541", ("CA-O-004", "CA-O-005", "CA-O-006", "CA-O-007", "CA-O-008", "CA-O-009"),
-        f"{_WORKFLOW_TOOLS}/APPLICABLE_METHODOLOGY/07_delivery/CA-D-541-APPLICABLE_METHODOLOGY--encode-the-compiler-request-boundary.md",
+        f"{_WORKFLOW_TOOLS}/APPLICABLE_METHODOLOGY/07_delivery/CA-D-541-ENG_DECISION--encode-the-strict-governed-request-boundary-for-the-applicable-methodology-compiler.md",
     ),
     _ProviderSpec(
         "REVERT_CHANGES", "revert_changes",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/WORKFLOW_OPERATIONS/REVERT_CHANGES/revert_changes.py",
         "CA-D-536", ("CA-O-131",),
-        f"{_WORKFLOW_TOOLS}/REVERT_CHANGES/07_delivery/CA-D-536-REVERT_CHANGES--encode-revert-changes-tool-binding.md",
+        f"{_WORKFLOW_TOOLS}/REVERT_CHANGES/07_delivery/CA-D-536-ENG_DECISION--encode-revert-changes-tool-binding.md",
     ),
     _ProviderSpec(
         "GENERATE_ENTITY_GRAPH", "generate_entity_graph",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/generate_entity_graph.py",
         "CA-D-538", ("CA-O-134", "CA-O-137"),
-        f"{_WORKFLOW_TOOLS}/GRAPH_PROJECTIONS/07_delivery/CA-D-538-GRAPH_PROJECTIONS--bind-graph-projection-tool-carriers.md",
+        f"{_WORKFLOW_TOOLS}/GRAPH_PROJECTIONS/07_delivery/CA-D-538-ENG_DECISION--bind-graph-projection-tool-carriers.md",
     ),
     _ProviderSpec(
         "RMED_ATOMS_BASE_REVISE", "rmed_atoms_base_revise",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/RMED_ATOMS_BASE_REVISE/rmed_atoms_base_revise.py",
         "CA-D-518", ("CA-O-105", "CA-O-106", "CA-O-111"),
-        f"{_TOOLS_DELIVERIES}/CA-D-518-TOOLS--register-rmed-atoms-base-revise-discovery-binding.md",
+        f"{_TOOLS_DELIVERIES}/CA-D-518-TOOLS-ENG_DECISION--register-rmed-atoms-base-revise-discovery-binding.md",
     ),
 )
 

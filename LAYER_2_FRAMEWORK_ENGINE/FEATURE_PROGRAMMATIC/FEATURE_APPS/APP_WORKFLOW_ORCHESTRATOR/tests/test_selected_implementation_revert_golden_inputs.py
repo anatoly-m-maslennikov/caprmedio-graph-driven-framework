@@ -24,7 +24,7 @@ import implementation_actions  # noqa: E402
 import lifecycle_intents  # noqa: E402
 from native_revert_provider import NativeRevertProviderError, make_native_revert_service  # noqa: E402
 from selected_workflows_docker_fixture import FixtureLease, GoldenCase, GoldenProject  # noqa: E402
-from frozen_selected_workflows import frozen_source_bytes  # noqa: E402
+from frozen_selected_workflows import frozen_source_bytes, frozen_source_paths  # noqa: E402
 
 
 def digest(value: object) -> str:
@@ -71,8 +71,8 @@ class SelectedImplementationRevertGoldenInputsTest(unittest.TestCase):
     def test_w10_native_provider_reverts_only_current_approved_lifecycle_effect(self) -> None:
         lease, fixture = self._fixture("W10", "revert_changes")
         try:
-            target_path = fixture.root / ".caprmedio_caprmedio/04_requirement/CA-R-100--target.md"
             target = lifecycle_intents.carrier_descriptor(fixture.root, "CA-R-100")
+            target_path = fixture.root / target["path"]
             text = target_path.read_text(encoding="utf-8"); frontmatter, content = text[4:].split("\n---\n", 1)
             proposed = {"frontmatter": frontmatter, "content": content + "\nReverted detail.\n"}
             parameters = {"target": target, "proposed": proposed, "change_class": "semantic_revision",
@@ -102,14 +102,17 @@ class SelectedImplementationRevertGoldenInputsTest(unittest.TestCase):
             effect = {"effect_id": "lifecycle-update", "target_id": "atom:CA-R-100", "expected_before": "active version 1", "expected_after": "active version 2", "expected_current_hash": digest(target), "expected_result_hash": digest(predicted["observed"]), "before_evidence": before["evidence_ref"], "after_evidence": after["evidence_ref"],
                 "capability_binding": {"capability_id": "lifecycle.update_atom", "parameters": parameters, "target": target, "permission_evidence": {"capability_id": "lifecycle.update_atom", "granted": True, **permission}, "evidence_refs": [before["evidence_ref"], after["evidence_ref"], history["evidence_ref"]]}}
             request = {"selected_change_refs": [selected["evidence_ref"]], "targets": ["atom:CA-R-100"], "affected_reference_hashes": {history["evidence_ref"]: history["evidence_hash"]}, "governing_definition_hash": "", "operator_decision": {"decision_id": "approved", "approved_effect_ids": ["lifecycle-update"], "status": "approved"}, "cancellation_boundary": {"after_effect_ids": ["lifecycle-update"]}, "executor_permission": {"capability": "governed-reversal", "granted": True}, "durable_evidence_location": "journal://fixture", "ordered_effects": [effect], "expected_result": {"state": "reverted"}, "history_reference_evidence": [history["evidence_ref"]], "current_hashes": {"atom:CA-R-100": digest(target)}, "selected_change": [selected], "history_record": [history], "affected_reference": [history], "before_record": [before], "after_record": [after]}
-            definition_source = Path(
-                ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/"
-                "001_CORE_META_MODEL/09_operations/CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
+            definition_matches = [
+                Path(path) for path in frozen_source_paths()
+                if Path(path).name.startswith("CA-O-131-")
+            ]
+            self.assertEqual(1, len(definition_matches), definition_matches)
+            definition_source = definition_matches[0]
+            definition_target = (
+                fixture._scope_path("CORE_META_MODEL", "authority_path")
+                / "09_operations"
+                / definition_source.name
             )
-            definition_target = fixture._declared_source_path(Path(
-                "001_CORE_META_MODEL/09_operations/"
-                "CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
-            ))
             definition_target.parent.mkdir(parents=True, exist_ok=True)
             definition_target.write_bytes(frozen_source_bytes(definition_source))
             definition = definition_target.relative_to(fixture.root).as_posix()

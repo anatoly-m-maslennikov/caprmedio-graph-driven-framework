@@ -29,6 +29,7 @@ from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier  # noqa:
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS  # noqa: E402
 import test_proposed_carrier_admission_regressions as admission_fixtures  # noqa: E402
+from golden_authority import frozen_source  # noqa: E402
 
 
 def sha(raw: bytes) -> str:
@@ -47,16 +48,20 @@ class CurrentRuleSourcesTests(unittest.TestCase):
         fixture = admission_fixtures.ProposedCarrierAdmissionRegressions()
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
-        return fixture.project()
+        return fixture.project(source_ids=("CA-R-1666", "CA-R-793"))
 
     def relocate_rule(self, selection: Any, identifier: str) -> Path:
         registered = Path(proposed._entry(identifier)["source_path"])
-        original = selection.control_root / registered.relative_to(".caprmedio_caprmedio")
+        original = selection.root / CurrentAtomLocator(selection.root).locate(identifier, registered)
         raw = original.read_bytes()
         original.unlink()
+        authority = next(
+            Path(row["authority_path"])
+            for row in selection.structure["scope_units"]
+            if row["scope_unit_name"] == "CORE_META_MODEL"
+        )
         destination = (
-            selection.control_root
-            / "CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/04_requirement"
+            selection.root / authority / "04_requirement"
             / f"{identifier}--relocated.md"
         )
         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -66,7 +71,7 @@ class CurrentRuleSourcesTests(unittest.TestCase):
 
     def source(self, identifier: str, *, graph_rule: bool = False) -> Path:
         entry = proposed._entry(identifier, graph=graph_rule)
-        source = TOOL.parents[3] / entry["source_path"]
+        source = Path(frozen_source(identifier, graph=graph_rule)["binding"]["path"])
         self.assertTrue(source.is_file())
         path: Path = self.root / entry["source_path"]
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -167,7 +172,7 @@ class CurrentRuleSourcesTests(unittest.TestCase):
                 with self.assertRaises(proposed.ProposedCarrierError):
                     self.load("CA-D-276")
         path.unlink()
-        with self.assertRaises(proposed.ProposedCarrierError):
+        with self.assertRaises(current_atom_locator.CurrentAtomLocatorError):
             self.load("CA-D-276")
 
     def test_duplicate_or_inconsistent_rule_records_cannot_supply_authority(self) -> None:
@@ -248,7 +253,7 @@ class CurrentRuleSourcesTests(unittest.TestCase):
                 result = proposed.source_context_from_project(selection.root)
 
         self.assertEqual(1, len(locators))
-        self.assertEqual(2, locators[0].locate_calls)
+        self.assertEqual(3, locators[0].locate_calls)
         self.assertEqual(1, locators[0].revalidate_calls)
         self.assertEqual([locators[0].reader], currentness_readers)
         for identifier, destination in destinations.items():

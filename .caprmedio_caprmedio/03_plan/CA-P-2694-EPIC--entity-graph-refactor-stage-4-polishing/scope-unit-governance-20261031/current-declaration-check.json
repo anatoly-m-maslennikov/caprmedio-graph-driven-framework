@@ -8,6 +8,7 @@
   "delivery_materialized": 29,
   "toml_absent": true,
   "declaration_digest": "48a2f03d12ceddd7ec49dc31793bbab98ac45329a9a5d07e53c6930cfd0f36ca",
+  "read_seconds": 1.331,
   "sources": [
     ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
     ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",

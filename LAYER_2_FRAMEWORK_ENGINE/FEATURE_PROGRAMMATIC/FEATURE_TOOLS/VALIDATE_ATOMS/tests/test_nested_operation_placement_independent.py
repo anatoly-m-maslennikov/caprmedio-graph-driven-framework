@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 import yaml
 
+from golden_authority import frozen_entry as frozen_authority_entry, write_frozen_authority
 import test_proposed_reference_scope_independent as scoped
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 
@@ -27,13 +28,33 @@ class NestedOperationPlacementIndependentTests(unittest.TestCase):
         self.addCleanup(self.fixture.doCleanups)
         self.root = self.fixture.root
         self.control = self.fixture.control
-        for identifier in ("CA-D-289", "CA-D-378"):
-            entry = scoped.admission._entry(identifier)
-            raw = scoped.fixtures.authority_fixture_bytes(identifier, entry)
-            self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
-            self.fixture.fixture.put(
-                self.control.joinpath(*Path(entry["source_path"]).parts[1:]), raw,
-            )
+        self.core = self.root / next(
+            row["authority_path"]
+            for row in self.fixture.selection.structure["scope_units"]
+            if row["scope_unit_name"] == "CORE_META_MODEL"
+        )
+        for identifier in ("CA-D-378", "CA-D-467"):
+            (self.core / "07_delivery" / f"{identifier}.md").unlink()
+        selected_entry = scoped.admission._entry
+
+        def frozen_entry(identifier, **kwargs):
+            result = dict(selected_entry(identifier, **kwargs))
+            if identifier in {"CA-D-289", "CA-D-378", "CA-D-467"}:
+                result["source_path"] = frozen_authority_entry(identifier, **kwargs)["source_path"]
+            return result
+
+        self.entry_patch = patch.object(scoped.admission, "_entry", frozen_entry)
+        self.entry_patch.start()
+        self.addCleanup(self.entry_patch.stop)
+        write_frozen_authority(
+            self.root, self.control, ("CA-D-289", "CA-D-378", "CA-D-467")
+        )
+        # D289 is a local placement-policy source, while D467 is first
+        # observed by the nested placement check.  The frozen corpus directory
+        # is outside role-folder inventories, so these sources are read on
+        # demand without being silently captured by Project setup.
+        with scoped.bind_selection(self.fixture.selection):
+            self.fixture.context = scoped.admission.source_context_from_project(self.root)
 
     def metadata(self, **changes):
         metadata = self.fixture.fixture.metadata(
@@ -80,8 +101,7 @@ class NestedOperationPlacementIndependentTests(unittest.TestCase):
         self.parent()
         self.fixture.fixture.put(self.control / "09_operations/workflow/first.md",
                                  self.raw(atom_id="CA-O-722"))
-        entry = scoped.admission._entry("CA-D-289")
-        source = self.root / self.control.joinpath(*Path(entry["source_path"]).parts[1:])
+        source = self.root / self.control / "CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/frozen-authority/CA-D-289.md"
         source.unlink()
         before = scoped.fixtures.snapshot(self.root)
         self.validate("09_operations/workflow/first/leaf.md")
@@ -200,7 +220,7 @@ class NestedOperationPlacementIndependentTests(unittest.TestCase):
     def test_current_workflow_delivery_authority_is_observed_before_use(self):
         self.parent()
         entry = scoped.admission._entry("CA-D-467")
-        path = self.root / self.control.joinpath(*Path(entry["source_path"]).parts[1:])
+        path = self.root / self.control / "CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/frozen-authority/CA-D-467.md"
         raw = path.read_bytes()
         version = parse_carrier(raw, path).metadata["version"]
         current = raw.replace(f"version: {version}\n".encode(), f"version: {version + 1}\n".encode())
@@ -212,7 +232,7 @@ class NestedOperationPlacementIndependentTests(unittest.TestCase):
     def test_workflow_delivery_authority_drift_after_capture_refuses(self):
         self.parent()
         entry = scoped.admission._entry("CA-D-467")
-        authority_path = self.root / self.control.joinpath(*Path(entry["source_path"]).parts[1:])
+        authority_path = self.root / self.control / "CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/frozen-authority/CA-D-467.md"
         original = scoped.admission.ReadContext.read
         changed = False
 

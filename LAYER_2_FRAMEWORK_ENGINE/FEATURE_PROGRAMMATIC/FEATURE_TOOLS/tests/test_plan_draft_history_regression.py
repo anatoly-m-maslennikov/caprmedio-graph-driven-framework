@@ -26,7 +26,7 @@ class PlanDraftHistoryRegressionTest(unittest.TestCase):
         path = self.fixture.atom("Plan", "Active", number=8001, container="CA-P-8000--parent")
         before_atom = atom_from_path(self.fixture.root, path)
         before = path.read_bytes()
-        fixture_plan_root = self.fixture.root / ".caprmedio_caprmedio" / "fixture" / "03_plan"
+        fixture_plan_root = self.fixture.fixture_authority / "03_plan"
         expected_history = fixture_plan_root / "archived" / f"{path.stem}@{frontmatter_scalar(before_atom.frontmatter, 'version')}{path.suffix}"
 
         result = self.fixture.execute(self.fixture.request(path, "Draft"))

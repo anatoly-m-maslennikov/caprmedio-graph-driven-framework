@@ -39,10 +39,15 @@ import selected_routes  # noqa: E402
 from frozen_selected_workflows import (  # noqa: E402
     frozen_manifest,
     frozen_source_bytes,
+    frozen_selected_root_paths,
     frozen_source_paths,
     frozen_source_root,
 )
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
+from scope_unit_declarations import (  # noqa: E402
+    ScopeDeclarationError,
+    read_scope_unit_declarations,
+)
 
 
 _FIXTURE_SCOPE_ROWS = (
@@ -162,10 +167,61 @@ def _materialize_query_declaration_authority(root: Path, rows: dict[str, dict]) 
     return destination_refs
 
 
+def _normalized_existing_scope_rows(root: Path) -> dict[str, dict] | None:
+    """Return existing derived declaration rows, or None for a fresh Project."""
+    control_root = root / ".caprmedio_caprmedio"
+    try:
+        aggregate = read_scope_unit_declarations(root, control_root)
+    except ScopeDeclarationError as error:
+        if str(error) != "no current Scope Unit Declarations found":
+            raise
+        return None
+    else:
+        rows = {}
+        for row in aggregate.as_structure()["scope_units"]:
+            name = row.get("scope_unit_name")
+            if not isinstance(name, str) or not name:
+                raise ScopeDeclarationError("existing Scope Unit Declaration has no name")
+            normalized = dict(row)
+            for field in ("authority_path", "delivery_path"):
+                value = normalized.get(field)
+                if not isinstance(value, str) or not value:
+                    raise ScopeDeclarationError(
+                        f"existing Scope Unit Declaration {name} has no {field}"
+                    )
+                normalized[field] = root / value
+            rows[name] = normalized
+    for required in ("CORE_META_MODEL", "PROJECT_CONFIGURATION"):
+        if required not in rows:
+            raise ScopeDeclarationError(
+                f"fixture declarations do not define required Scope Unit: {required}"
+            )
+    if "TOOL_WORKFLOWS" not in rows and "TOOLS" in rows:
+        rows["TOOL_WORKFLOWS"] = dict(rows["TOOLS"])
+    return rows
+
+
+def _fixture_scope_rows(root: Path) -> dict[str, dict]:
+    """Use an existing valid declaration aggregate before creating fresh rows."""
+    existing = _normalized_existing_scope_rows(root)
+    return existing if existing is not None else write_scope_unit_declarations(root, _FIXTURE_SCOPE_ROWS)
+
+
+def _materialize_existing_manifest_support(root: Path) -> None:
+    """Copy the frozen support closure without reviving superseded D276."""
+    for relative in frozen_selected_root_paths():
+        path = Path(relative)
+        if path.name.startswith("CA-D-276-"):
+            continue
+        raw = frozen_source_bytes(path)
+        target = root / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(raw)
+
+
 def frozen_project(root: Path) -> Path:
     """Materialize the checked-in selected-route authority, never live Atoms."""
     root = root.resolve()
-    frozen_source_root(root)
     settings = root / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
     if not settings.exists():
         settings.parent.mkdir(parents=True, exist_ok=True)
@@ -175,7 +231,13 @@ def frozen_project(root: Path) -> Path:
             'control_root = ".caprmedio_caprmedio"\njournal_root = ".caprmedio_caprmedio/_journal"\n',
             encoding="utf-8",
         )
-    rows = write_scope_unit_declarations(root, _FIXTURE_SCOPE_ROWS)
+    existing_rows = _normalized_existing_scope_rows(root)
+    if existing_rows is None:
+        frozen_source_root(root)
+        rows = write_scope_unit_declarations(root, _FIXTURE_SCOPE_ROWS)
+    else:
+        rows = existing_rows
+        _materialize_existing_manifest_support(root)
     query_hints = _query_source_locator_hints()
     definition_refs = _materialize_query_declaration_authority(root, rows)
     manifest = frozen_manifest()

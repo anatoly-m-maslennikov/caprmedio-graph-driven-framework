@@ -239,18 +239,38 @@ class ContainerStatusTests(unittest.TestCase):
         with mock.patch.object(backend, "SelectedExecution", return_value=selected), \
                 mock.patch.object(backend, "client", return_value=transport), \
                 mock.patch.object(backend, "_verify_container_lifecycle_seal"), \
-                mock.patch.object(backend, "status", return_value={
-                    "workflow_run_id": RUN_ID, "workflow_id": "CA-O-104",
-                    "scheduler_status": "ENQUEUED",
-                }):
+                mock.patch.object(backend, "status", side_effect=AssertionError("must not observe status")):
             observed = backend.enqueue_selected(Path(tempfile.gettempdir()), {
                 "operation": "enqueue_selected", "run_id": RUN_ID, "execution": execution,
             })
 
         self.assertEqual(RUN_ID, observed["coordinator_id"])
         self.assertEqual("technical_coordinator", observed["identity_kind"])
+        self.assertEqual("ENQUEUED", observed["scheduler_status"])
+        self.assertEqual("queued", observed["outcome"])
         self.assertNotIn("workflow_run_id", observed)
         self.assertNotIn("workflow_id", observed)
+        transport.enqueue.assert_called_once()
+
+    def test_enqueue_selected_returns_ordinary_admission_without_status_lookup(self):
+        execution = {"operation_route": "create_atom"}
+        frozen = _frozen(container=False)
+        selected = mock.Mock()
+        selected.freeze.return_value = frozen
+        transport = mock.Mock()
+        with mock.patch.object(backend, "SelectedExecution", return_value=selected), \
+                mock.patch.object(backend, "client", return_value=transport), \
+                mock.patch.object(backend, "_verify_container_lifecycle_seal"), \
+                mock.patch.object(backend, "status", side_effect=AssertionError("must not observe status")):
+            observed = backend.enqueue_selected(Path(tempfile.gettempdir()), {
+                "operation": "enqueue_selected", "run_id": RUN_ID, "execution": execution,
+            })
+
+        self.assertEqual({
+            "scheduler_status": "ENQUEUED", "backend": "dbos", "outcome": "queued",
+            "workflow_run_id": RUN_ID, "workflow_id": "CA-O-127",
+            "selected_route": "change_atom_status", "disposition": "queued",
+        }, observed)
         transport.enqueue.assert_called_once()
 
 

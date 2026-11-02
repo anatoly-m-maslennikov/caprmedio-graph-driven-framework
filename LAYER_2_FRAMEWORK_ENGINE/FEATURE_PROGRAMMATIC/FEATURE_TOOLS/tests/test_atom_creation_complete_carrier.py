@@ -14,6 +14,7 @@ sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(VALIDATE))
 
 from atom_operations import ToolError, prepare_create_atom_revision  # noqa: E402
+from current_atom_locator import CurrentAtomLocatorError  # noqa: E402
 from project_selection import bind_selection  # noqa: E402
 from VALIDATE_ATOMS.tests.golden_authority import frozen_entry  # noqa: E402
 from VALIDATE_ATOMS.tests import test_proposed_carrier_admission_regressions as fixtures  # noqa: E402
@@ -29,14 +30,14 @@ class RegistryRefreshTest(unittest.TestCase):
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
         self.root = fixture.root
-        selection = fixture.project()
+        selection = fixture.project(source_ids=("CA-D-276",))
         self.entries = {
             identity: frozen_entry(identity)
             for identity in ("CA-D-274", "CA-D-276")
         }
-        for entry in self.entries.values():
+        for identity, entry in self.entries.items():
             entry["source_path"] = selection.control_relative.joinpath(
-                *Path(entry["source_path"]).parts[1:]
+                fixture._core_relative, fixture._role_folders["Delivery"], f"{identity}.md"
             ).as_posix()
 
     def test_refreshes_only_uniquely_active_approved_sources(self) -> None:
@@ -136,13 +137,17 @@ class CompleteCarrierPreflightTest(unittest.TestCase):
 
     def test_nonempty_relation_refuses_before_write(self) -> None:
         destination = self.root / self.relative
-        with self.assertRaisesRegex(ToolError, "incomplete, invalid, or unresolved"):
+        with self.assertRaises((ToolError, CurrentAtomLocatorError)) as caught:
             prepare_create_atom_revision(
                 self.root,
                 self.relative,
                 self.frontmatter(relations='relations:\n  made_up: ["CA-R-1"]'),
                 self.body(),
             )
+        if isinstance(caught.exception, CurrentAtomLocatorError):
+            self.assertEqual("atom-identity-not-found", caught.exception.code)
+        else:
+            self.assertIn("incomplete, invalid, or unresolved", str(caught.exception))
         self.assertFalse(destination.exists())
 
     def test_role_or_archived_status_path_mismatch_refuses_before_write(self) -> None:

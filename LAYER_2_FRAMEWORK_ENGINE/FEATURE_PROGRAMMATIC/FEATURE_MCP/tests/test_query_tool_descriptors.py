@@ -122,6 +122,7 @@ class QueryToolDescriptorTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True) as temporary:
             root = Path(temporary).resolve()
             control = root / ".caprmedio_fixture"
+            control.mkdir()
             (control / "caprmedio_project_settings.toml").write_text(
                 '[project]\nname = "fixture"\n[paths]\ncontrol_root = ".caprmedio_fixture"\n', encoding="utf-8")
             declarations = write_scope_unit_declarations(root, (
@@ -132,7 +133,9 @@ class QueryToolDescriptorTests(unittest.TestCase):
             defaults = TOOLS_ROOT.parents[2] / ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
             (core / defaults.name).write_bytes(defaults.read_bytes())
             (root / "artifact.md").write_text('---\nartifact_id: A\ntitle: One\n---\n', encoding="utf-8")
-            result = self.artifacts.create_adapter(root).invoke({"select": ["fm:/title"]})
+            result = self.artifacts.create_adapter(root).invoke(
+                {"filter": '"fm:/artifact_id" = "A"', "select": ["fm:/title"]}
+            )
             self.assertEqual([{"artifact_id": "A", "fm:/title": "One"}], result.results)
             self.assertTrue(result.coverage.complete)
             self.assertTrue(result.complete)

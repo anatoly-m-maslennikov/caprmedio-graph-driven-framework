@@ -22,20 +22,6 @@ from lifecycle_intents import (  # noqa: E402
 )
 
 
-CORE_REQUIREMENTS = Path(
-    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/"
-    "METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement"
-)
-PROJECT_REQUIREMENTS = Path(
-    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/"
-    "METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement"
-)
-CORE_PLANS = CORE_REQUIREMENTS.parent / "03_plan"
-PROJECT_PLANS = PROJECT_REQUIREMENTS.parent / "03_plan"
-CORE_OPERATIONS = CORE_REQUIREMENTS.parent / "09_operations"
-PROJECT_OPERATIONS = PROJECT_REQUIREMENTS.parent / "09_operations"
-
-
 class AtomMoveLifecycleTest(unittest.TestCase):
     """Exercise one sealed current carrier at a time; no project-wide scan."""
 
@@ -45,9 +31,16 @@ class AtomMoveLifecycleTest(unittest.TestCase):
         self.fixture = selected_lifecycle.SelectedAtomLifecycleTest("runTest")
         self.fixture.setUp()
         self.root = self.fixture.root
+        self.core_requirements = self.fixture.declarations["CORE_META_MODEL"]["authority_path"] / "04_requirement"
+        self.project_requirements = self.fixture.declarations["PROJECT_CONFIGURATION"]["authority_path"] / "04_requirement"
+        self.core_plans = self.core_requirements.parent / "03_plan"
+        self.project_plans = self.project_requirements.parent / "03_plan"
+        self.core_operations = self.core_requirements.parent / "09_operations"
+        self.project_operations = self.project_requirements.parent / "09_operations"
+        self.fixture._materialize_fixture_type_definition("Operations", "Workflow")
         self.fixture._copy_frozen_atom("CA-R-1539")
         self.core_path = self._move_fixture_atom(
-            self.fixture.target, CORE_REQUIREMENTS / "CA-R-100-CORE_META_MODEL--core-move.md",
+            self.fixture.target, self.core_requirements / "CA-R-100-CORE_META_MODEL--core-move.md",
             "CORE_META_MODEL",
         )
 
@@ -95,12 +88,12 @@ class AtomMoveLifecycleTest(unittest.TestCase):
 
     def _workflow_bundle(self) -> tuple[Path, Path, dict[str, bytes]]:
         self.fixture._copy_frozen_atom("CA-R-1874")
-        source = self.root / CORE_OPERATIONS / "CA-O-010-CORE_META_MODEL-WORKFLOW--bundle-move.md"
+        source = self.core_operations / "CA-O-010-CORE_META_MODEL-WORKFLOW--bundle-move.md"
         source.parent.mkdir(parents=True, exist_ok=True)
         source.write_text(
             "---\natom_id: CA-O-010\ncontent_role: Operations\ntype: Workflow\n"
             "current_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n"
-            "local_tier: Standard\nglobal_tier: 11\nauthor: Anatoly Maslennikov\n"
+            "tier: 11\nauthor: Anatoly Maslennikov\n"
             "status: Active\nversion: 1\nupdated_at: \"2026-01-01 00:00:00 +0000\"\n"
             "subjects:\n  governs: Tool\n  depends_on: [Plan]\nrelations: {}\n---\n"
             "# Summary\n\nBundle move fixture\n\n## Scope\n\nOne explicitly selected Workflow.\n\n"
@@ -119,7 +112,7 @@ class AtomMoveLifecycleTest(unittest.TestCase):
         (bundle / "archived" / "CA-O-146-CORE_META_MODEL-STEP--child@4.md").write_bytes(
             b"exact historical child bytes\n"
         )
-        destination = self.root / PROJECT_OPERATIONS / "CA-O-010-PROJECT_CONFIGURATION-WORKFLOW--bundle-move.md"
+        destination = self.project_operations / "CA-O-010-PROJECT_CONFIGURATION-WORKFLOW--bundle-move.md"
         contents = {
             path.relative_to(bundle).as_posix(): path.read_bytes()
             for path in bundle.rglob("*") if path.is_file()
@@ -131,7 +124,7 @@ class AtomMoveLifecycleTest(unittest.TestCase):
         return payload.split(b"\n---\n", 1)[1]
 
     def _destination(self) -> Path:
-        return self.root / PROJECT_REQUIREMENTS / "CA-R-100-PROJECT_CONFIGURATION--project-move.md"
+        return self.project_requirements / "CA-R-100-PROJECT_CONFIGURATION--project-move.md"
 
     def test_preview_core_to_project_has_no_effect(self) -> None:
         destination = self._destination()
@@ -181,7 +174,7 @@ class AtomMoveLifecycleTest(unittest.TestCase):
             encoding="utf-8",
         )
         self.core_path.unlink()
-        destination = self.root / CORE_REQUIREMENTS / "CA-R-100-CORE_META_MODEL--core-return.md"
+        destination = self.core_requirements / "CA-R-100-CORE_META_MODEL--core-return.md"
         before_bytes = source.read_bytes()
         before = atom_operations.atom_from_path(self.root, source)
 
@@ -218,12 +211,12 @@ class AtomMoveLifecycleTest(unittest.TestCase):
     def test_current_done_and_backlog_statuses_are_retained(self) -> None:
         for status, folder in (("Done", "done"), ("Backlog", "001_backlog")):
             with self.subTest(status=status):
-                source = self.root / CORE_PLANS / folder / f"CA-P-200-CORE_META_MODEL--{status.lower()}.md"
+                source = self.core_plans / folder / f"CA-P-200-CORE_META_MODEL--{status.lower()}.md"
                 source.parent.mkdir(parents=True, exist_ok=True)
                 payload = (
                     "---\natom_id: CA-P-200\ncontent_role: Plan\ntype: Plan\nlabel: Task\n"
                     "current_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n"
-                    "work_sequence_number: 1\nlocal_tier: Standard\nglobal_tier: 14\n"
+                    "work_sequence_number: 1\ntier: 14\n"
                     f"author: Anatoly Maslennikov\nstatus: {status}\nversion: 1\n"
                     'updated_at: "2026-01-01 00:00:00 +0000"\nsubjects:\n'
                     "  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n"
@@ -231,7 +224,7 @@ class AtomMoveLifecycleTest(unittest.TestCase):
                     "\n## Details\n\n### Definition of Done\n\nThe plan remains complete.\n"
                 )
                 source.write_text(payload, encoding="utf-8")
-                destination = self.root / PROJECT_PLANS / folder / f"CA-P-200-PROJECT_CONFIGURATION--{status.lower()}.md"
+                destination = self.project_plans / folder / f"CA-P-200-PROJECT_CONFIGURATION--{status.lower()}.md"
                 result = move_atom_action(
                     self.root, self._request(source, destination, "PROJECT_CONFIGURATION"),
                     execute=True, authorized=True,
@@ -285,10 +278,10 @@ class AtomMoveLifecycleTest(unittest.TestCase):
         first_destination = self._destination()
         second_source = self._move_fixture_atom(
             self.fixture.successor_one,
-            CORE_REQUIREMENTS / "CA-R-101-CORE_META_MODEL--second.md",
+            self.core_requirements / "CA-R-101-CORE_META_MODEL--second.md",
             "CORE_META_MODEL",
         )
-        second_destination = self.root / PROJECT_REQUIREMENTS / "CA-R-101-PROJECT_CONFIGURATION--second.md"
+        second_destination = self.project_requirements / "CA-R-101-PROJECT_CONFIGURATION--second.md"
         second_before = second_source.read_bytes()
 
         first = move_atom_action(

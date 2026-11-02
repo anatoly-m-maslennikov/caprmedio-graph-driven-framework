@@ -139,8 +139,8 @@ class SubjectPublicationGatewayTests(unittest.IsolatedAsyncioTestCase):
                 SimpleNamespace(name="update_atom", arguments={"request": self.request}),
             )
             self.assertEqual("refused", response.structured_content["status"])
-            self.assertIn(
-                "no successful one-Atom stage", response.structured_content["diagnostics"][0]
+            self.assertEqual(
+                "internal_failure: operation failure", response.structured_content["diagnostics"][0]
             )
         staged.structured_content["preview"]["atoms"][0]["subject_intent_sha256"] = (
             self.fixture.parameters["subject_intent_sha256"]
@@ -152,7 +152,7 @@ class SubjectPublicationGatewayTests(unittest.IsolatedAsyncioTestCase):
             SimpleNamespace(session=SimpleNamespace(_connection=second)),
             SimpleNamespace(name="update_atom", arguments={"request": self.request}),
         )
-        self.assertIn("no successful one-Atom stage", response.structured_content["diagnostics"][0])
+        self.assertEqual("internal_failure: operation failure", response.structured_content["diagnostics"][0])
         self.fixture.assert_unchanged(self)
         self.assertEqual([], self.child_calls)
 
@@ -201,13 +201,13 @@ class SubjectPublicationGatewayTests(unittest.IsolatedAsyncioTestCase):
                 )
                 response = await client.call_tool("update_atom", {"request": self.request})
                 self.assertEqual("refused", response.structured_content["status"])
-                self.assertIn(
-                    "one registered Operator", response.structured_content["diagnostics"][0]
+                self.assertEqual(
+                    "internal_failure: operation failure", response.structured_content["diagnostics"][0]
                 )
                 registry.write_bytes(b"operators = []\n")
                 response = await client.call_tool("update_atom", {"request": self.request})
                 self.assertEqual("refused", response.structured_content["status"])
-                self.assertIn("Operator registry", response.structured_content["diagnostics"][0])
+                self.assertEqual("internal_failure: operation failure", response.structured_content["diagnostics"][0])
         self.assertEqual([], self.forms)
         self.fixture.assert_unchanged(self)
 

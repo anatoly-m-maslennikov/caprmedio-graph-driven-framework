@@ -10,7 +10,7 @@ import yaml
 import test_proposed_reference_scope_independent as scoped_fixture
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
-from golden_authority import write_frozen_authority
+from golden_authority import frozen_entry as frozen_authority_entry, write_frozen_authority
 
 
 BODY = ("# Summary\n\nInvoke one selected Action\n\n## Scope\n\nOne explicit input.\n\n"
@@ -22,7 +22,20 @@ class NestedOperationsPlacementTests(unittest.TestCase):
         self.fixture = scoped_fixture.ExplicitReferenceScopeIndependentTests()
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
+        selected_entry = proposed_carrier._entry
+
+        def frozen_entry(identifier, **kwargs):
+            result = dict(selected_entry(identifier, **kwargs))
+            if identifier in {"CA-D-289", "CA-D-378"}:
+                result["source_path"] = frozen_authority_entry(identifier, **kwargs)["source_path"]
+            return result
+
+        self.entry_patch = patch.object(proposed_carrier, "_entry", frozen_entry)
+        self.entry_patch.start()
+        self.addCleanup(self.entry_patch.stop)
         write_frozen_authority(self.fixture.root, self.fixture.control, ("CA-D-289", "CA-D-378"))
+        with scoped_fixture.bind_selection(self.fixture.selection):
+            self.fixture.context = proposed_carrier.source_context_from_project(self.fixture.root)
 
     def metadata(self, **changes):
         value = self.fixture.fixture.metadata(

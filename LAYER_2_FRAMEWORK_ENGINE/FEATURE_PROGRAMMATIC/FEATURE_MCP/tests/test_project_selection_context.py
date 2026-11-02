@@ -24,7 +24,7 @@ from capability_discovery.service import Service
 from hot_reload import Gateway, _singleton_lock_path, _open_singleton_lock, _close_singleton_lock
 import selected_routes
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
-from frozen_selected_workflows import frozen_source_bytes
+from frozen_selected_workflows import frozen_source_bytes, frozen_source_paths
 from scope_declaration_test_support import write_scope_unit_declarations
 
 
@@ -122,6 +122,17 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
     def test_query_frontier_keeps_exact_pins_but_refuses_another_control(self):
         selection = self.selections[0]
         foreign_selection = self.selections[1]
+        frozen_paths = frozenset(frozen_source_paths())
+
+        def frozen_bytes(pin):
+            path = Path(pin["source_path"])
+            if path.as_posix() not in frozen_paths:
+                candidates = [candidate for candidate in frozen_paths
+                              if Path(candidate).name.startswith(f'{pin["atom_id"]}-')]
+                if len(candidates) != 1:
+                    raise AssertionError(f"frozen source for {pin['atom_id']} is unavailable or ambiguous")
+                path = Path(candidates[0])
+            return frozen_source_bytes(path)
 
         def frozen_admissions(project):
             with bind_selection(project):
@@ -135,7 +146,7 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
                         )
                         destination = project.root / reference
                         destination.parent.mkdir(parents=True, exist_ok=True)
-                        destination.write_bytes(frozen_source_bytes(source['source_path']))
+                        destination.write_bytes(frozen_bytes(source))
                 return selected_routes._query_admission_specs(project.root)
 
         foreign = frozen_admissions(foreign_selection)
@@ -165,7 +176,7 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
         with bind_selection(selection), patch.object(proposed_carrier, "_source", return_value={}), patch.object(proposed_carrier, "resolve_context", return_value=SimpleNamespace()), patch.object(proposed_carrier, "load_operators_registry", return_value={}):
             context = proposed_carrier.source_context_from_project(selection.root)
             self.assertEqual(selection.control_relative.as_posix(), context.inputs["control_relative"])
-            self.assertEqual(1, context.inputs["structure"]["schema_version"])
+            self.assertEqual(selection.root.name, context.inputs["structure"]["scope_units"][0]["scope_unit_name"])
         pin = {"source_path": ".caprmedio_caprmedio/fixture.md", "version": 1, "sha256": "a" * 64}
         path = selection.control_root / "fixture.md"
         raw = b"---\natom_id: CA-D-1\ncontent_role: Delivery\nstatus: Active\nversion: 2\n---\n# Current rule\n"
@@ -173,12 +184,12 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
                    "sha256": hashlib.sha256(raw).hexdigest()}
         row = {"binding": binding, "text": raw.decode(),
                "metadata": proposed_carrier.parse_carrier(raw, path).metadata}
+        path.write_bytes(raw)
         with bind_selection(selection), patch.object(proposed_carrier, "_entry", return_value=pin), patch.object(proposed_carrier, "load_source", return_value=row) as load:
             observed = proposed_carrier._source(selection.root, "CA-D-1", object(), {})
         self.assertEqual(path, load.call_args.args[0])
         self.assertIsNone(load.call_args.args[1])
         self.assertEqual(binding, observed["binding"])
-        path.write_bytes(raw)
         reader = proposed_carrier.ReadContext(roots=[str(selection.root)], limits=dict(proposed_carrier.CEILINGS))
         report = {"bindings": {}, "coverage": {"gaps": []}}
         admitted = proposed_carrier.load_source(path, binding, reader, report)

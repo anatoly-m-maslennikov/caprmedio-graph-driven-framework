@@ -1,0 +1,155 @@
+{
+  "scope_declaration_reader_render": {
+    "tests": 17,
+    "status": "passed",
+    "owner": "declaration_reader_impl"
+  },
+  "current_declarations": {
+    "sources": 44,
+    "digest": "48a2f03d12ceddd7ec49dc31793bbab98ac45329a9a5d07e53c6930cfd0f36ca",
+    "status": "passed"
+  },
+  "publication_governing_metadata_no_rollback": {
+    "tests": 1,
+    "status": "passed",
+    "seconds": 43.6
+  },
+  "definition_sources": {
+    "tests": 15,
+    "status": "passed",
+    "seconds": 16.296
+  },
+  "capability_discovery": {
+    "tests": 6,
+    "status": "passed"
+  },
+  "current_entity_sources": {
+    "tests": 13,
+    "status": "passed"
+  },
+  "mcp_selection_fixtures": {
+    "tests": 30,
+    "status": "passed",
+    "owner": "mcp_selection_fixture_cleanup"
+  },
+  "connector_creation_fixtures": {
+    "tests": 73,
+    "status": "passed",
+    "owner": "remaining_connector_fixture_fixes"
+  },
+  "container_lifecycle": {
+    "tests": 7,
+    "status": "passed",
+    "seconds": 172.449,
+    "owner": "container_fixture_cleanup"
+  },
+  "atom_move": {
+    "tests": 18,
+    "status": "passed",
+    "seconds": 68.294,
+    "owner": "declaration_compilation_frontiers"
+  },
+  "selected_lifecycle": {
+    "tests": 48,
+    "status": "initial run 46 passed, two stale assertions corrected; focused two passed; combined rerun pending",
+    "seconds": 303.833
+  },
+  "structure_extended": {
+    "tests": 38,
+    "status": "passed"
+  },
+  "current_frontmatter_encoding": {
+    "tests": 5,
+    "status": "passed"
+  },
+  "validator_current_sources": {
+    "tests": 22,
+    "status": "passed",
+    "owner": "validator_current_source_fixtures"
+  },
+  "proposed_carrier_regressions": {
+    "tests": 16,
+    "status": "passed",
+    "owner": "validator_current_source_fixtures"
+  },
+  "subject_profiles_acceptance": {
+    "tests": 2,
+    "status": "passed; obsolete deferred Terms case retired"
+  },
+  "remaining": [
+    "Fresh Docker query proof for queue admission fix",
+    "W01 Docker status matrix with derived paths",
+    "Final two host status fixtures",
+    "Known W10 Docker forecast timestamp/hash mismatch remains Engine work",
+    "Live Project carrier closure still requires retired D274; Engine review"
+  ],
+  "validator_boundaries": {
+    "tests": 33,
+    "status": "passed",
+    "seconds": 25.522
+  },
+  "validator_references": {
+    "tests": 52,
+    "status": "passed",
+    "seconds": 37.346
+  },
+  "validator_sections_types": {
+    "tests": 28,
+    "status": "passed"
+  },
+  "interactive_selected_fixture": {
+    "tests": 6,
+    "status": "passed"
+  },
+  "definition_move": {
+    "tests": 1,
+    "status": "passed",
+    "seconds": 2.561
+  },
+  "batch_draft_rejections": {
+    "tests": 5,
+    "status": "passed",
+    "seconds": 5.351
+  },
+  "postrun_execution_contracts": {
+    "tests": 37,
+    "status": "passed"
+  },
+  "postrun_replacement_portfolio": {
+    "tests": 10,
+    "status": "passed"
+  },
+  "postrun_creation_reversion": {
+    "tests": 8,
+    "status": "passed"
+  },
+  "postrun_discovery": {
+    "tests": 5,
+    "status": "passed"
+  },
+  "postrun_connector_nested": {
+    "tests": 44,
+    "status": "passed"
+  },
+  "postrun_queue_admission": {
+    "tests": 19,
+    "status": "passed"
+  },
+  "postrun_confirmation": {
+    "tests": 21,
+    "status": "passed"
+  },
+  "postrun_current_workflow_step": {
+    "tests": 3,
+    "status": "passed with 1 expected failure",
+    "deferred_task": "CA-P-2708"
+  },
+  "postrun_boundary_fixtures": {
+    "tests": 52,
+    "status": "passed"
+  },
+  "postrun_grammar_sources": {
+    "tests": 29,
+    "status": "passed"
+  }
+}

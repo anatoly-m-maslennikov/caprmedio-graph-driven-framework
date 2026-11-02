@@ -4,7 +4,9 @@ import sys
 import unittest
 
 TOOLS = Path(__file__).resolve().parents[1]
+APP_TESTS = TOOLS.parent / "FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/tests"
 sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(APP_TESTS))
 
 from atom_operations import ToolError, frontmatter_scalar
 from carrier_aliases import carrier_read_view

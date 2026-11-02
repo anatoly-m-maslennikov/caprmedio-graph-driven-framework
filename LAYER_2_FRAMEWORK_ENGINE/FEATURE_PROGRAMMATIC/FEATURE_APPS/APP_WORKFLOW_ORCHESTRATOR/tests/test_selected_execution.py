@@ -29,7 +29,7 @@ from selected_execution import (  # noqa: E402
 )
 from selected_evidence_io import safe_path  # noqa: E402
 import selected_graph_validation  # noqa: E402
-from selected_routes import SELECTED_ROUTE_NAMES  # noqa: E402
+from selected_routes import SELECTED_ROUTE_NAMES, load_selected_manifest  # noqa: E402
 from test_selected_routes_mcp import copy_complete_selected_guard_fixture  # noqa: E402
 
 
@@ -282,13 +282,13 @@ class SelectedExecutionTests(unittest.TestCase):
         route_name: str, run_id: str, *, root: Path = REPOSITORY,
     ) -> tuple[SelectedExecution, dict[str, object]]:
         """Use the generic physical portfolio."""
-        manifest_path = root / ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json"
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest = load_selected_manifest(root)
+        manifest_ref = manifest["manifest_ref"]
         execution: dict[str, object] = {
             "mode": "execute", "operation_route": route_name, "workflow_run_id": run_id,
             "source_freshness": manifest["source_freshness"],
             "definition_manifest": {
-                "manifest_ref": manifest_path.relative_to(root).as_posix(),
+                "manifest_ref": manifest_ref,
                 "manifest_digest": manifest["canonical_manifest_sha256"],
             },
         }

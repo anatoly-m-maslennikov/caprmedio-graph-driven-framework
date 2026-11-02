@@ -91,7 +91,7 @@ def _rewrite_as_id_free(project, item, *, filename=None, suffix=b""):
 
 
 class SubjectBatchDraftTests(unittest.TestCase):
-    def test_admitted_legacy_source_stages_and_executes_only_through_batch(self):
+    def test_unadmitted_legacy_transition_refuses_before_staging_or_publication(self):
         project = SubjectBatchProject(self, count=1)
         project.use_legacy_subject_transition()
         with self.assertRaises(operations.ToolError) as direct:
@@ -109,19 +109,12 @@ class SubjectBatchDraftTests(unittest.TestCase):
                 "subject_patches": project.packet["atoms"][0]["subject_patches"],
             }], subject_profile="approved")
         self.assertEqual("subject-malformed", preview.exception.code)
-        staged = stage_subject_batch(project.root, project.parameters, limit=1)
-        project.use_reviewed_packet(staged["reviewed_packet"])
-        runner, frozen = project.execution("legacy-subject-transition")
-        result = runner.dispatch(frozen)
-        self.assertEqual("terminal", result["disposition"])
-        self.assertIn(b"Entity/Graph Syntax <+ Relation", project.paths[0].read_bytes())
+        with patch("subject_batch_stage._write_candidate") as writer:
+            with self.assertRaisesRegex(ValueError, "Subject profile transition authority"):
+                stage_subject_batch(project.root, project.parameters, limit=1)
+        writer.assert_not_called()
+        self.assertEqual(project.before[project.paths[0]], project.paths[0].read_bytes())
 
-    def test_transition_rejects_an_unchanged_legacy_scalar(self):
-        project = SubjectBatchProject(self, count=1)
-        project.use_legacy_subject_transition(leave_legacy_dependency=True)
-        stopped = stage_subject_batch(project.root, project.parameters, limit=1)
-        self.assertEqual("stopped", stopped["state"])
-        self.assertEqual(0, stopped["completed"])
     def test_noop_draft_promotion_keeps_original_bytes_version_and_time(self):
         project = SubjectBatchProject(self, count=1)
         path = project.paths[0]
@@ -400,7 +393,7 @@ class SubjectBatchDraftTests(unittest.TestCase):
             load_subject_batch(project.root, project.parameters)
         with patch("subject_batch_execution.subject_update_action") as native_publisher:
             result = runner.dispatch(frozen)
-        self.assertEqual("terminal", result["disposition"])
+        self.assertEqual("failed", result["disposition"])
         self.assertNotEqual("completed", result.get("outcome"))
         native_publisher.assert_not_called()
         for path in project.paths:

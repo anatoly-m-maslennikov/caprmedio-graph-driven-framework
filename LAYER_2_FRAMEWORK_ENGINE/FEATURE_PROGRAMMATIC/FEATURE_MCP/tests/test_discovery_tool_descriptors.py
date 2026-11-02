@@ -89,7 +89,7 @@ PROVIDERS = (
 def _provider_module(provider: dict[str, object]) -> ModuleType:
     """Load a provider from the exact Engine-relative file advertised by it."""
 
-    path = TOOLS_ROOT / str(provider["folder"]) / str(provider["filename"])
+    path = TOOLS_ROOT / f"TOOL_{provider['folder']}" / str(provider["filename"])
     name = f"_discovery_descriptor_{path.stem}_{path.parent.name.lower()}"
     spec = importlib.util.spec_from_file_location(name, path)
     if spec is None or spec.loader is None:  # pragma: no cover - fixture failure

@@ -18,6 +18,7 @@ from test_current_frontmatter_encoding import current_source  # noqa: E402
 from test_schema_extended import run  # noqa: E402
 import test_proposed_carrier_admission_regressions as fixture_projects  # noqa: E402
 from golden_authority import frozen_entry  # noqa: E402
+from current_atom_locator import CurrentAtomLocator  # noqa: E402
 from project_selection import bind_selection  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier as admission  # noqa: E402
 
@@ -44,6 +45,19 @@ def fresh_owner(identifier="CA-R-55555", role="Method", kind="Term Definition"):
     return source_row("---\n" + yaml.safe_dump(metadata) + "---\n## Summary\n\nDefine Type\n\n## Claim\n\nA Type definition.\n")
 
 
+def declared_authority(selection, scope_unit):
+    return selection.root / next(
+        Path(row["authority_path"])
+        for row in selection.structure["scope_units"]
+        if row["scope_unit_name"] == scope_unit
+    )
+
+
+def current_path(selection, identifier):
+    hint = frozen_entry(identifier)["source_path"]
+    return selection.root / CurrentAtomLocator(selection.root).locate(identifier, hint)
+
+
 class CurrentTypeAdmissionTests(unittest.TestCase):
     def test_shared_validation_scope_resolves_each_role_type_and_retains_source_freshness(self):
         fixture = fixture_projects.ProposedCarrierAdmissionRegressions("test_root_and_foreign_project_names_use_real_selected_settings_not_folder_name")
@@ -53,14 +67,14 @@ class CurrentTypeAdmissionTests(unittest.TestCase):
         fixture.entry_patch.stop()
         live_entry = admission._entry
         with patch.object(admission, "_entry", side_effect=lambda identifier, **kw:
-                          live_entry(identifier, **kw) if identifier == "CA-D-657" else frozen_entry(identifier, **kw)):
-            old_path = selection.control_root / Path(frozen_entry("CA-D-276")["source_path"]).relative_to(".caprmedio_caprmedio")
-            old_path.unlink()
+                          live_entry(identifier, **kw) if identifier == "CA-D-657"
+                          else fixture.selected_entry(identifier, **kw)):
+            current_path(selection, "CA-D-276").unlink()
             encoding = current_source()
-            encoding_path = selection.control_root / Path(encoding["binding"]["path"]).relative_to(".caprmedio_caprmedio")
+            encoding_path = declared_authority(selection, "CORE_META_MODEL") / "07_delivery" / Path(encoding["binding"]["path"]).name
             encoding_path.parent.mkdir(parents=True, exist_ok=True)
             encoding_path.write_text(encoding["text"])
-            authority = selection.control_root / "CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/04_requirement"
+            authority = declared_authority(selection, "CORE_META_MODEL") / "04_requirement"
             authority.mkdir(parents=True, exist_ok=True)
             for source in (captured_sources()[1], fresh_owner()):
                 (authority / (source["binding"]["atom_id"] + "--type.md")).write_text(source["text"])
@@ -164,15 +178,14 @@ class CurrentTypeAdmissionTests(unittest.TestCase):
         fixture.entry_patch.stop()
         live_entry = admission._entry
         with patch.object(admission, "_entry", side_effect=lambda identifier, **kw:
-                          live_entry(identifier, **kw) if identifier == "CA-D-657" else frozen_entry(identifier, **kw)):
-            old_path = selection.root / frozen_entry("CA-D-276")["source_path"]
-            old_path = selection.control_root / old_path.relative_to(selection.root / ".caprmedio_caprmedio")
-            old_path.unlink()
+                          live_entry(identifier, **kw) if identifier == "CA-D-657"
+                          else fixture.selected_entry(identifier, **kw)):
+            current_path(selection, "CA-D-276").unlink()
             source = current_source()
-            current_path = selection.control_root / Path(source["binding"]["path"]).relative_to(".caprmedio_caprmedio")
-            current_path.parent.mkdir(parents=True, exist_ok=True)
-            current_path.write_text(source["text"])
-            owner_path = selection.control_root / "CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/04_requirement/CA-R-55555--type.md"
+            current_source_path = declared_authority(selection, "CORE_META_MODEL") / "07_delivery" / Path(source["binding"]["path"]).name
+            current_source_path.parent.mkdir(parents=True, exist_ok=True)
+            current_source_path.write_text(source["text"])
+            owner_path = declared_authority(selection, "CORE_META_MODEL") / "04_requirement/CA-R-55555--type.md"
             owner_path.parent.mkdir(parents=True, exist_ok=True)
             owner_path.write_text(fresh_owner()["text"])
             with bind_selection(selection):

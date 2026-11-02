@@ -2,9 +2,16 @@
 
 from pathlib import Path
 import shutil
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
+
+TOOLS = Path(__file__).resolve().parents[1]
+APP = TOOLS.parent / "FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR"
+for location in (TOOLS, APP):
+    if str(location) not in sys.path:
+        sys.path.insert(0, str(location))
 
 from subject_batch import _PacketV1, _PacketV2
 from subject_batch_authorization import (

@@ -8,7 +8,7 @@ import yaml
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(TOOLS), str(TOOLS / "VALIDATE_ATOMS/tests")]
 import test_proposed_reference_scope as fixtures
-from golden_authority import write_frozen_authority
+from golden_authority import frozen_authority_fixture_bytes
 from project_selection import bind_selection, resolve_project
 from scope_declaration_test_support import write_scope_unit_declarations
 import atom_operations as operations
@@ -21,35 +21,36 @@ class StatusBundlePublicationTests(unittest.TestCase):
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
         self.root, self.control = self.fixture.root, self.fixture.control
-        write_frozen_authority(self.root, self.control, ("CA-D-289", "CA-D-378"))
-        settings_path = self.fixture.selection.settings_path
-        settings_path.write_text(
-            settings_path.read_text().replace('name = "amber"', 'name = "status-bundle-fixture"'),
-            encoding="utf-8",
-        )
-        write_scope_unit_declarations(
+        declared = write_scope_unit_declarations(
             self.root,
-            ({
-                "scope_unit_name": "amber",
-                "parent": "PROJECT",
-                "scope_unit_type": "Unordered",
-                "scope_unit_label": "Layer",
-            },),
-            control_root=self.control,
-            project_name="status-bundle-fixture",
+            (
+                {"scope_unit_name": "FRAMEWORK_METHODOLOGY", "parent": "PROJECT", "scope_unit_label": "Layer"},
+                {"scope_unit_name": "METHODOLOGY_SOURCES", "parent": "FRAMEWORK_METHODOLOGY", "scope_unit_label": "Layer"},
+                {"scope_unit_name": "CORE_META_MODEL", "parent": "METHODOLOGY_SOURCES", "scope_unit_label": "Layer"},
+                {"scope_unit_name": "STATUS_BUNDLE", "parent": "PROJECT", "scope_unit_label": "Layer"},
+            ),
+            control_root=self.root / self.control,
         )
+        self.authority = declared["STATUS_BUNDLE"]["authority_path"]
+        core_authority = declared["CORE_META_MODEL"]["authority_path"]
+        for identifier in ("CA-D-289", "CA-D-378"):
+            source = core_authority / "07_delivery" / f"{identifier}.md"
+            source.parent.mkdir(parents=True, exist_ok=True)
+            source.write_bytes(frozen_authority_fixture_bytes(identifier))
         self.selection = resolve_project(self.root, self.control)
         self.binding = bind_selection(self.selection)
         self.binding.__enter__()
         self.addCleanup(self.binding.__exit__, None, None, None)
 
     def put(self, relative, identity="CA-P-701", *, role="Plan", kind="Plan", status="Active", relations=None):
-        metadata = self.fixture.fixture.metadata(atom_id=identity, content_role=role, type=kind,
-                                                status=status, relations=relations or {})
+        metadata = self.fixture.fixture.metadata(
+            atom_id=identity, content_role=role, type=kind, status=status, relations=relations or {},
+            current_scope_unit="STATUS_BUNDLE", claim_target_scope_unit="STATUS_BUNDLE",
+        )
         if role == "Operations":
             metadata.pop("label")
         body = fixtures.fixtures.PLAN_BODY if role == "Plan" else "# Summary\n\nFixture workflow.\n\n## Operation\n\nOne step.\n\n## Details\n\nFixture.\n"
-        return self.fixture.fixture.put(self.control / relative,
+        return self.fixture.fixture.put(self.authority / relative,
             ("---\n" + yaml.safe_dump(metadata, sort_keys=False) + "---\n" + body).encode())
 
     def request(self, path, status):
@@ -60,7 +61,7 @@ class StatusBundlePublicationTests(unittest.TestCase):
         return lifecycle.change_status_atom_action(self.root, request, execute=True, authorized=True)
 
     def snapshot(self):
-        return {p.relative_to(self.root): p.read_bytes() for p in (self.root / self.control).rglob("*") if p.is_file()}
+        return {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
 
     def test_plan_bundle_history_noop_and_local_reactivation(self):
         parent = self.put("03_plan/CA-P-701--parent.md")
@@ -69,7 +70,7 @@ class StatusBundlePublicationTests(unittest.TestCase):
         original, child_raw = parent.read_bytes(), child.read_bytes()
         result = self.execute(self.request(parent, "Done"))
         current = self.root / result["observed"]["path"]
-        self.assertEqual(self.root / self.control / "03_plan/done/CA-P-701--parent.md", current)
+        self.assertEqual(self.authority / "03_plan/done/CA-P-701--parent.md", current)
         self.assertEqual(original, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
         self.assertEqual(child_raw, (current.with_suffix("") / child.name).read_bytes())
         self.assertFalse(parent.exists())
@@ -83,7 +84,7 @@ class StatusBundlePublicationTests(unittest.TestCase):
 
     def test_archive_suffix_matches_new_version_and_matching_directory(self):
         parent = self.put("03_plan/CA-P-701--parent.md")
-        self.fixture.fixture.put(self.control / "03_plan/CA-P-701--parent/archive/legacy.bin", b"old bytes")
+        self.fixture.fixture.put(self.authority / "03_plan/CA-P-701--parent/archive/legacy.bin", b"old bytes")
         raw = parent.read_bytes()
         result = self.execute(self.request(parent, "Archived"))
         current = self.root / result["observed"]["path"]
@@ -94,7 +95,7 @@ class StatusBundlePublicationTests(unittest.TestCase):
     def test_nested_workflow_step_archive_stays_inside_container(self):
         workflow = self.put("09_operations/CA-O-701--workflow.md", "CA-O-701", role="Operations", kind="Workflow")
         step = self.put("09_operations/CA-O-701--workflow/CA-O-702--step.md", "CA-O-702", role="Operations", kind="Step")
-        nested = self.fixture.fixture.put(self.control / "09_operations/CA-O-701--workflow/CA-O-702--step/archive/old.bin", b"history")
+        nested = self.fixture.fixture.put(self.authority / "09_operations/CA-O-701--workflow/CA-O-702--step/archive/old.bin", b"history")
         workflow_raw, step_raw = workflow.read_bytes(), step.read_bytes()
         result = self.execute(self.request(step, "Archived"))
         current = self.root / result["observed"]["path"]
@@ -116,7 +117,7 @@ class StatusBundlePublicationTests(unittest.TestCase):
 
     def test_destination_collision_and_stale_bundle_refuse(self):
         parent = self.put("03_plan/CA-P-701--parent.md")
-        occupied = self.root / self.control / "03_plan/done/CA-P-701--parent"
+        occupied = self.authority / "03_plan/done/CA-P-701--parent"
         occupied.mkdir(parents=True)
         request = self.request(parent, "Done")
         before = self.snapshot()
@@ -126,7 +127,7 @@ class StatusBundlePublicationTests(unittest.TestCase):
         occupied.rmdir()
         allowed = lifecycle._execute_allowed
         def mutate(**kwargs):
-            self.fixture.fixture.put(self.control / "03_plan/CA-P-701--parent/late.bin", b"late")
+            self.fixture.fixture.put(self.authority / "03_plan/CA-P-701--parent/late.bin", b"late")
             return allowed(**kwargs)
         with patch.object(lifecycle, "_execute_allowed", side_effect=mutate), self.assertRaises(lifecycle.LifecycleError):
             self.execute(request)
@@ -134,7 +135,7 @@ class StatusBundlePublicationTests(unittest.TestCase):
 
     def test_failed_verification_restores_own_effect(self):
         parent = self.put("03_plan/CA-P-701--parent.md")
-        child = self.fixture.fixture.put(self.control / "03_plan/CA-P-701--parent/asset.bin", b"unchanged")
+        child = self.fixture.fixture.put(self.authority / "03_plan/CA-P-701--parent/asset.bin", b"unchanged")
         before = self.snapshot()
         parse = operations.atom_from_path
         def fail(root, path):

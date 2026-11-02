@@ -75,21 +75,13 @@ class ContextPreparation(unittest.TestCase):
     def test_missing_and_available_resources_are_distinct(self):
         with tempfile.TemporaryDirectory(dir=TMPDIR, ignore_cleanup_errors=True) as folder:
             root = Path(folder)
-            (root / 'structure.toml').write_text('[[scope_units]]\nscope_unit_name="PROJECT"\n')
+            (root / 'settings.toml').write_text('[project]\nname="fixture"\n')
             p = {'confidence_threshold': .99, 'sources': [source('a.md', 'A', RULE_TEXT)]}
             out = prepare_context(p, root=root, resources={
-                'project_structure': 'structure.toml', 'operators_registry': 'absent.toml'})
-            self.assertEqual(out['preflight']['project_structure']['state'], 'available')
+                'project_settings': 'settings.toml', 'operators_registry': 'absent.toml'})
+            self.assertEqual(out['preflight']['project_settings']['state'], 'available')
             self.assertEqual(out['preflight']['operators_registry']['state'], 'missing')
-            self.assertEqual(out['resources']['project_structure']['data']['scope_units'][0]['scope_unit_name'], 'PROJECT')
-
-    def test_rejects_projection_as_structure(self):
-        with tempfile.TemporaryDirectory(dir=TMPDIR, ignore_cleanup_errors=True) as folder:
-            root = Path(folder)
-            (root / 'old.toml').write_text('[projection]\ngenerator="old"\n')
-            out = prepare_context({'confidence_threshold': .99, 'sources': [source('a.md', 'A', RULE_TEXT)]},
-                                  root=root, resources={'project_structure': 'old.toml'})
-            self.assertEqual(out['preflight']['project_structure']['state'], 'invalid')
+            self.assertEqual(out['resources']['project_settings']['data']['project']['name'], 'fixture')
 
     def test_no_silent_legacy_principle_admission(self):
         raw = '---\nlocal_tier: Principle\n---\n# One authority\nNever duplicate authority.\n'
@@ -102,7 +94,7 @@ class ContextPreparation(unittest.TestCase):
             packet = {'confidence_threshold': .99, 'sources': [source('a.md', 'A', RULE_TEXT)]}
             for path in ('../secret.toml', '.env', '.env.local', '/tmp/other.toml'):
                 with self.subTest(path=path), self.assertRaises(ValueError):
-                    prepare_context(packet, root=Path(folder), resources={'project_structure': path})
+                    prepare_context(packet, root=Path(folder), resources={'project_settings': path})
 
 
 class SemanticAdmission(unittest.TestCase):
@@ -237,12 +229,12 @@ class SemanticAdmission(unittest.TestCase):
             contract.validate_part(response, context=context())
 
     def test_available_resource_cannot_be_called_missing(self):
-        bound = context({'project_structure': {'state': 'available', 'reason': 'bound TOML'}})
+        bound = context({'project_settings': {'state': 'available', 'reason': 'bound TOML'}})
         response = part('properties')
         response['context_sha256'] = bound.sha256
         response['checks'][0]['status'] = 'blocked'
         response.update(result='blocked', coverage_gaps=[{
-            'check_id': 'properties', 'kind': 'missing_context', 'context_key': 'project_structure',
+            'check_id': 'properties', 'kind': 'missing_context', 'context_key': 'project_settings',
             'reason': 'forgot to read it'}])
         with self.assertRaisesRegex(ValueError, 'available'):
             contract.validate_part(response, context=bound)

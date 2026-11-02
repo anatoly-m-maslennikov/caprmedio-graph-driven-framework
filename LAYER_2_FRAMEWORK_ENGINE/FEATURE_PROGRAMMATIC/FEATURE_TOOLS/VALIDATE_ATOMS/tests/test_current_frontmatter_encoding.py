@@ -67,15 +67,25 @@ class CurrentFrontmatterEncodingTests(unittest.TestCase):
         self.assertTrue(checked(CURRENT, [historical_source("CA-D-276")]).findings)
         self.assertTrue(checked(old).findings)
 
-    def test_unknown_conflicting_or_changed_authority_is_a_gap(self):
+    def test_unknown_or_conflicting_authority_is_a_gap(self):
         changed = copy.deepcopy(current_source())
         changed["text"] += "\nAn unreviewed additional condition.\n"
         changed["binding"]["sha256"] = hashlib.sha256(changed["text"].encode()).hexdigest()
-        for rows in ([], [changed], [current_source(), historical_source("CA-D-276")]):
+        for rows in ([], [current_source(), historical_source("CA-D-276")]):
             self.assertTrue(checked(CURRENT, rows).gaps)
+
+    def test_current_authority_allows_metadata_and_subject_updates(self):
         stale = copy.deepcopy(current_source())
-        stale["text"] += "\nChanged bytes.\n"
-        self.assertTrue(checked(CURRENT, [stale]).gaps)
+        stale["text"] = stale["text"].replace(
+            "  governs: Entity/Carrier/File.YAML Frontmatter\n",
+            "  governs: Entity/Carrier/File.YAML Frontmatter/Encoding\n",
+        )
+        stale["text"] = stale["text"].replace("tier: 3\n", "tier: 4\n", 1)
+        stale["metadata"] = yaml.safe_load(stale["text"].split("---", 2)[1])
+        stale["binding"]["version"] = stale["metadata"]["version"]
+        stale["binding"]["sha256"] = hashlib.sha256(stale["text"].encode()).hexdigest()
+        self.assertEqual([], checked(CURRENT, [stale]).findings)
+        self.assertEqual([], checked(CURRENT, [stale]).gaps)
 
 
 if __name__ == "__main__":

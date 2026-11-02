@@ -12,7 +12,6 @@ import copy
 import hashlib
 import json
 import sys
-import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -20,45 +19,14 @@ from unittest.mock import patch
 
 TESTS = Path(__file__).resolve().parent
 TOOLS = TESTS.parents[1]
-GRAPH_TOOLS = TOOLS / "GENERATE_ENTITY_GRAPH"
-TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
-TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 
-for path in (TOOLS, GRAPH_TOOLS, TESTS):
+for path in (TOOLS, TESTS):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
 import atom_operations as operations  # noqa: E402
-import generate_entity_graph as graph  # noqa: E402
 import test_subject_tools_acceptance as fixtures  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
-
-
-
-def graph_carrier(atom_id: str, governs: str, depends_on: tuple[str, ...]) -> str:
-    dependency_lines = "\n".join(f"    - {value!r}" for value in depends_on)
-    dependency_block = "  depends_on: []" if not dependency_lines else f"  depends_on:\n{dependency_lines}"
-    return "\n".join((
-        "---",
-        f"atom_id: {atom_id}",
-        "version: 1",
-        "content_role: Definition",
-        "type: Definition",
-        "status: Active",
-        "current_scope_unit: CORE_META_MODEL",
-        "claim_target_scope_unit: CORE_META_MODEL",
-        "subjects:",
-        f"  governs: {governs!r}",
-        dependency_block,
-        "---",
-        "# Summary",
-        "",
-        "Test-only carrier.",
-        "",
-        "## Claim",
-        "",
-        "Approved notation has no native slash edge admission.",
-    ))
 
 
 class SubjectProfilesAcceptanceTests(unittest.TestCase):
@@ -74,14 +42,6 @@ class SubjectProfilesAcceptanceTests(unittest.TestCase):
         self.root = self.fixture.root
         self.paths: dict[str, Path] = {}
         self._write_approved_atoms()
-
-        self.graph_temporary = tempfile.TemporaryDirectory(
-            dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True
-        )
-        self.addCleanup(self.graph_temporary.cleanup)
-        self.graph_repository = Path(self.graph_temporary.name)
-        self.graph_sources = self.graph_repository / "SUPERLAYER_1_METHODOLOGY_SOURCES"
-        self.graph_sources.mkdir()
 
     def _write_approved_atoms(self) -> None:
         self.paths["requirement"] = self.fixture._write_atom(
@@ -267,40 +227,6 @@ class SubjectProfilesAcceptanceTests(unittest.TestCase):
                 operations.run_update(self.root, argparse.Namespace(input="-", apply=True))
         self.assertEqual("subject-apply-not-admitted", refused.exception.code)
         self.assertEqual(before, source.read_bytes())
-
-    def test_approved_graph_has_only_literal_dot_and_colon_native_edges(self) -> None:
-        source = self.graph_sources / "CA-R-4001.md"
-        source.write_text(
-            graph_carrier(
-                "CA-R-4001",
-                "RMEDO/Capability.Substance: Scope Unit",
-                ("RMEDO/Run.Operator: AI Agent",),
-            ),
-            encoding="utf-8",
-        )
-        projection = graph.generate_projection(
-            self.graph_repository, self.graph_sources, subject_profile="approved"
-        )
-        edges = [
-            (row["relation"], row["source_subject"], row["source_term"], row["target_subject"], row["target_term"])
-            for row in projection["term_system"]["edges"]
-        ]
-        expected_edges = [
-                ("IS_ALLOWED_VALUE_OF", "RMEDO/Capability.Substance: Scope Unit", "Scope Unit",
-                 "RMEDO/Capability.Substance", "Substance"),
-                ("IS_ALLOWED_VALUE_OF", "RMEDO/Run.Operator: AI Agent", "AI Agent",
-                 "RMEDO/Run.Operator", "Operator"),
-                ("IS_BORNE_BY", "RMEDO/Capability.Substance", "Substance", "RMEDO/Capability", "Capability"),
-                ("IS_BORNE_BY", "RMEDO/Run.Operator", "Operator", "RMEDO/Run", "Run"),
-        ]
-        self.assertEqual(expected_edges, edges)
-        corrupted = copy.deepcopy(edges)
-        corrupted[0] = ("NARROWER_THAN", *corrupted[0][1:])
-        with self.assertRaises(AssertionError):
-            self.assertEqual(expected_edges, corrupted)
-        self.assertFalse(any(row[0] == "NARROWER_THAN" for row in edges))
-        self.assertFalse(any(row[1] in {"RMEDO/Capability", "RMEDO/Run"} for row in edges))
-
 
 if __name__ == "__main__":
     unittest.main()

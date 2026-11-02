@@ -17,13 +17,16 @@ from unittest.mock import patch
 
 
 TOOLS = Path(__file__).resolve().parents[2]
+APP_ROOT = TOOLS.parent / "FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR"
 sys.path.insert(0, str(TOOLS))
 
 import atom_operations as operations  # noqa: E402
 import atom_subject_patch as subject_patch  # noqa: E402
 import atom_subject_stage as staging  # noqa: E402
 import test_nonarchived_subject_preview as preview_fixture  # noqa: E402
+from project_selection import active_selection, bind_selection  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
+from subject_grammar_corpus import grammar_carriers  # noqa: E402
 
 
 ILLUSTRATIVE_TIME = "2026-10-12 10:20:30 +0400"
@@ -40,6 +43,7 @@ class SubjectStagePreviewTests(unittest.TestCase):
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
         self.root = self.fixture.root
+        self.selection = active_selection(self.root)
         self.path = self.fixture._plan("Done", number=7801)
         self.original = self.path.read_bytes()
         self.items = self.fixture._payload(self.path)
@@ -55,8 +59,9 @@ class SubjectStagePreviewTests(unittest.TestCase):
                 for path in (self.root / ".caprmedio_caprmedio").rglob("*") if path.is_file()}
 
     def _stage(self, items=None, *, profile="legacy", timestamp=ILLUSTRATIVE_TIME):
-        return staging.stage_subject_preview(self.root, self.items if items is None else items,
-                                             timestamp=timestamp, subject_profile=profile)
+        with bind_selection(self.selection):
+            return staging.stage_subject_preview(self.root, self.items if items is None else items,
+                                                 timestamp=timestamp, subject_profile=profile)
 
     def _expected(self, original: bytes, *, new: str = "Atom/State", noop: bool = False) -> bytes:
         if noop:
@@ -198,8 +203,9 @@ class SubjectStagePreviewTests(unittest.TestCase):
 
     def test_post_export_source_grammar_identity_and_validation_authority_drift_refuse(self) -> None:
         authority_sources = json.loads((TOOLS / "VALIDATE_ATOMS/validate_atoms_workers/registry.json").read_text())["sources"]
-        authority = self.root / authority_sources["CA-D-276"]["source_path"]
-        grammar = self.root / get_profile("legacy").grammar_pins[0].path
+        grammar = self.root / subject_patch.get_profile("legacy").grammar_pins[0].path
+        core_authority = self.fixture.fixture.declarations["CORE_META_MODEL"]["authority_path"]
+        authority = core_authority / "07_delivery" / Path(authority_sources["CA-D-657"]["source_path"]).name
         duplicate = self.path.parent.parent / "001_backlog" / self.path.name
         for kind, path, code in (("source", self.path, "subject-pin-stale"),
                                  ("grammar", grammar, "subject-grammar-pin-stale"),
@@ -466,8 +472,28 @@ class SubjectStagePreviewTests(unittest.TestCase):
         input_path = self.root / "subject-stage.json"
         input_path.write_text(json.dumps({"atoms": self.items}), encoding="utf-8")
         before = self._ledger()
-        completed = subprocess.run([sys.executable, str(TOOLS / "ATOM_UPDATE/atom_update.py"), "--repository", str(self.root),
-                                    "run", "--input", str(input_path), "--stage-preview"], capture_output=True, text=True, check=False)
+        # The subprocess cannot inherit the in-process declaration-profile
+        # binding.  Materialize the canonical current grammar selectors only
+        # for this CLI boundary check, then remove them before the ledger
+        # assertion; authoritative fixture carriers remain declaration-owned.
+        grammar = grammar_carriers()
+        cli_sources = []
+        for pin in get_profile("legacy").grammar_pins:
+            destination = self.root / pin.path
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(grammar[pin.path])
+            cli_sources.append(destination)
+        try:
+            environment = os.environ.copy()
+            environment["PYTHONPATH"] = os.pathsep.join(
+                part for part in (str(APP_ROOT), str(TOOLS), environment.get("PYTHONPATH", "")) if part
+            )
+            completed = subprocess.run([sys.executable, str(TOOLS / "ATOM_UPDATE/atom_update.py"), "--repository", str(self.root),
+                                        "run", "--input", str(input_path), "--stage-preview"], capture_output=True,
+                                       text=True, check=False, env=environment)
+        finally:
+            for source in cli_sources:
+                source.unlink(missing_ok=True)
         self.assertEqual(0, completed.returncode, completed.stderr + completed.stdout)
         envelope = json.loads(completed.stdout)
         self.assertTrue(envelope["ok"])

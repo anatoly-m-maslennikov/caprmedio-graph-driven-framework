@@ -5,30 +5,27 @@ from __future__ import annotations
 import copy
 from pathlib import Path
 import sys
+import tempfile
 import unittest
+from types import SimpleNamespace
 
 TOOL = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOL))
+sys.path.insert(0, str(TOOL.parent))
+REPOSITORY = TOOL.parent.parents[2]
 
 from golden_authority import frozen_sources  # noqa: E402
+from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
+from scope_unit_declarations import read_scope_unit_declarations  # noqa: E402
 from validate_atoms_workers.authority import AuthorityContext, Obligation  # noqa: E402
 from validate_atoms_workers.check_graph_extended import relations_resolution  # noqa: E402
 from validate_atoms_workers.check_support import Check  # noqa: E402
 
 
-def unit(name: str, parent: str, depth: int) -> dict:
-    return dict(
-        scope_unit_name=name, parent=parent, structural_level=depth,
-        scope_unit_type="Unordered", scope_unit_label="Layer",
-        navigational_order_number=1, authority_path=f".caprmedio_demo/{name}",
-        delivery_path=f"src/{name}",
-    )
-
-
 def atom(identity: str, owner: str, tier: int, **changes) -> dict:
     return dict(
         atom_id=identity, version=1, content_role="Requirement", status="Active",
-        current_scope_unit=owner, global_tier=tier, **changes,
+        current_scope_unit=owner, tier=tier, **changes,
     )
 
 
@@ -38,20 +35,37 @@ class AncestorParentAdmissionTests(unittest.TestCase):
         cls.sources = frozen_sources()
 
     def setUp(self) -> None:
+        scratch = REPOSITORY / ".caprmedio_tmp/tests/ancestor-parent-admission"
+        scratch.mkdir(parents=True, exist_ok=True)
+        self.directory = tempfile.TemporaryDirectory(dir=scratch)
+        self.addCleanup(self.directory.cleanup)
+        self.root = Path(self.directory.name)
+        self.control = self.root / ".caprmedio_demo"
+        self.control.mkdir()
+        (self.control / "caprmedio_project_settings.toml").write_text(
+            '[project]\nname = "demo"\n[paths]\ncontrol_root = ".caprmedio_demo"\n',
+            encoding="utf-8",
+        )
+        write_scope_unit_declarations(
+            self.root,
+            (
+                {"scope_unit_name": "METHODOLOGY", "scope_unit_label": "Layer"},
+                {"scope_unit_name": "SOURCES", "parent": "METHODOLOGY", "scope_unit_label": "Layer"},
+                {"scope_unit_name": "CORE", "parent": "SOURCES", "scope_unit_label": "Layer"},
+                {"scope_unit_name": "CONFIG", "parent": "SOURCES", "scope_unit_label": "Layer"},
+                {"scope_unit_name": "ENGINE", "scope_unit_label": "Layer"},
+            ),
+            control_root=self.control,
+        )
+        self.declarations = read_scope_unit_declarations(self.root, self.control)
         self.child = atom("X-R-1", "CORE", 9, subjects={"governs": "Entity/Continuant"})
         self.parent = atom(
             "X-R-2", "SOURCES", 8, type="Goal", claim_target_scope_unit="CORE",
             subjects={"governs": "CORE/Goal"},
         )
-        self.structure = dict(schema_version=1, scope_units=[
-            unit("METHODOLOGY", "PROJECT", 1),
-            unit("SOURCES", "METHODOLOGY", 2),
-            unit("CORE", "SOURCES", 3),
-            unit("CONFIG", "SOURCES", 3),
-            unit("ENGINE", "PROJECT", 1),
-        ])
+        self.structure = self.declarations.as_structure()
 
-    def check(self, *, structure=True, complete=True) -> Check:
+    def check(self, *, structure=True, complete=True, declarations=None) -> Check:
         child = {**self.child, "relations": {"child_of": [self.parent["atom_id"]]}}
         context = AuthorityContext([], 0, 0, 0, [], (), {}, False)
         check = Check(Obligation("relations.resolution", [], True, "fixture"), context)
@@ -63,7 +77,9 @@ class AncestorParentAdmissionTests(unittest.TestCase):
             "_project_identity": {"project": {"name": "demo"}},
         }
         if structure:
-            check.inputs["structure"] = self.structure
+            check.inputs["scope_unit_declarations"] = (
+                self.declarations if declarations is None else declarations
+            )
         before = copy.deepcopy((child, self.parent, self.structure))
         relations_resolution(child, "", check)
         self.assertEqual((child, self.parent, self.structure), before)
@@ -74,23 +90,23 @@ class AncestorParentAdmissionTests(unittest.TestCase):
         self.assertFalse(result.findings + result.gaps)
 
     def test_distant_ancestor_and_nonadjacent_tier_are_accepted(self) -> None:
-        self.parent.update(current_scope_unit="METHODOLOGY", global_tier=5)
+        self.parent.update(current_scope_unit="METHODOLOGY", tier=5)
         result = self.check()
         self.assertFalse(result.findings + result.gaps)
 
     def test_equal_tier_ancestor_is_accepted_under_e117(self) -> None:
-        self.parent["global_tier"] = self.child["global_tier"]
+        self.parent["tier"] = self.child["tier"]
         result = self.check()
         self.assertFalse(result.findings + result.gaps)
 
     def test_project_parent_resolves_from_explicit_identity(self) -> None:
-        self.parent.update(current_scope_unit="demo", global_tier=1)
+        self.parent.update(current_scope_unit="demo", tier=1)
         result = self.check()
         self.assertFalse(result.findings + result.gaps)
 
     def test_same_owner_needs_no_new_structure_input(self) -> None:
-        self.parent.update(current_scope_unit="CORE", global_tier=9)
-        self.child["global_tier"] = 11
+        self.parent.update(current_scope_unit="CORE", tier=9)
+        self.child["tier"] = 11
         result = self.check(structure=False)
         self.assertFalse(result.findings + result.gaps)
 
@@ -111,19 +127,31 @@ class AncestorParentAdmissionTests(unittest.TestCase):
         self.parent["current_scope_unit"] = self.child["current_scope_unit"]
         for tier in (9, 10):
             with self.subTest(tier=tier):
-                self.parent["global_tier"] = tier
+                self.parent["tier"] = tier
                 result = self.check()
                 self.assertTrue(result.findings)
 
-    def test_greater_tier_ancestor_is_rejected(self) -> None:
-        self.parent["global_tier"] = self.child["global_tier"] + 1
+    def test_greater_tier_ancestor_is_allowed_across_scope(self) -> None:
+        self.parent["tier"] = self.child["tier"] + 1
         result = self.check()
-        self.assertTrue(any("greater Global Tier" in x["reason"] for x in result.findings))
+        self.assertFalse(result.findings + result.gaps)
+
+    def test_same_scope_tier_zero_method_to_requirement_is_allowed(self) -> None:
+        self.child.update(content_role="Method", tier=0)
+        self.parent.update(current_scope_unit="CORE", content_role="Requirement", tier=0)
+        result = self.check()
+        self.assertFalse(result.findings + result.gaps)
+
+    def test_same_scope_tier_zero_requirement_to_requirement_is_blocked(self) -> None:
+        self.child["tier"] = 0
+        self.parent.update(current_scope_unit="CORE", tier=0)
+        result = self.check()
+        self.assertTrue(any("lower numeric Tier" in x["reason"] for x in result.findings))
 
     def test_missing_or_noninteger_tier_remains_unresolved(self) -> None:
         for value in (None, True, "8"):
             with self.subTest(value=value):
-                self.parent["global_tier"] = value
+                self.parent["tier"] = value
                 result = self.check()
                 self.assertTrue(result.gaps)
                 self.assertFalse(result.findings)
@@ -138,19 +166,24 @@ class AncestorParentAdmissionTests(unittest.TestCase):
                 self.assertTrue(self.check().gaps)
 
     def test_invalid_parentage_is_not_accepted(self) -> None:
-        for defect in ("cycle", "duplicate", "unknown", "depth"):
+        for defect in ("cycle", "duplicate", "unknown", "path"):
             with self.subTest(defect=defect):
                 self.setUp()
-                rows = self.structure["scope_units"]
+                rows = copy.deepcopy(self.structure["scope_units"])
+                by_name = {row["scope_unit_name"]: row for row in rows}
                 if defect == "cycle":
-                    rows[1]["parent"] = "CORE"
+                    by_name["METHODOLOGY"]["parent"] = "CORE"
                 elif defect == "duplicate":
-                    rows.append(copy.deepcopy(rows[2]))
+                    rows.append(copy.deepcopy(by_name["CORE"]))
                 elif defect == "unknown":
-                    rows[1]["parent"] = "UNKNOWN"
+                    by_name["METHODOLOGY"]["parent"] = "UNKNOWN"
                 else:
-                    rows[2]["structural_level"] = 9
-                self.assertTrue(self.check().gaps)
+                    by_name["CORE"]["authority_path"] = "../outside"
+                malformed = SimpleNamespace(
+                    as_structure=lambda: {"scope_units": rows},
+                    root=self.declarations.root,
+                )
+                self.assertTrue(self.check(declarations=malformed).gaps)
 
     def test_ancestor_permission_does_not_bypass_active_parent_requirement(self) -> None:
         self.parent["status"] = "Archived"

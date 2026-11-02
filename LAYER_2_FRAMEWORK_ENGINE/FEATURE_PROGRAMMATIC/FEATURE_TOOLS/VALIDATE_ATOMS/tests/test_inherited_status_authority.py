@@ -13,7 +13,7 @@ import yaml
 TOOLS = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(TOOLS))
 
-from authoritative_status_models import StatusModelError, StatusModelIndex, declarations_from_sources  # noqa: E402
+from authoritative_status_models import StatusModelIndex, declarations_from_sources  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers import authority, proposed_carrier  # noqa: E402
 from VALIDATE_ATOMS.tests import test_proposed_carrier_admission_regressions as fixtures  # noqa: E402
 from project_selection import bind_selection  # noqa: E402
@@ -98,8 +98,9 @@ class InheritedStatusAuthorityTests(unittest.TestCase):
         base_path.write_text(BASE["text"].replace("version: 1", "version: 2"), encoding="utf-8")
         with self.assertRaises(proposed_carrier.ProposedCarrierError) as raised:
             scope.revalidate()
-        self.assertIsInstance(raised.exception.__cause__, StatusModelError)
-        self.assertEqual(raised.exception.__cause__.code, "source-stale")
+        self.assertEqual(str(raised.exception), "status-model sources changed during admission")
+        self.assertIsNotNone(raised.exception.__cause__)
+        self.assertIn("changed", str(raised.exception.__cause__))
 
     def test_full_proposed_carrier_with_plan_reference_after_status_source_alignment(self):
         fixture, selection, _ = self.inherited_fixture()

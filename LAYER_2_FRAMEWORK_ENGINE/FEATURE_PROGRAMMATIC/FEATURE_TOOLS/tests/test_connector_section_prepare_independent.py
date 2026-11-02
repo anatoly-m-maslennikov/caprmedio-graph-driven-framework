@@ -43,8 +43,11 @@ class IndependentSectionPreparationTests(unittest.TestCase):
         self.entry_patch.start()
         self.addCleanup(self.entry_patch.stop)
         self.project_fixture = project_fixtures.ProposedCarrierAdmissionRegressions("runTest")
+        self.project_fixture.setUp()
+        self.addCleanup(self.project_fixture.doCleanups)
         self.project_fixture.root = self.root
         self.selection = self.project_fixture.project(root=self.root, source_ids=("CA-R-1700",))
+        self.project_fixture.entry_patch.stop()
         write_frozen_authority(self.root, self.selection.control_relative, ("CA-R-1933", "CA-M-373", "CA-D-623"))
         self.path = self.selection.control_root / "03_plan/CA-P-701--independent-plan.md"
         self.identity = "CA-P-701"

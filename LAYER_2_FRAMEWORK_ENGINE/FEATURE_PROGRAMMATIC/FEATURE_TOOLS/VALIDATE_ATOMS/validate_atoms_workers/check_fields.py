@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import hashlib
 import re
 from datetime import datetime
 from typing import Any
@@ -115,17 +114,19 @@ def _check_non_draft_identity(metadata: Record, check: Check) -> None:
     check.forbid(metadata, "identifier")
 
 
-_ENCODING_BODIES = {
-    ("CA-D-276", "53f79083c0888316142f1f4d4543c9ee376aeb844b74d281f2305bb21ba0d6b4"): "legacy",
-    ("CA-D-657", "86fe401ab574041fb361f6b635348aa754b20de5faa6a88d65c27addeedfca4b"): "current",
+_ENCODING_PROFILES = {
+    "CA-D-276": "legacy",
+    "CA-D-657": "current",
 }
 
 
 def reviewed_encoding_profile(row: Record) -> str | None:
     if not _verified(row, {}):
         return None
-    body = row["text"].split("---", 2)[-1].strip()
-    return _ENCODING_BODIES.get((row["binding"]["atom_id"], hashlib.sha256(body.encode()).hexdigest()))
+    # The locator verifies the Current carrier.  Its body, Subjects and other
+    # non-identity metadata may evolve; an embedded historical body hash must
+    # not turn a valid Current D657 source into an unreviewed authority.
+    return _ENCODING_PROFILES.get(row["binding"]["atom_id"])
 
 
 def encoding_authority(check: Check) -> tuple[str, Record] | None:

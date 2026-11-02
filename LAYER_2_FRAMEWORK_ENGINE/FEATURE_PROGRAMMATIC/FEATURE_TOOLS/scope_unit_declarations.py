@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import os
 from pathlib import Path
 import re
 from typing import Any
@@ -13,11 +14,10 @@ from scope_declaration_parse import (
     assemble_scope_unit_declarations,
     parse_scope_unit_declaration,
 )
-from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext, open_regular
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 
-_IGNORED = frozenset({"archive", "archived", "draft", "generated", "_projection", ".caprmedio_runtime", ".caprmedio_tmp"})
 _DECLARATION_FORM = re.compile(
     r"(?m)^(?:form|type):[ \t]*(?:Scope Unit Declaration|\"Scope Unit Declaration\"|'Scope Unit Declaration')[ \t]*(?:#.*)?$"
 )
@@ -36,20 +36,23 @@ def _control(root: Path, control_root: Path | str) -> Path:
     return control
 
 
-def _current_requirement_paths(reader: ReadContext, control: Path) -> tuple[Path, ...]:
-    paths = []
-    for path in reader.inventory(control, remember=False):
-        relative = path.relative_to(control)
-        is_requirement_carrier = "04_requirement" in relative.parts
-        is_project_declaration_candidate = (
-            path.parent == control and path.name.startswith("CA-R-")
-        )
-        if (path.suffix != ".md" or path.is_symlink()
-                or not (is_requirement_carrier or is_project_declaration_candidate)
-                or any(part.casefold() in _IGNORED for part in relative.parts)):
-            continue
-        paths.append(path)
-    return tuple(sorted(paths, key=lambda path: path.as_posix()))
+def _direct_markdown_paths(reader: ReadContext, directory: Path) -> tuple[Path, ...]:
+    """List one Current role directory without recursively touching its descendants."""
+    try:
+        reader.allowed(directory)
+        descriptor = open_regular(directory, directory=True)
+    except FileNotFoundError:
+        return ()
+    try:
+        with os.scandir(descriptor) as entries:
+            return tuple(sorted(
+                (directory / entry.name for entry in entries
+                 if entry.name != ".DS_Store" and entry.name.endswith(".md")
+                 and entry.is_file(follow_symlinks=False)),
+                key=lambda path: path.as_posix(),
+            ))
+    finally:
+        os.close(descriptor)
 
 
 def _digest(pins: dict[str, dict[str, Any]]) -> str:
@@ -84,6 +87,30 @@ def _is_projection(raw: bytes) -> bool:
     return closing >= 0 and _PROJECTION.search(text[4:closing]) is not None
 
 
+def _declaration_candidates(
+    reader: ReadContext, directory: Path, *, root: bool,
+) -> tuple[tuple[Path, bytes], ...]:
+    """Read only direct Current candidates in a declared authority location."""
+    candidates = []
+    for path in _direct_markdown_paths(reader, directory):
+        if root and not path.name.startswith("CA-R-"):
+            continue
+        raw = reader.read(path, remember=False)
+        if not _is_projection(raw) and _selects_declaration_form(raw):
+            candidates.append((path, raw))
+    return tuple(candidates)
+
+
+def _child_authority(parent_authority: Path, declaration: Any) -> Path:
+    parts = [declaration.scope_unit_id]
+    if declaration.label:
+        parts.append(declaration.label)
+    if declaration.ordered:
+        parts.append(str(declaration.local_order))
+    parts.append(declaration.name)
+    return parent_authority / "_".join(parts)
+
+
 def read_scope_unit_declarations(
     root: Path, control_root: Path | str, *, reader: ReadContext | None = None,
 ) -> ScopeUnitDeclarations:
@@ -96,11 +123,18 @@ def read_scope_unit_declarations(
         reader.allowed(control)
         rows = []
         pins: dict[str, dict[str, Any]] = {}
-        candidates = _current_requirement_paths(reader, control)
-        for path in candidates:
-            raw = reader.read(path, remember=False)
-            if _is_projection(raw) or not _selects_declaration_form(raw):
-                continue
+        frontier: dict[tuple[Path, bool], tuple[Path, ...]] = {}
+
+        def read_candidates(directory: Path, *, root: bool) -> tuple[tuple[Path, bytes], ...]:
+            candidates = _declaration_candidates(reader, directory, root=root)
+            key = (directory, root)
+            expected = tuple(path for path, _ in candidates)
+            if key in frontier and frontier[key] != expected:
+                raise ScopeDeclarationError("Scope Unit Declaration source frontier changed during discovery")
+            frontier[key] = expected
+            return candidates
+
+        def admit(path: Path, raw: bytes, *, parent: Any | None) -> Any:
             try:
                 declaration = parse_scope_unit_declaration(raw, path)
             except ScopeDeclarationError as error:
@@ -108,10 +142,12 @@ def read_scope_unit_declarations(
                 if "not an active Requirement Scope Unit Declaration" in str(error):
                     raise ScopeDeclarationError(f"{path}: declaration Form contradicts its required carrier fields") from error
                 raise
-            if declaration.is_root != (path.parent == control):
+            if declaration.is_root != (parent is None):
                 raise ScopeDeclarationError(
                     "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
                 )
+            if parent is not None and declaration.parent != parent.name:
+                raise ScopeDeclarationError("Scope Unit Declaration is not in its declared parent authority")
             relative = path.relative_to(root).as_posix()
             rows.append(declaration)
             pins[relative] = {
@@ -119,10 +155,21 @@ def read_scope_unit_declarations(
                 "atom_id": declaration.atom_id,
                 "version": declaration.version,
             }
+            return declaration
+
+        roots = [admit(path, raw, parent=None) for path, raw in read_candidates(control, root=True)]
+        if len(roots) == 1:
+            pending = [(roots[0], control)]
+            while pending:
+                parent, authority = pending.pop()
+                for path, raw in read_candidates(authority / "04_requirement", root=False):
+                    declaration = admit(path, raw, parent=parent)
+                    pending.append((declaration, _child_authority(authority, declaration)))
         if not rows:
             raise ScopeDeclarationError("no current Scope Unit Declarations found")
-        if _current_requirement_paths(reader, control) != candidates:
-            raise ScopeDeclarationError("Scope Unit Declaration source frontier changed during discovery")
+        for (directory, is_root), expected in frontier.items():
+            if tuple(path for path, _ in _declaration_candidates(reader, directory, root=is_root)) != expected:
+                raise ScopeDeclarationError("Scope Unit Declaration source frontier changed during discovery")
         for declaration in rows:
             expected = pins[declaration.source.relative_to(root).as_posix()]["sha256"]
             if hashlib.sha256(reader.read(declaration.source, remember=False)).hexdigest() != expected:

@@ -7,18 +7,26 @@ import sys
 import tempfile
 import time
 import unittest
+from unittest.mock import patch
 
 
 APP = Path(__file__).resolve().parents[1]
 ROOT = APP.parents[3]
-for path in (APP, APP / "tests", APP.parents[1] / "FEATURE_MCP"):
+TOOLS = APP.parents[1] / "FEATURE_TOOLS"
+for path in (APP, APP / "tests", TOOLS, APP.parents[1] / "FEATURE_MCP"):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
+import lifecycle_intents
 from selected_execution import SelectedExecution
 from selected_native_providers import SelectedNativeProviders
 from selected_routes import SelectedRouteAdapter
-from selected_workflows_docker_fixture import FixtureLease, GoldenCase, GoldenProject
+from selected_workflows_docker_fixture import (
+    FixtureLease,
+    GoldenCase,
+    GoldenProject,
+    W10_LIFECYCLE_TIMESTAMP,
+)
 
 
 class SelectedNativeRevertRouteTest(unittest.TestCase):
@@ -53,7 +61,12 @@ class SelectedNativeRevertRouteTest(unittest.TestCase):
             frozen = SelectedExecution(root).freeze(
                 {"operation": "enqueue_selected", "run_id": request_id, "execution": execute}
             )
-            result = SelectedNativeProviders(root).dispatch(request_id)
+            with patch.object(
+                lifecycle_intents,
+                "current_timestamp",
+                return_value=W10_LIFECYCLE_TIMESTAMP,
+            ):
+                result = SelectedNativeProviders(root).dispatch(request_id)
             self.assertEqual("terminal", result.get("disposition"), result)
             self.assertNotEqual(before_dispatch_bytes, path.read_bytes())
             self.assertIn(b"Reverted detail.", path.read_bytes())

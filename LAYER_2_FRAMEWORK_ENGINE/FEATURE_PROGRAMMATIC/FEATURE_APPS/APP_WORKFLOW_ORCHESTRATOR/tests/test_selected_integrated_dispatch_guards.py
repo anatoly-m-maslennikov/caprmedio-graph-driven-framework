@@ -3,6 +3,13 @@
 from __future__ import annotations
 
 import copy
+from pathlib import Path
+import sys
+
+
+APP = Path(__file__).resolve().parents[1]
+if str(APP) not in sys.path:
+    sys.path.insert(0, str(APP))
 
 from selected_evidence_io import atomic_write, run_directory
 from selected_execution_contracts import SelectedExecutionError

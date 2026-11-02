@@ -37,6 +37,16 @@ class SectionPreparationTests(unittest.TestCase):
         self.addCleanup(self.carriers.doCleanups)
         self.root = self.io.root
         self.selection = self.carriers.project(root=self.root)
+        selected_entry = carrier_fixture.admission._entry
+
+        def section_entry(identifier, **kwargs):
+            if identifier in SECTION_AUTHORITY_IDS:
+                return frozen_entry(identifier, **kwargs)
+            return selected_entry(identifier, **kwargs)
+
+        self.carriers.entry_patch.stop()
+        self.carriers.entry_patch = patch.object(carrier_fixture.admission, "_entry", section_entry)
+        self.carriers.entry_patch.start()
         write_frozen_authority(self.root, self.selection.control_relative, SECTION_AUTHORITY_IDS)
         self.path = self.selection.control_root / "03_plan/CA-P-701--independent-plan.md"
         self.path.parent.mkdir(parents=True)

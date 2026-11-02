@@ -20,7 +20,8 @@ APP = Path(__file__).resolve().parents[1]
 REPOSITORY = APP.parents[3]
 TOOLS = APP.parents[1] / "FEATURE_TOOLS"
 MCP = APP.parents[1] / "FEATURE_MCP"
-for location in (TOOLS / "tests", TOOLS, MCP, APP, Path(__file__).resolve().parent):
+MCP_TESTS = MCP / "tests"
+for location in (TOOLS / "tests", TOOLS, MCP, MCP_TESTS, APP, Path(__file__).resolve().parent):
     if str(location) not in sys.path:
         sys.path.insert(0, str(location))
 
@@ -29,6 +30,8 @@ for location in (TOOLS / "tests", TOOLS, MCP, APP, Path(__file__).resolve().pare
 import test_model_driven_status_lifecycle as native_goldens  # noqa: E402
 from selected_execution import SelectedExecution, SelectedExecutionError  # noqa: E402
 from selected_routes import SelectedRouteAdapter, SelectedRouteError  # noqa: E402
+from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
+from test_selected_routes_mcp import copy_complete_selected_guard_fixture  # noqa: E402
 from selected_workflows_docker_fixture import GoldenCase, GoldenProject, digest  # noqa: E402
 
 
@@ -64,12 +67,26 @@ class SharedSourceDrivenStatusTest(unittest.TestCase):
         self.project = _StatusProject(REPOSITORY, self.root, GoldenCase("W04", ROUTE))
 
     def prepare_route(self) -> None:
-        # Copy the actual canonical portfolio and its declared definition sources.
-        self.project.manifest = self.project._copy_reviewed_manifest()
+        # Add only the guard fixture's missing declared source boundary; status sources remain native.
+        write_scope_unit_declarations(self.root, (
+            {"scope_unit_name": "METHODOLOGY_SOURCES", "parent": "PROJECT",
+             "scope_unit_type": "Unordered", "scope_unit_label": "METHODOLOGY"},
+            {"scope_unit_name": "CORE_META_MODEL", "parent": "METHODOLOGY_SOURCES",
+             "scope_unit_type": "Unordered", "scope_unit_label": "METHODOLOGY"},
+            {"scope_unit_name": "PROJECT_CONFIGURATION", "parent": "METHODOLOGY_SOURCES",
+             "scope_unit_type": "Ordered", "scope_unit_label": "LAYER", "local_order": 3},
+            {"scope_unit_name": "STATUS_FIXTURE", "parent": "PROJECT",
+             "scope_unit_type": "Unordered", "scope_unit_label": "FIXTURE"},
+            {"scope_unit_name": "TOOL_WORKFLOWS", "parent": "PROJECT",
+             "scope_unit_type": "Unordered", "scope_unit_label": "FEATURE"},
+        ), control_root=self.root / native_goldens.CONTROL)
+        # Reuse the declaration-aware shared guard closure; status sources remain native.
+        self.project.manifest = copy_complete_selected_guard_fixture(self.root)
 
     def authority_snapshot(self) -> dict[str, str | None]:
         allowed_evidence = {self.journal.relative_to(self.root),
                             Path(".caprmedio_runtime/state/work_journal"),
+                            Path(".caprmedio_tmp/workflow_orchestrator"),
                             *self.admitted_run_roots}
         snapshot = {}
         for relative, value in self.fixture.snapshot().items():

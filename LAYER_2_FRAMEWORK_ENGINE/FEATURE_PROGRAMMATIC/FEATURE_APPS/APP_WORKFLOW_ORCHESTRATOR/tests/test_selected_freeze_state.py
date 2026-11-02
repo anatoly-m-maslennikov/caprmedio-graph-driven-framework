@@ -31,7 +31,7 @@ class SelectedFreezeStateTests(unittest.TestCase):
         return {
             "operation": "enqueue_selected",
             "run_id": run_id,
-            "execution": {"workflow_run_id": run_id, "requested_runs": []},
+            "execution": {"mode": "execute", "workflow_run_id": run_id, "requested_runs": []},
         }
 
     @staticmethod
@@ -45,10 +45,10 @@ class SelectedFreezeStateTests(unittest.TestCase):
         old = SelectedExecution.__new__(SelectedExecution)
         old.root = root
         with (
-            patch.object(SelectedExecution, "_validate_graph", return_value=graph),
-            patch.object(SelectedExecution, "_validate_requested_runs"),
-            patch.object(SelectedExecution, "_validate_query_admission"),
-            patch.object(SelectedExecution, "_validate_lifecycle_admission", return_value=None),
+            patch("selected_freeze_state.validate_graph", return_value=graph),
+            patch("selected_freeze_state.validate_requested_runs"),
+            patch("selected_freeze_state.validate_query_admission"),
+            patch("selected_freeze_state.validate_lifecycle_admission", return_value=None),
         ):
             legacy = old.freeze(request)
         state_path = (

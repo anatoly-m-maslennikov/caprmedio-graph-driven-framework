@@ -7,7 +7,7 @@ import unittest
 from unittest.mock import patch
 
 import test_selected_lifecycle_journal as lifecycle_fixture
-from selected_execution import SelectedExecution
+from selected_replacement_journal import canonical_event
 from work_journal import append_sealed_events, read_records
 
 sys.path.insert(0, str(lifecycle_fixture.TOOLS / "VALIDATE_ATOMS"))
@@ -22,8 +22,6 @@ class FirstRecordedReplacementChangeTests(unittest.TestCase):
         self.root, self.path = self.harness.root, self.harness.path
 
     def test_first_selected_event_preserves_observed_replacement_identity_order(self) -> None:
-        selected = SelectedExecution.__new__(SelectedExecution)
-        selected.root = self.root
         original = {
             "atom_id": "CA-R-100",
             "path": "atoms/draft.md",
@@ -36,7 +34,7 @@ class FirstRecordedReplacementChangeTests(unittest.TestCase):
             "path": "archive/draft.md",
             "digest": "1" * 64,
         }
-        event = selected._replacement_canonical_event(
+        event = canonical_event(
             parameters={"predecessor": original},
             native_result={
                 "history": {"predecessor": original},

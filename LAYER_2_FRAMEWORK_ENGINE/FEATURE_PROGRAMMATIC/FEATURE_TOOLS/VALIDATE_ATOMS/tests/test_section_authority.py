@@ -14,6 +14,7 @@ from project_selection import bind_selection
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
+from current_atom_locator import CurrentAtomLocatorError
 import test_proposed_carrier_admission_regressions as fixtures  # noqa: E402
 
 
@@ -21,6 +22,15 @@ SECTION_SOURCES = ("CA-R-1933", "CA-M-373", "CA-D-623")
 
 
 class SectionAuthorityTests(unittest.TestCase):
+    def selected_source_path(self, identifier):
+        core = next(
+            Path(row["authority_path"])
+            for row in self.selection.structure["scope_units"]
+            if row["scope_unit_name"] == "CORE_META_MODEL"
+        )
+        folder = {"R": "04_requirement", "M": "05_method", "D": "07_delivery"}[identifier.split("-")[1]]
+        return self.root / core / folder / f"{identifier}.md"
+
     def setUp(self):
         self.fixture = fixtures.ProposedCarrierAdmissionRegressions()
         self.fixture.setUp()
@@ -41,7 +51,7 @@ class SectionAuthorityTests(unittest.TestCase):
                     )
                     entry = proposed_carrier._entry(identifier)
                     self.assertEqual(source["binding"]["sha256"], entry["sha256"])
-                    path = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
+                    path = self.selected_source_path(identifier)
                     self.assertEqual(source["binding"]["path"], str(path))
         self.assertEqual(context._reader.currentness()["state"], "unchanged")
 
@@ -59,7 +69,7 @@ class SectionAuthorityTests(unittest.TestCase):
                             path.write_bytes(raw)
                         reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
                         report = {"bindings": {}, "coverage": {"gaps": []}}
-                        with self.assertRaises(proposed_carrier.ProposedCarrierError):
+                        with self.assertRaises((proposed_carrier.ProposedCarrierError, CurrentAtomLocatorError)):
                             proposed_carrier._source(root, identifier, reader, report)
 
 

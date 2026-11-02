@@ -66,7 +66,7 @@ class ProposedReferenceScopeTests(unittest.TestCase):
             ))),
             "authority_paths": sorted([
                 self.control.as_posix(),
-                (self.control / "CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES").as_posix(),
+                *[row["authority_path"] for row in self.selection.structure["scope_units"]],
             ]),
             "direct_targets": ["CA-O-901"], "plan_parent_closure": [],
         })

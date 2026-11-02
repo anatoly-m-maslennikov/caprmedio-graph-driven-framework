@@ -269,19 +269,6 @@ def require_subject_publication_window(root, request, intent):
         _reject("The exact trusted publication window is not active")
 
 
-def revalidate_subject_publication_authority(root, request, intent):
-    """Observe unchanged governing/review evidence after the actual readback."""
-    from subject_batch_authorization import validate_batch_action
-    if validate_batch_action(root, request):
-        return
-    require_subject_publication_window(root, request, intent)
-    record = _record(_BOUND.get())
-    if _originals(record.root) != record.originals:
-        _reject("The confirmed original-identity frontier changed")
-    for source in record.authorities:
-        source.revalidate()
-
-
 def with_subject_publication_window(action):
     """Bind exact host confirmation through the action and caught restoration."""
     @wraps(action)

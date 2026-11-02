@@ -1,0 +1,38 @@
+{
+  "scope_cutover": "applied",
+  "current_declarations": 44,
+  "current_source_digest": "48a2f03d12ceddd7ec49dc31793bbab98ac45329a9a5d07e53c6930cfd0f36ca",
+  "toml_absent": true,
+  "retirement_task": "CA-P-2706 Done",
+  "verification_task": "CA-P-2707 Active",
+  "epic": "CA-P-2694 Active",
+  "complete_run": {
+    "modules": 517,
+    "tests": 4252,
+    "skipped": 0,
+    "failed_modules": 28,
+    "launcher": [
+      "passed"
+    ],
+    "log": ".caprmedio_tmp/declaration-source-cutover/final-full-suite.log"
+  },
+  "targeted_docker_retry": {
+    "modules": 2,
+    "tests": 9,
+    "skipped": 0,
+    "failed_modules": 0,
+    "launcher": "passed",
+    "log": ".caprmedio_tmp/declaration-source-cutover/final-docker-retry.log"
+  },
+  "focused_checks": "focused-checks.json",
+  "known_expected_failure": {
+    "task": "CA-P-2708",
+    "test": "test_current_prepare_step_runs_through_the_native_graph_adapter"
+  },
+  "open_engine_issues": [
+    "W10 result hash forecasts a fixed Updated At while the Docker worker uses real time",
+    "Live current carrier-authority closure still requires retired CA-D-274"
+  ],
+  "release_or_deployment": false,
+  "git_owner": "CA #5: Main 2; no Root Git operations"
+}

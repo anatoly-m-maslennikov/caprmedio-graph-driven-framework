@@ -250,14 +250,13 @@ class SubjectPublicationConfirmationTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_exception_after_native_effect_reports_uncertain_without_zero_effect_claim(self):
         context = self.context(types.ElicitResult(action="accept", content={"review": True, "pause": True}))
-        write = self.runner._write
+        dispatch = self.runner._dispatch_confirmed_subject
 
-        def failed_after_effect(path, payload):
-            if path.name in {"accepted.json", "dispatch_uncertain.json"}:
-                raise OSError("fixture selected result write failure after effect")
-            return write(path, payload)
+        def failed_after_effect(*args, **kwargs):
+            dispatch(*args, **kwargs)
+            raise OSError("fixture dispatch result failure after effect")
 
-        with patch.object(self.runner, "_write", side_effect=failed_after_effect):
+        with patch.object(self.runner, "_dispatch_confirmed_subject", side_effect=failed_after_effect):
             response = await self.confirm(context)
         data = response.structured_content
         self.assertEqual("uncertain", data["status"])

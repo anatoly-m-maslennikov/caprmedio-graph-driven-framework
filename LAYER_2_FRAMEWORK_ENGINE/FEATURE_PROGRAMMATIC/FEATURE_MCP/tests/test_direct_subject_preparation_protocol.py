@@ -30,7 +30,6 @@ import atom_operations as operations  # noqa: E402
 import atom_subject_patch as subject_patch  # noqa: E402
 import atom_subject_stage as staging  # noqa: E402
 import test_nonarchived_subject_preview as native_fixture  # noqa: E402
-from subject_notation import get_profile  # noqa: E402
 from frozen_selected_workflows import frozen_preparation_bindings, frozen_source_bytes  # noqa: E402
 
 
@@ -294,7 +293,7 @@ class DirectSubjectPreparationProtocolTests(unittest.IsolatedAsyncioTestCase):
                 self._refusal(await self._call(session, self.request, pure=True), "preview_subjects")
             finally:
                 self.excluded.write_bytes(before)
-            for target in (self.path, self.root / get_profile("approved").grammar_pins[0].path):
+            for target in (self.path, self.root / subject_patch.get_profile("approved").grammar_pins[0].path):
                 original = target.read_bytes()
                 try:
                     target.write_bytes(original + b"\nExternal source drift.\n" if target == self.path else
@@ -326,7 +325,7 @@ class DirectSubjectPreparationProtocolTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual(1, native_stage.call_count)
                 self.assertEqual(tampered["preview_sha256"], native_stage.call_args.kwargs["expected_preview_sha256"])
                 self.assertEqual(tampered["illustrative_updated_at"], native_stage.call_args.kwargs["timestamp"])
-            grammar = self.root / get_profile("approved").grammar_pins[0].path
+            grammar = self.root / subject_patch.get_profile("approved").grammar_pins[0].path
             original = grammar.read_bytes()
             real_preview = staging.preview_subject_patches
             observed = []

@@ -24,7 +24,7 @@ class CreateAtomConflictTests(unittest.TestCase):
             bind_selection(fixture.project(source_ids=("CA-R-1309", "CA-R-1397", "CA-R-1399")))
         )
         self.destination = self.root / ".caprmedio_selected/04_requirement/CA-R-901--occupied.md"
-        self.destination.parent.mkdir(parents=True)
+        self.destination.parent.mkdir(parents=True, exist_ok=True)
         self.destination.write_text(
             "---\n"
             "atom_id: CA-R-901\n"

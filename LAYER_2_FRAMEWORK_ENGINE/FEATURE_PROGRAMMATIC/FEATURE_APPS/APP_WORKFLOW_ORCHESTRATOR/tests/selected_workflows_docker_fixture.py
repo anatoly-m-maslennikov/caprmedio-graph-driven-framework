@@ -72,6 +72,9 @@ ROUTE_CASES = (
 )
 MANIFEST_ROUTE_NAMES = tuple(route for _, route in ROUTE_CASES)
 QUERY_SOURCE_ADMISSION_ROUTE_NAMES = MANIFEST_ROUTE_NAMES[-2:]
+_QUERY_PROJECT_CONFIGURATION_ATOM_IDS = frozenset(
+    f"CA-O-{number}" for number in range(158, 164)
+)
 _CONTEXT_DECLARATION_ATOM_ID = "CA-D-514"
 _CONTEXT_DECLARATION_PIN = frozen_behavior_bindings()[_CONTEXT_DECLARATION_ATOM_ID]
 _CONTEXT_DECLARATION_PATH = Path(_CONTEXT_DECLARATION_PIN["source_path"])
@@ -1093,41 +1096,6 @@ class GoldenProject:
         freshness = manifest.get("source_freshness")
         if not isinstance(freshness, dict):
             raise GoldenCorpusError("selected workflow manifest omits source freshness")
-        try:
-            from selected_routes import _QUERY_SOURCE_ADMISSION_SPECS
-        except ImportError as error:
-            raise GoldenCorpusError("selected query-source admission specs are unavailable") from error
-
-        query_hints: dict[str, str] = {}
-
-        def collect_query_pins(value: object) -> None:
-            if isinstance(value, Mapping):
-                atom_id = value.get("atom_id")
-                source_path = value.get("source_path")
-                if isinstance(atom_id, str) and atom_id.startswith("CA-O-") and isinstance(source_path, str):
-                    query_hints[atom_id] = source_path
-                for child in value.values():
-                    collect_query_pins(child)
-            elif isinstance(value, list):
-                for child in value:
-                    collect_query_pins(child)
-
-        for specification in _QUERY_SOURCE_ADMISSION_SPECS:
-            collect_query_pins(specification)
-
-        def rewrite_query_pins(value: object) -> None:
-            if isinstance(value, dict):
-                atom_id = value.get("atom_id")
-                if isinstance(atom_id, str) and atom_id in query_hints and "source_path" in value:
-                    value["source_path"] = query_hints[atom_id]
-                for child in value.values():
-                    rewrite_query_pins(child)
-            elif isinstance(value, list):
-                for child in value:
-                    rewrite_query_pins(child)
-
-        rewrite_query_pins(manifest["routes"])
-        rewrite_query_pins(manifest.get("query_source_admissions"))
         registry = _safe_relative(freshness.get("selected_source_registry_ref"), name="source registry")
         self._copy_pinned(registry, freshness.get("selected_source_registry_digest"))
         copied: set[Path] = {registry}
@@ -1187,6 +1155,14 @@ class GoldenProject:
                 destination = self._declared_source_path(source_relative)
             except GoldenCorpusError:
                 pass
+            if (
+                self._scope_rows is not None
+                and "-".join(relative.name.split("-", 3)[:3]) in _QUERY_PROJECT_CONFIGURATION_ATOM_IDS
+            ):
+                destination = self._scope_path("PROJECT_CONFIGURATION", "authority_path") / Path(*(
+                    part.replace("-CORE_META_MODEL-", "-PROJECT_CONFIGURATION-")
+                    for part in source_relative.parts[1:]
+                ))
         if destination is None:
             try:
                 source_relative = relative.relative_to(_LEGACY_DECLARED_SOURCE_ROOT.parent)

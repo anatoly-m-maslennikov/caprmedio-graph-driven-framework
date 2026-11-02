@@ -59,7 +59,7 @@ class FlatPlanArchiveTests(unittest.TestCase):
             "---\n"
             f"{identity}content_role: Plan\ntype: Plan\nlabel: Task\n"
             "current_scope_unit: LIFECYCLE_FIXTURE\nclaim_target_scope_unit: LIFECYCLE_FIXTURE\n"
-            "local_tier: Standard\nglobal_tier: 14\nwork_sequence_number: 1\n"
+            "tier: 14\nwork_sequence_number: 1\n"
             "author: Anatoly Maslennikov\n"
             f"status: {status}\nversion: {version}\n"
             'updated_at: "2026-01-01 00:00:00 +0000"\n'

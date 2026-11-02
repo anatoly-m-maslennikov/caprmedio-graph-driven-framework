@@ -135,7 +135,7 @@ class ReferenceEvidenceHandoffIndependentTests(unittest.TestCase):
         scoped = self.fixture.fixture
         entry = blocking.scoped.admission._entry("CA-D-378")
         path = scoped.root / scoped.control.joinpath(*Path(entry["source_path"]).parts[1:])
-        self.assertNotIn(str(path), scoped.context._reader.fingerprints)
+        self.assertIn(str(path), scoped.context._reader.fingerprints)
         raw = path.read_bytes()
         version = blocking.scoped.admission.parse_carrier(raw, path).metadata["version"]
         current = raw.replace(
@@ -143,9 +143,8 @@ class ReferenceEvidenceHandoffIndependentTests(unittest.TestCase):
         )
         self.assertNotEqual(raw, current)
         path.write_bytes(current)
-        result = self.fixture.validate()
-        self.assertEqual((result["findings"], result["gaps"]), ([], []))
-        self.assertIn(str(path), scoped.context._reader.fingerprints)
+        with self.assertRaises(blocking.scoped.admission.ProposedCarrierError):
+            self.fixture.validate()
 
     def test_plan_namespace_authority_changed_after_read_refuses(self):
         self.fixture.target("Backlog")

@@ -121,7 +121,7 @@ class GraphAuthorityRefreshTests(unittest.TestCase):
             (owners["PROJECT_CONFIGURATION"] / "04_requirement").symlink_to(
                 owners["CORE_META_MODEL"] / "04_requirement", target_is_directory=True
             )
-            with self.assertRaisesRegex(ValueError, "directory is unavailable"):
+            with self.assertRaisesRegex(ValueError, "Scope Unit Declaration source discovery is unavailable or unsafe"):
                 _source_roots(root)
 
     def test_stale_pin_is_refused(self) -> None:

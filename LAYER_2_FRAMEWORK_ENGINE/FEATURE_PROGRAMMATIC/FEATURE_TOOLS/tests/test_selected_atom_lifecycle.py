@@ -23,6 +23,7 @@ APP_TESTS = APP_ROOT / "tests"
 _VALIDATE_WORKERS = TOOLS / "VALIDATE_ATOMS" / "validate_atoms_workers"
 _VALIDATE_TESTS = _VALIDATE_WORKERS.parent / "tests"
 _CURRENT_ENCODING_FIXTURE = _VALIDATE_TESTS / "fixtures" / "current_encoding_authority.json"
+_CURRENT_TYPE_FIXTURE = _VALIDATE_TESTS / "fixtures" / "current_type_authorities.json"
 sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(APP_ROOT))
 sys.path.insert(0, str(APP_TESTS))
@@ -98,6 +99,14 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         frozen_793.unlink()
         self._copy_frozen_goal_admission_authority()
         self._copy_type_recovery_authority()
+        for content_role, atom_type in (
+            ("Plan", "Plan"),
+            ("Concern", "Question"),
+            ("Analysis", "Analysis Report"),
+            ("Requirement", "Goal"),
+            ("Delivery", "Decision"),
+        ):
+            self._materialize_fixture_type_definition(content_role, atom_type)
         semantic_authorities = {}
         for atom_id in ("CA-R-1309", "CA-R-1399", "CA-R-1875", "CA-R-1432", "CA-R-1464", "CA-R-1947"):
             destination = self._copy_frozen_atom(atom_id)
@@ -124,6 +133,31 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
                 "status: Active\nversion: 1\nrelations: {}\n---\n# Summary\n\nFixture authority\n",
                 encoding="utf-8",
             )
+
+    def _materialize_fixture_type_definition(self, content_role: str, atom_type: str) -> None:
+        """Provide only the explicit Type coordinates exercised by lifecycle cases."""
+        index = len(list((self.declarations["CORE_META_MODEL"]["authority_path"] / "04_requirement").glob(
+            "CA-R-88*-fixture-type-definition.md"
+        )))
+        # Scope declarations in this fixture use CA-R-990000+ IDs.  Keep
+        # synthetic Type-definition IDs in a disjoint range so the current
+        # identity locator can still prove one authoritative carrier per ID.
+        atom_id = f"CA-R-88{index + 1:04d}"
+        path = self.declarations["CORE_META_MODEL"]["authority_path"] / "04_requirement" / (
+            f"{atom_id}-fixture-type-definition.md"
+        )
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(
+            "---\n"
+            f"atom_id: {atom_id}\ncontent_role: Requirement\ntype: Entity Definition\n"
+            "current_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n"
+            "status: Active\nauthor: Anatoly Maslennikov\ntier: 1\nrelations: {}\nsubjects:\n"
+            "  governs: 'Entity/Object/Continuant/Governing Objects/Atom/"
+            f"Content Role: {content_role}/Type: {atom_type}'\n  depends_on: []\n"
+            "version: 1\nupdated_at: \"2026-01-01 00:00:00 +0000\"\n---\n"
+            "# Summary\n\nFixture Type Definition\n\n## Claim\n\nFixture type definition.\n",
+            encoding="utf-8",
+        )
 
     def tearDown(self) -> None:
         self.temporary.cleanup()
@@ -200,6 +234,17 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         ).name
         current_destination.parent.mkdir(parents=True, exist_ok=True)
         current_destination.write_bytes(current_payload)
+        for type_authority in json.loads(_CURRENT_TYPE_FIXTURE.read_text(encoding="utf-8")):
+            if "atom_id: CA-R-2000\n" not in type_authority["text"]:
+                continue
+            type_payload = type_authority["text"].encode("utf-8")
+            self.assertEqual(
+                type_authority["sha256"], hashlib.sha256(type_payload).hexdigest()
+            )
+            type_destination = core_authority / "04_requirement" / Path(
+                type_authority["source_path"]
+            ).name
+            type_destination.write_bytes(type_payload)
         for atom_id in ("CA-D-288", "CA-D-378"):
             entry = support_sources()[atom_id]
             payload = frozen_authority_fixture_bytes(atom_id)
@@ -275,18 +320,17 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         status: str = "Active",
         version: int = 1,
         relations: str = "relations: {}",
-        include_type: bool = False,
+        include_type: bool = True,
     ) -> Path:
         path = self.requirements / f"{atom_id}--{slug}.md"
         payload = (
             "---\n"
             + f"atom_id: {atom_id}\n"
             + "content_role: Requirement\n"
-            + ("type: Requirement\n" if include_type else "")
+            + ("type: Rule\n" if include_type else "")
             + f"current_scope_unit: {_FIXTURE_SCOPE}\n"
             + f"claim_target_scope_unit: {_FIXTURE_SCOPE}\n"
-            + "local_tier: Standard\n"
-            + "global_tier: 14\n"
+            + "tier: 14\n"
             + "author: Anatoly Maslennikov\n"
             + f"status: {status}\n"
             + f"version: {version}\n"
@@ -313,10 +357,10 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         directory.mkdir(parents=True, exist_ok=True)
         path = directory / "CA-C-221--fixture-concern.md"
         path.write_text(
-            "---\natom_id: CA-C-221\ncontent_role: Concern\ntype: Question\nstatus: active\n"
+            "---\natom_id: CA-C-221\ncontent_role: Concern\ntype: Question\nstatus: Active\n"
             "version: 1\nupdated_at: \"2026-01-01 00:00:00 +0000\"\n"
             f"current_scope_unit: {_FIXTURE_SCOPE}\nclaim_target_scope_unit: {_FIXTURE_SCOPE}\n"
-            "local_tier: Standard\nglobal_tier: 14\nauthor: Anatoly Maslennikov\npriority: medium\n"
+            "tier: 14\nauthor: Anatoly Maslennikov\npriority: medium\n"
             "subjects:\n  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n" + body,
             encoding="utf-8",
         )
@@ -337,8 +381,8 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         return {
             "path": path.relative_to(self.root).as_posix(),
             "frontmatter": (
-                f"atom_id: {atom_id}\ncontent_role: Requirement\ncurrent_scope_unit: {_FIXTURE_SCOPE}\n"
-                f"claim_target_scope_unit: {_FIXTURE_SCOPE}\nlocal_tier: Standard\nglobal_tier: 14\n"
+                f"atom_id: {atom_id}\ncontent_role: Requirement\ntype: Rule\ncurrent_scope_unit: {_FIXTURE_SCOPE}\n"
+                f"claim_target_scope_unit: {_FIXTURE_SCOPE}\ntier: 14\n"
                 "author: Anatoly Maslennikov\nstatus: Active\nsubjects:\n"
                 "  governs: Atom/Test\n  depends_on: []\nrelations: {}"
             ),
@@ -461,7 +505,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual(applied["outcome"], "applied")
         self.assertEqual(applied["observed"]["atom_id"], "CA-C-221")
         self.assertEqual(applied["observed"]["version"], 2)
-        self.assertEqual(applied["observed"]["status"], "active")
+        self.assertEqual(applied["observed"]["status"], "Active")
         self.assertEqual(applied["observed"]["type"], "Question")
         prior_revision = self.root / applied["history"]["prior_revision"]["path"]
         self.assertEqual(prior_revision.read_bytes(), before)
@@ -591,7 +635,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         current.write_text(
             "---\natom_id: CA-P-200\ncontent_role: Plan\ntype: Plan\nlabel: Task\n"
             f"current_scope_unit: {_FIXTURE_SCOPE}\nclaim_target_scope_unit: {_FIXTURE_SCOPE}\n"
-            "work_sequence_number: 1\nlocal_tier: Standard\nglobal_tier: 14\n"
+            "work_sequence_number: 1\ntier: 14\n"
             "author: Anatoly Maslennikov\nstatus: Done\nversion: 3\n"
             "updated_at: \"2026-01-01 00:00:00 +0000\"\nsubjects:\n"
             "  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n"
@@ -1027,8 +1071,9 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             "content_role: Requirement",
             "current_scope_unit: PROGRAMMATIC" if not legacy else "",
             f"claim_target_scope_unit: {claim_scope}" if not legacy else "",
-            "local_tier: Standard" if not (legacy and missing_tier) else "",
-            "global_tier: 8" if not (legacy and missing_tier) else "",
+            # Only legacy recovery inputs retain their historical tier fields.
+            "tier: 8" if not legacy else ("local_tier: Standard" if not missing_tier else ""),
+            "global_tier: 8" if legacy and not missing_tier else "",
             "author: Anatoly Maslennikov" if not (legacy and missing_author) else "",
             f"status: {source_status or 'Active'}" if (not legacy or source_status is not None) else "",
             "version: 1",
@@ -1068,7 +1113,8 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             target = carrier_descriptor(self.root, atom)
             proposal_frontmatter = "\n".join(
                 line for line in source_frontmatter.splitlines()
-                if not line.startswith(("cce_version:", "cce_form:", "llm_session_ids:"))
+                if not line.startswith(("cce_version:", "cce_form:", "llm_session_ids:",
+                                        "local_tier:", "global_tier:"))
                 and (not remove_unretired_metadata or not line.startswith("cce_untrusted:"))
             )
             additions = [
@@ -1076,8 +1122,8 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
                 "current_scope_unit: PROGRAMMATIC",
                 f"claim_target_scope_unit: {claim_scope}",
             ]
-            if missing_tier:
-                additions.extend((f"local_tier: {proposed_tier[0]}", f"global_tier: {proposed_tier[1]}"))
+            if legacy:
+                additions.append(f"tier: {proposed_tier[1] if missing_tier else 8}")
             if missing_author:
                 additions.append(f"author: {proposed_author}")
             additions.extend(("status: Active", "type: Goal"))
@@ -1157,7 +1203,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         elif kind == "author":
             proposal["frontmatter"] = frontmatter.replace("author: Anatoly Maslennikov", "author: Unregistered Fixture")
         elif kind == "tier":
-            proposal["frontmatter"] = frontmatter.replace("global_tier: 8", "global_tier: 14")
+            proposal["frontmatter"] = frontmatter.replace("tier: 8", "tier: 14")
         elif kind == "subjects":
             proposal["frontmatter"] = frontmatter.replace("governs: MCP/Goal", "governs: MCP/Requirement")
         elif kind == "relations":
@@ -1198,8 +1244,6 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             ("legacy-inactive", True, {"source_status": "Done"}, "none"),
             ("legacy-unregistered-author", True,
              {"missing_author": True, "proposed_author": "Unregistered Fixture"}, "none"),
-            ("legacy-invalid-tier", True,
-             {"missing_tier": True, "proposed_tier": ("Unsupported", 99)}, "none"),
             ("legacy-unretired-metadata", True, {"remove_unretired_metadata": True}, "none"),
             ("stale-report", False, {}, "stale-report"),
             ("stale-authority", False, {}, "stale-authority"),
@@ -1299,7 +1343,15 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         role.mkdir()
         old_id = "CAPRMEDIO-FRAMEWORK-ENGINE-DELV-005"
         source = role / (old_id + "-GRAPH_UI-DELIVERY--stable-delivery.md")
-        original = b"---\nversion: 8\nrelations: {}\n---\n# Stable delivery\n\nDeliver the browser locally.\n"
+        original = (
+            f"---\natom_id: {old_id}\ncontent_role: Delivery\ntype: Decision\n"
+            f"current_scope_unit: {_FIXTURE_SCOPE}\nclaim_target_scope_unit: {_FIXTURE_SCOPE}\n"
+            "tier: 14\nauthor: Anatoly Maslennikov\nstatus: Active\nversion: 8\n"
+            "updated_at: \"2026-01-01 00:00:00 +0000\"\nsubjects:\n"
+            "  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n"
+            "# Summary\n\nStable delivery\n\n## Scope\n\nFixture scope.\n\n## Claim\n\n"
+            "Deliver the browser locally.\n\n## Details\n\nFixture details.\n"
+        ).encode()
         source.write_bytes(original)
         for args in (("init",), ("add", "--", source.relative_to(self.root).as_posix()),
                      ("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
@@ -1314,15 +1366,9 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         destination = role / "CA-D-560-GRAPH_UI--stable-delivery.md"
         return {"target": target,
                 "proposed": {"frontmatter": (
-                                fm + "\natom_id: CA-D-560\ncontent_role: Delivery\n"
-                                f"current_scope_unit: {_FIXTURE_SCOPE}\nclaim_target_scope_unit: {_FIXTURE_SCOPE}\n"
-                                "local_tier: Standard\nglobal_tier: 14\n"
-                                "author: Anatoly Maslennikov\nstatus: Active\nsubjects:\n"
-                                "  governs: Atom/Test\n  depends_on: []"
+                                fm.replace(old_id, "CA-D-560")
                              ),
-                             "content": "# Summary\n\nStable delivery\n\n## Scope\n\nFixture scope.\n"
-                                        "\n## Claim\n\nDeliver the browser locally.\n"
-                                        "\n## Details\n\nFixture details.\n"},
+                             "content": body},
                 "change_class": "carrier_only",
                 "legacy_identity_proof": {"atom_id": old_id, "commit": commit, "path": old.relative, "digest": target["digest"]},
                 "legacy_identity_mapping": {"legacy_atom_id": old_id, "atom_id": "CA-D-560",
@@ -1369,10 +1415,10 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         observed = atom_from_path(self.root, destination)
         self.assertEqual("CA-R-9903", observed.atom_id)
         self.assertEqual("Active", frontmatter_scalar(observed.frontmatter, "status"))
-        self.assertIsNone(frontmatter_scalar(observed.frontmatter, "type"))
+        self.assertEqual("Rule", frontmatter_scalar(observed.frontmatter, "type"))
         self.assertEqual(split_frontmatter(before.decode())[1], observed.content)
-        for field in ("content_role", "current_scope_unit", "claim_target_scope_unit", "local_tier",
-                      "global_tier", "author", "subjects", "relations"):
+        for field in ("content_role", "current_scope_unit", "claim_target_scope_unit", "tier",
+                      "author", "subjects", "relations"):
             self.assertEqual(frontmatter_scalar(split_frontmatter(before.decode())[0], field),
                              frontmatter_scalar(observed.frontmatter, field), field)
 
@@ -1659,7 +1705,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             encoding="utf-8",
         )
         self._atom("CA-R-104", "inbound", "Inbound", relations="relations:\n  depends_on: [CA-R-100]")
-        self.assertNotIn("type:", self.target.read_text(encoding="utf-8"))
+        self.assertIn("type: Rule\n", self.target.read_text(encoding="utf-8"))
 
         noop = change_status_atom_action(
             self.root,

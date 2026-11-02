@@ -13,8 +13,10 @@ from mcp import Client, StdioServerParameters
 
 
 MCP_ROOT = Path(__file__).resolve().parents[1]
-if str(MCP_ROOT) not in sys.path:
-    sys.path.insert(0, str(MCP_ROOT))
+TOOLS_ROOT = MCP_ROOT.parent / "FEATURE_TOOLS"
+for directory in (MCP_ROOT, TOOLS_ROOT):
+    if str(directory) not in sys.path:
+        sys.path.insert(0, str(directory))
 
 import registered_tool_registry as registry  # noqa: E402
 
@@ -101,6 +103,7 @@ class AutomaticRegistryRefresh(unittest.IsolatedAsyncioTestCase):
             "import json, sys\n"
             "from pathlib import Path\n"
             "sys.path.insert(0, sys.argv[1])\n"
+            "sys.path.insert(0, str(Path(sys.argv[1]).parent / 'FEATURE_TOOLS'))\n"
             "import registered_tool_registry as registry\n"
             "from mcp.server import MCPServer\n"
             "registry._PROGRAMMATIC_ROOT = Path(sys.argv[2])\n"

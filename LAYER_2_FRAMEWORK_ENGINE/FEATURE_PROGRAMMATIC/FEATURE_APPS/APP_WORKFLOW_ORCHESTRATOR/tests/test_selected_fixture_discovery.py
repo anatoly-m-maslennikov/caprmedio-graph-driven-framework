@@ -42,7 +42,10 @@ class SelectedFixtureDiscoveryTests(unittest.IsolatedAsyncioTestCase):
         self.root = Path(self.temporary.name).resolve()
         self.fixture = GoldenProject(ROOT, self.root, GoldenCase("W01", "create_atom"))
         self.manifest = self.fixture.prepare()
-        self.declaration = self.root / _CONTEXT_DECLARATION_PATH
+        tools_index = _CONTEXT_DECLARATION_PATH.parts.index("CA-SU-16_FEATURE_TOOLS")
+        self.declaration = self.fixture._scope_path("TOOL_WORKFLOWS", "authority_path") / Path(
+            *_CONTEXT_DECLARATION_PATH.parts[tools_index + 1:]
+        )
 
     async def test_actual_server_exposes_source_bound_create_atom_context(self) -> None:
         self.assertEqual(_CONTEXT_DECLARATION_DIGEST, file_digest(self.declaration))

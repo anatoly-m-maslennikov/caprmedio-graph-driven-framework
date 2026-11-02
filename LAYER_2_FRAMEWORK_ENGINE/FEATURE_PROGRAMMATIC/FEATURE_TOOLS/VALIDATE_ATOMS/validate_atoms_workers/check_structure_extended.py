@@ -273,87 +273,43 @@ def _goal_target(metadata: Record, target: str, owner: str, units: Record,
 
 def _tier(metadata: Record, body: str, check: Check) -> None:
     del body
-    if not _authority(check, "CA-D-276", "CA-R-155", "CA-R-1413", "CA-R-1566"):
+    if not _authority(check, "CA-R-155", "CA-R-1413", "CA-R-1566"):
         return
-    check.require(metadata, "global_tier", _integer)
+    check.require(metadata, "tier", _integer)
     role = metadata.get("content_role")
     ordinary_without_type = role in ("Requirement", "Method", "Delivery") and "type" not in metadata
     if not _string(role) or (not ordinary_without_type and not _string(metadata.get("type"))):
         check.gap(
-            "local_tier", "Tier admission requires the complete carried Content Role and Type."
+            "tier", "Tier admission requires the complete carried Content Role and Type."
         )
         return
     if metadata.get("content_role") == "Requirement" and metadata.get("type") == "Goal":
         _goal_tier(metadata, check)
         return
-    local = _value(metadata, "local_tier", check)
-    owner = _value(metadata, "current_scope_unit", check)
-    if local is not None and local not in ("Principle", "Core", "General", "Standard"):
-        check.fail(
-            "TIER_VALUE",
-            "local_tier",
-            "Local Tier is outside the source-bound canonical tier domain.",
-        )
-    if (
-        metadata.get("content_role")
-        in ("Concern", "Analysis", "Plan", "Operations", "Implementation")
-        and local != "Standard"
-    ):
-        check.fail(
-            "TIER_ROLE",
-            "local_tier",
-            "Change and Implementation Content Roles require carried Local Tier Standard.",
-        )
-    _tier_scope(metadata, owner, local, check)
 
 
 def _goal_tier(metadata: Record, check: Check) -> None:
-    """Admit only non-Project Goals with their direct parent's Standard tier."""
+    """Admit a non-Project Goal only under its declared direct parent."""
     if not _authority(
-        check, "CA-D-276", "CA-R-925", "CA-R-926", "CA-R-947", "CA-R-1392",
+        check, "CA-R-925", "CA-R-926", "CA-R-947", "CA-R-1392",
         "CA-R-1389", "CA-R-1390", "CA-R-1391",
     ):
         return
     target = _value(metadata, "claim_target_scope_unit", check)
     owner = _value(metadata, "current_scope_unit", check)
-    local = _value(metadata, "local_tier", check)
+    check.require(metadata, "tier", _integer)
+    tier = metadata.get("tier") if _integer(metadata.get("tier")) else None
     units = _structure(check)
-    if target is None or owner is None or local is None or units is None:
+    if target is None or owner is None or tier is None or units is None:
         return
     if target == _declared_project_name(check):
-        check.gap("local_tier", "Project Goal admission remains unresolved.")
+        check.gap("tier", "Project Goal admission remains unresolved.")
         return
     if target not in units or owner not in units:
-        check.gap("global_tier", "Goal tier resolution requires declared non-Project target and owner Scope Units.")
+        check.gap("tier", "Goal tier resolution requires declared non-Project target and owner Scope Units.")
         return
     if units[target]["parent"] != owner:
         check.fail("GOAL_OWNER", "current_scope_unit", "A non-Project Goal must be owned by its target Scope Unit's declared direct parent.")
-        return
-    if local != "Standard":
-        check.fail("GOAL_TIER", "local_tier", "A non-Project Goal must use its direct parent's Standard Local Tier.")
-        return
-
-
-def _tier_scope(metadata: Record, owner: str | None, local: str | None, check: Check) -> None:
-    units = _structure(check)
-    if units is None or owner is None or local is None:
-        return
-    if owner not in units:
-        check.gap(
-            "global_tier",
-            "Project or Operator ownership needs explicit identity/admission before resolving Global Tier.",
-        )
-        return
-    if not _authority(check, "CA-R-1389", "CA-R-1390", "CA-R-1391", "CA-R-1442"):
-        return
-    if local == "Principle":
-        check.fail(
-            "TIER_SCOPE",
-            "local_tier",
-            "A non-Project Scope Unit admits Core, General and Standard tiers.",
-        )
-        return
-    if local not in ("Core", "General", "Standard"):
         return
 
 

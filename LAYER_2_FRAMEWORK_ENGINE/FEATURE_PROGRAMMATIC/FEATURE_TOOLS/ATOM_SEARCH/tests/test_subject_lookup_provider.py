@@ -180,7 +180,12 @@ class SubjectLookupProviderTests(unittest.TestCase):
         self.assertFalse(provider.binding_is_admitted(wrong))
 
     def foreign_project(self):
-        foreign_root = self.root / ".caprmedio_caprmedio/nested"
+        selection = resolve_project(self.root)
+        scope = next(
+            row for row in selection.structure["scope_units"]
+            if row["scope_unit_name"] == "CORE"
+        )
+        foreign_root = self.root / scope["delivery_path"] / "nested"
         control = foreign_root / ".caprmedio_foreign"
         control.mkdir(parents=True)
         (control / "caprmedio_project_settings.toml").write_text(
@@ -190,12 +195,18 @@ class SubjectLookupProviderTests(unittest.TestCase):
             foreign_root, ({"scope_unit_name": "CORE", "parent": "PROJECT"},),
             control_root=control, project_name="Foreign",
         )
-        return declarations["CORE"]["declaration_path"]
+        return foreign_root
 
     def test_declared_scope_crossing_actual_nested_project_is_refused(self):
         foreign = self.foreign_project()
-        self.declaration.unlink()
-        self.declaration.symlink_to(foreign)
+        selection = resolve_project(self.root)
+        authority = self.root / next(
+            row["authority_path"] for row in selection.structure["scope_units"]
+            if row["scope_unit_name"] == "CORE"
+        )
+        hidden = authority.with_name(authority.name + "-hidden")
+        authority.rename(hidden)
+        authority.symlink_to(foreign, target_is_directory=True)
         with patch.object(provider, "run_subject_search", side_effect=AssertionError("foreign Project reached lookup")):
             result = self.invoke()
         self.assertIsNone(result["data"])

@@ -69,8 +69,8 @@ class SubjectRuleSelfUpdateTests(unittest.TestCase):
     def assessment(self):
         fixture = self.fixture
         original = (
-            self.root
-            / ".caprmedio_caprmedio/fixture/02_analysis/done/CA-A-400--update-assessment.md"
+            fixture.golden._scope_path("PARENT", "authority_path")
+            / "02_analysis/done/CA-A-400--update-assessment.md"
         )
         before = original.read_bytes()
         pin = fixture.golden._semantic_assessment_report(

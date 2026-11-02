@@ -1,0 +1,1 @@
+{"action_id":"local-20261103-tools-cleanup","event":"started","event_id":"b31d85b2-151e-4625-856d-0ec2b5c55ea2","governed_subjects":[],"kind":"workflow","occurred_at":"2026-11-03 02:06:39 +0400","operation":"release_version","produced_outputs":[],"schema_version":1,"session_id":"local-20261103-tools-cleanup","structural_scope":"project"}

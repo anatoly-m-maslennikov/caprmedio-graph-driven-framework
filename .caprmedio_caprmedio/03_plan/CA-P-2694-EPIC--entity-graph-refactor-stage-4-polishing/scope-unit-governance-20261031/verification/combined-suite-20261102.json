@@ -1,0 +1,12 @@
+{
+  "modules": 517,
+  "tests": 4252,
+  "skipped": 0,
+  "failed_modules": 28,
+  "launcher": [
+    "passed"
+  ],
+  "log": ".caprmedio_tmp/declaration-source-cutover/final-full-suite.log",
+  "status": "FAILED",
+  "note": "Combined result before bounded post-run fixture corrections. Launcher passed. Native O016 remains explicitly deferred."
+}

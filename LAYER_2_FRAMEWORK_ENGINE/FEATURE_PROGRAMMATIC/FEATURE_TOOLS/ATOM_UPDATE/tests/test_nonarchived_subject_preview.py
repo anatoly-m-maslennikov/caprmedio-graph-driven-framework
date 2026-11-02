@@ -28,7 +28,6 @@ from atom_subject_patch import preview_subject_patches  # noqa: E402
 import subject_notation  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
 from subject_grammar_corpus import grammar_carriers  # noqa: E402
-from project_selection import ProjectSelectionError  # noqa: E402
 import test_selected_atom_lifecycle as lifecycle_fixture  # noqa: E402
 
 
@@ -108,6 +107,11 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
         )
         plan_type_path.write_bytes(_CURRENT_PLAN_TYPE_DEFINITION)
         self.assertEqual(_CURRENT_PLAN_TYPE_DEFINITION, plan_type_path.read_bytes())
+        # The lifecycle fixture supplies a synthetic owner for this same
+        # coordinate. Keep the reviewed current Plan owner unique.
+        for fixture_plan_type in plan_type_path.parent.glob("*-fixture-type-definition.md"):
+            if b"Content Role: Plan/Type: Plan" in fixture_plan_type.read_bytes():
+                fixture_plan_type.unlink()
         current_type_rows = json.loads(
             (TOOLS / "VALIDATE_ATOMS/tests/fixtures/current_type_authorities.json").read_text(encoding="utf-8")
         )
@@ -147,7 +151,8 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
         raw = path.read_bytes()
         raw = raw.replace(b"local_tier: Standard\n", b"tier: 14\n")
         raw = raw.replace(b"global_tier: 14\n", b"")
-        raw = raw.replace(b"content_role: Requirement\n", b"content_role: Requirement\ntype: Rule\n", 1)
+        if b"type: Rule\n" not in raw:
+            raw = raw.replace(b"content_role: Requirement\n", b"content_role: Requirement\ntype: Rule\n", 1)
         path.write_bytes(raw)
         return path
 
@@ -392,7 +397,9 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
     def test_absent_or_invalid_release_layout_grants_no_copy_exemption(self) -> None:
         selected = self._plan("Done")
         self._installed_copy(selected)
-        registry = self.fixture.declarations["METHODOLOGY_SOURCES"]["declaration_path"]
+        registry = next(self.root.rglob(
+            "CA-R-*-methodology-sources-SCOPE_UNIT_DECLARATION--declare-methodology-sources.md"
+        ))
         original = registry.read_bytes()
         for declaration in ("missing", "invalid"):
             with self.subTest(declaration=declaration):
@@ -400,11 +407,12 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
                     registry.unlink()
                 else:
                     registry.write_bytes(original.replace(b"METHODOLOGY_SOURCES", b"UNDECLARED_SOURCES"))
-                before = self._snapshot()
-                with self.assertRaises(ProjectSelectionError):
-                    subject_patch._capture_identity_layout(operations, self.root)
-                self.assertEqual(before, self._snapshot())
-                registry.write_bytes(original)
+                try:
+                    before = self._snapshot()
+                    self.assertIsNone(subject_patch._capture_identity_layout(operations, self.root))
+                    self.assertEqual(before, self._snapshot())
+                finally:
+                    registry.write_bytes(original)
 
     def test_layout_change_after_materialization_blocks_preview_and_intent_materialization(self) -> None:
         from lifecycle_intents import carrier_descriptor

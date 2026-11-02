@@ -470,11 +470,15 @@ def _recovery_metadata(root: Path, target: Atom, proposed: Mapping[str, str]) ->
         return False
     if not isinstance(before, dict) or not isinstance(after, dict):
         return False
-    canonical = {"atom_id", "content_role", "current_scope_unit", "claim_target_scope_unit", "local_tier",
-                 "global_tier", "author", "status", "version", "updated_at", "subjects", "relations", "type"}
+    canonical = {"atom_id", "content_role", "current_scope_unit", "claim_target_scope_unit", "tier",
+                 "author", "status", "version", "updated_at", "subjects", "relations", "type"}
     retired = {"cce_version", "cce_form", "llm_session_ids"}
-    if any((key not in retired and after.get(key) != value)
+    retired_tiers = {"local_tier", "global_tier"}
+    if any((key not in retired | retired_tiers and after.get(key) != value)
            or (key in retired and key in after and after[key] != value) for key, value in before.items()):
+        return False
+    prior_tier = before.get("tier", before.get("global_tier"))
+    if prior_tier is not None and after.get("tier") != prior_tier:
         return False
     if any(key not in before and key not in canonical for key in after):
         return False
@@ -813,10 +817,10 @@ def _recovery_authority_pins(root: Path, lineage: list[object]) -> dict[str, dic
             require_current_atom(root, atom)
         except AtomToolError:
             continue
-        relative = path.relative_to(control_root(root)).as_posix()
-        source = ((atom.atom_id == "CA-R-1766" and "/METHODOLOGY_SOURCES/" in f"/{relative}"
-                   and "/04_requirement/" in f"/{relative}")
-                  or (atom.atom_id == "CA-D-531" and "/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/07_delivery/" in f"/{relative}"))
+        # These Current authority identities survive Scope Unit moves.  The
+        # carrier role is structural; an old hard-coded authority path is not.
+        source = ((atom.atom_id == "CA-R-1766" and atom.role_directory == "04_requirement")
+                  or (atom.atom_id == "CA-D-531" and atom.role_directory == "07_delivery"))
         if source and frontmatter_scalar(atom.frontmatter, "status") == "Active":
             found[atom.atom_id] = pin
     if set(found) != required:

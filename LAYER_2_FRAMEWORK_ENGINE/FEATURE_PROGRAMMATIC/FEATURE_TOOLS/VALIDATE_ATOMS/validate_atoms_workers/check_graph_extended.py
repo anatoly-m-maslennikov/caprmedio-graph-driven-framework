@@ -446,16 +446,16 @@ def _tier_parent(check: Check, metadata: Record, target: Record, field: str) -> 
     if not _string(owner_scope) or not _string(target_scope):
         _gap(check, field, "Tier-parent scope comparison requires both carried Scope Units.")
         return
-    child_tier, parent_tier = metadata.get("global_tier"), target.get("global_tier")
+    child_tier, parent_tier = metadata.get("tier"), target.get("tier")
     if not _integer(child_tier) or not _integer(parent_tier):
-        _gap(check, field, "Tier-parent ordering requires both carried Global Tiers.")
-        return
-    if parent_tier > child_tier:
-        _fail(check, field, "A tier parent must not have a greater Global Tier than its child.")
+        _gap(check, field, "Tier-parent ordering requires both carried numeric Tiers.")
         return
     if owner_scope == target_scope:
-        if parent_tier == child_tier:
-            _fail(check, field, "A same-scope tier parent must have a lower Global Tier than its child.")
+        contract_link = (child_tier == parent_tier == 0
+                         and metadata.get("content_role") in {"Method", "Evaluation", "Delivery", "Operations"}
+                         and target.get("content_role") == "Requirement")
+        if parent_tier >= child_tier and not contract_link:
+            _fail(check, field, "A same-scope tier parent must have a lower numeric Tier than its child.")
         return
     units = _structure(check)
     if units is None:
@@ -470,6 +470,8 @@ def _tier_parent(check: Check, metadata: Record, target: Record, field: str) -> 
     while owner != "PROJECT":
         _checkpoint(check)
         owner = units[owner]["parent"]
+        if owner == project_name:
+            owner = "PROJECT"
         if owner == parent:
             return
     _fail(check, field, "A tier parent must belong to the same or an ancestor Scope Unit.")

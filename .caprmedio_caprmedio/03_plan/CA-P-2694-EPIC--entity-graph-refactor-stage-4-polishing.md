@@ -5,13 +5,14 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
 tier: 3
-version: 43
-updated_at: 2026-11-02 20:24:36 +0400
+version: 44
+updated_at: 2026-11-02 23:30:39 +0400
 subjects:
   active: Scope Unit
 relations: {}
 role: Plan
 form: Plan
+author: Anatoly Maslennikov
 ---
 ## Summary
 
@@ -36,7 +37,7 @@ Adopt formal Scope Unit Declarations as the sole structural source and retire pr
 
 - [CA-P-2704](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/09-CA-P-2704-TASK--remove-obsolete-scope-authority-mode-overrides.md) — Done.
 - [CA-P-2705](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/10-CA-P-2705-TASK--adopt-formal-scope-unit-declarations.md) — Done.
-- [CA-P-2706](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/11-CA-P-2706-TASK--retire-project-structure-toml-entirely.md) — Active.
+- [CA-P-2706](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/11-CA-P-2706-TASK--retire-project-structure-toml-entirely.md) — Done.
 - [CA-P-2707](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md) — Active.
 
 ## Definition of Done
@@ -46,3 +47,7 @@ Current Declarations and shared model are coherent and history is preserved. The
 ## Previous completed stage
 
 The earlier CFEL/model migration remains completed history. Its eight completed child Tasks are not reopened by this follow-up. The previous Epic content is preserved in its version-40 archive.
+
+## Verification checkpoint
+
+Declaration adoption, physical moves and TOML/code retirement are complete. P2706 is Done. P2707 remains Active for the explicitly recorded Engine verification blockers; the Epic remains Active. No release, live MCP replacement or Git operation was performed by this cutover check.

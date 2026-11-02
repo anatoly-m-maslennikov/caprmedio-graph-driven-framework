@@ -14,9 +14,9 @@ class PlanPrerequisiteClosureIndependentTests(unittest.TestCase):
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
 
-    def inventory(self, metadata=None, path="03_plan/proposed.md"):
+    def inventory(self, metadata=None, path="03_plan/proposed.md", *, bindings=None):
         fixture = self.fixture.fixture
-        _, roles, statuses = _bindings(fixture.context)
+        _, roles, statuses = _bindings(fixture.context) if bindings is None else bindings
         metadata = self.fixture.metadata if metadata is None else metadata
         targets = list(dict.fromkeys(target for values in metadata["relations"].values() for target in values))
         return blocking.scoped.references.inventory_proposed_references(
@@ -214,11 +214,12 @@ class PlanPrerequisiteClosureIndependentTests(unittest.TestCase):
 
     def test_finite_frontier_limits_fail_closed(self):
         self.chain()
+        bindings = _bindings(self.fixture.fixture.context)
         for name, value in (("max_candidates", 1), ("max_total_read_bytes", 1), ("timeout_seconds", 0)):
             with self.subTest(limit=name):
                 with patch.dict(blocking.scoped.references.CEILINGS, {name: value}):
                     with self.assertRaises(blocking.scoped.references.ProposedReferenceError):
-                        self.inventory()
+                        self.inventory(bindings=bindings)
 
 
 if __name__ == "__main__":

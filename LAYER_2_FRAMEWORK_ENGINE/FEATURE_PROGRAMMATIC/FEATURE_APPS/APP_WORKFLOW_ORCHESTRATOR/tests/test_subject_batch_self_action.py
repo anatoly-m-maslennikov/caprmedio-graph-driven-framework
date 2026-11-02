@@ -16,7 +16,6 @@ from lifecycle_intents import carrier_descriptor  # noqa: E402
 from subject_batch_fixture import SubjectBatchProject  # noqa: E402
 from test_subject_apply_portfolio import PUBLICATION_PINS  # noqa: E402
 from work_journal import read_records  # noqa: E402
-from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 
 
 def action_target(project):
@@ -25,9 +24,9 @@ def action_target(project):
         operators.read_text()
         + ('\n[[operators]]\nname="Anatoly Maslennikov"\nrole="project owner"\n')
     )
-    declarations = write_scope_unit_declarations(project.root, (
-        {"scope_unit_name": "TOOL_WORKFLOWS", "parent": "PROJECT", "scope_unit_type": "Unordered"},
-    ))
+    declarations = project.golden._scope_rows
+    if declarations is None:
+        raise AssertionError("Subject batch fixture did not materialize Scope Unit Declarations")
     legacy = Path(PUBLICATION_PINS["CA-O-030"])
     source_root = Path(".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS")
     path = Path(declarations["TOOL_WORKFLOWS"]["authority_path"]) / legacy.relative_to(source_root)

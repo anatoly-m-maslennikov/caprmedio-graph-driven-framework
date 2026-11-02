@@ -124,6 +124,9 @@ class MCPToolBlacklistTests(unittest.IsolatedAsyncioTestCase):
             "a" * 64,
             {"project_mcp": {"tool_blacklist": ["create_atom"]}},
             {},
+            (),
+            {},
+            "",
         )
         with bind_selection(selection):
             self.assertEqual(frozenset({"create_atom"}), Service(self.root).tool_blacklist())
@@ -156,6 +159,9 @@ class GatewayBlacklistTests(unittest.IsolatedAsyncioTestCase):
             "a" * 64,
             {"project_mcp": {"tool_blacklist": ["echo"]}},
             {},
+            (),
+            {},
+            "",
         )
         gateway = Gateway(self.root, self.source, selection=selection)
         client = SimpleNamespace(call_tool=AsyncMock())

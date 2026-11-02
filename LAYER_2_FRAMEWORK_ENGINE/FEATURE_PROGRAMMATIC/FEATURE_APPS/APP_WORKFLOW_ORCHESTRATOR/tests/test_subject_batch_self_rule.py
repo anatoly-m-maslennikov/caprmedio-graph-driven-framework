@@ -15,7 +15,6 @@ import subject_batch_execution as batch  # noqa: E402
 from lifecycle_intents import carrier_descriptor  # noqa: E402
 from subject_batch_fixture import SubjectBatchProject  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier as admission  # noqa: E402
-from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 
 
 class SubjectBatchSelfRuleTests(unittest.TestCase):
@@ -26,9 +25,9 @@ class SubjectBatchSelfRuleTests(unittest.TestCase):
             operators.read_text()
             + ('\n[[operators]]\nname="Anatoly Maslennikov"\nrole="project owner"\n')
         )
-        declarations = write_scope_unit_declarations(project.root, (
-            {"scope_unit_name": "CORE_META_MODEL", "parent": "PROJECT", "scope_unit_type": "Unordered"},
-        ))
+        declarations = project.golden._scope_rows
+        if declarations is None:
+            raise AssertionError("Subject batch fixture did not materialize Scope Unit Declarations")
         context = admission.source_context_from_project(project.root)
         rule = Path(
             next(

@@ -41,6 +41,7 @@ from shared_context_current_fixture import (  # type: ignore[import-not-found]  
 )
 from interactive_fixture_materialization import (  # noqa: E402
     InteractiveFixtureError,
+    _declared_source_path,
     copy_current_closure,
     materialize_method_projection,
     write_settings,
@@ -61,17 +62,36 @@ class InteractiveMcpFixture:
     method_projection_path: Path
 
 
-def _pin(row: Mapping[str, Any]) -> dict[str, Any]:
-    return {
+def _pin(
+    row: Mapping[str, Any],
+    *,
+    root: Path | None = None,
+    scope_rows: Mapping[str, Mapping[str, Any]] | None = None,
+) -> dict[str, Any]:
+    result = {
         "atom_id": row["atom_id"],
         "version": row["version"],
         "source_path": row.get("source_path", row.get("path")),
         "digest": row["sha256"],
     }
+    if root is not None and scope_rows is not None:
+        _, target = _declared_source_path(root, result["source_path"], scope_rows)
+        try:
+            result["source_path"] = target.relative_to(root).as_posix()
+        except ValueError as error:
+            raise InteractiveFixtureError(
+                f"derived fixture source escapes the disposable Project: {target}"
+            ) from error
+    return result
 
 
 def _current_route(
-    manifest: dict[str, Any], graph: Mapping[str, Any], fixture: CurrentSharedContextFixture
+    manifest: dict[str, Any],
+    graph: Mapping[str, Any],
+    fixture: CurrentSharedContextFixture,
+    *,
+    root: Path | None = None,
+    scope_rows: Mapping[str, Mapping[str, Any]] | None = None,
 ) -> None:
     routes = manifest.get("routes")
     if not isinstance(routes, list):
@@ -83,10 +103,13 @@ def _current_route(
     pins = {str(row["atom_id"]): row for row in fixture.source_pins()}
     step_rows = graph["steps"]
     step_ids = {str(row["atom_id"]) for row in step_rows}
-    route["workflow"] = _pin(pins["CA-O-016"])
+    route["workflow"] = _pin(pins["CA-O-016"], root=root, scope_rows=scope_rows)
     route["entry_step"] = graph["entry_step"]
     route["ordered_steps"] = [
-        {"step": _pin(row["source"]), "action": _pin(row["actions"][0]["source"])}
+        {
+            "step": _pin(row["source"], root=root, scope_rows=scope_rows),
+            "action": _pin(row["actions"][0]["source"], root=root, scope_rows=scope_rows),
+        }
         for row in step_rows
     ]
     route["ordered_actions"] = [item["action"] for item in route["ordered_steps"]]
@@ -128,16 +151,18 @@ def build_interactive_mcp_fixture(
         raise InteractiveFixtureError(f"fixture destination already exists: {root}")
     root.mkdir(parents=True)
     frozen_source_root(root)
-    write_settings(root)
+    scope_rows = write_settings(root)
     fixture = CurrentSharedContextFixture.load()
     fixture.verify()
-    copy_current_closure(root, fixture)
+    copy_current_closure(root, fixture, scope_rows)
     projection_path = materialize_method_projection(root, fixture)
     manifest = frozen_manifest()
     graph = fixture.graph()
-    _current_route(manifest, graph, fixture)
+    _current_route(manifest, graph, fixture, root=root, scope_rows=scope_rows)
     manifest = _validated_manifest(root, manifest)
-    parameters, request = build_packet_and_request(root, manifest, fixture)
+    parameters, request = build_packet_and_request(
+        root, manifest, fixture, scope_rows=scope_rows
+    )
     return InteractiveMcpFixture(
         root=root,
         manifest=manifest,

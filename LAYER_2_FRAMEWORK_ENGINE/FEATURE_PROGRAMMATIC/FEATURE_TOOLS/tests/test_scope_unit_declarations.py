@@ -14,6 +14,8 @@ from project_selection import resolve_project
 from scope_declaration_parse import ScopeDeclarationError, parse_scope_unit_declaration
 from scope_declaration_render import PROJECT, render_scope_declaration
 from scope_unit_declarations import read_scope_unit_declarations
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
+from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 
 class ScopeUnitDeclarationReaderTests(unittest.TestCase):
@@ -156,9 +158,18 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
             "projection:\n  source_carrier_path: ../../CA-SU-1_LAYER_1_PARENT/04_requirement/child.md\nrelations: {}",
         ), encoding="utf-8")
 
-        result = read_scope_unit_declarations(self.root, self.control.name)
+        reader = ReadContext(roots=[str(self.root)], limits=dict(CEILINGS))
+        original_read, read_paths = reader.read, []
+
+        def record(path: Path, *, remember: bool = True) -> bytes:
+            read_paths.append(path)
+            return original_read(path, remember=remember)
+
+        reader.read = record  # type: ignore[method-assign]
+        result = read_scope_unit_declarations(self.root, self.control.name, reader=reader)
         self.assertEqual(len(result.paths), 3)
         self.assertNotIn(projected, result.paths)
+        self.assertNotIn(projected, read_paths)
 
     def test_root_declaration_is_admitted_only_from_control_top_level(self) -> None:
         root_source, _, _ = self.complete_tree()
@@ -170,7 +181,7 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
     def test_project_root_declaration_in_requirement_folder_refuses(self) -> None:
         self.declaration("demo", "CA-R-1", project=True)
 
-        with self.assertRaisesRegex(ScopeDeclarationError, "must be at the control root"):
+        with self.assertRaisesRegex(ScopeDeclarationError, "no current Scope Unit Declarations"):
             read_scope_unit_declarations(self.root, self.control.name)
 
     def test_parser_rejects_order_number_for_unordered_scope_unit(self) -> None:
@@ -187,7 +198,7 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         self.declaration("demo", "CA-R-1", source=self.control / "CA-R-1-demo.md", project=True)
         self.declaration("UNIT", "CA-R-2", scope_id="CA-SU-2", parent=PROJECT)
         self.declaration(
-            "UNIT", "CA-R-3", source=self.control / "elsewhere" / "04_requirement" / "duplicate.md",
+            "UNIT", "CA-R-3", source=self.control / "04_requirement" / "duplicate.md",
             scope_id="CA-SU-3", parent=PROJECT,
         )
 

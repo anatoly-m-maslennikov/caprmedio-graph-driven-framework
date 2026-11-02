@@ -68,6 +68,7 @@ def _journal_events(root: Path, request_id: str | None = None) -> list[dict[str,
 def _authority_snapshot(fixture: ContainerLifecycleFixture) -> dict[str, bytes]:
     if fixture.scope_rows is None:
         raise AssertionError("fixture scope declarations are not materialized")
+    root = fixture.root
     base = Path(fixture.scope_rows["STATUS_FIXTURE"]["authority_path"])
     return {
         path.relative_to(root).as_posix(): path.read_bytes()

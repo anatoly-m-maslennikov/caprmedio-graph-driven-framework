@@ -66,7 +66,13 @@ class RelationTargetOrderIndependentTests(unittest.TestCase):
 
     def test_stale_or_missing_authority_refuses(self):
         entry = scoped.admission._entry("CA-D-268", graph=True)
-        path = self.fixture.root / self.fixture.control.joinpath(*Path(entry["source_path"]).parts[1:])
+        core = next(
+            Path(row["authority_path"])
+            for row in self.fixture.selection.structure["scope_units"]
+            if row["scope_unit_name"] == "CORE_META_MODEL"
+        )
+        path = self.fixture.root / core / "07_delivery/CA-D-268.md"
+        path.write_bytes(scoped.fixtures.frozen_authority_fixture_bytes("CA-D-268", graph=True))
         original = path.read_bytes()
         self.assertEqual(hashlib.sha256(original).hexdigest(), entry["sha256"])
         for replacement in (original + b"\n# changed after admission binding\n", None):

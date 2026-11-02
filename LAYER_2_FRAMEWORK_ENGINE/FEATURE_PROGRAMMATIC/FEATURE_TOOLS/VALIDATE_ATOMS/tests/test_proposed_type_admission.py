@@ -104,19 +104,24 @@ class ProposedTypeAdmissionTests(unittest.TestCase):
 
     def test_type_authority_changed_after_read_refuses_context(self):
         entry = proposed_carrier._entry("CA-R-1666")
-        path = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
-        original = proposed_carrier.ReadContext.read
+        core = next(
+            Path(row["authority_path"])
+            for row in self.selection.structure["scope_units"]
+            if row["scope_unit_name"] == "CORE_META_MODEL"
+        )
+        path = self.root / core / "04_requirement/CA-R-1666.md"
+        original = proposed_carrier.load_source
         changed = False
 
-        def read(reader, candidate, *args, **kwargs):
+        def load(candidate, supplied, reader, report):
             nonlocal changed
-            raw = original(reader, candidate, *args, **kwargs)
+            result = original(candidate, supplied, reader, report)
             if Path(candidate) == path and not changed:
                 changed = True
-                path.write_bytes(raw + b"\nChanged after observation.\n")
-            return raw
+                path.write_bytes(path.read_bytes() + b"\nChanged after observation.\n")
+            return result
 
-        with patch.object(proposed_carrier.ReadContext, "read", read):
+        with patch.object(proposed_carrier, "load_source", load):
             with self.assertRaises(proposed_carrier.ProposedCarrierError):
                 proposed_carrier.source_context_from_project(self.root)
         self.assertTrue(changed)

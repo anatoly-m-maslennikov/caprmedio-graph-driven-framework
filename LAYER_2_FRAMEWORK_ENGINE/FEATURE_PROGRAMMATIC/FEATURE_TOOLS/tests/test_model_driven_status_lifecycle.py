@@ -111,19 +111,23 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
             control_root=control,
         )
         self.source = declared["CORE_META_MODEL"]["authority_path"]
+        self.fixture_authority = declared["STATUS_FIXTURE"]["authority_path"]
+        self.project_configuration_authority = declared["PROJECT_CONFIGURATION"]["authority_path"]
         source_root = self.source.relative_to(self.root)
 
-        def declared_core_path(path: Path) -> Path | None:
-            """Map frozen historical carriers beneath the declared Core source."""
+        def declared_source_path(path: Path) -> Path | None:
+            """Map frozen historical carriers beneath their declared source."""
             for index, component in enumerate(path.parts):
                 if "CORE_META_MODEL" in component:
                     return source_root / Path(*path.parts[index + 1:])
+                if "PROJECT_CONFIGURATION" in component:
+                    return self.project_configuration_authority.relative_to(self.root) / Path(*path.parts[index + 1:])
             return None
 
         for entry in {**frozen_complete_carrier_authority(), **frozen_graph_authority()}.values():
             source = self.input_root / entry["source_path"]
             entry_path = Path(entry["source_path"])
-            entry_path = declared_core_path(entry_path) or entry_path
+            entry_path = declared_source_path(entry_path) or entry_path
             destination = self.root / entry_path
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, destination)
@@ -137,7 +141,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         for atom_id in (*AUTHORITY_IDS, *FRONTIER_IDS):
             source = frozen_by_id[atom_id]
             relative = source.relative_to(self.input_root)
-            relative = declared_core_path(relative) or relative
+            relative = declared_source_path(relative) or relative
             destination = self.root / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, destination)
@@ -147,11 +151,9 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         for atom_id in ("CA-D-276", "CA-D-288", "CA-D-378", "CA-D-446"):
             entry = support.get(atom_id) or frozen_entry(atom_id)
             entry_path = Path(entry["source_path"])
-            declared_path = declared_core_path(entry_path)
+            declared_path = declared_source_path(entry_path)
             if declared_path is not None:
                 destination = self.root / declared_path
-            elif atom_id in support:
-                destination = self.root / entry_path
             else:
                 destination = self.sources.get(atom_id)
             if destination is None:
@@ -178,7 +180,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
              relations: str = "relations: {}", draft: bool = False) -> Path:
         row = next(row for row in DOMAINS if row[0] == role)
         _, letter, directory, _, _ = row
-        folder = self.root / CONTROL / "fixture" / directory
+        folder = self.fixture_authority / directory
         if container:
             folder /= container
         if status in {"Draft", "draft"}:
@@ -217,7 +219,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         if status not in statuses:
             raise AssertionError(f"fixture status is not admitted: {role}/{status}")
         draft = status.casefold() == "draft"
-        folder = self.root / CONTROL / "fixture" / directory
+        folder = self.fixture_authority / directory
         if draft:
             folder /= "draft"
         elif role == "Plan" and status == "Backlog":
@@ -244,6 +246,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
                 f"{identity}content_role: {role}\n{type_value}status: {status}\n"
                 "current_scope_unit: STATUS_FIXTURE\nclaim_target_scope_unit: STATUS_FIXTURE\n"
                 "local_tier: Standard\nglobal_tier: 11\nauthor: Anatoly Maslennikov\n"
+                "version: 3\nupdated_at: 2026-01-01 00:00:00 +0000\n"
                 "subjects:\n  governs: Atom/Test\n  depends_on: []\nrelations: {}"
             ),
             "content": body,
@@ -410,7 +413,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         self.assertEqual("Active", frontmatter_scalar(active.frontmatter, "status"))
         self.assertRegex(active.atom_id or "", r"^CA-O-[0-9]+$")
         self.assertEqual(4, activated["observed"]["version"])
-        self.assertEqual(self.root / CONTROL / "fixture/09_operations" / f"{active.atom_id}--golden.md", active_path)
+        self.assertEqual(self.fixture_authority / "09_operations" / f"{active.atom_id}--golden.md", active_path)
 
         demoted = self.execute(self.request(active_path, "Draft"))
         draft_path = self.root / demoted["observed"]["path"]
@@ -418,7 +421,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         self.assertEqual("Draft", frontmatter_scalar(after.frontmatter, "status"))
         self.assertIsNone(after.atom_id)
         self.assertEqual(5, demoted["observed"]["version"])
-        self.assertEqual(self.root / CONTROL / "fixture/09_operations/draft/CA-O--golden.md", draft_path)
+        self.assertEqual(self.fixture_authority / "09_operations/draft/CA-O--golden.md", draft_path)
 
     def test_supported_status_change_ignores_missing_empty_or_incomplete_journal(self) -> None:
         """Journal state is post-effect observation, not a Status-change admission gate."""
@@ -496,7 +499,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
                 request = self.request(path, "Archived")
                 before_atom = atom_from_path(self.root, path)
                 before_bytes = path.read_bytes()
-                canonical_current = self.root / CONTROL / "fixture" / directory
+                canonical_current = self.fixture_authority / directory
                 destination = canonical_current / "archived" / f"{path.stem}@4.md"
                 self.assertFalse(destination.parent.exists())
                 result = self.execute(request)
@@ -530,7 +533,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
 
     def test_concern_nonactive_transitions_use_role_directories(self) -> None:
         path = self.atom("Concern", "Active", atom_type="Problem")
-        local = self.root / CONTROL / "fixture/01_concern"
+        local = self.fixture_authority / "01_concern"
         for status in ("Resolved", "Canceled", "Active"):
             request = self.request(path, status)
             result = self.execute(request)

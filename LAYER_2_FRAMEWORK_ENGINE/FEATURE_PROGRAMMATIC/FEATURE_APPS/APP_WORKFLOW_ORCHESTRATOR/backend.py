@@ -75,15 +75,14 @@ def enqueue_selected(root, request):
                            'workflow_id': request.run_id, 'app_version': scheduler['app_version']}, request.run_id)
     finally:
         transport.destroy()
-    response = status(root, Status(run_id=request.run_id))
+    response = {'scheduler_status': 'ENQUEUED', 'backend': 'dbos', 'outcome': 'queued'}
     if _container_lifecycle_marker(frozen) is not None:
-        response.pop('workflow_run_id', None)
-        response.pop('workflow_id', None)
         response.update({'coordinator_id': request.run_id,
                          'identity_kind': CONTAINER_IDENTITY_KIND,
                          'selected_route': frozen['graph']['route'], 'disposition': 'queued'})
     else:
-        response.update({'workflow_id': frozen['graph']['workflow']['atom_id'],
+        response.update({'workflow_run_id': request.run_id,
+                         'workflow_id': frozen['graph']['workflow']['atom_id'],
                          'selected_route': frozen['graph']['route'], 'disposition': 'queued'})
     return response
 

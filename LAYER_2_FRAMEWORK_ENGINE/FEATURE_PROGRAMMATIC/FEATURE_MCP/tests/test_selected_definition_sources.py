@@ -118,6 +118,18 @@ class CurrentDefinitionSourcesTests(unittest.TestCase):
         self.assertEqual(2, locator.locate.call_count)
         locator.revalidate.assert_called_once_with()
 
+    def test_different_missing_hints_can_resolve_to_the_same_current_definition(self) -> None:
+        sources = CurrentDefinitionSources(self.root)
+        first = sources.read("CA-O-030", "operations/action.md", "Action")
+        with patch("selected_definition_sources.CurrentAtomLocator") as locator_type:
+            locator = locator_type.return_value
+            locator.locate.return_value = "operations/action.md"
+            moved = sources.read("CA-O-030", "old-authority/action.md", "Action")
+            repeated = sources.read("CA-O-030", "old-authority/action.md", "Action")
+        locator.locate.assert_called_once_with("CA-O-030", "old-authority/action.md")
+        self.assertEqual(first, moved)
+        self.assertEqual(first, repeated)
+
     def test_duplicate_current_id_fallback_refuses(self) -> None:
         self.path.unlink()
         with patch("selected_definition_sources.CurrentAtomLocator.locate", side_effect=ValueError("duplicate current ID")):

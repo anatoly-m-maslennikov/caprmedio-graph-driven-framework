@@ -12,6 +12,7 @@ sys.path.insert(0, str(MCP / "tests"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import test_selected_atom_lifecycle as lifecycle_fixture  # noqa: E402
+from atom_operations import remove_frontmatter_scalar, replace_frontmatter_scalar, split_frontmatter  # noqa: E402
 from lifecycle_intents import carrier_descriptor, move_atom_action  # noqa: E402
 from selected_definition_sources import CurrentDefinitionSources  # noqa: E402
 from selected_routes import SelectedRouteAdapter, canonical_digest, load_selected_manifest  # noqa: E402
@@ -21,22 +22,14 @@ from test_selected_routes_mcp import (  # noqa: E402
 )
 
 
-CORE = Path(
-    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/"
-    "METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations"
-)
-PROJECT = Path(
-    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/"
-    "METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations"
-)
-
-
 class DefinitionMoveContinuationTest(unittest.TestCase):
     def setUp(self) -> None:
         self.fixture = lifecycle_fixture.SelectedAtomLifecycleTest("runTest")
         self.fixture.setUp()
+        self.fixture._materialize_fixture_type_definition("Operations", "Workflow")
         self.addCleanup(self.fixture.tearDown)
         self.root = self.fixture.root
+        self.project_operations = self.fixture.declarations["PROJECT_CONFIGURATION"]["authority_path"] / "09_operations"
         self.manifest = copy_complete_selected_guard_fixture(self.root)
 
     def test_moved_definition_is_reopened_for_next_admission_but_old_reader_stays_stale(self) -> None:
@@ -46,7 +39,12 @@ class DefinitionMoveContinuationTest(unittest.TestCase):
             if route["workflow"]["atom_id"] == "CA-O-127"
         )
         source = self.root / pin["source_path"]
-        destination = self.root / PROJECT / source.name.replace(
+        frontmatter, body = split_frontmatter(source.read_text(encoding="utf-8"))
+        for field in ("local_tier", "global_tier"):
+            frontmatter = remove_frontmatter_scalar(frontmatter, field)
+        frontmatter = replace_frontmatter_scalar(frontmatter, "tier", "14")
+        source.write_text("---\n" + frontmatter + "\n---\n" + body, encoding="utf-8")
+        destination = self.project_operations / source.name.replace(
             "CORE_META_MODEL", "PROJECT_CONFIGURATION"
         )
         before = source.read_bytes()
@@ -59,7 +57,7 @@ class DefinitionMoveContinuationTest(unittest.TestCase):
             {
                 "target": carrier_descriptor(self.root, pin["source_path"]),
                 "placement": {
-                    "destination_path": (PROJECT / destination.name).as_posix(),
+                    "destination_path": destination.relative_to(self.root).as_posix(),
                     "owning_scope_unit": "PROJECT_CONFIGURATION",
                     "claim_target_scope_unit": "PROJECT_CONFIGURATION",
                 },

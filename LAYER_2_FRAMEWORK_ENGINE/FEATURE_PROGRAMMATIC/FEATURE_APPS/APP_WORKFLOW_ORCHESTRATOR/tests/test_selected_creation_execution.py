@@ -155,6 +155,7 @@ class SelectedCreationExecutionTests(unittest.TestCase):
         self.assertEqual(created["digest"], creation["result"]["sha256"])
 
         w03 = GoldenProject(REPOSITORY, self.root, GoldenCase("W03", "replace_atom"))
+        w03._scope_rows = self.w01._scope_rows
         w03.manifest = self.manifest
         replace_parameters = w03.native_parameters()
         replace_parameters["predecessor"] = dict(created)

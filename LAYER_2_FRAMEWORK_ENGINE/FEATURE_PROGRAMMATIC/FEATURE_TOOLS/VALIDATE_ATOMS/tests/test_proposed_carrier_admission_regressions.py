@@ -59,8 +59,18 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         self.addCleanup(self.directory.cleanup)
         self.entry_patch = patch.object(admission, "_entry", frozen_entry)
         self.entry_patch.start()
-        self.addCleanup(self.entry_patch.stop)
+        self.addCleanup(lambda: self.entry_patch.stop())
         self.root = Path(self.directory.name)
+
+    def selected_entry(self, identifier, *, graph=False):
+        entry = dict(frozen_entry(identifier, graph=graph))
+        raw = frozen_authority_fixture_bytes(identifier, graph=graph)
+        role = parse_carrier(raw, Path(identifier + ".md")).metadata["content_role"]
+        entry["source_path"] = (
+            ".caprmedio_caprmedio/" + self._core_relative + "/"
+            + self._role_folders[role] + "/" + identifier + ".md"
+        )
+        return entry
 
     def put(self, relative, raw):
         path = self.root / relative
@@ -152,10 +162,19 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
             '[[operators]]\nname = "Fixture Operator"\nrole = "project owner"\n', encoding="utf-8",
         )
         core = Path(declarations["CORE_META_MODEL"]["authority_path"])
+        self._core_relative = core.relative_to(control).as_posix()
+        self._role_folders = {
+            "Requirement": "04_requirement", "Method": "05_method", "Evaluation": "06_evaluation",
+            "Delivery": "07_delivery", "Operations": "09_operations", "Plan": "03_plan",
+            "Concern": "01_concern", "Analysis": "02_analysis",
+        }
         identifiers = tuple(dict.fromkeys((
             *_REGISTRY_IDS, *_SUPPORT_IDS, *_FRONTIER_STATUS_IDS.values(), "CA-R-1947", *source_ids,
         )))
         self.materialize_authority(core, identifiers)
+        self.entry_patch.stop()
+        self.entry_patch = patch.object(admission, "_entry", self.selected_entry)
+        self.entry_patch.start()
         return resolve_project(root, control_name)
 
     def materialize_authority(self, core: Path, identifiers: tuple[str, ...]) -> None:
@@ -257,11 +276,11 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
     def test_project_and_declared_scope_unit_name_collision_refuses(self):
         selection = self.project()
         control = self.root / selection.control_relative
-        write_scope_unit_declarations(
-            self.root,
-            ({"scope_unit_name": "amber", "scope_unit_label": "Layer"},),
-            control_root=control,
+        root_declaration = next(
+            path for path in selection.declaration_paths if path.parent == selection.control_root
         )
+        root_declaration.rename(root_declaration.with_name(root_declaration.stem + "-duplicate.md"))
+        write_scope_unit_declarations(self.root, control_root=control)
         before = snapshot(self.root)
         with self.assertRaises(ValueError):
             resolve_project(self.root, selection.control_relative)

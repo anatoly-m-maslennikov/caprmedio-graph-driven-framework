@@ -493,11 +493,17 @@ class SelectedSubjectApplyTests(unittest.TestCase):
         self.fixture.assert_unchanged(self)
         self.assert_no_replay(runner, frozen, result)
 
-    def test_failed_post_effect_authority_check_restores_owned_current_and_history(self):
+    def test_current_governing_rule_metadata_change_does_not_rollback_publication(self):
         runner, frozen, confirmation = self.confirmed_execution("subject-private-postcondition")
         real_write = operations.write_raw_atom_revision
         governing = self.fixture.root / PUBLICATION_PINS["CA-R-866"]
-        changed = governing.read_bytes() + b"\n<!-- fixture post-effect source conflict -->\n"
+        original = governing.read_text(encoding="utf-8")
+        metadata, body = operations.split_frontmatter(original)
+        changed_metadata = metadata.replace(
+            "author: Anatoly Maslennikov", "author: fixture-current-author", 1
+        )
+        self.assertNotEqual(metadata, changed_metadata)
+        changed = ("---\n" + changed_metadata + "\n---\n" + body).encode("utf-8")
 
         def change_authority(root, path, raw, **kwargs):
             owner = real_write(root, path, raw, **kwargs)
@@ -506,10 +512,11 @@ class SelectedSubjectApplyTests(unittest.TestCase):
             return owner
 
         with patch.object(operations, "write_raw_atom_revision", side_effect=change_authority):
-            result, failed = self.observe_confirmed(runner, frozen, confirmation)
-        self.assertEqual("failed", failed["outcome"])
-        self.assertEqual("readback", failed["failure"]["original"]["phase"])
-        self.fixture.assert_unchanged(self)
+            result, applied = self.observe_confirmed(runner, frozen, confirmation)
+        self.assertEqual("applied", applied["outcome"])
+        self.assertEqual("terminal", result["disposition"])
+        self.assertNotEqual(self.fixture.before, self.fixture.path.read_bytes())
+        self.assertEqual(self.fixture.before, self.fixture.archive.read_bytes())
         self.assertEqual(changed, governing.read_bytes())
         self.assert_no_replay(runner, frozen, result)
 

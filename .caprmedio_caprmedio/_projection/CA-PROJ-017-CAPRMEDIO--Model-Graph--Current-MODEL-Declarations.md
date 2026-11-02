@@ -176,8 +176,12 @@ source:
   - CA-R-2638@2
   - CA-R-2685@1
   - CA-R-2686@1
+  - CA-R-2692@1
+  - CA-R-2693@1
+  - CA-R-2694@1
+  - CA-R-2695@1
   - CA-R-796@43
-updated_at: 2026-11-02 20:24:45 +0400
+updated_at: 2026-11-03 01:11:33 +0400
 ---
 
 ## Model graph
@@ -223,6 +227,10 @@ This is a derived Projection, not independent model authority.
 ## Properties
 
 - `Actor.Name`
+- `Atom.Carrier Destination`
+- `Atom.Carrier Destination.File`
+- `Atom.Carrier Destination.File.Name`
+- `Atom.Carrier Destination.File.Path`
 - `Atom.Content`
 - `Atom.Content.Claim`
 - `Atom.Content.Claim Scope`
@@ -323,6 +331,10 @@ This is a derived Projection, not independent model authority.
 - `Atom` — CA-R-1200
 - `Atom` — CA-R-1580
 - `Atom` — CA-R-2508
+- `Atom.Carrier Destination` — CA-R-2692
+- `Atom.Carrier Destination.File` — CA-R-2693
+- `Atom.Carrier Destination.File.Name` — CA-R-2694
+- `Atom.Carrier Destination.File.Path` — CA-R-2695
 - `Atom.Content` — CA-R-1199
 - `Atom.Content` — CA-R-1200
 - `Atom.Content` — CA-R-2498
@@ -601,6 +613,14 @@ This is a derived Projection, not independent model authority.
 - `classification_condition`: `Scope Unit >| (Container == yes)` — CA-R-2523
 - `property_constraint`: `Actor.Name.*[]{:0}` — CA-R-2544
 - `property_constraint`: `Actor.Name{:0..1}: [string]{:1}` — CA-R-2544
+- `property_constraint`: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692
+- `property_constraint`: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693
+- `property_constraint`: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694
+- `property_constraint`: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694
+- `property_constraint`: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695
+- `property_constraint`: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695
+- `property_constraint`: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693
+- `property_constraint`: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692
 - `property_constraint`: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498
 - `property_constraint`: `Atom.Content.*[string]{:0+}` — CA-R-2498
 - `property_constraint`: `Atom.Content.Summary.*[]{:0}` — CA-R-2499

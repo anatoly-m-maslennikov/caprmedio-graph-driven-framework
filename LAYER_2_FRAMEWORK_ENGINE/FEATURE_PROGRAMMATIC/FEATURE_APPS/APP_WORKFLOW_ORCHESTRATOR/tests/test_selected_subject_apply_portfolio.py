@@ -67,9 +67,9 @@ def authority_snapshot(root):
             and not {"_projection", "_journal"}.intersection(path.relative_to(control).parts)}
 
 
-def paths(role, status):
+def paths(fixture, role, status):
     letter, directory = ("P", "03_plan") if role == "Plan" else ("R", "04_requirement")
-    role_path = Path(".caprmedio_caprmedio/PARENT") / directory
+    role_path = fixture.golden._scope_path("PARENT", "authority_path").relative_to(fixture.root) / directory
     placement = "done" if status == "Done" else "001_backlog" if status == "Backlog" else ""
     filename = f"CA-{letter}-8100--docker-status.md"
     history_directory = "archived" if role == "Plan" else "archive"
@@ -99,7 +99,7 @@ class IndependentSubjectPortfolioTests(unittest.TestCase):
 
     def publication(self, *, role="Requirement", status="Active", newline="\n"):
         fixture = self.fixture(role=role, status=status, newline=newline)
-        current_path, history_path = paths(role, status)
+        current_path, history_path = paths(fixture, role, status)
         before = expected_bytes(role, status, newline, changed=False)
         after = expected_bytes(role, status, newline, changed=True)
         self.assertEqual(before, fixture.path.read_bytes())
@@ -160,7 +160,7 @@ class IndependentSubjectPortfolioTests(unittest.TestCase):
 
     def test_plan_done_noop_has_independent_unchanged_ledger_and_real_receipt(self):
         fixture = self.fixture(role="Plan", status="Done", noop=True)
-        current_path, history_path = paths("Plan", "Done")
+        current_path, history_path = paths(fixture, "Plan", "Done")
         self.assertEqual(expected_bytes("Plan", "Done", "\n", changed=False), fixture.path.read_bytes())
         before = authority_snapshot(fixture.root)
         runner, frozen = fixture.execution("independent-done-noop")

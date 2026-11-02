@@ -1,4 +1,4 @@
-"""Real fifteen-route discovery; seventeen-row projection is not admission."""
+"""Current route discovery; obsolete projection rows are not admission."""
 
 import asyncio
 import copy
@@ -42,7 +42,7 @@ class SelectedRegistryDiscoveryTests(unittest.TestCase):
         issues = []
         rows = self.service._admitted_selected_route_tools(issues)
         self.assertEqual([], issues)
-        self.assertEqual(17, len(rows))
+        self.assertEqual(13, len(rows))
         self.assertEqual(
             {entry["route"] for entry in self.manifest["routes"]}
             | {"release_version", "public.release"},
@@ -82,7 +82,7 @@ class SelectedRegistryDiscoveryTests(unittest.TestCase):
         try:
             issues = []
             rows = self.service._admitted_selected_route_tools(issues)
-            self.assertEqual(17, len(rows))
+            self.assertEqual(13, len(rows))
             self.assertEqual([], issues)
             context = self.service.context(Context(id="create_atom"))
             self.assertNotEqual(
@@ -120,16 +120,16 @@ class SelectedRegistryDiscoveryTests(unittest.TestCase):
         finally:
             path.write_bytes(saved)
 
-    def test_old_seventeen_row_projection_cannot_override_direct_release_contracts(self):
+    def test_obsolete_release_rows_cannot_override_direct_release_contracts(self):
         # Well-formed legacy Release rows must not replace the direct contracts.
         manifest = copy.deepcopy(self.manifest)
         manifest["routes"].extend(
             dict(copy.deepcopy(manifest["routes"][0]), route=route)
             for route in ("release_version", "public.release")
         )
-        self.assertEqual(17, len(manifest["routes"]))
+        self.assertEqual(13, len(manifest["routes"]))
         rows = self.service._selected_route_rows(manifest)
-        self.assertEqual(15, len(rows))
+        self.assertEqual(11, len(rows))
         with patch.object(self.service, "catalog", return_value=({}, rows, [])):
             for entry in manifest["routes"]:
                 if entry["route"] in {"release_version", "public.release"}:

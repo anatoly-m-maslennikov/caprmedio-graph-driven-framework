@@ -169,7 +169,7 @@ source:
   - CA-D-658@4
   - CA-D-662@4
   - CA-D-663@2
-  - CA-D-664@2
+  - CA-D-664@5
   - CA-D-665@2
   - CA-D-666@1
   - CA-D-667@1
@@ -1058,6 +1058,10 @@ source:
   - CA-R-2689@1
   - CA-R-2690@1
   - CA-R-2691@1
+  - CA-R-2692@1
+  - CA-R-2693@1
+  - CA-R-2694@1
+  - CA-R-2695@1
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1133,7 +1137,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-02 20:24:45 +0400
+updated_at: 2026-11-03 01:11:33 +0400
 ---
 
 # Subject Graph Properties
@@ -1143,6 +1147,10 @@ A Map of declared Properties. Literal formats and cardinalities remain CFEL cons
 ## Properties
 
 - `Actor.Name` — CA-R-2544@2
+- `Atom.Carrier Destination` — CA-R-2692@1
+- `Atom.Carrier Destination.File` — CA-R-2693@1
+- `Atom.Carrier Destination.File.Name` — CA-R-2694@1
+- `Atom.Carrier Destination.File.Path` — CA-R-2695@1
 - `Atom.Content` — CA-R-2498@2
 - `Atom.Content.Claim` — CA-R-2500@2
 - `Atom.Content.Claim Scope` — CA-R-2501@2

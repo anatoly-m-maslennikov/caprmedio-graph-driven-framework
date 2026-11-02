@@ -31,10 +31,14 @@ class AtomOperationsTest(unittest.TestCase):
             row["scope_unit_name"]: self.root / row["authority_path"]
             for row in selection.structure["scope_units"]
         }
-        core_source = self.root / ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL"
-        config_source = self.root / ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION"
-        shutil.copytree(core_source, declared["CORE_META_MODEL"], dirs_exist_ok=True)
-        shutil.copytree(config_source, declared["PROJECT_CONFIGURATION"], dirs_exist_ok=True)
+        # ModelDrivenStatusLifecycleTest already materializes the frozen
+        # authority closure at the declaration-derived destinations.
+        core_source = self.model_fixture.source
+        config_source = self.model_fixture.project_configuration_authority
+        for source, destination in ((core_source, declared["CORE_META_MODEL"]),
+                                    (config_source, declared["PROJECT_CONFIGURATION"])):
+            if source != destination:
+                shutil.copytree(source, destination, dirs_exist_ok=True)
         projection = self.root / ".caprmedio_caprmedio/_projection/project_scope_unit_graph.projection.toml"
         projection.parent.mkdir(parents=True, exist_ok=True)
         projection.write_text(

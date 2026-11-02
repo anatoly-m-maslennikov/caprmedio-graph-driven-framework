@@ -25,7 +25,7 @@ class CurrentEntitySourcesTests(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
         self.repository = Path(self.temporary.name)
-        self.selected = self.repository / "SUPERLAYER_1_METHODOLOGY_SOURCES"
+        self.selected = self.repository / "sources"
         self.selected.mkdir()
 
     def write(self, atom_id, subject, *, version=1, status="Active", folder="", dependencies=()):

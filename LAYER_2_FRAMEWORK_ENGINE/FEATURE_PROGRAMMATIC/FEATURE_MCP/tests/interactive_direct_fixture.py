@@ -25,7 +25,9 @@ for location in (MCP, TOOLS, WFO_TESTS, WFO):
 from frozen_selected_workflows import frozen_manifest, frozen_source_root  # noqa: E402
 from interactive_fixture_materialization import (  # noqa: E402
     InteractiveFixtureError,
+    _copy_query_sources,
     _copy_source,
+    rewrite_source_paths,
     write_settings,
 )
 from interactive_fixture_packets import build_packet_and_request  # noqa: E402
@@ -50,11 +52,12 @@ class InteractiveDirectFixture:
 # implementation of:
 # Requirement: CA-R-2117
 # Method: CA-M-431
-def copy_direct_closure(root: Path, fixture: DirectSharedContextFixture) -> None:
+def copy_direct_closure(root: Path, fixture: DirectSharedContextFixture, rows: dict[str, dict[str, object]]) -> None:
+    _copy_query_sources(root, rows)
     for pin in fixture.source_pins():
-        _copy_source(root, pin["source_path"], fixture.source_bytes(str(pin["atom_id"])), pin["sha256"])
+        _copy_source(root, pin["source_path"], fixture.source_bytes(str(pin["atom_id"])), pin["sha256"], rows)
     for row in (*fixture._support_rows(), *fixture.method_source_pins()):
-        _copy_source(root, row["path"], fixture._row_bytes(row), row["sha256"])
+        _copy_source(root, row["path"], fixture._row_bytes(row), row["sha256"], rows)
 
 
 # implementation of:
@@ -68,15 +71,22 @@ def build_interactive_direct_fixture(
         raise InteractiveFixtureError(f"fixture destination already exists: {root}")
     root.mkdir(parents=True)
     frozen_source_root(root)
-    write_settings(root)
+    scope_rows = write_settings(root)
     fixture = DirectSharedContextFixture.load()
     fixture.verify()
-    copy_direct_closure(root, fixture)
+    copy_direct_closure(root, fixture, scope_rows)
     manifest = frozen_manifest()
     graph = fixture.graph()
-    _current_route(manifest, graph, fixture)  # type: ignore[arg-type]
+    _current_route(manifest, graph, fixture, root=root, scope_rows=scope_rows)  # type: ignore[arg-type]
     manifest = _validated_manifest(root, manifest)
-    parameters, request = build_packet_and_request(root, manifest, fixture)
+    parameters, request = build_packet_and_request(
+        root, manifest, fixture, scope_rows=scope_rows
+    )
+    trusted_methods = tuple(
+        rewrite_source_paths(row, root, scope_rows) for row in fixture.trusted_methods
+    )
+    if any(not isinstance(row, dict) for row in trusted_methods):
+        raise TypeError("interactive trusted Method rows must remain mappings")
     return InteractiveDirectFixture(
         root=root,
         manifest=manifest,
@@ -88,6 +98,6 @@ def build_interactive_direct_fixture(
             "project_prefix": "CA",
             "control_root": ".caprmedio_caprmedio",
         },
-        trusted_methods=fixture.trusted_methods,
+        trusted_methods=trusted_methods,  # type: ignore[arg-type]
     )
 

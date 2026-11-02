@@ -64,8 +64,7 @@ class StructureExtendedTest(unittest.TestCase):
             type="Requirement",
             current_scope_unit="CORE",
             claim_target_scope_unit="CORE",
-            local_tier="Core",
-            global_tier=3,
+            tier=3,
             status="Active",
             version=1,
         )
@@ -232,43 +231,34 @@ class StructureExtendedTest(unittest.TestCase):
                 ).gaps
             )
 
-    def test_tier_uses_declared_parent_depth(self) -> None:
+    def test_tier_requires_one_numeric_value(self) -> None:
         self.assertFalse(self.check("tier.resolution").gaps)
         self.assertTrue(
-            self.check("tier.resolution", metadata={**self.metadata, "global_tier": True}).findings
+            self.check("tier.resolution", metadata={**self.metadata, "tier": True}).findings
         )
         self.structure["scope_units"].append(unit("CHILD", "CORE", 2))
         child = {
             **self.metadata,
             "current_scope_unit": "CHILD",
-            "local_tier": "Standard",
-            "global_tier": 8,
+            "tier": 8,
         }
         self.assertFalse(self.check("tier.resolution", metadata=child).findings)
 
-    def test_tier_requires_carried_value_and_restricts_change_roles(self) -> None:
+    def test_tier_requires_carried_value_and_goal_owner_is_direct_parent(self) -> None:
         self.assertTrue(
-            self.check("tier.resolution", metadata={**self.metadata, "local_tier": None}).findings
+            self.check("tier.resolution", metadata={**self.metadata, "tier": None}).findings
         )
-        self.assertTrue(
-            self.check(
-                "tier.resolution", metadata={**self.metadata, "content_role": "Plan"}
-            ).findings
-        )
+        self.assertFalse(self.check("tier.resolution", metadata={**self.metadata, "content_role": "Plan"}).findings)
         self.structure["scope_units"].append(unit("TARGET", "CORE", 2))
         goal = {
             **self.metadata,
             "type": "Goal",
             "claim_target_scope_unit": "TARGET",
-            "local_tier": "Standard",
-            "global_tier": 5,
+            "tier": 5,
         }
         self.assertFalse(self.check("tier.resolution", metadata=goal).gaps)
         self.assertFalse(self.check("tier.resolution", metadata=goal).findings)
-        self.assertTrue(
-            self.check("tier.resolution", metadata={**goal, "local_tier": "Core"}).findings
-        )
-        self.assertFalse(self.check("tier.resolution", metadata={**goal, "global_tier": 4}).findings)
+        self.assertFalse(self.check("tier.resolution", metadata={**goal, "tier": 4}).findings)
         self.assertTrue(
             self.check("tier.resolution", metadata={**goal, "current_scope_unit": "TARGET"}).findings
         )

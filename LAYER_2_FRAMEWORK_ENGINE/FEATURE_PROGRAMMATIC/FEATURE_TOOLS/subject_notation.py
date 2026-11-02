@@ -750,9 +750,11 @@ def profile_evidence(
     pins = tuple(grammar_pins) if grammar_pins is not None else profile.grammar_pins
     if any(not isinstance(pin, GrammarPin) for pin in pins):
         raise SubjectNotationError("profile-evidence-unbound", "Current grammar observations are required")
-    if [(pin.atom_id, pin.path) for pin in pins] != [
-        (source.atom_id, source.path) for source in profile.grammar_pins
-    ]:
+    if len(pins) != len(profile.grammar_pins) or any(
+        pin.atom_id != source.atom_id
+        or (isinstance(source, GrammarPin) and pin.path != source.path)
+        for pin, source in zip(pins, profile.grammar_pins, strict=True)
+    ):
         raise SubjectNotationError("profile-evidence-invalid", "Grammar observations must match the selected sources")
     rows = []
     for pin in pins:

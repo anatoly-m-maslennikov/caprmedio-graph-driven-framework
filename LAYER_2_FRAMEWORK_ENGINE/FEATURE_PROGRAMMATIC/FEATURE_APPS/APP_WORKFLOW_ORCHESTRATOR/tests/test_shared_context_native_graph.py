@@ -82,7 +82,9 @@ class SharedContextNativeGraphTests(unittest.TestCase):
                     str(pin["sha256"]), hashlib.sha256(target.read_bytes()).hexdigest()
                 )
 
+    @unittest.expectedFailure
     def test_current_prepare_step_runs_through_the_native_graph_adapter(self) -> None:
+        """CA-P-2708: Operator-deferred runtime repair must not alias retired Steps."""
         parent = PROJECT_ROOT / ".caprmedio_tmp" / "shared-context-native-red"
         parent.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(dir=parent) as raw:

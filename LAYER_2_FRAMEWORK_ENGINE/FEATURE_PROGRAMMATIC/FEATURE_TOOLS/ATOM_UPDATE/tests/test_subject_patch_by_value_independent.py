@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import atom_operations as operations  # noqa: E402
 import test_nonarchived_subject_preview as fixtures  # noqa: E402
 from atom_subject_patch import prepare_subject_intent, materialize_subject_intent  # noqa: E402
-from subject_notation import SubjectNotationError, parse_subject  # noqa: E402
+from subject_notation import SubjectNotationError, parse_subject_expression  # noqa: E402
 
 
 class SubjectPatchByValueIndependentTests(unittest.TestCase):
@@ -179,7 +179,7 @@ class SubjectPatchByValueIndependentTests(unittest.TestCase):
 
     def test_invalid_notation_stale_expected_state_and_standalone_apply_guards_remain(self):
         with self.assertRaises(SubjectNotationError) as expected:
-            parse_subject("Atom@State", subject_profile="approved")
+            parse_subject_expression("Atom@State", subject_profile="approved")
         self.assert_refused(self.payload([self.patch(new="Atom@State")], profile="approved"), expected.exception.code)
         for field, value in (("sha256", "0" * 64), ("version", 2), ("atom_id", "CA-R-999")):
             with self.subTest(field=field):

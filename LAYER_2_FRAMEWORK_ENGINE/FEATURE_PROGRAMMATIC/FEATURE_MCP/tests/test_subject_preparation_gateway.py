@@ -47,6 +47,15 @@ class SubjectPreparationGatewayTests(unittest.IsolatedAsyncioTestCase):
             request["atoms"] = request["atoms"][:1]
             response = await client.call_tool("atom_update", {"request": request})
             preview = self.fixture._preview(response)
+            expected_paths = {
+                pin.atom_id: pin.path for pin in protocol.subject_patch.get_profile("approved").grammar_pins
+            }
+            observed_paths = {
+                pin["atom_id"]: pin["path"] for pin in preview["subject_profile_evidence"]["grammar_pins"]
+            }
+            self.assertEqual(expected_paths, observed_paths)
+            for path in observed_paths.values():
+                self.assertTrue((self.root / path).is_file())
             self.assertEqual(before_preview, protocol._snapshot(self.root))
             before_stage = protocol._snapshot(self.root)
             response = await client.call_tool(

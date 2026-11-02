@@ -19,7 +19,11 @@ if str(VALIDATE_ATOMS) not in sys.path:
 
 import test_selected_routes_mcp as fixture  # noqa: E402
 from validate_atoms_workers.parsing import parse_carrier  # noqa: E402
-from frozen_selected_workflows import frozen_manifest, frozen_source_bytes  # noqa: E402
+from frozen_selected_workflows import (  # noqa: E402
+    frozen_manifest,
+    frozen_source_bytes,
+    frozen_source_paths,
+)
 
 
 class SelectedFixturePinLookupTests(unittest.TestCase):
@@ -27,6 +31,18 @@ class SelectedFixturePinLookupTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory(dir=fixture.TEST_TEMP_ROOT)
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
+
+    @staticmethod
+    def frozen_pin_bytes(pin: dict) -> bytes:
+        path = Path(pin["source_path"])
+        try:
+            return frozen_source_bytes(path, pin["digest"])
+        except AssertionError as error:
+            candidates = [candidate for candidate in frozen_source_paths()
+                          if Path(candidate).name.startswith(f'{pin["atom_id"]}-')]
+            if len(candidates) != 1:
+                raise error
+            return frozen_source_bytes(candidates[0], pin["digest"])
 
     def test_exact_selected_sources_keep_identity_revision_and_hash_without_catalog(self) -> None:
         with patch(
@@ -42,7 +58,7 @@ class SelectedFixturePinLookupTests(unittest.TestCase):
                 *fixture.selected_routes._definition_sequence(route),
                 *route["native_action_calls"],
             ]:
-                raw = frozen_source_bytes(pin["source_path"], pin["digest"])
+                raw = self.frozen_pin_bytes(pin)
                 metadata = parse_carrier(raw, Path(pin["source_path"])).metadata
                 self.assertEqual(metadata["atom_id"], pin["atom_id"])
                 self.assertEqual(metadata["version"], pin["version"])

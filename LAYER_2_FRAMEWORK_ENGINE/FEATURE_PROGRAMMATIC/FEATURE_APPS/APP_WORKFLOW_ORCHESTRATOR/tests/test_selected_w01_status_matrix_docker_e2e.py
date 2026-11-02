@@ -35,18 +35,8 @@ class SelectedW01StatusMatrixDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
     def _expected_observed_path(
         root: Path,
         carrier_path: str,
-        role: str,
-        status: str,
-        directory: str,
     ) -> Path:
-        expected_directory = root / ".caprmedio_caprmedio" / "PARENT" / directory
-        if status.casefold() == "draft":
-            expected_directory /= "draft"
-        elif role == "Plan" and status == "Backlog":
-            expected_directory /= "001_backlog"
-        elif status.casefold() != "active":
-            expected_directory /= status.casefold()
-        return expected_directory / Path(carrier_path).name
+        return root / carrier_path
 
     def _assert_atom_properties(
         self,
@@ -119,7 +109,7 @@ class SelectedW01StatusMatrixDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         atom = atom_from_path(root, observed)
         require_current_atom(root, atom)
         self.assertEqual(
-            self._expected_observed_path(root, carrier["path"], role, status, directory),
+            self._expected_observed_path(root, carrier["path"]),
             observed,
         )
         self.assertEqual(carrier["path"], atom.relative)

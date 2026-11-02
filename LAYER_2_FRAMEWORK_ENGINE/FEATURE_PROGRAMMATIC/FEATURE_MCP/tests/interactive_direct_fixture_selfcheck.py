@@ -144,10 +144,21 @@ def _fixture_hashes(fixture: DirectSharedContextFixture, interactive: Interactiv
 def main() -> None:
     fixture = DirectSharedContextFixture.load()
     fixture.verify()
-    profile = _profile(fixture)
     with tempfile.TemporaryDirectory(prefix="interactive-direct-") as temporary:
         interactive = build_interactive_direct_fixture(Path(temporary))
         _check_manifest(interactive)
+        route = next(
+            row
+            for row in interactive.manifest["routes"]
+            if row["route"] == "run_implementation_workflow"
+        )
+        profile = {
+            "workflow": route["workflow"],
+            "entry_step": route["entry_step"],
+            "steps": {
+                item["step"]["atom_id"]: item for item in route["ordered_steps"]
+            },
+        }
         packet = _direct_packet(interactive)
         _check_packet(interactive, profile, packet)
         _check_graph_roundtrip(interactive)
