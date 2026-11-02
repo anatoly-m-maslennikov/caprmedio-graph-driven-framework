@@ -1,0 +1,132 @@
+{
+  "status": "APPLIED",
+  "accepted_at": "2026-11-02 16:48:11 +0400",
+  "decision": "Tool Selections is dropped from the current model.",
+  "operations": [
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2532",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "source_sha256": "0fdc02dbc78b55286c2ed2de295f9cb87639f056a3596f2a410a4f48778cae39",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2532@6-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "archive_sha256": "08c6d51831104c9b403dcac810448cad95a82430d86714693ed5d6a2ed98e07b",
+      "old_version": 6,
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "candidate_sha256": "dfabf0a9c1841e757a38326fce4eccf86ba891f0052d4529929ca1ab3f0500d6",
+      "version": 8,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/question-resolutions-20261102/CA-R-2532@7-draft-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "draft_sha256": "b706ca4946b4d186ce2194c83d359e344d04e7461edc8d5c765e7a055c1ff2fa"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-C-622",
+      "source_path": ".caprmedio_caprmedio/01_concern/CA-C-622-QUESTION--resolve-the-logical-dependent-properties-for-tool-selections.md",
+      "source_sha256": "c830605331ff9ddbc174810d0ea9e438dd119734acb85d072f8b276d5b220e96",
+      "archive_path": ".caprmedio_caprmedio/01_concern/archive/CA-C-622@1-QUESTION--resolve-the-logical-dependent-properties-for-tool-selections.md",
+      "archive_sha256": "b674d86d06700188c0ab8425fc84503279589ed793767e75fca7cfec3ef78941",
+      "old_version": 1,
+      "destination_path": ".caprmedio_caprmedio/01_concern/CA-C-622-QUESTION--resolve-the-logical-dependent-properties-for-tool-selections.md",
+      "candidate_sha256": "80d6c2f45e33edf47e6d3f9d2acd32bbf6d706fd9c831c87cec9f38155ba289b",
+      "version": 3,
+      "status": "Canceled",
+      "draft_path": ".caprmedio_caprmedio/01_concern/draft/question-resolutions-20261102/CA-C-622@2-draft-QUESTION--resolve-the-logical-dependent-properties-for-tool-selections.md",
+      "draft_sha256": "9b55c2bcae6201c027feae9739520fed973bba39615bf94e128b293b6eeaefba"
+    },
+    {
+      "kind": "retire",
+      "base_id": "CA-R-2628",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2628-CORE_META_MODEL-DECLARATION--declare-project-settings-tool-selections.md",
+      "source_sha256": "00ed1a15584ab311d8767a163d9dfd0bce1a3e4660ec6f41873d5baafc59f8c1",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2628@1-CORE_META_MODEL-DECLARATION--declare-project-settings-tool-selections.md",
+      "archive_sha256": "8c9d0965f3ead6bfd72966c6558f13c2003b95c4637b74c1c8e21abf39267eab",
+      "old_version": 1
+    }
+  ],
+  "retired_ids": [
+    "CA-R-2628"
+  ],
+  "scope": "Current minimal MODEL and C622 only; legacy compatibility sources and runtime unchanged.",
+  "events": [
+    {
+      "event_id": "674c7abe-646a-4c81-81fb-b2a3b9def922",
+      "happened_at": "2026-11-02 16:48:11 +0400",
+      "inserted_at": "2026-11-02T16:48:12.593142+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-R-2532",
+        "version": 6,
+        "updated_at": "2026-11-02 15:50:22 +0400"
+      },
+      "object_output": {
+        "id": "CA-R-2532",
+        "version": 8,
+        "updated_at": "2026-11-02 16:48:11 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "e141eefa-47e0-44ba-a538-82f9623021ee",
+      "happened_at": "2026-11-02 16:48:11 +0400",
+      "inserted_at": "2026-11-02T16:48:12.594217+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-C-622",
+        "version": 1,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "object_output": {
+        "id": "CA-C-622",
+        "version": 3,
+        "updated_at": "2026-11-02 16:48:11 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "ada65756-c29d-4d98-9af2-f87a24778c95",
+      "happened_at": "2026-11-02 16:48:11 +0400",
+      "inserted_at": "2026-11-02T16:48:12.595328+04:00",
+      "action": "archive",
+      "object_input": {
+        "id": "CA-R-2628",
+        "version": 1,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "object_output": {
+        "id": "CA-R-2628",
+        "version": 1,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    }
+  ],
+  "journal_receipts": [
+    {
+      "event_id": "674c7abe-646a-4c81-81fb-b2a3b9def922",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 147
+    },
+    {
+      "event_id": "e141eefa-47e0-44ba-a538-82f9623021ee",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 148
+    },
+    {
+      "event_id": "ada65756-c29d-4d98-9af2-f87a24778c95",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 149
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+Tool 'append_change_records' failed: 'Error executing tool append_change_records: append_change_records: request_rejected: request or source binding was rejected; technical diagnostic unavailable'
+Tool 'append_change_records' rejected arguments: ['request.apply']
+Tool 'append_change_records' rejected arguments: ['request.apply']
+Tool 'append_change_records' rejected arguments: ['request.apply']
+Tool 'append_change_records' rejected arguments: ['request.apply']
+Tool 'append_change_records' rejected arguments: ['request.root']
+Tool 'append_change_records' rejected arguments: ['request.event']
+Tool 'append_change_records' rejected arguments: ['request.wait_seconds']
+Tool 'append_change_records' rejected arguments: ['request.authorized']
+Tool 'append_change_records' rejected arguments: ['request.context']
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66010 running stdin=<_UnixWritePipeTransport fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=8 polling>>
+Traceback (most recent call last):
+  File "/var/folders/56/ylp5765x6hnc8chzplc_rjqh0000gn/T/tmpv324ixxo/candidate_registry_server.py", line 4, in <module>
+    import registered_tool_registry as registry
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/registered_tool_registry.py", line 26, in <module>
+    from operation_error_boundary import (
+    ...<4 lines>...
+    )
+ModuleNotFoundError: No module named 'operation_error_boundary'
+<_UnixReadPipeTransport fd=8 polling> was closed by peer
+<_UnixWritePipeTransport fd=7 idle bufsize=0> was closed by peer
+<_UnixSubprocessTransport pid=66010 running stdin=<_UnixWritePipeTransport closing fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport closing fd=8 idle>> exited with return code 1
+StreamableHTTP session manager started
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66058 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+Created new transport with session ID: c16587f5629f425d9b60a1acf80b2d94
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+Received session ID: c16587f5629f425d9b60a1acf80b2d94
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 202 Accepted"
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+Terminating session: c16587f5629f425d9b60a1acf80b2d94
+HTTP Request: DELETE http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=66058 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+StreamableHTTP session manager shutting down
+Tool 'atom_search' failed: 'Error executing tool atom_search: atom_search: request_rejected: request or source binding was rejected; technical diagnostic unavailable'
+Tool 'atom_search' rejected arguments: ['request.lifecycle']
+Tool 'atom_search' rejected arguments: ['request.path']
+Tool 'atom_search' rejected arguments: ['request.index']
+Tool 'atom_search' rejected arguments: ['request.session_id']
+Tool 'atom_search' rejected arguments: ['request.operation']
+Tool 'atom_search' rejected arguments: ['request.context']
+Tool 'atom_search' rejected arguments: ['request.authorization']
+Tool 'atom_search' rejected arguments: ['request.subject_match']
+Tool 'atom_search' rejected arguments: ['request.content_roles']
+Tool 'atom_search' rejected arguments: ['request.content_roles']
+Tool 'atom_search' rejected arguments: ['request.atom_ids.0']
+Tool 'atom_search' rejected arguments: ['request.atom_ids']
+Tool 'atom_search' rejected arguments: ['request.subject']
+Tool 'atom_search' rejected arguments: ['request.lifecycle']
+Executing <Task pending name='Task-137' coro=<DirectSubjectLookupProtocolTests.test_selected_identity_claim_hidden_in_excluded_role_refuses() running at /Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/test_direct_subject_lookup_protocol.py:299> wait_for=<Future pending cb=[Task.task_wakeup()] created at /Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/anyio/_backends/_asyncio.py:1007> cb=[_run_until_complete_cb() at /Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/asyncio/base_events.py:181] created at /Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/asyncio/runners.py:110> took 0.121 seconds
+StreamableHTTP session manager started
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66177 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=66177 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66234 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+Created new transport with session ID: c2090ba62b0f4b649d45277edf439c07
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+Received session ID: c2090ba62b0f4b649d45277edf439c07
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 202 Accepted"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+Terminating session: c2090ba62b0f4b649d45277edf439c07
+HTTP Request: DELETE http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=66234 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66268 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=66268 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66287 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+Created new transport with session ID: 90a99a6efdd64984b871216e0b13454c
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+Received session ID: 90a99a6efdd64984b871216e0b13454c
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 202 Accepted"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+Tool 'raise_error' raised an unexpected exception
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/mcp/server/mcpserver/tools/base.py", line 179, in run
+    result = await self.fn_metadata.call_fn(self.fn, self.is_async, validated, pass_directly)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/mcp/server/mcpserver/utilities/func_metadata.py", line 164, in call_fn
+    return await anyio.to_thread.run_sync(functools.partial(fn, **kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/anyio/to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/anyio/_backends/_asyncio.py", line 2706, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/anyio/_backends/_asyncio.py", line 1100, in run
+    result = context.run(func, *args)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/mcp-health/tmp9zvz3hr0/provider.py", line 21, in raise_error
+    raise RuntimeError('provider diagnostic /fixture/absolute/path')
+RuntimeError: provider diagnostic /fixture/absolute/path
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/mcp/server/mcpserver/server.py", line 442, in _handle_call_tool
+    return await self.call_tool(params.name, params.arguments or {}, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/mcp/server/mcpserver/server.py", line 548, in call_tool
+    return await self._tool_manager.call_tool(name, arguments, context, convert_result=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/mcp/server/mcpserver/tools/tool_manager.py", line 87, in call_tool
+    return await tool.run(arguments, context, convert_result=convert_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/mcp/server/mcpserver/tools/base.py", line 213, in run
+    raise UnexpectedToolError(f"Error executing tool {self.name}") from exc
+mcp.server.mcpserver.exceptions.UnexpectedToolError: Error executing tool raise_error
+HTTP Request: POST http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+Terminating session: 90a99a6efdd64984b871216e0b13454c
+HTTP Request: DELETE http://127.0.0.1:18092/mcp "HTTP/1.1 200 OK"
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=66287 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+StreamableHTTP session manager shutting down
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66358 running stdin=<_UnixWritePipeTransport fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=8 polling>>
+{"timestamp":"2026-11-02T15:06:29.456Z","severity":"WARNING","event":"operation_failure","component":"MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"crash","outcome":"failed","code":"internal_failure","relative_path":"","reason":"Operation failed: internal_failure (MCPError)","project_binding":"unbound","exception_class":"MCPError"}
+<_UnixReadPipeTransport fd=8 polling> was closed by peer
+<_UnixSubprocessTransport pid=66358 running stdin=<_UnixWritePipeTransport closed fd=7 closed> stdout=<_UnixReadPipeTransport closing fd=8 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66382 running stdin=<_UnixWritePipeTransport fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=8 polling>>
+<_UnixReadPipeTransport fd=8 polling> was closed by peer
+<_UnixSubprocessTransport pid=66382 running stdin=<_UnixWritePipeTransport closed fd=7 closed> stdout=<_UnixReadPipeTransport closing fd=8 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66576 running stdin=<_UnixWritePipeTransport fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=8 polling>>
+<_UnixReadPipeTransport fd=8 polling> was closed by peer
+<_UnixSubprocessTransport pid=66576 running stdin=<_UnixWritePipeTransport closed fd=7 closed> stdout=<_UnixReadPipeTransport closing fd=8 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66656 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66671 running stdin=<_UnixWritePipeTransport fd=10 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=11 polling>>
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=66656 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+<_UnixReadPipeTransport fd=11 polling> was closed by peer
+<_UnixSubprocessTransport pid=66671 running stdin=<_UnixWritePipeTransport closed fd=10 closed> stdout=<_UnixReadPipeTransport closing fd=11 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66694 running stdin=<_UnixWritePipeTransport fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=8 polling>>
+<_UnixReadPipeTransport fd=8 polling> was closed by peer
+<_UnixSubprocessTransport pid=66694 running stdin=<_UnixWritePipeTransport closed fd=7 closed> stdout=<_UnixReadPipeTransport closing fd=8 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66705 running stdin=<_UnixWritePipeTransport fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=8 polling>>
+<_UnixReadPipeTransport fd=8 polling> was closed by peer
+<_UnixSubprocessTransport pid=66705 running stdin=<_UnixWritePipeTransport closed fd=7 closed> stdout=<_UnixReadPipeTransport closing fd=8 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66740 running stdin=<_UnixWritePipeTransport fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=8 polling>>
+handler for 'tools/list' returned an invalid result
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/mcp/server/runner.py", line 381, in _serialize
+    dumped = _methods.serialize_server_result(method, version, dumped)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/mcp_types/methods.py", line 654, in serialize_server_result
+    adapter.validate_python(data, by_name=False), by_alias=True, mode="json", exclude_none=True
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/lib/python3.14/site-packages/pydantic/type_adapter.py", line 441, in validate_python
+    return self.validator.validate_python(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        object,
+        ^^^^^^^
+    ...<6 lines>...
+        by_name=by_name,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ListToolsResult
+tools.0.inputSchema.type
+  Input should be 'object' [type=literal_error, input_value='invalid', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/literal_error
+{"timestamp":"2026-11-02T15:07:10.799Z","severity":"WARNING","event":"operation_failure","component":"MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"candidate_start","outcome":"failed","code":"internal_failure","relative_path":"","reason":"Operation failed: internal_failure (ExceptionGroup)","project_binding":"unbound","correlation_id":"bad-0","exception_class":"ExceptionGroup"}
+{"timestamp":"2026-11-02T15:07:12.389Z","severity":"WARNING","event":"operation_failure","component":"MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"candidate_start","outcome":"failed","code":"internal_failure","relative_path":"","reason":"Operation failed: internal_failure (ValueError)","project_binding":"unbound","correlation_id":"bad-1","exception_class":"ValueError"}
+<_UnixReadPipeTransport fd=8 polling> was closed by peer
+<_UnixSubprocessTransport pid=66740 running stdin=<_UnixWritePipeTransport closed fd=7 closed> stdout=<_UnixReadPipeTransport closing fd=8 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66792 running stdin=<_UnixWritePipeTransport fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=8 polling>>
+<_UnixReadPipeTransport fd=8 polling> was closed by peer
+<_UnixSubprocessTransport pid=66792 running stdin=<_UnixWritePipeTransport closed fd=7 closed> stdout=<_UnixReadPipeTransport closing fd=8 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66821 running stdin=<_UnixWritePipeTransport fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=8 polling>>
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/mcp-hot-reload/tmpk_w9008m/mock.py", line 1
+    syntax invalid !
+           ^^^^^^^
+SyntaxError: invalid syntax
+{"timestamp":"2026-11-02T15:07:20.853Z","severity":"WARNING","event":"operation_failure","component":"MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"candidate_start","outcome":"failed","code":"internal_failure","relative_path":"","reason":"Operation failed: internal_failure (ExceptionGroup)","project_binding":"unbound","correlation_id":"invalid","exception_class":"ExceptionGroup"}
+<_UnixReadPipeTransport fd=8 polling> was closed by peer
+<_UnixSubprocessTransport pid=66821 running stdin=<_UnixWritePipeTransport closed fd=7 closed> stdout=<_UnixReadPipeTransport closing fd=8 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66928 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=66928 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66945 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=66945 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66964 running stdin=<_UnixWritePipeTransport fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=8 polling>>
+{"timestamp":"2026-11-02T15:07:26.933Z","severity":"WARNING","event":"operation_failure","component":"MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"control","outcome":"failed","code":"internal_failure","relative_path":"","reason":"Operation failed: internal_failure (ValidationError)","project_binding":"unbound","exception_class":"ValidationError"}
+<_UnixReadPipeTransport fd=8 polling> was closed by peer
+<_UnixSubprocessTransport pid=66964 running stdin=<_UnixWritePipeTransport closed fd=7 closed> stdout=<_UnixReadPipeTransport closing fd=8 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66975 running stdin=<_UnixWritePipeTransport fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=8 polling>>
+{"timestamp":"2026-11-02T15:07:29.153Z","severity":"WARNING","event":"operation_failure","component":"MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"control","outcome":"failed","code":"internal_failure","relative_path":"","reason":"Operation failed: internal_failure (ValueError)","project_binding":"unbound","exception_class":"ValueError"}
+{"timestamp":"2026-11-02T15:07:29.156Z","severity":"WARNING","event":"operation_failure","component":"MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"control","outcome":"failed","code":"internal_failure","relative_path":"","reason":"Operation failed: internal_failure (ValidationError)","project_binding":"unbound","exception_class":"ValidationError"}
+{"timestamp":"2026-11-02T15:07:29.159Z","severity":"WARNING","event":"operation_failure","component":"MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"control","outcome":"failed","code":"internal_failure","relative_path":"","reason":"Operation failed: internal_failure (ValueError)","project_binding":"unbound","exception_class":"ValueError"}
+<_UnixReadPipeTransport fd=8 polling> was closed by peer
+<_UnixSubprocessTransport pid=66975 running stdin=<_UnixWritePipeTransport closed fd=7 closed> stdout=<_UnixReadPipeTransport closing fd=8 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=66991 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=66991 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+StreamableHTTP session manager started
+HTTP Request: GET http://127.0.0.1:8092/health "HTTP/1.1 200 OK"
+HTTP Request: GET http://127.0.0.1:8092/health "HTTP/1.1 200 OK"
+HTTP Request: GET http://127.0.0.1:8092/health "HTTP/1.1 200 OK"
+HTTP Request: GET http://127.0.0.1:8092/health "HTTP/1.1 200 OK"
+HTTP Request: GET http://127.0.0.1:8092/health "HTTP/1.1 503 Service Unavailable"
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+{"timestamp":"2026-11-02T15:07:37.071Z","severity":"WARNING","event":"operation_failure","component":"MCP_HTTP","environment":"host","version":"0.4.4.10","operation":"host_admission","outcome":"failed","code":"http_host_rejected","relative_path":"","reason":"Operation failed: http_host_rejected","project_binding":"unbound"}
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 421 Misdirected Request"
+{"timestamp":"2026-11-02T15:07:37.073Z","severity":"WARNING","event":"operation_failure","component":"MCP_HTTP","environment":"host","version":"0.4.4.10","operation":"origin_admission","outcome":"failed","code":"http_origin_rejected","relative_path":"","reason":"Operation failed: http_origin_rejected","project_binding":"unbound"}
+HTTP Request: GET http://127.0.0.1:8092/health "HTTP/1.1 403 Forbidden"
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+Created new transport with session ID: efbafe1da398473397e4137f6573ca95
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+StreamableHTTP session manager shutting down
+Terminating session: efbafe1da398473397e4137f6573ca95
+StreamableHTTP session manager started
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=67119 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+Created new transport with session ID: eda43bccc4fd4d548377dce5ed26407b
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+Received session ID: eda43bccc4fd4d548377dce5ed26407b
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 202 Accepted"
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+Terminating session: eda43bccc4fd4d548377dce5ed26407b
+HTTP Request: DELETE http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=67119 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=67133 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+Created new transport with session ID: f1b12176776842398bcb311b77cbffbf
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+Received session ID: f1b12176776842398bcb311b77cbffbf
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 202 Accepted"
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+Terminating session: f1b12176776842398bcb311b77cbffbf
+HTTP Request: DELETE http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=67133 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=67143 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+Created new transport with session ID: c9f0bf48174c4986b4d8bbe91535d16c
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+Received session ID: c9f0bf48174c4986b4d8bbe91535d16c
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 202 Accepted"
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=67153 running stdin=<_UnixWritePipeTransport fd=10 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=11 polling>>
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=67143 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+Terminating session: c9f0bf48174c4986b4d8bbe91535d16c
+HTTP Request: DELETE http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+<_UnixReadPipeTransport fd=11 polling> was closed by peer
+<_UnixSubprocessTransport pid=67153 running stdin=<_UnixWritePipeTransport closed fd=10 closed> stdout=<_UnixReadPipeTransport closing fd=11 idle>> exited with return code 0
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=67158 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+HTTP Request: GET http://127.0.0.1:18092/health "HTTP/1.1 200 OK"
+{"timestamp":"2026-11-02T15:07:45.971Z","severity":"WARNING","event":"operation_failure","component":"MCP_HTTP","environment":"host","version":"0.4.4.10","operation":"host_admission","outcome":"failed","code":"http_host_rejected","relative_path":"","reason":"Operation failed: http_host_rejected","project_binding":"unbound"}
+HTTP Request: GET http://127.0.0.1:18092/health "HTTP/1.1 421 Misdirected Request"
+{"timestamp":"2026-11-02T15:07:45.973Z","severity":"WARNING","event":"operation_failure","component":"MCP_HTTP","environment":"host","version":"0.4.4.10","operation":"origin_admission","outcome":"failed","code":"http_origin_rejected","relative_path":"","reason":"Operation failed: http_origin_rejected","project_binding":"unbound"}
+HTTP Request: GET http://127.0.0.1:18092/health "HTTP/1.1 403 Forbidden"
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=67158 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=67169 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+HTTP Request: GET http://127.0.0.1:18092/health "HTTP/1.1 200 OK"
+HTTP Request: GET http://127.0.0.1:18092/health "HTTP/1.1 200 OK"
+HTTP Request: GET http://127.0.0.1:18092/health "HTTP/1.1 200 OK"
+HTTP Request: GET http://127.0.0.1:18092/health "HTTP/1.1 200 OK"
+HTTP Request: GET http://127.0.0.1:18092/health "HTTP/1.1 200 OK"
+HTTP Request: GET http://127.0.0.1:18092/health "HTTP/1.1 200 OK"
+HTTP Request: GET http://127.0.0.1:18092/health "HTTP/1.1 503 Service Unavailable"
+HTTP Request: GET http://127.0.0.1:18092/health "HTTP/1.1 503 Service Unavailable"
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=67169 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=67171 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+HTTP Request: GET http://127.0.0.1:18092/health "HTTP/1.1 200 OK"
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixSubprocessTransport pid=67171 running stdin=<_UnixWritePipeTransport closed fd=8 closed> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 0
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+Created new transport with session ID: a79db1b4b90249b8a2a0fbca438575a9
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 200 OK"
+StreamableHTTP session manager shutting down
+Terminating session: a79db1b4b90249b8a2a0fbca438575a9
+StreamableHTTP session manager started
+{"timestamp":"2026-11-02T15:07:52.502Z","severity":"WARNING","event":"operation_failure","component":"MCP_HTTP","environment":"host","version":"0.4.4.10","operation":"host_admission","outcome":"failed","code":"http_host_rejected","relative_path":"","reason":"Operation failed: http_host_rejected","project_binding":"unbound"}
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 421 Misdirected Request"
+{"timestamp":"2026-11-02T15:07:52.504Z","severity":"WARNING","event":"operation_failure","component":"MCP_HTTP","environment":"host","version":"0.4.4.10","operation":"origin_admission","outcome":"failed","code":"http_origin_rejected","relative_path":"","reason":"Operation failed: http_origin_rejected","project_binding":"unbound"}
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 403 Forbidden"
+StreamableHTTP session manager shutting down
+StreamableHTTP session manager started
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 413 Content Too Large"
+HTTP Request: POST http://127.0.0.1:8092/mcp "HTTP/1.1 413 Content Too Large"
+StreamableHTTP session manager shutting down
+Executing <Task finished name='Task-659' coro=<InteractiveMcpJourneyTests.test_aggregate_frontier_overflow_is_refused() done, defined at /Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/test_interactive_mcp_journey.py:98> exception=SelectedRouteError('current definition is unavailable or invalid: .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-158-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-artifacts.md') created at /Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/asyncio/runners.py:110> took 0.145 seconds
+Executing <Task finished name='Task-665' coro=<InteractiveMcpJourneyTests.test_current_integrated_pending_continuation_and_terminal_block() done, defined at /Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/test_interactive_mcp_journey.py:49> exception=SelectedRouteError('current definition is unavailable or invalid: .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-158-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-artifacts.md') created at /Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/asyncio/runners.py:110> took 0.147 seconds
+Executing <Task finished name='Task-671' coro=<InteractiveMcpJourneyTests.test_source_sha_drift_is_refused_after_preview() done, defined at /Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/test_interactive_mcp_journey.py:73> exception=SelectedRouteError('current definition is unavailable or invalid: .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-158-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-artifacts.md') created at /Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/asyncio/runners.py:110> took 0.154 seconds
+Executing <Task finished name='Task-677' coro=<InteractiveMcpJourneyTests.test_trusted_methods_are_independent_of_packet_rows() done, defined at /Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/test_interactive_mcp_journey.py:84> exception=SelectedRouteError('current definition is unavailable or invalid: .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-158-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-artifacts.md') created at /Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/asyncio/runners.py:110> took 0.169 seconds
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=67287 running stdin=<_UnixWritePipeTransport fd=7 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=8 polling>>
+<_UnixReadPipeTransport fd=8 polling> was closed by peer
+<_UnixSubprocessTransport pid=67287 running stdin=<_UnixWritePipeTransport closed fd=7 closed> stdout=<_UnixReadPipeTransport closing fd=8 idle>> exited with return code 0
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=67368 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixWritePipeTransport fd=8 idle bufsize=0> was closed by peer
+<_UnixSubprocessTransport pid=67368 running stdin=<_UnixWritePipeTransport closing fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 2
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=67373 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixWritePipeTransport fd=8 idle bufsize=0> was closed by peer
+<_UnixSubprocessTransport pid=67373 running stdin=<_UnixWritePipeTransport closing fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 2
+execute program '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python': <_UnixSubprocessTransport pid=67382 running stdin=<_UnixWritePipeTransport fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=9 polling>>
+<_UnixReadPipeTransport fd=9 polling> was closed by peer
+<_UnixWritePipeTransport fd=8 idle bufsize=0> was closed by peer
+<_UnixSubprocessTransport pid=67382 running stdin=<_UnixWritePipeTransport closing fd=8 idle bufsize=0> stdout=<_UnixReadPipeTransport closing fd=9 idle>> exited with return code 2
+/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/tempfile.py:962: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_selected_routes_mcp/tmp6a10gq10'>
+  _warnings.warn(warn_message, ResourceWarning)
+{"timestamp":"2026-11-02T15:08:12.516Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_CATALOG","environment":"host","version":"0.4.4.10","operation":"frontier_discovery","outcome":"failed","code":"PROJECT_CANDIDATE_INVALID","relative_path":"","reason":"Operation failed: PROJECT_CANDIDATE_INVALID","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.517Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_CATALOG","environment":"host","version":"0.4.4.10","operation":"frontier_discovery","outcome":"failed","code":"PROJECT_CANDIDATE_INVALID","relative_path":"","reason":"Operation failed: PROJECT_CANDIDATE_INVALID","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.520Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"shared_dispatch","outcome":"failed","code":"invalid_project_root","relative_path":"","reason":"Operation failed: invalid_project_root","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.522Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"shared_dispatch","outcome":"failed","code":"invalid_project_root","relative_path":"","reason":"Operation failed: invalid_project_root","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.529Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_CATALOG","environment":"host","version":"0.4.4.10","operation":"frontier_discovery","outcome":"failed","code":"PROJECT_CANDIDATE_INVALID","relative_path":"","reason":"Operation failed: PROJECT_CANDIDATE_INVALID","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.531Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_CATALOG","environment":"host","version":"0.4.4.10","operation":"frontier_discovery","outcome":"failed","code":"PROJECT_CANDIDATE_INVALID","relative_path":"","reason":"Operation failed: PROJECT_CANDIDATE_INVALID","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.533Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"shared_dispatch","outcome":"failed","code":"invalid_project_root","relative_path":"","reason":"Operation failed: invalid_project_root","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.533Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"shared_dispatch","outcome":"failed","code":"outside_project_root","relative_path":"","reason":"Operation failed: outside_project_root","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.535Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_CATALOG","environment":"host","version":"0.4.4.10","operation":"frontier_discovery","outcome":"failed","code":"PROJECT_CANDIDATE_INVALID","relative_path":"","reason":"Operation failed: PROJECT_CANDIDATE_INVALID","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.536Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_CATALOG","environment":"host","version":"0.4.4.10","operation":"frontier_discovery","outcome":"failed","code":"PROJECT_CANDIDATE_INVALID","relative_path":"","reason":"Operation failed: PROJECT_CANDIDATE_INVALID","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.545Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_CATALOG","environment":"host","version":"0.4.4.10","operation":"frontier_discovery","outcome":"failed","code":"PROJECT_CANDIDATE_INVALID","relative_path":"","reason":"Operation failed: PROJECT_CANDIDATE_INVALID","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.546Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_CATALOG","environment":"host","version":"0.4.4.10","operation":"frontier_discovery","outcome":"failed","code":"PROJECT_CANDIDATE_INVALID","relative_path":"","reason":"Operation failed: PROJECT_CANDIDATE_INVALID","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.548Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"shared_dispatch","outcome":"failed","code":"invalid_project_root","relative_path":"","reason":"Operation failed: invalid_project_root","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.550Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"shared_dispatch","outcome":"failed","code":"invalid_project_root","relative_path":"","reason":"Operation failed: invalid_project_root","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.550Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"shared_dispatch","outcome":"failed","code":"outside_project_root","relative_path":"","reason":"Operation failed: outside_project_root","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.557Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_CATALOG","environment":"host","version":"0.4.4.10","operation":"frontier_discovery","outcome":"failed","code":"PROJECT_CANDIDATE_INVALID","relative_path":"","reason":"Operation failed: PROJECT_CANDIDATE_INVALID","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.558Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_CATALOG","environment":"host","version":"0.4.4.10","operation":"frontier_discovery","outcome":"failed","code":"PROJECT_CANDIDATE_INVALID","relative_path":"","reason":"Operation failed: PROJECT_CANDIDATE_INVALID","project_binding":"unbound"}
+{"timestamp":"2026-11-02T15:08:12.560Z","severity":"WARNING","event":"operation_failure","component":"SHARED_MCP_GATEWAY","environment":"host","version":"0.4.4.10","operation":"shared_dispatch","outcome":"failed","code":"invalid_project_root","relative_path":"","reason":"Operation failed: invalid_project_root","project_binding":"unbound"}
+Executing <Task pending name='Task-818' coro=<SharedGatewayHealthTests.test_async_and_future_cancellation_are_not_adapted_to_success() running at /Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/test_shared_gateway_health.py:141> cb=[_run_until_complete_cb() at /Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/asyncio/base_events.py:181] created at /Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/asyncio/runners.py:110> took 0.322 seconds

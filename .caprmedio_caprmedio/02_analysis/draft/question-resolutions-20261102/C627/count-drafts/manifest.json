@@ -1,0 +1,22 @@
+{
+  "scope": "C627 count-test documentation candidates only; Current carriers, Step declarations, RUNS naming, projections, runtime, tests, journal, and Git are unchanged.",
+  "comparison_extension": "Only {>n} is stated. It reuses the existing admitted numeric > to compare an actual count; this packet adds no comparison-family syntax, COUNT grammar, predicate, solver, or conformance claim.",
+  "candidates": [
+    {
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "source_sha256": "8a0a10c6a6e7c881c2ca325cdabac0cf2643df5cfa984c80923d931a5f4270c8",
+      "source_version": 9,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/count-drafts/CA-R-2243@10-draft-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "candidate_sha256": "9d7426f979d95782475f832a32f81813d4f70d5ba5329df4fe26a4d18d8c0091",
+      "candidate_version": 10
+    },
+    {
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "source_sha256": "7fb3e95deb7b4757b58b2083c7dd7e1a257adefe32829ddec4342b1a09f42fdd",
+      "source_version": 6,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/count-drafts/CA-R-2487@7-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "candidate_sha256": "ac61aad43ec55ba328f88893c0698212c8193fabeb06ffacd6b23e388a2c2c2b",
+      "candidate_version": 7
+    }
+  ]
+}

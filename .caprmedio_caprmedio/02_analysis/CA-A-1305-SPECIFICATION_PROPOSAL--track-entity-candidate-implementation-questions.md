@@ -1,13 +1,13 @@
 ---
 atom_id: CA-A-1305
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Spec Proposal
 current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
 tier: 3
-version: 10
-updated_at: 2026-10-29 11:08:59 +0400
+version: 11
+updated_at: 2026-11-02 15:49:28 +0400
 subjects:
   governs: Entity
 relations: {}

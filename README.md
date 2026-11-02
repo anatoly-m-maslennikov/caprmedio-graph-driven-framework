@@ -99,7 +99,7 @@ the same Tools and Prompts can work with both →\
 **the framework is built with the framework.**
 
 The framework must describe itself →\
-the [meta-model](101_FRAMEWORK_METHODOLOGY/sources/001_CORE_META_MODEL) uses Atoms to describe Atoms and other framework concepts →\
+the [meta-model](LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/LAYER_1_CORE_META_MODEL) uses Atoms to describe Atoms and other framework concepts →\
 this creates recursion and needs a starting point →\
 bootstrap seeds provided the first definitions; those seeds are now retired.
 
@@ -131,7 +131,7 @@ Workflows are defined in Operations →\
 the harness implements and runs them using Tools and Prompts/Skills.
 
 We cannot put everything into one prompt →\
-the built-in entry Skill, [ca](102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca/SKILL.md), connects agents to MCP →\
+the built-in entry Skill, [ca](LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca/SKILL.md), connects agents to MCP →\
 Tools retrieve the needed context and assemble Prompts/Skills →\
 MCP delivers them and exposes Tool and Workflow execution.
 
@@ -152,28 +152,29 @@ a derived graph database index supports queries and views. Database authority co
 
 ## Main framework architecture
 
-### Node types
+### Core Nodes
 
 - **Scope Unit:** one area of project responsibility, declared in the project structure.
-- **Atom:** one Claim in one scope, with a content role. Atoms belong to Scope Units; project-wide goals are the exception.
+- **Atom:** one Claim in one scope, with a Role. Atoms belong to Scope Units; project-wide goals are the exception.
 - **Journal:** records of changes, execution and observed outcomes.
 - **Projection:** a derived, non-authoritative view of existing sources.
 
-### Content roles
+### Roles and Forms
 
 - **C — Concern:** problems, bugs, questions and opportunities.
-- **A — Analysis:** analysis reports and rationale.
+- **A — Analysis & Advisory:** analysis reports, rationale and spec proposals.
 - **P — Plan:** backlog, tasks, epics and version plans.
 - **R — Requirement:** specification of required outcomes.
 - **M — Method:** how code should be written.
 - **E — Evaluation:** quality assurance policies and test-case specifications.
 - **D — Delivery:** target environments, CI/CD and release policies.
-- **I — Implementation:** code, tests, configuration and CI/CD pipelines implementing all RMED.
 - **O — Operations:** actions and workflows with steps to operate the project.
 
-Each Atom content role has **Types**. Each Type has its own structure, properties, authoring rules and checks. For example, O has Action, Step, Workflow and Actor.
+Each Atom Role has **Forms**. Each Form has its own structure, properties, authoring rules and checks. For example, Operations has Workflow, Step, Substep and Action.
 
-Content roles describe purpose. Atom, Journal and Projection describe form.
+Role describes purpose. Form identifies the structure used within that Role.
+
+**I — Implementation** consists of code, tests, configuration and CI/CD pipelines implementing RMED.
 
 - **MECE:** cover the defined scope without overlap.
 - **DRY:** keep one source of meaning, not independent copies.
@@ -182,9 +183,11 @@ Content roles describe purpose. Atom, Journal and Projection describe form.
 
 ### Scope units
 
-A Scope Unit groups Atoms for one part of the project, such as an app, feature or tool. Inside it, Atoms are organized by content role: Concerns, Plans, Requirements, Methods, and so on.
+A Scope Unit groups Atoms for one part of the project, such as an app, feature or tool. Inside it, Atoms are organized by Role: Concerns, Plans, Requirements, Methods, and so on.
 
-[project_structure.toml](.caprmedio_caprmedio/project_structure.toml) defines Scope Units, their parents and their authority/Delivery paths. Folders follow this file.
+Current Requirement Atoms with Form `Scope Unit Declaration` define Scope Units,
+their parents, and their derived authority/Delivery paths. Folders follow those
+Declarations.
 
 **Scope Unit levels** show nesting depth. The Project is level `0`. Each child is one level deeper: `1`, `2`, `3`, and so on.
 
@@ -265,7 +268,7 @@ for example: one prompt for how to write code, built from all M Atoms that apply
 
 **Different views, one source.** Rebuild Projections from their sources.
 
-Each Project has a `.caprmedio_<project_name>/` folder. Store persistent Journals in `_journal/` and general Projections in `_projection/`. Project-declared Methodology source remains authoritative. In this Project, `101_FRAMEWORK_METHODOLOGY/` is the delivered product and `.caprmedio_caprmedio/000_CAPRMEDIO_framework/` is the installed copy. Both are derived deliveries that preserve provenance. Neither they, graph views, nor derived Journal views replace source or grant Action authority.
+Each Project has a `.caprmedio_<project_name>/` folder. Store persistent Journals in `_journal/` and general Projections in `_projection/`. Project-declared Methodology source remains authoritative. In this Project, `LAYER_1_FRAMEWORK_METHODOLOGY/` is the delivered product and `.caprmedio_caprmedio/000_CAPRMEDIO_framework/` is the installed copy. Both are derived deliveries that preserve provenance. Neither they, graph views, nor derived Journal views replace source or grant Action authority.
 
 With an explicit Project root, Journal writes and queries use that Project's settings and Journal, not those of a parent or sibling Project. Ambiguous control folders and symlinked settings are rejected.
 
@@ -283,15 +286,15 @@ Implementation has golden mock-Agent evidence, not a live-LLM claim.
 
 Two Project-owned release commands run directly from the repository on the host:
 
-- **Local release (`PROJECT_TOOLS/release.py local`):** first commit all tracked
+- **Local release (`LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/release.py local`):** first commit all tracked
   and untracked nonignored changes and verify a clean worktree; run the complete suite; copy active
-  Methodology Sources into `101_FRAMEWORK_METHODOLOGY`; compile Applicable
+  Methodology Sources into `LAYER_1_FRAMEWORK_METHODOLOGY`; compile Applicable
   Methodology; replace the installed Methodology; build and install the Engine
   package and project-local `ca`; remove eligible stopped obsolete Project-owned
   containers before Docker MCP startup; after successful smoke, repeat cleanup
   and remove unused obsolete images, preserving
   verified current-code resources and unrelated or unproven targets.
-- **Public release (`PROJECT_TOOLS/release.py public`):** run the complete suite; use one content
+- **Public release (`LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/release.py public`):** run the complete suite; use one content
   prompt for the full PR description and its concise Version History bullets;
   update the version and README; push `amm/dev`; create or update the PR to
   `main` as a Draft; insert its actual link into Version History. It does not merge the PR.
@@ -308,13 +311,13 @@ its installed Project copy is in `.caprmedio_runtime/simple_local_release/packag
 Configuration and existing Project records remain outside the replacement
 boundary. Python runs through locked `uv` environments, not system libraries.
 
-Use the locked host commands in [Project release tools](PROJECT_TOOLS/README.md),
+Use the locked host commands in [Project release tools](LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/README.md),
 with an Operator-selected run ID and a JSON content draft for Public release.
 They use the host's Git, GitHub and Docker tools independently of MCP. The
 release MCP bindings remain available for reuse in code, but this Project
 disables them through `project_mcp.tool_blacklist`. Regular
 Project MCP runs in Docker on localhost without a password; the
-[launcher documentation](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md)
+[launcher documentation](LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/README.md)
 describes Project selection and endpoint startup.
 
 Local numbering adds or increments the fourth component (`0.4.2.1` →

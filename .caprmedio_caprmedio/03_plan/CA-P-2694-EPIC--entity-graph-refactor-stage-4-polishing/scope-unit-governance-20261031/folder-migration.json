@@ -1,0 +1,8 @@
+{
+  "status": "Applied",
+  "scope_units": 43,
+  "files_moved": 71553,
+  "mapping": ".caprmedio_tmp/declaration-folder-migration/scope-unit-folder-mapping.json",
+  "root_authority_unchanged": ".caprmedio_caprmedio",
+  "live_toml_removed": true
+}

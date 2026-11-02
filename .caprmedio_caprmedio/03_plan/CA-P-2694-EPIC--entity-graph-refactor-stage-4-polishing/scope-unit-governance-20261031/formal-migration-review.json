@@ -1,0 +1,46 @@
+{
+  "result": "PASS",
+  "instance_drafts_with_CFel": 44,
+  "non_root_scope_unit_ids": 43,
+  "project_root_scope_unit_id": null,
+  "ordered_non_root": 9,
+  "unordered_non_root": 34,
+  "preserved_strict_overrides_in_prose": 5,
+  "canonical_headers": 44,
+  "manifest_hashes": "44/44 instances and 12/12 model Drafts",
+  "shared_project_model": "unordered; no order.number; no Scope Unit ID",
+  "folder_rule": "Authority non-root ID prefix; Delivery no ID; root Authority .caprmedio_<project name>",
+  "independent_review": "scope_fresh_coherence_review PASS after current field-map refresh",
+  "current_toml": "unchanged",
+  "not_claimed": [
+    "Current adoption",
+    "CFEL parser/runtime admission",
+    "physical folder migration"
+  ],
+  "ordering_definition_update": {
+    "boolean_values": 1,
+    "ordered_number_values": 1,
+    "ordered_number_format": "int >= 1",
+    "unordered_number_values": 0,
+    "existing_positive_numbers_checked": 9,
+    "model_drafts_updated": 2,
+    "parser_runtime_acceptance": "not checked"
+  },
+  "order_grouping_update": {
+    "result": "PASS",
+    "order_grouping": "order has no direct value; ordered and number are siblings",
+    "instance_drafts_checked": 44,
+    "model_drafts_checked": 12,
+    "ordered_positive_numbers_checked": 9,
+    "ungrouped_paths_remaining": 0,
+    "project": "inherits order.ordered=false, no order.number and no Scope Unit ID",
+    "null_semantics": "No null substitution: zero values remains []{:0}.",
+    "dependency_fix": "Both child definitions depend on Scope Unit.order; number also depends on its ordered sibling for its condition.",
+    "verification": "Hash and source-value assertions passed. Independent review verified grouping/data and identified the precise dependency adjustment, now applied.",
+    "not_checked": [
+      "Parser/runtime acceptance",
+      "Current adoption",
+      "Physical folder migration"
+    ]
+  }
+}

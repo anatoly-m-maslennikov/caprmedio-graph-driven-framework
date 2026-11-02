@@ -1,0 +1,49 @@
+{
+  "status": "promotion-ready successor drafts; Current sources unchanged",
+  "sources": [
+    {
+      "atom_id": "CA-R-2543",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2543-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "sha256": "7ad2864d4b13220fd56619d70c281c39976152ab465347aa27f4b6f534a07b36"
+    },
+    {
+      "atom_id": "CA-R-2483",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "sha256": "873f4db134534b044c4e42ce43190e97084cf6095486240a9f868c18aa360dca"
+    }
+  ],
+  "drafts": [
+    {
+      "atom_id": "CA-R-2543@3-draft",
+      "source_atom_id": "CA-R-2543",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/drafts/CA-R-2543@3-draft-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "sha256": "9ddac02007254b08483edd2e0d6898d614ad9746a82f630f2d6aabe855818491",
+      "claim_delta": [
+        "MODEL declares the generic Aspect.",
+        "All concrete Aspects are instances in the applicable PROJECT STRUCTURE tree."
+      ],
+      "preserved": [
+        "Summary, role, form, existing CFEL Claim fence, and brief Semantics"
+      ]
+    },
+    {
+      "atom_id": "CA-R-2483@3-draft",
+      "source_atom_id": "CA-R-2483",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/drafts/CA-R-2483@3-draft-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "sha256": "426e4f5210e375e570cf494f02c1103a83e89c3391d042eaf144ae693b52da55",
+      "claim_delta": "Replace only '- Aspects.' with '- Aspect instances, including Product.'"
+    }
+  ],
+  "verification": [
+    "Pinned Current source hashes match the listed paths.",
+    "Each draft preserves its source Summary, role, and form.",
+    "CA-R-2543@3-draft has exactly one CFEL fence in Claim.",
+    "CA-R-2483@3-draft changes only the specified Claim bullet beyond Draft metadata."
+  ],
+  "out_of_scope": [
+    "CA-R-2559 and CA-R-2560 remain unchanged.",
+    "No new names, relation signatures, syntax, parser behavior, runtime behavior, or actual-instance registration."
+  ]
+}

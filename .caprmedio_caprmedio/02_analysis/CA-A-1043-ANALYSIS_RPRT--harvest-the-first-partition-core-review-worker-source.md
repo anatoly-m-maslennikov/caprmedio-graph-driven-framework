@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1043
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
@@ -14,10 +14,17 @@ subjects:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
-version: 4
-updated_at: 2026-10-23 03:14:50 +0400
+version: 5
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  relates_to: [CA-P-1325, CA-P-1126, CA-A-905, CA-A-910, CA-A-1036, CA-C-344, CA-P-1335]
+  relates_to:
+  - CA-P-1325
+  - CA-P-1126
+  - CA-A-905
+  - CA-A-910
+  - CA-A-1036
+  - CA-C-344
+  - CA-P-1335
 ---
 # Summary
 

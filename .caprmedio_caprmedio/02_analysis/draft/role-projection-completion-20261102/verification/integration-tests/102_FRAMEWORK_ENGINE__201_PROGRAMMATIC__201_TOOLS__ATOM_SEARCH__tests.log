@@ -1,0 +1,1377 @@
+{"timestamp":"2026-11-02T15:05:16.239Z","severity":"WARNING","event":"atom_schema_invalid","component":"ATOM_SEARCH","environment":"host","version":"0.4.4.10","operation":"atom_search","outcome":"skipped","code":"schema_invalid","relative_path":".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CAPRMEDIO-R-793-PROJECT_CONFIGURATION--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md","reason":"Atom carrier is malformed or invalid","project_prefix":"CA","exception_class":"ToolError"}
+{"timestamp":"2026-11-02T15:05:20.925Z","severity":"WARNING","event":"atom_schema_invalid","component":"ATOM_SEARCH","environment":"host","version":"0.4.4.10","operation":"atom_search","outcome":"skipped","code":"schema_invalid","relative_path":".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CAPRMEDIO-R-793-PROJECT_CONFIGURATION--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md","reason":"Atom carrier is malformed or invalid","project_prefix":"CA","exception_class":"ToolError"}
+{"timestamp":"2026-11-02T15:05:21.128Z","severity":"WARNING","event":"atom_schema_invalid","component":"ATOM_SEARCH","environment":"host","version":"0.4.4.10","operation":"atom_search","outcome":"skipped","code":"schema_invalid","relative_path":".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CAPRMEDIO-R-793-PROJECT_CONFIGURATION--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md","reason":"Atom carrier is malformed or invalid","project_prefix":"CA","exception_class":"ToolError"}
+{"timestamp":"2026-11-02T15:05:21.376Z","severity":"WARNING","event":"atom_schema_invalid","component":"ATOM_SEARCH","environment":"host","version":"0.4.4.10","operation":"atom_search","outcome":"skipped","code":"schema_invalid","relative_path":".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CAPRMEDIO-R-793-PROJECT_CONFIGURATION--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md","reason":"Atom carrier is malformed or invalid","project_prefix":"CA","exception_class":"ToolError"}
+{"timestamp":"2026-11-02T15:05:21.628Z","severity":"WARNING","event":"atom_schema_invalid","component":"ATOM_SEARCH","environment":"host","version":"0.4.4.10","operation":"atom_search","outcome":"skipped","code":"schema_invalid","relative_path":".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CAPRMEDIO-R-793-PROJECT_CONFIGURATION--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md","reason":"Atom carrier is malformed or invalid","project_prefix":"CA","exception_class":"ToolError"}
+======================================================================
+ERROR: test_promote_assigns_identity_and_preserves_bytes (test_atom_operations.AtomOperationsTest.test_promote_assigns_identity_and_preserves_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py", line 225, in source_context_from_project
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py", line 1175, in _validate_complete_carrier
+    validate_proposed_carrier(parsed.metadata, parsed.body, source_context_from_project(root), relative,
+                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py", line 255, in source_context_from_project
+    raise ProposedCarrierError("required Project context is unreadable") from error
+VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier.ProposedCarrierError: required Project context is unreadable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_atom_operations.py", line 413, in test_promote_assigns_identity_and_preserves_bytes
+    result = operations.run_promote(self.root, args)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py", line 2022, in run_promote
+    return _run_promote(root, args)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py", line 2181, in _run_promote
+    kind, value = _plan_promotion_item(root, atom, item, planned_ids)
+                  ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py", line 2110, in _plan_promotion_item
+    return "fresh", _promote_fresh_id(root, atom, item, planned_ids)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py", line 2074, in _promote_fresh_id
+    target, _normalized, payload = prepare_native_fresh_draft_promotion(root, atom, requested)
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py", line 1721, in prepare_native_fresh_draft_promotion
+    return prepare_draft_promotion(root, atom, atom_id, frontmatter, atom.content,
+                                   relative_path=relative_path)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py", line 1711, in prepare_draft_promotion
+    prepare_create_atom_revision(root, target.relative_to(root).as_posix(), normalized, content, creating=False)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py", line 1233, in prepare_create_atom_revision
+    _validate_complete_carrier(root, path, prepared, content, creating=creating)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py", line 1181, in _validate_complete_carrier
+    raise ToolError("complete-carrier-invalid", "new Atom carrier is incomplete, invalid, or unresolved") from error
+atom_operations.ToolError: new Atom carrier is incomplete, invalid, or unresolved
+
+======================================================================
+ERROR: test_absent_type_and_unrelated_malformed_headers_remain_readonly (test_direct_subject_reader.DirectSubjectReaderTests.test_absent_type_and_unrelated_malformed_headers_remain_readonly) (header='atom_id: [invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 48, in test_absent_type_and_unrelated_malformed_headers_remain_readonly
+    result = self.search()
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 31, in search
+    return lookup.run_subject_search(self.root, args, direct_subject_only=True)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_absent_type_and_unrelated_malformed_headers_remain_readonly (test_direct_subject_reader.DirectSubjectReaderTests.test_absent_type_and_unrelated_malformed_headers_remain_readonly) (header='"atom_id" : [invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 48, in test_absent_type_and_unrelated_malformed_headers_remain_readonly
+    result = self.search()
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 31, in search
+    return lookup.run_subject_search(self.root, args, direct_subject_only=True)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_absent_type_and_unrelated_malformed_headers_remain_readonly (test_direct_subject_reader.DirectSubjectReaderTests.test_absent_type_and_unrelated_malformed_headers_remain_readonly) (header='atom_id: CA-A-9\nbroken: [')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 48, in test_absent_type_and_unrelated_malformed_headers_remain_readonly
+    result = self.search()
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 31, in search
+    return lookup.run_subject_search(self.root, args, direct_subject_only=True)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_archived_only_result_does_not_require_a_current_original (test_direct_subject_reader.DirectSubjectReaderTests.test_archived_only_result_does_not_require_a_current_original)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 149, in test_archived_only_result_does_not_require_a_current_original
+    result = self.search(lifecycle="archived")
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 31, in search
+    return lookup.run_subject_search(self.root, args, direct_subject_only=True)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_competing_current_identity_outside_selected_owner_refuses (test_direct_subject_reader.DirectSubjectReaderTests.test_competing_current_identity_outside_selected_owner_refuses)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 70, in test_competing_current_identity_outside_selected_owner_refuses
+    structure.write_text(structure.read_text() + '\n[[scope_units]]\nscope_unit_name = "FOREIGN"\nauthority_path = ".caprmedio_caprmedio/foreign"\n')
+                         ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpf6fprhfo/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_excluded_role_directory_symlink_is_not_a_selected_frontier_gate (test_direct_subject_reader.DirectSubjectReaderTests.test_excluded_role_directory_symlink_is_not_a_selected_frontier_gate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 116, in test_excluded_role_directory_symlink_is_not_a_selected_frontier_gate
+    analysis.symlink_to(hidden, target_is_directory=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 1213, in symlink_to
+    os.symlink(target, self, target_is_directory)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmptrxv723m/unrelated_analysis' -> '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmptrxv723m/.caprmedio_caprmedio/core/02_analysis'
+
+======================================================================
+ERROR: test_literal_suffix_contains_reuse_complete_source_validation (test_direct_subject_reader.DirectSubjectReaderTests.test_literal_suffix_contains_reuse_complete_source_validation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 85, in test_literal_suffix_contains_reuse_complete_source_validation
+    suffix = self.search(subject=".Status", subject_match="suffix")
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 31, in search
+    return lookup.run_subject_search(self.root, args, direct_subject_only=True)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_unrelated_malformed_selected_role_in_other_owner_is_not_selected_content (test_direct_subject_reader.DirectSubjectReaderTests.test_unrelated_malformed_selected_role_in_other_owner_is_not_selected_content)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 80, in test_unrelated_malformed_selected_role_in_other_owner_is_not_selected_content
+    structure.write_text(structure.read_text() + '\n[[scope_units]]\nscope_unit_name = "FOREIGN"\nauthority_path = ".caprmedio_caprmedio/foreign"\n')
+                         ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpb4ura4jz/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_named_instance_subject_search_preview_and_stage (test_instance_subject_flow.InstanceSubjectFlowTests.test_named_instance_subject_search_preview_and_stage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_instance_subject_flow.py", line 66, in test_named_instance_subject_search_preview_and_stage
+    search = run_subject_search(
+        self.root,
+    ...<12 lines>...
+        ),
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_all_invalid_carriers_return_empty_incomplete_data_with_warnings (test_invalid_atom_schema_warnings.InvalidAtomSchemaWarningsTests.test_all_invalid_carriers_return_empty_incomplete_data_with_warnings)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_invalid_atom_schema_warnings.py", line 32, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpgc28yhk2/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_bounded_source_io_remains_an_error (test_invalid_atom_schema_warnings.InvalidAtomSchemaWarningsTests.test_bounded_source_io_remains_an_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_invalid_atom_schema_warnings.py", line 32, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpkfk_64tc/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_duplicate_identity_remains_an_error_not_a_warning (test_invalid_atom_schema_warnings.InvalidAtomSchemaWarningsTests.test_duplicate_identity_remains_an_error_not_a_warning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_invalid_atom_schema_warnings.py", line 32, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp81my06vy/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_security_source_boundary_remains_an_error (test_invalid_atom_schema_warnings.InvalidAtomSchemaWarningsTests.test_security_source_boundary_remains_an_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_invalid_atom_schema_warnings.py", line 32, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp7br4vryg/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_stale_contract_remains_an_error (test_invalid_atom_schema_warnings.InvalidAtomSchemaWarningsTests.test_stale_contract_remains_an_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_invalid_atom_schema_warnings.py", line 32, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmptfz9l178/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_valid_match_survives_matching_invalid_carrier_without_matching_it (test_invalid_atom_schema_warnings.InvalidAtomSchemaWarningsTests.test_valid_match_survives_matching_invalid_carrier_without_matching_it)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_invalid_atom_schema_warnings.py", line 32, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpbghyoc51/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_valid_match_survives_unrelated_invalid_carrier_as_warning (test_invalid_atom_schema_warnings.InvalidAtomSchemaWarningsTests.test_valid_match_survives_unrelated_invalid_carrier_as_warning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_invalid_atom_schema_warnings.py", line 32, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpxisuht7d/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_diagnostic_sink_failure_is_returned_without_losing_valid_matches (test_runtime_warning_logging.RuntimeWarningLoggingTests.test_diagnostic_sink_failure_is_returned_without_losing_valid_matches)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_runtime_warning_logging.py", line 35, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp4duij4pr/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_invalid_atom_warning_is_one_line_structured_stderr_with_project_prefix (test_runtime_warning_logging.RuntimeWarningLoggingTests.test_invalid_atom_warning_is_one_line_structured_stderr_with_project_prefix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_runtime_warning_logging.py", line 35, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp67yxnbhj/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_invalid_request_returns_error_and_one_warning_log (test_runtime_warning_logging.RuntimeWarningLoggingTests.test_invalid_request_returns_error_and_one_warning_log)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_runtime_warning_logging.py", line 35, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpxj4dv3_0/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_logger_preserves_long_uppercase_unicode_prefix_exactly (test_runtime_warning_logging.RuntimeWarningLoggingTests.test_logger_preserves_long_uppercase_unicode_prefix_exactly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_runtime_warning_logging.py", line 35, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpgykan616/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_logger_redacts_secret_and_bounds_reason (test_runtime_warning_logging.RuntimeWarningLoggingTests.test_logger_redacts_secret_and_bounds_reason)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_runtime_warning_logging.py", line 35, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp37j_coe8/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_logger_reports_oversize_prefix_without_writing (test_runtime_warning_logging.RuntimeWarningLoggingTests.test_logger_reports_oversize_prefix_without_writing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_runtime_warning_logging.py", line 35, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpt8xyfs2_/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_second_project_prefix_is_exact_in_explicit_docker_environment (test_runtime_warning_logging.RuntimeWarningLoggingTests.test_second_project_prefix_is_exact_in_explicit_docker_environment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_runtime_warning_logging.py", line 35, in setUp
+    self.fixture.setUp()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmphyulju4d/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_active_default_excludes_backlog_plan_outside_lifecycle_folder (test_subject_lookup.SubjectLookupTest.test_active_default_excludes_backlog_plan_outside_lifecycle_folder)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 290, in test_active_default_excludes_backlog_plan_outside_lifecycle_folder
+    active = run_subject_search(self.root, self._args(content_role=["Plan"]))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_analysis_and_complete_subject_validation (test_subject_lookup.SubjectLookupTest.test_analysis_and_complete_subject_validation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 259, in test_analysis_and_complete_subject_validation
+    result = run_subject_search(self.root, self._args(content_role=["Analysis"]))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_approved_instance_path_matches_exactly_and_by_kind_prefix (test_subject_lookup.SubjectLookupTest.test_approved_instance_path_matches_exactly_and_by_kind_prefix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 131, in test_approved_instance_path_matches_exactly_and_by_kind_prefix
+    exact = run_subject_search(
+        self.root,
+        self._args(subject=instance_path, subject_profile="approved"),
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_approved_selectors_are_case_sensitive_literal_subject_components (test_subject_lookup.SubjectLookupTest.test_approved_selectors_are_case_sensitive_literal_subject_components)
+Selectors qualify text syntax; they do not select fixture Atom rows.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 155, in test_approved_selectors_are_case_sensitive_literal_subject_components
+    named = run_subject_search(
+        self.root,
+        self._args(subject=named_status, subject_match="prefix", subject_profile="approved"),
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_archived_history_is_not_an_original_duplicate_but_current_duplicate_is (test_subject_lookup.SubjectLookupTest.test_archived_history_is_not_an_original_duplicate_but_current_duplicate_is)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 249, in test_archived_history_is_not_an_original_duplicate_but_current_duplicate_is
+    archived = run_subject_search(self.root, self._args())
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_body_false_positive_is_not_subject_hit_and_limit_is_truthful (test_subject_lookup.SubjectLookupTest.test_body_false_positive_is_not_subject_hit_and_limit_is_truthful)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 223, in test_body_false_positive_is_not_subject_hit_and_limit_is_truthful
+    result = run_subject_search(self.root, self._args(subject="Core/Atom", subject_field="depends_on"))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_filename_id_kind_must_match_content_role (test_subject_lookup.SubjectLookupTest.test_filename_id_kind_must_match_content_role)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 284, in test_filename_id_kind_must_match_content_role
+    result = run_subject_search(self.root, self._args())
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_filename_mismatch_and_symlink_frontier_are_rejected (test_subject_lookup.SubjectLookupTest.test_filename_mismatch_and_symlink_frontier_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 271, in test_filename_mismatch_and_symlink_frontier_are_rejected
+    invalid = run_subject_search(self.root, self._args())
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_invalid_and_duplicate_sources_are_diagnostic (test_subject_lookup.SubjectLookupTest.test_invalid_and_duplicate_sources_are_diagnostic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 241, in test_invalid_and_duplicate_sources_are_diagnostic
+    result = run_subject_search(self.root, self._args())
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_literal_suffix_and_contains_accept_fragments_without_case_folding (test_subject_lookup.SubjectLookupTest.test_literal_suffix_and_contains_accept_fragments_without_case_folding)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 101, in test_literal_suffix_and_contains_accept_fragments_without_case_folding
+    suffix = run_subject_search(self.root, self._args(subject="/child", subject_match="suffix"))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_profile_and_subject_syntax_fail_before_search_and_sources_are_diagnostic (test_subject_lookup.SubjectLookupTest.test_profile_and_subject_syntax_fail_before_search_and_sources_are_diagnostic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 217, in test_profile_and_subject_syntax_fail_before_search_and_sources_are_diagnostic
+    result = run_subject_search(self.root, self._args())
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_profiles_select_lexical_boundaries_and_exact_evidence (test_subject_lookup.SubjectLookupTest.test_profiles_select_lexical_boundaries_and_exact_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 116, in test_profiles_select_lexical_boundaries_and_exact_evidence
+    legacy = run_subject_search(self.root, self._args(subject="Core.Atom", subject_match="prefix"))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_structured_exact_prefix_and_ordered_pins (test_subject_lookup.SubjectLookupTest.test_structured_exact_prefix_and_ordered_pins)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 75, in _owners
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 90, in test_structured_exact_prefix_and_ordered_pins
+    exact = run_subject_search(self.root, self._args())
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 236, in run_subject_search
+    return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 251, in _run_subject_search
+    owners = _owners(root, reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", line 78, in _owners
+    raise ToolError("scope-unit-declarations-unavailable", "cannot read authoritative Scope Unit Declarations") from error
+atom_operations.ToolError: cannot read authoritative Scope Unit Declarations
+
+======================================================================
+ERROR: test_contract_changed_during_lookup_is_stale_without_replay (test_subject_lookup_provider.SubjectLookupProviderTests.test_contract_changed_during_lookup_is_stale_without_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp60bxam0_/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_declared_scope_crossing_actual_nested_project_is_refused (test_subject_lookup_provider.SubjectLookupProviderTests.test_declared_scope_crossing_actual_nested_project_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp5idf3d0v/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_descriptor_and_binding_are_effect_free_and_canonical (test_subject_lookup_provider.SubjectLookupProviderTests.test_descriptor_and_binding_are_effect_free_and_canonical)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp0hjd_eq9/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_direct_matches_closed_public_pins_and_no_effects (test_subject_lookup_provider.SubjectLookupProviderTests.test_direct_matches_closed_public_pins_and_no_effects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpfgmqm_1z/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_invalid_current_contract_identity_refuses_without_lookup (test_subject_lookup_provider.SubjectLookupProviderTests.test_invalid_current_contract_identity_refuses_without_lookup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmps7ggbxuo/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_logical_id_filter_and_empty_matches_have_complete_empty_state (test_subject_lookup_provider.SubjectLookupProviderTests.test_logical_id_filter_and_empty_matches_have_complete_empty_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpy586gv_w/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_request_refuses_defaults_unknown_physical_fields_and_duplicates_before_lookup (test_subject_lookup_provider.SubjectLookupProviderTests.test_request_refuses_defaults_unknown_physical_fields_and_duplicates_before_lookup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp8g7y4qc_/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_selected_malformed_subjects_are_reported_without_partial_matches (test_subject_lookup_provider.SubjectLookupProviderTests.test_selected_malformed_subjects_are_reported_without_partial_matches)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpbbnvurp1/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_stale_bound_structure_cannot_introduce_an_unverified_foreign_declaration (test_subject_lookup_provider.SubjectLookupProviderTests.test_stale_bound_structure_cannot_introduce_an_unverified_foreign_declaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmpu0j3hvz8/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+ERROR: test_subjects_and_version_updates_are_read_on_next_call_in_same_adapter (test_subject_lookup_provider.SubjectLookupProviderTests.test_subjects_and_version_updates_are_read_on_next_call_in_same_adapter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup_provider.py", line 35, in setUp
+    self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp48a1ubp1/.caprmedio_caprmedio/project_structure.toml'
+
+======================================================================
+FAIL: test_promote_bulk_preflight_rejects_role_mismatch_without_mutation (test_atom_operations.AtomOperationsTest.test_promote_bulk_preflight_rejects_role_mismatch_without_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_atom_operations.py", line 434, in test_promote_bulk_preflight_rejects_role_mismatch_without_mutation
+    self.assertEqual(context.exception.code, "atom-id-role-mismatch")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'complete-carrier-invalid' != 'atom-id-role-mismatch'
+- complete-carrier-invalid
++ atom-id-role-mismatch
+
+
+======================================================================
+FAIL: test_decoded_excluded_selected_identity_claim_is_not_hidden (test_direct_subject_reader.DirectSubjectReaderTests.test_decoded_excluded_selected_identity_claim_is_not_hidden)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 63, in test_decoded_excluded_selected_identity_claim_is_not_hidden
+    self.assertEqual("subject-identity-inventory-unavailable", caught.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'subject-identity-inventory-unavailable' != 'scope-unit-declarations-unavailable'
+- subject-identity-inventory-unavailable
++ scope-unit-declarations-unavailable
+
+
+======================================================================
+FAIL: test_grammar_pin_changed_before_observation_refuses (test_direct_subject_reader.DirectSubjectReaderTests.test_grammar_pin_changed_before_observation_refuses)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 98, in test_grammar_pin_changed_before_observation_refuses
+    self.assertEqual("subject-grammar-pin-stale", caught.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'subject-grammar-pin-stale' != 'scope-unit-declarations-unavailable'
+- subject-grammar-pin-stale
++ scope-unit-declarations-unavailable
+
+
+======================================================================
+FAIL: test_malformed_excluded_selected_id_claim_is_not_hidden (test_direct_subject_reader.DirectSubjectReaderTests.test_malformed_excluded_selected_id_claim_is_not_hidden)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 57, in test_malformed_excluded_selected_id_claim_is_not_hidden
+    self.assertEqual("subject-identity-inventory-unavailable", caught.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'subject-identity-inventory-unavailable' != 'scope-unit-declarations-unavailable'
+- subject-identity-inventory-unavailable
++ scope-unit-declarations-unavailable
+
+
+======================================================================
+FAIL: test_selected_role_directory_symlink_cannot_be_complete_empty (test_direct_subject_reader.DirectSubjectReaderTests.test_selected_role_directory_symlink_cannot_be_complete_empty) (target_exists=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 110, in test_selected_role_directory_symlink_cannot_be_complete_empty
+    self.assertEqual("subject-source-verification-unavailable", caught.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'subject-source-verification-unavailable' != 'scope-unit-declarations-unavailable'
+- subject-source-verification-unavailable
++ scope-unit-declarations-unavailable
+
+
+======================================================================
+FAIL: test_selected_role_directory_symlink_cannot_be_complete_empty (test_direct_subject_reader.DirectSubjectReaderTests.test_selected_role_directory_symlink_cannot_be_complete_empty) (target_exists=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 110, in test_selected_role_directory_symlink_cannot_be_complete_empty
+    self.assertEqual("subject-source-verification-unavailable", caught.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'subject-source-verification-unavailable' != 'scope-unit-declarations-unavailable'
+- subject-source-verification-unavailable
++ scope-unit-declarations-unavailable
+
+
+======================================================================
+FAIL: test_source_structure_and_frontier_drift_refuse (test_direct_subject_reader.DirectSubjectReaderTests.test_source_structure_and_frontier_drift_refuse) (target=PosixPath('/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp5kevvydz/.caprmedio_caprmedio/TEST-SU-1_CORE/04_requirement/CA-R-1-CORE-REQUIREMENT--fixture.md'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 140, in test_source_structure_and_frontier_drift_refuse
+    self.assertEqual("subject-source-changed", caught.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'subject-source-changed' != 'scope-unit-declarations-unavailable'
+- subject-source-changed
++ scope-unit-declarations-unavailable
+
+
+======================================================================
+FAIL: test_source_structure_and_frontier_drift_refuse (test_direct_subject_reader.DirectSubjectReaderTests.test_source_structure_and_frontier_drift_refuse) (target=PosixPath('/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp5kevvydz/.caprmedio_caprmedio/project_structure.toml'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 140, in test_source_structure_and_frontier_drift_refuse
+    self.assertEqual("subject-source-changed", caught.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'subject-source-changed' != 'scope-unit-declarations-unavailable'
+- subject-source-changed
++ scope-unit-declarations-unavailable
+
+
+======================================================================
+FAIL: test_source_structure_and_frontier_drift_refuse (test_direct_subject_reader.DirectSubjectReaderTests.test_source_structure_and_frontier_drift_refuse) (target=PosixPath('/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp5kevvydz/.caprmedio_caprmedio/caprmedio_project_settings.toml'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 140, in test_source_structure_and_frontier_drift_refuse
+    self.assertEqual("subject-source-changed", caught.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'subject-source-changed' != 'scope-unit-declarations-unavailable'
+- subject-source-changed
++ scope-unit-declarations-unavailable
+
+
+======================================================================
+FAIL: test_source_structure_and_frontier_drift_refuse (test_direct_subject_reader.DirectSubjectReaderTests.test_source_structure_and_frontier_drift_refuse) (target=PosixPath('/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/tests/test_subject_lookup/tmp5kevvydz/.caprmedio_caprmedio/TEST-SU-1_CORE/04_requirement/CA-R-19--added.md'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_direct_subject_reader.py", line 140, in test_source_structure_and_frontier_drift_refuse
+    self.assertEqual("subject-source-changed", caught.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'subject-source-changed' != 'scope-unit-declarations-unavailable'
+- subject-source-changed
++ scope-unit-declarations-unavailable
+
+
+======================================================================
+FAIL: test_unknown_request_is_rejected_before_traversal (test_subject_lookup.SubjectLookupTest.test_unknown_request_is_rejected_before_traversal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", line 232, in test_unknown_request_is_rejected_before_traversal
+    self.assertEqual(context.exception.code, "scope-unit-unknown")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'scope-unit-declarations-unavailable' != 'scope-unit-unknown'
+- scope-unit-declarations-unavailable
++ scope-unit-unknown
+
+
+----------------------------------------------------------------------
+Ran 99 tests in 11.384s
+
+FAILED (failures=11, errors=47)

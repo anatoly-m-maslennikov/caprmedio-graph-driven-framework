@@ -1,0 +1,98 @@
+{
+  "scope": "Current RMED consumer inventory for the 2026-11-02 Step change only",
+  "decision_input": {
+    "step": "exactly one Action OR exactly one Workflow OR one or more Substeps",
+    "relation_rename": "RUN -> RUNS; inverse remains IS_RUN_BY",
+    "parameter_sources_for_action_and_workflow": [
+      "previous Step outputs",
+      "enclosing Workflow Run input",
+      "fixed by Step"
+    ],
+    "substep": "exactly one Action"
+  },
+  "must_fix": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-627-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "lines": [24, 28],
+      "sha256": "ee24d98ff3c96927d0ae797771b2384741ea8eea29af2024cc734704f177f658",
+      "why": "Current Question calls the active alternatives RUN alternatives. It must name RUNS and include the new Workflow alternative if it continues to characterize the active constraint."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "lines": [31, 40],
+      "sha256": "a047be549b1147c80900459609e91b223b672c036405844b0a8f2387fdf7f64b",
+      "why": "Current evaluation states Action-only Step semantics and literal RUN. Update its acceptance check to Action-or-Workflow-or-Substeps, RUNS, the retained Substep Action rule, and the shared three parameter sources; its model-versus-instance deferral already remains explicit."
+    }
+  ],
+  "owned_inputs_not_to_edit_here": [
+    {
+      "ids": ["CA-R-2464", "CA-R-2465", "CA-R-2466", "CA-R-2467", "CA-R-2480", "CA-R-2623"],
+      "owner": "model workers",
+      "evidence": [
+        "CA-R-2465:24-29 and :34 currently encode Step Action-only/contained-Substep alternatives",
+        "CA-R-2466:23-25, :30 retains Substep exactly-one-Action",
+        "CA-R-2480:21-28, :34-35 defines RUN and its Action-only endpoints",
+        "CA-R-2623:21-28, :35 defines IS_RUN_BY as RUN inverse"
+      ]
+    },
+    {
+      "ids": ["CA-R-1569", "CA-R-1570", "CA-R-1992"],
+      "owner": "rule worker",
+      "evidence": [
+        "CA-R-1569:31-42 has Action-only Step alternatives and model-instance deferral",
+        "CA-R-1570:29-33 assigns Step bindings and Action behavior",
+        "CA-R-1992:35-40 repeats the Action-only containment alternatives"
+      ]
+    },
+    {
+      "ids": ["CA-R-2243", "CA-R-2487", "CA-R-2471"],
+      "owner": "count worker",
+      "evidence": ["No additional consumer finding assigned to this inventory."]
+    }
+  ],
+  "derived_projection_refreshes": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-017-CAPRMEDIO--Model-Graph--Current-MODEL-Declarations.md",
+      "sha256": "b389f5aae86452222b8929736da41af25c523ada69c234b63c5b16391a62dcda",
+      "pins_or_literals": ["50: CA-R-2480@4", "406: Relation//RUN", "582: RUN direct classification", "787,792-793: IS_RUN_BY/RUN inverse", "803,860,873-876: Action-only RUN cardinalities"],
+      "action": "Regenerate after accepted source changes; do not hand-edit."
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md",
+      "sha256": "a3f3e2af76ec7c0d17c5540b4dc7ea1c050905ae4bc22bf8cacd098eabd879e8",
+      "pins_or_literals": ["909: CA-R-2480@4", "1429: Relation//RUN"],
+      "action": "Regenerate after accepted source changes; this is a subject-profile projection, not an authoritative source."
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-016-CAPRMEDIO--Subject-Graph-Instances--Current-Methodology-and-Project-RMED.md",
+      "sha256": "4cb65bd8ddea2b1896986d9f1de71b1dfed6ccce4b229ee58466a58d3aad61ac",
+      "pins_or_literals": ["909: CA-R-2480@4", "1168: canonical direct RUN"],
+      "action": "Regenerate after accepted source changes; this is a subject-profile projection, not an authoritative source."
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-015-CAPRMEDIO--Subject-Graph-Properties--Current-Methodology-and-Project-RMED.md",
+      "sha256": "c386d0deb4d9fe8e7adbb6e7eebc0430d6ed442eecdcd4d496e30ad666e4732c",
+      "pins_or_literals": ["894-897: changed Workflow/Step/Substep/Action source vector", "909: CA-R-2480@4", "1050: CA-R-2623@1"],
+      "action": "Regenerate after accepted source changes; its source.Atoms vector pins changed declarations."
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-019-CAPRMEDIO--MODEL-Formal-Contracts.md",
+      "sha256": "00771a8390216e22f42a72429b1f2cb986f7d40c23bfc7ad76249a3a4f1d029a",
+      "pins_or_literals": ["909: CA-R-2480@4", "10505-10531: declared RUN contract", "14629-14633: Step Action-only formal constraint"],
+      "action": "Regenerate after accepted source changes; no runtime implementation claim follows."
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-018-CAPRMEDIO--Entities-Graph--Current-Subject-Narrowing-Tree.md",
+      "sha256": "4c2b7bc0ebfdcabd9947b5fd25127296a5ff699ed0d7d636ca172a283c189636",
+      "pins_or_literals": ["86-89: Workflow/Step/Substep/Action source bindings", "95: CA-R-2480@4", "214: CA-R-2623@1", "277-280: rendered entity bindings"],
+      "action": "Regenerate after accepted source changes; its source bindings may contain updated Step and Workflow declarations."
+    }
+  ],
+  "deferred_runtime_compatibility_surface": {
+    "classification": "deferred actual Operations instances and runtime/fixture consumers, not a model-source update",
+    "reason": "The active model sources explicitly defer actual Workflow, Step, Substep and Action instance review (CA-R-1569:42; CA-E-669:40). Existing runtime descriptions of actual Step Runs, Action Runs, invocation, Tool calls, and Workflow Run bindings therefore require a later compatibility inventory and test plan, after the model wording is accepted.",
+    "excluded": ["specific Workflow-to-Action calls", "generic references to a run that do not denote the RUN relation", "actual Operations instances"],
+    "source_runtime_separation": "A source change does not establish parser, graph-builder, SDK, workflow executor, fixture, or runtime compatibility."
+  },
+  "search_result": "Within non-archived, non-draft METHODOLOGY_SOURCES, the only legacy RUN/R2480 consumers outside assigned source owners are CA-C-627 and CA-E-669. No additional Current authoritative RMED source was found that states generic Step Action-only semantics."
+}

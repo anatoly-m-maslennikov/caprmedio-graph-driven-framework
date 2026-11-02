@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "question": "CA-C-621@3",
+  "state": "Canceled",
+  "archive_body_version_updated_at_preserved": true,
+  "journal_records": 1,
+  "model_and_compiler_changes": 0,
+  "publishing": "Pending parallel workspace edits; Git index untouched"
+}

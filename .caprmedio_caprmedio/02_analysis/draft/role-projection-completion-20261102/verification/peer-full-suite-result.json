@@ -1,0 +1,16 @@
+{
+  "status": "FAIL",
+  "run_context": "Peer full Scope Unit cutover test run; later fixes may supersede this result.",
+  "modules": 519,
+  "tests_run": 4229,
+  "skipped": 0,
+  "failed_modules": 134,
+  "launcher": "FAIL: immutable image/source fingerprint mismatch",
+  "source_log": ".caprmedio_tmp/declaration-source-cutover/full-suite.log",
+  "source_log_sha256": "5afed46ab138e05f4840a8a77bb7f67dff0ac33e361479217b49ec607e9e0bdf",
+  "summary_lines": [
+    "Modules: 519; tests run: 4229; skipped: 0; failed modules: 134"
+  ],
+  "recorded_at": "2026-11-02T17:00:20.062472+00:00",
+  "focused_role_and_projection_checks": "PASS; separate evidence in this verification folder."
+}

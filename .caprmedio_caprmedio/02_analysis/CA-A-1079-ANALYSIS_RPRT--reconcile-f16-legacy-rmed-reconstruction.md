@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1079
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -15,11 +15,22 @@ subjects:
   - Implementation
   - Spec
   - Subject/Domain/Node/Continuant/Projection
-version: 4
-updated_at: 2026-10-23 03:14:50 +0400
+version: 5
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1361]
-  relates_to: [CA-A-1063, CA-A-933, CA-O-016, CA-O-017, CA-O-010, CA-O-006, CA-O-007, CA-O-008, CA-O-019, CA-C-362]
+  analysis_for:
+  - CA-P-1361
+  relates_to:
+  - CA-A-1063
+  - CA-A-933
+  - CA-O-016
+  - CA-O-017
+  - CA-O-010
+  - CA-O-006
+  - CA-O-007
+  - CA-O-008
+  - CA-O-019
+  - CA-C-362
 ---
 # Summary
 

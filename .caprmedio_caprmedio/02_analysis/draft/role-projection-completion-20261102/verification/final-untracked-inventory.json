@@ -1,0 +1,20 @@
+{
+  "paths": 61812,
+  "suffix_counts": {
+    ".md": 59102,
+    ".txt": 993,
+    ".json": 649,
+    ".py": 986,
+    ".log": 14,
+    ".tsv": 2,
+    ".toml": 23,
+    "": 28,
+    ".base64": 1,
+    ".rb": 2,
+    ".ndjson": 2,
+    ".yaml": 8,
+    ".dockerignore": 1,
+    ".b64": 1
+  },
+  "unsafe_or_runtime_paths": []
+}

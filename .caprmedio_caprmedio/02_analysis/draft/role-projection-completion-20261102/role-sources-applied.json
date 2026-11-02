@@ -1,0 +1,70 @@
+{
+  "status": "APPLIED",
+  "physical_move_hold_released": true,
+  "receipt_sha256": "44dae06bf12c38bbf522d2c46c49eb79f17f5adec9b96f6745cd98cc38e24d80",
+  "accepted_at": "2026-11-02 19:33:47 +0400",
+  "updates": [
+    {
+      "id": "CA-R-1889",
+      "version": 20,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md",
+      "sha256": "52b7b8cf0089eea1ed769fff29512d50219e8d36d4940202f939c0b1b7c028df"
+    },
+    {
+      "id": "CA-M-345",
+      "version": 20,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "sha256": "c9642014641c640079c26d022c9dae7f14f184101970ebaed522f4bc43450645"
+    },
+    {
+      "id": "CA-R-1705",
+      "version": 32,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md",
+      "sha256": "2c20aa631343fb9aa1013fadeb6faf501ac9dc777b861accf44b3c8b5b0aee92"
+    },
+    {
+      "id": "CA-R-1875",
+      "version": 22,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "sha256": "37e7f6571e2f675fbd099989d4f01aea7c1b59ec290547e30ef68cf2a88daece"
+    },
+    {
+      "id": "CA-R-1664",
+      "version": 39,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "sha256": "7e4157615514b700c5c58edf1862f85c9d24de0288fbb96471e85d40c7fcdca3"
+    },
+    {
+      "id": "CA-R-1888",
+      "version": 16,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1888-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+      "sha256": "406f672170fd189a0bd00bd507f674df34b260fee408a83cf087366303168462"
+    },
+    {
+      "id": "CA-E-588",
+      "version": 20,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "sha256": "f86bfac6d3e165049c34bd9d06969be9bd2d6072673752aa0635a793d316f224"
+    },
+    {
+      "id": "CA-D-581",
+      "version": 17,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-581-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+      "sha256": "184b74f017976369737b40878e976ddbb368b63a5c2637cbdc5225f362c38d80"
+    },
+    {
+      "id": "CA-D-389",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-389-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md",
+      "sha256": "fb68c90297c741b7d7678fad9644a063b3b197e81230126149e8e11395374d90"
+    },
+    {
+      "id": "CA-R-1556",
+      "version": 26,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-RULE--keep-analysis-optional-before-specification.md",
+      "sha256": "4fddbd6af74a932613c7951a2a2478ae73c23f82b9652fae3329703fa3e9bbfa"
+    }
+  ],
+  "journal_records": 10,
+  "next": "Peer may move folders. Projection frontier will be refreshed afterward."
+}

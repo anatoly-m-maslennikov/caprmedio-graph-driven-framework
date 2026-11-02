@@ -1,6 +1,6 @@
 ---
-version: 26
-updated_at: 2026-11-02 00:18:22 +0400
+version: 28
+updated_at: 2026-11-02 18:35:20 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -11,7 +11,7 @@ relations:
 subjects:
   active: Project
   passive:
-  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  - Aspects <+ Product
   - Project
 cce_version: cce_1
 cce_form: obligation

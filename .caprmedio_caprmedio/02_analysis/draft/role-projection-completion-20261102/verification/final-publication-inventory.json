@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "tracked_count": 59616,
+  "tracked_status_counts": {
+    " M": 481,
+    " D": 59135
+  },
+  "untracked_count": 61819,
+  "mapped_old_tracked_to_untracked_pairs": 59021,
+  "untracked_mapped_from_tracked": 59021,
+  "suspicious_paths": [],
+  "untracked_files_at_least_5mb": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/03_plan/02-CA-Epic-006-FRAMEWORK_METHODOLOGY-align-carrier-claims-with-delivery/execution_evidence/CA-P-961-incoming-references.json",
+      "bytes": 13896450,
+      "disposition": "Existing tracked execution evidence moved, same Git object 6677b119316dc08638a74b5fc9f857e8953d9278"
+    }
+  ],
+  "notes": [
+    "Git status snapshot; peer changes can continue. Filename-only sensitive-material check; contents not inspected.",
+    "Mapped counts use the longest matching authority or delivery folder mapping; unmatched files are not asserted to be new.",
+    "Frozen snapshots and validation logs retained.",
+    "The previously reviewed file over 5 MB is byte-identical moved tracked execution evidence."
+  ],
+  "mapping_counts_by_kind": {
+    "authority": 55343,
+    "delivery": 3678
+  },
+  "unmatched_by_folder_mapping": 2798,
+  "unmatched_top_level_counts": {
+    ".caprmedio_caprmedio": 2792,
+    "LAYER_2_FRAMEWORK_ENGINE": 6
+  },
+  "unmatched_extension_counts": {
+    ".md": 2145,
+    ".txt": 507,
+    ".json": 118,
+    ".log": 14,
+    ".py": 10,
+    ".ndjson": 2,
+    ".tsv": 2
+  }
+}

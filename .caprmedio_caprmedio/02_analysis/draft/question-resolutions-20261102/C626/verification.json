@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "question": "CA-C-626@3 Resolved",
+  "generic_schemas_optional": true,
+  "declarations_or_runtime_changed": false,
+  "predecessor_preserved": true,
+  "journal_records": 1,
+  "publishing": "Pending parallel source edits"
+}

@@ -1,0 +1,308 @@
+"""Read-only resolution of current, source-declared Atom status domains."""
+from __future__ import annotations
+
+from collections.abc import Mapping
+from dataclasses import dataclass
+import hashlib
+from pathlib import Path
+import re
+import tomllib
+from typing import Any
+
+from FIND_AND_FETCH_ARTIFACTS.find_and_fetch_artifacts import _load_frontmatter
+from project_selection import ProjectSelectionError, active_selection, bound_selection
+from scope_unit_declarations import read_scope_unit_declarations
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
+
+_DEFAULT_CONTROL_ROOT = Path(".caprmedio_caprmedio")
+_SOURCE_TAIL = Path(
+    "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
+)
+_VALUES = re.compile(r"(?:(?:the\s+)?Core\s+allowed values of|Core)\s+(?:`?Atom/Content Role:\s*)?([^/`\n]+?)(?:/Status|\s+Status)(?:\s+values)?`?\s*\*\*must\*\* be exactly\s*\(([^)]*)\)", re.I)
+_BASE_VALUES = re.compile(r"(?<![\w.])Atom\.Status\s+\*\*must\*\* admit\s*\(([^)]*)\)")
+_INHERITED_VALUES = re.compile(
+    r"\bCore\s+([^/`\n]+?)\s+Status model\s+\*\*must\*\* inherit the allowed values of "
+    r"Atom\.Status and add\s+(?:\(([^)]*)\)|([A-Za-z][A-Za-z ]*)\.)"
+)
+_ROLE = re.compile(r"Atom/Content Role:\s*([^/.`\n]+)")
+_TYPE = re.compile(
+    r"Atom/Content Role:\s*[^/`\n]+/Type:\s*`?([A-Za-z][A-Za-z0-9 _-]*)`?"
+)
+
+
+class StatusModelError(ValueError):
+    """A status model cannot be derived from current authoritative sources."""
+
+    def __init__(self, code: str, message: str) -> None:
+        self.code = code
+        super().__init__(message)
+
+
+def _configured_control_root(root: Path) -> Path:
+    """Resolve the one Project-declared control root without following links."""
+    selection = bound_selection(root)
+    if selection is not None:
+        return selection.control_root
+    settings_paths = sorted(
+        path for path in root.glob(".caprmedio_*/caprmedio_project_settings.toml")
+        if path.is_file() and not path.is_symlink() and not path.parent.is_symlink()
+    )
+    if not settings_paths:
+        return root / _DEFAULT_CONTROL_ROOT
+    if len(settings_paths) != 1:
+        raise StatusModelError("source-invalid", "Project settings carrier is ambiguous")
+    settings_path = settings_paths[0]
+    try:
+        settings = tomllib.loads(settings_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        raise StatusModelError("source-invalid", "Project settings carrier is invalid") from error
+    paths = settings.get("paths")
+    default = settings_path.parent.relative_to(root)
+    configured = paths.get("control_root", default.as_posix()) if isinstance(paths, dict) else None
+    if not isinstance(configured, str) or not configured:
+        raise StatusModelError("source-invalid", "paths.control_root is invalid")
+    candidate = Path(configured)
+    control = root / candidate
+    if (candidate.is_absolute() or candidate == Path(".") or ".." in candidate.parts
+            or control.is_symlink() or not control.is_dir()):
+        raise StatusModelError("source-invalid", "paths.control_root is unsafe or unavailable")
+    try:
+        control.resolve().relative_to(root)
+    except ValueError as error:
+        raise StatusModelError("source-invalid", "paths.control_root escapes the Project") from error
+    return control
+
+
+def _methodology_source_root(root: Path) -> Path:
+    """Use the declared METHODOLOGY_SOURCES Scope Unit authority path."""
+    try:
+        selection = active_selection(root)
+        declarations = read_scope_unit_declarations(root, selection.control_root)
+    except (OSError, ValueError, ProjectSelectionError) as error:
+        raise StatusModelError("source-invalid", "Scope Unit Declarations authority is invalid") from error
+    matches = [row for row in declarations.as_structure()["scope_units"]
+               if isinstance(row, Mapping) and row.get("scope_unit_name") == "METHODOLOGY_SOURCES"]
+    if len(matches) != 1 or not isinstance(matches[0].get("authority_path"), str):
+        raise StatusModelError("source-invalid", "METHODOLOGY_SOURCES declaration is ambiguous or invalid")
+    candidate = Path(matches[0]["authority_path"])
+    source = root / candidate
+    if (candidate.is_absolute() or candidate == Path(".") or ".." in candidate.parts
+            or source.is_symlink() or not source.is_dir()):
+        raise StatusModelError("source-invalid", "METHODOLOGY_SOURCES declaration authority is unsafe or unavailable")
+    try:
+        source.resolve().relative_to(root)
+    except ValueError as error:
+        raise StatusModelError("source-invalid", "METHODOLOGY_SOURCES declaration authority escapes the Project") from error
+    return source
+
+
+def _source_snapshot(path: Path, root: Path, raw: bytes | None = None) -> dict[str, Any] | None:
+    """Read one potential status authority once; ignore unrelated Markdown."""
+    try:
+        raw = path.read_bytes() if raw is None else raw
+        text = raw.decode("utf-8")
+    except (OSError, UnicodeDecodeError) as error:
+        raise StatusModelError("source-invalid", f"unreadable methodology source: {path}") from error
+    if not text.startswith("---\n"):
+        return None
+    closing = text.find("\n---\n", 4)
+    if closing < 0:
+        return None
+    frontmatter, body = text[4:closing], text[closing + 5:]
+    declarations = [("exact", match) for match in _VALUES.finditer(body)]
+    declarations += [("base", match) for match in _BASE_VALUES.finditer(body)]
+    declarations += [("inherited", match) for match in _INHERITED_VALUES.finditer(body)]
+    if not declarations:
+        return None
+    if len(declarations) != 1:
+        raise StatusModelError("source-invalid", f"ambiguous status-domain declarations: {path}")
+    mode, match = declarations[0]
+    try:
+        meta = _load_frontmatter(frontmatter)
+    except Exception as error:
+        duplicate_atom_id = len(re.findall(r"(?m)^atom_id\s*:", frontmatter)) > 1
+        detail = "duplicate atom_id" if duplicate_atom_id else "malformed YAML"
+        raise StatusModelError("source-invalid", f"invalid status-model authority ({detail}): {path}") from error
+    atom_id, definition_role = meta.get("atom_id"), meta.get("content_role")
+    status, version = meta.get("status"), meta.get("version")
+    subjects = meta.get("subjects")
+    if (not isinstance(atom_id, str) or not atom_id
+            or not isinstance(definition_role, str) or not definition_role
+            or status != "Active"
+            or isinstance(version, bool)
+            or not isinstance(version, int) or version <= 0
+            or not isinstance(subjects, Mapping)
+            or not isinstance(subjects.get("governs"), str)):
+        raise StatusModelError("source-invalid", f"invalid status-model authority: {path}")
+    declared_role = None if mode == "base" else match.group(1).strip()
+    governed = subjects["governs"].strip()
+    role_match = _ROLE.search(governed)
+    if mode == "base":
+        qualified = governed == "Atom.Status" or governed.endswith("/Atom.Status")
+    else:
+        qualified = role_match is not None and role_match.group(1).strip() == declared_role
+    if not qualified:
+        raise StatusModelError("source-invalid", f"status-model authority does not govern its declared role: {path}")
+    raw_values = match.group(1) if mode == "base" else match.group(2)
+    if mode == "inherited" and raw_values is None:
+        raw_values = match.group(3)
+    values = [item.strip().strip("`\"'") for item in raw_values.split(",")]
+    if not values or any(not item for item in values) or len(values) != len(set(values)):
+        raise StatusModelError("source-invalid", f"invalid status domain in {path}")
+    type_match = _TYPE.search(governed)
+    return {
+        "role": declared_role,
+        "mode": mode,
+        "statuses": values,
+        "type": type_match.group(1).strip() if type_match else None,
+        "source": {
+            "atom_id": atom_id,
+            "revision": int(version),
+            "path": path.relative_to(root).as_posix(),
+            "sha256": hashlib.sha256(raw).hexdigest(),
+        },
+    }
+
+
+def _atom_value(atom: object, name: str) -> str | None:
+    if isinstance(atom, Mapping):
+        value = atom.get(name)
+        if isinstance(value, str):
+            return value
+        front = atom.get("frontmatter")
+    else:
+        value = getattr(atom, name, None)
+        if isinstance(value, str):
+            return value
+        front = getattr(atom, "frontmatter", None)
+    if not isinstance(front, str):
+        return None
+    matches = re.findall(rf"(?m)^{name}:\s*(.*?)\s*$", front)
+    if len(matches) != 1:
+        return None
+    return matches[0].strip().strip("\"'")
+
+
+@dataclass(frozen=True)
+class StatusModelIndex:
+    root: Path
+    source_root: Path
+    frontier: dict[Path, str]
+    declarations: tuple[dict[str, Any], ...]
+
+
+def _status_paths(base: Path, reader: ReadContext) -> tuple[Path, ...]:
+    if not base.is_dir():
+        raise StatusModelError("source-missing", "current methodology source root is unavailable")
+    paths = []
+    for path in reader.inventory(base, remember=False):
+        if "archive" in path.parts:
+            continue
+        reader.allowed(path)
+        if path.suffix == ".md":
+            paths.append(path)
+    return tuple(paths)
+
+
+def capture_status_models(root: Path, reader: ReadContext) -> StatusModelIndex:
+    """Capture every possible declaration once within one bounded invocation."""
+    base = _methodology_source_root(root)
+    frontier, declarations = {}, []
+    for path in _status_paths(base, reader):
+        raw = reader.read(path, remember=False)
+        frontier[path] = hashlib.sha256(raw).hexdigest()
+        snapshot = _source_snapshot(path, root, raw)
+        if snapshot is not None:
+            declarations.append(snapshot)
+    return StatusModelIndex(root, base, frontier, tuple(declarations))
+
+
+def revalidate_status_models(index: StatusModelIndex, reader: ReadContext) -> None:
+    base = _methodology_source_root(index.root)
+    if base != index.source_root or _status_paths(base, reader) != tuple(index.frontier):
+        raise StatusModelError("source-stale", "status-model source frontier changed during validation")
+    for path, digest in index.frontier.items():
+        if hashlib.sha256(reader.read(path, remember=False)).hexdigest() != digest:
+            raise StatusModelError("source-stale", "status-model source bytes changed during validation")
+
+
+def _models(root: Path, role: str, atom_type: str | None,
+            index: StatusModelIndex | None = None) -> list[dict[str, Any]]:
+    if index is not None:
+        if root != index.root:
+            raise StatusModelError("source-invalid", "status-model index belongs to another Project")
+        return [row for row in index.declarations if row["role"] in (None, role)
+                and (row["type"] is None or row["type"] == atom_type)]
+    base = _methodology_source_root(root)
+    if not base.is_dir():
+        raise StatusModelError("source-missing", "current methodology source root is unavailable")
+    found: list[dict[str, Any]] = []
+    for path in base.rglob("*.md"):
+        if "archive" in path.parts:
+            continue
+        snapshot = _source_snapshot(path, root)
+        if snapshot is None or snapshot["role"] not in (None, role):
+            continue
+        declared_type = snapshot["type"]
+        if declared_type is not None and declared_type != atom_type:
+            continue
+        found.append(snapshot)
+    return found
+
+
+def declarations_from_sources(sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Parse already-read source rows; retain their caller's binding format."""
+    declarations = []
+    for source in sources:
+        path = Path("/") / source["binding"]["path"]
+        declaration = _source_snapshot(path, Path("/"), source["text"].encode("utf-8"))
+        if declaration is not None:
+            declaration["source"] = dict(source["binding"])
+            declarations.append(declaration)
+    return declarations
+
+
+def resolve_status_domain(declarations: list[dict[str, Any]] | tuple[dict[str, Any], ...],
+                          role: str, atom_type: str | None = None) -> dict[str, Any]:
+    """Compose only the selected declaration's explicit inheritance."""
+    candidates = [row for row in declarations if row["role"] == role
+                  and row["type"] in (None, atom_type)]
+    specific = [row for row in candidates if row["type"] is not None]
+    selected = specific if specific else [row for row in candidates if row["type"] is None]
+    if not selected:
+        raise StatusModelError("model-missing", f"no current status model for {role!r}")
+    if len(selected) != 1:
+        raise StatusModelError("model-ambiguous", f"ambiguous current status model for {role!r}")
+    selected_model = selected[0]
+    dependencies = [selected_model]
+    if selected_model.get("mode") == "inherited":
+        bases = [row for row in declarations if row["role"] is None and row.get("mode") == "base"]
+        if len(bases) != 1:
+            code = "model-missing" if not bases else "model-ambiguous"
+            raise StatusModelError(code, "inheritance requires one current Atom.Status declaration")
+        dependencies = [bases[0], selected_model]
+    return {
+        "statuses": list(dict.fromkeys(value for row in dependencies for value in row["statuses"])),
+        "model_sources": [dict(row["source"]) for row in dependencies],
+    }
+
+
+def resolve_status_model(root: str | Path, atom: object, requested_status: str,
+                         supplied_model: Mapping[str, Any] | None = None, *,
+                         _index: StatusModelIndex | None = None) -> dict[str, Any]:
+    """Resolve one current Role/Type domain; supplied input may only match it."""
+    project = Path(root).resolve()
+    role, atom_type = _atom_value(atom, "content_role"), _atom_value(atom, "type")
+    if not role:
+        raise StatusModelError("target-invalid", "target lacks carried content_role")
+    if not isinstance(requested_status, str) or not requested_status:
+        raise StatusModelError("status-invalid", "requested_status must be a non-empty string")
+    domain = resolve_status_domain(_models(project, role, atom_type, _index), role, atom_type)
+    model = {"content_role": role, "type": atom_type, **domain, "requested_status": requested_status}
+    if requested_status not in model["statuses"]:
+        raise StatusModelError("status-unadmitted", "requested status is not admitted by the current model")
+    if supplied_model is not None:
+        allowed = {"content_role", "type", "statuses", "model_sources", "requested_status"}
+        if set(supplied_model) != allowed or dict(supplied_model) != model:
+            raise StatusModelError("model-forged", "supplied status model differs from authoritative current sources")
+    return model

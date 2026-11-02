@@ -1,38 +1,134 @@
 [
   {
-    "atom_id": "CA-A-1313@8-draft",
-    "path": ".caprmedio_caprmedio/02_analysis/draft/CA-A-1313@8-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md",
-    "status": "Reviewed; questions resolved; Subject binding recorded; adoption pending",
-    "sha256": "c62abeed9376edf96fab0c12a7b9bcfb01c4245640519f71c92717d4d0e9c475"
+    "atom_id": "CA-A-1313@9-draft",
+    "path": ".caprmedio_caprmedio/02_analysis/done/CA-A-1313-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md",
+    "status": "Applied",
+    "sha256": "8d4950cfc2968e70a6060c311049dd19aeff126186910d5a77e90f175481ebb2",
+    "former_draft": ".caprmedio_caprmedio/02_analysis/draft/CA-A-1313@9-draft-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md",
+    "current": ".caprmedio_caprmedio/02_analysis/done/CA-A-1313-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md",
+    "canonical_atom_id": "CA-A-1313",
+    "current_sha256": "cc41fdaef9f3a45c59f6c02419858e0cc12ea61ba7ff3498e13db0cbc43bc48b",
+    "version": 9
   },
   {
     "atom_id": "CA-R-draft",
-    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration-form.md",
-    "status": "Reviewed; questions resolved; Subject binding recorded; adoption pending",
-    "sha256": "0d5fadeb5006e85f8d4f994fec17ffb760be8ddece1938c777549dc8165082fe"
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2516-CORE_META_MODEL-DECLARATION--declare-atom-role-requirement-form-declaration.md",
+    "status": "Applied",
+    "sha256": "4b9d9d0525d60d116cdf2b22639dc7e1d67a8a2cb77d3a9671fe90262e3b1e4f",
+    "former_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-requirement-declaration-form.md",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2516-CORE_META_MODEL-DECLARATION--declare-atom-role-requirement-form-declaration.md",
+    "canonical_atom_id": "CA-R-2516",
+    "current_sha256": "bdc6bd23f5626afbcfef405b1fb5e0abd9195eef236e8300f0b45da0b48ef448",
+    "version": 5
   },
   {
     "atom_id": "CA-R-draft",
-    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-governance.md",
-    "status": "Reviewed; questions resolved; Subject binding recorded; adoption pending",
-    "sha256": "ddc76115745f3b147f998c47952fa9b17826c8cb2b91fae6a1f66fd6bc85df84"
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+    "status": "Applied",
+    "sha256": "325c62493d7602c6c9d533fb3af1b05202a8ffa2c82567f1cfb40191a468df03",
+    "former_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-governance.md",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+    "canonical_atom_id": "CA-R-2684",
+    "current_sha256": "faf7426ae3188c60f3bb9450e0dbcbb298af3d418b3a2379bd8514ae0a910cc1",
+    "version": 1
   },
   {
     "atom_id": "CA-M-draft",
-    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/scope-unit-governance-20261031/CA-M-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
-    "status": "Reviewed; questions resolved; Subject binding recorded; adoption pending",
-    "sha256": "6ceee7f9553b0bf32a7d323db3a9bc798e93652cb0e3eea359408602cf28dec2"
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+    "status": "Applied",
+    "sha256": "646f7f46a59c8408806820d6deb9476e62eec26105561bad190117594d6272fb",
+    "former_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/draft/scope-unit-governance-20261031/CA-M-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+    "canonical_atom_id": "CA-M-461",
+    "current_sha256": "4c32ddd5caa7aaaf726392aea5a3160bc0145eaa54914990b178443076e92741",
+    "version": 1
   },
   {
     "atom_id": "CA-E-draft",
-    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/scope-unit-governance-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
-    "status": "Reviewed; questions resolved; Subject binding recorded; adoption pending",
-    "sha256": "634a8489a1ddd5d0ce90f4808dfc6f72aefc48bf01a42de2b83da982d5322848"
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-670-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+    "status": "Applied",
+    "sha256": "eec11008737c25d016a7cecbf936907d9630aa2c2a627eb25edd87de7b8b428a",
+    "former_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/scope-unit-governance-20261031/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-670-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+    "canonical_atom_id": "CA-E-670",
+    "current_sha256": "cd4b2e21a48cb39f507fef786373accbf20b4d4b3db23d648facda28de4ed48a",
+    "version": 1
   },
   {
     "atom_id": "CA-D-draft",
-    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/scope-unit-governance-20261031/CA-D-draft-CORE_META_MODEL-DECISION--carry-scope-unit-declarations-as-governing-atoms.md",
-    "status": "Reviewed; questions resolved; Subject binding recorded; adoption pending",
-    "sha256": "8a6461df149ba930b832d3de2cacde35a06afc8dbaa0b9cf6a84c6539ecdcae3"
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-666-CORE_META_MODEL-POLICY--carry-scope-unit-declarations-as-governing-atoms.md",
+    "status": "Applied",
+    "sha256": "4be38abcbc1e47b449bd12f3eea60e4812a1c7e34ad055ea4b915ae8037a884e",
+    "former_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/scope-unit-governance-20261031/CA-D-draft-CORE_META_MODEL-DECISION--carry-scope-unit-declarations-as-governing-atoms.md",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-666-CORE_META_MODEL-POLICY--carry-scope-unit-declarations-as-governing-atoms.md",
+    "canonical_atom_id": "CA-D-666",
+    "current_sha256": "4c302c4b4d8de43faea2922a48f730a700ed882e4ae9ac379ae351bc75f15f47",
+    "version": 1
+  },
+  {
+    "atom_id": "CA-D-draft",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-667-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md",
+    "status": "Applied",
+    "sha256": "0f30412f74ab551b40375917312940ca2700766161dde065111693dfa5cacfe2",
+    "former_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/scope-unit-governance-20261031/CA-D-draft-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-667-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md",
+    "canonical_atom_id": "CA-D-667",
+    "current_sha256": "2d1f64d76d65185bb0c5bbb7ade742a4837155ee8140193dd942cba7553e83ec",
+    "version": 1
+  },
+  {
+    "atom_id": "CA-R-2524@3-draft",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+    "status": "Applied",
+    "sha256": "7d2996fe59001adedb73a339e8d9eca808751a90798af660894a42bba4929695",
+    "former_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-2524@3-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+    "canonical_atom_id": "CA-R-2524",
+    "current_sha256": "6d22eb73da40c41554121da9c72b36e42fc2c94f1a1e437ea8523f046fa2a3ca",
+    "version": 3
+  },
+  {
+    "atom_id": "CA-R-draft",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2685-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-ordered.md",
+    "status": "Applied",
+    "sha256": "28e91ebca68cd25b8a674e9c364c57c3a230f93a0ebf4231808371a9d64f9669",
+    "former_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-ordered.md",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2685-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-ordered.md",
+    "canonical_atom_id": "CA-R-2685",
+    "current_sha256": "a776839b60651b7c61a104b05fec3beab3935498fddc7d02095b2dd7c03381f2",
+    "version": 1
+  },
+  {
+    "atom_id": "CA-R-draft",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2686-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-number.md",
+    "status": "Applied",
+    "sha256": "0c22b04dd53af0eaa3e40f0c5029b5e445747e24cabd18107d92376c12ca88cb",
+    "former_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-number.md",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2686-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-number.md",
+    "canonical_atom_id": "CA-R-2686",
+    "current_sha256": "0e50074d20e35f44ebc22355e6bc659d89554ace3761e1938ef68230caf3e687",
+    "version": 1
+  },
+  {
+    "atom_id": "CA-R-2526@3-draft",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+    "status": "Applied",
+    "sha256": "e01a76f132cb5ab21fe5854ffce1e125756b93e0ae1f9a2af1624d50dbf8cd29",
+    "former_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-2526@3-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+    "canonical_atom_id": "CA-R-2526",
+    "current_sha256": "bcbcd8b65f0612f4731269e7b7514d251ae8fd451b6a3ff943ca01c9429c32e4",
+    "version": 3
+  },
+  {
+    "atom_id": "CA-R-draft",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2687-CORE_META_MODEL-DECLARATION--declare-scope-unit-order.md",
+    "status": "Applied",
+    "sha256": "924bdf688f8568d2bbcf5e254dbc8358b77939f22b30d5dadb3b46439997590f",
+    "former_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/scope-unit-governance-20261031/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-order.md",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2687-CORE_META_MODEL-DECLARATION--declare-scope-unit-order.md",
+    "canonical_atom_id": "CA-R-2687",
+    "current_sha256": "a5aecc773d0d2113769c5b6cb9e5189b7b4c0bf900b7c21caeead6abe4d370a4",
+    "version": 1
   }
 ]

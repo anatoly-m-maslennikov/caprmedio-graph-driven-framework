@@ -2,10 +2,9 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
-  passive: []
-version: 3
-updated_at: 2026-11-02 00:18:22 +0400
+  active: Aspects <+ Product
+version: 6
+updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

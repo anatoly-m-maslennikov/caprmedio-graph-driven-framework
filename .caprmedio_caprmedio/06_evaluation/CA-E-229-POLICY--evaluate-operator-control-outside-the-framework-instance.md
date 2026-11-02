@@ -1,6 +1,6 @@
 ---
-version: 26
-updated_at: 2026-11-02 00:18:22 +0400
+version: 28
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-R-827
@@ -11,7 +11,7 @@ subjects:
   passive:
   - Entity/Object/Continuant/Actor/Operator
   - Project
-  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  - Aspects <+ Product
   - Atom/(.Role := Evaluation)
 cce_version: cce_1
 cce_form: evaluation

@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1091
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -14,11 +14,21 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Analysis
   - Evaluation
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1376]
-  relates_to: [CA-P-1353, CA-A-1071, CA-A-1123, CA-A-1132, CA-A-1133, CA-A-1134, CA-A-1135, CA-P-1372, CA-A-1087]
+  analysis_for:
+  - CA-P-1376
+  relates_to:
+  - CA-P-1353
+  - CA-A-1071
+  - CA-A-1123
+  - CA-A-1132
+  - CA-A-1133
+  - CA-A-1134
+  - CA-A-1135
+  - CA-P-1372
+  - CA-A-1087
 ---
 # Summary
 

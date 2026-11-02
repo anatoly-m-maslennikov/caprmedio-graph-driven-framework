@@ -1,0 +1,265 @@
+"""Real-authority Subject preparation and fail-closed native execution."""
+
+from __future__ import annotations
+
+import copy
+import hashlib
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+from unittest.mock import patch
+
+
+TOOLS = Path(__file__).resolve().parents[2]
+REPOSITORY = TOOLS.parents[2]
+APP = TOOLS.parent / "FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR"
+ATOM_UPDATE_TESTS = TOOLS / "ATOM_UPDATE/tests"
+for location in (TOOLS, APP, APP / "tests", TOOLS.parent / "FEATURE_MCP/tests", ATOM_UPDATE_TESTS):
+    if str(location) not in sys.path:
+        sys.path.insert(0, str(location))
+
+import atom_operations as operations  # noqa: E402
+import atom_subject_apply as native  # noqa: E402
+import atom_subject_patch as subject_patch  # noqa: E402
+from lifecycle_intents import LifecycleError, carrier_descriptor, update_assessment_seal  # noqa: E402
+from selected_workflows_docker_fixture import GoldenCase, GoldenProject, digest  # noqa: E402
+from frozen_selected_workflows import frozen_source_bytes  # noqa: E402
+from subject_notation import get_profile  # noqa: E402
+from subject_grammar_corpus import grammar_carriers  # noqa: E402
+from test_selected_routes_mcp import copy_complete_selected_guard_fixture  # noqa: E402
+from selected_routes import load_selected_manifest  # noqa: E402
+
+
+TEST_TEMP_ROOT = REPOSITORY / ".caprmedio_tmp/tests/test_subject_apply_portfolio"
+TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+CORE_OPERATIONS = ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/09_operations/"
+TOOL_WORKFLOWS = ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/"
+CURRENT_W02_PINS = {
+    "CA-O-067": CORE_OPERATIONS + "CA-O-067-CORE_META_MODEL-ACTION--assess-atom-update-identity.md",
+    "CA-O-127": CORE_OPERATIONS + "CA-O-127-CORE_META_MODEL-WORKFLOW--manage-atom-lifecycle.md",
+    "CA-O-128": CORE_OPERATIONS + "CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom-lifecycle-changes.md",
+    "CA-O-129": CORE_OPERATIONS + "CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-lifecycle-change.md",
+    "CA-O-145": CORE_OPERATIONS + "CA-O-145-CORE_META_MODEL-STEP--assess-update-identity-for-atom-lifecycle.md",
+}
+PUBLICATION_PINS = {
+    "CA-R-866": TOOL_WORKFLOWS + "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
+    "CA-M-371": TOOL_WORKFLOWS + "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md",
+    "CA-E-304": TOOL_WORKFLOWS + "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
+    "CA-O-030": TOOL_WORKFLOWS + "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md",
+    "CA-E-626": TOOL_WORKFLOWS + "06_evaluation/CA-E-626-TOOL_WORKFLOWS-CORE-QA_CASE--verify-independent-atom-workflow-effects.md",
+}
+
+
+class CurrentSubjectGoldenProject(GoldenProject):
+    """Real fifteen-route fixture; not seventeen-route or live release evidence."""
+
+    def _copy_reviewed_manifest(self):
+        settings = self.root / operations.SETTINGS_PATH
+        fixture_settings = settings.read_bytes()
+        try:
+            manifest = copy_complete_selected_guard_fixture(self.root)
+        finally:
+            settings.write_bytes(fixture_settings)
+        grammar = grammar_carriers()
+        for pin in get_profile(self.subject_profile).grammar_pins:
+            target = self.root / pin.path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(grammar[pin.path])
+        manifest = load_selected_manifest(self.root)
+        route = next(row for row in manifest["routes"] if row["route"] == "update_atom")
+        pins = [route["workflow"], *route["ordered_actions"], *route["native_action_calls"]]
+        pins.extend(pin for pair in route["ordered_steps"] for pin in pair.values())
+        current = {**CURRENT_W02_PINS, "CA-O-030": PUBLICATION_PINS["CA-O-030"]}
+        assert {pin["atom_id"] for pin in pins} == set(current)
+        for pin in pins:
+            frozen_path = current[pin["atom_id"]]
+            frozen_raw = frozen_source_bytes(frozen_path)
+            frozen_frontmatter, _ = operations.split_frontmatter(frozen_raw.decode("utf-8"))
+            frozen_version = int(operations.frontmatter_scalar(frozen_frontmatter, "version"))
+            frozen_digest = hashlib.sha256(frozen_raw).hexdigest()
+            actual_path = Path(pin["source_path"])
+            actual_raw = (self.root / actual_path).read_bytes()
+            actual_frontmatter, _ = operations.split_frontmatter(actual_raw.decode("utf-8"))
+            actual_version = int(operations.frontmatter_scalar(actual_frontmatter, "version"))
+            actual_digest = hashlib.sha256(actual_raw).hexdigest()
+            assert actual_raw == frozen_raw
+            assert (pin["version"], pin["digest"]) == (frozen_version, frozen_digest)
+            assert (actual_version, actual_digest) == (frozen_version, frozen_digest)
+        for atom_id, path in PUBLICATION_PINS.items():
+            raw = frozen_source_bytes(path)
+            sha256 = hashlib.sha256(raw).hexdigest()
+            self._copy_pinned(Path(path), sha256)
+            frontmatter, _ = operations.split_frontmatter((self.root / path).read_text())
+            assert operations.frontmatter_scalar(frontmatter, "atom_id") == atom_id
+        return manifest
+
+
+class SubjectApplyProject:
+    """One current-contract W02 fixture, retaining real admission and validation."""
+
+    def __init__(self, root: Path, *, noop: bool = False, newline: str = "\n", subject_profile: str = "approved",
+                 role: str = "Requirement", status: str = "Active") -> None:
+        self.root = root
+        self.golden = CurrentSubjectGoldenProject(REPOSITORY, root, GoldenCase("W02", "update_atom"))
+        self.golden.subject_profile = subject_profile
+        self.manifest = self.golden.prepare()
+        self.golden._copy_complete_carrier_authority()
+        grammar = grammar_carriers()
+        for grammar_pin in get_profile(subject_profile).grammar_pins:
+            original = grammar[grammar_pin.path]
+            destination = root / grammar_pin.path
+            assert destination.read_bytes() == original
+        self.path = self.golden.status_atom(role, status, number=8100)
+        assert newline in {"\n", "\r\n"}
+        if newline == "\r\n":
+            self.path.write_bytes(self.path.read_bytes().replace(b"\n", b"\r\n"))
+        self.path.chmod(0o640)
+        self.before = self.path.read_bytes()
+        self.before_mode = self.path.stat().st_mode & 0o777
+        self.target = carrier_descriptor(root, self.path.relative_to(root).as_posix())
+        self.patches = [] if noop else [{"field": "governs", "old": "Atom/Test",
+                                        "new": "Atom.State" if subject_profile == "approved" else "Atom/State"}]
+        self.prepared = subject_patch.prepare_subject_intent(root, self.target, self.patches, subject_profile=subject_profile)
+        self.parameters = {
+            "target": self.target, "subject_patches": self.patches,
+            "subject_intent_sha256": self.prepared["subject_intent_sha256"], "subject_profile": subject_profile,
+        }
+        if not noop:
+            self.parameters["semantic_assessment_report"] = self.golden._semantic_assessment_report(self.target, self.prepared["proposed"])
+        self.golden._semantic_update_parameters = self.parameters
+        self.archive = None if noop else root / self.prepared["subject_intent"]["predecessorArchive"]["path"]
+
+    def execution(self, run_id: str, *, request_transform=None):
+        from selected_execution import SelectedExecution
+
+        request = self.golden.request(request_id=run_id)
+        intent = self.prepared["subject_intent"]
+        request["target_frontier"] = [self.target["path"]]
+        request["effects"] = []
+        if not intent["noop"]:
+            archive = intent["predecessorArchive"]
+            request["target_frontier"].append(archive["path"])
+            request["effects"] = [
+                {"type": "subjectUpdate", "path": self.target["path"], "atom_id": self.target["atom_id"],
+                 "before_version": self.target["version"], "version": self.target["version"] + 1,
+                 "subject_intent_sha256": self.parameters["subject_intent_sha256"]},
+                {"type": "predecessorArchive", **archive},
+            ]
+        if request_transform is not None:
+            request_transform(request)
+        request["target_frontier_digest"] = digest(request["target_frontier"])
+        request["effects_digest"] = digest(request["effects"])
+        runner = SelectedExecution(self.root)
+        graph_request = {**request, "mode": "execute"}
+        graph = runner._validate_graph(graph_request)
+        tracker = runner._shared_tracker({"graph": graph, "request": {"execution": graph_request}})
+        preview = tracker.run_selected_operation(request)
+        with patch.object(self.golden, "_requested_runs",
+                          return_value=SelectedExecution.build_requested_runs(graph, run_id)):
+            execute = self.golden.request(request_id=run_id, mode="execute",
+                                          receipt=preview["proposal_receipt"], receipt_digest=preview["proposal_receipt_digest"])
+        for field in ("target_frontier", "target_frontier_digest", "effects", "effects_digest"):
+            execute[field] = request[field]
+        for field in ("target_frontier_digest", "effects_digest"):
+            execute["operator_authorization"][field] = request[field]
+        frozen = runner.freeze({"operation": "enqueue_selected", "run_id": run_id, "execution": execute})
+        return runner, frozen
+
+    def confirmation(self, frozen):
+        from atom_subject_stage import stage_subject_preview
+        from subject_publication_authorization import authorize_subject_publication
+
+        staged = stage_subject_preview(self.root, [{"selector": self.target["path"],
+            "expected": {"atom_id": self.target["atom_id"], "version": self.target["version"],
+                         "sha256": self.target["digest"]}, "subject_patches": self.patches}],
+            timestamp="2026-10-13 14:00:00 +0400", subject_profile=self.parameters.get("subject_profile", "legacy"))
+        self.staged = staged
+        execution = frozen["request"]["execution"]
+        return authorize_subject_publication(self.root, execution, operator_name="golden-operator",
+            llm_session={"app": "run-support", "uuid": execution["request_id"]},
+            staged_manifest={"path": staged["manifest_path"], "digest": staged["manifest_sha256"]})
+
+    def assert_unchanged(self, case: unittest.TestCase) -> None:
+        case.assertEqual(self.before, self.path.read_bytes())
+        case.assertEqual(self.before_mode, self.path.stat().st_mode & 0o777)
+        if self.archive is not None:
+            case.assertFalse(self.archive.exists())
+
+
+class SubjectApplyPortfolioTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.directory = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
+        self.addCleanup(self.directory.cleanup)
+        self.fixture = SubjectApplyProject(Path(self.directory.name))
+
+    def assert_refused(self, code: str, parameters: dict | None = None, **kwargs) -> None:
+        with self.assertRaises((LifecycleError, operations.ToolError)) as raised:
+            native.subject_update_action(self.fixture.root, self.fixture.parameters if parameters is None else parameters, **kwargs)
+        self.assertEqual(code, raised.exception.code)
+        self.fixture.assert_unchanged(self)
+
+    def test_preview_uses_real_report_and_old_metadata_proposal_without_effects(self) -> None:
+        result = native.subject_update_action(self.fixture.root, self.fixture.parameters)
+        self.assertEqual("preview", result["outcome"])
+        self.assertEqual("semantic_revision", result["assessment_evidence"]["admitted_change_class"])
+        self.assertEqual(self.fixture.prepared["subject_intent_sha256"], result["subject_intent_sha256"])
+        self.assertEqual(self.fixture.before.replace(b"governs: Atom/Test", b'governs: "Atom.State"'),
+                         self.fixture.prepared["intended_carrier"].encode())
+        self.assertEqual(self.fixture.before.split(b"\n---\n", 1)[1], self.fixture.prepared["proposed"]["content"].encode())
+        self.fixture.assert_unchanged(self)
+
+    def test_caller_boolean_and_current_assessment_seal_are_not_a_selected_session(self) -> None:
+        preview = native.subject_update_action(self.fixture.root, self.fixture.parameters)
+        assessment = update_assessment_seal(self.fixture.parameters, preview["assessment_evidence"])
+        self.assert_refused("subject-session-required", execute=True, authorized=True, assessment=assessment)
+
+    def test_closed_parameters_reject_mixed_generic_and_forged_evidence(self) -> None:
+        for field in ("proposed", "frontmatter", "content", "change_class", "successors", "assessment", "session", "authorized"):
+            with self.subTest(field=field):
+                self.assert_refused("subject-update-parameters-invalid", {**self.fixture.parameters, field: True})
+        for value in (None, True, [], {}, "unknown"):
+            with self.subTest(profile=value):
+                self.assert_refused("subject-profile-invalid", {**self.fixture.parameters, "subject_profile": value})
+
+    def test_full_intent_hash_and_source_snapshot_are_required(self) -> None:
+        self.assert_refused("subject-intent-stale", {**self.fixture.parameters, "subject_intent_sha256": "0" * 64})
+        self.fixture.path.write_bytes(self.fixture.before + b"\nconcurrent fixture edit\n")
+        with self.assertRaises(LifecycleError) as raised:
+            native.subject_update_action(self.fixture.root, self.fixture.parameters)
+        self.assertEqual("subject-pin-stale", raised.exception.code)
+        self.assertEqual(self.fixture.before + b"\nconcurrent fixture edit\n", self.fixture.path.read_bytes())
+        self.assertFalse(self.fixture.archive.exists())
+
+    def test_duplicate_original_is_preserved_on_refusal(self) -> None:
+        duplicate = self.fixture.path.with_name("CA-R-8100--competing-original.md")
+        duplicate.write_bytes(self.fixture.before)
+        self.assert_refused("subject-identity-duplicate")
+        self.assertEqual(self.fixture.before, duplicate.read_bytes())
+
+    def test_stale_or_missing_report_is_unresolved_and_cannot_apply(self) -> None:
+        report = self.fixture.root / self.fixture.parameters["semantic_assessment_report"]["path"]
+        report.write_bytes(report.read_bytes() + b"\nchanged fixture report\n")
+        for parameters in (self.fixture.parameters, {key: value for key, value in self.fixture.parameters.items() if key != "semantic_assessment_report"}):
+            with self.subTest(report_present="semantic_assessment_report" in parameters):
+                result = native.subject_update_action(self.fixture.root, parameters, execute=True, authorized=True)
+                self.assertEqual("unresolved", result["outcome"])
+                self.assertEqual("semantic-assessment-unverified", result["classification"]["reason"])
+                self.fixture.assert_unchanged(self)
+
+    def test_empty_patch_noop_keeps_version_time_hash_and_has_no_archive(self) -> None:
+        parameters = copy.deepcopy(self.fixture.parameters)
+        parameters["subject_patches"] = []
+        prepared = subject_patch.prepare_subject_intent(self.fixture.root, self.fixture.target, [], subject_profile="approved")
+        parameters["subject_intent_sha256"] = prepared["subject_intent_sha256"]
+        parameters.pop("semantic_assessment_report")
+        result = native.subject_update_action(self.fixture.root, parameters)
+        self.assertEqual("no-op", result["outcome"])
+        self.assertIsNone(result["subject_intent"]["predecessorArchive"])
+        self.assertEqual({"version": self.fixture.target["version"], "updated_at": self.fixture.target["updated_at"],
+                          "after_sha256": self.fixture.target["digest"]}, result["materialization"])
+        self.fixture.assert_unchanged(self)
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "scope": "Final semantic review of C627 model, Rule, and CA-E-669 Draft candidates and retirement coverage only. This is not a parser, solver, runtime, projection, or full evaluator conformance claim.",
+  "reviewed_artifact_sha256": {
+    "C627 manifest": "affa1a5fa0f754ed2ea80011b8b9e88e8ba3d7fb92310eb4588902d64364f733",
+    "model-drafts manifest": "c96a5e8f8b2fba2b08b64d242edd8dd8e1caf5f5d85b0b3ab2766d98fbc4366f",
+    "CA-R-2464@3-draft": "d215ec2d7f2d372b2529376a40e14252f2f009d5c6fd9dbb58ca202c67b1b2e6",
+    "CA-R-2465@3-draft": "0080349925911cd126a8383e42a67b882e93ed6bd06c27cdf96eda4f37999598",
+    "CA-R-2466@3-draft": "a10b8bff162ce14f757c6c235b66715b02b2a50a85d9ae4f886bebc7e1a33f90",
+    "CA-R-draft RUNS": "29998d146f7cfb195cc966d48a9f2b4c8a62ac3f4685d56491b540189de25dea",
+    "CA-R-2623@2-draft": "ecf705bb812e070cd84ad4ff9f16dcac8c4e89fef5a2c15ea54196ed7735de8c",
+    "CA-R-1570@25-draft": "0f3ff99c1b472d54643631f6a15264108adbc03ee163c53e6d119302f9422d5b",
+    "CA-R-draft Bind Step parameters": "dae102124eaee28ecb7c8fa9b5241064038f57b3e67f0522db22f42c4d1b53f8",
+    "deferred classification and routing notes": "1ef3a24ff174889652f836efb0371df1fcdcae4da019d796338b337b4bd1264c",
+    "eval-drafts manifest": "03251df5615b10ef45ddf16d67944e68c2d26e2f75e4418d5b19244ec7e7c9fb",
+    "CA-E-669@3-draft": "089c488953a265c94d7447aa783f43529f067a9fb51a1dde254033a6802d71bd"
+  },
+  "checks": [
+    {
+      "name": "approved_step_alternatives",
+      "status": "PASS",
+      "evidence": [
+        "IF Step// {=0}((RUNS)) THEN Step// {:1+}((CONTAINS)) Substep//",
+        "IF Step// {>0}((RUNS)) THEN Step// {:0}((CONTAINS))",
+        "IF Step// {=0}((CONTAINS)) THEN Step// {:1}((RUNS)) (in (Action, Workflow))//"
+      ],
+      "conclusion": "The three approved IF clauses jointly require one Action or Workflow target, or one or more Substeps; the union target count is exactly one."
+    },
+    {
+      "name": "substep_leaf_target",
+      "status": "PASS",
+      "evidence": "CA-R-2466@3-draft scopes Substep and requires Substep//{:1}((RUNS)) Action//.",
+      "conclusion": "A Substep remains Action-only with exactly one target."
+    },
+    {
+      "name": "relation_scoping_and_inverse",
+      "status": "PASS",
+      "evidence": [
+        "RUNS declares Step-to-Action-or-Workflow and Substep-to-Action signatures under its own Relation subject.",
+        "IS_RUN_BY declares the corresponding derived inverse signatures, including Workflow-to-Step.",
+        "RUNS declares HAS_INVERSE IS_RUN_BY; IS_RUN_BY is explicitly derived and not a separately authored fact."
+      ],
+      "conclusion": "The endpoint signatures are scoped by their owning Declaration and do not authorize duplicate authored inverse facts."
+    },
+    {
+      "name": "binding_and_workflow_separation",
+      "status": "PASS",
+      "evidence": [
+        "Bind Step parameters assigns Action-or-Workflow bindings to the Step.",
+        "It admits exactly the three approved sources: previous Step output, enclosing Workflow Run input, and a fixed Step value.",
+        "Keep Workflow graphs separate from Step bindings constrains the Workflow graph scheme only; it does not impose a universal Workflow input contract."
+      ],
+      "conclusion": "Both callees share the approved binding sources without collapsing reusable callee contracts into the caller or Workflow graph."
+    },
+    {
+      "name": "evaluation_draft_alignment",
+      "status": "PASS",
+      "evidence": "CA-E-669@3-draft checks the same exclusive Step modes, the three named Action-or-Workflow parameter sources, the Substep Action-only constraint, and derived non-duplicated inverse views.",
+      "conclusion": "The evaluation Draft is aligned with the reviewed model and Rule candidates, while expressly separating Draft consistency from source adoption, parser conformance, graph reconstruction, and runtime admission."
+    },
+    {
+      "name": "retirement_meaning_coverage",
+      "status": "PASS_WITH_ADOPTION_GATE",
+      "evidence": [
+        "C627 manifest maps CA-R-1569 and CA-R-1992 generic alternative/cardinality meaning to CA-R-2465 and CA-R-2466, containment to CA-R-2478 and CA-R-2470, and bindings to the fresh Rule.",
+        "The two earlier Linear/Conditional and routing statements are preserved in deferred-classification-and-routing-notes.md rather than silently adopted.",
+        "The manifest correctly requires acceptance of the named successors before either legacy Rule is retired."
+      ],
+      "conclusion": "No reviewed meaning is lost in the candidate packet; retirement remains conditional on adoption, not completed by this review."
+    }
+  ],
+  "blockers": [],
+  "not_checked": [
+    "Current-carrier publication and archive operations",
+    "Projection regeneration",
+    "Runtime, parser, solver, test, fixture, or evaluator behavior",
+    "Actual Workflow, Step, Substep, or Action instance migration"
+  ]
+}

@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1136
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -15,11 +15,22 @@ subjects:
   - Evaluation
   - Atom/Revision
   - Methodology Sources
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1416]
-  relates_to: [CA-A-1063, CA-A-1124, CA-P-1355, CA-O-104, CA-O-105, CA-O-106, CA-O-118, CA-D-494, CA-C-376, CA-C-387]
+  analysis_for:
+  - CA-P-1416
+  relates_to:
+  - CA-A-1063
+  - CA-A-1124
+  - CA-P-1355
+  - CA-O-104
+  - CA-O-105
+  - CA-O-106
+  - CA-O-118
+  - CA-D-494
+  - CA-C-376
+  - CA-C-387
 ---
 # Summary
 

@@ -1,0 +1,26 @@
+---
+subject_scopes:
+- requirement-topology
+version: 16
+updated_at: 2026-11-02 00:18:22 +0400
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations:
+  child_of:
+  - CA-R-029
+current_scope_unit: caprmedio
+status: Archived
+atom_id: CA-R-038@16
+tier: 2
+subjects:
+  active: Atom.Relations
+role: Requirement
+form: Rule
+---
+## Summary
+Permit incomplete PRMEDO topology in casual mode
+
+## Claim
+
+a scope **in** casual authority mode **may** contain active PRMEDO Core **and** Standard Atoms **without** permitted active parents **and** **may** omit permitted active children.

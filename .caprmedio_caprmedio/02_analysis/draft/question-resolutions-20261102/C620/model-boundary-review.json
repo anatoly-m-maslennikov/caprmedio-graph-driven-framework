@@ -1,0 +1,83 @@
+{
+  "status": "RECOMMEND_SOURCE_SUCCESSORS",
+  "decision": "MODEL declares the one generic Aspect kind only. Product and every other concrete named Aspect are structural instances in the applicable PROJECT STRUCTURE tree, not specialized MODEL kinds.",
+  "source_evidence": [
+    {
+      "id": "CA-R-2543",
+      "version": 2,
+      "path": "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2543-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "sha256": "7ad2864d4b13220fd56619d70c281c39976152ab465347aa27f4b6f534a07b36",
+      "evidence": "Claim declares only generic Aspect under Node; Semantics does not distinguish the generic kind from named structural instances."
+    },
+    {
+      "id": "CA-R-2559",
+      "version": 2,
+      "path": "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2559-CORE_META_MODEL-DECLARATION--declare-model.md",
+      "sha256": "af7b9a356a707d051ff358b2453cb8757fe4a9db182963a1757d92e64357b25a",
+      "evidence": "Semantics says MODEL declares Node kinds, but does not limit Aspect to its generic kind."
+    },
+    {
+      "id": "CA-R-2560",
+      "version": 2,
+      "path": "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2560-CORE_META_MODEL-DECLARATION--declare-project-structure.md",
+      "sha256": "01ce9a2559a87cfb4bae895b3cc4855308f8a09f3ad5b6ef6c63b18fffa35dac",
+      "evidence": "Semantics already places Aspects in actual Project structure, but does not say named Aspects are structural instances rather than MODEL kinds."
+    },
+    {
+      "id": "CA-R-2483",
+      "version": 2,
+      "path": "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "sha256": "873f4db134534b044c4e42ce43190e97084cf6095486240a9f868c18aa360dca",
+      "evidence": "Claim already lists Aspects under CAPRMEDIO PROJECT STRUCTURE and establishes separate MODEL/PROJECT STRUCTURE roots."
+    },
+    {
+      "id": "CA-R-2476 and CA-R-2619",
+      "versions": [4, 1],
+      "paths": [
+        "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+        "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2619-CORE_META_MODEL-DECLARATION--declare-has-instance.md"
+      ],
+      "sha256": [
+        "c69deb7dc4fe259191cf373bc36a9ab472dc6b87538f1c3e36eff1dd89fe516a",
+        "aa5e983e23522d6c877f2b085a2b3efbddbd306bac4f6948b1115f5e3e44131f"
+      ],
+      "evidence": "Existing INSTANCE_OF/HAS_INSTANCE semantics already distinguish a declared kind from its instances; no syntax change is required."
+    }
+  ],
+  "minimal_source_deltas": [
+    {
+      "source": "CA-R-2543 Semantics",
+      "replace_with": "Aspect is the generic Node kind for a topic through which an Atom addresses its Subject. Product and other named Aspects are instances declared in PROJECT STRUCTURE, not narrower MODEL kinds.",
+      "reason": "Makes the generic-kind boundary explicit without new notation."
+    },
+    {
+      "source": "CA-R-2559 Semantics",
+      "replace_with": "MODEL declares generic Node kinds, Relations, Properties, and rules. It declares the generic Aspect kind only; it does not declare Product or another named structural Aspect as a specialized kind.",
+      "reason": "Places the prohibition at the MODEL authority boundary."
+    },
+    {
+      "source": "CA-R-2560 Semantics",
+      "replace_with": "PROJECT STRUCTURE declares a Project's actual structure, including Scope Units and named Aspect instances such as Product. Those named Aspects are structural instances, not MODEL kinds.",
+      "reason": "Places positive ownership of concrete Aspects at the structural authority boundary."
+    },
+    {
+      "source": "CA-R-2483 Claim, bullet Aspects",
+      "replace_with": "Named Aspect instances, including Product.",
+      "reason": "Aligns the existing MODEL/PROJECT STRUCTURE separation Rule with the two Declarations; no new relation or syntax."
+    }
+  ],
+  "not_recommended": [
+    "Do not add Product or another named Aspect as a narrower Aspect kind in MODEL.",
+    "Do not invent a containment, membership, or selector syntax merely to restate the authority boundary.",
+    "Do not modify INSTANCE_OF or HAS_INSTANCE; their current generic kind/instance semantics already apply."
+  ],
+  "genuine_unresolved_address_binding": {
+    "confidence": 0.91,
+    "nonblocking_for_boundary_rule": true,
+    "question": "When a concrete Aspect is registered, is its canonical address `Aspect//Product` and which existing structural relation binds that instance to the applicable `PROJECT STRUCTURE//...` root?",
+    "why": "The user fixed ownership but did not select the concrete root-specific binding or its relation signature. The proposed prose deltas establish the authority boundary without guessing either."
+  },
+  "limits": [
+    "Read-only source analysis only; no Current, Draft, Journal, projection, or Git mutation."
+  ]
+}

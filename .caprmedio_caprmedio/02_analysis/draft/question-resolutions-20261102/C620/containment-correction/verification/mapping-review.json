@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "scope": "Independent read-only review of the C620 selected-source Aspect metadata mapping and literal raw-body address scan. This review does not publish Drafts, change Current carriers, or establish runtime, projection, parser, or evaluator conformance.",
+  "pinned_inputs": {
+    "selected_frontier": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/live-frontier.json",
+      "sha256": "9226f8d1a16f154e3faee18d86b82f9d1112c2adad519de8065869bd8b78f012",
+      "selected_operations": 1134
+    },
+    "legacy_subject_inventory": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/aspect-consumer-inventory.json",
+      "sha256": "ce83166e68a6922d5b65140489e9b13fbbcdb5f984ead650d90bfc5e5ccf5332",
+      "unique_legacy_paths": 31
+    },
+    "consumer_manifest": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/consumer-manifest.json",
+      "sha256": "4b08233ecb04ce3e625a29d1cbd53b96a41e5df78a16a31c4e63acfc6e3e720c"
+    }
+  },
+  "independent_metadata_gate": {
+    "mapping_table_entries": 31,
+    "selected_source_atoms_with_legacy_subjects": 207,
+    "candidate_records": 207,
+    "candidate_metadata_failures": 0,
+    "product_source_atoms": 47,
+    "product_target": "Aspects <+ Product",
+    "requirements_checked": [
+      "Every one of the 31 legacy Entity/Aspect paths maps to Aspects containment while retaining its non-Product labels.",
+      "Every selected metadata occurrence has a successor Draft with the exact next version and -draft identity.",
+      "Every successor metadata subject replaces its legacy Entity/Aspect value; no legacy Entity/Aspect metadata subject remains.",
+      "All 47 selected Product source Atoms map to Aspects <+ Product.",
+      "The map contains no Aspect//Product or Continuant target."
+    ]
+  },
+  "raw_body_reference_scan": {
+    "method": "For each of the 1,134 pinned selected sources, scan only content after the second frontmatter delimiter for the literal Entity/Aspect/ address prefix.",
+    "literal_old_address_source_atoms": 0,
+    "actual_address_references_needing_body_repair": [],
+    "historical_quotations_or_ordinary_prose_with_literal_old_address": [],
+    "conclusion": "No additional body file is required for this exact-address migration; the consumer Draft bodies remain byte-preserved."
+  },
+  "semantic_safety": {
+    "settled_product_notation": "Aspects <+ Product",
+    "generic_model_boundary": "The map uses containment addresses only and does not introduce a concrete Aspect instance or Aspect//Product.",
+    "continuant_boundary": "No legacy Aspect subject is remapped to a Continuant; the named Framework Continuant remains a separate identity.",
+    "notation_status": "The review applies the user's settled containment notation and does not reopen it."
+  },
+  "minimal_additional_touched_files": [],
+  "blockers": [],
+  "not_checked": [
+    "Current-carrier publication and archive operations",
+    "The separately owned R2483 and C620 source Draft manifests",
+    "Projection regeneration, runtime, parser, graph-builder, SDK, workflow, fixture, or evaluator behavior"
+  ]
+}

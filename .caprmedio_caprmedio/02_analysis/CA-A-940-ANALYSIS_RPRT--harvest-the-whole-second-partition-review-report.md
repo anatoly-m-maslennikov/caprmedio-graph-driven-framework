@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-940
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
@@ -14,14 +14,14 @@ subjects:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
-version: 3
-updated_at: 2026-10-23 03:14:50 +0400
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
   relates_to:
-    - CA-P-1222
-    - CA-P-1127
-    - CA-P-1230
-    - CA-A-932
+  - CA-P-1222
+  - CA-P-1127
+  - CA-P-1230
+  - CA-A-932
 ---
 # Summary
 

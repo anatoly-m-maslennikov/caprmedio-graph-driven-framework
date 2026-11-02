@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1140
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -14,11 +14,17 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Methodology Sources
   - Atom/Claim
-version: 3
-updated_at: 2026-10-23 03:14:50 +0400
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1420]
-  relates_to: [CA-P-1362, CA-A-1063, CA-A-1126, CA-C-389, CA-C-376]
+  analysis_for:
+  - CA-P-1420
+  relates_to:
+  - CA-P-1362
+  - CA-A-1063
+  - CA-A-1126
+  - CA-C-389
+  - CA-C-376
 ---
 # Summary
 

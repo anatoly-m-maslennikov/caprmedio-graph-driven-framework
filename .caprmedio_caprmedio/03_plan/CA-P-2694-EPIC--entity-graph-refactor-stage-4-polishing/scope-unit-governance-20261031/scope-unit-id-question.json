@@ -1,0 +1,10 @@
+{
+  "status": "Resolved; Draft IDs assigned",
+  "question": "Use previously agreed CA-SU-<number>-<label>-<name> format (omit missing root label), or stable CA-SU-<number>?",
+  "scope_unit_count": 44,
+  "source_ids_available": false,
+  "ids_assigned": true,
+  "decision": "Non-root IDs are stable CA-SU-<number>. Project root has no Scope Unit ID because it is not moved or renamed through Scope Unit operations.",
+  "scope_unit_ids_assigned": 43,
+  "project_root_has_scope_unit_id": false
+}

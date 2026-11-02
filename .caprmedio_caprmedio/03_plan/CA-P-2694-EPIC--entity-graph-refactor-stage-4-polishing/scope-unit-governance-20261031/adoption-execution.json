@@ -1,0 +1,69 @@
+{
+  "epic": "CA-P-2694",
+  "epic_path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "epic_version": 42,
+  "removed_mode_overrides": 5,
+  "tasks": [
+    {
+      "id": "CA-P-2704",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/09-CA-P-2704-TASK--remove-obsolete-scope-authority-mode-overrides.md",
+      "status": "Done"
+    },
+    {
+      "id": "CA-P-2705",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/10-CA-P-2705-TASK--adopt-formal-scope-unit-declarations.md",
+      "status": "Active"
+    },
+    {
+      "id": "CA-P-2706",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/11-CA-P-2706-TASK--retire-project-structure-toml-entirely.md",
+      "status": "Active"
+    },
+    {
+      "id": "CA-P-2707",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/backlog/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+      "status": "Backlog"
+    }
+  ],
+  "journal": [
+    {
+      "event_id": null,
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 174
+    },
+    {
+      "event_id": null,
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 175
+    },
+    {
+      "event_id": null,
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 176
+    },
+    {
+      "event_id": null,
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 177
+    },
+    {
+      "event_id": null,
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 178
+    }
+  ],
+  "retirement_scope": "Atoms, file, implementation, bindings, fixtures, documentation; no compatibility TOML",
+  "status": "In progress",
+  "physical_folder_migration": "Approved in this Epic",
+  "scope_tool_disposition": "Keep O definitions; remove four TOML-specific executable routes and their implementation; no replacements"
+}

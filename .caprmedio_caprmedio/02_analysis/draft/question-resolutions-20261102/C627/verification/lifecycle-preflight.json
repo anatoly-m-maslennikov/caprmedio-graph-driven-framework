@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "Final staged plan and source safety review",
+  "findings": [],
+  "limits": [
+    "Apply not executed; cooperative lock protects participating writers; runtime and instance migration excluded."
+  ],
+  "checks": [
+    "14 publications, 15 archives, 3 specified retirements, 2 new IDs R2638/R2639",
+    "source and candidate hashes match",
+    "all archive metadata and bodies preserve originals except status and version-qualified ID",
+    "cooperative lock covers recheck, Current writes/removals and rollback",
+    "Journal event outputs use hash-verified accepted bytes captured under the cooperative lock; no post-lock Current reread"
+  ],
+  "script_sha256": "5b75c10723ac27b0d408050930344cec81e8e816fa370b47597adcce8f0f975f"
+}

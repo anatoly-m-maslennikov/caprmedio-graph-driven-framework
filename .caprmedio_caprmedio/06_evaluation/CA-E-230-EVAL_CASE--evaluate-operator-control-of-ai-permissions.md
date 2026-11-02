@@ -1,6 +1,6 @@
 ---
-version: 25
-updated_at: 2026-11-02 00:18:22 +0400
+version: 27
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-R-846
@@ -10,10 +10,10 @@ subjects:
   active: Entity/Object/Continuant/Actor/AI Agent.Permissions
   passive:
   - Entity/Object/Continuant/Actor/Operator
-  - Entity/Aspect/Engineering/Execution Control/Effect Authorization
+  - Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   - Entity/Object/Continuant/Actor/AI Agent
   - Carrier
-  - Entity/Aspect/Engineering/Verification/Dynamic Testing
+  - Aspects <+ Engineering <+ Verification <+ Dynamic Testing
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:

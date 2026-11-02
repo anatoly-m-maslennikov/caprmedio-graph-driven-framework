@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1215
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
@@ -8,8 +8,8 @@ local_tier: Standard
 global_tier: 2
 status: Done
 author: Anatoly Maslennikov
-version: 3
-updated_at: 2026-10-23 01:47:30 +0400
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
 subjects:
   governs: Subject/Domain/Node/Continuant/Atom.Status
   depends_on:
@@ -19,7 +19,15 @@ subjects:
   - Workflow
   - Operator
 relations:
-  relates_to: [CA-P-2385, CA-P-2386, CA-P-2387, CA-P-2388, CA-P-2389, CA-P-2390, CA-P-2400, CA-C-523]
+  relates_to:
+  - CA-P-2385
+  - CA-P-2386
+  - CA-P-2387
+  - CA-P-2388
+  - CA-P-2389
+  - CA-P-2390
+  - CA-P-2400
+  - CA-C-523
 ---
 # Summary
 

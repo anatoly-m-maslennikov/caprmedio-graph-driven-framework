@@ -1,0 +1,215 @@
+{
+  "status": "APPLIED",
+  "accepted_at": "2026-11-02 18:21:51 +0400",
+  "plan_sha256": "7fd89cfe4cf8e88b5198985100d240793d7f4cc0116c0e15730d78969e496263",
+  "timestamp_rebases": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/staged/001-CA-R-2543-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "before_sha256": "4ab5323d86c4fde8397f335214e8db1b0346564e7f878a6c265305c6e40bc211",
+      "after_sha256": "b12321a25a1e21f4ac298f53d698cfba49ec206c763c6724a55d1b54d45bbc52"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/staged/003-CA-C-620-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "before_sha256": "ec67d4d19bb15c7b9c9cdc2e545beaf37cc9f83e2e95721f012b2e72961e1188",
+      "after_sha256": "779efcc0d53f931903c60c5950594f34e22f24017f0bbb62b9e516d9b86cd775"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/staged/005-CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "before_sha256": "696f7baf309d2aa9c30f134c350cb226f38c17f78ea3e70af8eb4ba24cf26e8a",
+      "after_sha256": "744963d5a95632640cb570f836ff8e37a2221e55d93d3815415fa3e38e6b6859"
+    }
+  ],
+  "operations": [
+    {
+      "kind": "archive",
+      "base_id": "CA-R-2543",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2543-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "source_sha256": "7ad2864d4b13220fd56619d70c281c39976152ab465347aa27f4b6f534a07b36",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/staged/000-CA-R-2543@2-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "candidate_sha256": "5b6fa5df91415fa235377bd10dea734e7384178db44511312434890c34700905",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2543@2-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "version": 2,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2543",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2543-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "source_sha256": "7ad2864d4b13220fd56619d70c281c39976152ab465347aa27f4b6f534a07b36",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/staged/001-CA-R-2543-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "candidate_sha256": "b12321a25a1e21f4ac298f53d698cfba49ec206c763c6724a55d1b54d45bbc52",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2543-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "version": 4,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/drafts/CA-R-2543@3-draft-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-C-620",
+      "source_path": ".caprmedio_caprmedio/01_concern/CA-C-620-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "source_sha256": "7a6245b00caa842e9ca917a0073abe3a83cf28b25583511502222dece82d0b75",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/staged/002-CA-C-620@1-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "candidate_sha256": "8d79bd16c910dc840187123c5f457a3d89412397feeab9ad24bbebdcf737d1af",
+      "destination_path": ".caprmedio_caprmedio/01_concern/archive/CA-C-620@1-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "version": 1,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-C-620",
+      "source_path": ".caprmedio_caprmedio/01_concern/CA-C-620-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "source_sha256": "7a6245b00caa842e9ca917a0073abe3a83cf28b25583511502222dece82d0b75",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/staged/003-CA-C-620-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "candidate_sha256": "779efcc0d53f931903c60c5950594f34e22f24017f0bbb62b9e516d9b86cd775",
+      "destination_path": ".caprmedio_caprmedio/01_concern/CA-C-620-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "version": 3,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/drafts/CA-C-620@2-draft-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-2483",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "source_sha256": "873f4db134534b044c4e42ce43190e97084cf6095486240a9f868c18aa360dca",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/staged/004-CA-R-2483@2-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "candidate_sha256": "b4e705025a1e7b7acf533ab3f04cfe2669ee5652db10db29354ae751714d5f12",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2483@2-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "version": 2,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2483",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "source_sha256": "873f4db134534b044c4e42ce43190e97084cf6095486240a9f868c18aa360dca",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/staged/005-CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "candidate_sha256": "744963d5a95632640cb570f836ff8e37a2221e55d93d3815415fa3e38e6b6859",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "version": 4,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/drafts/CA-R-2483@3-draft-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "identified_draft": null
+    }
+  ],
+  "retired_ids": [],
+  "original_sources": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/drafts/CA-R-2543@3-draft-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "sha256": "9ddac02007254b08483edd2e0d6898d614ad9746a82f630f2d6aabe855818491"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2543-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "sha256": "7ad2864d4b13220fd56619d70c281c39976152ab465347aa27f4b6f534a07b36"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/drafts/CA-C-620@2-draft-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "sha256": "44ea57693a998ea4e04950e5b4c7e6fab682ee05fd496d1b558c548db1dbc3fd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/01_concern/CA-C-620-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "sha256": "7a6245b00caa842e9ca917a0073abe3a83cf28b25583511502222dece82d0b75"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/drafts/CA-R-2483@3-draft-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "sha256": "426e4f5210e375e570cf494f02c1103a83e89c3391d042eaf144ae693b52da55"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "sha256": "873f4db134534b044c4e42ce43190e97084cf6095486240a9f868c18aa360dca"
+    }
+  ],
+  "frozen_sources": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/frozen-inputs",
+  "limits": [
+    "No actual Aspect-instance registration, address migration or runtime change",
+    "Official projection refresh remains subject to clean graph preflight",
+    "Unrelated parallel edits are preserved"
+  ],
+  "archives": 3,
+  "current_writes": 3,
+  "removed_carriers": 3,
+  "events": [
+    {
+      "event_id": "93516e6c-ad6c-5513-91d2-0b37bdd34862",
+      "happened_at": "2026-11-02 18:21:51 +0400",
+      "inserted_at": "2026-11-02T18:21:53.121055+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-2543",
+        "version": 4,
+        "updated_at": "2026-11-02 18:21:51 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-2543",
+        "version": 2,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      }
+    },
+    {
+      "event_id": "50a299bd-1d03-51ab-9a24-31d570293167",
+      "happened_at": "2026-11-02 18:21:51 +0400",
+      "inserted_at": "2026-11-02T18:21:53.122379+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-C-620",
+        "version": 3,
+        "updated_at": "2026-11-02 18:21:51 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-C-620",
+        "version": 1,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      }
+    },
+    {
+      "event_id": "eafeb562-9af5-5caa-bf2f-3bc1844e3338",
+      "happened_at": "2026-11-02 18:21:51 +0400",
+      "inserted_at": "2026-11-02T18:21:53.123642+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-2483",
+        "version": 4,
+        "updated_at": "2026-11-02 18:21:51 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-2483",
+        "version": 2,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      }
+    }
+  ],
+  "journal_receipts": [
+    {
+      "event_id": "93516e6c-ad6c-5513-91d2-0b37bdd34862",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 171
+    },
+    {
+      "event_id": "50a299bd-1d03-51ab-9a24-31d570293167",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 172
+    },
+    {
+      "event_id": "eafeb562-9af5-5caa-bf2f-3bc1844e3338",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 173
+    }
+  ],
+  "journal_records": 3
+}

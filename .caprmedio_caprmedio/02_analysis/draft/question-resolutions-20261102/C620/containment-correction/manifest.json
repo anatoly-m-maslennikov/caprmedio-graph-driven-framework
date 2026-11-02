@@ -1,0 +1,44 @@
+{
+  "status": "promotion-ready containment correction; Current sources unchanged",
+  "sources": [
+    {
+      "atom_id": "CA-R-2483",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "sha256": "744963d5a95632640cb570f836ff8e37a2221e55d93d3815415fa3e38e6b6859"
+    },
+    {
+      "atom_id": "CA-C-620",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/01_concern/CA-C-620-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "sha256": "779efcc0d53f931903c60c5950594f34e22f24017f0bbb62b9e516d9b86cd775"
+    }
+  ],
+  "drafts": [
+    {
+      "atom_id": "CA-R-2483@5-draft",
+      "source_atom_id": "CA-R-2483",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/sources/CA-R-2483@5-draft-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "sha256": "ee2ff71d2eda61df323d1775889af8edf28064c4d2a660701810b25998e221ad",
+      "claim_delta": "Add one CFEL Claim fence: Aspects <+ Product."
+    },
+    {
+      "atom_id": "CA-C-620@4-draft",
+      "source_atom_id": "CA-C-620",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/sources/CA-C-620@4-draft-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "sha256": "c60b3aeb76f4d0407ac7ad7af4dd13cf99339b5f3553f647ac6d27865fe1f4dd",
+      "publish_status": "Resolved",
+      "resolution": "All concrete Aspect addresses use PROJECT STRUCTURE containment paths; Product is Aspects <+ Product."
+    }
+  ],
+  "verification": [
+    "CA-R-2483@5-draft preserves Summary, role, form, active Subject, and all source body text except its one added CFEL Claim fence.",
+    "CA-R-2483@5-draft has exactly one CFEL Claim fence.",
+    "CA-C-620@4-draft preserves Summary, role, form, Question, and active Subject while resolving the canonical-address question.",
+    "Neither draft uses an Aspect instance-selector address for Product."
+  ],
+  "out_of_scope": [
+    "CA-R-2543 remains unchanged.",
+    "No Current, Git, Journal, projection, runtime, parser, model-kind, relation-signature, or actual-instance-registration changes."
+  ]
+}

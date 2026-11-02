@@ -1,0 +1,103 @@
+{
+  "readiness": "Source paths and retirements stable; runtime/fixture tests in progress",
+  "git_owner": "CA #5: Main 2; this chat has no in-flight Git operation and will not stage/commit/push",
+  "folder_mapping": ".caprmedio_tmp/declaration-folder-migration/scope-unit-folder-mapping.json",
+  "physical_moves": "Applied; 71553 files moved via reviewed longest-prefix mapping",
+  "source_publications": [
+    ".caprmedio_tmp/declaration-source-cutover/instance-publication-plan.json",
+    ".caprmedio_tmp/declaration-source-cutover/model-publication-result.json",
+    ".caprmedio_tmp/declaration-source-cutover/supplemental-retirements.json"
+  ],
+  "remaining_validation_failures": [
+    "Initial fullsuite:519modules4229tests0skips134failedmodules+launcher imagefingerprint mismatch; failedJSONunderScopeadoptionpacket/verification",
+    "Lifecycle fixtures still use retired local_tier/global_tier and omit current type/tier (18errors1fail beforecanonicalfixtureupdate)",
+    "One Subject byvalue diagnostic expectation differs; remaining stage/profiles/derive/detect suites notrerun",
+    "Rebuild testimage for final checks aftercodechanged; fullfailedhostmoduleretry stillpending"
+  ],
+  "preserve_other_chat_work": true,
+  "role_source_promotion_window": false,
+  "source_paths_stable": true,
+  "git_ready": true,
+  "live_toml": "Removed",
+  "source_hashes": "Scope-cutover source writes finished; refresh Current pins now",
+  "final_folder_mapping": ".caprmedio_tmp/declaration-folder-migration/scope-unit-folder-mapping.json",
+  "retirement_replacement_manifests": [
+    ".caprmedio_tmp/declaration-source-cutover/model-publication-plan.json",
+    ".caprmedio_tmp/declaration-source-cutover/supplemental-retirements.json",
+    ".caprmedio_tmp/declaration-source-cutover/final-three-source-publication.json"
+  ],
+  "source_corrections_after_checkpoint": [
+    {
+      "atom_id": "CA-R-2658",
+      "version": 3,
+      "reason": "Corrected accidental package-name rewrite in PROJECT_TOOLS Declaration; refresh this pin if selected"
+    },
+    {
+      "atom_id": "CA-D-668",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-668-CORE_META_MODEL-ENG_DECISION--encode-project-authority-modes-in-framework-settings.md",
+      "sha256": "7447805cb751fdc62a9b38a77057248f1dee995e07350410a86e09b222055f49"
+    },
+    {
+      "atom_id": "CA-R-1430",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL--select-authority-modes-through-framework-instance-settings.md",
+      "sha256": "690388b6719ccc200c2852110b7563674699d27b1d173192991d8a56b5bdd095"
+    },
+    {
+      "atom_id": "CA-E-006",
+      "version": 40,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md",
+      "sha256": "48bedc3fbbe4ccbbb07559fcb2c7a541b1d72f3ce13efaf36423a9c956956f29"
+    },
+    {
+      "atom_id": "CA-E-621",
+      "version": 37,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-621-CORE_META_MODEL-EVAL_CASE--settings-artifact-usability.md",
+      "sha256": "0f0a6b7641041f2f936b4c48b2042845c3f9054b197159627f6824a032999060"
+    },
+    {
+      "atom_id": "CA-R-1750",
+      "version": 41,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md",
+      "sha256": "1ff3baa487a261f448ffe9e3cbd29916d728a028960e8760fa7edb13581e079c"
+    }
+  ],
+  "durable_retirement_manifest": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/adoption-results.json",
+  "durable_folder_mapping": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/folder-migration.md",
+  "settings_subject_corrections": "Applied five requested Settings Subject corrections; exact Current pins in Scope adoption packet/settings-subject-corrections.json",
+  "code_stable_for_checks": true,
+  "full_suite_owner": "Scope Unit cutover chat (this root)",
+  "full_suite_running": false,
+  "full_suite_log": ".caprmedio_tmp/declaration-source-cutover/full-suite.log",
+  "parallel_check_scope": "Projection-focused checks only; avoid a second full-suite/Docker run",
+  "deferred_runtime_repair": {
+    "task_id": "CA-P-2708",
+    "path": ".caprmedio_caprmedio/03_plan/CA-P-2637-EPIC--migrate-engine-rmed-atoms/backlog/CA-P-2708-TASK--align-implementation-workflow-with-current-steps.md",
+    "operator_decision": "Leave it for the Engine Epic"
+  },
+  "full_suite_result": {
+    "modules": 519,
+    "tests": 4229,
+    "skips": 0,
+    "failed_modules": 134,
+    "launcher": "Image fingerprint mismatch",
+    "log": ".caprmedio_tmp/declaration-source-cutover/full-suite.log"
+  },
+  "bounded_remaining_fixes": [
+    "Correct remaining Authority-vs-Delivery path operands and six renamed Tool Python imports/relative paths",
+    "Fix shared Subject/complete-carrier fixture closure and moved frozen source hints",
+    "Finish declaration-derived compiler/export/W13 fixture topology",
+    "Rebuild one test image after code stabilizes; rerun failed modules and combined verification"
+  ],
+  "scope_note": "No O016 semantic repair; explicitly deferred by Operator as CA-P-2708",
+  "snapshot_window": "OPEN: all workers completed or paused writes; root paused source/code/tracking writes after this checkpoint",
+  "snapshot_blockers": [],
+  "paused_workers": [
+    "declaration_validator_cutover",
+    "declaration_semantic_consumers"
+  ],
+  "writes_paused": true,
+  "snapshot_validation_status": "FAILED initialfullsuite; focusedfixeslanded, no greencombinedclaim",
+  "post_snapshot_intent": "Resume bounded fixture/runtime fixes only after Gitowner marker; no O016 semantic repair, which Operator deferred asP2708"
+}

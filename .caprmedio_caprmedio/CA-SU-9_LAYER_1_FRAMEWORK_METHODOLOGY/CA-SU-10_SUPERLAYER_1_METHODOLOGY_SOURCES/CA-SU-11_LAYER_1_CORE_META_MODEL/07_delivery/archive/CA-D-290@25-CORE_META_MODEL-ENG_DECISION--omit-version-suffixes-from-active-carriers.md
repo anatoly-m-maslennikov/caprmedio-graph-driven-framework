@@ -1,0 +1,26 @@
+---
+subjects:
+  active: Carrier.Canonical Address.Segment
+  passive: []
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-D-290@25
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+tier: 3
+role: Delivery
+form: Decision
+---
+## Summary
+
+Omit Version Suffixes from Active Carriers
+
+## Claim scope
+
+Current Atom source Carriers across all admitted Status values.
+
+## Claim
+
+a Current Atom source Carrier basename **must not** contain an `@<version>` suffix, regardless of the Atom's admitted Status value.

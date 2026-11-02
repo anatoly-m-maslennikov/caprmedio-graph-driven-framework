@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1070
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -14,11 +14,20 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Analysis
   - Methodology Sources
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1352]
-  relates_to: [CA-P-1402, CA-P-1411, CA-A-1122, CA-A-1131, CA-A-1063, CA-C-377, CA-P-1130, CA-P-1372]
+  analysis_for:
+  - CA-P-1352
+  relates_to:
+  - CA-P-1402
+  - CA-P-1411
+  - CA-A-1122
+  - CA-A-1131
+  - CA-A-1063
+  - CA-C-377
+  - CA-P-1130
+  - CA-P-1372
 ---
 # Summary
 

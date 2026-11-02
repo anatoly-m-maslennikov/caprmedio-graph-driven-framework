@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-02T17:21:11.936206+00:00",
+  "exact_rename_status_counts": {
+    "M": 481,
+    "A": 4098,
+    "D": 1315,
+    "R100": 57820
+  },
+  "rename_examples": [
+    [
+      ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/staged/0449-CA-C-619-QUESTION--resolve-the-logical-dependent-properties-for-extension-selections.md",
+      ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C619/0641148ebc8c32c8ec3b12ccacd2e372b391bc757573d1f8661341582fec60d0.txt"
+    ],
+    [
+      ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/staged/0369-CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C619/2a336efd3d5d7d8282929f93814042b6f8830734990e7a33a9734229dcd668a3.txt"
+    ],
+    [
+      ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/staged/0450-CA-R-2627-CORE_META_MODEL-DECLARATION--declare-project-settings-extension-selections.md",
+      ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C619/844049959a7ba9955a9bcaf30066d6058ed2f09beaa20e3f80ec31cf531fa5c8.txt"
+    ],
+    [
+      ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL-IMPLEMENTATION_METHOD--normalize-noncanonical-cce-operator-expressions.md",
+      ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/frozen-inputs/01b11c5792b602d4e4955f51f6bc8f88341237ffe151adfe83d94244b178e71b.txt"
+    ],
+    [
+      ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md",
+      ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/frozen-inputs/02c119b666c4d0015b490276193ceec16c286b540849ab4fe2525a3b4914e899.txt"
+    ],
+    [
+      ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-RULE--preserve-implementation-traceability-in-the-shared-project-journal.md",
+      ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/frozen-inputs/0a9c06da8ab1c75d2f035a149ae59ebaa63a0a573b9254b461450beadeb57dad.txt"
+    ]
+  ],
+  "staged_source_and_projection_blobs_checked": 1134,
+  "git_diff_stderr": "",
+  "scope": "Frozen combined dev snapshot; destination storage answer is recorded separately before final staging."
+}

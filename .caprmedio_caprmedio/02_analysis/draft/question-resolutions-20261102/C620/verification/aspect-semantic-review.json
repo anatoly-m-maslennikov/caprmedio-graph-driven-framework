@@ -1,0 +1,55 @@
+{
+  "scope": "Independent semantic review of CA-R-2543@3-draft and CA-R-2483@3-draft only; no source, manifest, projection, Git, or Journal modification.",
+  "pinned_current_sources": [
+    {
+      "atom_id": "CA-R-2543@2",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2543-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "sha256": "7ad2864d4b13220fd56619d70c281c39976152ab465347aa27f4b6f534a07b36"
+    },
+    {
+      "atom_id": "CA-R-2483@2",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "sha256": "873f4db134534b044c4e42ce43190e97084cf6095486240a9f868c18aa360dca"
+    }
+  ],
+  "draft_reviews": [
+    {
+      "atom_id": "CA-R-2543@3-draft",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/drafts/CA-R-2543@3-draft-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "sha256": "9ddac02007254b08483edd2e0d6898d614ad9746a82f630f2d6aabe855818491",
+      "result": "pass",
+      "evidence": [
+        "Claim retains generic `Aspect` and its existing Node narrowing CFEL.",
+        "Only the requested Claim bullets state that MODEL declares generic Aspect and concrete Aspects are PROJECT STRUCTURE instances.",
+        "Summary, Role, Form, CFEL fence, and brief Semantics are unchanged; no concrete Aspect name, kind, instance address, or relation is introduced."
+      ]
+    },
+    {
+      "atom_id": "CA-R-2483@3-draft",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/drafts/CA-R-2483@3-draft-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "sha256": "426e4f5210e375e570cf494f02c1103a83e89c3391d042eaf144ae693b52da55",
+      "result": "pass",
+      "evidence": [
+        "The sole substantive Claim delta is `Aspect instances, including Product` under CAPRMEDIO PROJECT STRUCTURE.",
+        "It neither creates a Product MODEL kind nor specifies an Aspect instance address, containment, membership, or new relation.",
+        "Existing separate MODEL/PROJECT STRUCTURE roots and legacy Framework wrapper wording remain; no Framework object is equated with an Aspect."
+      ]
+    }
+  ],
+  "decision_alignment": {
+    "result": "pass",
+    "decision": "MODEL declares generic Aspect only; Product and all other concrete Aspects are actual PROJECT STRUCTURE instances.",
+    "preserved_unresolved_question": "Which structural addresses replace legacy Aspect Subjects?",
+    "not_inferred": [
+      "A canonical `Aspect//Product` address",
+      "A Project-structure binding relation for a concrete Aspect",
+      "Any remapping of legacy Aspect consumers",
+      "Any change to named Framework Continuant/object identity"
+    ]
+  },
+  "source_evidence": {
+    "c620_draft": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/drafts/CA-C-620@2-draft-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md:19-23",
+    "boundary_review": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/model-boundary-review.json:3,64-78"
+  },
+  "status": "PASS"
+}

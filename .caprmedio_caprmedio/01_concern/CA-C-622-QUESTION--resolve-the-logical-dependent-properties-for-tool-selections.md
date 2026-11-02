@@ -1,29 +1,25 @@
 ---
 atom_id: CA-C-622
 current_scope_unit: caprmedio
-status: Active
+status: Canceled
 subjects:
-  active: Project.Settings.Tool Selections
-version: 1
+  active: Project.Settings
+version: 3
 relations: {}
 tier: 3
 role: Concern
 form: Question
-updated_at: 2026-11-02 08:06:47 +0400
+updated_at: 2026-11-02 16:48:11 +0400
 ---
-
 ## Summary
 
 Resolve the logical dependent Properties for Tool selections
 
 ## Question
 
-Which dependent Properties and value contracts represent selected active and background Tools and their settings?
+Should a generic Tool Selections group be part of the current model?
 
-## Details
+## Resolution
 
-Working choice: Permit named string children and retain per-Tool settings; exact child shapes remain governed by existing policy.
+The Operator dropped Tool Selections from the current model.
 
-Impact: Property contracts and Tool selections, without changing runtime routing.
-
-Continue with this source-backed choice. This Question records uncertainty for later review; it is not an approval gate.

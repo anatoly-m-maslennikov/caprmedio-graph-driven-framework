@@ -1,0 +1,1094 @@
+[
+  {
+    "source": {
+      "atom_id": "CA-D-668",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-668-CORE_META_MODEL-ENG_DECISION--encode-project-authority-modes-in-framework-settings.md",
+      "sha256": "d48188076f1b932fd4bb2444566c31fd22e37fdb06b497a70aff252fd711d5ae"
+    },
+    "subject": "Project.Framework Settings.Authority Modes",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [],
+    "cfel_blocks": [],
+    "clauses": [],
+    "prose": "Project Authority Mode and Default Scope Unit Authority Mode are encoded in Framework Instance Settings. Scope Unit Declarations do not carry per-Scope authority-mode overrides.",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-E-006",
+      "version": 39,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md",
+      "sha256": "048a9cdadf957cd405117fd50d5e8466e3104ecaf3cd6be66d2bfd93e382946a"
+    },
+    "subject": "Project.Framework Settings",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [],
+    "cfel_blocks": [],
+    "clauses": [],
+    "prose": "Framework Instance Settings and Project Settings accept exactly their registered values, resolve deterministically, and fail closed on invalid or unknown selections. Scope Unit Declarations own current Scope Unit structure without duplicating Settings selections or requiring a structural Projection.\n\n### Applicable conditions\n\n1. Resolve the exact current Framework Instance Settings, Project Settings, and Default Settings Artifacts.\n2. Accept only enabled catalog Artifact Types, Atom Content Roles and qualified Types, and Governance Origins.\n3. Accept only `medium` or `high` Artifact creation strictness.\n4. Accept only `silent` or `verbose` interaction reporting, and confirm that its effective default follows Framework Instance Settings without changing source Atoms or using Project Settings as reporting authority.\n5. Validate initialization inputs against Project Settings field authority and Project Authority Modes against Framework Instance Settings field authority. Do not hard-code this Project's selected values in the Evaluation.\n6. Reject unknown keys when the governing schema marks their table closed.\n7. Confirm a second parse produces identical effective Settings and consumes the same selected Declaration bytes and Settings revisions. Deleting a legacy structural Projection does not change those results.\n\n### Acceptance criteria\n\nEvery valid selection resolves deterministically and every invalid selection fails closed with the exact key and allowed values.\n\n### Failure disposition\n\nRecord a Concern naming the accepted invalid value, rejected valid value, or non-deterministic result, then stop settings-schema readiness.",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-E-621",
+      "version": 36,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-621-CORE_META_MODEL-EVAL_CASE--settings-artifact-usability.md",
+      "sha256": "37672b34a37e9800530c8f3d1b5c42c14ff106066589f112988c3a0e171d27b7"
+    },
+    "subject": "Project.Framework Settings",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [],
+    "cfel_blocks": [],
+    "clauses": [],
+    "prose": "An Operator unfamiliar with the repository can configure Framework behavior, including default and Project Authority Modes, through Framework Instance Settings and Project initialization inputs through Project Settings using the owning Settings Artifacts and their in-file documentation. Scope Unit Declarations are the separate owner of Scope Unit structure. No structural Projection is required to make these choices.",
+    "claim_scope": "The Operator has no undocumented Framework knowledge and must not edit the Framework Catalog.",
+    "semantics": "",
+    "details": "### Acceptance criteria\n\nEvery intended change is made through its owning Settings Artifact or Scope Unit Declaration, and at least 90% of classifications distinguish Project choices from methodology definitions.\n\n### Failure disposition\n\nRecord a Concern for every misleading or missing Settings instruction and stop settings-usability readiness until it is corrected.",
+    "diagnostics": [],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-R-1430",
+      "version": 26,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL--select-authority-modes-through-framework-instance-settings.md",
+      "sha256": "de44f527a3d9ee77bfe5cc059587b635a2ed017d3b7548a13fc8f9b7eba9c5c7"
+    },
+    "subject": "Project.Framework Settings.Authority Modes",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [],
+    "cfel_blocks": [],
+    "clauses": [],
+    "prose": "Framework Instance Settings select the Project Authority Mode and Default Scope Unit Authority Mode. Permitted values are `strict` and `casual`. Neither changes the authority of active Atoms.",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-R-1750",
+      "version": 40,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md",
+      "sha256": "48790072495d5e11cf95db625597deba9f02618721dd87e2e092154862be8da0"
+    },
+    "subject": "Project.Framework Settings",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [],
+    "cfel_blocks": [],
+    "clauses": [],
+    "prose": "Each Operator-selected setting has one authoritative owner: Project Settings for Project initialization inputs, including Project Name and Prefix, or Framework Instance Settings for CAPRMEDIO behavior, configuration choices, and Authority Mode defaults. Atoms define permitted parameters, constraints, and applicability without fixing or duplicating selected values or defaults.",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-R-2640",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+      "sha256": "bd2507933a0471d8fcfc1a1560cf7ecf1585603a1d16c253f8411cb904bbf27f"
+    },
+    "subject": "Project//caprmedio",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2640",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+          "sha256": "bd2507933a0471d8fcfc1a1560cf7ecf1585603a1d16c253f8411cb904bbf27f"
+        },
+        "block": "Project//caprmedio.Name == \"caprmedio\"\n",
+        "label": "CFEL",
+        "closed": true
+      }
+    ],
+    "cfel_blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2640",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+          "sha256": "bd2507933a0471d8fcfc1a1560cf7ecf1585603a1d16c253f8411cb904bbf27f"
+        },
+        "block": "Project//caprmedio.Name == \"caprmedio\"\n"
+      }
+    ],
+    "clauses": [],
+    "prose": "",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Project//caprmedio.Name == \"caprmedio\"",
+        "source": {
+          "atom_id": "CA-R-2640",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+          "sha256": "bd2507933a0471d8fcfc1a1560cf7ecf1585603a1d16c253f8411cb904bbf27f"
+        }
+      }
+    ],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-R-2648",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
+      "sha256": "4f672882e06202e879ba76936b46bcf8dfb645b5fd152ce784e09c1f01b3a017"
+    },
+    "subject": "Scope Unit//FRAMEWORK_METHODOLOGY",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2648",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
+          "sha256": "4f672882e06202e879ba76936b46bcf8dfb645b5fd152ce784e09c1f01b3a017"
+        },
+        "block": "Scope Unit//FRAMEWORK_METHODOLOGY.ID == \"CA-SU-9\";\nScope Unit//FRAMEWORK_METHODOLOGY.Name == \"FRAMEWORK_METHODOLOGY\";\nScope Unit//FRAMEWORK_METHODOLOGY.Label == \"LAYER\";\nScope Unit//FRAMEWORK_METHODOLOGY.order.ordered == true;\nScope Unit//FRAMEWORK_METHODOLOGY.order.number == 1;\nScope Unit//FRAMEWORK_METHODOLOGY ((IS_CONTAINED_BY)) Project//caprmedio\n",
+        "label": "CFEL",
+        "closed": true
+      }
+    ],
+    "cfel_blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2648",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
+          "sha256": "4f672882e06202e879ba76936b46bcf8dfb645b5fd152ce784e09c1f01b3a017"
+        },
+        "block": "Scope Unit//FRAMEWORK_METHODOLOGY.ID == \"CA-SU-9\";\nScope Unit//FRAMEWORK_METHODOLOGY.Name == \"FRAMEWORK_METHODOLOGY\";\nScope Unit//FRAMEWORK_METHODOLOGY.Label == \"LAYER\";\nScope Unit//FRAMEWORK_METHODOLOGY.order.ordered == true;\nScope Unit//FRAMEWORK_METHODOLOGY.order.number == 1;\nScope Unit//FRAMEWORK_METHODOLOGY ((IS_CONTAINED_BY)) Project//caprmedio\n"
+      }
+    ],
+    "clauses": [
+      {
+        "kind": "relation_cardinality",
+        "expression": "Scope Unit//FRAMEWORK_METHODOLOGY ((IS_CONTAINED_BY)) Project//caprmedio",
+        "source": {
+          "atom_id": "CA-R-2648",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
+          "sha256": "4f672882e06202e879ba76936b46bcf8dfb645b5fd152ce784e09c1f01b3a017"
+        },
+        "source_selector": "Scope Unit//FRAMEWORK_METHODOLOGY",
+        "relation": "IS_CONTAINED_BY",
+        "relation_notation": null,
+        "target_selector": "Project//caprmedio",
+        "source_cardinality": null,
+        "target_cardinality": null,
+        "written_direction": "forward",
+        "written_source_selector": "Scope Unit//FRAMEWORK_METHODOLOGY",
+        "written_target_selector": "Project//caprmedio",
+        "written_source_cardinality": null,
+        "written_target_cardinality": null
+      }
+    ],
+    "prose": "",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FRAMEWORK_METHODOLOGY.ID == \"CA-SU-9\"",
+        "source": {
+          "atom_id": "CA-R-2648",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
+          "sha256": "4f672882e06202e879ba76936b46bcf8dfb645b5fd152ce784e09c1f01b3a017"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FRAMEWORK_METHODOLOGY.Name == \"FRAMEWORK_METHODOLOGY\"",
+        "source": {
+          "atom_id": "CA-R-2648",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
+          "sha256": "4f672882e06202e879ba76936b46bcf8dfb645b5fd152ce784e09c1f01b3a017"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FRAMEWORK_METHODOLOGY.Label == \"LAYER\"",
+        "source": {
+          "atom_id": "CA-R-2648",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
+          "sha256": "4f672882e06202e879ba76936b46bcf8dfb645b5fd152ce784e09c1f01b3a017"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FRAMEWORK_METHODOLOGY.order.ordered == true",
+        "source": {
+          "atom_id": "CA-R-2648",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
+          "sha256": "4f672882e06202e879ba76936b46bcf8dfb645b5fd152ce784e09c1f01b3a017"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FRAMEWORK_METHODOLOGY.order.number == 1",
+        "source": {
+          "atom_id": "CA-R-2648",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
+          "sha256": "4f672882e06202e879ba76936b46bcf8dfb645b5fd152ce784e09c1f01b3a017"
+        }
+      }
+    ],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-R-2651",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md",
+      "sha256": "e0a2f4692b8b007371366d452b7bded37717f1c0e1dc28fdc0dc41a258d066cc"
+    },
+    "subject": "Scope Unit//INSTALLED_EXTENSIONS",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2651",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md",
+          "sha256": "e0a2f4692b8b007371366d452b7bded37717f1c0e1dc28fdc0dc41a258d066cc"
+        },
+        "block": "Scope Unit//INSTALLED_EXTENSIONS.ID == \"CA-SU-12\";\nScope Unit//INSTALLED_EXTENSIONS.Name == \"INSTALLED_EXTENSIONS\";\nScope Unit//INSTALLED_EXTENSIONS.Label == \"LAYER\";\nScope Unit//INSTALLED_EXTENSIONS.order.ordered == true;\nScope Unit//INSTALLED_EXTENSIONS.order.number == 2;\nScope Unit//INSTALLED_EXTENSIONS ((IS_CONTAINED_BY)) Scope Unit//METHODOLOGY_SOURCES\n",
+        "label": "CFEL",
+        "closed": true
+      }
+    ],
+    "cfel_blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2651",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md",
+          "sha256": "e0a2f4692b8b007371366d452b7bded37717f1c0e1dc28fdc0dc41a258d066cc"
+        },
+        "block": "Scope Unit//INSTALLED_EXTENSIONS.ID == \"CA-SU-12\";\nScope Unit//INSTALLED_EXTENSIONS.Name == \"INSTALLED_EXTENSIONS\";\nScope Unit//INSTALLED_EXTENSIONS.Label == \"LAYER\";\nScope Unit//INSTALLED_EXTENSIONS.order.ordered == true;\nScope Unit//INSTALLED_EXTENSIONS.order.number == 2;\nScope Unit//INSTALLED_EXTENSIONS ((IS_CONTAINED_BY)) Scope Unit//METHODOLOGY_SOURCES\n"
+      }
+    ],
+    "clauses": [
+      {
+        "kind": "relation_cardinality",
+        "expression": "Scope Unit//INSTALLED_EXTENSIONS ((IS_CONTAINED_BY)) Scope Unit//METHODOLOGY_SOURCES",
+        "source": {
+          "atom_id": "CA-R-2651",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md",
+          "sha256": "e0a2f4692b8b007371366d452b7bded37717f1c0e1dc28fdc0dc41a258d066cc"
+        },
+        "source_selector": "Scope Unit//INSTALLED_EXTENSIONS",
+        "relation": "IS_CONTAINED_BY",
+        "relation_notation": null,
+        "target_selector": "Scope Unit//METHODOLOGY_SOURCES",
+        "source_cardinality": null,
+        "target_cardinality": null,
+        "written_direction": "forward",
+        "written_source_selector": "Scope Unit//INSTALLED_EXTENSIONS",
+        "written_target_selector": "Scope Unit//METHODOLOGY_SOURCES",
+        "written_source_cardinality": null,
+        "written_target_cardinality": null
+      }
+    ],
+    "prose": "",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//INSTALLED_EXTENSIONS.ID == \"CA-SU-12\"",
+        "source": {
+          "atom_id": "CA-R-2651",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md",
+          "sha256": "e0a2f4692b8b007371366d452b7bded37717f1c0e1dc28fdc0dc41a258d066cc"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//INSTALLED_EXTENSIONS.Name == \"INSTALLED_EXTENSIONS\"",
+        "source": {
+          "atom_id": "CA-R-2651",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md",
+          "sha256": "e0a2f4692b8b007371366d452b7bded37717f1c0e1dc28fdc0dc41a258d066cc"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//INSTALLED_EXTENSIONS.Label == \"LAYER\"",
+        "source": {
+          "atom_id": "CA-R-2651",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md",
+          "sha256": "e0a2f4692b8b007371366d452b7bded37717f1c0e1dc28fdc0dc41a258d066cc"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//INSTALLED_EXTENSIONS.order.ordered == true",
+        "source": {
+          "atom_id": "CA-R-2651",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md",
+          "sha256": "e0a2f4692b8b007371366d452b7bded37717f1c0e1dc28fdc0dc41a258d066cc"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//INSTALLED_EXTENSIONS.order.number == 2",
+        "source": {
+          "atom_id": "CA-R-2651",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md",
+          "sha256": "e0a2f4692b8b007371366d452b7bded37717f1c0e1dc28fdc0dc41a258d066cc"
+        }
+      }
+    ],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-R-2653",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",
+      "sha256": "9ec07201c669195718d3346f0f6d5a747a9a4e3a9ef86cc8a3687fa9d8587be0"
+    },
+    "subject": "Scope Unit//FRAMEWORK_ENGINE",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2653",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",
+          "sha256": "9ec07201c669195718d3346f0f6d5a747a9a4e3a9ef86cc8a3687fa9d8587be0"
+        },
+        "block": "Scope Unit//FRAMEWORK_ENGINE.ID == \"CA-SU-14\";\nScope Unit//FRAMEWORK_ENGINE.Name == \"FRAMEWORK_ENGINE\";\nScope Unit//FRAMEWORK_ENGINE.Label == \"LAYER\";\nScope Unit//FRAMEWORK_ENGINE.order.ordered == true;\nScope Unit//FRAMEWORK_ENGINE.order.number == 2;\nScope Unit//FRAMEWORK_ENGINE ((IS_CONTAINED_BY)) Project//caprmedio\n",
+        "label": "CFEL",
+        "closed": true
+      }
+    ],
+    "cfel_blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2653",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",
+          "sha256": "9ec07201c669195718d3346f0f6d5a747a9a4e3a9ef86cc8a3687fa9d8587be0"
+        },
+        "block": "Scope Unit//FRAMEWORK_ENGINE.ID == \"CA-SU-14\";\nScope Unit//FRAMEWORK_ENGINE.Name == \"FRAMEWORK_ENGINE\";\nScope Unit//FRAMEWORK_ENGINE.Label == \"LAYER\";\nScope Unit//FRAMEWORK_ENGINE.order.ordered == true;\nScope Unit//FRAMEWORK_ENGINE.order.number == 2;\nScope Unit//FRAMEWORK_ENGINE ((IS_CONTAINED_BY)) Project//caprmedio\n"
+      }
+    ],
+    "clauses": [
+      {
+        "kind": "relation_cardinality",
+        "expression": "Scope Unit//FRAMEWORK_ENGINE ((IS_CONTAINED_BY)) Project//caprmedio",
+        "source": {
+          "atom_id": "CA-R-2653",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",
+          "sha256": "9ec07201c669195718d3346f0f6d5a747a9a4e3a9ef86cc8a3687fa9d8587be0"
+        },
+        "source_selector": "Scope Unit//FRAMEWORK_ENGINE",
+        "relation": "IS_CONTAINED_BY",
+        "relation_notation": null,
+        "target_selector": "Project//caprmedio",
+        "source_cardinality": null,
+        "target_cardinality": null,
+        "written_direction": "forward",
+        "written_source_selector": "Scope Unit//FRAMEWORK_ENGINE",
+        "written_target_selector": "Project//caprmedio",
+        "written_source_cardinality": null,
+        "written_target_cardinality": null
+      }
+    ],
+    "prose": "",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FRAMEWORK_ENGINE.ID == \"CA-SU-14\"",
+        "source": {
+          "atom_id": "CA-R-2653",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",
+          "sha256": "9ec07201c669195718d3346f0f6d5a747a9a4e3a9ef86cc8a3687fa9d8587be0"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FRAMEWORK_ENGINE.Name == \"FRAMEWORK_ENGINE\"",
+        "source": {
+          "atom_id": "CA-R-2653",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",
+          "sha256": "9ec07201c669195718d3346f0f6d5a747a9a4e3a9ef86cc8a3687fa9d8587be0"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FRAMEWORK_ENGINE.Label == \"LAYER\"",
+        "source": {
+          "atom_id": "CA-R-2653",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",
+          "sha256": "9ec07201c669195718d3346f0f6d5a747a9a4e3a9ef86cc8a3687fa9d8587be0"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FRAMEWORK_ENGINE.order.ordered == true",
+        "source": {
+          "atom_id": "CA-R-2653",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",
+          "sha256": "9ec07201c669195718d3346f0f6d5a747a9a4e3a9ef86cc8a3687fa9d8587be0"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FRAMEWORK_ENGINE.order.number == 2",
+        "source": {
+          "atom_id": "CA-R-2653",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",
+          "sha256": "9ec07201c669195718d3346f0f6d5a747a9a4e3a9ef86cc8a3687fa9d8587be0"
+        }
+      }
+    ],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-R-2664",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md",
+      "sha256": "33f6c0ed2a26bfc9375e2ac3d19864b6b241a791b82c924a77dbf831ef2c5129"
+    },
+    "subject": "Scope Unit//OPERATOR_DOCUMENTATION",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2664",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md",
+          "sha256": "33f6c0ed2a26bfc9375e2ac3d19864b6b241a791b82c924a77dbf831ef2c5129"
+        },
+        "block": "Scope Unit//OPERATOR_DOCUMENTATION.ID == \"CA-SU-25\";\nScope Unit//OPERATOR_DOCUMENTATION.Name == \"OPERATOR_DOCUMENTATION\";\nScope Unit//OPERATOR_DOCUMENTATION.Label == \"LAYER\";\nScope Unit//OPERATOR_DOCUMENTATION.order.ordered == true;\nScope Unit//OPERATOR_DOCUMENTATION.order.number == 3;\nScope Unit//OPERATOR_DOCUMENTATION ((IS_CONTAINED_BY)) Project//caprmedio\n",
+        "label": "CFEL",
+        "closed": true
+      }
+    ],
+    "cfel_blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2664",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md",
+          "sha256": "33f6c0ed2a26bfc9375e2ac3d19864b6b241a791b82c924a77dbf831ef2c5129"
+        },
+        "block": "Scope Unit//OPERATOR_DOCUMENTATION.ID == \"CA-SU-25\";\nScope Unit//OPERATOR_DOCUMENTATION.Name == \"OPERATOR_DOCUMENTATION\";\nScope Unit//OPERATOR_DOCUMENTATION.Label == \"LAYER\";\nScope Unit//OPERATOR_DOCUMENTATION.order.ordered == true;\nScope Unit//OPERATOR_DOCUMENTATION.order.number == 3;\nScope Unit//OPERATOR_DOCUMENTATION ((IS_CONTAINED_BY)) Project//caprmedio\n"
+      }
+    ],
+    "clauses": [
+      {
+        "kind": "relation_cardinality",
+        "expression": "Scope Unit//OPERATOR_DOCUMENTATION ((IS_CONTAINED_BY)) Project//caprmedio",
+        "source": {
+          "atom_id": "CA-R-2664",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md",
+          "sha256": "33f6c0ed2a26bfc9375e2ac3d19864b6b241a791b82c924a77dbf831ef2c5129"
+        },
+        "source_selector": "Scope Unit//OPERATOR_DOCUMENTATION",
+        "relation": "IS_CONTAINED_BY",
+        "relation_notation": null,
+        "target_selector": "Project//caprmedio",
+        "source_cardinality": null,
+        "target_cardinality": null,
+        "written_direction": "forward",
+        "written_source_selector": "Scope Unit//OPERATOR_DOCUMENTATION",
+        "written_target_selector": "Project//caprmedio",
+        "written_source_cardinality": null,
+        "written_target_cardinality": null
+      }
+    ],
+    "prose": "",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//OPERATOR_DOCUMENTATION.ID == \"CA-SU-25\"",
+        "source": {
+          "atom_id": "CA-R-2664",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md",
+          "sha256": "33f6c0ed2a26bfc9375e2ac3d19864b6b241a791b82c924a77dbf831ef2c5129"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//OPERATOR_DOCUMENTATION.Name == \"OPERATOR_DOCUMENTATION\"",
+        "source": {
+          "atom_id": "CA-R-2664",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md",
+          "sha256": "33f6c0ed2a26bfc9375e2ac3d19864b6b241a791b82c924a77dbf831ef2c5129"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//OPERATOR_DOCUMENTATION.Label == \"LAYER\"",
+        "source": {
+          "atom_id": "CA-R-2664",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md",
+          "sha256": "33f6c0ed2a26bfc9375e2ac3d19864b6b241a791b82c924a77dbf831ef2c5129"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//OPERATOR_DOCUMENTATION.order.ordered == true",
+        "source": {
+          "atom_id": "CA-R-2664",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md",
+          "sha256": "33f6c0ed2a26bfc9375e2ac3d19864b6b241a791b82c924a77dbf831ef2c5129"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//OPERATOR_DOCUMENTATION.order.number == 3",
+        "source": {
+          "atom_id": "CA-R-2664",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md",
+          "sha256": "33f6c0ed2a26bfc9375e2ac3d19864b6b241a791b82c924a77dbf831ef2c5129"
+        }
+      }
+    ],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-R-2665",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md",
+      "sha256": "2e9ffb45dcc4aed8166a5337691c02600b9b90b751fb6b34618d14d5f685e817"
+    },
+    "subject": "Scope Unit//CORE_EXTENSIONS",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2665",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md",
+          "sha256": "2e9ffb45dcc4aed8166a5337691c02600b9b90b751fb6b34618d14d5f685e817"
+        },
+        "block": "Scope Unit//CORE_EXTENSIONS.ID == \"CA-SU-26\";\nScope Unit//CORE_EXTENSIONS.Name == \"CORE_EXTENSIONS\";\nScope Unit//CORE_EXTENSIONS.Label == \"LAYER\";\nScope Unit//CORE_EXTENSIONS.order.ordered == true;\nScope Unit//CORE_EXTENSIONS.order.number == 4;\nScope Unit//CORE_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio\n",
+        "label": "CFEL",
+        "closed": true
+      }
+    ],
+    "cfel_blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2665",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md",
+          "sha256": "2e9ffb45dcc4aed8166a5337691c02600b9b90b751fb6b34618d14d5f685e817"
+        },
+        "block": "Scope Unit//CORE_EXTENSIONS.ID == \"CA-SU-26\";\nScope Unit//CORE_EXTENSIONS.Name == \"CORE_EXTENSIONS\";\nScope Unit//CORE_EXTENSIONS.Label == \"LAYER\";\nScope Unit//CORE_EXTENSIONS.order.ordered == true;\nScope Unit//CORE_EXTENSIONS.order.number == 4;\nScope Unit//CORE_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio\n"
+      }
+    ],
+    "clauses": [
+      {
+        "kind": "relation_cardinality",
+        "expression": "Scope Unit//CORE_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio",
+        "source": {
+          "atom_id": "CA-R-2665",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md",
+          "sha256": "2e9ffb45dcc4aed8166a5337691c02600b9b90b751fb6b34618d14d5f685e817"
+        },
+        "source_selector": "Scope Unit//CORE_EXTENSIONS",
+        "relation": "IS_CONTAINED_BY",
+        "relation_notation": null,
+        "target_selector": "Project//caprmedio",
+        "source_cardinality": null,
+        "target_cardinality": null,
+        "written_direction": "forward",
+        "written_source_selector": "Scope Unit//CORE_EXTENSIONS",
+        "written_target_selector": "Project//caprmedio",
+        "written_source_cardinality": null,
+        "written_target_cardinality": null
+      }
+    ],
+    "prose": "",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//CORE_EXTENSIONS.ID == \"CA-SU-26\"",
+        "source": {
+          "atom_id": "CA-R-2665",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md",
+          "sha256": "2e9ffb45dcc4aed8166a5337691c02600b9b90b751fb6b34618d14d5f685e817"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//CORE_EXTENSIONS.Name == \"CORE_EXTENSIONS\"",
+        "source": {
+          "atom_id": "CA-R-2665",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md",
+          "sha256": "2e9ffb45dcc4aed8166a5337691c02600b9b90b751fb6b34618d14d5f685e817"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//CORE_EXTENSIONS.Label == \"LAYER\"",
+        "source": {
+          "atom_id": "CA-R-2665",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md",
+          "sha256": "2e9ffb45dcc4aed8166a5337691c02600b9b90b751fb6b34618d14d5f685e817"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//CORE_EXTENSIONS.order.ordered == true",
+        "source": {
+          "atom_id": "CA-R-2665",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md",
+          "sha256": "2e9ffb45dcc4aed8166a5337691c02600b9b90b751fb6b34618d14d5f685e817"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//CORE_EXTENSIONS.order.number == 4",
+        "source": {
+          "atom_id": "CA-R-2665",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md",
+          "sha256": "2e9ffb45dcc4aed8166a5337691c02600b9b90b751fb6b34618d14d5f685e817"
+        }
+      }
+    ],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-R-2666",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md",
+      "sha256": "a35a477b97c718b802a2d486cbcd54825670807eb3d9f4dc01c9da7ac96a06a1"
+    },
+    "subject": "Scope Unit//RELEASES",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2666",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md",
+          "sha256": "a35a477b97c718b802a2d486cbcd54825670807eb3d9f4dc01c9da7ac96a06a1"
+        },
+        "block": "Scope Unit//RELEASES.ID == \"CA-SU-27\";\nScope Unit//RELEASES.Name == \"RELEASES\";\nScope Unit//RELEASES.Label == \"LAYER\";\nScope Unit//RELEASES.order.ordered == true;\nScope Unit//RELEASES.order.number == 5;\nScope Unit//RELEASES ((IS_CONTAINED_BY)) Project//caprmedio\n",
+        "label": "CFEL",
+        "closed": true
+      }
+    ],
+    "cfel_blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2666",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md",
+          "sha256": "a35a477b97c718b802a2d486cbcd54825670807eb3d9f4dc01c9da7ac96a06a1"
+        },
+        "block": "Scope Unit//RELEASES.ID == \"CA-SU-27\";\nScope Unit//RELEASES.Name == \"RELEASES\";\nScope Unit//RELEASES.Label == \"LAYER\";\nScope Unit//RELEASES.order.ordered == true;\nScope Unit//RELEASES.order.number == 5;\nScope Unit//RELEASES ((IS_CONTAINED_BY)) Project//caprmedio\n"
+      }
+    ],
+    "clauses": [
+      {
+        "kind": "relation_cardinality",
+        "expression": "Scope Unit//RELEASES ((IS_CONTAINED_BY)) Project//caprmedio",
+        "source": {
+          "atom_id": "CA-R-2666",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md",
+          "sha256": "a35a477b97c718b802a2d486cbcd54825670807eb3d9f4dc01c9da7ac96a06a1"
+        },
+        "source_selector": "Scope Unit//RELEASES",
+        "relation": "IS_CONTAINED_BY",
+        "relation_notation": null,
+        "target_selector": "Project//caprmedio",
+        "source_cardinality": null,
+        "target_cardinality": null,
+        "written_direction": "forward",
+        "written_source_selector": "Scope Unit//RELEASES",
+        "written_target_selector": "Project//caprmedio",
+        "written_source_cardinality": null,
+        "written_target_cardinality": null
+      }
+    ],
+    "prose": "",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//RELEASES.ID == \"CA-SU-27\"",
+        "source": {
+          "atom_id": "CA-R-2666",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md",
+          "sha256": "a35a477b97c718b802a2d486cbcd54825670807eb3d9f4dc01c9da7ac96a06a1"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//RELEASES.Name == \"RELEASES\"",
+        "source": {
+          "atom_id": "CA-R-2666",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md",
+          "sha256": "a35a477b97c718b802a2d486cbcd54825670807eb3d9f4dc01c9da7ac96a06a1"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//RELEASES.Label == \"LAYER\"",
+        "source": {
+          "atom_id": "CA-R-2666",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md",
+          "sha256": "a35a477b97c718b802a2d486cbcd54825670807eb3d9f4dc01c9da7ac96a06a1"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//RELEASES.order.ordered == true",
+        "source": {
+          "atom_id": "CA-R-2666",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md",
+          "sha256": "a35a477b97c718b802a2d486cbcd54825670807eb3d9f4dc01c9da7ac96a06a1"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//RELEASES.order.number == 5",
+        "source": {
+          "atom_id": "CA-R-2666",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md",
+          "sha256": "a35a477b97c718b802a2d486cbcd54825670807eb3d9f4dc01c9da7ac96a06a1"
+        }
+      }
+    ],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-R-2667",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md",
+      "sha256": "b3502b58d9aabe2e5fe516f95b2c3694056cc70aaeb86f7a510d87e6c0fe9318"
+    },
+    "subject": "Scope Unit//COMMUNITY_EXTENSIONS",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2667",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md",
+          "sha256": "b3502b58d9aabe2e5fe516f95b2c3694056cc70aaeb86f7a510d87e6c0fe9318"
+        },
+        "block": "Scope Unit//COMMUNITY_EXTENSIONS.ID == \"CA-SU-28\";\nScope Unit//COMMUNITY_EXTENSIONS.Name == \"COMMUNITY_EXTENSIONS\";\nScope Unit//COMMUNITY_EXTENSIONS.Label == \"FEATURE\";\nScope Unit//COMMUNITY_EXTENSIONS.order.ordered == false;\nScope Unit//COMMUNITY_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio\n",
+        "label": "CFEL",
+        "closed": true
+      }
+    ],
+    "cfel_blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2667",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md",
+          "sha256": "b3502b58d9aabe2e5fe516f95b2c3694056cc70aaeb86f7a510d87e6c0fe9318"
+        },
+        "block": "Scope Unit//COMMUNITY_EXTENSIONS.ID == \"CA-SU-28\";\nScope Unit//COMMUNITY_EXTENSIONS.Name == \"COMMUNITY_EXTENSIONS\";\nScope Unit//COMMUNITY_EXTENSIONS.Label == \"FEATURE\";\nScope Unit//COMMUNITY_EXTENSIONS.order.ordered == false;\nScope Unit//COMMUNITY_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio\n"
+      }
+    ],
+    "clauses": [
+      {
+        "kind": "relation_cardinality",
+        "expression": "Scope Unit//COMMUNITY_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio",
+        "source": {
+          "atom_id": "CA-R-2667",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md",
+          "sha256": "b3502b58d9aabe2e5fe516f95b2c3694056cc70aaeb86f7a510d87e6c0fe9318"
+        },
+        "source_selector": "Scope Unit//COMMUNITY_EXTENSIONS",
+        "relation": "IS_CONTAINED_BY",
+        "relation_notation": null,
+        "target_selector": "Project//caprmedio",
+        "source_cardinality": null,
+        "target_cardinality": null,
+        "written_direction": "forward",
+        "written_source_selector": "Scope Unit//COMMUNITY_EXTENSIONS",
+        "written_target_selector": "Project//caprmedio",
+        "written_source_cardinality": null,
+        "written_target_cardinality": null
+      }
+    ],
+    "prose": "",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//COMMUNITY_EXTENSIONS.ID == \"CA-SU-28\"",
+        "source": {
+          "atom_id": "CA-R-2667",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md",
+          "sha256": "b3502b58d9aabe2e5fe516f95b2c3694056cc70aaeb86f7a510d87e6c0fe9318"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//COMMUNITY_EXTENSIONS.Name == \"COMMUNITY_EXTENSIONS\"",
+        "source": {
+          "atom_id": "CA-R-2667",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md",
+          "sha256": "b3502b58d9aabe2e5fe516f95b2c3694056cc70aaeb86f7a510d87e6c0fe9318"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//COMMUNITY_EXTENSIONS.Label == \"FEATURE\"",
+        "source": {
+          "atom_id": "CA-R-2667",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md",
+          "sha256": "b3502b58d9aabe2e5fe516f95b2c3694056cc70aaeb86f7a510d87e6c0fe9318"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//COMMUNITY_EXTENSIONS.order.ordered == false",
+        "source": {
+          "atom_id": "CA-R-2667",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md",
+          "sha256": "b3502b58d9aabe2e5fe516f95b2c3694056cc70aaeb86f7a510d87e6c0fe9318"
+        }
+      }
+    ],
+    "message": "Active Subject has no declared target in this selection."
+  },
+  {
+    "source": {
+      "atom_id": "CA-R-2668",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md",
+      "sha256": "0bca59d99ef03af9b87d701a4b902f043fedd26105f707f35a3dad5017c1b2a9"
+    },
+    "subject": "Scope Unit//FIELD",
+    "target": "",
+    "kind": "unbound",
+    "blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2668",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md",
+          "sha256": "0bca59d99ef03af9b87d701a4b902f043fedd26105f707f35a3dad5017c1b2a9"
+        },
+        "block": "Scope Unit//FIELD.ID == \"CA-SU-29\";\nScope Unit//FIELD.Name == \"FIELD\";\nScope Unit//FIELD.Label == \"FEATURE\";\nScope Unit//FIELD.order.ordered == false;\nScope Unit//FIELD ((IS_CONTAINED_BY)) Project//caprmedio\n",
+        "label": "CFEL",
+        "closed": true
+      }
+    ],
+    "cfel_blocks": [
+      {
+        "source": {
+          "atom_id": "CA-R-2668",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md",
+          "sha256": "0bca59d99ef03af9b87d701a4b902f043fedd26105f707f35a3dad5017c1b2a9"
+        },
+        "block": "Scope Unit//FIELD.ID == \"CA-SU-29\";\nScope Unit//FIELD.Name == \"FIELD\";\nScope Unit//FIELD.Label == \"FEATURE\";\nScope Unit//FIELD.order.ordered == false;\nScope Unit//FIELD ((IS_CONTAINED_BY)) Project//caprmedio\n"
+      }
+    ],
+    "clauses": [
+      {
+        "kind": "relation_cardinality",
+        "expression": "Scope Unit//FIELD ((IS_CONTAINED_BY)) Project//caprmedio",
+        "source": {
+          "atom_id": "CA-R-2668",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md",
+          "sha256": "0bca59d99ef03af9b87d701a4b902f043fedd26105f707f35a3dad5017c1b2a9"
+        },
+        "source_selector": "Scope Unit//FIELD",
+        "relation": "IS_CONTAINED_BY",
+        "relation_notation": null,
+        "target_selector": "Project//caprmedio",
+        "source_cardinality": null,
+        "target_cardinality": null,
+        "written_direction": "forward",
+        "written_source_selector": "Scope Unit//FIELD",
+        "written_target_selector": "Project//caprmedio",
+        "written_source_cardinality": null,
+        "written_target_cardinality": null
+      }
+    ],
+    "prose": "",
+    "claim_scope": "",
+    "semantics": "",
+    "details": "",
+    "diagnostics": [
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FIELD.ID == \"CA-SU-29\"",
+        "source": {
+          "atom_id": "CA-R-2668",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md",
+          "sha256": "0bca59d99ef03af9b87d701a4b902f043fedd26105f707f35a3dad5017c1b2a9"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FIELD.Name == \"FIELD\"",
+        "source": {
+          "atom_id": "CA-R-2668",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md",
+          "sha256": "0bca59d99ef03af9b87d701a4b902f043fedd26105f707f35a3dad5017c1b2a9"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FIELD.Label == \"FEATURE\"",
+        "source": {
+          "atom_id": "CA-R-2668",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md",
+          "sha256": "0bca59d99ef03af9b87d701a4b902f043fedd26105f707f35a3dad5017c1b2a9"
+        }
+      },
+      {
+        "code": "cfel-expression-unsupported",
+        "message": "CFEL expression is outside the bounded projection extractor.",
+        "expression": "Scope Unit//FIELD.order.ordered == false",
+        "source": {
+          "atom_id": "CA-R-2668",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md",
+          "sha256": "0bca59d99ef03af9b87d701a4b902f043fedd26105f707f35a3dad5017c1b2a9"
+        }
+      }
+    ],
+    "message": "Active Subject has no declared target in this selection."
+  }
+]

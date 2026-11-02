@@ -1,14 +1,14 @@
 ---
-atom_id: "CA-A-1166"
-content_role: "Analysis"
-type: "FPF Analysis Report"
-current_scope_unit: "caprmedio"
-local_tier: "Standard"
+atom_id: CA-A-1166
+content_role: Analysis & Advisory
+type: FPF Analysis Report
+current_scope_unit: caprmedio
+local_tier: Standard
 global_tier: 2
-author: "Anatoly Maslennikov"
-status: "Done"
-version: 1
-updated_at: "2026-10-06 07:08:36 +0400"
+author: Anatoly Maslennikov
+status: Done
+version: 2
+updated_at: 2026-11-02 15:49:28 +0400
 ---
 # Summary
 

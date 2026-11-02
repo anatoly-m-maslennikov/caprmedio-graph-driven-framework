@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1244
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Specification Proposal
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
@@ -8,8 +8,8 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: Formal Model
-version: 1
-updated_at: 2026-10-28 20:04:15 +0400
+version: 2
+updated_at: 2026-11-02 15:49:28 +0400
 relations: {}
 tier: 3
 ---

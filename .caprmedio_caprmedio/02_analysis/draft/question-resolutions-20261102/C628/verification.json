@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "current_and_archive_hashes": "match",
+  "predecessor_preservation": "exact except ID and status",
+  "journal_records": 1,
+  "model_or_runtime_changes": false
+}

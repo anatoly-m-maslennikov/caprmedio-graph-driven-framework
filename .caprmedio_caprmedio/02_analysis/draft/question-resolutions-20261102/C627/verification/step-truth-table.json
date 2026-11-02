@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "cases": 64,
+  "count_domain": "0..3 for Action links, Workflow links and Substep links",
+  "valid_cases": [
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      3
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      0
+    ]
+  ],
+  "covers": [
+    "empty Step rejected",
+    "mixed containment and invocation rejected",
+    "multiple invocations rejected",
+    "one Action plus one Workflow rejected",
+    "exactly one Action or Workflow admitted",
+    "one or more Substeps admitted"
+  ],
+  "scope": "Approved formal-model constraints; not runtime execution"
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "counts": {
+    "archive": 15,
+    "publish": 14
+  },
+  "journal_rows_checked": 17,
+  "retired_ids": [
+    "CA-R-1569",
+    "CA-R-1992",
+    "CA-R-2480"
+  ],
+  "E658_body": "checked against frozen predecessor",
+  "C627": "Resolved verified",
+  "errors": [],
+  "limits": [
+    "No broad scan of unrelated files; apply operation paths scoped to receipt.",
+    "No runtime, actual instance, or projection validation."
+  ]
+}

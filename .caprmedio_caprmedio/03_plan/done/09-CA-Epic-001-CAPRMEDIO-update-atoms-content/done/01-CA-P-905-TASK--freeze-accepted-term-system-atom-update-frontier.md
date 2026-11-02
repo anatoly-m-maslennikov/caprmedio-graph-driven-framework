@@ -7,10 +7,11 @@ assignee: AI Agent
 subjects:
   governs: Subject/Graph Node/Domain/Continuant/Selection//Accepted Atom Update Frontier
   depends_on:
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis/Type: FPF Analysis Report'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis & Advisory/Type:
+    FPF Analysis Report'
   - Subject/Graph Node/Domain/Continuant/Atom
-version: 6
-updated_at: 2026-10-25 17:32:27 +0400
+version: 7
+updated_at: 2026-11-02 15:49:28 +0400
 autonomous_confidence_threshold: 99
 relations: {}
 status: Done

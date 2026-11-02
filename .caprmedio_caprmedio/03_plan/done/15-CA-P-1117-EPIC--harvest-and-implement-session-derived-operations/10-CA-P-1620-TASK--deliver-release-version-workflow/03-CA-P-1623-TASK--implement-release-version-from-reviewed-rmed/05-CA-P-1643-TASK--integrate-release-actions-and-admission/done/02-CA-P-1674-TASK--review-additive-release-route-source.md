@@ -19,12 +19,11 @@ subjects:
   - Subject/Graph Node/Engineering/Manifest
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+version: 9
+updated_at: 2026-11-02 19:44:26 +0400
 relations:
   is_decomposition_of:
   - CA-P-1643
-  blocks: []
 tier: 3
 ---
 # Summary

@@ -1,0 +1,64 @@
+{
+  "lanes": [
+    {
+      "deliverable": "Correct structural address Rule and C620 resolution",
+      "owner": "terra_declaration_consistency",
+      "exclusive_edit_scope": "sources and manifest.json",
+      "dependencies": [],
+      "acceptance": "exact Aspects <+ Product; stableSummaryRole; properDraftstatus",
+      "status": "done"
+    },
+    {
+      "deliverable": "Convert31AspectSubjectforms in207selectedSources",
+      "owner": "aspect_containment_mechanics",
+      "exclusive_edit_scope": "consumers",
+      "dependencies": [],
+      "acceptance": "all253occurrences;47ProductAtoms; bodysafe; noothersubjectchanges",
+      "status": "done"
+    },
+    {
+      "deliverable": "Counterfactual notation and directGraph check",
+      "owner": "step_runs_consumers",
+      "exclusive_edit_scope": "verification/graph-review.json",
+      "dependencies": [],
+      "acceptance": "existingparseracceptscontainment; nofalseMODELkinds orinheritance",
+      "status": "done"
+    },
+    {
+      "deliverable": "Independent mapping and source semantic review",
+      "owner": "step_count_notation",
+      "exclusive_edit_scope": "verification/mapping-review.json and source-semantic-review.json",
+      "dependencies": [
+        "finalDrafts"
+      ],
+      "acceptance": "31forms + twoSourceDrafts checked independently",
+      "status": "done"
+    },
+    {
+      "deliverable": "Guarded source publication, archives,Journal,frontier",
+      "owner": "root",
+      "exclusive_edit_scope": "selected209CurrentSources+archives; receipts andsourcefrontier",
+      "dependencies": [
+        "semantic+lifecyclePASS"
+      ],
+      "acceptance": "209publications/archives/updates; exactreadback; noforeignworkoverwritten",
+      "status": "done"
+    },
+    {
+      "deliverable": "Independent lifecycle safety",
+      "owner": "terra_migration_plan_warden",
+      "exclusive_edit_scope": "verification/lifecycle-preflight.json",
+      "dependencies": [
+        "stagedplan"
+      ],
+      "acceptance": "allpins; sharedlock; archiveintegrity; stableeventmetadata",
+      "status": "done"
+    }
+  ],
+  "constraints": [
+    "Git/index and Current integration root-owned",
+    "No new model kinds, parser, schema or runtime changes",
+    "Prior12Rolegaps retained; officialProjectionrefresh remains guarded"
+  ],
+  "final_checks": "PASS; official projection refresh retains pre-existing Role blocker"
+}

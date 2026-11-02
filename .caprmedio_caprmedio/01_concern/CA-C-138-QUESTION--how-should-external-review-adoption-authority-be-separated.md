@@ -2,18 +2,18 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs: 'Atom/Content Role: Analysis/Type: External Analysis Report'
+  governs: 'Atom/Content Role: Analysis & Advisory/Type: External Analysis Report'
   depends_on:
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis'
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis & Advisory'
   - Atom/Claim
   - Subject/Engineering/Carrier
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   - Process
 priority: medium
-version: 4
-updated_at: 2026-10-23 03:18:40 +0400
+version: 5
+updated_at: 2026-11-02 15:49:28 +0400
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
 atom_id: CA-C-138
 ---

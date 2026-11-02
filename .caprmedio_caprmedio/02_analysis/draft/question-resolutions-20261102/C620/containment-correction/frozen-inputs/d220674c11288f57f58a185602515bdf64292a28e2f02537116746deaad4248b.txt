@@ -1,0 +1,39 @@
+---
+subjects:
+  active: Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  passive:
+  - Atom.Content
+  - Aspects <+ Engineering <+ Data Handling <+ Data Validation
+version: 30
+updated_at: 2026-11-02 00:18:22 +0400
+relations:
+  evaluation_for:
+  - CA-R-1360
+  - CA-M-240
+atom_id: CA-E-405@30-draft
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+tier: 5
+role: Evaluation
+form: Eval Policy
+---
+## Summary
+
+Validate Restricted CCE Canonical Signature Boundary
+
+## Claim scope
+
+Canonical Signature derivations evaluated against the restricted CCE boundary.
+
+## Claim
+
+the Evaluation **must** reject a Canonical Signature derivation **if** any of the following is true:
+
+- it rewrites one source Claim.
+- it treats one Canonical Signature as authority.
+- it accepts mixed **and** **or** groups.
+- it rewrites negation, implication, **where**, **without**, temporal condition, quantifier, extension-defined CCE Operator, **or** unparseable prose.
+- it fails **to** flatten nested same-operator groups.
+- it retains duplicate atomic predicates.
+- it yields different Canonical Signatures from Boolean groups that differ **only** by operand order.

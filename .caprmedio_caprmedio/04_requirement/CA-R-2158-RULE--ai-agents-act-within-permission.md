@@ -7,9 +7,9 @@ subjects:
   active: Entity/Object/Continuant/Actor/AI Agent
   passive:
   - Entity/Object/Continuant/Actor/Operator
-  - Entity/Aspect/Engineering/Execution Control/Effect Authorization
-version: 10
-updated_at: 2026-11-02 00:18:22 +0400
+  - Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+version: 12
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-R-2157

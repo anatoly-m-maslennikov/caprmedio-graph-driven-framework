@@ -14,21 +14,18 @@ source:
   - CA-D-269@28
   - CA-D-270@27
   - CA-D-277@24
-  - CA-D-279@24
-  - CA-D-280@25
+  - CA-D-279@25
+  - CA-D-280@27
   - CA-D-282@26
   - CA-D-283@32
-  - CA-D-284@24
+  - CA-D-284@25
   - CA-D-287@28
   - CA-D-289@24
-  - CA-D-290@25
+  - CA-D-290@26
   - CA-D-291@31
-  - CA-D-292@34
+  - CA-D-292@35
   - CA-D-296@29
-  - CA-D-297@31
-  - CA-D-298@30
-  - CA-D-299@30
-  - CA-D-301@28
+  - CA-D-301@29
   - CA-D-302@28
   - CA-D-303@28
   - CA-D-304@30
@@ -37,73 +34,69 @@ source:
   - CA-D-307@28
   - CA-D-308@26
   - CA-D-309@27
-  - CA-D-310@25
-  - CA-D-311@26
+  - CA-D-310@26
+  - CA-D-311@27
   - CA-D-312@28
-  - CA-D-317@27
-  - CA-D-318@24
-  - CA-D-320@23
-  - CA-D-321@21
-  - CA-D-322@19
-  - CA-D-323@19
-  - CA-D-324@28
-  - CA-D-325@24
-  - CA-D-326@26
+  - CA-D-317@28
+  - CA-D-318@25
+  - CA-D-320@24
+  - CA-D-321@22
+  - CA-D-322@21
+  - CA-D-323@20
+  - CA-D-324@29
+  - CA-D-325@25
+  - CA-D-326@27
   - CA-D-327@23
   - CA-D-328@23
-  - CA-D-329@26
+  - CA-D-329@27
   - CA-D-330@27
-  - CA-D-331@23
-  - CA-D-333@34
+  - CA-D-331@24
+  - CA-D-333@35
   - CA-D-336@30
-  - CA-D-337@20
+  - CA-D-337@21
   - CA-D-338@29
-  - CA-D-339@27
+  - CA-D-339@29
   - CA-D-340@33
   - CA-D-341@29
   - CA-D-342@28
-  - CA-D-344@21
-  - CA-D-346@34
+  - CA-D-344@23
+  - CA-D-346@36
   - CA-D-347@29
   - CA-D-352@25
-  - CA-D-356@22
+  - CA-D-356@23
   - CA-D-357@21
   - CA-D-358@26
   - CA-D-359@28
   - CA-D-360@27
-  - CA-D-361@30
+  - CA-D-361@32
   - CA-D-362@26
   - CA-D-363@28
   - CA-D-364@29
   - CA-D-365@26
-  - CA-D-366@29
-  - CA-D-368@27
-  - CA-D-369@26
+  - CA-D-366@30
+  - CA-D-368@29
+  - CA-D-369@28
   - CA-D-370@26
   - CA-D-371@24
-  - CA-D-372@25
+  - CA-D-372@27
   - CA-D-373@25
-  - CA-D-374@24
-  - CA-D-375@29
+  - CA-D-375@30
   - CA-D-376@28
   - CA-D-377@26
-  - CA-D-378@27
-  - CA-D-380@21
+  - CA-D-378@28
   - CA-D-381@23
   - CA-D-383@31
   - CA-D-386@23
   - CA-D-387@27
-  - CA-D-388@21
-  - CA-D-389@24
+  - CA-D-388@23
+  - CA-D-389@27
   - CA-D-390@27
-  - CA-D-391@23
-  - CA-D-392@26
+  - CA-D-392@27
   - CA-D-393@23
   - CA-D-394@23
   - CA-D-395@24
-  - CA-D-396@21
+  - CA-D-396@23
   - CA-D-397@26
-  - CA-D-398@26
   - CA-D-399@25
   - CA-D-400@25
   - CA-D-401@24
@@ -115,30 +108,24 @@ source:
   - CA-D-416@29
   - CA-D-434@25
   - CA-D-435@25
-  - CA-D-440@21
-  - CA-D-441@22
-  - CA-D-442@25
-  - CA-D-443@21
-  - CA-D-444@23
-  - CA-D-445@22
+  - CA-D-442@26
   - CA-D-446@28
   - CA-D-447@30
   - CA-D-451@21
   - CA-D-452@19
-  - CA-D-453@19
-  - CA-D-454@19
+  - CA-D-453@20
+  - CA-D-454@20
   - CA-D-457@26
   - CA-D-460@25
   - CA-D-461@29
   - CA-D-463@26
   - CA-D-464@25
-  - CA-D-465@23
   - CA-D-466@22
-  - CA-D-467@26
+  - CA-D-467@28
   - CA-D-469@24
   - CA-D-470@29
   - CA-D-471@24
-  - CA-D-472@27
+  - CA-D-472@29
   - CA-D-473@25
   - CA-D-475@24
   - CA-D-478@31
@@ -146,29 +133,29 @@ source:
   - CA-D-480@23
   - CA-D-482@27
   - CA-D-483@23
-  - CA-D-485@24
+  - CA-D-485@26
   - CA-D-494@17
   - CA-D-495@25
   - CA-D-496@24
   - CA-D-497@18
   - CA-D-498@13
-  - CA-D-499@12
-  - CA-D-500@13
-  - CA-D-501@13
-  - CA-D-502@12
-  - CA-D-503@12
+  - CA-D-499@13
+  - CA-D-500@15
+  - CA-D-501@15
+  - CA-D-502@13
+  - CA-D-503@13
   - CA-D-504@14
   - CA-D-505@18
   - CA-D-506@18
   - CA-D-507@16
   - CA-D-508@19
   - CA-D-549@19
-  - CA-D-550@19
-  - CA-D-559@17
+  - CA-D-550@20
+  - CA-D-559@19
   - CA-D-565@20
   - CA-D-568@19
   - CA-D-570@24
-  - CA-D-581@14
+  - CA-D-581@17
   - CA-D-634@23
   - CA-D-635@16
   - CA-D-636@16
@@ -179,274 +166,277 @@ source:
   - CA-D-654@3
   - CA-D-655@3
   - CA-D-657@2
-  - CA-D-658@3
+  - CA-D-658@4
   - CA-D-662@4
   - CA-D-663@2
   - CA-D-664@2
   - CA-D-665@2
-  - CA-E-001@33
-  - CA-E-006@38
-  - CA-E-206@24
-  - CA-E-207@34
+  - CA-D-666@1
+  - CA-D-667@1
+  - CA-D-668@2
+  - CA-D-669@1
+  - CA-D-670@1
+  - CA-D-671@1
+  - CA-E-001@35
+  - CA-E-006@40
+  - CA-E-206@26
+  - CA-E-207@36
   - CA-E-208@26
   - CA-E-209@25
-  - CA-E-228@26
-  - CA-E-229@26
-  - CA-E-230@25
-  - CA-E-240@46
-  - CA-E-241@45
-  - CA-E-243@38
+  - CA-E-228@28
+  - CA-E-229@28
+  - CA-E-230@27
+  - CA-E-240@47
+  - CA-E-241@47
+  - CA-E-243@39
   - CA-E-246@47
   - CA-E-249@36
   - CA-E-379@46
   - CA-E-382@49
-  - CA-E-383@43
-  - CA-E-384@40
+  - CA-E-383@45
+  - CA-E-384@42
   - CA-E-387@27
   - CA-E-402@33
   - CA-E-403@36
   - CA-E-404@27
-  - CA-E-405@29
-  - CA-E-407@28
+  - CA-E-405@31
+  - CA-E-407@30
   - CA-E-425@30
   - CA-E-434@24
-  - CA-E-435@24
-  - CA-E-436@28
-  - CA-E-437@25
+  - CA-E-435@26
+  - CA-E-436@30
+  - CA-E-437@27
   - CA-E-438@29
-  - CA-E-439@27
-  - CA-E-440@34
-  - CA-E-441@33
-  - CA-E-442@24
-  - CA-E-443@32
+  - CA-E-439@29
+  - CA-E-440@36
+  - CA-E-441@35
+  - CA-E-442@26
+  - CA-E-443@34
   - CA-E-444@34
-  - CA-E-445@27
-  - CA-E-446@28
-  - CA-E-448@30
+  - CA-E-445@28
+  - CA-E-448@32
   - CA-E-449@44
   - CA-E-450@27
   - CA-E-457@34
   - CA-E-458@35
-  - CA-E-459@38
+  - CA-E-459@39
   - CA-E-460@34
   - CA-E-461@28
   - CA-E-462@33
   - CA-E-463@23
   - CA-E-464@24
-  - CA-E-465@25
+  - CA-E-465@26
   - CA-E-466@28
-  - CA-E-469@27
-  - CA-E-470@24
-  - CA-E-471@25
-  - CA-E-472@28
+  - CA-E-471@28
+  - CA-E-472@30
   - CA-E-473@26
-  - CA-E-474@25
+  - CA-E-474@27
   - CA-E-476@23
   - CA-E-481@22
-  - CA-E-483@18
+  - CA-E-483@21
   - CA-E-486@23
-  - CA-E-487@26
-  - CA-E-488@23
+  - CA-E-487@28
+  - CA-E-488@25
   - CA-E-489@23
-  - CA-E-490@23
+  - CA-E-490@24
   - CA-E-491@25
   - CA-E-494@20
   - CA-E-495@19
   - CA-E-496@22
   - CA-E-497@20
-  - CA-E-500@26
-  - CA-E-501@28
+  - CA-E-500@28
+  - CA-E-501@30
   - CA-E-502@29
   - CA-E-504@22
-  - CA-E-505@21
+  - CA-E-505@22
   - CA-E-506@28
-  - CA-E-510@24
   - CA-E-511@23
-  - CA-E-512@25
+  - CA-E-512@27
   - CA-E-513@23
-  - CA-E-520@30
+  - CA-E-520@32
   - CA-E-521@22
   - CA-E-522@19
   - CA-E-523@18
-  - CA-E-588@15
-  - CA-E-620@33
-  - CA-E-621@35
-  - CA-E-622@51
+  - CA-E-588@20
+  - CA-E-620@34
+  - CA-E-621@37
+  - CA-E-622@53
   - CA-E-623@30
-  - CA-E-624@36
-  - CA-E-652@20
+  - CA-E-624@38
+  - CA-E-652@22
   - CA-E-654@12
-  - CA-E-656@20
+  - CA-E-656@21
   - CA-E-657@8
-  - CA-E-658@11
+  - CA-E-658@14
   - CA-E-659@3
   - CA-E-661@4
-  - CA-E-666@2
+  - CA-E-666@4
   - CA-E-667@3
   - CA-E-668@2
-  - CA-E-669@2
+  - CA-E-669@4
+  - CA-E-670@1
+  - CA-E-671@1
+  - CA-E-672@1
   - CA-M-005@28
   - CA-M-006@31
   - CA-M-091@27
   - CA-M-093@23
-  - CA-M-094@23
-  - CA-M-095@24
+  - CA-M-094@25
+  - CA-M-095@26
   - CA-M-096@24
-  - CA-M-097@25
-  - CA-M-098@24
-  - CA-M-099@24
-  - CA-M-100@25
+  - CA-M-097@27
+  - CA-M-098@26
+  - CA-M-099@26
+  - CA-M-100@27
   - CA-M-105@27
-  - CA-M-112@27
-  - CA-M-113@40
+  - CA-M-112@29
+  - CA-M-113@42
   - CA-M-114@43
   - CA-M-116@31
-  - CA-M-120@41
-  - CA-M-121@27
-  - CA-M-122@28
-  - CA-M-123@29
+  - CA-M-120@43
+  - CA-M-121@28
+  - CA-M-122@30
+  - CA-M-123@31
   - CA-M-125@47
-  - CA-M-127@29
-  - CA-M-135@29
-  - CA-M-138@27
-  - CA-M-139@26
+  - CA-M-127@31
+  - CA-M-135@32
+  - CA-M-138@29
+  - CA-M-139@28
   - CA-M-225@33
   - CA-M-228@34
-  - CA-M-229@31
-  - CA-M-230@23
+  - CA-M-229@33
+  - CA-M-230@25
   - CA-M-231@34
-  - CA-M-232@33
-  - CA-M-233@29
-  - CA-M-234@22
-  - CA-M-235@22
-  - CA-M-236@22
+  - CA-M-232@34
+  - CA-M-233@31
+  - CA-M-234@24
+  - CA-M-235@24
+  - CA-M-236@24
   - CA-M-237@33
   - CA-M-239@25
-  - CA-M-240@28
-  - CA-M-241@26
+  - CA-M-240@30
+  - CA-M-241@28
   - CA-M-260@23
-  - CA-M-261@18
+  - CA-M-261@19
   - CA-M-262@27
-  - CA-M-263@21
+  - CA-M-263@23
   - CA-M-264@27
   - CA-M-265@26
-  - CA-M-266@23
-  - CA-M-270@27
-  - CA-M-271@27
+  - CA-M-266@25
+  - CA-M-270@29
+  - CA-M-271@29
   - CA-M-273@38
   - CA-M-275@21
-  - CA-M-276@29
-  - CA-M-277@31
-  - CA-M-278@28
+  - CA-M-276@31
+  - CA-M-277@33
+  - CA-M-278@30
   - CA-M-279@24
   - CA-M-287@25
   - CA-M-288@22
-  - CA-M-291@24
-  - CA-M-294@25
+  - CA-M-294@27
   - CA-M-295@32
   - CA-M-296@21
   - CA-M-297@21
-  - CA-M-298@24
-  - CA-M-299@18
+  - CA-M-298@26
+  - CA-M-299@20
   - CA-M-300@18
   - CA-M-303@26
-  - CA-M-304@24
+  - CA-M-304@26
   - CA-M-305@22
-  - CA-M-306@30
-  - CA-M-307@26
-  - CA-M-308@22
-  - CA-M-309@21
-  - CA-M-310@23
-  - CA-M-311@23
-  - CA-M-312@22
+  - CA-M-306@32
+  - CA-M-307@29
+  - CA-M-308@25
+  - CA-M-309@23
+  - CA-M-310@25
+  - CA-M-311@25
+  - CA-M-312@24
   - CA-M-313@26
-  - CA-M-314@22
-  - CA-M-315@23
-  - CA-M-345@15
-  - CA-M-385@24
+  - CA-M-314@24
+  - CA-M-315@26
+  - CA-M-345@20
+  - CA-M-385@25
   - CA-M-438@17
   - CA-M-439@3
-  - CA-M-442@3
-  - CA-M-443@2
-  - CA-M-444@3
-  - CA-M-445@2
+  - CA-M-442@5
+  - CA-M-443@4
+  - CA-M-444@5
+  - CA-M-445@4
   - CA-M-446@3
-  - CA-M-447@4
+  - CA-M-447@5
   - CA-M-448@4
   - CA-M-449@3
-  - CA-M-450@3
-  - CA-M-451@3
+  - CA-M-450@4
+  - CA-M-451@4
   - CA-M-452@3
   - CA-M-453@3
-  - CA-M-454@3
-  - CA-M-455@3
+  - CA-M-454@4
+  - CA-M-455@4
   - CA-M-456@2
   - CA-M-457@2
   - CA-M-458@2
   - CA-M-459@2
   - CA-M-460@2
-  - CA-R-001@25
-  - CA-R-004@35
-  - CA-R-007@31
-  - CA-R-014@18
-  - CA-R-024@27
+  - CA-M-461@1
+  - CA-R-004@37
+  - CA-R-007@33
+  - CA-R-014@19
+  - CA-R-024@29
   - CA-R-025@16
-  - CA-R-028@25
-  - CA-R-029@34
-  - CA-R-030@26
+  - CA-R-028@27
+  - CA-R-030@27
   - CA-R-033@17
-  - CA-R-035@34
-  - CA-R-037@27
-  - CA-R-038@16
-  - CA-R-040@16
-  - CA-R-047@34
-  - CA-R-053@26
+  - CA-R-035@36
+  - CA-R-037@28
+  - CA-R-038@17
+  - CA-R-040@17
+  - CA-R-047@37
+  - CA-R-053@28
   - CA-R-1014@40
-  - CA-R-1016@30
+  - CA-R-1016@31
   - CA-R-1017@30
   - CA-R-1018@37
   - CA-R-1019@29
   - CA-R-1020@29
   - CA-R-1021@29
   - CA-R-1022@31
-  - CA-R-1023@26
-  - CA-R-1024@27
-  - CA-R-1025@27
+  - CA-R-1023@27
+  - CA-R-1024@28
+  - CA-R-1025@28
   - CA-R-1026@32
   - CA-R-1027@28
-  - CA-R-1029@26
-  - CA-R-1030@26
-  - CA-R-1032@27
+  - CA-R-1029@27
+  - CA-R-1030@27
+  - CA-R-1032@28
   - CA-R-1033@28
   - CA-R-1034@26
   - CA-R-1035@26
   - CA-R-1036@26
   - CA-R-1037@26
-  - CA-R-1038@27
-  - CA-R-1039@27
-  - CA-R-1040@30
-  - CA-R-1044@31
-  - CA-R-1045@24
-  - CA-R-1051@34
-  - CA-R-1052@40
-  - CA-R-1056@28
-  - CA-R-1057@32
-  - CA-R-1058@37
-  - CA-R-1174@24
-  - CA-R-1175@23
+  - CA-R-1038@28
+  - CA-R-1039@28
+  - CA-R-1040@31
+  - CA-R-1044@33
+  - CA-R-1045@27
+  - CA-R-1051@35
+  - CA-R-1052@41
+  - CA-R-1056@30
+  - CA-R-1057@34
+  - CA-R-1058@39
+  - CA-R-1174@27
+  - CA-R-1175@25
   - CA-R-1176@26
-  - CA-R-1178@26
-  - CA-R-1179@28
+  - CA-R-1178@28
+  - CA-R-1179@30
   - CA-R-117@31
-  - CA-R-1180@26
-  - CA-R-1181@28
+  - CA-R-1180@29
+  - CA-R-1181@30
   - CA-R-118@35
   - CA-R-1194@32
   - CA-R-1199@36
   - CA-R-1200@39
   - CA-R-1202@30
   - CA-R-1203@32
-  - CA-R-1206@26
+  - CA-R-1206@28
   - CA-R-1207@31
   - CA-R-1213@40
   - CA-R-1217@25
@@ -454,7 +444,7 @@ source:
   - CA-R-121@31
   - CA-R-1220@26
   - CA-R-1222@25
-  - CA-R-1226@23
+  - CA-R-1226@25
   - CA-R-1228@35
   - CA-R-1244@33
   - CA-R-1245@28
@@ -477,14 +467,14 @@ source:
   - CA-R-1278@23
   - CA-R-1279@32
   - CA-R-1280@34
-  - CA-R-1283@30
-  - CA-R-1284@26
+  - CA-R-1283@32
+  - CA-R-1284@27
   - CA-R-1285@25
   - CA-R-1286@25
   - CA-R-1292@31
-  - CA-R-1293@28
+  - CA-R-1293@29
   - CA-R-1294@33
-  - CA-R-1297@26
+  - CA-R-1297@28
   - CA-R-1308@27
   - CA-R-1309@28
   - CA-R-1312@28
@@ -493,8 +483,8 @@ source:
   - CA-R-1315@31
   - CA-R-1316@32
   - CA-R-1317@31
-  - CA-R-1318@31
-  - CA-R-1319@27
+  - CA-R-1318@32
+  - CA-R-1319@28
   - CA-R-1320@26
   - CA-R-1321@35
   - CA-R-1324@27
@@ -505,16 +495,16 @@ source:
   - CA-R-1348@25
   - CA-R-1349@21
   - CA-R-1350@20
-  - CA-R-1351@22
-  - CA-R-1354@22
-  - CA-R-1355@22
-  - CA-R-1356@24
+  - CA-R-1351@23
+  - CA-R-1354@24
+  - CA-R-1355@24
+  - CA-R-1356@26
   - CA-R-1358@35
   - CA-R-1359@30
-  - CA-R-1360@26
+  - CA-R-1360@28
   - CA-R-1373@29
   - CA-R-1375@33
-  - CA-R-1382@24
+  - CA-R-1382@25
   - CA-R-1397@24
   - CA-R-1398@24
   - CA-R-1399@24
@@ -522,7 +512,7 @@ source:
   - CA-R-1404@26
   - CA-R-1405@29
   - CA-R-1406@26
-  - CA-R-1407@26
+  - CA-R-1407@28
   - CA-R-1408@25
   - CA-R-1409@30
   - CA-R-1410@22
@@ -532,16 +522,16 @@ source:
   - CA-R-1417@31
   - CA-R-1418@28
   - CA-R-1419@23
-  - CA-R-1420@25
+  - CA-R-1420@27
   - CA-R-1421@23
-  - CA-R-1423@25
-  - CA-R-1424@26
-  - CA-R-1426@23
-  - CA-R-1428@30
+  - CA-R-1423@27
+  - CA-R-1424@28
+  - CA-R-1426@25
+  - CA-R-1428@32
   - CA-R-1429@28
-  - CA-R-1430@25
+  - CA-R-1430@27
   - CA-R-1432@27
-  - CA-R-1437@30
+  - CA-R-1437@32
   - CA-R-1439@23
   - CA-R-1440@24
   - CA-R-1441@26
@@ -554,38 +544,36 @@ source:
   - CA-R-1460@22
   - CA-R-1463@26
   - CA-R-1464@22
-  - CA-R-1466@21
-  - CA-R-1470@26
+  - CA-R-1466@23
+  - CA-R-1470@27
   - CA-R-1471@27
   - CA-R-1472@28
-  - CA-R-1484@22
-  - CA-R-1485@22
   - CA-R-1486@20
   - CA-R-1487@21
   - CA-R-1489@25
   - CA-R-1491@29
-  - CA-R-1493@20
-  - CA-R-1494@20
+  - CA-R-1493@21
+  - CA-R-1494@21
   - CA-R-1495@21
-  - CA-R-1497@23
+  - CA-R-1497@24
   - CA-R-1498@17
   - CA-R-1499@21
   - CA-R-1500@21
   - CA-R-1501@21
   - CA-R-1502@25
-  - CA-R-1503@21
-  - CA-R-1504@23
-  - CA-R-1505@25
-  - CA-R-1506@19
+  - CA-R-1503@23
+  - CA-R-1504@25
+  - CA-R-1505@27
+  - CA-R-1506@21
   - CA-R-1507@19
-  - CA-R-1514@25
-  - CA-R-1515@23
+  - CA-R-1514@27
+  - CA-R-1515@25
   - CA-R-1517@18
-  - CA-R-1518@23
+  - CA-R-1518@25
   - CA-R-1519@25
   - CA-R-151@32
   - CA-R-1520@22
-  - CA-R-1521@31
+  - CA-R-1521@32
   - CA-R-1525@24
   - CA-R-1528@22
   - CA-R-1534@22
@@ -595,32 +583,31 @@ source:
   - CA-R-154@34
   - CA-R-1550@28
   - CA-R-1552@22
-  - CA-R-1554@21
-  - CA-R-1555@21
-  - CA-R-1556@23
+  - CA-R-1554@23
+  - CA-R-1555@23
+  - CA-R-1556@26
   - CA-R-1557@21
   - CA-R-1558@23
-  - CA-R-1559@24
-  - CA-R-1560@17
-  - CA-R-1561@26
+  - CA-R-1559@26
+  - CA-R-1560@19
+  - CA-R-1561@28
   - CA-R-1562@27
   - CA-R-1563@27
   - CA-R-1565@21
   - CA-R-1567@25
   - CA-R-1568@26
-  - CA-R-1569@25
-  - CA-R-1570@24
+  - CA-R-1570@26
   - CA-R-1575@25
   - CA-R-1577@23
   - CA-R-1578@25
   - CA-R-1580@26
   - CA-R-1584@23
   - CA-R-1585@23
-  - CA-R-1587@24
+  - CA-R-1587@26
   - CA-R-1588@26
   - CA-R-1589@24
   - CA-R-1590@22
-  - CA-R-1591@26
+  - CA-R-1591@28
   - CA-R-1592@23
   - CA-R-1593@25
   - CA-R-1596@22
@@ -630,160 +617,157 @@ source:
   - CA-R-1608@21
   - CA-R-1609@22
   - CA-R-1610@25
-  - CA-R-1611@25
-  - CA-R-1612@24
-  - CA-R-1616@23
+  - CA-R-1611@28
+  - CA-R-1612@26
+  - CA-R-1616@25
   - CA-R-1620@21
   - CA-R-1621@19
-  - CA-R-1627@29
+  - CA-R-1627@31
   - CA-R-1628@41
   - CA-R-1629@39
   - CA-R-1630@41
   - CA-R-1631@34
-  - CA-R-1632@34
-  - CA-R-1633@40
+  - CA-R-1632@35
+  - CA-R-1633@43
   - CA-R-1634@45
-  - CA-R-1635@39
-  - CA-R-1637@30
+  - CA-R-1635@42
+  - CA-R-1637@33
   - CA-R-1639@37
-  - CA-R-1640@31
-  - CA-R-1641@31
-  - CA-R-1642@32
+  - CA-R-1640@32
+  - CA-R-1641@33
+  - CA-R-1642@33
   - CA-R-1643@40
   - CA-R-1644@37
-  - CA-R-1645@37
-  - CA-R-1646@39
-  - CA-R-1647@32
-  - CA-R-1648@31
+  - CA-R-1645@39
+  - CA-R-1646@41
+  - CA-R-1647@33
+  - CA-R-1648@33
   - CA-R-1649@33
-  - CA-R-1650@32
+  - CA-R-1650@34
   - CA-R-1651@33
-  - CA-R-1652@39
+  - CA-R-1652@41
   - CA-R-1654@37
-  - CA-R-1655@44
+  - CA-R-1655@45
   - CA-R-1656@28
-  - CA-R-1657@32
-  - CA-R-1658@31
-  - CA-R-1659@30
-  - CA-R-1660@35
-  - CA-R-1661@31
-  - CA-R-1662@38
-  - CA-R-1663@36
-  - CA-R-1664@36
-  - CA-R-1665@34
-  - CA-R-1666@36
-  - CA-R-1668@34
+  - CA-R-1657@33
+  - CA-R-1658@32
+  - CA-R-1659@31
+  - CA-R-1660@36
+  - CA-R-1661@32
+  - CA-R-1662@39
+  - CA-R-1663@37
+  - CA-R-1664@40
+  - CA-R-1665@35
+  - CA-R-1666@37
+  - CA-R-1668@35
   - CA-R-1669@28
-  - CA-R-1671@27
-  - CA-R-1672@27
-  - CA-R-1676@36
-  - CA-R-1677@33
-  - CA-R-1678@29
-  - CA-R-1679@28
-  - CA-R-1680@30
+  - CA-R-1671@28
+  - CA-R-1672@28
+  - CA-R-1676@37
+  - CA-R-1677@35
+  - CA-R-1678@31
+  - CA-R-1679@31
+  - CA-R-1680@31
   - CA-R-1681@33
   - CA-R-1682@41
   - CA-R-1683@45
-  - CA-R-1684@28
-  - CA-R-1685@28
+  - CA-R-1684@29
+  - CA-R-1685@29
   - CA-R-1686@33
-  - CA-R-1687@31
-  - CA-R-1688@38
+  - CA-R-1687@34
+  - CA-R-1688@39
   - CA-R-1689@33
   - CA-R-1690@33
-  - CA-R-1691@30
-  - CA-R-1692@36
+  - CA-R-1691@32
+  - CA-R-1692@38
   - CA-R-1694@41
-  - CA-R-1695@36
-  - CA-R-1696@36
-  - CA-R-1697@35
-  - CA-R-1698@31
-  - CA-R-1699@36
-  - CA-R-1700@32
+  - CA-R-1695@38
+  - CA-R-1696@37
+  - CA-R-1697@36
+  - CA-R-1698@32
+  - CA-R-1699@37
+  - CA-R-1700@33
   - CA-R-1701@34
-  - CA-R-1702@48
-  - CA-R-1703@38
+  - CA-R-1702@49
+  - CA-R-1703@40
   - CA-R-1704@35
-  - CA-R-1705@29
-  - CA-R-1706@30
-  - CA-R-1707@31
+  - CA-R-1705@33
+  - CA-R-1706@31
+  - CA-R-1707@32
   - CA-R-1708@39
   - CA-R-1710@29
   - CA-R-1711@31
-  - CA-R-1712@27
-  - CA-R-1713@26
-  - CA-R-1714@27
-  - CA-R-1715@27
-  - CA-R-1716@28
-  - CA-R-1717@29
-  - CA-R-1718@37
+  - CA-R-1712@28
+  - CA-R-1713@28
+  - CA-R-1714@28
+  - CA-R-1715@28
+  - CA-R-1716@30
+  - CA-R-1717@32
+  - CA-R-1718@38
   - CA-R-1719@33
   - CA-R-1720@38
   - CA-R-1721@32
   - CA-R-1722@31
-  - CA-R-1723@26
+  - CA-R-1723@27
   - CA-R-1724@36
-  - CA-R-1725@26
-  - CA-R-1726@29
-  - CA-R-1728@27
-  - CA-R-1729@26
-  - CA-R-1730@39
+  - CA-R-1725@28
+  - CA-R-1726@30
+  - CA-R-1728@28
+  - CA-R-1729@27
+  - CA-R-1730@40
   - CA-R-1732@25
-  - CA-R-1734@28
-  - CA-R-1735@27
-  - CA-R-1736@30
-  - CA-R-1740@40
-  - CA-R-1741@29
-  - CA-R-1742@27
-  - CA-R-1743@26
+  - CA-R-1734@29
+  - CA-R-1735@28
+  - CA-R-1736@33
+  - CA-R-1740@41
+  - CA-R-1741@30
+  - CA-R-1742@30
+  - CA-R-1743@27
   - CA-R-1744@28
-  - CA-R-1747@28
+  - CA-R-1747@29
   - CA-R-1748@37
-  - CA-R-1749@26
-  - CA-R-1750@39
-  - CA-R-1752@31
-  - CA-R-1753@30
-  - CA-R-1754@31
-  - CA-R-1755@27
-  - CA-R-1756@35
-  - CA-R-1758@35
-  - CA-R-1759@37
-  - CA-R-1762@35
+  - CA-R-1749@27
+  - CA-R-1750@41
+  - CA-R-1752@32
+  - CA-R-1753@31
+  - CA-R-1754@32
+  - CA-R-1755@30
+  - CA-R-1756@36
   - CA-R-1765@35
-  - CA-R-1767@34
-  - CA-R-1768@29
-  - CA-R-1769@33
-  - CA-R-1770@31
-  - CA-R-1771@29
-  - CA-R-1772@35
+  - CA-R-1767@35
+  - CA-R-1768@30
+  - CA-R-1769@36
+  - CA-R-1770@32
+  - CA-R-1771@30
+  - CA-R-1772@37
   - CA-R-1775@33
-  - CA-R-1776@38
-  - CA-R-1778@27
-  - CA-R-1779@15
-  - CA-R-1780@11
-  - CA-R-1781@12
-  - CA-R-1782@13
-  - CA-R-1783@11
-  - CA-R-1784@11
-  - CA-R-1785@12
-  - CA-R-1786@11
-  - CA-R-1787@11
+  - CA-R-1776@40
+  - CA-R-1778@30
+  - CA-R-1779@17
+  - CA-R-1780@14
+  - CA-R-1781@14
+  - CA-R-1782@15
+  - CA-R-1783@14
+  - CA-R-1784@14
+  - CA-R-1785@14
+  - CA-R-1786@14
+  - CA-R-1787@14
   - CA-R-1788@18
   - CA-R-1789@21
   - CA-R-1790@19
   - CA-R-1791@18
   - CA-R-1792@18
   - CA-R-1793@18
-  - CA-R-1795@12
-  - CA-R-1796@12
-  - CA-R-1798@13
-  - CA-R-1799@18
-  - CA-R-1800@17
+  - CA-R-1795@15
+  - CA-R-1796@15
+  - CA-R-1798@16
+  - CA-R-1799@20
+  - CA-R-1800@19
   - CA-R-1873@20
   - CA-R-1874@19
-  - CA-R-1875@19
-  - CA-R-1888@13
-  - CA-R-1889@17
+  - CA-R-1875@22
+  - CA-R-1888@16
+  - CA-R-1889@20
   - CA-R-1931@18
   - CA-R-1943@15
   - CA-R-1947@13
@@ -810,25 +794,22 @@ source:
   - CA-R-1983@15
   - CA-R-1990@12
   - CA-R-1991@13
-  - CA-R-1992@15
   - CA-R-1993@19
   - CA-R-1994@15
-  - CA-R-2003@15
+  - CA-R-2003@16
   - CA-R-2004@14
   - CA-R-2100@8
-  - CA-R-2102@14
+  - CA-R-2102@15
   - CA-R-2123@9
   - CA-R-2125@10
   - CA-R-2131@10
   - CA-R-2132@12
-  - CA-R-2133@10
-  - CA-R-2134@10
   - CA-R-2149@14
   - CA-R-2156@10
   - CA-R-2157@10
-  - CA-R-2158@10
+  - CA-R-2158@12
   - CA-R-2170@9
-  - CA-R-2173@8
+  - CA-R-2173@9
   - CA-R-2174@6
   - CA-R-2198@5
   - CA-R-2199@5
@@ -837,7 +818,7 @@ source:
   - CA-R-2202@5
   - CA-R-2203@6
   - CA-R-2225@4
-  - CA-R-2243@9
+  - CA-R-2243@11
   - CA-R-2245@7
   - CA-R-2246@7
   - CA-R-2247@5
@@ -855,7 +836,7 @@ source:
   - CA-R-2271@3
   - CA-R-2272@5
   - CA-R-2275@2
-  - CA-R-2276@4
+  - CA-R-2276@6
   - CA-R-2277@4
   - CA-R-2278@2
   - CA-R-2279@4
@@ -878,22 +859,22 @@ source:
   - CA-R-2421@4
   - CA-R-2422@4
   - CA-R-2424@2
-  - CA-R-2425@2
+  - CA-R-2425@4
   - CA-R-2426@3
   - CA-R-2427@2
   - CA-R-2428@2
-  - CA-R-2444@3
-  - CA-R-2445@3
-  - CA-R-2448@3
-  - CA-R-2450@3
-  - CA-R-2452@2
+  - CA-R-2444@5
+  - CA-R-2445@6
+  - CA-R-2448@5
+  - CA-R-2450@4
+  - CA-R-2452@4
   - CA-R-2456@3
   - CA-R-2457@3
   - CA-R-2462@2
   - CA-R-2463@2
-  - CA-R-2464@2
-  - CA-R-2465@2
-  - CA-R-2466@2
+  - CA-R-2464@4
+  - CA-R-2465@4
+  - CA-R-2466@4
   - CA-R-2467@2
   - CA-R-2468@2
   - CA-R-2469@4
@@ -906,14 +887,13 @@ source:
   - CA-R-2476@4
   - CA-R-2477@4
   - CA-R-2478@4
-  - CA-R-2480@4
   - CA-R-2481@2
   - CA-R-2482@2
-  - CA-R-2483@2
+  - CA-R-2483@6
   - CA-R-2484@2
   - CA-R-2485@4
   - CA-R-2486@4
-  - CA-R-2487@6
+  - CA-R-2487@8
   - CA-R-2488@2
   - CA-R-2489@2
   - CA-R-2490@2
@@ -936,27 +916,25 @@ source:
   - CA-R-2507@2
   - CA-R-2508@2
   - CA-R-2509@2
-  - CA-R-2510@2
   - CA-R-2511@2
   - CA-R-2512@2
   - CA-R-2513@2
   - CA-R-2514@2
   - CA-R-2515@2
-  - CA-R-2516@4
+  - CA-R-2516@5
   - CA-R-2518@2
   - CA-R-2519@2
   - CA-R-2520@2
   - CA-R-2521@2
   - CA-R-2523@2
-  - CA-R-2524@2
+  - CA-R-2524@3
   - CA-R-2525@2
-  - CA-R-2526@2
+  - CA-R-2526@3
   - CA-R-2527@2
   - CA-R-2528@2
-  - CA-R-2529@2
   - CA-R-2530@2
   - CA-R-2531@2
-  - CA-R-2532@4
+  - CA-R-2532@8
   - CA-R-2533@2
   - CA-R-2534@2
   - CA-R-2535@2
@@ -967,7 +945,7 @@ source:
   - CA-R-2540@2
   - CA-R-2541@2
   - CA-R-2542@2
-  - CA-R-2543@2
+  - CA-R-2543@4
   - CA-R-2544@2
   - CA-R-2545@2
   - CA-R-2546@2
@@ -1047,84 +1025,102 @@ source:
   - CA-R-2620@1
   - CA-R-2621@1
   - CA-R-2622@1
-  - CA-R-2623@1
+  - CA-R-2623@3
   - CA-R-2624@1
   - CA-R-2625@1
   - CA-R-2626@1
-  - CA-R-2627@1
-  - CA-R-2628@1
   - CA-R-2629@1
   - CA-R-2630@1
   - CA-R-2631@1
-  - CA-R-2632@1
+  - CA-R-2632@2
   - CA-R-2633@1
   - CA-R-2634@1
   - CA-R-2635@1
   - CA-R-2636@1
+  - CA-R-2637@1
+  - CA-R-2638@2
+  - CA-R-2639@2
+  - CA-R-2640@1
+  - CA-R-2648@1
+  - CA-R-2649@1
+  - CA-R-2650@1
+  - CA-R-2651@1
+  - CA-R-2652@1
+  - CA-R-2653@1
+  - CA-R-2664@1
+  - CA-R-2665@1
+  - CA-R-2666@1
+  - CA-R-2667@1
+  - CA-R-2668@1
+  - CA-R-2685@1
+  - CA-R-2686@1
+  - CA-R-2688@1
+  - CA-R-2689@1
+  - CA-R-2690@1
+  - CA-R-2691@1
   - CA-R-366@35
-  - CA-R-380@42
-  - CA-R-621@16
-  - CA-R-622@32
-  - CA-R-626@42
-  - CA-R-632@27
-  - CA-R-633@19
-  - CA-R-634@20
+  - CA-R-380@44
+  - CA-R-621@17
+  - CA-R-622@34
+  - CA-R-626@43
+  - CA-R-632@29
+  - CA-R-633@21
+  - CA-R-634@22
   - CA-R-635@24
   - CA-R-636@13
-  - CA-R-637@13
-  - CA-R-642@23
+  - CA-R-637@15
+  - CA-R-642@24
   - CA-R-643@33
   - CA-R-644@25
-  - CA-R-686@30
-  - CA-R-705@27
-  - CA-R-706@31
-  - CA-R-709@27
-  - CA-R-712@22
-  - CA-R-718@43
-  - CA-R-740@38
+  - CA-R-686@32
+  - CA-R-705@28
+  - CA-R-706@32
+  - CA-R-709@28
+  - CA-R-712@23
+  - CA-R-718@44
+  - CA-R-740@39
   - CA-R-771@32
-  - CA-R-775@21
+  - CA-R-775@22
   - CA-R-796@43
   - CA-R-806@42
-  - CA-R-807@33
+  - CA-R-807@34
   - CA-R-808@34
-  - CA-R-815@33
-  - CA-R-818@26
-  - CA-R-819@36
-  - CA-R-826@19
-  - CA-R-827@30
+  - CA-R-815@35
+  - CA-R-818@28
+  - CA-R-819@38
+  - CA-R-826@22
+  - CA-R-827@32
   - CA-R-829@33
-  - CA-R-831@26
-  - CA-R-832@33
+  - CA-R-831@28
+  - CA-R-832@35
   - CA-R-833@29
-  - CA-R-837@35
-  - CA-R-844@28
-  - CA-R-846@29
+  - CA-R-837@36
+  - CA-R-844@29
+  - CA-R-846@31
   - CA-R-850@30
   - CA-R-852@32
-  - CA-R-853@27
-  - CA-R-862@33
+  - CA-R-853@28
   - CA-R-879@32
   - CA-R-881@35
   - CA-R-886@39
-  - CA-R-915@32
+  - CA-R-915@33
   - CA-R-916@37
   - CA-R-917@34
   - CA-R-920@33
   - CA-R-922@38
   - CA-R-923@39
   - CA-R-924@37
-  - CA-R-926@38
+  - CA-R-926@39
   - CA-R-927@41
   - CA-R-933@33
-  - CA-R-934@30
+  - CA-R-934@31
   - CA-R-935@37
   - CA-R-940@33
-  - CA-R-941@29
+  - CA-R-941@30
   - CA-R-942@32
   - CA-R-944@39
   - CA-R-945@38
-  - CA-R-947@39
+  - CA-R-947@40
   - CA-R-951@33
   - CA-R-954@33
   - CA-R-960@28
@@ -1132,17 +1128,12 @@ source:
   - CA-R-964@29
   - CA-R-970@32
   - CA-R-971@31
-  - CA-R-975@26
+  - CA-R-975@27
   - CA-R-976@31
-  - CA-R-979@30
-  - CA-R-980@30
-  - CA-R-981@28
-  - CA-R-982@32
-  - CA-R-983@29
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-02 15:00:34 +0400
+updated_at: 2026-11-02 20:24:45 +0400
 ---
 # Formal Contract Graph
 
@@ -1150,18 +1141,18 @@ Bounded extraction only. CFEL blocks remain authoritative source text; this view
 
 ## Coverage
 
-- candidate sources: 1137
-- bound sources: 770
-- declared entity targets: 136
+- candidate sources: 1128
+- bound sources: 799
+- declared entity targets: 135
 - declared component targets: 43
 - declared relation targets: 41
-- shared sources: 550
-- fenced claim blocks: 222
-- cfel blocks: 195
-- recognized clauses: 345
-- unsupported clauses: 137
+- shared sources: 580
+- fenced claim blocks: 233
+- cfel blocks: 206
+- recognized clauses: 357
+- unsupported clauses: 195
 - coverage gaps: 0
-- outside model scope sources: 367
+- outside model scope sources: 329
 - duplicate declarations: 0
 - missing relation semantics: 0
 - instance kind gaps: 0
@@ -1201,7 +1192,7 @@ Node
 	/ Continuant
 		/ Actor
 		/ Atom
-			/ (.Role:=Analysis)
+			/ (.Role:="Analysis & Advisory")
 			/ (.Role:=Concern)
 			/ (.Role:=Delivery)
 			/ (.Role:=Evaluation)
@@ -1597,7 +1588,7 @@ Actor ((NARROWER_THAN)) @Continuant
 - Shared RMED source (exact binding): `CA-R-2156@10`
   - Remaining Claim prose:
     **every** Actor that performs **or** authorizes a governed action **must** have **`=1`** Type **in** (Operator, AI Agent).
-- Shared RMED source (exact binding): `CA-R-2425@2`
+- Shared RMED source (exact binding): `CA-R-2425@4`
   - Claim Scope:
     conflicts between active Project-wide foundational invariants **and** an AI Agent's delegated conflict resolution.
   - Remaining Claim prose:
@@ -1609,7 +1600,10 @@ Actor ((NARROWER_THAN)) @Continuant
 
 - Transitive ancestor Declarations; their contracts are not copied:
   - `Node` — CA-R-2462@2
-- Declaration source: `CA-R-2543@2`
+- Declaration source: `CA-R-2543@4`
+  - Remaining Claim prose:
+    - MODEL declares the generic Aspect.
+    - All concrete Aspects are instances in the applicable PROJECT STRUCTURE tree.
   - Fenced Claim block:
 ```CFEL
 Aspect;
@@ -1662,15 +1656,19 @@ Atom ((NARROWER_THAN)) @Continuant
     - validate the associated canonical addresses against those internal values under CA-D-480.
     - report zero **or** multiple Active matches **and** missing **or** conflicting identity **or** Status; do **not** repair discovery by silently preferring a filename **or** directory.
     - a non-Active containing Hub does **not** change the Status of a nested Atom.
-- Shared RMED source (exact binding): `CA-D-398@26`
+- Shared RMED source (property_qualification binding): `CA-D-389@27`
   - Claim Scope:
-    configuration surfaces carried by their owning Atoms.
+    the serialization of Analysis & Advisory Form tokens in an Analysis & Advisory Atom File Carrier filename.
   - Remaining Claim prose:
-    An owning Atom may carry its explicitly defined machine-readable Properties in YAML frontmatter. Its RMED Claim remains in Markdown, with an optional R-only nested Formal claim; frontmatter is not a second Claim or independent source. legacy `project_scope_unit_graph` **or** `project_graph_state` YAML maps **may** be read as migration evidence; they **must not** own current Scope Unit declarations, paths, Scope Unit Name/order values, Project identity, Project Prefix, **or** selected Authority Modes. Project initialization inputs belong **to** Project Settings; instance defaults belong **to** Framework Instance Settings; unit declarations **and** explicit unit overrides belong **to** Project Structure. this format does **not** require creation **or** consumption of a structural Projection.
+    an Analysis & Advisory Atom File Carrier **must** serialize the following Form components within the Atom filename grammar governed by CA-D-283 **and** CA-D-284:
     
-    ### Current source pin
+    - Rationale: `RATIONALE`.
+    - External Analysis Report: `EXTERNAL_ANALYSIS_REPORT`.
     
-    Proposed N+1 successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-398-CORE_META_MODEL-ENG_DECISION--encode-configuration-surfaces-in-owning-atoms.md`, CA-D-398@24, SHA-256 `256cbe9a58a3d46138774de8baef3061b7a0520d292867474cc2a13f56c80bc9`. Current bytes remain unchanged; this Draft does not restore legacy frontmatter metadata as authority.
+    these mappings govern filename representation; they do **not** rename a Form, admit a new Form, **or** prescribe a YAML Form value.
+  - Binding context:
+    - property: `Atom.Role`
+    - condition: `Role:="Analysis & Advisory"`
 - Shared RMED source (exact binding): `CA-D-463@26`
   - Claim Scope:
     Atom Revision Authoritative Carrier Bundles.
@@ -1709,7 +1707,7 @@ Atom ((NARROWER_THAN)) @Continuant
     - compare resolved values using the registered encoding; a Summary Slug is checked against its Summary serialization, **not** against identical raw text.
     - a mismatch is invalid **and** **must** be reported; the address **must not** silently override the value carried inside the Atom.
     - agreement checking does **not** authorize rewriting the Atom **or** address. corrections require the applicable authorized change.
-- Shared RMED source (exact binding): `CA-D-485@24`
+- Shared RMED source (exact binding): `CA-D-485@26`
   - Claim Scope:
     defaulted Atom values and inherited external settings.
   - Remaining Claim prose:
@@ -1744,7 +1742,10 @@ Atom.Content.** >> @Carrier//Markdown file.markdown;
   - Unresolved CFEL: `@Carrier//Markdown file.filename{:1}: [string]{:1}`
   - Unresolved CFEL: `@Carrier//Markdown file.location{:1}: [string]{:1}`
   - Unresolved CFEL: `@Carrier//Markdown file.frontmatter.author{:0}`
-- Shared RMED source (exact binding): `CA-E-240@46`
+- Shared RMED source (exact binding): `CA-D-669@1`
+  - Remaining Claim prose:
+    An owning Atom may carry its defined machine-readable properties in YAML frontmatter. Its RMED Claim remains in Markdown, with an optional R-only nested Formal Claim. Frontmatter is not a second Claim or independent source. Project initialization inputs belong to Project Settings, instance defaults belong to Framework Instance Settings, and Scope Unit declarations belong to Scope Unit Declaration Atoms.
+- Shared RMED source (exact binding): `CA-E-240@47`
   - Claim Scope:
     independent resolution of Atom ownership, GOVERNS Subject, Claim Target Scope Unit, **and** textual applicability.
   - Remaining Claim prose:
@@ -1827,7 +1828,7 @@ Atom.Content.** >> @Carrier//Markdown file.markdown;
     ### Failure disposition
     
     retain the precise conflicting **or** missing source evidence **and** report the affected Term, canonical entity name, source Atom, Revision **and** authored field. distinguish a malformed Term Definition, duplicate defining authority, a conflicting use, missing naming **and** incomplete coverage. Do **not** rename sources, merge entities, invent a definition **or** treat a diagnostic's faithful output as a source pass.
-- Shared RMED source (exact binding): `CA-E-520@30`
+- Shared RMED source (exact binding): `CA-E-520@32`
   - Claim Scope:
     individual active RMED Atoms reviewed locally against their exact carried text **and** applicable local authoring rules.
   - Remaining Claim prose:
@@ -1928,7 +1929,7 @@ Atom.Content.** >> @Carrier//Markdown file.markdown;
     the targeting of Atoms to a Scope Unit subtree.
   - Remaining Claim prose:
     Subtree-targeting Atoms **means** the union of Targeting Atoms for the selected Scope Unit **and** **every** descendant Scope Unit.
-- Shared RMED source (exact binding): `CA-R-1497@23`
+- Shared RMED source (exact binding): `CA-R-1497@24`
   - Claim Scope:
     Lineage Impact Analysis Atoms and factual Journal Records carrying execution evidence.
   - Remaining Claim prose:
@@ -1982,26 +1983,26 @@ Atom.Content.** >> @Carrier//Markdown file.markdown;
     the two levels assess one-step promotion eligibility. promotion is proposed **only** **when** the Claim applies unchanged at the broader enabled Scope **and** always requires explicit Operator acceptance.
     
     admission does **not** prohibit later same-ID Revisions. **every** later change passes the atomic change-class gate; changing the primary Claim identity requires a replacement.
-- Shared RMED source (exact binding): `CA-R-1633@40`
+- Shared RMED source (exact binding): `CA-R-1633@43`
   - Claim Scope:
     `semantic_revision`, `replacement`, `carrier_only`, and equivalent `refinement` changes of admitted Atoms.
   - Remaining Claim prose:
-    **every** `semantic_revision` **or** `replacement` of an admitted Atom **must** retain **`=1`** identifiable Lineage Impact Analysis whose primary conclusion is the impact state of that exact changed parent Revision. The assessment **may** be part of an existing completed shared review package; a separate Analysis Atom for each changed Atom is not required. A `carrier_only` **or** equivalent `refinement` change **must** require lossless-recoding **or** equivalence Verification instead.
-- Shared RMED source (exact binding): `CA-R-1671@27`
+    **every** `semantic_revision` **or** `replacement` of an admitted Atom **must** retain **`=1`** identifiable Lineage Impact Analysis whose primary conclusion is the impact state of that exact changed parent Revision. The assessment **may** be part of an existing completed shared review package; a separate Analysis & Advisory Atom for each changed Atom is not required. A `carrier_only` **or** equivalent `refinement` change **must** require lossless-recoding **or** equivalence Verification instead.
+- Shared RMED source (exact binding): `CA-R-1671@28`
   - Claim Scope:
     orphan permission for an active Eng Decision in strict authority mode.
   - Remaining Claim prose:
     `eng_decision` **must** be registered as orphan-permitted, so an active Eng Decision **may** have no parent Eng Policy even **in** strict authority mode.
   - Details (source-bound):
     This Atom-topology permission does not create a local Policy owner at a leaf or justify artificial children; local Eng Policy ownership and child applicability remain governed by CA-R-2119@8 and CA-R-2120@8.
-- Shared RMED source (exact binding): `CA-R-1672@27`
+- Shared RMED source (exact binding): `CA-R-1672@28`
   - Claim Scope:
     terminal permission for an active Eng Policy after its local Eng Decisions are absorbed and archived.
   - Remaining Claim prose:
     `eng_policy` **must** be registered as terminal-permitted, so an active Eng Policy Atom **may** remain childless in Atom topology **after** its local Eng Decision Atoms have been losslessly absorbed **and** archived.
   - Details (source-bound):
     This Atom-topology permission does not create a Scope Unit child or grant local Eng Policy ownership to a leaf; an actual declared child and every-child applicability remain required by CA-R-2119@8.
-- Shared RMED source (exact binding): `CA-R-1685@28`
+- Shared RMED source (exact binding): `CA-R-1685@29`
   - Claim Scope:
     User Stories, intended Outcomes, measured outcomes.
   - Remaining Claim prose:
@@ -2031,12 +2032,32 @@ Atom.Content.** >> @Carrier//Markdown file.markdown;
     a failed **or** ambiguous step leaves the amendment incomplete **and** cannot claim a new fixed point. the admitted Carrier **and** Journal history preserve **every** accepted authority Revision; lineage analysis records the disposition of **every** affected branch.
     
     a CORE_META_MODEL amendment closes **only** **after** accepting the exact Atom revision, archiving **any** fully replaced predecessors, reviewing descendant impact, refreshing Projections required by the active gate, **and** verifying the resulting fixed point.
-- Shared RMED source (exact binding): `CA-R-1716@28`
+- Shared RMED source (exact binding): `CA-R-1716@30`
   - Claim Scope:
     proposals of PRMEDO authority changes by active content roles.
   - Remaining Claim prose:
-    Concern, Analysis, Task, **and** native Implementation **may** propose a PRMEDO authority change, but **only** Operator-approved PRMEDO authority **may** establish that change.
-- Shared RMED source (exact binding): `CA-R-2102@14`
+    Concern, Analysis & Advisory, Task, **and** native Implementation **may** propose a PRMEDO authority change, but **only** Operator-approved PRMEDO authority **may** establish that change.
+- Shared RMED source (property_qualification binding): `CA-R-1875@22`
+  - Claim Scope:
+    the default Status value domain of Analysis & Advisory Atoms with Form Analysis Report or Rationale.
+  - Remaining Claim prose:
+    the Core Analysis & Advisory Status model **must** inherit the allowed values of Atom.Status and add Done. That Role Status model applies to Analysis & Advisory Atoms with Form Analysis Report or Rationale. An admitted Extension or Project Configuration **may** add values under the applicable complete Role and Form path; it **must not** remove inherited values.
+  - Details (source-bound):
+    this Status belongs to the Analysis & Advisory Atom itself. It does **not** define a Status transition, carrier placement, setting, or a Workflow, Step, or Action Run outcome, receipt, retry state, result, or completion state. CA-R-1727@30 defines the meanings of Draft and Done for Analysis and the meaning of its archival.
+  - Binding context:
+    - property: `Atom.Role`
+    - condition: `Role:="Analysis & Advisory"`
+- Shared RMED source (property_qualification binding): `CA-R-1888@16`
+  - Claim Scope:
+    the CAPRMEDIO Project Configuration contribution to `Atom/(.Role := "Analysis & Advisory").Form`.
+  - Remaining Claim prose:
+    the CAPRMEDIO Project Configuration **must** register FPF Analysis Report as an additional value of `Atom/(.Role := "Analysis & Advisory").Form` under CA-R-1286. this registration does **not** change the Core contribution under CA-R-1232@28 **or** create another Form Property.
+  - Details (source-bound):
+    CA-R-1889 defines the registered Form. CA-D-581 defines its filename token. The Form remains within Role Analysis & Advisory.
+  - Binding context:
+    - property: `Atom.Role`
+    - condition: `Role:="Analysis & Advisory"`
+- Shared RMED source (exact binding): `CA-R-2102@15`
   - Claim Scope:
     Every complete Current Atom, with applicable Role and Form conditions.
   - Remaining Claim prose:
@@ -2044,7 +2065,7 @@ Atom.Content.** >> @Carrier//Markdown file.markdown;
     
     Subjects is a grouping Property with no direct value. Its active Subject has one reference and its passive Subjects have zero or more references. Resolve the target Scope from the active Subject under the applicable model rules. Carrier compatibility fields do not override that resolution. Encode direct Node-instance Relation facts under Relations.
     
-    For RMED, require one Claim as its direct Markdown value. CFEL may provide that value without prose. Do not create a Formal Claim child. Apply the respective content rules for Concern, Analysis, Plan and Operations, and preserve their established primary content headings.
+    For RMED, require one Claim as its direct Markdown value. CFEL may provide that value without prose. Do not create a Formal Claim child. Apply the respective content rules for Concern, Analysis & Advisory, Plan and Operations, and preserve their established primary content headings.
     
     A Draft may be incomplete but carries exactly one Atom ID; report missing required Properties and check the complete applicable Current contract before promotion. Each Property's own values and dependent Properties are counted independently.
     
@@ -2122,7 +2143,7 @@ Atom.Content.** >> @Carrier//Markdown file.markdown;
   - Remaining Claim prose:
     a Relational Atom **means** an Atom that has no containing Scope Unit **or** whose resolved Claim Target Scope Unit differs from its current Scope Unit.
 
-### `Atom/(.Role:=Analysis)` — primary_node
+### `Atom/(.Role:="Analysis & Advisory")` — primary_node
 
 - Transitive ancestor Declarations; their contracts are not copied:
   - `Atom` — CA-R-2508@2
@@ -2151,31 +2172,91 @@ Atom.Content.** >> @Carrier//Markdown file.markdown;
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
-- Declaration source: `CA-R-2510@2`
+- Declaration source: `CA-R-2637@1`
   - Fenced Claim block:
 ```CFEL
-Atom/(.Role: Analysis)
+Atom/(.Role: "Analysis & Advisory")
 ```
-  - Unresolved CFEL: `Atom/(.Role: Analysis)`
+  - Unresolved CFEL: `Atom/(.Role: "Analysis & Advisory")`
   - Semantics:
-    An Analysis establishes a finding, explanation, comparison, or rationale.
-- Shared RMED source (exact binding): `CA-R-1648@31`
+    Analysis & Advisory covers analysis reports, rationales and spec proposals. It establishes findings, explanations, comparisons, reasons or proposed changes.
+- Shared RMED source (inherited_property_qualification binding): `CA-D-581@17`
+  - Claim Scope:
+    the filename Form component of a project-owned FPF Analysis Report Markdown Carrier.
+  - Remaining Claim prose:
+    a project-owned Analysis & Advisory Atom with `form: FPF Analysis Report` **must** serialize its Form filename component as `FPF_ANALYSIS_REPORT` within the filename grammar governed by CA-D-283 and CA-D-284.
+  - Details (source-bound):
+    This mapping adds the representation of the Form admitted by CA-R-1888. It does not rename another Form, change its filename token or replace the common Analysis & Advisory body layout. Carrier placement follows the applicable Delivery mapping under CA-D-466 and the canonical Analysis & Advisory Role directory under CA-D-324.
+  - Binding context:
+    - property: `Atom.Form`
+    - condition: `Form:=FPF Analysis Report`
+- Shared RMED source (inherited_property_qualification binding): `CA-E-588@20`
+  - Claim Scope:
+    content-preserving migration of existing reports into FPF Analysis Report Carriers.
+  - Remaining Claim prose:
+    an FPF Analysis Report import **must** pass all of the following checks before the original Carrier is retired:
+    
+    - the exact Form and filename token are admitted, the carried Atom ID is unique, and the declared Role, owning Scope Unit, tier, Status and Version metadata match the selected authority;
+    - exactly one Summary and the ordered Question, Scope, Approach, Results and TLDR sections occur outside the quoted source content, with nonempty values;
+    - removing only the quotation wrapper recovers every original source byte, including Unicode, line endings, nested headings, code fences and terminal-newline state; its SHA-256 and byte length match the frozen source;
+    - every selected source has exactly one destination, no existing destination is overwritten, stale inputs and destination collisions stop the batch, and a failed batch does not retire an unverified source;
+    - rewritten current navigation/source links resolve to the intended new Carriers; historical Journals, archived Revisions, frozen receipts and the quoted report's own historical text remain unchanged.
+  - Details (source-bound):
+    These checks verify the import and Carrier structure, not the truth of external findings, FPF execution success, acceptance of recommendations or full framework/runtime conformance. Report unsupported validation coverage explicitly rather than treating an incomplete checker result as a pass.
+  - Binding context:
+    - property: `Atom.Form`
+    - condition: `Form:=FPF Analysis Report`
+- Shared RMED source (inherited_property_qualification binding): `CA-M-345@20`
+  - Claim Scope:
+    authoring and content-preserving import of FPF Analysis Report Atoms.
+  - Remaining Claim prose:
+    **to** author an FPF Analysis Report, use the common Analysis & Advisory structure under CA-D-479 and retain the report's bounded question, scope, approach, results, provenance and evidence limits without treating its recommendations as accepted specification.
+    
+    - carry `role: "Analysis & Advisory"` and `form: FPF Analysis Report`, the actual owning Scope Unit, applicable tier, Status and Version Properties. Summary describes the Question; TLDR summarizes the retained analytical record without replacing Results.
+    - **when** importing an existing report, preserve its complete original UTF-8 text as quoted Markdown in Results. Quotation is a carrier wrapper, not an edit to the original text. Record its original path, SHA-256 and byte length in Approach so the original bytes can be recovered and checked.
+    - identify the original inquiry from its explicit task or question where available; otherwise identify the bounded historical report without inventing a missing execution contract. Preserve all native findings, alternatives, citations, limitations and time-relative statements in the quoted record.
+    - distinguish import metadata and its current Revision timestamp from the original report's provenance. Do not infer an original execution timestamp or completed FPF Run merely from a filename or physical file existence.
+    - place the Carrier by the applicable Analysis & Advisory Delivery rules. Resolve real destination links to the new Carrier while retaining historical Journal, archive and frozen-evidence references unchanged.
+  - Details (source-bound):
+    Importing a report does not rerun FPF, adopt a candidate, change project policy or close an issue. Completion of the bounded imported reporting product is distinct from those outcomes.
+  - Binding context:
+    - property: `Atom.Form`
+    - condition: `Form:=FPF Analysis Report`
+- Shared RMED source (exact binding): `CA-R-1648@33`
   - Claim Scope:
     external reviews, their imported External Analysis Report Atoms, and the internal Analyses derived from them.
   - Remaining Claim prose:
     an external review **must** be imported as an External Analysis Report Atom whose governed envelope identifies its source, provenance, reviewed scope, original body, **and** native attachments **without** requiring a provider-specific finding schema. one internal Analysis derives from that Atom, records the project's finding-level interpretation **and** dispositions, **and** becomes the **only** Analysis source from which project-owned Concern, Plan, Requirement, Method, Evaluation, **or** Delivery Atoms are derived. **every** accepted disposition that changes project meaning **or** work is materialized **in** its owning CAPRMEDIO Content Role; rejected **or** non-actionable findings remain **only** **in** the internal Analysis.
-- Shared RMED source (exact binding): `CA-R-1725@26`
+- Shared RMED source (inherited_property_qualification binding): `CA-R-1664@40`
+  - Claim Scope:
+    `Atom/(.Role := "Analysis & Advisory").Form` values.
+  - Remaining Claim prose:
+    Rationale **must** be registered as an internal value of `Atom/(.Role := "Analysis & Advisory").Form` that owns **`=1`** explanatory conclusion **without** establishing **or** modifying normative specification.
+  - Binding context:
+    - property: `Atom.Form`
+    - condition: `Form:=Rationale`
+- Shared RMED source (inherited_property_qualification binding): `CA-R-1705@33`
+  - Claim Scope:
+    Rationale Atoms and their pre-existing specification subjects.
+  - Remaining Claim prose:
+    a Rationale is an Analysis & Advisory Atom created **only** **after** **every** specification Atom it explains already exists. the Rationale stores the directed relation **to** its subjects; specification Atoms contain **none** of (embedded Rationale, persisted Rationale backlink).
+    
+    Rationale is explanatory rather than normative. Changing an obligation, boundary, Method, Evaluation condition, Delivery rule, **or** acceptance meaning requires a new applicable specification Atom rather than a Rationale.
+  - Binding context:
+    - property: `Atom.Form`
+    - condition: `Form:=Rationale`
+- Shared RMED source (exact binding): `CA-R-1725@28`
   - Claim Scope:
     admitted external Analysis before Project adoption.
   - Remaining Claim prose:
     **every** admitted external Analysis is reviewed by one internal Analysis **before** it can produce project-owned Concern, Plan, Requirement, Method, Evaluation, **or** Delivery Atoms. the external Analysis remains authoritative **only** for what its external source reported; the internal Analysis owns the project's interpretation **and** dispositions, **and** **every** resulting Atom owns its independently accepted meaning.
-- Shared RMED source (inherited_property_qualification binding): `CA-R-1889@17`
+- Shared RMED source (inherited_property_qualification binding): `CA-R-1889@20`
   - Claim Scope:
-    the registered FPF Analysis Report Type under Content Role Analysis.
+    the registered FPF Analysis Report Form under Role Analysis & Advisory.
   - Remaining Claim prose:
     an FPF Analysis Report **means** a specialized Analysis Report whose bounded inquiry **or** interpretation product records an FPF analytical command, composition, **or** directly related analytical follow-up, retaining its findings **and** stated evidence limits as reporting content rather than adopting them as normative authority.
   - Details (source-bound):
-    The common Analysis body Properties remain Question, Scope, Approach, Results and TLDR under CA-D-479. The Analysis lifecycle and applicable Status model remain governed by CA-R-1727@30 and CA-R-1875; this Type does not introduce another Status domain or transition rule. A Done report can retain unresolved questions and rejected candidates. Done does not mean that its proposals were adopted, its issues were closed, or a tested implementation succeeded.
+    The common Analysis & Advisory body Properties remain Question, Scope, Approach, Results and TLDR under CA-D-479. The Analysis & Advisory lifecycle and applicable Status model remain governed by CA-R-1727@30 and CA-R-1875; this Form does not introduce another Status domain or transition rule. A Done report can retain unresolved questions and rejected candidates. Done does not mean that its proposals were adopted, its issues were closed, or a tested implementation succeeded.
     
     Historical statements remain bound to their original report context. Missing invocation, source revision, author, or execution evidence remains missing; the conversion must not invent it.
   - Binding context:
@@ -2308,14 +2389,14 @@ Atom/(.Role: Evaluation)
     derivation of Er, Em, and Ed groups from checked authority.
   - Remaining Claim prose:
     **to** derive Er, Em, **and** Ed groups, resolve the Content Role of **every** `evaluation_for` target **and** include the Evaluation **in** the corresponding Requirement, Method, **or** Delivery group; **if** targets span multiple roles, **then** include it **in** **every** applicable group **without** assigning a new Content Role **or** persisting a duplicate target-role field. absence of individual targets on a Core **or** General Evaluation policy admitted by CA-R-1018-CORE_META_MODEL-CORE-REQUIREMENT--register-evaluation-targets **must not** require an invented classification.
-- Shared RMED source (exact binding): `CA-R-1503@21`
+- Shared RMED source (exact binding): `CA-R-1503@23`
   - Claim Scope:
     Evaluation Atom check definitions and their implementation mechanisms.
   - Remaining Claim prose:
     an Evaluation Atom **must** define the checked Claim, applicable conditions, acceptance criteria, **and** disposition rule **without** prescribing the mechanism that realizes its check.
   - Details (source-bound):
     automated tests, model-judged evaluations, statistical assessments, rubrics, manual reviews, **and** other implementation mechanisms **may** realize that check. choosing a mechanism does **not** change the governing Evaluation Atom's Claim.
-- Shared RMED source (exact binding): `CA-R-1505@25`
+- Shared RMED source (exact binding): `CA-R-1505@27`
   - Claim Scope:
     Evaluation realization chains and their associated implementation, evidence, and operational contributions.
   - Remaining Claim prose:
@@ -2330,7 +2411,7 @@ Atom/(.Role: Evaluation)
     - its Verification judgment.
   - Details (source-bound):
     a shared runner, prompt, judge, report, **or** gate **must not** merge the chains' meanings, results, **or** coverage. the source authority, executable mechanisms, factual Journal Records, **and** reusable Operations definitions retain their distinct roles under CA-R-1683-CORE_META_MODEL-CORE-REQUIREMENT--authority-evaluation-and-operations-remain-distinct **and** CA-R-1684-CORE_META_MODEL-CORE-REQUIREMENT--separate-analysis-from-factual-execution-records.
-- Shared RMED source (exact binding): `CA-R-1518@23`
+- Shared RMED source (exact binding): `CA-R-1518@25`
   - Claim Scope:
     Evaluation responsibility for operational definitions and their Tool implementations.
   - Remaining Claim prose:
@@ -2340,7 +2421,7 @@ Atom/(.Role: Evaluation)
     - TOOLS **and** its Tool Scope Units own Evaluations of Tools: implementation behavior, interfaces, failures, **and** conformance **to** the Action implemented by the Tool. these Evaluations **must not** independently define the correctness rules of the referenced Action **or** Workflow.
     
     checking whether a Tool realizes an Action correctly is distinct from checking whether that Action's definition is valid. a Tool test **may** use the methodology definition as its expected-behavior authority **without** taking ownership of definition validation.
-- Shared RMED source (exact binding): `CA-R-1741@29`
+- Shared RMED source (exact binding): `CA-R-1741@30`
   - Claim Scope:
     concrete recurrence protection.
   - Remaining Claim prose:
@@ -2383,14 +2464,14 @@ Atom/(.Role: Method)
   - Unresolved CFEL: `Atom/(.Role: Method)`
   - Semantics:
     A Method states how to achieve an outcome.
-- Shared RMED source (exact binding): `CA-R-1767@34`
+- Shared RMED source (exact binding): `CA-R-1767@35`
   - Claim Scope:
     Method Eng Policy/Eng Decision and Delivery Policy/Decision Types.
   - Remaining Claim prose:
     A Method Eng Policy governs reusable engineering policy and an Eng Decision selects a bounded engineering approach. A Delivery Policy governs a reusable representation or delivery family, while a Delivery Decision selects a bounded representation or delivery choice. **neither** Eng Policy **nor** Eng Decision is an execution Plan **or** native Implementation.
   - Details (source-bound):
     These names replace the legacy Implementation Method and Implementation Decision labels for this distinction. Eng Policy ownership requires an actual declared child and automatic application to every child under genuine topic or environment conditions; Eng Decision does not automatically inherit to every child. A named technology alone does not select either Type. This distinction does not impose a Type-to-Tier restriction; the applicable Method definitions are CA-R-2119@8 and CA-R-2120@8; Delivery uses CA-R-2267@2 and CA-R-2268@1. The Method actual-child rule is not an extra prerequisite on the Core representation-policy family.
-- Shared RMED source (exact binding): `CA-R-1768@29`
+- Shared RMED source (exact binding): `CA-R-1768@30`
   - Claim Scope:
     Eng Decisions.
   - Remaining Claim prose:
@@ -2435,7 +2516,7 @@ Atom/(.Role: Operations)
   - Unresolved CFEL: `Atom/(.Role: Operations)`
   - Semantics:
     An Operations Atom defines reusable work. It can define an Action, a Workflow, a Step, or a Substep.
-- Shared RMED source (exact binding): `CA-R-1515@23`
+- Shared RMED source (exact binding): `CA-R-1515@25`
   - Claim Scope:
     the canonical O definitions of Actions and Workflows used by TOOLS in the caprmedio Project.
   - Remaining Claim prose:
@@ -2444,7 +2525,7 @@ Atom/(.Role: Operations)
     - a Tool references the applicable canonical definition rather than independently defining the same Action **or** Workflow **in** its own Scope Unit.
     - the owning methodology source **may** be Core Meta-Model, an admitted Extension, **or** Project Configuration according **to** the definition's actual applicability; this allocation rule does **not** make project-specific behavior universal Core authority.
     - Implementation code **and** prompts **may** realize the definition **without** becoming another independently maintained operational definition.
-- Shared RMED source (exact binding): `CA-R-1729@26`
+- Shared RMED source (exact binding): `CA-R-1729@27`
   - Claim Scope:
     Operations Atom lifecycles **and** associated historical execution facts **and** Journal Records.
   - Remaining Claim prose:
@@ -2527,53 +2608,36 @@ Action//{:0+}((IS_RUN_BY)) (in (Step, Substep))//
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
-- Declaration source: `CA-R-2465@2`
+- Declaration source: `CA-R-2465@4`
   - Fenced Claim block:
 ```CFEL
 Atom/(.Role: Operations)/Step;
 Step//{:1}((IS_CONTAINED_BY)) Workflow//;
-((Step//{:1+}((CONTAINS)) Substep//)
-AND (Step//{:0}((RUN)) Action//))
-OR
-((Step//{:0}((CONTAINS)) Substep//)
-AND (Step//{:1}((RUN)) Action//))
+IF Step// {=0}((RUNS)) THEN Step// {:1+}((CONTAINS)) Substep//;
+IF Step// {>0}((RUNS)) THEN Step// {:0}((CONTAINS));
+IF Step// {=0}((CONTAINS)) THEN Step// {:1}((RUNS)) (in (Action, Workflow))//
 ```
   - Allowed Relations and other formal clauses:
     - `Step//` — IS_CONTAINED_BY → `Workflow//`; Host=1; Target=undefined; written direction=forward
   - Unresolved CFEL: `Atom/(.Role: Operations)/Step`
-  - Unresolved CFEL: `((Step//{:1+}((CONTAINS)) Substep//)
-AND (Step//{:0}((RUN)) Action//))
-OR
-((Step//{:0}((CONTAINS)) Substep//)
-AND (Step//{:1}((RUN)) Action//))`
+  - Unresolved CFEL: `IF Step// {=0}((RUNS)) THEN Step// {:1+}((CONTAINS)) Substep//`
+  - Unresolved CFEL: `IF Step// {>0}((RUNS)) THEN Step// {:0}((CONTAINS))`
+  - Unresolved CFEL: `IF Step// {=0}((CONTAINS)) THEN Step// {:1}((RUNS)) (in (Action, Workflow))//`
   - Semantics:
-    A Step is a unit of work within a Workflow. It runs an Action or contains Substeps.
-- Shared RMED source (exact binding): `CA-R-1569@25`
+    A Step is a unit of work within a Workflow.
+- Shared RMED source (exact binding): `CA-R-2639@2`
   - Claim Scope:
-    the Step model kind of Operations Atoms.
+    Step selections and parameter bindings.
   - Remaining Claim prose:
-    a Step model definition **must** declare exactly one of these alternatives:
+    A Step **must** own the bindings for the Action or Workflow it RUNS.
     
-    - it RUNs exactly **`1`** Action model kind; **or**
-    - it has one or more Substep model-kind children through their canonical direct `IS_CONTAINED_BY` facts and RUNs no Action model kind.
-  - Details (source-bound):
-    - the child endpoint is the retained Substep model kind declared by CA-R-2466; the direct fact is authored only from the Substep to its parent Step, and the Step's `CONTAINS` view is derived.
-    - a Linear Step model definition has ordered nonconditional Substep definitions only.
-    - a Conditional Step model definition chooses exactly **`1`** branch in its own definition from its declared result condition and **may** use Actor input; result-based routing belongs to that definition.
-    - different Step model definitions **may** RUN the same Action model kind with different parameter and input-binding definitions without copying or redefining that Action.
-    - this Draft constrains MODEL kinds only. Review or migration of actual Workflow, Step, Substep, and Action instances is deferred.
-- Shared RMED source (exact binding): `CA-R-1992@15`
-  - Claim Scope:
-    the declared Relation whitelist of the Step model kind, including nested Substeps.
-  - Remaining Claim prose:
-    a Step declaration **must** whitelist the canonical direct `IS_CONTAINED_BY` Relation from a Substep model kind to that Step. It **must not** introduce `Enabled Relations.Contains` as a Property. `CONTAINS` remains the derived inverse declared by CA-R-2478 and **must not** be authored as a second containment fact.
-  - Details (source-bound):
-    the Step declaration permits the following exclusive model alternatives:
+    Each bound value comes from one of:
     
-    - one or more Substep model-kind children and no RUN relation to an Action model kind; **or**
-    - no Substep model-kind child and exactly **`1`** RUN relation to an Action model kind.
+    - A previous Step output.
+    - The input of the enclosing Workflow Run.
+    - A fixed value declared by the Step.
     
-    the direct containment fact is written once, with `Substep +> Step` denoting the part-to-whole form and `Step <+ Substep` the same fact read whole-to-part. Any written named relation follows `A((R))B` forward or `B<((R))A` reverse, with the count attached to the written end. This rule does not introduce a storage layout, execution protocol, or actual Workflow-instance constraint.
+    A Step binding references the selected Action or Workflow contract. It does not copy or redefine that contract.
 
 ### `Atom/(.Role:=Operations)/Substep` — primary_node
 
@@ -2605,19 +2669,19 @@ AND (Step//{:1}((RUN)) Action//))`
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
-- Declaration source: `CA-R-2466@2`
+- Declaration source: `CA-R-2466@4`
   - Fenced Claim block:
 ```CFEL
 Atom/(.Role: Operations)/Substep;
 Substep//{:1}((IS_CONTAINED_BY)) Step//;
-Substep//{:1}((RUN)) Action//
+Substep//{:1}((RUNS)) Action//
 ```
   - Allowed Relations and other formal clauses:
     - `Substep//` — IS_CONTAINED_BY → `Step//`; Host=1; Target=undefined; written direction=forward
-    - `Substep//` — RUN → `Action//`; Host=1; Target=undefined; written direction=forward
+    - `Substep//` — RUNS → `Action//`; Host=1; Target=undefined; written direction=forward
   - Unresolved CFEL: `Atom/(.Role: Operations)/Substep`
   - Semantics:
-    A Substep is a leaf unit within a Step. It runs a reusable Action.
+    A Substep is a leaf unit within a Step and runs exactly one reusable Action.
 
 ### `Atom/(.Role:=Operations)/Workflow` — primary_node
 
@@ -2649,32 +2713,34 @@ Substep//{:1}((RUN)) Action//
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
-- Declaration source: `CA-R-2464@2`
+- Declaration source: `CA-R-2464@4`
   - Fenced Claim block:
 ```CFEL
 Atom/(.Role: Operations)/Workflow;
-Workflow//{:1+}((CONTAINS)) Step//
+Workflow//{:1+}((CONTAINS)) Step//;
+Workflow//{:0+}((IS_RUN_BY)) Step//
 ```
   - Allowed Relations and other formal clauses:
     - `Workflow//` — CONTAINS → `Step//`; Host=1+; Target=undefined; written direction=forward
+    - `Workflow//` — IS_RUN_BY → `Step//`; Host=0+; Target=undefined; written direction=forward
   - Unresolved CFEL: `Atom/(.Role: Operations)/Workflow`
   - Semantics:
     A Workflow defines a graph of Steps for governed work.
-- Shared RMED source (exact binding): `CA-D-467@26`
+- Shared RMED source (exact binding): `CA-D-467@28`
   - Claim Scope:
-    folder-backed Workflows **and** their nested Step Carriers.
+    folder-backed Workflows, Step Carriers, **and** their leaf Substep Carriers.
   - Remaining Claim prose:
     a folder-backed Workflow **must** use **`=1`** Workflow Atom Markdown Carrier **and** **`<=1`** optional sibling Directory Carrier with the same filename stem. the Directory Carrier contains separate Markdown Carriers for its Step Atoms; it **must not** contain a second Workflow definition.
   - Details (source-bound):
-    - the Workflow Atom's main content carries the graph scheme; a Step Atom's main content carries that Step's Action reference **and** parameter/input bindings.
-    - a Step Markdown Carrier **may** have **`<=1`** optional sibling Directory Carrier with the same filename stem containing subordinate Step Markdown Carriers. this placement rule applies recursively at **every** nested Step level; **every** folder-backed Step retains its own Markdown Carrier.
-    - Action Atom Carriers **must** remain separately outside the entire Workflow **and** nested Step directory tree. Steps reference reusable Actions **without** copying their behavior.
-    - folder nesting organizes Carriers; it **must not** establish a Step Relation, execution inheritance, **or** execution order. the Workflow graph defines control flow, **and** **every** Step retains its own invocation of **`=1`** referenced Action.
+    - the Workflow Atom's main content carries the graph scheme; a leaf Step Atom's main content carries its Action or Workflow reference **and** parameter/input bindings, while a containing Step carries its leaf Substep structure without RUNS.
+    - a containing Step Markdown Carrier **may** have **`<=1`** optional sibling Directory Carrier with the same filename stem containing its leaf Substep Markdown Carriers. this one-level Workflow-to-Step-to-Substep layout retains every folder-backed Step and Substep in its own Markdown Carrier; a Substep directory or another nested Step directory is not admitted.
+    - Action Atom Carriers **must** remain separately outside the entire Workflow **and** Step directory tree. Steps reference reusable Actions **without** copying their behavior.
+    - folder nesting organizes Carriers; it **must not** establish a Step/Substep Relation, execution inheritance, **or** execution order. the Workflow graph defines control flow; **every** leaf Step retains its own invocation of **`=1`** referenced Action or Workflow, and a containing Step has **`1+`** Substeps and no RUNS relation.
     - the Atom files retain the existing Atom filename, frontmatter, **and** main-content rules; the folder is a grouping Carrier, **not** another Workflow definition **or** owning Scope Unit.
     - grouping is optional: separately placed Workflow **and** Step Carriers remain permitted **when** their references resolve unambiguously. a carrier-only move does **not** redefine the graph **or** change carried Status.
-    - **every** admitted Workflow **or** Step parent Status change requires the containment cascade under CA-R-1521: compose independent single-Atom Actions for the latest Revision of **every** recursively contained Step, requesting the same Status under each Atom's own model. separately placed referenced Steps **and** Actions outside the Carrier tree are **not** cascade targets; older archived Revisions retain their exact bytes, Version **and** Status.
-    - apply CA-D-466's Status placement inside each local Workflow **or** Step container. descendants remain inside the parent Carrier tree for **every** Status, including Archived; apply CA-D-289's Version suffixes **to** Archive Carrier basenames. this rule does **not** migrate noncanonical legacy `archive/` trees.
-    - read each Step's Status from its own Markdown Carrier under CA-D-483; containing Status directories **or** parents **must not** override it. the cascade writes the changed latest Revisions; it **does not** infer execution order **or** execution inheritance.
+    - **every** admitted Workflow **or** containing Step parent Status change requires the containment cascade under CA-R-1521: compose independent single-Atom Actions for the latest Revision of the Workflow's direct Steps and their direct leaf Substeps, or the Step's direct leaf Substeps, requesting the same Status under each Atom's own model. separately placed referenced Steps **and** Actions outside the Carrier tree are **not** cascade targets; older archived Revisions retain their exact bytes, Version **and** Status.
+    - apply CA-D-466's Status placement inside each local Workflow **or** Step container. Workflow-to-Step-to-Substep descendants remain inside the parent Carrier tree for **every** Status, including Archived; apply CA-D-289's Version suffixes **to** Archive Carrier basenames. this rule does **not** migrate noncanonical legacy `archive/` trees.
+    - read each Step and Substep's Status from its own Markdown Carrier under CA-D-483; containing Status directories **or** parents **must not** override it. the cascade writes the changed latest Revisions; it **does not** infer execution order **or** execution inheritance.
 - Shared RMED source (exact binding): `CA-E-486@23`
   - Claim Scope:
     Workflow Steps **and** Runs.
@@ -2717,7 +2783,7 @@ Workflow//{:1+}((CONTAINS)) Step//
     - a cross-Workflow Step route offered as a Run handoff: reject; the two boundaries have different endpoints **and** responsibilities.
     
     report the exact failing source **and** condition. definition validity **must not** be reported as permission, execution readiness, successful execution, **or** evidence that a Run occurred.
-- Shared RMED source (exact binding): `CA-E-490@23`
+- Shared RMED source (exact binding): `CA-E-490@24`
   - Claim Scope:
     a status-change Workflow **and** its target Entity's applicable model.
   - Remaining Claim prose:
@@ -2745,23 +2811,23 @@ Workflow//{:1+}((CONTAINS)) Step//
     - the ending update Run does **not** call, wait for, **or** claim completion of replacement; the executor receives the caller's complete terminal result.
     
     check the declared graph with read-only Action fixtures. this Evaluation does **not** require execution of the replacement effect.
-- Shared RMED source (exact binding): `CA-E-500@26`
+- Shared RMED source (exact binding): `CA-E-500@28`
   - Claim Scope:
     Workflow representation; Step Carrier separation.
   - Remaining Claim prose:
     the Workflow representation Evaluation **must** reject a Carrier arrangement that duplicates definition authority **or** derives execution order from storage order.
   - Details (source-bound):
-    - a graph references separate Step Atoms; **every** leaf Step binds **`=1`** Action carried outside the entire Workflow **and** nested Step directory tree, while a containing Step may contain nested Steps and binds no Action; two leaf Steps may reuse that Action with different inputs **without** copying its behavior: accept.
+    - a graph references separate Step Atoms; **every** leaf Step RUNS **`=1`** Action **or** Workflow. A referenced Action is carried outside the entire Workflow **and** Step directory tree; a called Workflow retains its separate identity and reference. A containing Step contains **`1+`** leaf Substeps and RUNS neither an Action nor a Workflow. A leaf Step's bindings use only previous Step outputs, enclosing Workflow Run input, or values fixed by that Step. Two leaf Steps may reuse the same Action with different inputs **without** copying its behavior: accept.
     - place the Workflow Markdown Carrier beside an optional same-stem Directory Carrier containing its separate Step Markdown Carriers, **or** leave the Workflow **and** Steps separately addressable: retain the same graph meaning.
-    - place a Step Markdown Carrier beside its optional same-stem Directory Carrier containing subordinate Step Markdown Carriers, repeating at any nested Step depth: accept. require the matching sibling Markdown Carrier for **every** Step directory; reject a missing **or** mismatched sibling.
+    - place a Step Markdown Carrier beside its optional same-stem Directory Carrier containing its leaf Substep Markdown Carriers: accept. require the matching sibling Markdown Carrier for **every** Step directory; reject a missing **or** mismatched sibling. A Substep directory or another nested Step directory is not admitted by this layout.
     - reorder files **or** folder navigation **without** changing the graph: retain the declared execution order.
     - copy Step bindings into the graph, copy Action behavior into a Step, introduce an unresolved Step reference, **or** create another Workflow identity for the folder: reject.
     - **when** using a folder-backed Workflow, require **`=1`** sibling Workflow Markdown Carrier with the same filename stem **and** separately carried Step Atoms inside the Directory Carrier; reject a missing **or** mismatched sibling, a second Workflow definition **or** an Action Atom Carrier anywhere inside the directory tree, **or** a folder that silently becomes their owning Scope Unit.
     - derive a Step Relation, execution inheritance, **or** execution order from folder nesting instead of the declared graph **and** Step bindings: reject.
-    - move a Workflow **or** Step Directory Carrier **without** a Status-change request: retain the graph **and** carried Step Status values. read each Step's own Status; reject read-time inference from its parent **or** path.
-    - change a Workflow **or** Step parent's Status to an admitted value: require independent single-Atom Actions for that parent **and** the latest Revision of **every** recursively contained Step under CA-R-1521, including nested Steps. check each Atom's own model; reject an invented target value **or** a multi-target Action.
-    - include Draft, Active **and** Archived transitions admitted by the selected model; require the same requested Status for **all** contained latest Step Revisions. leave separately placed referenced Steps **and** Actions outside the tree unchanged.
-    - retain descendants inside the parent Carrier tree, including Archived placement under CA-D-466 **and** CA-D-289. preserve exact bytes, Version **and** Status of older archived Revisions; reject their inclusion as cascade targets **or** their metadata rewrite. no migration of legacy `archive/` trees is implied.
+    - move a Workflow **or** Step Directory Carrier **without** a Status-change request: retain the graph **and** carried Step and Substep Status values. read each Step and Substep's own Status; reject read-time inference from its parent **or** path.
+    - change a Workflow **or** containing Step parent's Status to an admitted value: require independent single-Atom Actions for that parent **and** the latest Revision of every contained Step and Substep under CA-R-1521: a Workflow's direct Steps and their direct leaf Substeps, or a Step's direct leaf Substeps. check each Atom's own model; reject an invented target value **or** a multi-target Action.
+    - include Draft, Active **and** Archived transitions admitted by the selected model; require the same requested Status for **all** contained latest Step and Substep Revisions. leave separately placed referenced Steps **and** Actions outside the tree unchanged.
+    - retain the Workflow-to-Step-to-Substep descendants inside the parent Carrier tree, including Archived placement under CA-D-466 **and** CA-D-289. preserve exact bytes, Version **and** Status of older archived Revisions; reject their inclusion as cascade targets **or** their metadata rewrite. no migration of legacy `archive/` trees is implied.
 - Shared RMED source (exact binding): `CA-M-303@26`
   - Claim Scope:
     Atom update routing for a calling Workflow.
@@ -2797,7 +2863,7 @@ Workflow//{:1+}((CONTAINS)) Step//
     - a Workflow **may** assume these declared capabilities; it **must not** require a particular executor product merely **to** define its behavior.
     
     this conformance boundary does **not** select a server, programming language, storage technology, **or** a Workflow for building the executor itself.
-- Shared RMED source (exact binding): `CA-R-1521@31`
+- Shared RMED source (exact binding): `CA-R-1521@32`
   - Claim Scope:
     Workflows that change an Entity's Status.
   - Remaining Claim prose:
@@ -2817,15 +2883,13 @@ Workflow//{:1+}((CONTAINS)) Step//
     the Workflow Type of Operations Atoms.
   - Remaining Claim prose:
     the Operations Atom Type Workflow **means** the Type of an Operations Atom whose Claim specifies **`=1`** Workflow graph scheme for that same Atom using references **to** Step Atoms and the Workflow's declared Step structure.
-- Shared RMED source (exact binding): `CA-R-1570@24`
+- Shared RMED source (exact binding): `CA-R-1570@26`
   - Claim Scope:
-    Workflow graph schemes and Step bindings.
+    a Workflow graph scheme.
   - Remaining Claim prose:
-    a Workflow Atom **must** own **only** its graph scheme: Step references, declared order and structural Relations, entry points, **and** terminal outcomes. a Conditional Step definition owns its result-based routing; the Workflow graph does not use a separate result-transition Relation.
+    A Workflow graph scheme **must** identify Step references, declared order, structural Relations, entry points, and terminal outcomes.
     
-    - the referenced Step Atoms own Action references, parameters, **and** input bindings.
-    - reusable Action Atoms own Action behavior.
-    - the graph **must not** independently repeat those Step bindings **or** Action definitions; folder nesting **and** file order **must not** replace its declared control flow.
+    The graph references Step bindings and called definitions. Its declared graph determines control flow; folder nesting and file order **must not** replace it.
 - Shared RMED source (exact binding): `CA-R-2565@2`
   - Remaining Claim prose:
     When a Workflow archives an Atom:
@@ -2911,7 +2975,7 @@ THEN (Atom/(.Role: Plan).Relations.contained_by{==1})`
     - distinguish readiness from forced execution: a deterministic display order does **not** prohibit concurrent independent work **or** grant execution authority.
     
     report the failing endpoints **and**, for a cycle, its complete prerequisite chain.
-- Shared RMED source (exact binding): `CA-M-123@29`
+- Shared RMED source (exact binding): `CA-M-123@31`
   - Claim Scope:
     authoring one Definition of Done.
   - Remaining Claim prose:
@@ -2956,13 +3020,13 @@ THEN (Atom/(.Role: Plan).Relations.contained_by{==1})`
     Plan execution.
   - Remaining Claim prose:
     Plan execution **must not** contain a cycle of completion prerequisites, including one formed jointly by `BLOCKS` **and** the requirement **to** complete directly contained Plan work **before** its containing Plan can be Done **or** Canceled.
-- Shared RMED source (exact binding): `CA-R-1691@30`
+- Shared RMED source (exact binding): `CA-R-1691@32`
   - Claim Scope:
     Development Backlog candidates selected into active work.
   - Remaining Claim prose:
     assigning a Development Backlog candidate **to** a current **or** future version does **not** establish governed truth. the candidate becomes active work **only** **when** the operator selects it **and** CAPRMEDIO creates **`=1`** bounded Task Atom for its action. execution **then** materializes the minimum Requirement, Method, Evaluation, Delivery, **or** future Operations Atoms needed **to** govern that work.
     
-    **`=1`** backlog line **may** produce multiple Atoms. multiple closely related backlog lines **may** produce **`=1`** Concern **or** RMED Atom **only** **when** they resolve **to** **`=1`** independently replaceable claim. Analysis, Task, Implementation, **and** Operations use their separately governed atomicity models.
+    **`=1`** backlog line **may** produce multiple Atoms. multiple closely related backlog lines **may** produce **`=1`** Concern **or** RMED Atom **only** **when** they resolve **to** **`=1`** independently replaceable claim. Analysis & Advisory, Task, Implementation, **and** Operations use their separately governed atomicity models.
     
     the backlog entry **may** link the resulting Atoms for navigation but remains a non-authoritative planning candidate **until** release finalization removes **or** reschedules it.
   - Details (source-bound):
@@ -2972,12 +3036,12 @@ THEN (Atom/(.Role: Plan).Relations.contained_by{==1})`
     Development Backlog and its Epic classification.
   - Remaining Claim prose:
     the caprmedio Project **must** classify the Development Backlog as an Epic whose direct Task members are accepted intended actions that have no narrower Epic.
-- Shared RMED source (exact binding): `CA-R-1714@27`
+- Shared RMED source (exact binding): `CA-R-1714@28`
   - Claim Scope:
     operative plans and Plan artifacts.
   - Remaining Claim prose:
     an operative plan is ephemeral session control; a Plan is a persisted CAPRMEDIO artifact created **only** by governed entry criteria.
-- Shared RMED source (exact binding): `CA-R-1715@27`
+- Shared RMED source (exact binding): `CA-R-1715@28`
   - Claim Scope:
     still-valid unfinished operative actions.
   - Remaining Claim prose:
@@ -3029,7 +3093,7 @@ Atom/(.Role: Requirement)
     - a recoverable interpretation that yields **=1** result **in** (`pass`, `fail`).
     
     **if** **any** of these conditions is missing, the checkability Evaluation **must** return `fail`. satisfying them does **not** require a separate Evaluation Atom **unless** applicable authority requires that Atom for the particular case under CAPRMEDIO-META-REQU-124; an independently governed Evaluation Claim still follows the Atom boundary rules.
-- Shared RMED source (exact binding): `CA-R-024@27`
+- Shared RMED source (exact binding): `CA-R-024@29`
   - Remaining Claim prose:
     CAPRMEDIO **must** resolve conflicts among active Requirements other than Requirements expressing Project-wide foundational invariants through explicit rules determined by their applicability tiers rather than presentation order, Concern priority, **or** implicit interpretation.
 - Shared RMED source (exact binding): `CA-R-1694@41`
@@ -3046,7 +3110,7 @@ Atom/(.Role: Requirement)
     Functional and non-functional Requirements both specify outcomes. A performance target can have an Engineering Subject. Subject and Content Role are independent; architecture remains Method even when mandatory. The methodology's own model definitions and Entity Definition constraints remain within Requirement authority.
     
     CA-R-2512 owns the Requirement Content Role definition. this Atom constrains realization prescription **without** duplicating the definitions of the other Content Roles.
-- Shared RMED source (exact binding): `CA-R-1707@31`
+- Shared RMED source (exact binding): `CA-R-1707@32`
   - Claim Scope:
     governed development changes that proceed toward realization.
   - Remaining Claim prose:
@@ -3082,14 +3146,11 @@ Atom/(.Role: Requirement)
   - `Atom.Relations` — CA-R-2507@2
   - `Atom.Subjects` — CA-R-2545@2
   - `Atom.Subjects.Active` — CA-R-2546@2
-- Declaration source: `CA-R-2516@4`
-  - Fenced Claim block:
-```CFEL
-Atom/(.Role: Requirement)/(.Form: Declaration)
-```
-  - Unresolved CFEL: `Atom/(.Role: Requirement)/(.Form: Declaration)`
-  - Semantics:
-    A Declaration states the applicable contract for its active Subject, which may be a Node, a Relation, a CFEL component, another declared model Entity, or an instance of one.
+- Declaration source: `CA-R-2516@5`
+  - Remaining Claim prose:
+    A Declaration states the applicable contract for its active Subject. Its Claim may contain several prose statements, CFEL formal expressions, or both when they form one coherent declaration about one topic.
+    
+    Scope Unit Declaration is a Requirement Form using this template. It is not another Atom Role.
 - Shared RMED source (exact binding): `CA-D-662@4`
   - Remaining Claim prose:
     Node Declaration carriers require role, form and subjects.active. Encode passive Subjects as subjects.passive when present. Omit the author field.
@@ -3274,7 +3335,7 @@ Journal ((NARROWER_THAN)) @Continuant
     - Runtime locks, receipts, **and** pending-recording state remain runtime state, **not** canonical Journal Carriers.
     
     Technical and business runtime logs are Journals too, but their configured local database, remote database, or logging sink Carriers are not required to reside in this Directory Carrier. Journal classification does not impose one physical storage technology.
-- Shared RMED source (exact binding): `CA-D-559@17`
+- Shared RMED source (exact binding): `CA-D-559@19`
   - Claim Scope:
     technical and business runtime Journal Carriers.
   - Remaining Claim prose:
@@ -3336,7 +3397,7 @@ Journal ((NARROWER_THAN)) @Continuant
     - bounded session state.
     
     the Journal **must** preserve unresolved Actor, time, intent, scope, **or** outcome as explicit uncertainty rather than fabricated history.
-- Shared RMED source (exact binding): `CA-R-1684@28`
+- Shared RMED source (exact binding): `CA-R-1684@29`
   - Claim Scope:
     factual execution Records, interpretive Analysis.
   - Remaining Claim prose:
@@ -3349,7 +3410,7 @@ Journal ((NARROWER_THAN)) @Continuant
     **when** one Carrier mixes factual input with interpretation, the factual Record **and** interpretive Analysis remain separate governed contributions with explicit references.
     
     factual execution Records **and** interpretive Analysis are **not** reusable Operations definitions.
-- Shared RMED source (exact binding): `CA-R-1712@27`
+- Shared RMED source (exact binding): `CA-R-1712@28`
   - Claim Scope:
     enacted release and runtime facts.
   - Remaining Claim prose:
@@ -3363,7 +3424,7 @@ Journal ((NARROWER_THAN)) @Continuant
     Existing Journal entries remain unchanged and readable without migration or synthetic baselines. The Journal is a log of supplied observations, not permission or proof of source, lifecycle, Run or Git correctness; it does not promise historical replay or recovery. its logical event table does **not** require **`=1`** physical file **or** a database table; Carrier representation remains governed by Delivery authority.
   - Details (source-bound):
     Runtime technical and business Journals may preserve their own operational histories in configured local or remote sinks. They are not additional Project Work Journals. Preserve actually supplied references without inventing canonical bindings. Distinct operational observations remain distinct facts under CA-R-1470; the Project Journal imposes no cross-log reconciliation or recording gate.
-- Shared RMED source (exact binding): `CA-R-1743@26`
+- Shared RMED source (exact binding): `CA-R-1743@27`
   - Claim Scope:
     execution outcomes of recurrence-protection mechanisms.
   - Remaining Claim prose:
@@ -3421,7 +3482,7 @@ Named Selection//Extension Sources
     CA-R-1175 requires preservation of installed source versions as candidate inputs. CA-R-1228 governs the applicable Methodology subset, and CA-R-1724 separates installed availability from activation and version selection. This definition identifies their shared candidate population; it adds no activation procedure, new Scope Unit, or automatic conflict resolution.
   - Binding context:
     - instance selector: `Named Selection//Extension Sources`
-    - existence provenance: `authoritative_project_structure`
+    - existence provenance: `bounded_named_contract_context`
 
 ### `Node` — primary_node
 
@@ -3466,7 +3527,7 @@ AND ((Node, Node.**) {==0}((HAS_NARROWER)))
 AND ((Node, Node.**) {==0}((HAS_INSTANCE)))`
   - Semantics:
     A Node can be the Host or Target of a Relation.
-- Shared RMED source (exact binding): `CA-E-669@2`
+- Shared RMED source (exact binding): `CA-E-669@4`
   - Remaining Claim prose:
     A migration packet passes only when its selected Node inventory, predecessor dispositions, governing sources and consumer changes are explicit and independently reviewed. Reject incomplete or contradictory coverage; a prepared Draft is not an adopted Declaration.
   - Details (source-bound):
@@ -3476,7 +3537,7 @@ AND ((Node, Node.**) {==0}((HAS_INSTANCE)))`
     - A Node Declaration states its normative constraints in its Claim, preferring admitted formal notation and using prose where existing notation cannot express a constraint without a single-use extension. The Node Claim explicitly forbids IS_PROPERTY_OF cycles, including self-loops; no dedicated acyclicity predicate is required. A repetitive prose Claim or Semantics is not mandatory. CFEL retains a Claim and may have Semantics. Unchanged inherited Properties reuse their original Declaration. Explicit local MODEL replacements are selected in that MODEL; the base remains unchanged. Effective inherited rules do not create new declaration responsibilities.
     - Each effective Relation whitelist resolves its inherited permissions, directions, endpoints and both cardinalities. Reject unlisted Relations, contradictory refinements, Property bearer cycles, multiple bearers, Property narrowing/instantiation and direct Primary Node values.
     - Preserve / narrowing and // instantiation for Primary Nodes, . Property access, +>/<+ composition and >|/|< classification. Check branch selectors, condition versus conclusion, and independent value/dependent-name domains and counts. Reject withdrawn .. syntax. Accept := in Subject addresses for allowed value and condition together; Formal Claims retain separate : and = meanings. Full Formal Claims do not belong in Subjects.
-    - Each Workflow has at least one Step; each Step one Workflow. Each Step exclusively runs one Action or contains at least one Substep. Each Substep has one Step and runs one Action. Actions allow zero or more Step/Substep callers. Use IS_CONTAINED_BY with derived CONTAINS and Container: yes/no. Reverse views do not duplicate authored facts; a RUN binding does not prove execution.
+    - Each Workflow has at least one Step; each Step has one Workflow. Each Step exclusively RUNS exactly one Action, RUNS exactly one Workflow, or contains at least one Substep and RUNS neither an Action nor a Workflow. A Step's Action or Workflow mode receives parameters only from previous Step outputs, enclosing Workflow Run input, or values fixed by that Step. Each Substep has one Step and RUNS exactly one Action. Actions allow zero or more Step/Substep callers; Workflows allow zero or more Step callers. Use IS_CONTAINED_BY with derived CONTAINS and Container: yes/no. Reverse views do not duplicate authored facts; a RUNS binding does not prove execution.
     - Verify scalar-only, child-only and mixed Properties in YAML and Markdown, including one child with two values versus two child keys, skipped heading levels and fenced heading-like text. Undecided defaults or lossless retrieval policies block their affected acceptance cases.
     - Verify Role/Form and active/passive carrier migration and all actual schema, parser, graph-builder, SDK/workflow and fixture consumers together. Check ENGINE permissions against its effective declared Scope under the selected MODEL. A local MODEL does not automatically widen that Scope; an explicit override is evaluated normally. Target Scope does not expand authority.
     - Check that HAS_VALUE binds instance Property literals without declaring value Nodes; exact new Subject bindings and any incomplete whitelist before adopting affected rules. Establish replacement Declaration coverage and repair references before retiring the corresponding Node Definitions. Do not blanket-retire Terms, Carrier or CFEL.
@@ -3638,14 +3699,13 @@ PROJECT STRUCTURE ((NARROWER_THAN)) @Node
     - `PROJECT STRUCTURE` — NARROWER_THAN → `@Node`; Host=undefined; Target=undefined; written direction=forward
   - Semantics:
     PROJECT STRUCTURE describes the actual structure of a Project, including its Scope Units, Aspects, and other declared components.
-- Shared RMED source (known_instance_context binding): `CA-R-2483@2`
+- Shared RMED source (known_instance_context binding): `CA-R-2483@6`
   - Remaining Claim prose:
     CAPRMEDIO's PROJECT STRUCTURE has:
     
     - Scope Structure.
-    - Aspects.
+    - Aspect instances, including Product.
     - Other declared components.
-    
     Its Scope Structure retains the proposed ordered Units:
     
     1. META_MODEL.
@@ -3666,13 +3726,19 @@ PROJECT STRUCTURE ((NARROWER_THAN)) @Node
     - A local MODEL changes ENGINE's Scope only through an explicit Scope-contract replacement.
     
     Declared Unit order governs this Scope Structure.
+  - Fenced Claim block:
+```CFEL
+Aspects <+ Product
+```
+  - Allowed Relations and other formal clauses:
+    - `Aspects` — <+ → `Product`; Host=undefined; Target=undefined; written direction=forward
   - Details (source-bound):
     The two root kinds are MODEL and PROJECT STRUCTURE. Their CAPRMEDIO instance roots are MODEL//CAPRMEDIO and PROJECT STRUCTURE//CAPRMEDIO. A consumer Project has its own PROJECT STRUCTURE instance root and may have a local MODEL instance root.
     
     This Draft does not move directories. Exact instance registration and mapping from existing Scope Units remain adoption work. The earlier PROJECT//CAPRMEDIO Framework wrapper is superseded by the separate typed roots. CAPRMEDIO's actual Unit names are not universal values.
   - Binding context:
     - instance selector: `PROJECT STRUCTURE//CAPRMEDIO`
-    - existence provenance: `authoritative_project_structure`
+    - existence provenance: `bounded_named_contract_context`
 
 ### `Package` — primary_node
 
@@ -3698,7 +3764,7 @@ Package ((NARROWER_THAN)) @Continuant
 THEN ($package {==1}((IS_CONTAINED_BY)) Package//)`
   - Semantics:
     A logical collection of implementation and documentation parts.
-- Shared RMED source (exact binding): `CA-E-488@23`
+- Shared RMED source (exact binding): `CA-E-488@25`
   - Claim Scope:
     a CAPRMEDIO Tool's methodology binding **and** Evaluation responsibility.
   - Remaining Claim prose:
@@ -3724,7 +3790,7 @@ THEN ($package {==1}((IS_CONTAINED_BY)) Package//)`
     - methodology Evaluations of their own Action **and** Workflow definitions under CA-R-1518 are **not** Tool implementation references **and** are **not** prohibited by this rule.
     
     this restriction prevents self-reference through the Tool's own subtree; it does **not** establish that **all** indirect dependency cycles are absent.
-- Shared RMED source (exact binding): `CA-R-1800@17`
+- Shared RMED source (exact binding): `CA-R-1800@19`
   - Claim Scope:
     Tools in the caprmedio Project.
   - Remaining Claim prose:
@@ -3771,7 +3837,7 @@ Package/Implementation// {:0}((IS_CONTAINED_BY)) Package//
     - **or** exempts the selected mode from the governing RMED.
     
     authorized rewriting **or** different source-code bytes **must not** by themselves cause failure **when** reconstruction equivalence under CA-M-262 is preserved.
-- Shared RMED source (exact binding): `CA-M-261@18`
+- Shared RMED source (exact binding): `CA-M-261@19`
   - Remaining Claim prose:
     **to** create **or** evolve the Implementation, keep it rebuildable from the current governing RMED **without** relying on the existing Implementation **or** first preparing missing authority.
   - Details (source-bound):
@@ -3790,7 +3856,7 @@ Package/Implementation// {:0}((IS_CONTAINED_BY)) Package//
     Implementation production **must** derive I from current applicable RMED using governed Operations: **RMED → using O → I**. native I **may** subsequently act as source truth for its actual realized content, structure, dependencies, **and** behavior. a further view derived from I using O, including a dependency graph, **must** remain a non-authoritative Projection: **I → using O → Projection**.
   - Details (source-bound):
     Generation need not be deterministic. Derivation is a relation to governing intent, not perpetual loss of actual-state authority. Actual code may predate CAPRMEDIO authority; its observations support adoption, reconciliation, and continuation without automatically accepting inferred CRMED drafts or changing governing RMED. Existing I is not a prerequisite for reconstructing I from current RMED. Ordinary view Projections never replace the authority of their represented sources.
-- Shared RMED source (exact binding): `CA-R-2173@8`
+- Shared RMED source (exact binding): `CA-R-2173@9`
   - Remaining Claim prose:
     Implementation **means** the actual Code, Prompts, Documentation and Resources that realize RMED for a Project. Directly edited Implementation can be authoritative for what is actually implemented.
   - Semantics:
@@ -3807,14 +3873,15 @@ Package/Implementation// {:0}((IS_CONTAINED_BY)) Package//
   - `Node/Continuant` — CA-R-2589@2
   - `Node` — CA-R-2462@2
 - Inherited Property Declaration refs; no child Property Node is created:
-  - `Scope Unit.ID` — CA-R-2526@2
+  - `Scope Unit.ID` — CA-R-2526@3
   - `Scope Unit.Name` — CA-R-2527@2
   - `Scope Unit.Label` — CA-R-2528@2
-  - `Scope Unit.Local Order` — CA-R-2529@2
   - `Scope Unit.Path` — CA-R-2530@2
   - `Scope Unit.Project Boundary Position` — CA-R-2531@2
   - `Scope Unit.structural_level` — CA-R-2554@2
-- Declaration source: `CA-R-2524@2`
+  - `Scope Unit.order.ordered` — CA-R-2685@1
+  - `Scope Unit.order.number` — CA-R-2686@1
+- Declaration source: `CA-R-2524@3`
   - Remaining Claim prose:
     A Project uses CAPRMEDIO's MODEL.
   - Fenced Claim block:
@@ -3823,8 +3890,14 @@ Scope Unit/Project;
 Scope Unit/Project//{:1};
 Project >| (Container == yes);
 Project// {:0}((IS_CONTAINED_BY)) Scope Unit//;
-Project ((NARROWER_THAN)) @Scope Unit
+Project ((NARROWER_THAN)) @Scope Unit;
+Project//.order.ordered == false;
+Project//.order.number: []{:0};
+Project//.ID: []{:0}
 ```
+  - Value contracts:
+    - `Project//.order.number` values; names=None; names count=undefined; values=; values count=0
+    - `Project//.ID` values; names=None; names count=undefined; values=; values count=0
   - Nested Property contracts:
     - `Scope Unit/Project//` property; names=None; names count=1; values=None; values count=undefined
   - Allowed Relations and other formal clauses:
@@ -3832,9 +3905,10 @@ Project ((NARROWER_THAN)) @Scope Unit
     - `Project//` — IS_CONTAINED_BY → `Scope Unit//`; Host=0; Target=undefined; written direction=forward
     - `Project` — NARROWER_THAN → `@Scope Unit`; Host=undefined; Target=undefined; written direction=forward
   - Unresolved CFEL: `Scope Unit/Project`
+  - Unresolved CFEL: `Project//.order.ordered == false`
   - Semantics:
-    A Project is the root Scope Unit.
-- Shared RMED source (exact binding): `CA-D-317@27`
+    A Project is the root Scope Unit. The Project is not renamed or moved through Scope Unit operations. It has no Scope Unit ID. The shared model makes it Unordered with no order.number; individual Project Declarations inherit these facts.
+- Shared RMED source (exact binding): `CA-D-317@28`
   - Claim Scope:
     CAPRMEDIO Framework Instances serving Projects.
   - Remaining Claim prose:
@@ -3842,7 +3916,7 @@ Project ((NARROWER_THAN)) @Scope Unit
   - Details (source-bound):
     Applicable Methodology **is** a Projection; its delivered Carriers use the Project's `_projection/` root, **not** this source-governance Carrier.
 - Shared RMED source (exact binding): `CA-E-208@26`
-- Shared RMED source (exact binding): `CA-E-229@26`
+- Shared RMED source (exact binding): `CA-E-229@28`
   - Remaining Claim prose:
     the Operator controls **every** governed Project part outside the CAPRMEDIO Framework Instance, **and** **every** material change **to** those parts is observable, steerable, interruptible, **and** recoverable under the Operator's current authority.
 - Shared RMED source (exact binding): `CA-E-667@3`
@@ -3868,7 +3942,7 @@ Project ((NARROWER_THAN)) @Scope Unit
 - Shared RMED source (exact binding): `CA-M-096@24`
   - Remaining Claim prose:
     select which optional rules **and** rule groups are active for the affected scope **and** Project stage according **to** the current Operator-declared active-rule-set priority **without** disabling mandatory authority.
-- Shared RMED source (exact binding): `CA-M-112@27`
+- Shared RMED source (exact binding): `CA-M-112@29`
   - Claim Scope:
     expressing CAPRMEDIO Project meaning.
   - Remaining Claim prose:
@@ -3888,12 +3962,12 @@ Project ((NARROWER_THAN)) @Scope Unit
 - Shared RMED source (exact binding): `CA-M-448@4`
   - Remaining Claim prose:
     **to** expose information for a task, preserve **all** information necessary for governed use, expose the complete currently justified sufficient information set for that task from the preserved information **and** nothing outside that set, **and** keep **all** unexposed preserved information recoverable.
-- Shared RMED source (exact binding): `CA-R-047@34`
+- Shared RMED source (exact binding): `CA-R-047@37`
   - Remaining Claim prose:
     a CAPRMEDIO self-improvement cycle **must** keep the following participating contributions distinct **and** traceably related:
     
     - observations recorded **in** the Journal;
-    - Analysis;
+    - Analysis & Advisory;
     - Tasks;
     - changes **to** Plan, Requirement, Method, Evaluation, Delivery, **and** Operations authority;
     - Implementation;
@@ -3901,30 +3975,25 @@ Project ((NARROWER_THAN)) @Scope Unit
     - follow-up Evaluation.
     
     reusable Operations definitions remain distinct from the Journal Records of their executions **and** observations under CAPRMEDIO-META-REQU-092.
-- Shared RMED source (exact binding): `CA-R-053@26`
+- Shared RMED source (exact binding): `CA-R-053@28`
   - Remaining Claim prose:
     **before** CAPRMEDIO claims improvement, the governed improvement cycle **must** identify the exact target **and** baseline revision, evaluation frame, protected trade-offs, **and** continuation **or** stop condition.
 - Shared RMED source (exact binding): `CA-R-1486@20`
   - Remaining Claim prose:
     FRAMEWORK_METHODOLOGY **must** define how Projects are represented **and** operated.
-- Shared RMED source (exact binding): `CA-R-1680@30`
+- Shared RMED source (exact binding): `CA-R-1680@31`
   - Claim Scope:
     CAPRMEDIO's own repository.
   - Remaining Claim prose:
     CAPRMEDIO applies the same structural constitution **and** governance semantics **to** its own repository while keeping native reusable framework source, project authority, **and** non-authoritative convenience locators under distinct owners.
   - Details (source-bound):
     the recursion terminates because project-local authority governs the selected framework revision while convenience locators expose that one native source **without** creating copied authority, an additional governance owner, **or** a live authority cycle.
-- Shared RMED source (exact binding): `CA-R-1759@37`
-  - Claim Scope:
-    the Project Scope Unit.
-  - Remaining Claim prose:
-    the Project Scope Unit **must** have **`=0`** parent Scope Units **and** Type: Unordered.
-- Shared RMED source (exact binding): `CA-R-1772@35`
+- Shared RMED source (exact binding): `CA-R-1772@37`
   - Claim Scope:
     Project models.
   - Remaining Claim prose:
     CAPRMEDIO **must** use Project-scope Requirement authority plus its real Implementation as the minimum Project model, **must not** require an Implementation Atom, **and** **may** enable other Atom roles, applicability tiers, descendant scopes, **or** automation **only** **when** necessary. Scope Unit ancestry remains parent-declaration data; no Structural Level property is required.
-- Shared RMED source (exact binding): `CA-R-1776@38`
+- Shared RMED source (exact binding): `CA-R-1776@40`
   - Claim Scope:
     the Project's graph dimensions.
   - Remaining Claim prose:
@@ -3939,16 +4008,27 @@ Project ((NARROWER_THAN)) @Scope Unit
     Project-wide foundational invariants.
   - Remaining Claim prose:
     Every Project-wide foundational invariant must have exactly one active Project-owned Tier `0` Atom as its canonical authority owner. One such Atom may own several related invariants; this does not require one Atom per invariant or one Tier `0` Atom for the Project. Faithful specialization does not create independent duplicate authority.
-- Shared RMED source (exact binding): `CA-R-2448@3`
+- Shared RMED source (exact binding): `CA-R-2448@5`
   - Remaining Claim prose:
     the CAPRMEDIO Framework Instance **must** keep **all** valuable Project information recoverable across sessions, handoffs, context loss, **and** Implementation changes.
-- Shared RMED source (exact binding): `CA-R-632@27`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-2640@1`
+  - Fenced Claim block:
+```CFEL
+Project//caprmedio.Name == "caprmedio"
+```
+  - Unresolved CFEL: `Project//caprmedio.Name == "caprmedio"`
+  - Binding context:
+    - instance selector: `Project//caprmedio`
+    - instance kind: `Project`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2640', 'version': 1, 'path': '.caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md', 'sha256': 'bd2507933a0471d8fcfc1a1560cf7ecf1585603a1d16c253f8411cb904bbf27f'}`
+- Shared RMED source (exact binding): `CA-R-632@29`
   - Remaining Claim prose:
     **every** governed improvement cycle **in** caprmedio **must** declare **`=1`** primary target:
     
     - the CAPRMEDIO Framework Instance operating within caprmedio; **or**
     - the CAPRMEDIO Framework being developed as the caprmedio Project's output.
-- Shared RMED source (exact binding): `CA-R-819@36`
+- Shared RMED source (exact binding): `CA-R-819@38`
   - Remaining Claim prose:
     the CAPRMEDIO Framework Instance **must not** require **any** of the Operator's human participants **to** acquire specialist craft proficiency **or** personally perform specialist craft work **to** create, deliver, run, **or** maintain **any** feasible Project.
 - Shared RMED source (exact binding): `CA-R-850@30`
@@ -4017,7 +4097,7 @@ Projection ((NARROWER_THAN)) @Continuant
   - Binding context:
     - property: `Projection.Form`
     - condition: `Form:=Applicable Methodology`
-- Shared RMED source (property_qualification binding): `CA-D-333@34`
+- Shared RMED source (property_qualification binding): `CA-D-333@35`
   - Claim Scope:
     a retained Project Scope Unit Graph Projection for compatibility.
   - Remaining Claim prose:
@@ -4025,7 +4105,7 @@ Projection ((NARROWER_THAN)) @Continuant
   - Binding context:
     - property: `Projection.Form`
     - condition: `Form:=Scope Unit Graph`
-- Shared RMED source (property_qualification binding): `CA-D-346@34`
+- Shared RMED source (property_qualification binding): `CA-D-346@36`
   - Claim Scope:
     Canonical Signature Projections for selected source frontiers **and** their external reports.
   - Remaining Claim prose:
@@ -4041,15 +4121,7 @@ Projection ((NARROWER_THAN)) @Continuant
   - Binding context:
     - property: `Projection.Form`
     - condition: `Form:=Canonical Scope Signature`
-- Shared RMED source (known_instance_context binding): `CA-D-391@23`
-  - Claim Scope:
-    the `authority_mode` of a retained Project Scope Unit Graph Projection.
-  - Remaining Claim prose:
-    **if** a Project Scope Unit Graph Projection is retained for compatibility, its `authority_mode` **must** be a derived effective value: an explicit unit override from Project Structure, **otherwise** the applicable Framework Instance Settings selection. it **must not** select **or** own that mode, become a required input **to** a direct Project Structure consumer, **or** require creation of a separate structural Projection.
-  - Binding context:
-    - instance selector: `Projection//PROJECT_SCOPE_UNIT_GRAPH`
-    - existence provenance: `authoritative_project_structure`
-- Shared RMED source (known_instance_context binding): `CA-D-453@19`
+- Shared RMED source (known_instance_context binding): `CA-D-453@20`
   - Claim Scope:
     the historical versionless Project Scope Unit Graph Sources Projection.
   - Remaining Claim prose:
@@ -4058,8 +4130,8 @@ Projection ((NARROWER_THAN)) @Continuant
     This placement does not require generation, refresh, or consumer dependence. Carrier migration preserves the retained Projection bytes without conferring authority. Retirement after validated direct-consumer cutover follows CA-O-062.
   - Binding context:
     - instance selector: `Projection//PROJECT_SCOPE_UNIT_GRAPH`
-    - existence provenance: `authoritative_project_structure`
-- Shared RMED source (known_instance_context binding): `CA-D-454@19`
+    - existence provenance: `bounded_named_contract_context`
+- Shared RMED source (known_instance_context binding): `CA-D-454@20`
   - Claim Scope:
     the historical versionless Project Scope Unit Graph Projection.
   - Remaining Claim prose:
@@ -4068,7 +4140,7 @@ Projection ((NARROWER_THAN)) @Continuant
     this placement does **not** require generation, refresh, **or** consumer dependence. retirement **after** validated direct-consumer cutover follows CA-O-062.
   - Binding context:
     - instance selector: `Projection//PROJECT_SCOPE_UNIT_GRAPH`
-    - existence provenance: `authoritative_project_structure`
+    - existence provenance: `bounded_named_contract_context`
 - Shared RMED source (property_qualification binding): `CA-D-634@23`
   - Claim Scope:
     The Markdown Carriers for readable Entities Graph structural and named declaration views.
@@ -4173,7 +4245,7 @@ Projection ((NARROWER_THAN)) @Continuant
 Projection// >> Carrier/Markdown_file//
 ```
   - Unresolved CFEL: `Projection// >> Carrier/Markdown_file//`
-- Shared RMED source (exact binding): `CA-E-241@45`
+- Shared RMED source (exact binding): `CA-E-241@47`
   - Claim Scope:
     active and draft Atom Claims, their Summaries, and requested Translation and terminology Projections.
   - Remaining Claim prose:
@@ -4202,7 +4274,7 @@ Projection// >> Carrier/Markdown_file//
     navigation values derived from an Atom Claim.
   - Remaining Claim prose:
     **to** derive navigation values from an Atom Claim, the Generator **must** derive the concise human-readable Summary **when** creating the Atom **and** derive requested Translations directly from the Claim, **without** adding authoritative meaning. choose wording under CA-M-294-CORE_META_MODEL-METHOD--use-simpler-words-without-losing-meaning. for an existing Atom identity, retain **and** check the Summary under CA-R-1273-CORE_META_MODEL-CORE-REQUIREMENT--keep-summary-source-faithful **and** CA-R-1464-CORE_META_MODEL-REQUIREMENT--keep-summary-fixed-for-atom-identity rather than regenerating it as an independent Projection.
-- Shared RMED source (property_qualification binding): `CA-M-120@41`
+- Shared RMED source (property_qualification binding): `CA-M-120@43`
   - Claim Scope:
     direct-relation registry compilation.
   - Remaining Claim prose:
@@ -4312,12 +4384,12 @@ Projection// >> Carrier/Markdown_file//
     the Core Meta-Model **must** provide Artifact Change Log **and** Process Log as **`=2`** log Projection Types derived from the same Project Journal, under CA-R-1467@19-CORE_META_MODEL-DEFINITION--define-artifact-change-log-projection **and** CA-R-1468@20-CORE_META_MODEL-REQUIREMENT--define-process-log-projection. these Types organize recorded history **without** introducing independent Journals; additional Projection Types remain governed by the open Projection model.
     
     **every** represented historical fact **must** remain traceable **to** its canonical source event record **and** Event identity. the same source event **may** appear **in** both views **without** becoming two authoritative records. a read-only execution requires no fictitious Artifact change; membership **and** execution associations **must** come from recorded source evidence rather than invented events **or** inferred success. a view **must** remain rebuildable from its declared Journal selection, disclose known incomplete **or** stale source coverage **without** claiming complete current history, **and** obtain corrections through the owning source authority rather than independent log edits.
-- Shared RMED source (exact binding): `CA-R-1493@20`
+- Shared RMED source (exact binding): `CA-R-1493@21`
   - Claim Scope:
     Projection generators, generation procedures, and declared configurations.
   - Remaining Claim prose:
     a Projection's governed generator **or** generation procedure **and** declared configuration **must** identify how **to** rebuild that Projection.
-- Shared RMED source (exact binding): `CA-R-1494@20`
+- Shared RMED source (exact binding): `CA-R-1494@21`
   - Claim Scope:
     Projections.
   - Remaining Claim prose:
@@ -4359,7 +4431,7 @@ Projection// >> Carrier/Markdown_file//
     - depicting an existing Artifact **or** Scope Unit does **not** create another authoritative Artifact **or** Scope Unit.
     - a representation **may** identify a source Entity **or** a derived element admitted by the Projection specification; source identities **and** traceability remain governed by CA-R-2535.
     - this boundary introduces no separate Projection Element Term, lifecycle, **or** independently maintained authority.
-- Shared RMED source (property_qualification binding): `CA-R-1612@24`
+- Shared RMED source (property_qualification binding): `CA-R-1612@26`
   - Claim Scope:
     Evaluations using a Realization Graph before runtime, for their declared input boundary.
   - Remaining Claim prose:
@@ -4373,7 +4445,7 @@ Projection// >> Carrier/Markdown_file//
   - Binding context:
     - property: `Projection.Form`
     - condition: `Form:=Realization Graph`
-- Shared RMED source (property_qualification binding): `CA-R-1616@23`
+- Shared RMED source (property_qualification binding): `CA-R-1616@25`
   - Claim Scope:
     Realization Graphs derived from a declared selection of existing Implementation sources and available evidence.
   - Remaining Claim prose:
@@ -4409,7 +4481,7 @@ Projection// >> Carrier/Markdown_file//
   - Binding context:
     - property: `Projection.Form`
     - condition: `Form:=Realization Graph`
-- Shared RMED source (property_qualification binding): `CA-R-1647@32`
+- Shared RMED source (property_qualification binding): `CA-R-1647@33`
   - Claim Scope:
     proof-currentness Catalogs generated from governed proof dependency frontiers and their additional invalidation conditions.
   - Remaining Claim prose:
@@ -4424,7 +4496,7 @@ Projection// >> Carrier/Markdown_file//
     **every** Projection Rebuild **must** have **`=1`** Work Journal Action whose terminal Event records the rebuild outcome.
   - Details (source-bound):
     acceptance of that Event into the Journal does **not**, by itself, make the Projection current. currentness remains subject **to** the Projection's applicable source **and** validation requirements; the accepted Event preserves the observed outcome **without** replacing those requirements.
-- Shared RMED source (exact binding): `CA-R-1706@30`
+- Shared RMED source (exact binding): `CA-R-1706@31`
   - Claim Scope:
     lineage-impact Projections for changed, replaced, or archived Atom revisions.
   - Remaining Claim prose:
@@ -4433,12 +4505,12 @@ Projection// >> Carrier/Markdown_file//
     for **every** affected descendant, the Projection identifies the exact earlier revision **in** its lineage, the upstream event that triggered review, **and** the current disposition: review required, update the existing Atom, create a new Atom, archive the Atom, **or** confirmed compatible **without** change. unresolved descendants remain visible **until** disposition is recorded through governed history.
     
     the Projection **may** group **and** prioritize work, but it **must not** change an Atom, break a historical link, **or** establish compatibility merely by listing it.
-- Shared RMED source (exact binding): `CA-R-1728@27`
+- Shared RMED source (exact binding): `CA-R-1728@28`
   - Claim Scope:
     Projection rebuild attempts.
   - Remaining Claim prose:
     **every** Projection rebuild attempt **must** produce append-only Journal provenance from its start through **`=1`** terminal outcome, binding the target Projection, exact source Atom revisions **and** Journal records, generator, configuration, **and** produced revision **when** successful. Programmatic generation **and** LLM generation are provenance facts **only**; the two generation forms grant the Projection no authority.
-- Shared RMED source (property_qualification binding): `CA-R-1740@40`
+- Shared RMED source (property_qualification binding): `CA-R-1740@41`
   - Claim Scope:
     Project Scope Unit Graph Projection values.
   - Remaining Claim prose:
@@ -4446,7 +4518,7 @@ Projection// >> Carrier/Markdown_file//
   - Binding context:
     - property: `Projection.Form`
     - condition: `Form:=Scope Unit Graph`
-- Shared RMED source (exact binding): `CA-R-1749@26`
+- Shared RMED source (exact binding): `CA-R-1749@27`
   - Claim Scope:
     Derived views of declared source scopes.
   - Remaining Claim prose:
@@ -4466,7 +4538,7 @@ Projection// >> Carrier/Markdown_file//
   - Binding context:
     - property: `Projection.Form`
     - condition: `Form:=Canonical Signature`
-- Shared RMED source (property_qualification binding): `CA-R-626@42`
+- Shared RMED source (property_qualification binding): `CA-R-626@43`
   - Claim Scope:
     Project Scope Unit Graph Projections.
   - Remaining Claim prose:
@@ -4499,41 +4571,134 @@ Scope Unit ((NARROWER_THAN)) @Continuant
 THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
   - Semantics:
     A Scope Unit defines a boundary of responsibility for Atoms.
-- Shared RMED source (exact binding): `CA-D-445@22`
-  - Claim Scope:
-    explicit Scope Unit authority and Implementation Folder bindings in Project Structure.
+- Shared RMED source (exact binding): `CA-D-442@26`
   - Remaining Claim prose:
-    an explicit Scope Unit authority **or** Implementation Folder binding **in** Project Structure **may** select a native directory layout instead of the default Scope Unit directory convention. the binding **must** remain unambiguous, inside authorized path boundaries, distinct from another unit's exact authority binding, **and** explicit about its owning unit. a selected native layout **must not** change declared parentage, derived ancestry/path, Type, Local Order, **or** Name merely because its path has different nesting **or** numeric tokens. ordinary physical containment remains observable **without** becoming a second declaration of structural parentage.
+    Carry a Scope Unit Declaration as a Markdown Atom. Its frontmatter carries Role = Requirement, Form = Scope Unit Declaration and the specific Scope Unit as `subjects.active`. Its Claim carries the declared structural facts in CFEL.
+    
+    The shared Scope Unit model supplies field formats and cardinalities. Project inherits its unordered state and absence of order.number and Scope Unit ID from the Project model. Folder names are derived by the shared Delivery Policy; they are not authored in a Declaration.
+- Shared RMED source (exact binding): `CA-D-666@1`
+  - Remaining Claim prose:
+    Carry a Scope Unit Declaration in a Markdown Atom file. The file is its Carrier; the Declaration is the governing source.
+    
+    Frontmatter carries its Role, Form and active Subject. Claim carries its operative prose, CFEL expressions, or both. `project_structure.toml` is not a governing source.
+- Shared RMED source (exact binding): `CA-D-670@1`
+  - Remaining Claim prose:
+    A Scope Unit Declaration source binding identifies the exact current Declaration bytes by SHA-256 digest. Readers determine current structure from those bytes. Journal events record history and do not determine whether the current Declaration is readable.
+- Shared RMED source (exact binding): `CA-D-671@1`
+  - Remaining Claim prose:
+    Each materialized Scope Unit has one or more Directory Carriers. A Scope Unit Declaration remains valid when its Scope Unit is not materialized.
 - Shared RMED source (exact binding): `CA-E-249@36`
   - Claim Scope:
     methodology expansion mappings.
   - Remaining Claim prose:
     a methodology expansion mapping Evaluation **must** return `fail` **if** a source element, exact canonical target, mapping rule, intended Scope, **or** applicable Core Meta-Model distinction at **any** numeric Tier is missing, canonical ownership is ambiguous, preservation is unproven, **or** the mapping redefines, replaces, shadows, weakens, deletes, contradicts, **or** reinterprets applicable Core Meta-Model authority at **any** numeric Tier; it **must** return `pass` **only** **when** the declared mapping preserves that authority **and** stays within its permitted expansion boundary. an Operator-approved loss **must not** count as conformance; report the failed boundary **and** leave the affected application stopped.
-- Shared RMED source (exact binding): `CA-R-014@18`
+- Shared RMED source (exact binding): `CA-E-445@28`
+  - Remaining Claim prose:
+    the Methodology Scope Units belong **to** the caprmedio Project Scope Unit tree **and** remain governed by its active Project-owned Tier 0 Atoms.
+- Shared RMED source (exact binding): `CA-E-471@28`
+  - Claim Scope:
+    structural changes **and** no-change repeats, including create, rename, reparent, reorder, rebind, reconciliation, **and** declaration removal.
+  - Remaining Claim prose:
+    the Evaluation **must** fail a structural change **if** it:
+    
+    - starts from stale declarations;
+    - exceeds authorization;
+    - bypasses the effective confidence gate;
+    - loses a Goal **or** reference;
+    - violates post-change consistency;
+    - changes another Project;
+    - silently overwrites concurrent changes; **or**
+    - reports completion **after** partial failure.
+    
+    test the following groups:
+    
+    - create, rename, reparent, reorder, rebind, reconciliation **and** declaration removal against their exact before/after states;
+    - rejection, invalid proposal, stale-state failure, injected apply failure **and** authorized recovery.
+    
+    the following conditions also apply:
+    
+    - a no-change repeat **must** preserve authority bytes **and** have no additional structural effects.
+    - declaration removal **must not** delete a folder **unless** that exact deletion is authorized.
+    - a missing structural Projection **must not** prevent an **otherwise** valid change.
+- Shared RMED source (exact binding): `CA-E-656@21`
+  - Remaining Claim prose:
+    **every** canonical decomposition satisfies CA-M-447 **and** CA-R-642.
+- Shared RMED source (exact binding): `CA-E-670@1`
+  - Remaining Claim prose:
+    Identify Scope Unit Declaration Atoms by Role Requirement, Form Scope Unit Declaration and active Subject (`subjects.active`) naming the specific Scope Unit. Count exactly one matching Declaration for each Scope Unit; do not count other Requirements about that Scope Unit as Declarations.
+    
+    Check the selected sources for one external Declaration per Scope Unit, its declared ID where applicable, Name, ordered state, optional Label, conditional order.number and direct containment. Check that Project is unordered and has neither Scope Unit ID nor order.number. Check that its Declaration is outside Project with external Operator ownership.
+    
+    Check that folder names are derived by the shared naming Policy rather than copied into a Declaration. Ordered names include order.number; unordered names omit the order segment and separator.
+    
+    Reject the selected Declaration set when:
+    
+    - a Scope Unit ID or Name is duplicated or invalid;
+    - a direct parent is missing, unresolved, self-referential or in another Project;
+    - parentage has a cycle;
+    - a retained ancestry or path disagrees with the declared parent chain;
+    - ordering fields or Labels are invalid, ordered siblings share a number, or an Unordered unit has a number;
+    - derived paths collide, escape the Project boundary or leave lookup ambiguous;
+    - unsupported fields or expressions are used as structural declarations.
+    
+    Label does not determine ordered state. Check a valid example and a falsifying example for each applicable condition.
+- Shared RMED source (exact binding): `CA-E-671@1`
+  - Remaining Claim prose:
+    Settings resolve inside their own Project without cross-Project fallback. Project Settings remain authoritative initialization inputs and Framework Instance Settings remain authoritative instance choices. A declared Scope Unit remains visible when its Carrier or active Goal is missing. An undeclared folder remains an observation. Scope Unit Declarations do not change Settings, and Settings do not replace a Declaration. No Projection edit changes Settings, Scope Unit Declarations, or source Atoms.
+    
+    Every Framework Instance's Methodology Sources and Applicable Methodology output resolve beneath its own Project's `000_CAPRMEDIO_framework/` directory. Rebuilding one Project's Applicable Methodology does not read, replace, or modify another Project's sources, Settings, or compiled results. A missing selected Project instance is reported rather than resolved through another Project or the former repository-shared framework root. Nesting the framework directory does not change source Atom identity or make a Projection a second authoritative Atom.
+  - Details (source-bound):
+    ### Test case
+    
+    Create two Projects in one repository, each with Project Settings and a `000_CAPRMEDIO_framework` directory. Resolve both Settings before creating Project Atoms or Implementation. Give the instances distinct Methodology Sources and Applicable Methodology results. Declare a Scope Unit with no active Goal and no directory; separately add an undeclared candidate directory. Include Draft and archived Goals as non-active evidence.
+- Shared RMED source (exact binding): `CA-E-672@1`
+  - Remaining Claim prose:
+    An Evaluation fails when a consumer treats an observed folder or Goal as a Scope Unit Declaration, conceals a declared Scope Unit because its Carrier or Goal is absent, or repairs contradictory sources without authorization. A missing Carrier or Goal does not erase a Declaration or authorize a mutation.
+- Shared RMED source (exact binding): `CA-M-447@5`
+  - Remaining Claim prose:
+    **to** construct a canonical decomposition that claims **to** cover a declared universe at one abstraction level, use parts drawn **only** from that universe that together cover the full declared universe **and** have no overlap between **any** two distinct parts at that level.
+- Shared RMED source (exact binding): `CA-M-461@1`
+  - Remaining Claim prose:
+    - Keep the Operator’s wording as close as possible. Correct grammar and organize it into coherent statements with the simplest syntax possible. Preserve clear terms and key concepts; do not replace them with polished synonyms.
+    - Write one external Scope Unit Declaration for each declared Scope Unit. Use Role Requirement and Form Scope Unit Declaration. Set its active Subject (`subjects.active`) to that specific Scope Unit; do not add another binding field or an additional per-unit Definition Atom.
+    - Keep one or more Goals separate from the Declaration and outside the declared Scope Unit; link them without duplicating their content.
+    - A Scope Constraint is external to the governed Scope Unit and may be part of its Declaration.
+    - Keep Scope Contract Atoms inside the governed Scope Unit at tier 0. Use applicable RMEDO roles; do not impose a minimum count, exactly one Contract, or every role. A Scope Unit may have no local Contract Atoms.
+  - Details (source-bound):
+    A Declaration states the Scope Unit ID where applicable, Name, ordered state, optional Label, conditional order.number and direct containment. Do not add Navigation Number to Scope Unit Declarations. Keep the Project Declaration outside the Project, like the Project Goal, with external Operator ownership.
+    
+    Authority and Delivery Folder names are derived. Only non-root Authority Folder names include the Scope Unit ID prefix. The Project Authority Folder is `.caprmedio_<project name>`, without an ID. Do not author derived paths in individual Scope Unit Declarations.
+    
+    Use the declared direct parent, not physical nesting, to establish logical parentage. Do not author Structural Level or Structural Coordinate. Keep Label independent of ordered state. Distinguish a declared Scope Unit, its materialized Carriers and its Goal coverage.
+- Shared RMED source (exact binding): `CA-R-014@19`
   - Remaining Claim prose:
     CAPRMEDIO **must** support repository-level work **and** repository-relative Scope Units, including Scope Units using the `WORK_AREA` Label, containing code, services, libraries, documentation, methodology, data, **or** mixed content **without** requiring a particular architecture **or** deployability model.
 - Shared RMED source (exact binding): `CA-R-033@17`
   - Remaining Claim prose:
     a conflict between active Core Requirements on one ancestor–descendant path **must** preserve the ancestor-scope Core **and** reconcile the descendant-scope Core **without** changing the ancestor meaning.
-- Shared RMED source (exact binding): `CA-R-040@16`
+- Shared RMED source (exact binding): `CA-R-040@17`
   - Remaining Claim prose:
     **every** dependency between Project Layers **must** point from the Project root **or** an earlier Layer **to** a later Layer **in** the cumulative order.
-- Shared RMED source (known_instance_context binding): `CA-R-1176@26`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-1176@26`
   - Claim Scope:
     PROJECT_CONFIGURATION.
   - Remaining Claim prose:
     PROJECT_CONFIGURATION **must** state Project-owned Customizations **and** composition decisions that select CORE_META_MODEL **and** PROJECT_CONFIGURATION for Applicable Methodology compilation.
   - Binding context:
     - instance selector: `Scope Unit//PROJECT_CONFIGURATION`
-    - existence provenance: `authoritative_project_structure`
-- Shared RMED source (known_instance_context binding): `CA-R-1207@31`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2652', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md', 'sha256': 'b0857c3fcae819a52eedb9c41764a20c5664a37a964f5dfb166e3495e41f324e'}`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-1207@31`
   - Claim Scope:
     Ownership of Project-specific expansion rules, constraints, defaults, current Extension activation, and selected Extension revisions.
   - Remaining Claim prose:
     the Project Configuration **must** own Project-specific expansion rules, constraints, **and** defaults **only** **where** the Core Meta-Model permits expansion; current Extension activation **and** selected Extension revisions **must** remain owned by the Framework Instance Settings Artifact, **not** duplicated **in** Project Configuration Atoms.
   - Binding context:
     - instance selector: `Scope Unit//PROJECT_CONFIGURATION`
-    - existence provenance: `authoritative_project_structure`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2652', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md', 'sha256': 'b0857c3fcae819a52eedb9c41764a20c5664a37a964f5dfb166e3495e41f324e'}`
 - Shared RMED source (exact binding): `CA-R-1217@25`
   - Claim Scope:
     Extensions within the Core Meta-Model's permitted expansion boundary.
@@ -4549,14 +4714,16 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
     Installed Extensions Catalog Entries and immutable Extension Candidates.
   - Remaining Claim prose:
     **every** Installed Extensions Catalog Entry **must** identify **`=1`** immutable Extension Candidate by stable Identity, Version, Author, Source, Source Version, Origin, **and** Content Digest.
-- Shared RMED source (known_instance_context binding): `CA-R-1222@25`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-1222@25`
   - Claim Scope:
     CAPRMEDIO Project methodology customizations before the Operator accepts an Extension package.
   - Remaining Claim prose:
     the CAPRMEDIO Project's methodology customizations **must** remain **in** PROJECT_CONFIGURATION **until** the Operator accepts a separately identified Extension package containing those customizations.
   - Binding context:
     - instance selector: `Scope Unit//PROJECT_CONFIGURATION`
-    - existence provenance: `authoritative_project_structure`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2652', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md', 'sha256': 'b0857c3fcae819a52eedb9c41764a20c5664a37a964f5dfb166e3495e41f324e'}`
 - Shared RMED source (exact binding): `CA-R-1264@26`
   - Claim Scope:
     the position of Scope Unit outside the Atom taxonomy.
@@ -4574,30 +4741,27 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
     an Extension **or** Project Configuration **must** add Claims, Terms, allowed values, Types, Methods, Evaluations, Deliveries, Operations, activation rules, compatibility rules, **or** priority rules **only** **where** one active CORE_META_MODEL Atom permits the addition **and** **must not** redefine, replace, shadow, weaken, delete, contradict, reinterpret, **or** mutate Core Meta-Model authority at **any** numeric Tier; an Atom's numeric Tier alone grants no exception **to** this source authority boundary.
   - Details (source-bound):
     current Extension activation **and** selected Extension Revisions remain owned by Framework Instance Settings under CA-R-1207. permission **to** add a rule does **not** duplicate **or** transfer ownership of its current selection.
-- Shared RMED source (exact binding): `CA-R-1484@22`
-  - Claim Scope:
-    non-Project Scope Unit declarations in their owning Project Structure.
-  - Remaining Claim prose:
-    **every** non-Project Scope Unit **must** have **`=1`** declaration **in** its owning Project Structure that supplies its unique Name, direct parent, Type, Label, applicable Local Order, navigation number, **and** authority/Implementation Folder bindings. the declaration establishes the unit independently of Goal coverage **and** Carrier materialization; these remain separately evaluated conditions. Project Settings establishes the root identity, **and** Project Structure **must not** redeclare it as a child. Name/Order Atoms **and** concrete binding Atoms **must not** coexist as independent authorities for the same declared values.
 - Shared RMED source (exact binding): `CA-R-1656@28`
   - Claim Scope:
     Scope Units other than a Scope Unit root.
   - Remaining Claim prose:
     **every** Scope Unit except a Scope Unit root **must** have **`=1`** direct parent Scope Unit.
-- Shared RMED source (exact binding): `CA-R-1677@33`
+- Shared RMED source (exact binding): `CA-R-1677@35`
   - Claim Scope:
     derived Ordered Scope Unit locations and their components.
   - Remaining Claim prose:
     the validator **must** validate **every** derived Ordered Scope Unit location **and** **every** of its components against the active authority defining the Scope Unit Path and Local Order. It **must not** treat a Structural Coordinate or persisted Structural Level field as an independent authority.
-- Shared RMED source (known_instance_context binding): `CA-R-1681@33`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-1681@33`
   - Claim Scope:
     reusable model rules in CORE_META_MODEL.
   - Remaining Claim prose:
     a reusable model rule belongs **in** CORE_META_MODEL **only** **when** it establishes reusable methodology authority **and** remains independent of implementation choices outside the Entity explicitly governed by its Claim. a Carrier format, mechanism, portability boundary, **or** external constraint **may** be named **when** that Entity itself is governed, but **must not** become a hidden prerequisite of unrelated Claims. project-specific implementation choices **must not** be imported as reusable methodology authority.
   - Binding context:
     - instance selector: `Scope Unit//CORE_META_MODEL`
-    - existence provenance: `authoritative_project_structure`
-- Shared RMED source (known_instance_context binding): `CA-R-1696@36`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2650', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md', 'sha256': '091b1e1c0db5afe3043be3b5dd7efdb509c0a88fc5bef140fe7cb821546ab179'}`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-1696@37`
   - Claim Scope:
     CORE_META_MODEL authority and its reusable model invariants and expansion boundaries.
   - Remaining Claim prose:
@@ -4608,7 +4772,9 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
     CORE_META_MODEL **may** name a mechanism **only** **when** the mechanism itself is the explicit Entity governed by the Claim, such as a Carrier format, portability boundary, **or** external constraint; this reference **must not** make that mechanism a hidden prerequisite of unrelated model Claims.
   - Binding context:
     - instance selector: `Scope Unit//CORE_META_MODEL`
-    - existence provenance: `authoritative_project_structure`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2650', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md', 'sha256': '091b1e1c0db5afe3043be3b5dd7efdb509c0a88fc5bef140fe7cb821546ab179'}`
 - Shared RMED source (exact binding): `CA-R-1721@32`
   - Claim Scope:
     structural scope sets and their governing owners.
@@ -4621,26 +4787,28 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
     an Extension **must** provide a reusable, independently governed, optional package of capability contributions. its authority **and** evolution remain distinct from Core Meta-Model **and** Project Configuration authority.
   - Details (source-bound):
     this packaging requirement does **not** establish another Entity classification: the Extension definition **and** its permitted expansion boundary remain governed by CA-R-1217.
-- Shared RMED source (exact binding): `CA-R-1723@26`
+- Shared RMED source (exact binding): `CA-R-1723@27`
   - Claim Scope:
     Extensions **and** their identity, version, extension-point, compatibility, **and** canonical capability declarations.
   - Remaining Claim prose:
     **every** Extension declares stable identity, version boundary, explicit extension points, compatibility obligations, **and** the canonical capabilities it adds **or** specializes **without** copying **or** redefining canonical authority.
-- Shared RMED source (exact binding): `CA-R-1730@39`
+- Shared RMED source (exact binding): `CA-R-1730@40`
   - Claim Scope:
     Scope Unit ancestry **and** Scope Unit Labels.
   - Remaining Claim prose:
     Scope Unit ancestry **must** follow declared Scope Unit parentage. CAPRMEDIO **must not** author or persist a Structural Level property; an optional derived depth or path rendering **must not** independently override that parentage under CA-R-1485.
     
     the Operator **may** choose **any** suitable Scope Unit Label, including `Layer`, `Feature`, `group`, `supergroup`, **or** `sub-feature`, **without** changing the unit's ancestry, authority, precedence, **or** Relation semantics. Labels **and** readability fields do **not** replace the active authority for those distinctions.
-- Shared RMED source (known_instance_context binding): `CA-R-1744@28`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-1744@28`
   - Claim Scope:
     an Operator-mandated Project-specific substrate.
   - Remaining Claim prose:
     an Operator-mandated Project-specific substrate **must** be governed by Project authority **or** PROJECT_CONFIGURATION **without** becoming an implicit prerequisite of the reusable CORE_META_MODEL.
   - Binding context:
     - instance selector: `Scope Unit//CORE_META_MODEL`
-    - existence provenance: `authoritative_project_structure`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2650', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md', 'sha256': '091b1e1c0db5afe3043be3b5dd7efdb509c0a88fc5bef140fe7cb821546ab179'}`
 - Shared RMED source (exact binding): `CA-R-1748@37`
   - Claim Scope:
     Applicable inherited authority in descendant Scope Units and specializations within their permitted boundaries.
@@ -4650,49 +4818,302 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
     - the specialization **must not** change the parent meaning outside its declared descendant scope.
     - ancestor Core authority remains protected under CA-R-033; a child declaration **or** an override label does **not** grant permission **to** weaken it.
     - Extension **and** Project Configuration additions **must** also preserve Core Meta-Model authority at **every** numeric Tier under CA-R-1375-CORE_META_MODEL--restrict-methodology-source-expansion-to-core-permission. changing the descendant's numeric Tier **or** retaining unchanged Core Carrier bytes does **not** bypass that boundary. No Content-Role or Type-to-Tier restriction is introduced.
-- Shared RMED source (exact binding): `CA-R-1754@31`
+- Shared RMED source (exact binding): `CA-R-1754@32`
   - Claim Scope:
     Project Adaptation authority promoted into an Extension.
   - Remaining Claim prose:
     an operator **may** promote a coherent reusable subset of Project Adaptation authority into a separately identified Extension while preserving exact source provenance **and** leaving the source Project Adaptation unchanged **until** explicit reconciliation.
-- Shared RMED source (exact binding): `CA-R-1762@35`
-  - Claim Scope:
-    Scope Units.
-  - Remaining Claim prose:
-    **every** Scope Unit **must** characterize its Project Boundary Position, Type value, **and** Child Composition independently. the Type value is required under CA-R-1758, including the Project's Unordered value under CA-R-1759.
-- Shared RMED source (exact binding): `CA-R-2444@3`
+- Shared RMED source (exact binding): `CA-R-2444@5`
   - Remaining Claim prose:
     FIELD **must** collect inputs from other CAPRMEDIO users, including feedback, questions, suggestions, **and** problem reports.
-- Shared RMED source (exact binding): `CA-R-2450@3`
+- Shared RMED source (exact binding): `CA-R-2450@4`
   - Remaining Claim prose:
     the ordered Project Layers are FRAMEWORK_METHODOLOGY at Local Order `1`, FRAMEWORK_ENGINE at `2`, OPERATOR_DOCUMENTATION at `3`, CORE_EXTENSIONS at `4`, **and** RELEASES at `5`.
-- Shared RMED source (exact binding): `CA-R-686@30`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-2648@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit//FRAMEWORK_METHODOLOGY.ID == "CA-SU-9";
+Scope Unit//FRAMEWORK_METHODOLOGY.Name == "FRAMEWORK_METHODOLOGY";
+Scope Unit//FRAMEWORK_METHODOLOGY.Label == "LAYER";
+Scope Unit//FRAMEWORK_METHODOLOGY.order.ordered == true;
+Scope Unit//FRAMEWORK_METHODOLOGY.order.number == 1;
+Scope Unit//FRAMEWORK_METHODOLOGY ((IS_CONTAINED_BY)) Project//caprmedio
+```
+  - Allowed Relations and other formal clauses:
+    - `Scope Unit//FRAMEWORK_METHODOLOGY` — IS_CONTAINED_BY → `Project//caprmedio`; Host=undefined; Target=undefined; written direction=forward
+  - Unresolved CFEL: `Scope Unit//FRAMEWORK_METHODOLOGY.ID == "CA-SU-9"`
+  - Unresolved CFEL: `Scope Unit//FRAMEWORK_METHODOLOGY.Name == "FRAMEWORK_METHODOLOGY"`
+  - Unresolved CFEL: `Scope Unit//FRAMEWORK_METHODOLOGY.Label == "LAYER"`
+  - Unresolved CFEL: `Scope Unit//FRAMEWORK_METHODOLOGY.order.ordered == true`
+  - Unresolved CFEL: `Scope Unit//FRAMEWORK_METHODOLOGY.order.number == 1`
+  - Binding context:
+    - instance selector: `Scope Unit//FRAMEWORK_METHODOLOGY`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2648', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md', 'sha256': '4f672882e06202e879ba76936b46bcf8dfb645b5fd152ce784e09c1f01b3a017'}`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-2649@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit//METHODOLOGY_SOURCES.ID == "CA-SU-10";
+Scope Unit//METHODOLOGY_SOURCES.Name == "METHODOLOGY_SOURCES";
+Scope Unit//METHODOLOGY_SOURCES.Label == "SUPERLAYER";
+Scope Unit//METHODOLOGY_SOURCES.order.ordered == true;
+Scope Unit//METHODOLOGY_SOURCES.order.number == 1;
+Scope Unit//METHODOLOGY_SOURCES ((IS_CONTAINED_BY)) Scope Unit//FRAMEWORK_METHODOLOGY
+```
+  - Allowed Relations and other formal clauses:
+    - `Scope Unit//METHODOLOGY_SOURCES` — IS_CONTAINED_BY → `Scope Unit//FRAMEWORK_METHODOLOGY`; Host=undefined; Target=undefined; written direction=forward
+  - Unresolved CFEL: `Scope Unit//METHODOLOGY_SOURCES.ID == "CA-SU-10"`
+  - Unresolved CFEL: `Scope Unit//METHODOLOGY_SOURCES.Name == "METHODOLOGY_SOURCES"`
+  - Unresolved CFEL: `Scope Unit//METHODOLOGY_SOURCES.Label == "SUPERLAYER"`
+  - Unresolved CFEL: `Scope Unit//METHODOLOGY_SOURCES.order.ordered == true`
+  - Unresolved CFEL: `Scope Unit//METHODOLOGY_SOURCES.order.number == 1`
+  - Binding context:
+    - instance selector: `Scope Unit//METHODOLOGY_SOURCES`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2649', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement/CA-R-2649-FRAMEWORK_METHODOLOGY-DEFINES_SCOPE_FOR-METHODOLOGY_SOURCES--declare-methodology-sources.md', 'sha256': '72422c76d604b7ccb0267ffc6999c23a5f469160e8a4f194b0773eac7ac9fca2'}`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-2650@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit//CORE_META_MODEL.ID == "CA-SU-11";
+Scope Unit//CORE_META_MODEL.Name == "CORE_META_MODEL";
+Scope Unit//CORE_META_MODEL.Label == "LAYER";
+Scope Unit//CORE_META_MODEL.order.ordered == true;
+Scope Unit//CORE_META_MODEL.order.number == 1;
+Scope Unit//CORE_META_MODEL ((IS_CONTAINED_BY)) Scope Unit//METHODOLOGY_SOURCES
+```
+  - Allowed Relations and other formal clauses:
+    - `Scope Unit//CORE_META_MODEL` — IS_CONTAINED_BY → `Scope Unit//METHODOLOGY_SOURCES`; Host=undefined; Target=undefined; written direction=forward
+  - Unresolved CFEL: `Scope Unit//CORE_META_MODEL.ID == "CA-SU-11"`
+  - Unresolved CFEL: `Scope Unit//CORE_META_MODEL.Name == "CORE_META_MODEL"`
+  - Unresolved CFEL: `Scope Unit//CORE_META_MODEL.Label == "LAYER"`
+  - Unresolved CFEL: `Scope Unit//CORE_META_MODEL.order.ordered == true`
+  - Unresolved CFEL: `Scope Unit//CORE_META_MODEL.order.number == 1`
+  - Binding context:
+    - instance selector: `Scope Unit//CORE_META_MODEL`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2650', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md', 'sha256': '091b1e1c0db5afe3043be3b5dd7efdb509c0a88fc5bef140fe7cb821546ab179'}`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-2651@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit//INSTALLED_EXTENSIONS.ID == "CA-SU-12";
+Scope Unit//INSTALLED_EXTENSIONS.Name == "INSTALLED_EXTENSIONS";
+Scope Unit//INSTALLED_EXTENSIONS.Label == "LAYER";
+Scope Unit//INSTALLED_EXTENSIONS.order.ordered == true;
+Scope Unit//INSTALLED_EXTENSIONS.order.number == 2;
+Scope Unit//INSTALLED_EXTENSIONS ((IS_CONTAINED_BY)) Scope Unit//METHODOLOGY_SOURCES
+```
+  - Allowed Relations and other formal clauses:
+    - `Scope Unit//INSTALLED_EXTENSIONS` — IS_CONTAINED_BY → `Scope Unit//METHODOLOGY_SOURCES`; Host=undefined; Target=undefined; written direction=forward
+  - Unresolved CFEL: `Scope Unit//INSTALLED_EXTENSIONS.ID == "CA-SU-12"`
+  - Unresolved CFEL: `Scope Unit//INSTALLED_EXTENSIONS.Name == "INSTALLED_EXTENSIONS"`
+  - Unresolved CFEL: `Scope Unit//INSTALLED_EXTENSIONS.Label == "LAYER"`
+  - Unresolved CFEL: `Scope Unit//INSTALLED_EXTENSIONS.order.ordered == true`
+  - Unresolved CFEL: `Scope Unit//INSTALLED_EXTENSIONS.order.number == 2`
+  - Binding context:
+    - instance selector: `Scope Unit//INSTALLED_EXTENSIONS`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2651', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md', 'sha256': 'e0a2f4692b8b007371366d452b7bded37717f1c0e1dc28fdc0dc41a258d066cc'}`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-2652@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit//PROJECT_CONFIGURATION.ID == "CA-SU-13";
+Scope Unit//PROJECT_CONFIGURATION.Name == "PROJECT_CONFIGURATION";
+Scope Unit//PROJECT_CONFIGURATION.Label == "LAYER";
+Scope Unit//PROJECT_CONFIGURATION.order.ordered == true;
+Scope Unit//PROJECT_CONFIGURATION.order.number == 3;
+Scope Unit//PROJECT_CONFIGURATION ((IS_CONTAINED_BY)) Scope Unit//METHODOLOGY_SOURCES
+```
+  - Allowed Relations and other formal clauses:
+    - `Scope Unit//PROJECT_CONFIGURATION` — IS_CONTAINED_BY → `Scope Unit//METHODOLOGY_SOURCES`; Host=undefined; Target=undefined; written direction=forward
+  - Unresolved CFEL: `Scope Unit//PROJECT_CONFIGURATION.ID == "CA-SU-13"`
+  - Unresolved CFEL: `Scope Unit//PROJECT_CONFIGURATION.Name == "PROJECT_CONFIGURATION"`
+  - Unresolved CFEL: `Scope Unit//PROJECT_CONFIGURATION.Label == "LAYER"`
+  - Unresolved CFEL: `Scope Unit//PROJECT_CONFIGURATION.order.ordered == true`
+  - Unresolved CFEL: `Scope Unit//PROJECT_CONFIGURATION.order.number == 3`
+  - Binding context:
+    - instance selector: `Scope Unit//PROJECT_CONFIGURATION`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2652', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md', 'sha256': 'b0857c3fcae819a52eedb9c41764a20c5664a37a964f5dfb166e3495e41f324e'}`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-2653@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit//FRAMEWORK_ENGINE.ID == "CA-SU-14";
+Scope Unit//FRAMEWORK_ENGINE.Name == "FRAMEWORK_ENGINE";
+Scope Unit//FRAMEWORK_ENGINE.Label == "LAYER";
+Scope Unit//FRAMEWORK_ENGINE.order.ordered == true;
+Scope Unit//FRAMEWORK_ENGINE.order.number == 2;
+Scope Unit//FRAMEWORK_ENGINE ((IS_CONTAINED_BY)) Project//caprmedio
+```
+  - Allowed Relations and other formal clauses:
+    - `Scope Unit//FRAMEWORK_ENGINE` — IS_CONTAINED_BY → `Project//caprmedio`; Host=undefined; Target=undefined; written direction=forward
+  - Unresolved CFEL: `Scope Unit//FRAMEWORK_ENGINE.ID == "CA-SU-14"`
+  - Unresolved CFEL: `Scope Unit//FRAMEWORK_ENGINE.Name == "FRAMEWORK_ENGINE"`
+  - Unresolved CFEL: `Scope Unit//FRAMEWORK_ENGINE.Label == "LAYER"`
+  - Unresolved CFEL: `Scope Unit//FRAMEWORK_ENGINE.order.ordered == true`
+  - Unresolved CFEL: `Scope Unit//FRAMEWORK_ENGINE.order.number == 2`
+  - Binding context:
+    - instance selector: `Scope Unit//FRAMEWORK_ENGINE`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2653', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md', 'sha256': '9ec07201c669195718d3346f0f6d5a747a9a4e3a9ef86cc8a3687fa9d8587be0'}`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-2664@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit//OPERATOR_DOCUMENTATION.ID == "CA-SU-25";
+Scope Unit//OPERATOR_DOCUMENTATION.Name == "OPERATOR_DOCUMENTATION";
+Scope Unit//OPERATOR_DOCUMENTATION.Label == "LAYER";
+Scope Unit//OPERATOR_DOCUMENTATION.order.ordered == true;
+Scope Unit//OPERATOR_DOCUMENTATION.order.number == 3;
+Scope Unit//OPERATOR_DOCUMENTATION ((IS_CONTAINED_BY)) Project//caprmedio
+```
+  - Allowed Relations and other formal clauses:
+    - `Scope Unit//OPERATOR_DOCUMENTATION` — IS_CONTAINED_BY → `Project//caprmedio`; Host=undefined; Target=undefined; written direction=forward
+  - Unresolved CFEL: `Scope Unit//OPERATOR_DOCUMENTATION.ID == "CA-SU-25"`
+  - Unresolved CFEL: `Scope Unit//OPERATOR_DOCUMENTATION.Name == "OPERATOR_DOCUMENTATION"`
+  - Unresolved CFEL: `Scope Unit//OPERATOR_DOCUMENTATION.Label == "LAYER"`
+  - Unresolved CFEL: `Scope Unit//OPERATOR_DOCUMENTATION.order.ordered == true`
+  - Unresolved CFEL: `Scope Unit//OPERATOR_DOCUMENTATION.order.number == 3`
+  - Binding context:
+    - instance selector: `Scope Unit//OPERATOR_DOCUMENTATION`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2664', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md', 'sha256': '33f6c0ed2a26bfc9375e2ac3d19864b6b241a791b82c924a77dbf831ef2c5129'}`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-2665@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit//CORE_EXTENSIONS.ID == "CA-SU-26";
+Scope Unit//CORE_EXTENSIONS.Name == "CORE_EXTENSIONS";
+Scope Unit//CORE_EXTENSIONS.Label == "LAYER";
+Scope Unit//CORE_EXTENSIONS.order.ordered == true;
+Scope Unit//CORE_EXTENSIONS.order.number == 4;
+Scope Unit//CORE_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio
+```
+  - Allowed Relations and other formal clauses:
+    - `Scope Unit//CORE_EXTENSIONS` — IS_CONTAINED_BY → `Project//caprmedio`; Host=undefined; Target=undefined; written direction=forward
+  - Unresolved CFEL: `Scope Unit//CORE_EXTENSIONS.ID == "CA-SU-26"`
+  - Unresolved CFEL: `Scope Unit//CORE_EXTENSIONS.Name == "CORE_EXTENSIONS"`
+  - Unresolved CFEL: `Scope Unit//CORE_EXTENSIONS.Label == "LAYER"`
+  - Unresolved CFEL: `Scope Unit//CORE_EXTENSIONS.order.ordered == true`
+  - Unresolved CFEL: `Scope Unit//CORE_EXTENSIONS.order.number == 4`
+  - Binding context:
+    - instance selector: `Scope Unit//CORE_EXTENSIONS`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2665', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md', 'sha256': '2e9ffb45dcc4aed8166a5337691c02600b9b90b751fb6b34618d14d5f685e817'}`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-2666@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit//RELEASES.ID == "CA-SU-27";
+Scope Unit//RELEASES.Name == "RELEASES";
+Scope Unit//RELEASES.Label == "LAYER";
+Scope Unit//RELEASES.order.ordered == true;
+Scope Unit//RELEASES.order.number == 5;
+Scope Unit//RELEASES ((IS_CONTAINED_BY)) Project//caprmedio
+```
+  - Allowed Relations and other formal clauses:
+    - `Scope Unit//RELEASES` — IS_CONTAINED_BY → `Project//caprmedio`; Host=undefined; Target=undefined; written direction=forward
+  - Unresolved CFEL: `Scope Unit//RELEASES.ID == "CA-SU-27"`
+  - Unresolved CFEL: `Scope Unit//RELEASES.Name == "RELEASES"`
+  - Unresolved CFEL: `Scope Unit//RELEASES.Label == "LAYER"`
+  - Unresolved CFEL: `Scope Unit//RELEASES.order.ordered == true`
+  - Unresolved CFEL: `Scope Unit//RELEASES.order.number == 5`
+  - Binding context:
+    - instance selector: `Scope Unit//RELEASES`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2666', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md', 'sha256': 'a35a477b97c718b802a2d486cbcd54825670807eb3d9f4dc01c9da7ac96a06a1'}`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-2667@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit//COMMUNITY_EXTENSIONS.ID == "CA-SU-28";
+Scope Unit//COMMUNITY_EXTENSIONS.Name == "COMMUNITY_EXTENSIONS";
+Scope Unit//COMMUNITY_EXTENSIONS.Label == "FEATURE";
+Scope Unit//COMMUNITY_EXTENSIONS.order.ordered == false;
+Scope Unit//COMMUNITY_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio
+```
+  - Allowed Relations and other formal clauses:
+    - `Scope Unit//COMMUNITY_EXTENSIONS` — IS_CONTAINED_BY → `Project//caprmedio`; Host=undefined; Target=undefined; written direction=forward
+  - Unresolved CFEL: `Scope Unit//COMMUNITY_EXTENSIONS.ID == "CA-SU-28"`
+  - Unresolved CFEL: `Scope Unit//COMMUNITY_EXTENSIONS.Name == "COMMUNITY_EXTENSIONS"`
+  - Unresolved CFEL: `Scope Unit//COMMUNITY_EXTENSIONS.Label == "FEATURE"`
+  - Unresolved CFEL: `Scope Unit//COMMUNITY_EXTENSIONS.order.ordered == false`
+  - Binding context:
+    - instance selector: `Scope Unit//COMMUNITY_EXTENSIONS`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2667', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md', 'sha256': 'b3502b58d9aabe2e5fe516f95b2c3694056cc70aaeb86f7a510d87e6c0fe9318'}`
+- Shared RMED source (scope_unit_declaration_context binding): `CA-R-2668@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit//FIELD.ID == "CA-SU-29";
+Scope Unit//FIELD.Name == "FIELD";
+Scope Unit//FIELD.Label == "FEATURE";
+Scope Unit//FIELD.order.ordered == false;
+Scope Unit//FIELD ((IS_CONTAINED_BY)) Project//caprmedio
+```
+  - Allowed Relations and other formal clauses:
+    - `Scope Unit//FIELD` — IS_CONTAINED_BY → `Project//caprmedio`; Host=undefined; Target=undefined; written direction=forward
+  - Unresolved CFEL: `Scope Unit//FIELD.ID == "CA-SU-29"`
+  - Unresolved CFEL: `Scope Unit//FIELD.Name == "FIELD"`
+  - Unresolved CFEL: `Scope Unit//FIELD.Label == "FEATURE"`
+  - Unresolved CFEL: `Scope Unit//FIELD.order.ordered == false`
+  - Binding context:
+    - instance selector: `Scope Unit//FIELD`
+    - instance kind: `Scope Unit`
+    - existence provenance: `current_scope_unit_declaration`
+    - declaration source: `{'atom_id': 'CA-R-2668', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md', 'sha256': '0bca59d99ef03af9b87d701a4b902f043fedd26105f707f35a3dad5017c1b2a9'}`
+- Shared RMED source (exact binding): `CA-R-2688@1`
+  - Claim Scope:
+    Each Scope Unit, including Project.
+  - Remaining Claim prose:
+    Every specific Scope Unit, including Project, has exactly one external Requirement Atom with Form `Scope Unit Declaration` and an active Subject naming that Scope Unit. The Declaration is the sole structural authority for its declared values.
+    
+    The Declaration carries the Scope Unit Name, ordered state, optional Label, conditional order.number and direct containment. A non-root Scope Unit also has a stable ID. Project is unordered and has neither Scope Unit ID nor order.number. A non-root Scope Unit has one direct Parent; Project has none.
+    
+    Authority and Delivery folder names are derived from the Declaration. `project_structure.toml` is not a governing source.
+  - Details (source-bound):
+    The Project Declaration is externally Operator-owned, like the Project Goal. The Operator is an Actor, not a Scope Unit.
+- Shared RMED source (exact binding): `CA-R-2690@1`
+  - Remaining Claim prose:
+    Each non-Project Scope Unit has Authority and Delivery folders derived from its Scope Unit Declaration. Delivery Atoms govern representation, placement, and general Carrier conventions without repeating a unit's selected paths.
+- Shared RMED source (exact binding): `CA-R-2691@1`
+  - Remaining Claim prose:
+    Scope Unit parentage and order among siblings are different. An ordered unit’s number is its position among ordered siblings with the same direct parent.
+    
+    Dependency permission follows its relation-family rules. A filename number, nesting position or the assumption that every Scope Unit is a Layer does not create that permission.
+- Shared RMED source (exact binding): `CA-R-642@24`
+  - Remaining Claim prose:
+    **every** canonical decomposition **must** declare its bounded universe **and** one discriminating question per axis **and** assign **every** admissible member **to** **`=1`** value on **every** applicable axis.
+- Shared RMED source (exact binding): `CA-R-686@32`
   - Remaining Claim prose:
     CAPRMEDIO **must** govern core methodology authority, reusable Extension authority, **and** Project-specific Project Configuration authority as distinct strata **without** copying **or** silently transferring meaning among them.
-- Shared RMED source (exact binding): `CA-R-705@27`
+- Shared RMED source (exact binding): `CA-R-705@28`
   - Remaining Claim prose:
     the CAPRMEDIO Framework **must** comprise **all** outputs of the caprmedio Project delivered **to** the repository's root Implementation Folders. OPERATOR_DOCUMENTATION, CORE_EXTENSIONS, **and** RELEASES are downstream Project Layers; COMMUNITY_EXTENSIONS **and** FIELD are direct Project Features.
-- Shared RMED source (exact binding): `CA-R-709@27`
+- Shared RMED source (exact binding): `CA-R-706@32`
+  - Remaining Claim prose:
+    the caprmedio Project **must** include FRAMEWORK_METHODOLOGY, METHODOLOGY_SOURCES, **and** its Methodology Source Scope Units **in** its Project Scope Unit tree under the authority of its active Project-owned Tier 0 Atoms.
+- Shared RMED source (exact binding): `CA-R-709@28`
   - Remaining Claim prose:
     **every** CAPRMEDIO Feature is an `unordered_unit`, is owned by **=1** immediate Structural unit, **and** has no `local_order`.
-- Shared RMED source (exact binding): `CA-R-712@22`
+- Shared RMED source (exact binding): `CA-R-712@23`
   - Remaining Claim prose:
     **every** Project Layer is an immediate child of CAPRMEDIO **and** does **not** own another Project Layer's scope.
-- Shared RMED source (exact binding): `CA-R-775@21`
+- Shared RMED source (exact binding): `CA-R-775@22`
   - Remaining Claim prose:
     FIELD is an unordered direct child of caprmedio; it has no `local_order` **and** is **not** a Project Layer.
-- Shared RMED source (exact binding): `CA-R-837@35`
+- Shared RMED source (exact binding): `CA-R-837@36`
   - Claim Scope:
     Artifacts contained **in** a Scope Unit.
   - Remaining Claim prose:
     the resolver **must** resolve **`=1`** direct Scope Unit from the Atom's internally carried ownership, checked against its canonical Carrier address, **or** from the registered canonical Carrier authority for a non-Atom Artifact **and** include that Artifact **in** **every** Scope Unit on the direct Unit's complete ancestor path; missing, multiple, unknown, **or** cyclic scope ownership is invalid.
   - Details (source-bound):
     an Atom with no containing Scope Unit uses the external-Atom Author fallback under CA-D-657-CORE_META_MODEL-ENG_DECISION--use-economical-yaml-frontmatter; a failed Scope Unit resolution does **not** establish that no containing Scope Unit exists.
-- Shared RMED source (exact binding): `CA-R-862@33`
-  - Claim Scope:
-    non-Project Scope Units.
-  - Remaining Claim prose:
-    **every** non-Project Scope Unit **must** have its authority place **and** Implementation Folder bound by its authoritative Project Structure declaration. concrete bindings **must not** be independently maintained **in** Delivery Atoms; applicable Delivery authority governs the representation, placement, **and** general Carrier conventions rather than repeating a unit's selected paths.
 - Shared RMED source (exact binding): `CA-R-917@34`
   - Claim Scope:
     Structural levels of the CAPRMEDIO Metamodel.
@@ -4770,7 +5191,7 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     Term meaning comes from the single applicable dedicated Term Definition, not inferred agreement among Entity Definitions or spelling alone. A source-supported lexical Term target, such as `Term//ID`, is distinct from the property entities addressed by `atom.id` and `projection.id`. Its defining Claim can introduce the lexical target under the existing defining-Atom authority; parsing alone does not create or admit it. A review may identify missing or conflicting authority without fabricating a definition or waiving admission rules. Reusable Terms such as `Package` and `Unit` do not automatically create similarly named Subject Graph entities.
     
     Rejecting a mandatory dictionary for these checks does not retire CA-M-114 or existing optional Terms Graph or Catalog capabilities. Representation rules and authoring instructions alone are not proof of runtime behavior, completed review, corrected naming conflicts, or a naming migration. No parser change or automatic code identifier, path, or quoted external source rewrite is authorized by this Policy.
-- Shared RMED source (exact binding): `CA-E-384@40`
+- Shared RMED source (exact binding): `CA-E-384@42`
   - Claim Scope:
     the Claim boundary, applicability, supporting Details, **and** Summary of an Atom.
   - Remaining Claim prose:
@@ -4797,7 +5218,7 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     an Atom Claim concerning **only** selected sibling Scope Units.
   - Remaining Claim prose:
     **when** **`=1`** Atom Claim concerns **only** **`>=2`** selected sibling Scope Units **and** does **not** apply **to** their containing Scope Unit as a whole, the Evaluation **must** report a non-blocking boundary warning for review; that restriction alone **must not** make the Atom invalid **or** trigger automatic rejection, splitting, **or** retargeting **to** their parent.
-- Shared RMED source (exact binding): `CA-E-472@28`
+- Shared RMED source (exact binding): `CA-E-472@30`
   - Claim Scope:
     wording evaluated under CA-M-294 against explicit authoritative Term Definitions **and** source-backed complete canonical entity names.
   - Remaining Claim prose:
@@ -4836,7 +5257,7 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     3. include **`>=1`** unique canonical values **and** treat their order as non-authoritative;
     4. retain the complete set as **`=1`** Claim **only** **if** **all** values **must** be accepted, replaced, **and** retired together;
     5. interpret `:` as Claim Value-Set syntax inside that Claim **and** as one allowed-value qualification inside a Subject Expression; neither use creates a graph Relation or assigns an instance value.
-- Shared RMED source (exact binding): `CA-M-294@25`
+- Shared RMED source (exact binding): `CA-M-294@27`
   - Claim Scope:
     CAPRMEDIO content wording.
   - Remaining Claim prose:
@@ -4862,7 +5283,7 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     The lexical forms `Package`, `Eval Package` and `Runtime Package` illustrate reuse of the Term `Package`; `Scope Unit` and `Code Unit` illustrate reuse of `Unit`. They are components of separately admitted full qualified entity expressions, not complete entity names outside the Term branch. Their consistent reuse does not make distinct full expressions synonyms or introduce another entity from a component alone.
     
     The respective ID Properties distinguished by the contextual topic/code spellings `atom.id` and `projection.id` retain the explicitly defined ID meaning: unique identifier used to find an entity instance, across Continuant and Occurrent instances, with uniqueness bounded by matching identifier prefixes. These spellings do not substitute for full admitted Subject expressions. Do not infer lifecycle semantics solely from examples such as `CA-P-123`, `CA-P-123@1-draft`, or `CA-P-123@3`.
-- Shared RMED source (exact binding): `CA-M-308@22`
+- Shared RMED source (exact binding): `CA-M-308@25`
   - Claim Scope:
     effective CCE Role Profiles for Atom Claims.
   - Remaining Claim prose:
@@ -4872,12 +5293,12 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     2. **if** the Content Role is Plan, Requirement, Method, Evaluation, Delivery, **or** Operations, select the corresponding profile under CA-M-309 through CA-M-314.
     3. apply an admitted Type profile **and** content-slot profile **after** the role profile; treat each narrower profile as a restriction **or** declared subordinate use, **not** as permission **to** change the role's primary contribution.
     4. distinguish operators that express the primary Claim contribution from operators inside a condition, Definition of Done, input, result, failure, transition, representation, **or** another governed subordinate slot.
-    5. **if** the Content Role is Concern **or** Analysis, apply shared CCE **without** a role-specific profile.
+    5. **if** the Content Role is Concern **or** Analysis & Advisory, apply shared CCE **without** a role-specific profile.
     6. **if** the Content Role is Implementation, return no registered CCE Role Profile **without** selecting a fallback profile **or** reporting role-profile conformance.
     7. **if** the Content Role, Type, content slot, **or** applicable profile is unresolved, report the exact unresolved selection **and** do **not** report role-profile conformance.
   - Details (source-bound):
     the effective profile is derived from governed content classification. it is **not** another required Atom property.
-- Shared RMED source (exact binding): `CA-M-315@23`
+- Shared RMED source (exact binding): `CA-M-315@26`
   - Claim Scope:
     Atom Claims against effective CCE Role Profiles.
   - Remaining Claim prose:
@@ -4888,7 +5309,7 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     3. verify that the primary contribution matches the resolved role profile **and** that every narrower Type **or** content-slot contribution remains within its admitted boundary.
     4. verify that every CCE Operator use is permitted for its exact primary **or** subordinate context **and** has explicit logical scope.
     5. reject a primary contribution owned by another Content Role even **when** every individual CCE Operator is present **in** the global registry.
-    6. for Concern **or** Analysis, validate shared CCE **and** their governed Content Role meaning **without** requiring a role-specific profile.
+    6. for Concern **or** Analysis & Advisory, validate shared CCE **and** their governed Content Role meaning **without** requiring a role-specific profile.
     7. for Implementation content, report that no CCE Role Profile is registered; do **not** apply another role's profile **or** report role-profile conformance.
     8. report every mismatch by Content Role, Type, content slot, primary contribution, **and** Operator occurrence. do **not** rewrite the source Claim **or** report conformance while one required classification remains unresolved.
   - Details (source-bound):
@@ -4914,7 +5335,7 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     For the identifier example, write the Term `ID`'s meaning as a unique identifier used to find an entity instance. It applies across Continuant and Occurrent instances; the uniqueness boundary uses matching identifier prefixes. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties using that same meaning. They are not alternative complete canonical Subject names or case-folded aliases; authored Subjects use their full admitted expressions. The dot remains syntax. `CA-P-123`, `CA-P-123@1-draft`, and `CA-P-123@3` are spelling examples, not proof of lifecycle semantics. No new case-normalization or alias mechanism is specified by this example.
     
     Existing naming conflicts, missing definitions, unknown coverage, and actual validation outcomes are not resolved by authoring instructions. No automatic code identifier, path, or quoted external source rewrite is authorized.
-- Shared RMED source (exact binding): `CA-M-444@3`
+- Shared RMED source (exact binding): `CA-M-444@5`
   - Claim Scope:
     Atom Claims.
   - Remaining Claim prose:
@@ -4988,7 +5409,7 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     Atom Claims.
   - Remaining Claim prose:
     **every** Atom Claim **must** be readable by its intended human reader.
-- Shared RMED source (exact binding): `CA-R-941@29`
+- Shared RMED source (exact binding): `CA-R-941@30`
   - Claim Scope:
     Atom Claims.
   - Remaining Claim prose:
@@ -5151,11 +5572,11 @@ THEN (IMMUTABLE(Atom.ID))
     - `Atom.ID` immediate_dependents; names=; names count=0; values=None; values count=undefined
   - Unresolved CFEL: `IF ((Atom.Status >| Status Group = Current) OR (Atom.Status >| Status Group = Archived))
 THEN (IMMUTABLE(Atom.ID))`
-- Shared RMED source (exact binding): `CA-D-378@27`
+- Shared RMED source (exact binding): `CA-D-378@28`
   - Claim Scope:
     assigned Atom IDs.
   - Remaining Claim prose:
-    **every** assigned Current or Archived Atom ID **must** begin with the registered uppercase Project identity prefix. the canonical Project-owned Atom ID encoding **must** match `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-<GLOBAL_NUMBER_WITHIN_CONTENT_ROLE>`. Every Draft Atom **must** carry a Draft-only `atom_id` marker: `<canonical-ID>@<proposed-version>-draft` for a proposed revision of an existing Atom, or `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-draft` for a new Atom; `@<proposed-version>-draft` occurs once in the ID and matching Draft filename identity segment. A Draft marker is permitted on a Draft source, not a Current source. The role-only new-Atom marker allocates no canonical number. For Archived predecessors, qualify the Atom-ID filename segment and `atom_id` as `<canonical-ID>@<old-version>` exactly once, preserving its numeric Version and Updated At; do not require an exact-byte archive carrier. the Atom Content Role Identity Letter **must** be **in** (Concern: C, Analysis: A, Plan: P, Requirement: R, Method: M, Evaluation: E, Delivery: D, Operations: O). a `<PROJECT_PREFIX>-P` Identifier **must** identify a Plan Atom, including one labeled Epic, **and** **must not** identify a separate non-Atom collection.
+    **every** assigned Current or Archived Atom ID **must** begin with the registered uppercase Project identity prefix. the canonical Project-owned Atom ID encoding **must** match `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-<GLOBAL_NUMBER_WITHIN_CONTENT_ROLE>`. Every Draft Atom **must** carry a Draft-only `atom_id` marker: `<canonical-ID>@<proposed-version>-draft` for a proposed revision of an existing Atom, or `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-draft` for a new Atom; `@<proposed-version>-draft` occurs once in the ID and matching Draft filename identity segment. A Draft marker is permitted on a Draft source, not a Current source. The role-only new-Atom marker allocates no canonical number. For Archived predecessors, qualify the Atom-ID filename segment and `atom_id` as `<canonical-ID>@<old-version>` exactly once, preserving its numeric Version and Updated At; do not require an exact-byte archive carrier. the Atom Content Role Identity Letter **must** be **in** (Concern: C, "Analysis & Advisory": A, Plan: P, Requirement: R, Method: M, Evaluation: E, Delivery: D, Operations: O). a `<PROJECT_PREFIX>-P` Identifier **must** identify a Plan Atom, including one labeled Epic, **and** **must not** identify a separate non-Atom collection.
 - Shared RMED source (exact binding): `CA-D-446@28`
   - Claim Scope:
     Current Atom sources, Archived Atom versions and Draft Atom sources.
@@ -5194,7 +5615,7 @@ THEN (IMMUTABLE(Atom.ID))`
     ### Subjects-only edit-draft exception
     
     CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It carries `atom_id: <canonical-ID>@<proposed-version>-draft`, `status: Draft`, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and archives the predecessor with its prior numeric Version and Updated At under CA-D-565 before the N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts carry a marker under CA-D-378/CA-D-446; marker and filename rules are governed by CA-D-650. Canonical ID grammar and the normal source, schema, identity/collision, permission and actual-history safeguards are unchanged.
-- Shared RMED source (exact binding): `CA-E-448@30`
+- Shared RMED source (exact binding): `CA-E-448@32`
   - Claim Scope:
     Atom ID collision repairs.
   - Remaining Claim prose:
@@ -5208,7 +5629,7 @@ THEN (IMMUTABLE(Atom.ID))`
     - legitimate same-Atom Revisions **or** derived copies are renumbered as accidental reuse, **or** lookup **or** compilation silently selects an identity winner.
     
     the Evaluation **must** distinguish a paused collision awaiting an Operator decision from a completed repair. its checks **must** cover the verified-original-owner case, reversed Carrier discovery order, an unknown original owner, an ambiguous incoming reference, **and** legitimate same-Atom Revisions **or** derived copies.
-- Shared RMED source (exact binding): `CA-M-276@29`
+- Shared RMED source (exact binding): `CA-M-276@31`
   - Claim Scope:
     repair of accidental reuse of assigned Project Atom IDs.
   - Remaining Claim prose:
@@ -5247,7 +5668,7 @@ Atom.Relations.*[Relation//]{:0+}
   - Nested Property contracts:
     - `Atom.Relations` property; names=None; names count=1; values=; values count=0
     - `Atom.Relations` immediate_dependents; names=Relation//; names count=0+; values=None; values count=undefined
-- Shared RMED source (exact binding): `CA-R-030@26`
+- Shared RMED source (exact binding): `CA-R-030@27`
   - Remaining Claim prose:
     a scope **in** strict authority mode **must** maintain a complete, conflict-free active PRMEDO authority topology with these constraints:
     
@@ -5257,7 +5678,7 @@ Atom.Relations.*[Relation//]{:0+}
     - an Active RMED Atom's direct relation **to** an RMED Atom requires an Active target under CAPRMEDIO-GOV-REQU-767. other endpoint classes retain the Status constraints of their own governing Relation authority.
     
     the authority-subgraph acyclicity constraint does **not** impose acyclicity on **every** other graph, including Workflow control flow.
-- Shared RMED source (exact binding): `CA-R-037@27`
+- Shared RMED source (exact binding): `CA-R-037@28`
   - Remaining Claim prose:
     **in** strict authority mode, **every** active tier-classified PRMEDO Atom **must** have **`>=1`** permitted active parent **unless** the applicable Type authority registers its Type as orphan-permitted.
     
@@ -5268,7 +5689,7 @@ Atom.Relations.*[Relation//]{:0+}
     - an Atom permitted by the global tier topology **in** an ancestor structural scope.
     
     this parent-coverage condition is necessary but insufficient for authority-topology completeness **and** cannot establish Project Scope Contract completeness.
-- Shared RMED source (exact binding): `CA-R-038@16`
+- Shared RMED source (exact binding): `CA-R-038@17`
   - Remaining Claim prose:
     a scope **in** casual authority mode **may** contain active PRMEDO Core **and** Standard Atoms **without** permitted active parents **and** **may** omit permitted active children.
 - Shared RMED source (exact binding): `CA-R-1686@33`
@@ -5342,7 +5763,7 @@ Atom.Role.*[]{:0}
   - Nested Property contracts:
     - `Atom.Role` property; names=None; names count=1; values=string; values count=1
     - `Atom.Role` immediate_dependents; names=; names count=0; values=None; values count=undefined
-- Shared RMED source (exact binding): `CA-E-658@11`
+- Shared RMED source (exact binding): `CA-E-658@14`
   - Claim Scope:
     classification of an Atom by its Content Role.
   - Remaining Claim prose:
@@ -5355,11 +5776,11 @@ Atom.Role.*[]{:0}
     
     | Claim contribution | Expected classification |
     |---|---|
-    | a model definition, required property, permission, **or** Actor participation/authorization policy governing a Concern, Analysis, Task, Action, **or** Workflow | Requirement |
+    | a model definition, required property, permission, **or** Actor participation/authorization policy governing a Concern, Analysis & Advisory, Task, Action, **or** Workflow | Requirement |
     | a convention for authoring **or** constructing that content | Method |
     | a falsifiable correctness check | Evaluation |
     | a Carrier's fields, format, **or** placement | Delivery |
-    | a particular unresolved issue, analytical finding, **or** intended Task | the matching Concern, Analysis, **or** Plan role |
+    | a particular unresolved issue, analytical finding, **or** intended Task | the matching Concern, Analysis & Advisory, **or** Plan role |
     | a particular reusable Action behavior, Workflow graph, **or** Step invocation binding | Operations |
     
     
@@ -5387,7 +5808,7 @@ Atom.Role.*[]{:0}
     Content Role names.
   - Remaining Claim prose:
     **to** name a Content Role, the Author **must not** use a verb, imperative, workflow instruction, Status, **or** activity label.
-- Shared RMED source (exact binding): `CA-M-307@26`
+- Shared RMED source (exact binding): `CA-M-307@29`
   - Claim Scope:
     CCE Role Profiles.
   - Remaining Claim prose:
@@ -5395,30 +5816,30 @@ Atom.Role.*[]{:0}
     
     the current role-specific profiles apply **only** **to** Plan, Requirement, Method, Evaluation, Delivery, **and** Operations Atoms.
     
-    Concern **and** Analysis Claims remain subject **to** shared CCE **without** an additional CCE Role Profile. this absence does **not** exempt them from shared CCE **or** authorize normative authority outside their Content Role meanings.
+    Concern **and** Analysis & Advisory Claims remain subject **to** shared CCE **without** an additional CCE Role Profile. this absence does **not** exempt them from shared CCE **or** authorize normative authority outside their Content Role meanings.
     
     no CCE Role Profile is currently registered for Implementation because the current source set contains no Implementation Atoms. an absent Implementation profile **must not** be replaced by another role's profile **or** treated as role-profile conformance.
     
     a narrower Type **or** content-slot profile **may** restrict its parent role profile **and** define permitted subordinate operator use, but it **must not** change the primary contribution of the Content Role.
-- Shared RMED source (exact binding): `CA-R-1283@30`
+- Shared RMED source (exact binding): `CA-R-1283@32`
   - Claim Scope:
     allowed Atom Content Role values.
   - Remaining Claim prose:
-    the allowed Content Role values **must** be exactly (Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Operations).
+    the allowed Content Role values **must** be exactly (Concern, "Analysis & Advisory", Plan, Requirement, Method, Evaluation, Delivery, Operations).
 - Shared RMED source (exact binding): `CA-R-1550@28`
   - Claim Scope:
     specification Claims about Change **or** Implementation content.
   - Remaining Claim prose:
     a specification Claim about Change **or** Implementation content **must** remain **in** Spec Content Roles according **to** its own contribution rather than inherit the Content Role of the content it specifies.
-- Shared RMED source (exact binding): `CA-R-1702@48`
+- Shared RMED source (exact binding): `CA-R-1702@49`
   - Claim Scope:
     transitions through the CAPRMEDIO loop across Content Roles.
   - Remaining Claim prose:
-    **every** transition through Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Operations produces **or** updates the meaning owned by the receiving Content Role **without** converting the source meaning into that role **or** implying completion of a later role.
+    **every** transition through Concern, Analysis & Advisory, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Operations produces **or** updates the meaning owned by the receiving Content Role **without** converting the source meaning into that role **or** implying completion of a later role.
     
     **in** particular:
     
-    - Analysis owns findings, alternatives, explanation, **and** rationale;
+    - Analysis & Advisory owns findings, alternatives, explanation, **and** rationale;
     - Plan states intended work **without** realizing it; decomposition relates independent Plan Atoms **without** merging their Claims;
     - Requirement establishes model definitions, required properties, outcomes, **or** boundaries **without** selecting their Method;
     - Method provides authorship, construction, **and** Implementation conventions, Evaluation checks correctness, **and** Delivery specifies Carrier contents **and** boundaries;
@@ -5431,7 +5852,7 @@ Atom.Role.*[]{:0}
     canonical Content Role names.
   - Remaining Claim prose:
     **every** canonical Content Role name **must** be a noun that names its primary contribution **and** remains stable across workflow, Actor, Tool, **and** implementation changes.
-- Shared RMED source (exact binding): `CA-R-1718@37`
+- Shared RMED source (exact binding): `CA-R-1718@38`
   - Claim Scope:
     independently governed meanings.
   - Remaining Claim prose:
@@ -5447,12 +5868,12 @@ Atom.Role.*[]{:0}
     **if** wording could resolve **to** multiple governed meanings, **then** the intended meaning **and** its owning Type **must** be resolved **before** the Claim is admitted. this is an admission condition, **not** a definition of the recovery Action **or** Workflow.
     
     co-location, readable presentation, automation, **or** a Relation between meanings **must not** merge their identities **or** transfer their semantic force.
-- Shared RMED source (exact binding): `CA-R-1734@28`
+- Shared RMED source (exact binding): `CA-R-1734@29`
   - Claim Scope:
     governed self-improvement stages.
   - Remaining Claim prose:
     **every** governed self-improvement stage **must** retain the canonical Content-role meaning of the artifact that represents it **without** absorbing the meaning of an earlier **or** later stage.
-- Shared RMED source (exact binding): `CA-R-740@38`
+- Shared RMED source (exact binding): `CA-R-740@39`
   - Claim Scope:
     Atoms.
   - Remaining Claim prose:
@@ -6005,7 +6426,7 @@ Atom/(.Role: Plan).AI Agent Confidence Threshold
   - Unresolved CFEL: `Atom/(.Role: Plan).AI Agent Confidence Threshold
   ?= LOOKUP(IS_CONTAINED_BY, Atom/(.Role: Plan).AI Agent Confidence Threshold)
   ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold`
-- Shared RMED source (exact binding): `CA-D-472@27`
+- Shared RMED source (exact binding): `CA-D-472@29`
   - Claim Scope:
     explicit Plan Autonomous Confidence Threshold overrides in Plan Atom Markdown File Carriers.
   - Remaining Claim prose:
@@ -6015,12 +6436,12 @@ Atom/(.Role: Plan).AI Agent Confidence Threshold
     - omit an unselected override **without** copying its inherited value; the mandatory file requirement does **not** turn inheritance into a local selection.
     - retain an explicit override even **when** it equals the inherited value.
     - `epic_overrides` is **not** an alternative canonical encoding.
-- Shared RMED source (exact binding): `CA-R-1587@24`
+- Shared RMED source (exact binding): `CA-R-1587@26`
   - Claim Scope:
     autonomous Plan execution decisions.
   - Remaining Claim prose:
     **every** autonomous Plan execution decision **must** resolve **=1** effective Autonomous Confidence Threshold from its applicable explicit **or** inherited source under CA-M-271.
-- Shared RMED source (exact binding): `CA-R-1591@26`
+- Shared RMED source (exact binding): `CA-R-1591@28`
   - Claim Scope:
     autonomous continuation of Plan work.
   - Remaining Claim prose:
@@ -6317,15 +6738,15 @@ THEN ($contained.structural_level = $container.structural_level + 1)`
 
 ### `Project.Settings` — property
 
-- Declaration source: `CA-R-2532@4`
+- Declaration source: `CA-R-2532@8`
   - Fenced Claim block:
 ```CFEL
 Project.Settings{:1}: []{:0};
-Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Extension Selections, Implementation Retry Limit, Tool Selections, RMED Review)]{:3..13}
+Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Implementation Retry Limit, RMED Review)]{:3..11}
 ```
   - Nested Property contracts:
     - `Project.Settings` property; names=None; names count=1; values=; values count=0
-    - `Project.Settings` immediate_dependents; names=in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Extension Selections, Implementation Retry Limit, Tool Selections, RMED Review); names count=3..13; values=None; values count=undefined
+    - `Project.Settings` immediate_dependents; names=in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Implementation Retry Limit, RMED Review); names count=3..11; values=None; values count=undefined
 - Shared RMED source (exact binding): `CA-D-364@29`
   - Claim Scope:
     the authoritative TOML File Carrier for Project Settings of a Project named `<project_name>`.
@@ -6342,7 +6763,7 @@ Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Tim
     - the logical Revision **must** follow the existing Artifact lineage, including Carrier renames **or** movements; a changed path **must not** reset it **or** justify a guessed allocation.
     - registration **must not** write the Settings Carrier, fabricate a past Settings change **or** author, **or** rewrite Journal history under CA-D-308. a Carrier changed since observation **must not** be presented as the registered current baseline; its historical observation remains intact.
     - baseline registration establishes the observed binding only. under CA-R-1491 it proves neither Settings schema conformance nor correct performance **or** authorization of another operation.
-- Shared RMED source (exact binding): `CA-D-366@29`
+- Shared RMED source (exact binding): `CA-D-366@30`
   - Claim Scope:
     the Project Settings TOML Carrier.
   - Remaining Claim prose:
@@ -6359,10 +6780,31 @@ Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Tim
     
     ### Current source provenance
     
-    Current source: `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md`, CA-D-366@27, SHA-256 `d73dc39767cf56a414f98ea098b2130ec0029cc0287500c8d4fa0e5347d6e4c3`.
+    Current source: `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md`, CA-D-366@27, SHA-256 `d73dc39767cf56a414f98ea098b2130ec0029cc0287500c8d4fa0e5347d6e4c3`.
     
-    The superseded prefix authority remains historical provenance only: `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL-ENG_DECISION--serialize-the-project-atom-prefix.md`, CA-D-376@25, SHA-256 `3b04a0bd6dfce9eec731a550edcdd86c6fdba8560255477bd4810f3c254bd614`. The pending Project Prefix Decision is a Draft dependency, not Current admission.
-- Shared RMED source (exact binding): `CA-E-459@38`
+    The superseded prefix authority remains historical provenance only: `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL-ENG_DECISION--serialize-the-project-atom-prefix.md`, CA-D-376@25, SHA-256 `3b04a0bd6dfce9eec731a550edcdd86c6fdba8560255477bd4810f3c254bd614`. The pending Project Prefix Decision is a Draft dependency, not Current admission.
+- Shared RMED source (exact binding): `CA-E-006@40`
+  - Remaining Claim prose:
+    Framework Instance Settings and Project Settings accept exactly their registered values, resolve deterministically, and fail closed on invalid or unknown selections. Scope Unit Declarations own current Scope Unit structure without duplicating Settings selections or requiring a structural Projection.
+    
+    ### Applicable conditions
+    
+    1. Resolve the exact current Framework Instance Settings, Project Settings, and Default Settings Artifacts.
+    2. Accept only enabled catalog Artifact Types, Atom Content Roles and qualified Types, and Governance Origins.
+    3. Accept only `medium` or `high` Artifact creation strictness.
+    4. Accept only `silent` or `verbose` interaction reporting, and confirm that its effective default follows Framework Instance Settings without changing source Atoms or using Project Settings as reporting authority.
+    5. Validate initialization inputs against Project Settings field authority and Project Authority Modes against Framework Instance Settings field authority. Do not hard-code this Project's selected values in the Evaluation.
+    6. Reject unknown keys when the governing schema marks their table closed.
+    7. Confirm a second parse produces identical effective Settings and consumes the same selected Declaration bytes and Settings revisions. Deleting a legacy structural Projection does not change those results.
+    
+    ### Acceptance criteria
+    
+    Every valid selection resolves deterministically and every invalid selection fails closed with the exact key and allowed values.
+    
+    ### Failure disposition
+    
+    Record a Concern naming the accepted invalid value, rejected valid value, or non-deterministic result, then stop settings-schema readiness.
+- Shared RMED source (exact binding): `CA-E-459@39`
   - Claim Scope:
     authoritative Project Settings Artifacts.
   - Remaining Claim prose:
@@ -6391,8 +6833,21 @@ Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Tim
     
     ### Current source pin
     
-    Proposed N+1 successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md`, CA-E-459@36, SHA-256 `0a24497bc8492d7b155f4067ee75c77389decdcbf4cfb13e66eb68acef4de631`. Current bytes remain unchanged; this Draft performs no promotion, evaluation execution, or Journal change.
-- Shared RMED source (exact binding): `CA-R-1052@40`
+    Proposed N+1 successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md`, CA-E-459@36, SHA-256 `0a24497bc8492d7b155f4067ee75c77389decdcbf4cfb13e66eb68acef4de631`. Current bytes remain unchanged; this Draft performs no promotion, evaluation execution, or Journal change.
+- Shared RMED source (exact binding): `CA-E-621@37`
+  - Claim Scope:
+    The Operator has no undocumented Framework knowledge and must not edit the Framework Catalog.
+  - Remaining Claim prose:
+    An Operator unfamiliar with the repository can configure Framework behavior, including default and Project Authority Modes, through Framework Instance Settings and Project initialization inputs through Project Settings using the owning Settings Artifacts and their in-file documentation. Scope Unit Declarations are the separate owner of Scope Unit structure. No structural Projection is required to make these choices.
+  - Details (source-bound):
+    ### Acceptance criteria
+    
+    Every intended change is made through its owning Settings Artifact or Scope Unit Declaration, and at least 90% of classifications distinguish Project choices from methodology definitions.
+    
+    ### Failure disposition
+    
+    Record a Concern for every misleading or missing Settings instruction and stop settings-usability readiness until it is corrected.
+- Shared RMED source (exact binding): `CA-R-1052@41`
   - Claim Scope:
     authoritative Project initialization Settings, Framework Instance behavior Settings, Project Structure declarations, and read-only Project Scope Unit Graph Projections.
   - Remaining Claim prose:
@@ -6402,6 +6857,9 @@ Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Tim
     the Project Settings Artifact.
   - Remaining Claim prose:
     the Project Settings Artifact **must not** be an Atom.
+- Shared RMED source (exact binding): `CA-R-1750@41`
+  - Remaining Claim prose:
+    Each Operator-selected setting has one authoritative owner: Project Settings for Project initialization inputs, including Project Name and Prefix, or Framework Instance Settings for CAPRMEDIO behavior, configuration choices, and Authority Mode defaults. Atoms define permitted parameters, constraints, and applicability without fixing or duplicating selected values or defaults.
 - Shared RMED source (exact binding): `CA-R-1983@15`
   - Claim Scope:
     resolution of an effective framework parameter.
@@ -6414,7 +6872,7 @@ Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Tim
     The caprmedio Project’s Framework Instance Settings.
   - Remaining Claim prose:
     The Settings contain at least one framework code-root locator and exactly one framework control-root locator.
-- Shared RMED source (exact binding): `CA-R-622@32`
+- Shared RMED source (exact binding): `CA-R-622@34`
   - Remaining Claim prose:
     the CAPRMEDIO Framework Instance serving caprmedio **must** consume Project Settings **and** Framework Instance Settings according **to** Core Meta-Model authority under CA-R-1750, **without** redefining their purpose, locations, **or** selected values **in** Project Atoms.
 
@@ -6450,9 +6908,9 @@ Project.Settings.Artifact Timestamp Timezone.*[]{:0}
 
 ### `Project.Settings.Authority Modes` — property
 
-- Declaration source: `CA-R-2632@1`
+- Declaration source: `CA-R-2632@2`
   - Remaining Claim prose:
-    When this group is authored, both Project Authority Mode and Default Scope Unit Authority Mode are required. Each value is either `strict` or `casual`. An omitted override follows its governed fallback. A local Scope Unit override belongs only to its Project Structure declaration.
+    When authored, Project Authority Mode and Default Scope Unit Authority Mode are both required. Each value is `strict` or `casual`.
   - Fenced Claim block:
 ```CFEL
 Project.Settings.Authority Modes{:0..1}: []{:0};
@@ -6461,6 +6919,12 @@ Project.Settings.Authority Modes.*[in (Default Scope Unit Authority Mode, Projec
   - Nested Property contracts:
     - `Project.Settings.Authority Modes` property; names=None; names count=0..1; values=; values count=0
     - `Project.Settings.Authority Modes` immediate_dependents; names=in (Default Scope Unit Authority Mode, Project Authority Mode); names count=2; values=None; values count=undefined
+- Shared RMED source (exact binding): `CA-D-668@2`
+  - Remaining Claim prose:
+    Project Authority Mode and Default Scope Unit Authority Mode are encoded in Framework Instance Settings. Scope Unit Declarations do not carry per-Scope authority-mode overrides.
+- Shared RMED source (exact binding): `CA-R-1430@27`
+  - Remaining Claim prose:
+    Framework Instance Settings select the Project Authority Mode and Default Scope Unit Authority Mode. Permitted values are `strict` and `casual`. Neither changes the authority of active Atoms.
 
 ### `Project.Settings.Authority Modes.Default Scope Unit Authority Mode` — property
 
@@ -6550,20 +7014,6 @@ Project.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}
     - `Project.Settings.Confidence.Semantic Resolution Threshold` property; names=None; names count=0..1; values=int; values count=1
     - `Project.Settings.Confidence.Semantic Resolution Threshold` immediate_dependents; names=; names count=0; values=None; values count=undefined
 
-### `Project.Settings.Extension Selections` — property
-
-- Declaration source: `CA-R-2627@1`
-  - Remaining Claim prose:
-    Encode enabled and disabled installed Extensions. Retain the selected revision when applicable and retain per-Extension settings. Retained settings do not activate a disabled Extension.
-  - Fenced Claim block:
-```CFEL
-Project.Settings.Extension Selections{:0..1}: []{:0};
-Project.Settings.Extension Selections.*[string]{:0+}
-```
-  - Nested Property contracts:
-    - `Project.Settings.Extension Selections` property; names=None; names count=0..1; values=; values count=0
-    - `Project.Settings.Extension Selections` immediate_dependents; names=string; names count=0+; values=None; values count=undefined
-
 ### `Project.Settings.Framework Control-Root Locator` — property
 
 - Declaration source: `CA-R-1980@15`
@@ -6633,7 +7083,7 @@ Project.Settings.Name.*[]{:0}
   - Nested Property contracts:
     - `Project.Settings.Name` property; names=None; names count=1; values=string; values count=1
     - `Project.Settings.Name` immediate_dependents; names=; names count=0; values=None; values count=undefined
-- Shared RMED source (exact binding): `CA-D-375@29`
+- Shared RMED source (exact binding): `CA-D-375@30`
   - Claim Scope:
     the Operator-selected Project Name in the Project Settings TOML Carrier.
   - Remaining Claim prose:
@@ -6643,7 +7093,7 @@ Project.Settings.Name.*[]{:0}
     
     ### Current source provenance
     
-    Current source: `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL-ENG_DECISION--serialize-project-initialization-identity.md`, CA-D-375@27, SHA-256 `d86d451d292b2af19c799152c03940cf96f3693edad8f90fbca028d47f55303f`.
+    Current source: `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL-ENG_DECISION--serialize-project-initialization-identity.md`, CA-D-375@27, SHA-256 `d86d451d292b2af19c799152c03940cf96f3693edad8f90fbca028d47f55303f`.
 
 ### `Project.Settings.Prefix` — property
 
@@ -6663,7 +7113,7 @@ Project.Settings.Prefix.*[]{:0}
     the Project Settings TOML Carrier **must** encode the Operator-selected Atom prefix as its exact nonempty uppercase TOML string value under CA-D-378 **in** `artifacts.identity.project_prefix` **before** the first Project Atom is created.
   - Details (source-bound):
     validation **must** preserve the selected prefix exactly; it **must not** trim **or** automatically uppercase it. the complete supported field signature is governed by CA-D-366.
-- Shared RMED source (exact binding): `CA-D-658@3`
+- Shared RMED source (exact binding): `CA-D-658@4`
   - Claim Scope:
     the Operator-selected Project Prefix in the Project Settings TOML Carrier.
   - Remaining Claim prose:
@@ -6673,7 +7123,7 @@ Project.Settings.Prefix.*[]{:0}
     
     ### Current source provenance
     
-    Replacement candidate for the historical Current source: `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL-ENG_DECISION--serialize-the-project-atom-prefix.md`, CA-D-376@25, SHA-256 `3b04a0bd6dfce9eec731a550edcdd86c6fdba8560255477bd4810f3c254bd614`. This role-only Draft allocates no canonical Delivery identity and does not rename CA-D-376.
+    Replacement candidate for the historical Current source: `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL-ENG_DECISION--serialize-the-project-atom-prefix.md`, CA-D-376@25, SHA-256 `3b04a0bd6dfce9eec731a550edcdd86c6fdba8560255477bd4810f3c254bd614`. This role-only Draft allocates no canonical Delivery identity and does not rename CA-D-376.
 
 ### `Project.Settings.RMED Review` — property
 
@@ -6714,20 +7164,6 @@ Project.Settings.RMED Review.Max Atoms.*[]{:0}
   - Nested Property contracts:
     - `Project.Settings.RMED Review.Max Atoms` property; names=None; names count=0..1; values=int; values count=1
     - `Project.Settings.RMED Review.Max Atoms` immediate_dependents; names=; names count=0; values=None; values count=undefined
-
-### `Project.Settings.Tool Selections` — property
-
-- Declaration source: `CA-R-2628@1`
-  - Remaining Claim prose:
-    Encode selected active and background Tools with their per-Tool settings.
-  - Fenced Claim block:
-```CFEL
-Project.Settings.Tool Selections{:0..1}: []{:0};
-Project.Settings.Tool Selections.*[string]{:0+}
-```
-  - Nested Property contracts:
-    - `Project.Settings.Tool Selections` property; names=None; names count=0..1; values=; values count=0
-    - `Project.Settings.Tool Selections` immediate_dependents; names=string; names count=0+; values=None; values count=undefined
 
 ### `Projection.Form` — property
 
@@ -6844,7 +7280,7 @@ Projection//$projection.Updated At == MAX(Event Record//(.object_output{=1}, .ob
     - `Projection.Updated At` property; names=None; names count=1; values=datetime; values count=1
     - `Projection.Updated At` immediate_dependents; names=; names count=0; values=None; values count=undefined
   - Unresolved CFEL: `Projection//$projection.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=0}, .object_output.id = $projection.ID, (.action = create OR .action = update)).happened_at)`
-- Shared RMED source (exact binding): `CA-D-310@25`
+- Shared RMED source (exact binding): `CA-D-310@26`
   - Claim Scope:
     Projection Carrier latest completed rebuild times.
   - Remaining Claim prose:
@@ -6896,15 +7332,21 @@ Relation.Name.*[]{:0}
 
 ### `Scope Unit.ID` — property
 
-- Declaration source: `CA-R-2526@2`
+- Declaration source: `CA-R-2526@3`
   - Fenced Claim block:
 ```CFEL
-Scope Unit.ID{:1}: [string]{:1};
-Scope Unit.ID.*[]{:0}
+Scope Unit.ID{:0..1}: [string]{:1};
+Scope Unit.ID.*[]{:0};
+IF (Scope Unit//$unit not in (Scope Unit/Project//))
+THEN ($unit.ID{:1})
 ```
   - Nested Property contracts:
-    - `Scope Unit.ID` property; names=None; names count=1; values=string; values count=1
+    - `Scope Unit.ID` property; names=None; names count=0..1; values=string; values count=1
     - `Scope Unit.ID` immediate_dependents; names=; names count=0; values=None; values count=undefined
+  - Unresolved CFEL: `IF (Scope Unit//$unit not in (Scope Unit/Project//))
+THEN ($unit.ID{:1})`
+  - Semantics:
+    A non-root Scope Unit keeps its ID through moves and renames. The ID distinguishes those operations from removing that Scope Unit. The Project root has no Scope Unit ID because it cannot be moved or renamed through Scope Unit operations.
 
 ### `Scope Unit.Label` — property
 
@@ -6917,33 +7359,11 @@ Scope Unit.Label.*[]{:0}
   - Nested Property contracts:
     - `Scope Unit.Label` property; names=None; names count=0..1; values=string; values count=1
     - `Scope Unit.Label` immediate_dependents; names=; names count=0; values=None; values count=undefined
-- Shared RMED source (exact binding): `CA-R-1382@24`
+- Shared RMED source (exact binding): `CA-R-1382@25`
   - Claim Scope:
     Ordered Scope Unit Labels.
   - Remaining Claim prose:
     **every** Ordered Scope Unit **must** use Layer as its default Label.
-- Shared RMED source (exact binding): `CA-R-980@30`
-  - Claim Scope:
-    Unordered Scope Units.
-  - Remaining Claim prose:
-    **every** Unordered Scope Unit **must** use Feature as its default Label.
-- Shared RMED source (exact binding): `CA-R-982@32`
-  - Claim Scope:
-    Scope Unit Labels.
-  - Remaining Claim prose:
-    the Operator **may** replace the default Label independently for **every** Scope Unit **without** changing its Type.
-
-### `Scope Unit.Local Order` — property
-
-- Declaration source: `CA-R-2529@2`
-  - Fenced Claim block:
-```CFEL
-Scope Unit.Local Order{:0..1}: [int]{:1};
-Scope Unit.Local Order.*[]{:0}
-```
-  - Nested Property contracts:
-    - `Scope Unit.Local Order` property; names=None; names count=0..1; values=int; values count=1
-    - `Scope Unit.Local Order` immediate_dependents; names=; names count=0; values=None; values count=undefined
 
 ### `Scope Unit.Name` — property
 
@@ -6961,12 +7381,12 @@ Scope Unit.Name.*[]{:0}
     Scope Unit Names.
   - Remaining Claim prose:
     **to** write a Scope Unit Name, join nonempty uppercase letter-or-digit word tokens with single underscores.
-- Shared RMED source (exact binding): `CA-M-299@18`
+- Shared RMED source (exact binding): `CA-M-299@20`
   - Claim Scope:
     Scope Unit references in CAPRMEDIO content.
   - Remaining Claim prose:
     **to** distinguish a Scope Unit reference from ordinary English, use its exact uppercase Scope Unit Name **to** denote the Scope Unit. an **otherwise** identical lowercase word retains its ordinary English meaning.
-- Shared RMED source (exact binding): `CA-R-1297@26`
+- Shared RMED source (exact binding): `CA-R-1297@28`
   - Claim Scope:
     Scope Unit Names.
   - Remaining Claim prose:
@@ -7000,30 +7420,23 @@ Scope Unit.Path.*[]{:0}
   - Nested Property contracts:
     - `Scope Unit.Path` property; names=None; names count=1; values=string; values count=1+
     - `Scope Unit.Path` immediate_dependents; names=; names count=0; values=None; values count=undefined
-- Shared RMED source (exact binding): `CA-R-1661@31`
+- Shared RMED source (exact binding): `CA-R-1661@32`
   - Claim Scope:
     Structural Paths derived from active Scope Unit identities and their declared Structural Parent Relations.
   - Remaining Claim prose:
     **every** Structural Path **must** be derived from active Scope Unit identities **and** their declared Structural Parent Relations.
     
     a retained representation for readability **must** remain derived **and** consistent with those authoritative inputs under CA-R-1485. it **must not** independently establish **or** change structural ancestry. permitted storage follows the applicable Delivery authority; this rule does **not** admit another authored Project Structure field.
-- Shared RMED source (exact binding): `CA-R-1688@38`
+- Shared RMED source (exact binding): `CA-R-1688@39`
   - Claim Scope:
     Scope paths in the current project.
   - Remaining Claim prose:
     Scope path is a project-relative address containing **`>=0`** operator-labeled structural scopes ordered from broader parent **to** narrower child.
     
     the current project is ambient. Scope **may** govern ownership, applicability, **and** inheritance, but it never changes stable Artifact identity, Artifact form, Content Role, **or** Governance locus.
-- Shared RMED source (exact binding): `CA-R-2133@10`
-  - Claim Scope:
-    authoritative Scope Unit ancestry and its optional non-authoritative readability projections.
+- Shared RMED source (exact binding): `CA-R-2689@1`
   - Remaining Claim prose:
-    Scope Unit ancestry **must** be derived from the authoritative Project Structure parent declarations and their corresponding stored structural-parent relations. CAPRMEDIO **must not** author or persist a Structural Level property for a Scope Unit. A displayed ancestry depth or path segment, **when** materialized for readability, is derived from that parent chain only; it **must not** establish, replace, or override parentage, ownership, or authority, and unresolved or conflicting inputs remain unresolved.
-- Shared RMED source (exact binding): `CA-R-2134@10`
-  - Claim Scope:
-    derived location of an Ordered Scope Unit.
-  - Remaining Claim prose:
-    An Ordered Scope Unit's readable location **must** be derived from its authoritative Structural Path and applicable Local Order. CAPRMEDIO **must not** author or persist a Structural Coordinate property, and no displayed location or navigation token may establish parentage, sibling order, ownership, or Atom authority. Local Order remains the position among ordered siblings with one direct parent; ancestry remains the parent-chain fact.
+    Scope Unit ancestry is derived from Scope Unit Declarations and their direct parent relations. CAPRMEDIO does not author or persist a Structural Level property for a Scope Unit. A displayed path or depth is derived from that parent chain only. It does not establish or override parentage, ownership, or authority. Conflicting or unresolved parent inputs remain unresolved.
 
 ### `Scope Unit.Project Boundary Position` — property
 
@@ -7036,12 +7449,41 @@ Scope Unit.Project Boundary Position.*[]{:0}
   - Nested Property contracts:
     - `Scope Unit.Project Boundary Position` property; names=None; names count=1; values=string; values count=1
     - `Scope Unit.Project Boundary Position` immediate_dependents; names=; names count=0; values=None; values count=undefined
-- Shared RMED source (exact binding): `CA-R-844@28`
+- Shared RMED source (exact binding): `CA-R-844@29`
   - Remaining Claim prose:
     RELEASES **must** be the CAPRMEDIO Project Layer with Local Order `5`.
-- Shared RMED source (exact binding): `CA-R-975@26`
+- Shared RMED source (exact binding): `CA-R-975@27`
   - Remaining Claim prose:
     CORE_EXTENSIONS **must** be the CAPRMEDIO Project Layer with Local Order `4`.
+
+### `Scope Unit.order.number` — property
+
+- Declaration source: `CA-R-2686@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0};
+Scope Unit.order.number.*[]{:0}
+```
+  - Nested Property contracts:
+    - `Scope Unit.order.number` immediate_dependents; names=; names count=0; values=None; values count=undefined
+  - Unresolved CFEL: `Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0}`
+  - Semantics:
+    `order.ordered` is the Boolean value on the same Scope Unit. `1+` admits integer values of at least 1; `{:1}` requires one value. When order.ordered is false, order.number has no value.
+    
+    The number is the position among ordered siblings with the same direct parent. Displayed positions do not establish parentage, ownership or Atom authority.
+
+### `Scope Unit.order.ordered` — property
+
+- Declaration source: `CA-R-2685@1`
+  - Fenced Claim block:
+```CFEL
+Scope Unit.order.ordered: [bool]{:1};
+Scope Unit.order.ordered.*[]{:0}
+```
+  - Value contracts:
+    - `Scope Unit.order.ordered` values; names=None; names count=undefined; values=bool; values count=1
+  - Nested Property contracts:
+    - `Scope Unit.order.ordered` immediate_dependents; names=; names count=0; values=None; values count=undefined
 
 ### `Scope Unit.structural_level` — property
 
@@ -7067,7 +7509,7 @@ THEN ($contained.structural_level = $container.structural_level + 1)`
 
 ### `CFEL` — declared component
 
-- Declaration source: `CA-R-2487@6`
+- Declaration source: `CA-R-2487@8`
   - Remaining Claim prose:
     CFEL (CAPRMEDIO Formal Expression Language) is the formal notation for
     Subject addresses and fenced Formal Claims. CFEL is a model component beside
@@ -7096,9 +7538,10 @@ THEN ($contained.structural_level = $container.structural_level + 1)`
     operators. Property occurrence, direct-value, immediate-name
     and recursive-name counts are distinct:
     `{:n}`, `{:n+}` and `{:n..m}` state allowed cardinality bounds on their
-    qualified selection; `{=n}` tests a count condition and `{==n}` concludes a
-    required or derived count. These test/conclusion forms are not allowed bounds.
-    A Relation has independent outgoing and
+    qualified selection; `{=n}` tests a count condition, `{>n}` tests whether the
+    actual count is greater than n using the existing numeric `>`, and `{==n}`
+    concludes a required or derived count. These test/conclusion forms are not
+    allowed bounds. A Relation has independent outgoing and
     reverse cardinalities: `Source {:forward}((RELATION)){:reverse} Target`.
     Omitted annotations are unspecified, not zero. `[format]` applies to direct
     values; a name selector is not a value selector. A `p.**` count aggregates
@@ -7558,15 +8001,17 @@ CFEL <+ Cardinality
   - Details (source-bound):
     Source meaning: CA-R-1248@23 and CA-R-2244@1. Scope-specific constraints
     remain in their governing Declarations.
-- Shared RMED source (exact binding): `CA-R-2243@9`
+- Shared RMED source (exact binding): `CA-R-2243@11`
   - Remaining Claim prose:
     Cardinality annotations state allowed counts; they do not count a value merely
     because a dependent Property exists. `{:n}` allows exactly n, `{:n+}` at
     least n, and `{:n..m}` the inclusive range for its qualified selection. Bounds
     are non-negative integers with n not greater than m. `{=n}` is a count
-    condition/test and `{==n}` a required or derived count conclusion, not either
-    form of allowed bound. A direct parent-value count excludes nested child keys and
-    every descendant value, including every value held by nested children.
+    condition/test, `{>n}` is a count condition/test that compares the actual count
+    with n using the existing numeric `>`, and `{==n}` a required or derived count
+    conclusion; none is an allowed bound. A direct parent-value count excludes
+    nested child keys and every descendant value, including every value held by
+    nested children.
     
     Property occurrence, value and dependent-name counts are separate:
     `p{:0}` forbids authored occurrences of p; it does not forbid independently
@@ -7625,7 +8070,7 @@ Carrier.Format[string]{1}
     the binding **may** be recovered through the selected authoritative source frontier **and** governing derivation authority; it does **not** require source metadata **to** be embedded **in** **every** resulting Carrier. an applicable Carrier specification determines whether **and** how **any** explicit binding is serialized.
     
     for Applicable Methodology projected Atom Carriers, CA-D-305 requires an explicit one-way binding **to** the original source Atom Carrier while preserving its authored content, identity, **and** Revision. that specific binding **must not** create duplicate source authority **or** impose a blanket persisted source frontier on other Projections contrary **to** CA-R-1494.
-- Shared RMED source (exact binding): `CA-D-311@26`
+- Shared RMED source (exact binding): `CA-D-311@27`
   - Claim Scope:
     governed Carrier representations.
   - Remaining Claim prose:
@@ -7635,21 +8080,21 @@ Carrier.Format[string]{1}
     Scope Unit authority and Delivery Carrier places.
   - Remaining Claim prose:
     **every** Scope Unit **must** have one authority Carrier place **and** one Delivery Carrier place **without** treating its Delivery place as another Scope Unit.
-- Shared RMED source (exact binding): `CA-D-320@23`
+- Shared RMED source (exact binding): `CA-D-320@24`
   - Claim Scope:
     Framework Engine executable installation and mutable execution-state Carriers in a CAPRMEDIO Project.
   - Remaining Claim prose:
     the CAPRMEDIO Project **must** place its selected running Framework Engine releases, stable launchers, Tools, Apps, Skills, sessions, service state, **and** resumable execution state under `.caprmedio_runtime/`. runtime technical **and** business Journal Carriers use their explicitly configured governed sinks **and** are **not** required **to** use this Directory Carrier.
   - Details (source-bound):
     Runtime executable copies and mutable service state do not govern RMED Claims. Selected releases, launchers, Tools, Apps, and Skills must be reconstructible from governed source and configuration. Journal history may be non-reconstructible and retains its recorded-history authority wherever its Carrier is delivered. Stopping, reinstalling, or deleting disposable runtime state must not remove accepted Journal records, including runtime Journal history retained in a local or remote sink. The Project Work Journal remains under the Project-control _journal directory.
-- Shared RMED source (exact binding): `CA-D-324@28`
+- Shared RMED source (exact binding): `CA-D-324@29`
   - Claim Scope:
     administrative Content Role directory placement at the CAPRMEDIO Project root **and** **in** **every** descendant Scope Unit, including `CORE_META_MODEL`, `INSTALLED_EXTENSIONS`, **and** `PROJECT_CONFIGURATION`.
   - Remaining Claim prose:
     **every** Scope Unit **in** the CAPRMEDIO Project **must** use the same administrative Content Role directory mapping directly under its own authority directory for current-scope placement:
     
     - Concern: `01_concern/`;
-    - Analysis: `02_analysis/`;
+    - Analysis & Advisory: `02_analysis/`;
     - Plan: `03_plan/`;
     - Requirement: `04_requirement/`;
     - Method: `05_method/`;
@@ -7675,7 +8120,7 @@ Carrier.Format[string]{1}
     Atom metadata in the Framework Instance Settings TOML Carrier.
   - Remaining Claim prose:
     the Framework Instance Settings TOML Carrier **must not** contain Atom Frontmatter, Atom ID, Atom Revision metadata, Atom relations, rationale, **or** provenance; its Revision binding follows CA-D-360.
-- Shared RMED source (exact binding): `CA-D-388@21`
+- Shared RMED source (exact binding): `CA-D-388@23`
   - Claim Scope:
     Journal input and generated Projection Carriers.
   - Remaining Claim prose:
@@ -7690,7 +8135,7 @@ Carrier.Format[string]{1}
     the `scope_path` encoding of a Carrier.
   - Remaining Claim prose:
     a Carrier encoding of `scope_path` **must** omit the ambient current Project **and** use an empty path for Project Scope.
-- Shared RMED source (exact binding): `CA-D-396@21`
+- Shared RMED source (exact binding): `CA-D-396@23`
   - Claim Scope:
     structured production log records.
   - Remaining Claim prose:
@@ -7718,35 +8163,35 @@ Carrier.Format[string]{1}
     Carrier placement where an applicable qualified Artifact Status model exists or does not exist.
   - Remaining Claim prose:
     **when** an applicable qualified Artifact Status model exists **and** an Artifact has **`=1`** valid current Status, its Carrier placement **must** follow the most specific applicable Delivery rule for that Artifact Type; **only when** no more-specific mapping exists, Active uses the canonical current directory **and** another Status uses its lowercase Status subdirectory. **when** no applicable qualified Status model exists, Carrier placement **must not** derive a Status directory from absent Status.
-- Shared RMED source (exact binding): `CA-D-499@12`
+- Shared RMED source (exact binding): `CA-D-499@13`
   - Claim Scope:
     ERROR **and** WARNING production log records.
   - Remaining Claim prose:
     an `ERROR` **or** `WARNING` record **must** be actionable: it identifies the failed **or** degraded condition, affected scope, expected operator **or** automated response, **and** whether retry is safe.
   - Details (source-bound):
     the required context makes the response **and** retry disposition explicit for the failed **or** degraded condition.
-- Shared RMED source (exact binding): `CA-D-500@13`
+- Shared RMED source (exact binding): `CA-D-500@15`
   - Claim Scope:
     production log emission under Logging Policies for production-relevant components.
   - Remaining Claim prose:
     production logs record material state transitions **and** boundary outcomes; ordinary internal ticks do **not** define routine production log events.
   - Details (source-bound):
     the selection preserves material operational evidence **without** treating **every** internal tick as a production event.
-- Shared RMED source (exact binding): `CA-D-501@13`
+- Shared RMED source (exact binding): `CA-D-501@15`
   - Claim Scope:
     exceptions handled **or** escalated through production-relevant components’ Logging Policies.
   - Remaining Claim prose:
     an exception is emitted once at the boundary responsible for handling **or** escalating it; lower layers preserve structured context **without** duplicating the same stack trace at **every** call boundary.
   - Details (source-bound):
     the exception boundary retains structured context for handling **or** escalation **without** repeating the same stack trace through lower layers.
-- Shared RMED source (exact binding): `CA-D-502@12`
+- Shared RMED source (exact binding): `CA-D-502@13`
   - Claim Scope:
     production logs that can contain credentials **or** secret-bearing payloads.
   - Remaining Claim prose:
     production logs **must not** contain passwords, API keys, access tokens, session secrets, cookies, private keys, complete credentials, **or** unredacted secret-bearing payloads.
   - Details (source-bound):
     this is the explicit secret-exposure boundary for production log records.
-- Shared RMED source (exact binding): `CA-D-503@12`
+- Shared RMED source (exact binding): `CA-D-503@13`
   - Claim Scope:
     production logs that can contain personal, customer, **or** commercially sensitive data.
   - Remaining Claim prose:
@@ -7854,7 +8299,7 @@ Carrier.Format[string]{1}
     - **otherwise**, return `pass`: the evidence satisfies **all** expected behavior **and** integrity checks above.
   - Details (source-bound):
     this Journal-view check is independent of the aggregate storage-classification score. truthfully declared incomplete **or** stale coverage does **not** itself fail integrity; a record of an outcome does **not** itself prove that outcome occurred.
-- Shared RMED source (exact binding): `CA-R-1642@32`
+- Shared RMED source (exact binding): `CA-R-1642@33`
   - Claim Scope:
     the ordered generated-data pipeline stages.
   - Remaining Claim prose:
@@ -7929,12 +8374,12 @@ Carrier.Canonical Address.Segment[string]{1}
     Archive Carrier basenames for Archived Atom versions.
   - Remaining Claim prose:
     **every** Archived Atom Carrier basename **must** serialize the archived Atom's canonical ID with exactly one `@<version>` marker, where `<version>` is the unchanged numeric Version Number of that Archived Atom version. The marker **must** occur in the filename's Atom-ID segment under CA-D-283; do **not** append a second `@<version>` to a basename that already carries the marker. Existing legacy archive basenames are not normalized automatically.
-- Shared RMED source (exact binding): `CA-D-290@25`
+- Shared RMED source (exact binding): `CA-D-290@26`
   - Claim Scope:
     Current Atom source Carriers across all admitted Status values.
   - Remaining Claim prose:
     a Current Atom source Carrier basename **must not** contain an `@<version>` suffix, regardless of the Atom's admitted Status value.
-- Shared RMED source (exact binding): `CA-D-301@28`
+- Shared RMED source (exact binding): `CA-D-301@29`
   - Claim Scope:
     Project-owned Carrier address segments.
   - Remaining Claim prose:
@@ -8015,31 +8460,31 @@ Carrier.ID[string]{1}
     an Artifact Revision whose canonical Carrier is nested below a Directory Carrier **must** derive **`=1`** direct `IS_CONTAINED_BY` connection to the Structural Entity Revision carried by its nearest ancestor Directory Carrier **and** the reverse `CONTAINS` view from that connection.
   - Details (source-bound):
     For this Carrier-derived view, canonical nesting supplies the fact; the view does not create a second authored relation declaration. IS_CONTAINED_BY is the child-to-parent direction, and CONTAINS is its derived inverse. Reading or refreshing the inverse view does not edit the containing entity's carrier; when that entity is an Atom, it does not create a new Version for it. Physical nesting does not silently replace the logical parent declared by Project Structure under CA-R-1660. Existing Revision/Structural Entity wording is retained for the separate content migration.
-- Shared RMED source (exact binding): `CA-D-318@24`
+- Shared RMED source (exact binding): `CA-D-318@25`
   - Claim Scope:
     persistent Carriers of Project governing Artifacts and project-control evidence.
   - Remaining Claim prose:
     **every** governed Project **must** place its governing Artifacts **and** project-control evidence under `.caprmedio_<project_name>/`, **where** `<project_name>` is that Project's exact lowercase name.
   - Details (source-bound):
     Project-control Journal File Carriers use _journal and persistent view Projections use _projection under this root. Native Implementation follows its own governed Delivery location. Runtime technical and business Journal Carriers may instead use explicitly configured local databases, remote databases, or logging sinks; their Journal classification does not force their physical storage into the Project-control root.
-- Shared RMED source (exact binding): `CA-D-321@21`
+- Shared RMED source (exact binding): `CA-D-321@22`
   - Claim Scope:
     disposable temporary state in a CAPRMEDIO Project.
   - Remaining Claim prose:
     the CAPRMEDIO Project **must** place disposable scratch, staging, test cache, atomic-write intermediate, build intermediate, **and** interrupted-cleanup Carriers under `.caprmedio_tmp/`.
   - Details (source-bound):
     deleting `.caprmedio_tmp/` **must not** delete governed authority, Project Journal history, installed Framework Engine releases, runtime logs, sessions, databases, service state, **or** resumable state.
-- Shared RMED source (exact binding): `CA-D-322@19`
+- Shared RMED source (exact binding): `CA-D-322@21`
   - Claim Scope:
     the CAPRMEDIO Project root.
   - Remaining Claim prose:
-    the CAPRMEDIO Project root **must** use (101_FRAMEWORK_METHODOLOGY, 102_FRAMEWORK_ENGINE, 103_OPERATOR_DOCUMENTATION, 104_CORE_EXTENSIONS, 105_RELEASES, 110_COMMUNITY_EXTENSIONS, 110_FIELD) as its current Scope Unit Delivery Directory Carriers.
-- Shared RMED source (exact binding): `CA-D-323@19`
+    the CAPRMEDIO Project root **must** use (LAYER_1_FRAMEWORK_METHODOLOGY, LAYER_2_FRAMEWORK_ENGINE, LAYER_3_OPERATOR_DOCUMENTATION, LAYER_4_CORE_EXTENSIONS, LAYER_5_RELEASES, FEATURE_COMMUNITY_EXTENSIONS, FEATURE_FIELD) as its current Scope Unit Delivery Directory Carriers.
+- Shared RMED source (exact binding): `CA-D-323@20`
   - Claim Scope:
     current top-level Scope Unit authority Directory Carriers of `.caprmedio_caprmedio/`.
   - Remaining Claim prose:
     `.caprmedio_caprmedio/` **must** use (101_LAYER_1_FRAMEWORK_METHODOLOGY, 102_LAYER_2_FRAMEWORK_ENGINE, 103_LAYER_3_OPERATOR_DOCUMENTATION, 104_LAYER_4_CORE_EXTENSIONS, 105_LAYER_5_RELEASES, 110_FEATURE_COMMUNITY_EXTENSIONS, 110_FEATURE_FIELD) as its current top-level Scope Unit authority Directory Carriers.
-- Shared RMED source (exact binding): `CA-D-325@24`
+- Shared RMED source (exact binding): `CA-D-325@25`
   - Claim Scope:
     the CORE_META_MODEL **and** PROJECT_CONFIGURATION Scope Units of the CAPRMEDIO Project.
   - Remaining Claim prose:
@@ -8049,7 +8494,7 @@ Carrier.ID[string]{1}
     Delivery Directory Carriers at the CAPRMEDIO Project root.
   - Remaining Claim prose:
     the CAPRMEDIO Project root **must** carry **only** Delivery Directory Carriers produced for Project Scope Units whose authority Carriers live under `.caprmedio_caprmedio/` **or** another registered Project-owned Carrier root.
-- Shared RMED source (exact binding): `CA-D-331@23`
+- Shared RMED source (exact binding): `CA-D-331@24`
   - Claim Scope:
     durable Hub Carrier navigation.
   - Remaining Claim prose:
@@ -8067,7 +8512,7 @@ Carrier.ID[string]{1}
     represented Directory Carriers and their governed object Revisions.
   - Remaining Claim prose:
     **every** represented Directory Carrier **must** carry **`=1`** governed object Revision: either one Structural Entity Revision **or**, **where** an applicable Delivery rule permits it, one Atom Revision; it **must not** establish a second object merely because it contains subordinate Carriers.
-- Shared RMED source (exact binding): `CA-D-550@19`
+- Shared RMED source (exact binding): `CA-D-550@20`
   - Claim Scope:
     persistent non-authoritative view Projection Carriers belonging to a Project.
   - Remaining Claim prose:
@@ -8096,21 +8541,22 @@ Directory.Name[string]{1}
     CA-D-297 and CA-D-299 constrain authority and Delivery directory names. CA-D-445 permits explicit native layouts. The directory name is not universally identical to the carried Scope Unit's Name.
     
     Active CA-R-2515 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.
-- Shared RMED source (exact binding): `CA-D-297@31`
-  - Claim Scope:
-    Project-internal Scope Unit authority Directory Carrier Names that use the default Scope Unit directory convention.
+- Shared RMED source (exact binding): `CA-D-667@1`
   - Remaining Claim prose:
-    **when** the default Scope Unit directory convention is used, **every** Project-internal Scope Unit authority Directory Carrier Name **must** serialize the registered derived Scope Unit Path representation, Navigational Order Number, Label, applicable Local Order, **and** Scope Unit Name **in** that order. no Structural Level field or token is required or authoritative. a declared native Carrier binding under CA-D-445-CORE_META_MODEL-GENERAL-DELIVERY--admit-explicit-scope-unit-carrier-bindings **must not** be reinterpreted through this default convention.
-- Shared RMED source (exact binding): `CA-D-298@30`
-  - Claim Scope:
-    Scope Unit authority Directory Carrier Names that use the default Scope Unit directory convention.
-  - Remaining Claim prose:
-    **when** the default Scope Unit directory convention is used, a Scope Unit authority Directory Carrier Name **must** serialize Local Order immediately **after** Label **only** for an Ordered Scope Unit **and** **must not** serialize Local Order for an Unordered Scope Unit. a declared native Carrier binding under CA-D-445-CORE_META_MODEL-GENERAL-DELIVERY--admit-explicit-scope-unit-carrier-bindings **must not** be reinterpreted through this default convention.
-- Shared RMED source (exact binding): `CA-D-299@30`
-  - Claim Scope:
-    root Delivery Directory Carriers for non-Project Scope Units **when** the default Scope Unit directory convention is used.
-  - Remaining Claim prose:
-    **every** root Delivery Directory Carrier **must** serialize the registered derived Scope Unit Path representation, Navigational Order Number, **and** Scope Unit Name **and** **must not** serialize Label **or** Local Order. no Structural Level field or token is required or authoritative. a declared native Carrier binding under CA-D-445 **must not** be reinterpreted through this default convention.
+    The Project Authority Folder is `.caprmedio_<project name>`, without a Scope Unit ID.
+    
+    For a non-root Scope Unit, derive the folder names from its ID, Label, order.number and Name:
+    
+    | Scope Unit | Authority Folder name | Delivery Folder name |
+    | --- | --- | --- |
+    | Ordered | `<id>_<label>_<order>_<name>` | `<label>_<order>_<name>` |
+    | Unordered | `<id>_<label>_<name>` | `<label>_<name>` |
+    
+    `<id>` is the stable Scope Unit ID. `<order>` is `order.number`. For an Unordered unit, omit the order segment and its separator. When Label is absent, omit its segment and separator.
+    
+    Place each non-root folder under its respective parent's folder. Do not maintain the derived folder paths as independent values in Scope Unit Declarations.
+    
+    Derived paths are readability and placement values, not another structural source. Conflicting derivations remain unresolved and are reported; do not automatically choose a new Name, parent, number or binding. Do not author Structural Level or Structural Coordinate.
 
 ### `Carrier/Directory.Numeric Prefix` — declared component
 
@@ -8161,7 +8607,7 @@ Directory.Path[string]{1}
     File Carriers.
   - Remaining Claim prose:
     A File Carrier **means** a Carrier that represents content in a file.
-- Shared RMED source (exact binding): `CA-D-326@26`
+- Shared RMED source (exact binding): `CA-D-326@27`
   - Claim Scope:
     projected Atom File Carrier placement in the current CAPRMEDIO configuration.
   - Remaining Claim prose:
@@ -8176,19 +8622,19 @@ Directory.Path[string]{1}
     CAPRMEDIO-owned Markdown, TOML, and YAML File Carrier repository previews.
   - Remaining Claim prose:
     **every** CAPRMEDIO-owned Markdown, TOML, **or** YAML File Carrier **must** remain valid, legible, **and** navigable **in** GitHub repository file preview **without** relying on editor-specific syntax for required content.
-- Shared RMED source (exact binding): `CA-D-337@20`
+- Shared RMED source (exact binding): `CA-D-337@21`
   - Claim Scope:
     legal File Carrier placement for the CAPRMEDIO Project.
   - Remaining Claim prose:
     the CAPRMEDIO Project **must** place its own license at root `LICENSE` **and** retained third-party legal File Carriers under root `LICENSES/` outside CAPRMEDIO authority, installation, **and** Runtime State roots.
-- Shared RMED source (exact binding): `CA-D-339@27`
+- Shared RMED source (exact binding): `CA-D-339@29`
   - Claim Scope:
     the shared Project-control Work Journal's serialization.
   - Remaining Claim prose:
     the shared Project Work Journal **must** materialize its logical event table by serializing its ordered event Records as append-only NDJSON File Carrier segments **in** `.caprmedio_<project_name>/_journal/` **or** its registered subdirectories. these segments **must** remain Carriers of the same Journal, **not** separate Journals for Scope Units, Content Roles, workflows, **or** derived log views. describing the Journal as a table does **not** replace this registered serialization **or** require a database Carrier.
   - Details (source-bound):
     This serialization governs the Project-control Work Journal, not every runtime technical or business Journal. Runtime Journal Delivery may use configured local or remote databases and logging sinks.
-- Shared RMED source (exact binding): `CA-D-356@22`
+- Shared RMED source (exact binding): `CA-D-356@23`
   - Claim Scope:
     authoritative Markdown Atom Carrier structure.
   - Remaining Claim prose:
@@ -8271,7 +8717,7 @@ Carrier/File.Filename.Scope Unit Token[string]{0+}
 ```
   - Details (source-bound):
     The declared File format and applicable D Policy determine required regions, tokens and actual encoding. Complete RMED Atom Markdown still requires its Summary and Claim. This definition adds no section, field, token or file to those policies.
-- Shared RMED source (exact binding): `CA-R-621@16`
+- Shared RMED source (exact binding): `CA-R-621@17`
   - Remaining Claim prose:
     the caprmedio Implementation **must** resolve both Settings Artifacts through the Core Meta-Model Carrier rules CA-D-359 **and** CA-D-364 **without** defining a Project-specific competing location.
 
@@ -8319,7 +8765,7 @@ File.Filename[string]{1}
     The `TIER` segment follows CA-D-651. It is mandatory for numeric Tier `0` and carries the registered `SCOPE_CONTRACT` token; for other Tiers its presence and numeric encoding follow the applicable filename grammar. Omitting an optional token does not omit, default or change the mandatory stored Tier. `SCOPE_CONTRACT` is the Tier representation, not the Atom's Type or effective Label. Do not restore `PRINCIPLE` or another unregistered legacy Tier token. A legacy filename remains nonconformant until its affected Carrier and references have an explicit migration disposition; old names are not grandfathered by this rule.
     
     This generic Project-owned Carrier rule does not replace the dedicated filename rules for an Operator-owned Project Goal. It does not invent a default numeric Tier or revive the retired named/default-Tier rules.
-- Shared RMED source (exact binding): `CA-D-284@24`
+- Shared RMED source (exact binding): `CA-D-284@25`
   - Claim Scope:
     structured Atom filename tokens, Summary Slug, **and** extension.
   - Remaining Claim prose:
@@ -8460,7 +8906,7 @@ Carrier/File.Main Content[string]{0..1}
     Normalize real heading names to lowercase, replace spaces with underscores, and strip characters other than letters, numbers, underscore and hyphen. Reject an empty normalized key or duplicate normalized key under one parent. A flattened lookup is admissible only when unambiguous; canonical paths retain their parent chain.
     
     Legacy layouts remain readable during migration. The existing C/A/P/O primary-content headings and their own Type-specific content rules remain applicable. A Draft may be incomplete but must satisfy the applicable complete contract before promotion.
-- Shared RMED source (exact binding): `CA-E-465@25`
+- Shared RMED source (exact binding): `CA-E-465@26`
   - Claim Scope:
     the Main Content of the selected schema-version `3` replacement Journal Event Carrier.
   - Remaining Claim prose:
@@ -8504,7 +8950,7 @@ Carrier/File.Main Content.CCE Operator[string]{0+}
 ```
   - Details (source-bound):
     Source meaning: CA-R-2269, CA-D-280. Scope-specific constraints remain in their governing Rs.
-- Shared RMED source (exact binding): `CA-D-280@25`
+- Shared RMED source (exact binding): `CA-D-280@27`
   - Claim Scope:
     CCE Operator occurrences within Markdown Atom Carrier Main Content.
   - Remaining Claim prose:
@@ -8525,7 +8971,7 @@ Carrier/File.Main Content.Paragraph[string]{0+}
 ```
   - Details (source-bound):
     Source meaning: CA-R-2269, CA-D-279. Scope-specific constraints remain in their governing Rs.
-- Shared RMED source (exact binding): `CA-D-279@24`
+- Shared RMED source (exact binding): `CA-D-279@25`
   - Claim Scope:
     Markdown Atom Carrier Main Content prose paragraphs.
   - Remaining Claim prose:
@@ -9009,10 +9455,10 @@ Relation.Meaning.*[]{:0}
     - do **not** store a separate inverse list.
     - do **not** encode Plan scheduling with `relations.depends_on` **or** `subjects.depends_on`.
     - store Plan containment separately on the child under `IS_CONTAINED_BY`, with `CONTAINS` derived; do **not** derive blocking from containment **or** directory order.
-- Shared RMED source (exact binding): `CA-E-436@28`
+- Shared RMED source (exact binding): `CA-E-436@30`
   - Remaining Claim prose:
     the Graph of Graphs connectivity Evaluation **must** return `fail` **if** a governed Artifact **or** delivered Implementation element has no recoverable location **or** no valid connection **to** the shared connected whole; a connection **may** cross graph boundaries, **and** specialized Methodology, Engine, **or** other Scope Unit checks **may** supply evidence **to** this Evaluation. apply cycle restrictions **only** **to** graph families whose authority requires them; connectivity **must not** impose universal acyclicity.
-- Shared RMED source (exact binding): `CA-E-620@33`
+- Shared RMED source (exact binding): `CA-E-620@34`
   - Claim Scope:
     the case covers lineage, implementation, checking, evidence, resolution, conflict solution, override, replacement, recurrence, **and** generic relation.
   - Remaining Claim prose:
@@ -9025,7 +9471,7 @@ Relation.Meaning.*[]{:0}
     ### Failure disposition
     
     record a Concern for **every** ambiguous pair **and** stop relation-vocabulary readiness **until** the owning relation-authority Claim **or** its presentation is corrected.
-- Shared RMED source (exact binding): `CA-E-622@51`
+- Shared RMED source (exact binding): `CA-E-622@53`
   - Claim Scope:
     - admit **`=1`** valid example of each selected known Relation Type under its defining Claim; evaluate any applicable Entity Definition constraints without inventing a default.
     - reject an unknown Relation Type; report missing or conflicting Rule evidence as unresolved only when an existing source contract requires that evidence, without treating every known Type as requiring a new Rule.
@@ -9061,17 +9507,17 @@ Relation.Meaning.*[]{:0}
     ### Failure disposition
     
     record a Concern naming the affected Relation Type **and** violated authority **and** stop relation-schema readiness.
-- Shared RMED source (exact binding): `CA-R-1023@26`
+- Shared RMED source (exact binding): `CA-R-1023@27`
   - Claim Scope:
     direct relations declared by an Atom.
   - Remaining Claim prose:
     an Atom **may** declare `derived_from` **and** another registered direct relation **when** the two relations express different direct facts.
-- Shared RMED source (exact binding): `CA-R-1024@27`
+- Shared RMED source (exact binding): `CA-R-1024@28`
   - Claim Scope:
     registered direct relations.
   - Remaining Claim prose:
     a registered direct relation **must not** imply a transitive relation.
-- Shared RMED source (exact binding): `CA-R-1025@27`
+- Shared RMED source (exact binding): `CA-R-1025@28`
   - Claim Scope:
     additional direct relation meanings.
   - Remaining Claim prose:
@@ -9081,32 +9527,32 @@ Relation.Meaning.*[]{:0}
     the `implementation_of` **and** `implemented_by` relation pair.
   - Remaining Claim prose:
     `implementation_of` **must** be registered as the declared upstream relation **and** `implemented_by` as its inverse-derived downstream relation **in** the realization ordering domain.
-- Shared RMED source (exact binding): `CA-R-1029@26`
+- Shared RMED source (exact binding): `CA-R-1029@27`
   - Claim Scope:
     Lineage Impact dispositions.
   - Remaining Claim prose:
     **every** Lineage Impact disposition **must** preserve the examined parent Revision, the examined child Revision, the selected disposition, **and** **any** resulting child Revision **or** blocking Concern Atom.
-- Shared RMED source (exact binding): `CA-R-1030@26`
+- Shared RMED source (exact binding): `CA-R-1030@27`
   - Claim Scope:
     the selection of non-compatible Impact dispositions.
   - Remaining Claim prose:
     TOOLING **must not** select `update_required`, `replacement_required`, **or** `uncertain` **without** an explicit governed disposition.
-- Shared RMED source (exact binding): `CA-R-1032@27`
+- Shared RMED source (exact binding): `CA-R-1032@28`
   - Claim Scope:
     release **or** downstream gates that require a revised Atom.
   - Remaining Claim prose:
     **every** release **or** downstream gate that requires a revised Atom **must** remain blocked **until** its Lineage Impact Analysis concludes that **every** affected branch has reached a fixed point.
-- Shared RMED source (exact binding): `CA-R-1038@27`
+- Shared RMED source (exact binding): `CA-R-1038@28`
   - Claim Scope:
     child rows in a Lineage Impact Analysis Atom.
   - Remaining Claim prose:
     **`=1`** Lineage Impact Analysis Atom **may** contain multiple child rows **when** **every** row supports its one primary conclusion that the changed parent Revision's Impact Review is complete **or** blocked.
-- Shared RMED source (exact binding): `CA-R-1039@27`
+- Shared RMED source (exact binding): `CA-R-1039@28`
   - Claim Scope:
     Lineage Impact Analysis Atoms.
   - Remaining Claim prose:
     a Lineage Impact Analysis Atom **must not** replace an examined child, supporting Evidence, **or** another Atom's Claim.
-- Shared RMED source (exact binding): `CA-R-1040@30`
+- Shared RMED source (exact binding): `CA-R-1040@31`
   - Claim Scope:
     authored inverse typed relations.
   - Remaining Claim prose:
@@ -9142,7 +9588,7 @@ Relation.Meaning.*[]{:0}
     CAPRMEDIO Graphs and their connections to the General Artifact Graph.
   - Remaining Claim prose:
     **every** CAPRMEDIO Graph **must** connect **to** the General Artifact Graph through **`>=1`** shared **or** referenced source Artifact **or** Structural Entity. the connection preserves the existing source identity **without** creating a duplicate source **or** requiring an artificial Artifact for a structural-only source.
-- Shared RMED source (exact binding): `CA-R-1437@30`
+- Shared RMED source (exact binding): `CA-R-1437@32`
   - Claim Scope:
     authoritative source declarations for Relation facts.
   - Remaining Claim prose:
@@ -9156,27 +9602,27 @@ Relation.Meaning.*[]{:0}
     a secondary CAPRMEDIO Graph **may** represent typed Relations between its own nodes, **to** another secondary graph **or** its nodes, **and** **to** source Atoms **or** other admitted authoritative sources.
     
     **every** connection **must** identify **`=1`** shared project-unique Relation Type under its defining authority, with its declared direction preserved, **and** must conform to any applicable governing Entity Definition endpoint-class, endpoint-graph-context, **and** cardinality constraints. a graph-qualified reference **or** context may qualify that connection without creating graph-owned Type identity. crossing a graph boundary **must not** create a graph-specific Type identity, import a foreign Relation Type as native, **or** make a referenced external endpoint a native node of the receiving graph. a cross-graph reference preserves the referenced endpoint identity **and** source traceability **without** copying its source fact into independent authority. these permissions do **not** create a Relation Type definition **or** authorize inference beyond the defining authority and applicable Rules.
-- Shared RMED source (exact binding): `CA-R-1632@34`
+- Shared RMED source (exact binding): `CA-R-1632@35`
   - Claim Scope:
     directly dependent children reached by the Impact Review after an Atom receives a new accepted Revision.
   - Remaining Claim prose:
     **when** an Atom receives a new accepted Revision, **every** directly dependent child reached by the Impact Review **must** receive **`=1`** disposition from (`compatible`, `update_required`, `replacement_required`, `uncertain`).
-- Shared RMED source (exact binding): `CA-R-1657@32`
+- Shared RMED source (exact binding): `CA-R-1657@33`
   - Claim Scope:
     the directed graph formed by active `structural_parent` relations.
   - Remaining Claim prose:
     the directed graph formed by active `structural_parent` relations **must** be acyclic.
-- Shared RMED source (exact binding): `CA-R-1659@30`
+- Shared RMED source (exact binding): `CA-R-1659@31`
   - Claim Scope:
     the inverse `structural_children` view derived from stored `structural_parent` relations.
   - Remaining Claim prose:
     CAPRMEDIO **must** derive the inverse `structural_children` view from stored `structural_parent` relations **and** **must not** persist that inverse separately.
-- Shared RMED source (exact binding): `CA-R-1676@36`
+- Shared RMED source (exact binding): `CA-R-1676@37`
   - Claim Scope:
     direct relations authored by Current RMED Atoms that target RMED Atoms.
   - Remaining Claim prose:
     **if** a direct relation is authored by a Current Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery) **and** targets an Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery), **then** the target Atom **must** be Current.
-- Shared RMED source (exact binding): `CA-R-1697@35`
+- Shared RMED source (exact binding): `CA-R-1697@36`
   - Claim Scope:
     CAPRMEDIO traceability assertions.
   - Remaining Claim prose:
@@ -9185,12 +9631,12 @@ Relation.Meaning.*[]{:0}
     the trace **must** preserve the source identity **and** accepted Revision, the receiving identity **or** stable target locator, the typed relation between them, the bounded scope **and** use, **and** the provenance needed **to** replay that relation. a relation **to** an artifact ID **without** its relied-upon revision is insufficient **after** the Atom has more than one accepted Revision.
     
     Traceability records relationships; it does **not** transfer authority **or** prove correctness, execution, delivery, **or** currentness. secondary storage history **may** preserve Carrier evidence, while governed Journals preserve semantic relationships independently of that secondary history.
-- Shared RMED source (exact binding): `CA-R-1699@36`
+- Shared RMED source (exact binding): `CA-R-1699@37`
   - Claim Scope:
     governed changes.
   - Remaining Claim prose:
     **every** governed change forms one directed provenance transaction from exact parent Artifact revisions **to** the governed Artifacts **or** native targets created **or** revised by that change.
-- Shared RMED source (exact binding): `CA-R-1735@27`
+- Shared RMED source (exact binding): `CA-R-1735@28`
   - Claim Scope:
     persisted transitions between self-improvement stages.
   - Remaining Claim prose:
@@ -9202,7 +9648,7 @@ Relation.Meaning.*[]{:0}
     The canonical name and meaning of each Relation Type **are** defined in its governing R Claim(s). A governing Claim **may** state a relevant inverse, derivation, or transitivity rule; no such optional property is required when it is not relevant.
   - Details (source-bound):
     Relation Type names are shared and unique in the Project. Existing Entity Definition constraints, where applicable, supply graph-specific admission, endpoint classes, endpoint graph contexts, cardinality, and other permissions or prohibitions; this contract does not require a separate Graph Rule for every known Type or choose default-allow/default-deny semantics. The Type definition retains its canonical meaning and any evidenced optional inverse, derivation, or transitivity semantics. A declared direct direction identifies the one authored fact where relevant; inverse or derived navigation remains derived under its defining authority. A name such as IS_CONTAINED_BY does not make that direction an inverse. Existing endpoint and admissibility constraints remain in their governing Entity Definition constraints; this contract does not itself rewrite them.
-- Shared RMED source (exact binding): `CA-R-807@33`
+- Shared RMED source (exact binding): `CA-R-807@34`
   - Claim Scope:
     replacement **or** absorption history.
   - Remaining Claim prose:
@@ -9222,7 +9668,7 @@ Relation.Meaning.*[]{:0}
 - Shared RMED source (exact binding): `CA-R-881@35`
   - Remaining Claim prose:
     cross-unit relation ownership **must** follow the applicable relation-family authority rather than a universal common-ancestor rule; a Demand **must** be owned by its Consumer Scope Unit under CA-R-932@37 **and** **must** constrain **only** the Producer result that Consumer is permitted **to** depend on, with the applicable ancestry **and** ordered-sibling restrictions preserved.
-- Shared RMED source (exact binding): `CA-R-915@32`
+- Shared RMED source (exact binding): `CA-R-915@33`
   - Claim Scope:
     Dependencies between related Governed Entities.
   - Remaining Claim prose:
@@ -9232,7 +9678,7 @@ Relation.Meaning.*[]{:0}
     Demand Atoms whose Consumer Atom Scope Unit and Producer Claim Target Scope Unit are ordered siblings.
   - Remaining Claim prose:
     **if** a Demand Atom's Consumer Atom Scope Unit **and** Producer Claim Target Scope Unit are ordered siblings, **then** its Producer Claim Target Scope Unit **must** precede its Consumer Atom Scope Unit.
-- Shared RMED source (exact binding): `CA-R-934@30`
+- Shared RMED source (exact binding): `CA-R-934@31`
   - Claim Scope:
     Demand Atoms and their named Implementation results.
   - Remaining Claim prose:
@@ -9255,7 +9701,7 @@ Relation.Meaning.*[]{:0}
 
 ### `Term` — declared component
 
-- Declaration source: `CA-R-1318@31`
+- Declaration source: `CA-R-1318@32`
   - Claim Scope:
     Project-specific vocabulary used as reusable lexical components of complete or qualified entity names and authored content, including the word `Term` itself.
   - Remaining Claim prose:
@@ -9286,8 +9732,8 @@ Term.Name[string]{1}
     
     The Operator explicitly confirmed direct `Term` placement, an initially flat set, and Content Role Method for Term Definitions; this latest decision supersedes the earlier Requirement-role lexical ownership and Object/Continuant placement. This is a proposed semantic revision of Current CA-R-1318@29. Its Requirement Content Role, Summary and Entity Definition Type are retained; the Name cardinality remains exactly one at the new root.
     
-    Source path: `/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md`. Source SHA-256: `02063cdcc24fa8ccc40ad6008958c821ccbf3608229a80f454a5d81a441e928d`. Source-fingerprint snapshot: `/tmp/cce-term-root-migration-20261029/current-before.json`; snapshot SHA-256: `23c1414c96d6e57cdc9f1bf50569de396ef130a7231b765cd8b4511bcb573ad5`. This Draft changes no Current source, allocates no identity and performs no promotion.
-- Shared RMED source (exact binding): `CA-E-512@25`
+    Source path: `/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md`. Source SHA-256: `02063cdcc24fa8ccc40ad6008958c821ccbf3608229a80f454a5d81a441e928d`. Source-fingerprint snapshot: `/tmp/cce-term-root-migration-20261029/current-before.json`; snapshot SHA-256: `23c1414c96d6e57cdc9f1bf50569de396ef130a7231b765cd8b4511bcb573ad5`. This Draft changes no Current source, allocates no identity and performs no promotion.
+- Shared RMED source (exact binding): `CA-E-512@27`
   - Claim Scope:
     CCE Claims evaluated for lexical case and Markdown operator representation.
   - Remaining Claim prose:
@@ -9325,7 +9771,7 @@ Term.Name[string]{1}
     ### Failure disposition
     
     record a Concern naming the affected CCE Claim **and** incorrect token. checking **must not** rewrite the source Claim.
-- Shared RMED source (exact binding): `CA-M-229@31`
+- Shared RMED source (exact binding): `CA-M-229@33`
   - Claim Scope:
     CAPRMEDIO content lexical-case rendering.
   - Remaining Claim prose:
@@ -9360,7 +9806,7 @@ Term.Name[string]{1}
     These links identify pending Draft dependencies, not Current admission.
   - Binding context:
     - lexical selector: `Term//Empty`
-- Shared RMED source (lexical_term_context binding): `CA-M-450@3`
+- Shared RMED source (lexical_term_context binding): `CA-M-450@4`
   - Claim Scope:
     The reusable lexical Term `ID` as used for identifiers of Continuant and Occurrent entity instances within a matching prefix namespace.
   - Remaining Claim prose:
@@ -9370,7 +9816,7 @@ Term.Name[string]{1}
     
     `ID` retains its approved meaning across its uses. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names or case-folded aliases. Authored Subjects use their full admitted expressions. Their shared terminal label need not be globally unique. Dot remains qualification syntax rather than a Term. These literal spellings are not changed to `atom.atom_id` or similar invented spellings, and existing code identifiers are not renamed.
     
-    This Draft proposes a Method Term Definition as the dedicated authoritative meaning owner of the lexical Term ID, preserving the approved meaning from the exact Current source `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2275-CORE_META_MODEL-TERM_DEFINITION--define-id.md`, Requirement CA-R-2275 Version 1, SHA-256 `e07b52086e0205f0400c6f01db7a8d2bff52b0dbc94fbf68d785283400ae6402`. E evaluates well-formedness and conflicts. No dictionary Projection, extractor, or lookup service is required.
+    This Draft proposes a Method Term Definition as the dedicated authoritative meaning owner of the lexical Term ID, preserving the approved meaning from the exact Current source `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2275-CORE_META_MODEL-TERM_DEFINITION--define-id.md`, Requirement CA-R-2275 Version 1, SHA-256 `e07b52086e0205f0400c6f01db7a8d2bff52b0dbc94fbf68d785283400ae6402`. E evaluates well-formedness and conflicts. No dictionary Projection, extractor, or lookup service is required.
     
     The proposed lexical target follows the Operator-confirmed initially flat placement at `Term//ID`; the separate Term branch and Method Type Term Definition declaration remain Draft dependencies. The target is explicitly introduced by the defining Claim rather than inferred from the letters in property names. The definition introduces no property, domain instance, prefix namespace, Relation, or other entity merely by naming it. It does not implement the deferred Terms Graph or waive the applicable defining-target binding rules; C605's separate Term-placement reconciliation remains applicable.
     
@@ -9388,7 +9834,7 @@ Term.Name[string]{1}
     The former Current collision was explicitly repaired under CA-M-276: the original ID Term Definition retains `CA-R-2275` and its exact pinned bytes; the later Settings definition now carries `CA-R-2423@1`. Journal event `0e1853d5-f441-4bc7-9460-bd4db67a0c3c` preserves the correction mapping and preimage. The original number remains reserved. Generated views containing the old Settings provenance still require regeneration; that remaining derived-output work does not change this exact predecessor pin.
   - Binding context:
     - lexical selector: `Term//ID`
-- Shared RMED source (lexical_term_context binding): `CA-M-451@3`
+- Shared RMED source (lexical_term_context binding): `CA-M-451@4`
   - Claim Scope:
     The reusable lexical Term `Entity` in canonical entity names and authored model statements.
   - Remaining Claim prose:
@@ -9400,7 +9846,7 @@ Term.Name[string]{1}
   - Details (source-bound):
     The Operator explicitly confirmed Entity as the sole Subject-root exception with both its structural Entity Definition and its reusable Term Definition. This does not require a new Term Definition for every Entity Definition or every complete entity name. Other complete entity expressions may reuse existing Terms as components. The distinction concerns definition targets; it introduces no general exemption from parentage or naming constraints for roots.
     
-    The lexical meaning remains consistent with the structural Entity authority. Current source: `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DEFINITION--define-entity.md`, CA-R-1248@23, SHA-256 `ace51485e016e84415c0a96cdf1ee23abcb57dfea5882f653aac26ea4fe8b152`. The pending successor preserves that category while extending the explicit root structure. This Method does not replace the structural Requirement, copy its whole specification, or establish a second Entity-kind definition.
+    The lexical meaning remains consistent with the structural Entity authority. Current source: `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DEFINITION--define-entity.md`, CA-R-1248@23, SHA-256 `ace51485e016e84415c0a96cdf1ee23abcb57dfea5882f653aac26ea4fe8b152`. The pending successor preserves that category while extending the explicit root structure. This Method does not replace the structural Requirement, copy its whole specification, or establish a second Entity-kind definition.
     
     This role-only Draft allocates no canonical Method identity and performs no promotion. The Term branch, specialized Method Type and ownership convention remain pending Draft dependencies.
     
@@ -9504,7 +9950,7 @@ Term.Name[string]{1}
     These links identify pending Draft dependencies, not Current admission.
   - Binding context:
     - lexical selector: `Term//Property`
-- Shared RMED source (lexical_term_context binding): `CA-M-454@3`
+- Shared RMED source (lexical_term_context binding): `CA-M-454@4`
   - Claim Scope:
     The reusable lexical Term Artifact in model statements about Entity instances
     and their Carrier representations.
@@ -9545,22 +9991,22 @@ Term.Name[string]{1}
     
     ### Current source evidence
     
-    Exact historical source: `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1994-CORE_META_MODEL--define-entity-node.md`, Version 14, SHA-256 `41b8b0ef51a71969db07cec2008a19e3c6372e90ae9cc66727de31287d722ce8`. It is evidence for the planned consolidation and future Retirement, not the ongoing owner of this lexical meaning.
+    Exact historical source: `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1994-CORE_META_MODEL--define-entity-node.md`, Version 14, SHA-256 `41b8b0ef51a71969db07cec2008a19e3c6372e90ae9cc66727de31287d722ce8`. It is evidence for the planned consolidation and future Retirement, not the ongoing owner of this lexical meaning.
   - Binding context:
     - lexical selector: `Term//Artifact`
-- Shared RMED source (lexical_term_context binding): `CA-M-455@3`
+- Shared RMED source (lexical_term_context binding): `CA-M-455@4`
   - Claim Scope:
     The reusable lexical Term `Change Content Roles` in authored content and
     governed Project work.
   - Remaining Claim prose:
-    Change Content Roles (CAPO) **means** the set (Concern, Analysis, Plan, Operations) used **to** identify, investigate, organize, **and** perform governed Project work, including changes **to** specification **and** Implementation. This Claim explicitly introduces the lexical Term instance named Change Content Roles at `Term//Change Content Roles`.
+    Change Content Roles (CAPO) **means** the set (Concern, Analysis & Advisory, Plan, Operations) used **to** identify, investigate, organize, **and** perform governed Project work, including changes **to** specification **and** Implementation. This Claim explicitly introduces the lexical Term instance named Change Content Roles at `Term//Change Content Roles`.
   - Semantics:
     The Term names this reusable four-member expression; it is not an Entity kind, a Content Role Property, a Selection Entity, or an Atom instance. Each named member remains an admitted Content Role value under its governing authority. Using CAPO in a Claim does not introduce another Term instance or assign a Content Role value to an Atom.
   - Details (source-bound):
     The R / Entity Definition for Atom Content Role governs the Property and its structural target. This M / Term Definition owns only the reusable lexical meaning of Change Content Roles. It creates no grouping Entity, Rule, Selection, parser rule, Carrier, Projection, runtime behavior, or retirement effect.
   - Binding context:
     - lexical selector: `Term//Change Content Roles`
-- Shared RMED source (exact binding): `CA-R-1319@27`
+- Shared RMED source (exact binding): `CA-R-1319@28`
   - Claim Scope:
     Reusable lexical Terms whose Project-specific meanings are owned by active dedicated Term Definition Method Atoms.
   - Remaining Claim prose:
@@ -9576,7 +10022,7 @@ Term.Name[string]{1}
     
     ### Draft source pin
     
-    This is a proposed semantic revision of Current CA-R-1319@25, preserving its Summary, Requirement Content Role and Rule Type. Source path: `/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md`. Source SHA-256: `831b4543ceced91376af9e3c494a5f37e8dd1d2d9766b14810ec6f6194b49f78`.
+    This is a proposed semantic revision of Current CA-R-1319@25, preserving its Summary, Requirement Content Role and Rule Type. Source path: `/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md`. Source SHA-256: `831b4543ceced91376af9e3c494a5f37e8dd1d2d9766b14810ec6f6194b49f78`.
     
     Source-fingerprint snapshot: `/tmp/cce-term-root-migration-20261029/current-before.json`; snapshot SHA-256: `23c1414c96d6e57cdc9f1bf50569de396ef130a7231b765cd8b4511bcb573ad5`. This Draft changes no Current source, assigns no new numeric identity and performs no promotion. Role replacements and retirement of the obsolete Requirement-qualified Type declaration require a coordinated reviewed transition; they are not executed here.
 - Shared RMED source (exact binding): `CA-R-1320@26`
@@ -10345,7 +10791,7 @@ $property ((IS_PROPERTY_OF)) $bearer;
     Forward `Host ((IS_PROPERTY_OF)) Target` and reverse `Target <((IS_PROPERTY_OF)) Host` are views of the same Relation fact.
     In `X.Y`, Y IS_PROPERTY_OF X; traversal runs from bearer to Property.
     IS_PROPERTY_OF relates Property to immediate bearer.
-- Shared RMED source (exact binding): `CA-R-1351@22`
+- Shared RMED source (exact binding): `CA-R-1351@23`
   - Claim Scope:
     Primary Entity occurrences referenced by a Subject.
   - Remaining Claim prose:
@@ -10355,7 +10801,7 @@ $property ((IS_PROPERTY_OF)) $bearer;
     
     ### Current source pin and pending adoption
     
-    Proposed N+1 successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL--give-primary-entity-occurrences-no-bearer.md`, Version 20, SHA-256 `58b6e1292608a312620fa9fed36f88bdf2b67790309053056cf6a6e5fafc2879`. Current bytes remain unchanged. The new Relation names depend on the pending IS_PROPERTY_OF / HAS_PROPERTY Relation Definition Drafts; this source does not admit them through a renamed token alone. This preparation performs no runtime change, generated-view refresh or promotion.
+    Proposed N+1 successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL--give-primary-entity-occurrences-no-bearer.md`, Version 20, SHA-256 `58b6e1292608a312620fa9fed36f88bdf2b67790309053056cf6a6e5fafc2879`. Current bytes remain unchanged. The new Relation names depend on the pending IS_PROPERTY_OF / HAS_PROPERTY Relation Definition Drafts; this source does not admit them through a renamed token alone. This preparation performs no runtime change, generated-view refresh or promotion.
 - Host / Target contracts:
   - `$property` — IS_PROPERTY_OF → `$bearer`; Host=undefined; Target=undefined; written direction=forward
 - Standalone metadata:
@@ -10396,31 +10842,28 @@ $occurrence ((IS_RECORDED_BY)) Event Record//
 
 ### `((IS_RUN_BY))` — declared Relation
 
-- Declaration source: `CA-R-2623@1`
-  - Remaining Claim prose:
-    An Action is run by a Step or Substep. IS_RUN_BY is the derived inverse of RUN. It expresses the same fact and is not authored separately.
+- Declaration source: `CA-R-2623@3`
   - Fenced Claim block:
 ```CFEL
 Action// ((IS_RUN_BY)) (in (Step, Substep))//;
-((RUN)) ((HAS_INVERSE)) ((IS_RUN_BY));
-
+Workflow// ((IS_RUN_BY)) Step//;
 ((IS_RUN_BY)) >| Derivation == Derived;
-((IS_RUN_BY)) ((IS_DERIVED_RELATION_OF)) ((RUN))
+((IS_RUN_BY)) ((IS_DERIVED_RELATION_OF)) ((RUNS))
 ```
   - Allowed Relations and other formal clauses:
     - `Action//` — IS_RUN_BY → `(in (Step, Substep))//`; Host=undefined; Target=undefined; written direction=forward
-    - `((RUN))` — HAS_INVERSE → `((IS_RUN_BY))`; Host=undefined; Target=undefined; written direction=forward
+    - `Workflow//` — IS_RUN_BY → `Step//`; Host=undefined; Target=undefined; written direction=forward
     - `((IS_RUN_BY)) >| Derivation == Derived`
-    - `((IS_RUN_BY))` — IS_DERIVED_RELATION_OF → `((RUN))`; Host=undefined; Target=undefined; written direction=forward
+    - `((IS_RUN_BY))` — IS_DERIVED_RELATION_OF → `((RUNS))`; Host=undefined; Target=undefined; written direction=forward
   - Semantics:
-    Forward `Host ((IS_RUN_BY)) Target` and reverse `Target <((IS_RUN_BY)) Host` are views of the same Relation fact.
-    IS_RUN_BY relates Action instance to Step or Substep instance. It is the derived inverse of RUN; it does not add a separately authored fact.
+    IS_RUN_BY is the derived inverse view of RUNS and is not authored as a separate fact.
 - Host / Target contracts:
   - `Action//` — IS_RUN_BY → `(in (Step, Substep))//`; Host=undefined; Target=undefined; written direction=forward
+  - `Workflow//` — IS_RUN_BY → `Step//`; Host=undefined; Target=undefined; written direction=forward
 - Standalone metadata:
-  - derivation: `Derived` — CA-R-2623@1
+  - derivation: `Derived` — CA-R-2623@3
 - IS_DERIVED_RELATION_OF bindings:
-  - `((RUN))` — CA-R-2623@1
+  - `((RUNS))` — CA-R-2623@3
 
 ### `((NARROWER_THAN))` — declared Relation
 
@@ -10502,33 +10945,30 @@ Event Record// ((RECORDS)) $occurrence
 - HAS_INVERSE bindings; this does not certify an undeclared inverse Relation:
   - `((IS_RECORDED_BY))` — CA-R-2246@7
 
-### `((RUN))` — declared Relation
+### `((RUNS))` — declared Relation
 
-- Declaration source: `CA-R-2480@4`
-  - Remaining Claim prose:
-    RUN binds a Step or Substep to an Action for execution.
+- Declaration source: `CA-R-2638@2`
   - Fenced Claim block:
 ```CFEL
-(in (Step, Substep))// ((RUN)) Action//;
-Action// ((IS_RUN_BY)) (in (Step, Substep))//;
-((RUN)) ((HAS_INVERSE)) ((IS_RUN_BY));
-
-((RUN)) >| Derivation == Direct
+Step// ((RUNS)) (in (Action, Workflow))//;
+Substep// ((RUNS)) Action//;
+((RUNS)) ((HAS_INVERSE)) ((IS_RUN_BY));
+((RUNS)) >| Derivation == Direct
 ```
   - Allowed Relations and other formal clauses:
-    - `(in (Step, Substep))//` — RUN → `Action//`; Host=undefined; Target=undefined; written direction=forward
-    - `Action//` — IS_RUN_BY → `(in (Step, Substep))//`; Host=undefined; Target=undefined; written direction=forward
-    - `((RUN))` — HAS_INVERSE → `((IS_RUN_BY))`; Host=undefined; Target=undefined; written direction=forward
-    - `((RUN)) >| Derivation == Direct`
+    - `Step//` — RUNS → `(in (Action, Workflow))//`; Host=undefined; Target=undefined; written direction=forward
+    - `Substep//` — RUNS → `Action//`; Host=undefined; Target=undefined; written direction=forward
+    - `((RUNS))` — HAS_INVERSE → `((IS_RUN_BY))`; Host=undefined; Target=undefined; written direction=forward
+    - `((RUNS)) >| Derivation == Direct`
   - Semantics:
-    Forward `Host ((RUN)) Target` and reverse `Target <((RUN)) Host` are views of the same Relation fact.
-    RUN relates Step or Substep instance to Action instance.
+    RUNS binds a Step or Substep invocation to its execution target. Its inverse is IS_RUN_BY.
 - Host / Target contracts:
-  - `(in (Step, Substep))//` — RUN → `Action//`; Host=undefined; Target=undefined; written direction=forward
+  - `Step//` — RUNS → `(in (Action, Workflow))//`; Host=undefined; Target=undefined; written direction=forward
+  - `Substep//` — RUNS → `Action//`; Host=undefined; Target=undefined; written direction=forward
 - Standalone metadata:
-  - derivation: `Direct` — CA-R-2480@4
+  - derivation: `Direct` — CA-R-2638@2
 - HAS_INVERSE bindings; this does not certify an undeclared inverse Relation:
-  - `((IS_RUN_BY))` — CA-R-2480@4
+  - `((IS_RUN_BY))` — CA-R-2638@2
 
 ### `((child_of))` — declared Relation
 
@@ -10788,28 +11228,28 @@ Atom/(.Role: Method)// ((method_for)) Atom/(.Role: Requirement)//
 
 ### `((rationale_for))` — declared Relation
 
-- Declaration source: `CA-R-1016@30`
+- Declaration source: `CA-R-1016@31`
   - Claim Scope:
     Rationale For Relation.
   - Remaining Claim prose:
-    `rationale_for` **means** the direct relation from a Rationale Analysis Atom
+    `rationale_for` **means** the direct relation from a Rationale Analysis & Advisory Atom
     to the Atom that it explains.
   - Fenced Claim block:
 ```CFEL
 ((rationale_for)) >| Derivation == Direct;
 
-Atom/(.Role: Analysis)/(.Form: Rationale)// ((rationale_for)) Atom//
+Atom/(.Role: "Analysis & Advisory")/(.Form: Rationale)// ((rationale_for)) Atom//
 ```
   - Allowed Relations and other formal clauses:
     - `((rationale_for)) >| Derivation == Direct`
-    - `Atom/(.Role: Analysis)/(.Form: Rationale)//` — rationale_for → `Atom//`; Host=undefined; Target=undefined; written direction=forward
+    - `Atom/(.Role: "Analysis & Advisory")/(.Form: Rationale)//` — rationale_for → `Atom//`; Host=undefined; Target=undefined; written direction=forward
   - Semantics:
     Forward `Host ((rationale_for)) Target` and reverse `Target <((rationale_for)) Host` are views of the same Relation fact.
-    rationale_for relates Rationale Analysis Atom to explained Atom.
+    rationale_for relates Rationale Analysis & Advisory Atom to explained Atom.
 - Host / Target contracts:
-  - `Atom/(.Role: Analysis)/(.Form: Rationale)//` — rationale_for → `Atom//`; Host=undefined; Target=undefined; written direction=forward
+  - `Atom/(.Role: "Analysis & Advisory")/(.Form: Rationale)//` — rationale_for → `Atom//`; Host=undefined; Target=undefined; written direction=forward
 - Standalone metadata:
-  - derivation: `Direct` — CA-R-1016@30
+  - derivation: `Direct` — CA-R-1016@31
 
 ### `((required_by))` — declared Relation
 
@@ -10843,7 +11283,7 @@ $prerequisite ((required_by)) $dependent
 
 ### `((structural_parent))` — declared Relation
 
-- Declaration source: `CA-R-1660@35`
+- Declaration source: `CA-R-1660@36`
   - Claim Scope:
     the Structural Parent Relation directed from a child to its immediate parent.
   - Remaining Claim prose:
@@ -10864,7 +11304,7 @@ $child ((structural_parent)) $parent
 - Host / Target contracts:
   - `$child` — structural_parent → `$parent`; Host=undefined; Target=undefined; written direction=forward
 - Standalone metadata:
-  - derivation: `Direct` — CA-R-1660@35
+  - derivation: `Direct` — CA-R-1660@36
 
 ## Coverage Gaps and Conflicts
 
@@ -10874,8 +11314,8 @@ $child ((structural_parent)) $parent
     Project-owned Atom filenames for Carriers contained **in** Scope Units.
   - Remaining Claim prose:
     **every** Project-owned Atom filename **must** serialize the Scope Unit that **contains** its authoritative Carrier **`=1`** time **and** **must** omit that segment **if** the Carrier is **in** the Project Scope Unit.
-- `CA-D-292@34`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-292@34`
+- `CA-D-292@35`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-D-292@35`
   - Claim Scope:
     external Project Goal filenames.
   - Remaining Claim prose:
@@ -10885,9 +11325,9 @@ $child ((structural_parent)) $parent
     
     ### Current source pin
     
-    Proposed N+1 successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-292-CORE_META_MODEL-ENG_DECISION--serialize-external-project-goal-filenames.md`, CA-D-292@32, SHA-256 `244cc4f2eca9145cf1e314263f31c9e1cc3d4031a0059f1204d5de1f098c00ed`. Current bytes remain unchanged; this Draft performs no promotion or filename migration.
-- `CA-D-329@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-329@26`
+    Proposed N+1 successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-292-CORE_META_MODEL-ENG_DECISION--serialize-external-project-goal-filenames.md`, CA-D-292@32, SHA-256 `244cc4f2eca9145cf1e314263f31c9e1cc3d4031a0059f1204d5de1f098c00ed`. Current bytes remain unchanged; this Draft performs no promotion or filename migration.
+- `CA-D-329@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-D-329@27`
   - Claim Scope:
     proof Carrier dependency-frontier serialization.
   - Remaining Claim prose:
@@ -10900,8 +11340,8 @@ $child ((structural_parent)) $parent
     **every** Reference **to** a Current external Project Goal Atom **must** use its canonical Current Atom ID, not its current Carrier filename stem.
     
     A Reference **to** an Archived external Project Goal Atom **must** use its canonical Atom ID qualified once with its unchanged numeric Version when historical identity is required. A Current Project Goal reference **must not** omit the canonical ID or fall back to a filename stem; this Delivery creates no ID-less Current exception.
-- `CA-D-344@21`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-344@21`
+- `CA-D-344@23`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-D-344@23`
   - Claim Scope:
     Host Invocations for the CAPRMEDIO Main Skill **and** separately authorized compatibility layers.
   - Remaining Claim prose:
@@ -10930,8 +11370,8 @@ $child ((structural_parent)) $parent
     - the logical Revision **must** follow the existing Artifact lineage, including Carrier renames **or** movements; a changed path **must not** reset it **or** justify a guessed allocation.
     - registration **must not** write the Settings Carrier, fabricate a past Settings change **or** author, **or** rewrite Journal history under CA-D-308. a Carrier changed since observation **must not** be presented as the registered current baseline; its historical observation remains intact.
     - baseline registration establishes the observed binding only. under CA-R-1491 it proves neither Settings schema conformance nor correct performance **or** authorization of another operation.
-- `CA-D-361@30`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-361@30`
+- `CA-D-361@32`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-D-361@32`
   - Claim Scope:
     the Framework Instance Settings TOML Carrier.
   - Remaining Claim prose:
@@ -10942,14 +11382,14 @@ $child ((structural_parent)) $parent
     Project Settings for a Project named `<project_name>`.
   - Remaining Claim prose:
     the Identifier of Project Settings for a Project named `<project_name>` **must** be `caprmedio_<project_name>_settings`.
-- `CA-D-368@27`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-368@27`
+- `CA-D-368@29`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-D-368@29`
   - Claim Scope:
     an explicit necessary-information confidence default in the Framework Instance Settings TOML Carrier.
   - Remaining Claim prose:
     an explicit necessary-information confidence default **in** the Framework Instance Settings TOML Carrier **must** use the integer-percentage field `confidence.necessary_information_threshold_percent`.
-- `CA-D-369@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-369@26`
+- `CA-D-369@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-D-369@28`
   - Claim Scope:
     an explicit semantic-resolution confidence default in the Framework Instance Settings TOML Carrier.
   - Remaining Claim prose:
@@ -10966,8 +11406,8 @@ $child ((structural_parent)) $parent
     the Framework Instance Settings TOML Carrier.
   - Remaining Claim prose:
     the Framework Instance Settings TOML Carrier **must** encode **`>=1`** code-root locator for the instance.
-- `CA-D-372@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-372@25`
+- `CA-D-372@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-D-372@27`
   - Claim Scope:
     selected active and background Tools in the Framework Instance Settings TOML Carrier.
   - Remaining Claim prose:
@@ -10978,18 +11418,6 @@ $child ((structural_parent)) $parent
     the Framework Instance Settings TOML Carrier.
   - Remaining Claim prose:
     the Framework Instance Settings TOML Carrier **must** encode enabled **or** disabled Extensions with selected revisions **when** applicable **and** retained per-Extension settings; retained settings **must not** activate a disabled Extension.
-- `CA-D-374@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-374@24`
-  - Claim Scope:
-    an explicit Authority Mode selection in the Framework Instance Settings TOML Carrier.
-  - Remaining Claim prose:
-    an explicit Authority Mode selection **in** the Framework Instance Settings TOML Carrier **must** use `authority_modes.default` for the instance default **or** `authority_modes.project` for the Project override. explicit per-unit overrides **must** use **only** that unit's `authority_mode` **in** authoritative Project Structure; legacy per-unit Settings fields **must not** remain a second selectable source.
-- `CA-D-380@21`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-380@21`
-  - Claim Scope:
-    Carrier renderings of a Navigational Order Number.
-  - Remaining Claim prose:
-    **every** Carrier rendering of a Navigational Order Number **must** use decimal digits. the default directory-name rendering of a non-Project Scope Unit **must** use **`>=2`** digits; a typed TOML integer stores the numeric value **without** leading-zero padding.
 - `CA-D-383@31`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-D-383@31`
   - Claim Scope:
@@ -11002,25 +11430,14 @@ $child ((structural_parent)) $parent
     an explicit atomic admission strictness selection in the Framework Instance Settings TOML Carrier.
   - Remaining Claim prose:
     an explicit atomic admission strictness selection **in** the Framework Instance Settings TOML Carrier **must** use `creation_strictness` **in** `[artifacts]`, using the allowed values governed by CA-R-1630.
-- `CA-D-389@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-389@24`
-  - Claim Scope:
-    the serialization of Analysis Type tokens in an Analysis Atom File Carrier filename.
-  - Remaining Claim prose:
-    an Analysis Atom File Carrier **must** serialize the following Type components within the Atom filename grammar governed by CA-D-283 **and** CA-D-284:
-    
-    - Rationale: `RATIONALE`.
-    - External Analysis Report: `EXTERNAL_ANALYSIS_REPORT`.
-    
-    these mappings govern filename representation; they do **not** rename a Type, admit a new Type, **or** prescribe a YAML Type value.
 - `CA-D-390@27`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-D-390@27`
   - Claim Scope:
     the Artifact timestamp timezone setting in Framework Instance Settings.
   - Remaining Claim prose:
     the Framework Instance Settings Artifact **may** set `[artifact_timestamps].timezone` **to** `local`, `UTC`, **or** an IANA timezone name, with `local` as the default; **every** emitted `updated_at` value uses `YYYY-MM-DD HH:MM:SS +ZZZZ` with its explicit numeric UTC offset, **and** the setting supplies its timezone interpretation.
-- `CA-D-392@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-392@26`
+- `CA-D-392@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-D-392@27`
   - Claim Scope:
     Project identity in Project Scope Unit Graph Projections.
   - Remaining Claim prose:
@@ -11028,7 +11445,7 @@ $child ((structural_parent)) $parent
     
     ### Current source pin
     
-    Proposed N+1 successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-392-CORE_META_MODEL-ENG_DECISION--register-obsolete-project-names.md`, CA-D-392@24, SHA-256 `384bfda590d882b143ab76b14854621d123a24026f7d90710da83ea50a3f79ca`. Current bytes remain unchanged; this Draft preserves the `project.obsolete_names` encoding and performs no projection refresh.
+    Proposed N+1 successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-392-CORE_META_MODEL-ENG_DECISION--register-obsolete-project-names.md`, CA-D-392@24, SHA-256 `384bfda590d882b143ab76b14854621d123a24026f7d90710da83ea50a3f79ca`. Current bytes remain unchanged; this Draft preserves the `project.obsolete_names` encoding and performs no projection refresh.
 - `CA-D-393@23`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-D-393@23`
   - Claim Scope:
@@ -11099,50 +11516,6 @@ $child ((structural_parent)) $parent
     parameter values in the Default Settings TOML Carrier.
   - Remaining Claim prose:
     **every** parameter value **in** the Default Settings TOML Carrier **must** use the same registered section, field path, value type, **and** allowed domain as the corresponding explicit Framework Instance Settings parameter, **without** introducing a separate defaults-field schema.
-- `CA-D-440@21`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-440@21`
-  - Claim Scope:
-    the authoritative Project Structure Carrier.
-  - Remaining Claim prose:
-    the authoritative Project Structure Carrier **must** be **`=1`** UTF-8 TOML file named `project_structure.toml` directly inside the owning `.caprmedio_<project_name>/` directory. `<project_name>` resolves from the owning Project Settings. this non-Atom Carrier **must not** carry an Atom ID, Atom Content Role, Atom Frontmatter, **or** non-authoritative Projection metadata. concrete unit paths belong **only** **to** this file, while Delivery Atoms retain general Carrier schema **and** representation authority.
-- `CA-D-441@22`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-441@22`
-  - Claim Scope:
-    Project Structure TOML documents, including declared non-Project Scope Units **and** the implicit root Project.
-  - Remaining Claim prose:
-    the Project Structure TOML document **must** contain the integer `schema_version = 1` **and** **`=1`** `scope_units` array of tables, with **`>=0`** rows for declared non-Project Scope Units. an empty array **must** use `scope_units = []`; nonempty arrays use `[[scope_units]]`. the root Project is implicit from Project Settings **and** **must not** have a duplicate row. unknown top-level keys, unknown row keys, duplicate TOML keys, **and** unsupported schema versions **must** be rejected rather than ignored. document comments **may** explain authority **and** retained readability fields, **without** introducing additional authoritative fields.
-- `CA-D-442@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-442@25`
-  - Claim Scope:
-    the field signatures and field order of `[[scope_units]]` tables.
-  - Remaining Claim prose:
-    **every** `[[scope_units]]` table **must** use the following field signatures **and** field order for readable serialization. omission is permitted **only** **where** stated; an empty string **or** copied default **must not** substitute for omission.
-    
-    | Field | TOML value **and** responsibility |
-    |---|---|
-    | `scope_unit_name` | required nonempty canonical Scope Unit Name string |
-    | `parent` | required string: `PROJECT` for the owning root, **otherwise** a declared Scope Unit Name **in** the same Project |
-    | `scope_unit_type` | required string **in** (`Ordered`, `Unordered`) |
-    | `scope_unit_label` | required nonempty canonical Label string, independent of Type |
-    | `local_order` | required integer **only** for Ordered units; absent for Unordered units |
-    | `navigational_order_number` | required nonnegative integer, independent of structural Local Order |
-    | `authority_path` | required nonempty repository-relative directory path string |
-    | `delivery_path` | required nonempty repository-relative Implementation Folder path string |
-    | `authority_mode` | optional explicit string **in** (`strict`, `casual`); absence inherits Framework Instance Settings |
-    
-    both path fields use forward slashes **and** resolve from the repository root, **not** the TOML directory; a trailing slash does **not** establish another binding. absolute paths, parent traversal, escaping symlinks **and** paths resolving **to** another Project's control root are invalid. a native Carrier binding under admitted Delivery authority **may** differ from ordinary physical nesting. `structural_level`, `node_id`, `structural_parent`, `child_composition`, `project_boundary_position`, `authority_materialized`, **and** `numeric_prefix` are **not** authored row fields. Any readable ancestry/path display is derived from `parent` declarations under CA-R-2133 and is not another declaration.
-- `CA-D-443@21`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-443@21`
-  - Claim Scope:
-    Project Structure Revision bindings.
-  - Remaining Claim prose:
-    a Project Structure Revision binding **must** identify the exact authoritative TOML bytes by SHA-256 Digest **and** the completed change event **in** the canonical Event Log under applicable Journal authority. the binding **must** distinguish the selected pre-change state, resulting state, **and** actual completion **or** failure; missing **or** conflicting event evidence leaves provenance currentness unknown. the TOML Carrier **must not** duplicate Atom Revision fields **or** store its own self-referential digest. a consumer **may** parse **and** validate the selected bytes **without** claiming completed change provenance **when** that provenance is unresolved.
-- `CA-D-444@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-444@23`
-  - Claim Scope:
-    the transition of a staged Project Structure candidate to active authority.
-  - Remaining Claim prose:
-    a staged Project Structure candidate **must** use the filename `project_structure.candidate.toml` inside the explicitly selected migration workspace, outside the canonical active path. no ordinary consumer **may** discover it as active authority; candidate validation requires an explicit candidate path. cutover **must** install the validated candidate at the canonical path **only** **after** freshness, authorization, reference repairs, consumer readiness **and** recoverability checks pass. the old active bytes **must** remain recoverable through accepted change evidence **without** becoming another active structural source. the candidate **must** be retired **after** successful activation **or** rejection; failure **must not** leave two files eligible for normal authority resolution.
 - `CA-D-447@30`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-D-447@30`
   - Claim Scope:
@@ -11192,12 +11565,6 @@ $child ((structural_parent)) $parent
   - Details (source-bound):
     - for a contained Plan, apply its current-Status placement relative to its immediate containing Plan's Directory Carrier; for example, a Done child is in `<parent-directory>/done/<child>.md`, using its canonical matching stem. This does **not** specify the parent's own root-level terminal-Status location.
     - Place each Archived Plan Markdown Carrier directly in the owning Scope Unit's shared `03_plan/archived` area, without a parent/child Plan directory hierarchy. Apply CA-D-289's Version suffixes **to** Archive Carrier basenames. Preserve exact older version bytes **without** rewriting their Version **or** Status. Retained-history subtrees and non-Atom assets may move byte-for-byte with an authorized matching Directory Carrier move; they are not independent Status targets. This does **not** authorize independent legacy-tree migration.
-- `CA-D-465@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-465@23`
-  - Claim Scope:
-    materialized Structural Entities and Scope Units established by Project Structure.
-  - Remaining Claim prose:
-    **every** materialized Structural Entity **must** be carried by **`>=1`** Directory Carrier; a Scope Unit established by Project Structure **may** remain unmaterialized under CA-R-1484-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations without losing its declaration **or** identity.
 - `CA-D-473@25`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-D-473@25`
   - Claim Scope:
@@ -11284,50 +11651,16 @@ $child ((structural_parent)) $parent
     changes limited **to** Carrier Format **or** File Carrier Extension.
   - Remaining Claim prose:
     a change **to** Carrier Format **or** File Carrier Extension alone **must not** establish **or** change Entity identity.
-- `CA-D-581@14`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-D-581@14`
-  - Claim Scope:
-    the filename Type component of a project-owned FPF Analysis Report Markdown Carrier.
-  - Remaining Claim prose:
-    a project-owned Analysis Atom with `type: FPF Analysis Report` **must** serialize its Type filename component as `FPF_ANALYSIS_REPORT` within the filename grammar governed by CA-D-283 and CA-D-284.
-  - Details (source-bound):
-    This mapping adds the representation of the Type admitted by CA-R-1888. It does not rename another Type, change its filename token or replace the common Analysis body layout. Carrier placement follows the applicable Delivery mapping under CA-D-466 and the canonical Analysis content-role directory under CA-D-324.
-- `CA-E-001@33`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-001@33`
+- `CA-E-001@35`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-001@35`
   - Remaining Claim prose:
     governed commitments **and** results **must** be checkable **when** used **to** govern work **or** evaluate a result.
-- `CA-E-006@38`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-006@38`
-  - Claim Scope:
-    Framework Instance Settings, Project Settings, **and** Project Structure selections.
-  - Remaining Claim prose:
-    **Claim checked.**
-    
-    the Framework Instance Settings Artifact **and** Project Settings Artifact accept exactly their registered values, resolve deterministically, **and** fail closed on invalid **or** unknown selections; Project Structure owns current unit declarations **and** explicit per-unit overrides **without** duplicating Settings selections **or** requiring a structural Projection.
-    
-    ### Applicable conditions
-    
-    1. resolve **and** load the exact current caprmedio_framework_settings Artifact **and** caprmedio_<project_name>_settings Artifact **and** the Default Settings Artifact; evaluate framework parameter resolution against `CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback`.
-    2. accept **only** enabled catalog Artifact Types, Atom Content Roles **and** their qualified Types, **and** Governance Origins.
-    3. accept **only** `medium` **or** `high` artifact creation strictness.
-    4. accept **only** `silent` **or** `verbose` interaction reporting. select **every** allowed value through Framework Instance Settings **and** confirm that the effective reporting default follows that selection **without** changing source Atoms, using Project Settings as reporting authority, **or** applying an independent Atom-fixed default.
-    5. validate initialization inputs against Project Settings field authority **and** default **and** Project Authority Modes against Framework Instance Settings field authority, **and** explicit per-unit overrides against Project Structure field authority; do **not** hard-code this Project's selected values **in** the Evaluation.
-    6. reject unknown keys **when** the governing schema marks their table closed.
-    7. confirm a second parse produces identical effective settings **and** direct Project Structure resolution uses the same selected declaration bytes **and** consumed Settings revisions, including Default Settings **when** it supplies consumed values; deleting a legacy structural Projection does **not** change those results.
-    
-    ### Acceptance criteria
-    
-    **every** valid selection resolves deterministically **and** **every** invalid selection fails closed with the exact key **and** allowed values.
-    
-    ### Failure disposition
-    
-    record a Concern naming the accepted invalid value, rejected valid value, **or** non-deterministic result **and** stop settings-schema readiness.
-- `CA-E-206@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-206@24`
+- `CA-E-206@26`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-206@26`
   - Remaining Claim prose:
     a governed conclusion **may** be treated as reliable for an affected use **only** **when** **every** required input is present, known, consistent, **and** valid.
-- `CA-E-207@34`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-207@34`
+- `CA-E-207@36`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-207@36`
   - Claim Scope:
     this Evaluation checks priority resolution **and** alternative selection for an affected Scope **and** Project stage under CA-R-1487, CA-M-297, CA-O-022, **and** CA-O-023.
   - Remaining Claim prose:
@@ -11347,16 +11680,16 @@ $child ((structural_parent)) $parent
 - Selected evidence outside model scope: `CA-E-209@25`
   - Remaining Claim prose:
     the intended Operator can identify the represented meaning, available controls, **and** material consequences.
-- `CA-E-228@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-228@26`
+- `CA-E-228@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-228@28`
   - Remaining Claim prose:
     the declared Operators collectively retain control over **every** governed part of the CAPRMEDIO instance **and** can use the instance **to** change the Project within their current authority.
-- `CA-E-230@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-230@25`
+- `CA-E-230@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-230@27`
   - Remaining Claim prose:
     the Operator can create, inspect, limit, modify, suspend, **and** revoke AI Agent Delegations **and** mandatory authorization rules for identified AI Agents.
-- `CA-E-243@38`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-243@38`
+- `CA-E-243@39`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-243@39`
   - Claim Scope:
     Demand Atoms and their Consumer-owned Producer-result constraints.
   - Remaining Claim prose:
@@ -11450,8 +11783,8 @@ $child ((structural_parent)) $parent
     connectivity **and** cycle checks apply **only** as required by the governing graph authority; the NARROWER_THAN cycle prohibition **and** the admitted isolated Root Term cases above remain distinct. passing graph-structure checks does **not** establish Project-specific meaning **or** consistency of source use **without** the required governing definitions **and** source context.
   - Details (source-bound):
     The contextual topic/code spellings `atom.id` **and** `projection.id` distinguish their respective ID Properties using the explicitly defined ID meaning; the dot remains syntax. They are not alternative complete canonical Subject names; an authored Subject uses its full admitted expression. Apply ID uniqueness **only** within matching prefixes; `CA-P-123`, `CA-P-123@1-draft` **and** `CA-P-123@3` introduce no version-identity **or** case-folding rules. Source consistency, well-formedness, checked coverage **and** optional Projection fidelity remain separate.
-- `CA-E-383@43`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-383@43`
+- `CA-E-383@45`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-383@45`
   - Claim Scope:
     Entity Expressions evaluated for invalid component handling.
   - Remaining Claim prose:
@@ -11574,8 +11907,8 @@ $child ((structural_parent)) $parent
     - qualified Type Subjects create **`>1`** Type Property slots for the occurrence.
     
     absence of a Type value **in** an Entity occurrence that does **not** bear Type is **not** a cardinality failure under this Evaluation.
-- `CA-E-405@29`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-405@29`
+- `CA-E-405@31`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-405@31`
   - Claim Scope:
     Canonical Signature derivations evaluated against the restricted CCE boundary.
   - Remaining Claim prose:
@@ -11588,8 +11921,8 @@ $child ((structural_parent)) $parent
     - it fails **to** flatten nested same-operator groups.
     - it retains duplicate atomic predicates.
     - it yields different Canonical Signatures from Boolean groups that differ **only** by operand order.
-- `CA-E-407@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-407@28`
+- `CA-E-407@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-407@30`
   - Claim Scope:
     Canonical Scope Signature derivations.
   - Remaining Claim prose:
@@ -11599,18 +11932,18 @@ $child ((structural_parent)) $parent
     - it treats one Signature as authority **or** Claim equivalence.
     - it accepts mixed **and** **or** groups, **without**, **where**, **all**, **any** other CCE Operator, function, Entity-kind selector, descendant **or** dynamic selector, unresolved identity, changing source frontier, **or** unparseable prose.
     - it fails **to** flatten nested same-operator groups, retains duplicate exact Atom IDs, loses the distinction between **and** **and** **or**, **or** yields different Signatures from same-operator groups that differ **only** by operand order.
-- `CA-E-435@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-435@24`
+- `CA-E-435@26`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-435@26`
   - Remaining Claim prose:
     the reconstruction readiness Evaluation **must** return `fail` **if** rebuilding required behavior **or** evaluating the rebuilt result needs authority recovered from the previous Implementation **or** specification work **before** reconstruction; **if** a language change is selected, **then** evaluate readiness against the current RMED **after** its affected Method **and** Delivery updates. absence of a prebuilt alternative **must not** by itself cause failure.
     
     the Evaluation **must not** report runtime equivalence **if** equal complete runtime inputs under unchanged RMED produce different outputs, relevant starting state **or** configuration **or** time **or** randomness **or** external-service responses are omitted from the comparison, applicable Method **or** Delivery constraints are violated, **or** an authorized RMED change is hidden inside the unchanged baseline. source-code differences alone **must not** cause failure. a fixed task order **or** readiness review **without** runtime evidence **must not** be reported as proof of equivalent reconstruction.
-- `CA-E-437@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-437@25`
+- `CA-E-437@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-437@27`
   - Remaining Claim prose:
     the methodology alignment support Evaluation **must** return `fail` **if** the available Tools cannot assess the governed instance against the current Applicable Methodology, omit known nonconformance, cannot support an authorized repair, **or** mutate authority **without** Operator permission; a targeted check **may** use a bounded affected Scope **and** its dependencies. an unresolved finding **or** Operator-created orphan **must not** by itself establish failure of the required support capability **or** be reported as conformance.
-- `CA-E-439@27`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-439@27`
+- `CA-E-439@29`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-439@29`
   - Remaining Claim prose:
     within the caprmedio Project, the implementation-loop Evaluation **must** return `fail` **if**
     
@@ -11629,14 +11962,14 @@ $child ((structural_parent)) $parent
     - **or** completion is reported with **any** applicable Evaluation failed, blocked, **or** unevaluated.
     
     repeated evaluate-fix execution **and** runtime loops alone **must not** be rejected as prerequisite cycles.
-- `CA-E-440@34`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-440@34`
+- `CA-E-440@36`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-440@36`
   - Claim Scope:
     Governing Atom changes.
   - Remaining Claim prose:
     the governing-Atom change Evaluation **must** return `fail` **if** an Operator-authored Atom changes **without** Operator approval, an AI-authored Atom changes autonomously below the Plan confidence threshold, a permission **or** additional Operator constraint is bypassed, the Author is changed **before** resolving the approval requirement, **or** an omitted **or** unresolved Author is assumed **to** be an AI Agent. it **must** also return `fail` **if** an authorized RMED change is reported against the old unchanged baseline **or** its affected work **and** Evaluations are **not** resolved again. AI authorship **and** sufficient confidence **must not** override an explicit prohibition.
-- `CA-E-441@33`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-441@33`
+- `CA-E-441@35`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-441@35`
   - Claim Scope:
     the retry-policy Evaluation.
   - Remaining Claim prose:
@@ -11651,8 +11984,8 @@ $child ((structural_parent)) $parent
     - successful completion under CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior still triggers another automatic repair retry.
     
     earlier escalation required by governing authority **must not** be rejected merely because retries remain.
-- `CA-E-442@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-442@24`
+- `CA-E-442@26`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-442@26`
   - Remaining Claim prose:
     the refactoring-verification Evaluation **must** return `fail` **if**
     
@@ -11668,8 +12001,8 @@ $child ((structural_parent)) $parent
     - **or** the canary is reported as executed **without** running the candidate during an authorized controlled rollout.
     
     absence of an inapplicable testing technique **or** of an old-Implementation baseline for a fresh reconstruction **must not** by itself cause failure. baseline observations **must not** replace RMED as authority.
-- `CA-E-443@32`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-443@32`
+- `CA-E-443@34`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-443@34`
   - Claim Scope:
     the confidence-threshold Evaluation.
   - Remaining Claim prose:
@@ -11685,22 +12018,6 @@ $child ((structural_parent)) $parent
     - confidence below the effective value requests Operator disposition; equal **or** greater confidence grants no additional authority.
     
     report the selected source, context, expected value, **and** failed condition **without** mutating source values.
-- `CA-E-445@27`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-445@27`
-  - Remaining Claim prose:
-    the Methodology Scope Units belong **to** the caprmedio Project Scope Unit tree **and** remain governed by its active Project-owned Tier 0 Atoms.
-- `CA-E-446@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-446@28`
-  - Claim Scope:
-    settings boundaries and observed Project Structure across Projects in one repository.
-  - Remaining Claim prose:
-    settings resolve through their own Project paths **without** cross-Project fallback. Project Settings remain authoritative initialization inputs; Framework Instance Settings remain authoritative instance choices. foundational settings authority defines purpose, content, **and** authority boundaries, shared settings specifications are independently governable **when** needed, **and** concrete settings specifications define concrete sections **or** fields. the declared unit remains visible with missing Carrier **and** Active Goal findings; the undeclared candidate remains an observation **without** becoming a declaration. explicit unit Authority Mode overrides resolve from Project Structure; omitted values inherit Framework Instance Settings. no structural Projection is required. no Projection edit changes Settings, Project Structure, **or** source Atoms. an unresolved authority-backed value does **not** conceal observed structure.
-    
-    **every** Framework Instance's Methodology Sources **and** Applicable Methodology output **must** resolve beneath its own Project's `000_CAPRMEDIO_framework/` directory. rebuilding one Project's Applicable Methodology **must not** read, replace, **or** modify another Project's sources, settings, **or** compiled results. a missing selected Project instance **must** be reported rather than resolved through another Project **or** the former repository-shared framework root. nesting the framework directory **must not** change source Atom identity **or** make a projected copy a second authoritative Atom.
-  - Details (source-bound):
-    ### Test case
-    
-    create two Projects **in** one repository, **every** Project with its own Project Settings **and** `000_CAPRMEDIO_framework` directory. resolve both settings **before** creating Project Atoms **or** Implementation. select different Authority Modes, installed Extensions, **and** Project Configuration for the two instances. give the two instances distinct Methodology Sources **and** compiled Applicable Methodology results. declare a Scope Unit with no Active Goal **and** no directory; separately add an undeclared candidate Scope Unit directory. include Draft **and** archived Goals as non-active evidence. give a declared unit an explicit Authority Mode override **in** its Project Structure **and** leave another unit's override omitted.
 - `CA-E-449@44`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-449@44`
   - Claim Scope:
@@ -11888,59 +12205,6 @@ $child ((structural_parent)) $parent
     | a projected fact corrected independently while its source **and** governing derivation remain unchanged | fail |
     
     passing this source-authority Evaluation does **not** establish graph-specific Relation validity, completeness, **or** the truth of a recorded outcome; those remain subject **to** their applicable Evaluations.
-- `CA-E-469@27`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-469@27`
-  - Claim Scope:
-    Project Structure declarations.
-  - Remaining Claim prose:
-    the Evaluation **must** reject Project Structure **if**
-    
-    - its registered Carrier schema is invalid,
-    - a Scope Unit Name is duplicated **or** invalid,
-    - a parent is unresolved **or** self-referential,
-    - parentage **contains** a cycle,
-    - a parent refers **to** another Project,
-      - a retained ancestry/path representation disagrees with the declared parent chain,
-    - **or** a declaration assigns an invalid Type, Label, order, navigation value, Authority Mode, **or** Carrier binding.
-    
-    - Ordered siblings **must not** share structural Local Order; Navigational Order Number duplicates alone **must not** fail validation.
-    - an Unordered unit **must not** carry structural Local Order.
-    - Label **must not** determine Type.
-    - retained readable fields **must** agree with governing source fields **and** admitted Carrier exceptions.
-    - lexical **and** resolved-path collisions, traversal outside the authorized repository boundary, **and** ambiguous unit lookup **must** fail.
-    - the Evaluation **must** test a valid declaration **and** a falsifying example for **every** applicable condition, with explicit failures for unknown fields **or** unsupported schema versions.
-- `CA-E-470@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-470@24`
-  - Claim Scope:
-    Project Structure declarations and observations.
-  - Remaining Claim prose:
-    the Evaluation **must** fail **if** a consumer requires a structural Projection, promotes an observed folder **or** Goal into a declaration, conceals a declared unit because its Carrier **or** Active Goal is absent, treats a Draft **or** archived Goal as Active coverage, **or** repairs contradictory sources **without** authorization. test declared-and-materialized, declared-but-unmaterialized, undeclared folder candidate, missing Active Goal, mismatched Carrier Name, logical-parent/physical-parent exception, **and** retired structural Projection cases. findings **must** retain their category **and** exact source evidence; an undeclared candidate **or** Goal coverage gap alone **must not** erase a declaration **or** authorize a mutation.
-- `CA-E-471@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-471@25`
-  - Claim Scope:
-    structural changes **and** no-change repeats, including create, rename, reparent, reorder, rebind, reconciliation, **and** declaration removal.
-  - Remaining Claim prose:
-    the Evaluation **must** fail a structural change **if** it:
-    
-    - starts from stale declarations;
-    - exceeds authorization;
-    - bypasses the effective confidence gate;
-    - loses a Goal **or** reference;
-    - violates post-change consistency;
-    - changes another Project;
-    - silently overwrites concurrent changes; **or**
-    - reports completion **after** partial failure.
-    
-    test the following groups:
-    
-    - create, rename, reparent, reorder, rebind, reconciliation **and** declaration removal against their exact before/after states;
-    - rejection, invalid proposal, stale-state failure, injected apply failure **and** authorized recovery.
-    
-    the following conditions also apply:
-    
-    - a no-change repeat **must** preserve authority bytes **and** have no additional structural effects.
-    - declaration removal **must not** delete a folder **unless** that exact deletion is authorized.
-    - a missing structural Projection **must not** prevent an **otherwise** valid change.
 - `CA-E-473@26`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-473@26`
   - Claim Scope:
@@ -11969,8 +12233,8 @@ $child ((structural_parent)) $parent
     ### failure disposition
     
     stop the affected autonomous retry **and** report the failed condition **to** the Operator.
-- `CA-E-474@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-474@25`
+- `CA-E-474@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-474@27`
   - Claim Scope:
     configurable release readiness.
   - Remaining Claim prose:
@@ -11996,8 +12260,8 @@ $child ((structural_parent)) $parent
     - retain the distinction between declared direct authority edges **and** inverse-derived views under CA-R-808 **and** CA-R-879. an inverse view **must not** become another independently declared edge **in** the cycle check.
     
     this representation-independent criterion does **not** select a graph-construction implementation **or** a concrete test specimen.
-- `CA-E-483@18`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-483@18`
+- `CA-E-483@21`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-483@21`
   - Claim Scope:
     the CAPRMEDIO Routing Tree.
   - Remaining Claim prose:
@@ -12008,8 +12272,8 @@ $child ((structural_parent)) $parent
     - ambiguous precedence;
     - a duplicate route identity;
     - an authority effect that is **not** explicitly declared.
-- `CA-E-487@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-487@26`
+- `CA-E-487@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-487@28`
   - Claim Scope:
     the Evaluation of a CAPRMEDIO implementation Spec.
   - Remaining Claim prose:
@@ -12060,8 +12324,8 @@ $child ((structural_parent)) $parent
     - a Step result returns **or** a Workflow hands off: the executor owns the declared routing; a returned prompt alone is **not** Step completion **or** successor completion.
     
     check exact supplied evidence, **not** a claim that the session will remember how **to** proceed.
-- `CA-E-501@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-501@28`
+- `CA-E-501@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-501@30`
   - Claim Scope:
     Plan authoring under the common model.
   - Remaining Claim prose:
@@ -12080,8 +12344,8 @@ $child ((structural_parent)) $parent
     - accept inherited confidence values **without** copied overrides; reject an unresolved effective value **before** autonomous execution.
     
     report the exact Plan identity **and** failed rule; a Label **must not** waive the failure.
-- `CA-E-505@21`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-505@21`
+- `CA-E-505@22`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-505@22`
   - Claim Scope:
     a qualified use of Label under shared Label semantics.
   - Remaining Claim prose:
@@ -12097,39 +12361,6 @@ $child ((structural_parent)) $parent
     - retain bearer-specific cardinality, defaults, **and** Carrier encoding under their own authority; the shared definition **must not** require a Label on **every** Entity **or** create a new field **in** existing Carriers.
     
     report the bearer, Label value, **and** wrongly inferred fact **without** silently changing the source Entity.
-- `CA-E-510@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-510@24`
-  - Claim Scope:
-    a navigation-migration result.
-  - Remaining Claim prose:
-    the Evaluation accepts a navigation-migration result **only** **if** it conforms **to** CA-O-078 **and** the identified Project Structure authority, preserves declared values **unless** an authorized change selects replacements, **and** distinguishes a ready candidate from unresolved **or** failed preparation.
-  - Details (source-bound):
-    ### Inputs and evidence
-    
-    - the exact checked authority Revisions, selected before-state, accepted Scope Unit inventory, source-layout rules, Carrier observations, creation-order evidence, **and** Operator selections.
-    - the Action result, candidate bytes, per-unit value evidence, mismatch dispositions, **and** before/after evidence for live TOML **and** Carriers. absent active declarations are represented explicitly as absent, **not** as an empty authoritative source.
-    - fixture inputs **and** expected outcomes derived from the checked authority; unavailable evidence leaves the affected check unresolved rather than silently passing.
-    
-    ### Test cases
-    
-    1. an existing declaration **and** matching Carrier observations: retain the declared number.
-    2. an existing declaration **and** a conflicting folder prefix: preserve the declared value, report the mismatch, **and** block readiness **until** its disposition is explicit; do **not** silently adopt the folder number.
-    3. an explicit authorized replacement selection: propose the selected number **and** required Carrier/reference repairs, **without** changing parentage **or** structural Local Order.
-    4. a missing declaration with consistent numbered authority **and** Implementation Folder evidence: recover the number. use a generic `EXAMPLE` unit, **not** a concrete Project unit.
-    5. source names encoded with Structural Level width 1 **and** a candidate using width 2: decode the old `102_LAYER_2_EXAMPLE` as level 1, navigation 2, under the source rule. reject decoding it with candidate width 2. include multi-digit navigation values under CA-D-380.
-    6. an admitted unnumbered native layout: accept a supported creation-order value **or** explicit Operator selection **without** demanding a rename. missing selection **and** missing usable evidence produce a blocked result.
-    7. conflicting authority/Implementation Folder numbers **without** a settled disposition: report both paths **and** observed values; do **not** return ready.
-    8. a candidate number justified **only** by a parent's prefix, alphabetical order, **or** filesystem time: reject that unsupported justification.
-    9. valid duplicate navigation numbers on different units: do **not** reject them merely for equality. evaluate structural Local Order uniqueness separately under CA-E-469.
-    10. a result that rewrites unrelated declarations, emits duplicate structural Atoms, activates the candidate, **or** renames live folders: reject the out-of-bound effect.
-    11. changed source bytes, incomplete checks, **or** failed candidate output: report stale, unresolved, **or** failed evidence as applicable; do **not** claim successful preparation **or** activation.
-    
-    ### Acceptance and failure disposition
-    
-    - **every** supported ready fixture passes **and** preserves its declared result boundary; **every** mismatched, unsupported, **or** out-of-bound fixture fails the corresponding check with the unit, path, expected/actual value, **and** evidence identified.
-    - a correctly reported blocked **or** failed Action result can pass its reporting check **without** making the candidate ready. an unknown observation cannot prove conformance.
-    - the check **must not** repair source Atoms, TOML, candidate values, **or** folders. report discrepancies as Concerns **and** request a decision **only** **when** governing authority does **not** settle the required selection.
-    - passing this Evaluation establishes navigation-reconciliation conformance **only**. Project Structure validation under CA-E-469 **and** cutover gates under CA-D-444 remain separate.
 - `CA-E-511@23`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-511@23`
   - Claim Scope:
@@ -12150,42 +12381,14 @@ $child ((structural_parent)) $parent
     ### Failure disposition
     
     report the affected Atom **and** target, ownership, **or** textual-applicability distinction; preserve the source **until** an authorized correction is selected.
-- `CA-E-588@15`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-588@15`
-  - Claim Scope:
-    content-preserving migration of existing reports into FPF Analysis Report Carriers.
-  - Remaining Claim prose:
-    an FPF Analysis Report import **must** pass all of the following checks before the original Carrier is retired:
-    
-    - the exact Type and filename token are admitted, the carried Atom ID is unique, and the declared Role, owning Scope Unit, tier, Status and Version metadata match the selected authority;
-    - exactly one Summary and the ordered Question, Scope, Approach, Results and TLDR sections occur outside the quoted source content, with nonempty values;
-    - removing only the quotation wrapper recovers every original source byte, including Unicode, line endings, nested headings, code fences and terminal-newline state; its SHA-256 and byte length match the frozen source;
-    - every selected source has exactly one destination, no existing destination is overwritten, stale inputs and destination collisions stop the batch, and a failed batch does not retire an unverified source;
-    - rewritten current navigation/source links resolve to the intended new Carriers; historical Journals, archived Revisions, frozen receipts and the quoted report's own historical text remain unchanged.
-  - Details (source-bound):
-    These checks verify the import and Carrier structure, not the truth of external findings, FPF execution success, acceptance of recommendations or full framework/runtime conformance. Report unsupported validation coverage explicitly rather than treating an incomplete checker result as a pass.
-- `CA-E-621@35`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-621@35`
-  - Claim Scope:
-    the Operator has no undocumented Framework knowledge **and** **must not** edit the Framework Catalog.
-  - Remaining Claim prose:
-    an Operator unfamiliar with the repository can configure framework-instance behavior, including default **and** Project Authority Modes, through Framework Instance Settings **and** Project initialization inputs through Project Settings using the owning Settings Artifacts **and** their in-file documentation, while recognizing authoritative Project Structure as the separate owner of Scope Unit declarations **and** explicit per-unit Authority Mode overrides. no structural Projection is required **to** make these choices.
-  - Details (source-bound):
-    ### Acceptance criteria
-    
-    **every** intended change is made through its owning Settings Artifact **or** Project Structure, **and** **`>=90`**% of classifications correctly distinguish project choices from methodology definitions.
-    
-    ### Failure disposition
-    
-    record a Concern for **every** misleading **or** missing setting instruction **and** stop settings-usability readiness **until** it is corrected.
-- `CA-E-624@36`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-624@36`
+- `CA-E-624@38`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-624@38`
   - Claim Scope:
     generated-only provenance validation.
   - Remaining Claim prose:
     generated-only provenance validation **must not** pass **if** an update **only** **to** generated Projections contributes an Implementation Relation **or** a generated Projection cites itself as its semantic input. the same boundary applies with **or** **without** a version-control integration.
-- `CA-E-652@20`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-652@20`
+- `CA-E-652@22`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-652@22`
   - Claim Scope:
     shared-context test-first implementation and Method-learning Workflow checks.
   - Remaining Claim prose:
@@ -12205,10 +12408,6 @@ $child ((structural_parent)) $parent
     - keep a Method Draft non-authoritative **until** its correction **and** regression are verified, current authority is checked, **and** applicable confidence/permission/Operator approval gates pass. a blocked learning Run **must not** turn a completed implementation Run into an incomplete one.
     - reject activation from stale evidence **or** tests alone **without** a supported lesson. a newly accepted Method changes future authority bindings; it does **not** silently reclassify old results as checked against that new authority.
     - distinguish graph-definition conformance from real Run evidence; defining tests **or** Workflows is **not** proof of execution.
-- `CA-E-656@20`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-656@20`
-  - Remaining Claim prose:
-    **every** canonical decomposition satisfies CA-M-447 **and** CA-R-642.
 - `CA-E-657@8`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-657@8`
   - Claim Scope:
@@ -12248,8 +12447,8 @@ $child ((structural_parent)) $parent
     ### Governing Type and lexical binding
     
     Term Definition requires an admitted Type declaration in the Method Type domain. CA-R-2468's Requirement Type declaration does not establish that Method Type. Under the applicable target-admission rules, an explicit defining Claim **may** introduce its governed lexical Term instance; the `ID` fixture uses `Term//ID`. This lexical Term target is distinct from the Property entities referred to by the contextual topic/code spellings `atom.id` **and** `projection.id`. Parsing **or** spelling alone **does not** admit the target. Missing **or** uncertain binding remains a negative fixture requiring evidence, **not** an exemption. The Evaluation itself creates no targets **or** definitions.
-- `CA-E-666@2`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-E-666@2`
+- `CA-E-666@4`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-E-666@4`
   - Claim Scope:
     RMEDO Conflict Resolution **and** its reused Actions.
   - Remaining Claim prose:
@@ -12279,28 +12478,28 @@ $child ((structural_parent)) $parent
     - alignment;
     - authorization; **or**
     - conflict resolution.
-- `CA-M-094@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-094@23`
+- `CA-M-094@25`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-094@25`
   - Remaining Claim prose:
     choose among acceptable alternatives by optimizing the delivered result against its applicable Project-defined performance measures according **to** the current Operator-declared performance priority.
-- `CA-M-095@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-095@24`
+- `CA-M-095@26`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-095@26`
   - Remaining Claim prose:
     choose among acceptable alternatives by optimizing verified agreement with applicable acceptance criteria according **to** the current Operator-declared correctness priority.
-- `CA-M-097@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-097@25`
+- `CA-M-097@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-097@27`
   - Remaining Claim prose:
     apply **every** active rule group's current Operator-declared conformance priority **to** its verification **and** enforcement **without** weakening the applicability of the rule.
-- `CA-M-098@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-098@24`
+- `CA-M-098@26`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-098@26`
   - Remaining Claim prose:
     choose among acceptable alternatives by minimizing Operator **and** other human time **and** effort according **to** the current Operator-declared human-effort priority.
-- `CA-M-099@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-099@24`
+- `CA-M-099@26`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-099@26`
   - Remaining Claim prose:
     choose among acceptable alternatives by minimizing LLM, compute, service, **and** monetary expense according **to** the current Operator-declared external-expense priority.
-- `CA-M-100@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-100@25`
+- `CA-M-100@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-100@27`
   - Remaining Claim prose:
     choose among acceptable alternatives by minimizing the expected effort of later changes **to** direction, scope, assumptions, Methods, **or** Implementation according **to** the current Operator-declared flexibility priority.
 - `CA-M-105@27`: Selected source is outside the declared model scope.
@@ -12311,8 +12510,8 @@ $child ((structural_parent)) $parent
     1. reuse its existing canonical definition instead of introducing another Entity **or** Property for the same information.
     2. treat mappings, explanations, **and** realizations as representations of that definition rather than additional canonical definitions.
     3. **if** choosing between competing canonical definitions requires an unresolved decision, **then** stop the affected mapping **or** adaptation **and** return the alternatives **and** their evidence **to** the Operator.
-- `CA-M-113@40`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-113@40`
+- `CA-M-113@42`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-113@42`
   - Claim Scope:
     Claim authoring **in** CAPRMEDIO Controlled English **and** canonical naming **in** authored CAPRMEDIO content.
   - Remaining Claim prose:
@@ -12340,8 +12539,8 @@ $child ((structural_parent)) $parent
     The schematic chain `Entity/Object/Continuant/Package <+ Module <+ Code Unit` connects three entities. For a specific authored entity reference, use its complete source-admitted qualified expression rather than one displayed component label. Do not substitute the word “component” as a stylistic alias for an admitted Module expression. A distinct entity requires its own admitted expression; different wording alone supplies neither identity nor synonym authority. The complete chain is a structured expression, not another entity or dictionary entry. No code identifier, path, or quoted external source text is renamed automatically.
     
     The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties using the explicitly defined ID meaning: a unique identifier used to find an entity instance. These spellings do not substitute for full admitted Subject expressions. This meaning applies across Continuant and Occurrent instances, with uniqueness bounded by matching identifier prefixes. The distinct spellings `CA-P-123`, `CA-P-123@1-draft`, and `CA-P-123@3` do not by themselves establish lifecycle state or other semantics. Their meaning comes from explicit defining authority.
-- `CA-M-121@27`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-121@27`
+- `CA-M-121@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-121@28`
   - Claim Scope:
     evaluation of a Scope Expression.
   - Remaining Claim prose:
@@ -12355,8 +12554,8 @@ $child ((structural_parent)) $parent
     6. interpret **where** as retention of **only** members whose field predicate evaluates **to** true according **to** `CA-M-122-CORE_META_MODEL-IMPLEMENTATION_METHOD--evaluate-condition-expressions`.
     7. evaluate the innermost parenthesized set function **before** its containing set function.
     8. use another Scope function **only** **when** an active CCE Method gives that function **`=1`** set meaning.
-- `CA-M-122@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-122@28`
+- `CA-M-122@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-122@30`
   - Claim Scope:
     evaluation of CCE Condition Expressions.
   - Remaining Claim prose:
@@ -12377,26 +12576,26 @@ $child ((structural_parent)) $parent
     13. evaluate **none** as true **only** **when** its predicate is false for **every** member of its population.
     14. evaluate **where** as restriction of one population **to** members whose predicate is true.
     15. use another logical function **only** **when** an active CCE Method gives that function **`=1`** logical meaning.
-- `CA-M-127@29`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-127@29`
+- `CA-M-127@31`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-127@31`
   - Claim Scope:
     evaluation of **in** **or** **not in** for one set-valued governed property.
   - Remaining Claim prose:
     **to** evaluate **in** **or** **not in** for one set-valued governed property, the Resolver **must** evaluate **in** as true exactly **when** **`>=1`** property member **`=`** one listed value **and** **must** evaluate **not in** as true exactly **when** no property member **`=`** **any** listed value.
-- `CA-M-135@29`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-135@29`
+- `CA-M-135@32`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-135@32`
   - Claim Scope:
     provenance validation of recorded changes in the governed selection.
   - Remaining Claim prose:
     provenance validation inspects **every** recorded change **in** the governed selection. a change contributes an Implementation Relation, implementation coverage, **or** semantic traceability edge **only** **when** it changes **`>=1`** non-generated governed source.
     
     an update **only** **to** generated Projections remains an auditable refresh. it retains its required Journal provenance but cannot become an implementation input **to** the semantic graph that produced the generated Carrier. a mixed change participates **only** through its substantive non-generated governed source changes.
-- `CA-M-138@27`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-138@27`
+- `CA-M-138@29`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-138@29`
   - Remaining Claim prose:
     **to** author CAPRMEDIO-internal Artifacts, use the exact canonical CAPRMEDIO vocabulary, coherent Term meanings, **and** the strictest syntax needed **to** preserve the governed distinctions; treat FPF as a derivation source rather than external authority.
-- `CA-M-139@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-139@26`
+- `CA-M-139@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-139@28`
   - Remaining Claim prose:
     **to** address the Operator, use ordinary language by default; introduce **only** the canonical CAPRMEDIO Terms needed **when** ordinary language would make a material distinction ambiguous **or** incorrect, **and** explain **every** introduced Term **in** ordinary language.
 - `CA-M-228@34`: Selected source is outside the declared model scope.
@@ -12452,14 +12651,14 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     ### General named-relation notation
     
     When a formal Claim or model view needs a Relation without a short operator, write `Source ((RELATION_TYPE)) Target`. Resolve the exact declared type and its source/target constraints; keep its declared direction. For the opposite navigation use its defined derived inverse type in the same syntax. Do not invent a backward operator, register a type by writing its name, duplicate the stored inverse, or place the whole statement in subjects.governs when that field identifies a node. CA-R-1931's successor Draft owns this syntax; CA-A-1240 records its acceptance for this Draft package.
-- `CA-M-230@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-230@23`
+- `CA-M-230@25`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-230@25`
   - Claim Scope:
     registered CCE Operators in CCE.
   - Remaining Claim prose:
     within CCE, a CCE Operator **means** one canonical lowercase word-form token **or** token sequence **or** one canonical symbolic token that one active CCE Method assigns one syntactic **or** logical function.
-- `CA-M-232@33`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-232@33`
+- `CA-M-232@34`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-232@34`
   - Claim Scope:
     Atom Subjects Graph derivation from current Atom Subjects.
   - Remaining Claim prose:
@@ -12511,9 +12710,9 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     
     ### Current source pin and pending adoption
     
-    Proposed N+1 successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md`, Version 31, SHA-256 `a91f896c0bd3f79a90ace9abc800a691e603847095b48638eaccdc9e0cae743e`. Current bytes remain unchanged. The new Relation names depend on the pending IS_PROPERTY_OF / HAS_PROPERTY Relation Definition Drafts; this source does not admit them through a renamed token alone. This preparation performs no runtime change, generated-view refresh or promotion.
-- `CA-M-233@29`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-233@29`
+    Proposed N+1 successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md`, Version 31, SHA-256 `a91f896c0bd3f79a90ace9abc800a691e603847095b48638eaccdc9e0cae743e`. Current bytes remain unchanged. The new Relation names depend on the pending IS_PROPERTY_OF / HAS_PROPERTY Relation Definition Drafts; this source does not admit them through a renamed token alone. This preparation performs no runtime change, generated-view refresh or promotion.
+- `CA-M-233@31`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-233@31`
   - Claim Scope:
     normative Atom prose authored **in** CCE.
   - Remaining Claim prose:
@@ -12521,8 +12720,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
   - Details (source-bound):
     - use the positive statement **when** it already makes the required behavior clear.
     - make a necessary prohibition explicit **when** the positive statement alone leaves a materially different interpretation **or** fails **to** protect the boundary.
-- `CA-M-234@22`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-234@22`
+- `CA-M-234@24`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-234@24`
   - Claim Scope:
     the canonical CCE Operator Registry.
   - Remaining Claim prose:
@@ -12539,14 +12738,14 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     9. comparison: **`=`**, **`!=`**, **`<`**, **`<=`**, **`>`**, **`>=`**.
   - Details (source-bound):
     another token **may** enter the CCE Operator Registry **when** one active CCE Method assigns the token one syntactic **or** logical function.
-- `CA-M-235@22`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-235@22`
+- `CA-M-235@24`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-235@24`
   - Claim Scope:
     numeric Cardinality Constraint authoring.
   - Remaining Claim prose:
     **to** author one numeric Cardinality Constraint, the Author **must** serialize one canonical comparison CCE Operator immediately followed by one Nonnegative Integer Literal as a prefix immediately **before** the counted Entity **or** expression; examples: **`=1`** Author, **`>=1`** Requirement Atom, **`<=1`** Type, **`>=0`** Property.
-- `CA-M-236@22`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-236@22`
+- `CA-M-236@24`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-236@24`
   - Claim Scope:
     noncanonical CCE Operator Expressions.
   - Remaining Claim prose:
@@ -12558,14 +12757,14 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     - `both <A> and <B>` **to** `(<A>` **and** `<B>)`.
     - `either <A> or <B>` **to** `(<A>` **or** `<B>)`.
     - `neither <A> nor <B>` **to** **not** `(<A>` **or** `<B>)`.
-- `CA-M-240@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-240@28`
+- `CA-M-240@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-240@30`
   - Claim Scope:
     derivation of Canonical Signatures from one selected Atom Carrier folder.
   - Remaining Claim prose:
     **to** derive Canonical Signatures from one selected Atom Carrier folder, the Tool **must** inspect **only** active single-statement Atom Claims, identify **every** outermost parenthesized expression that **contains** the **and** Operator **or** the **or** Operator, derive a Canonical Signature **only** **if** the expression satisfies the Restricted Boolean Expression grammar, emit source-identity evidence **and** **every** exclusion diagnostic, **and** make no source-Carrier rewrite, lifecycle change, Claim merge, **or** authority decision.
-- `CA-M-241@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-241@26`
+- `CA-M-241@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-241@28`
   - Claim Scope:
     derivation of Canonical Scope Signatures from one caller-selected Atom Carrier folder.
   - Remaining Claim prose:
@@ -12574,16 +12773,16 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
 - Selected evidence outside model scope: `CA-M-260@23`
   - Remaining Claim prose:
     **to** represent a governed statement **in** the Project, maintain **`=1`** authoritative source for that statement **in** the same context **and** make **all** other representations reference **or** derive from that source **without** independent authority.
-- `CA-M-263@21`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-263@21`
+- `CA-M-263@23`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-263@23`
   - Remaining Claim prose:
     **to** expose governed information **to** the Operator, provide an initial **or** adapted representation that the Operator accepts as sufficient for the current governed use **or**, **when** applicable adaptation attempts are exhausted **or** declined, explicitly report the remaining comprehension gap; adapt the representation **without** changing the governed information.
-- `CA-M-266@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-266@23`
+- `CA-M-266@25`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-266@25`
   - Remaining Claim prose:
     **to** implement within a Task, follow the Operator-selected mode: evaluate **and** fix, full rebuild, refactoring, **or** another authorized approach. keep the selected mode within the Task permissions **and** governing RMED; permission for a full rebuild **must not** be inferred from an evaluation-and-fix request. the reconstruction equivalence governed by CA-M-262 applies regardless of mode **and** does **not** require identical code **or** a no-change rerun.
-- `CA-M-270@27`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-270@27`
+- `CA-M-270@29`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-270@29`
   - Remaining Claim prose:
     **to** refactor existing Implementation, prepare the applicable verification **before** changing the target Implementation:
     
@@ -12593,8 +12792,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     4. apply the required release gates **before** full rollout. **when** canary testing applies, prepare its criteria **before** refactoring **and** execute it on the candidate **after** that Implementation exists during the authorized controlled rollout.
     
     this existing-Implementation baseline is comparison evidence, **not** missing specification recovered from old code, **and** is **not** a prerequisite for a fresh reconstruction with no existing Implementation.
-- `CA-M-271@27`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-271@27`
+- `CA-M-271@29`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-271@29`
   - Claim Scope:
     resolution of a Confidence Threshold.
   - Remaining Claim prose:
@@ -12626,14 +12825,14 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     4. derive Owned Atoms, Targeting Atoms, Subtree-owned Atoms, **and** Subtree-targeting Atoms under CA-R-1447-CORE_META_MODEL-GENERAL-REQUIREMENT--define-owned-atoms, CA-R-1448-CORE_META_MODEL-GENERAL-REQUIREMENT--define-targeting-atoms, CA-R-942-CORE_META_MODEL-DEFINITION--define-subtree-owned-atoms, **and** CA-R-1449-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-targeting-atoms respectively. use the Scope Unit tree for descendant coverage; do **not** substitute physical subtree membership for Claim targeting **or** inferred inherited applicability for an explicit **or** default Claim target.
     5. retain source Atom **and** Revision references **without** creating additional authoritative Atom copies. apply Content Role, Status, **and** other requested filters **after** resolving the selected set; the alias `spec` selects the Active RMED subset under CA-M-288-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-spec-as-an-alias-for-active-rmed-subtree-targeting-atoms, independently of numeric Tier.
     6. report the exact missing source, owner, target, ancestry, **or** required filter value **and** withhold a complete affected result **when** it is unresolved **or** contradictory. a complete empty set remains empty; an incomplete frontier **must not** be reported as a complete empty set.
-- `CA-M-277@31`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-277@31`
+- `CA-M-277@33`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-277@33`
   - Claim Scope:
     silent-mode reporting.
   - Remaining Claim prose:
     **to** report **in** `silent` mode, answer exploratory input normally **and**, apart from the mandatory information governed by CA-R-1440-CORE_META_MODEL-GENERAL-REQUIREMENT--preserve-mandatory-information-in-every-reporting-mode, report **only** durable Artifacts **or** Project state that CAPRMEDIO created, updated, archived, committed, **or** **otherwise** changed; omit ordinary announcements of mode selection, workflow routing, Skill chaining, **and** gate transitions.
-- `CA-M-278@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-278@28`
+- `CA-M-278@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-278@30`
   - Claim Scope:
     reporting **in** `verbose` mode.
   - Remaining Claim prose:
@@ -12644,12 +12843,6 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     resolution of a Framework Instance Settings parameter.
   - Remaining Claim prose:
     **to** resolve a Framework Instance Settings parameter, use its explicit value **if** that parameter is present **in** the current Project's Framework Instance Settings; **otherwise**, use the corresponding value from Default Settings. determine presence for the individual parameter, **not** its containing section **or** the truthiness of its value, so valid `false`, `0`, **and** empty values remain explicit selections. validate the selected value against its governing parameter authority **and** reject an invalid explicit value **without** falling back. **if** neither source supplies a required parameter, report that parameter as unresolved **and** stop the operation that requires it; an optional parameter **may** remain absent. do **not** copy inherited values into Framework Instance Settings as explicit selections.
-- `CA-M-291@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-291@24`
-  - Claim Scope:
-    Project Structure declarations.
-  - Remaining Claim prose:
-    **to** express Project Structure, use one declaration for **every** non-root Scope Unit, reference its parent by the reserved Project-root reference **or** the parent's unique Name, **and** keep structural Local Order distinct from Navigational Order Number. retain an explicit Label independently of Ordered/Unordered Type. retain a readable derived Scope Unit Path **only** with its checked derivation from declared parentage **and** applicable Carrier conventions; do not author or persist Structural Level, and physical nesting **must not** silently replace logical parentage. use concrete Carrier bindings as declared values rather than repeating them **in** Goal, Requirement, **or** Delivery Atoms. write an Authority Mode override **only** **when** explicitly selected for that unit; an omitted override remains inherited rather than copied as an explicit value. references **and** observations **must** distinguish the declared unit from its existing Carrier **and** Goal coverage.
 - `CA-M-295@32`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-M-295@32`
   - Claim Scope:
@@ -12685,8 +12878,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     - an incomplete criterion order **or** an incomparable result at the current deciding criterion leaves the comparison unresolved; a later criterion **must not** bypass that gap.
     
     this Method defines the comparison technique, **not** priority activation, alternative-selection execution, **or** escalation.
-- `CA-M-298@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-298@24`
+- `CA-M-298@26`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-298@26`
   - Claim Scope:
     Methodology Source expansion mappings.
   - Remaining Claim prose:
@@ -12705,8 +12898,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     selection of a Requirement Type.
   - Remaining Claim prose:
     **to** select a Requirement Type, the Author **must** use Constraint **only** for a limitation imposed from outside the Project choice boundary.
-- `CA-M-304@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-304@24`
+- `CA-M-304@26`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-304@26`
   - Claim Scope:
     derived instructions that present an Agentic Action for execution.
   - Remaining Claim prose:
@@ -12718,8 +12911,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     - keep the instruction limited **to** the bound Action. leave next-Step selection **and** cross-Workflow handoff coordination **to** the executor using the governing Workflow.
     - use understandable wording **and** structured points under CA-M-444-CORE_META_MODEL-METHOD--make-atom-claims-easy-to-understand **and** CA-M-294-CORE_META_MODEL-METHOD--use-simpler-words-without-losing-meaning; reference governing definitions rather than copying another authoritative procedure into the prompt.
     - keep internal Tool calls as execution detail under CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs. **when** an operation needs independently governed routing, checks, **or** approval boundaries, express it as an explicit Step during Workflow authoring rather than inventing Workflow nodes from runtime calls.
-- `CA-M-306@30`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-306@30`
+- `CA-M-306@32`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-306@32`
   - Claim Scope:
     Plan Atoms.
   - Remaining Claim prose:
@@ -12735,8 +12928,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     8. resolve confidence **and** retry values from their applicable sources; store **only** explicitly selected overrides on this Plan.
     9. keep supporting Details within Objective **and** its restrictions **without** another intended outcome. review Objective against the completed Details **and** Definition of Done; explicitly revise Objective **if** needed **and** recheck their agreement.
     10. **only after** that review, derive Summary from the finalized Objective under CA-R-1418 **and** CA-R-2499. retain the established Summary across Revisions; **if** it needs changing, replace the Atom identity under CA-R-1464.
-- `CA-M-309@21`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-309@21`
+- `CA-M-309@23`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-309@23`
   - Claim Scope:
     Plan Claims written with the Plan CCE Role Profile.
   - Remaining Claim prose:
@@ -12750,8 +12943,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     6. keep optional Details subordinate **to** the same intended work **or** outcome; Details **must not** introduce another intended outcome **or** a second Definition of Done.
   - Details (source-bound):
     an action word **in** a Plan identifies intended work. it does **not** define a reusable Operations Action.
-- `CA-M-310@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-310@23`
+- `CA-M-310@25`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-310@25`
   - Claim Scope:
     Requirement Claims with the Requirement CCE Role Profile.
   - Remaining Claim prose:
@@ -12764,8 +12957,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     5. keep procedural selection, ordered execution steps, implementation instructions, **and** reusable operational behavior outside the primary contribution. reference applicable Method **or** Operations authority rather than reproducing it.
   - Details (source-bound):
     the Requirement profile governs the required model **or** result. an observed test result remains execution evidence; it is **not** the required-result specification.
-- `CA-M-311@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-311@23`
+- `CA-M-311@25`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-311@25`
   - Claim Scope:
     Method Claims with the Method CCE Role Profile.
   - Remaining Claim prose:
@@ -12780,8 +12973,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     7. **when** the Method concerns tests, govern how their implementation is constructed **or** selected. the test's checked behavior, fixture, acceptance policy, expected result, **and** disposition remain Evaluation authority; its executable test code is Implementation.
   - Details (source-bound):
     the Method profile governs how accepted authority is satisfied. it does **not** turn one intended Plan action **or** one reusable Operations Action into a Method.
-- `CA-M-312@22`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-312@22`
+- `CA-M-312@24`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-312@24`
   - Claim Scope:
     Evaluation Claims with the Evaluation CCE Role Profile.
   - Remaining Claim prose:
@@ -12812,8 +13005,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     5. keep the Substance about its governed Subject; reference separately governed contributions instead of redefining them.
   - Details (source-bound):
     Entity, property and Carrier-kind definitions belong to Requirement. Delivery uses those definitions to specify representation. Do not invent a filename, format or lifecycle condition merely to fill a template. YAML fields and Markdown sections can represent properties inside one File Carrier without a separate binding record for each property.
-- `CA-M-314@22`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-314@22`
+- `CA-M-314@24`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-314@24`
   - Claim Scope:
     Operations Claims written with their admitted Operations Type-specific CCE Profiles.
   - Remaining Claim prose:
@@ -12824,22 +13017,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     3. for Step, define the invocation binding of **`=1`** referenced Action with its parameters **and** inputs. do **not** copy the Action behavior **or** define another Workflow.
   - Details (source-bound):
     an Operations Claim **must not** combine more than one primary type profile. subordinate inputs, conditions, results, failures, transitions, **and** effects remain part of the selected type's single operational contribution.
-- `CA-M-345@15`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-345@15`
-  - Claim Scope:
-    authoring and content-preserving import of FPF Analysis Report Atoms.
-  - Remaining Claim prose:
-    **to** author an FPF Analysis Report, use the common Analysis structure under CA-D-479 and retain the report's bounded question, scope, approach, results, provenance and evidence limits without treating its recommendations as accepted specification.
-    
-    - carry `role: Analysis` and `form: FPF Analysis Report`, the actual owning Scope Unit, applicable tier, Status and Version Properties. Summary describes the Question; TLDR summarizes the retained analytical record without replacing Results.
-    - **when** importing an existing report, preserve its complete original UTF-8 text as quoted Markdown in Results. Quotation is a carrier wrapper, not an edit to the original text. Record its original path, SHA-256 and byte length in Approach so the original bytes can be recovered and checked.
-    - identify the original inquiry from its explicit task or question where available; otherwise identify the bounded historical report without inventing a missing execution contract. Preserve all native findings, alternatives, citations, limitations and time-relative statements in the quoted record.
-    - distinguish import metadata and its current Revision timestamp from the original report's provenance. Do not infer an original execution timestamp or completed FPF Run merely from a filename or physical file existence.
-    - place the Carrier by the applicable Analysis Delivery rules. Resolve real destination links to the new Carrier while retaining historical Journal, archive and frozen-evidence references unchanged.
-  - Details (source-bound):
-    Importing a report does not rerun FPF, adopt a candidate, change project policy or close an issue. Completion of the bounded imported reporting product is distinct from those outcomes.
-- `CA-M-385@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-385@24`
+- `CA-M-385@25`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-385@25`
   - Claim Scope:
     The readable structural Inherency and named declaration views of an Entities Graph.
   - Remaining Claim prose:
@@ -12866,9 +13045,9 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     
     ### Current source pin and pending adoption
     
-    Proposed N+1 successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md`, Version 20, SHA-256 `86690d15dde34b2d48d66002bfdf70e5eb4f11133d0590ac20d0911691ce3236`. Current bytes remain unchanged. The new Relation names depend on the pending IS_PROPERTY_OF / HAS_PROPERTY Relation Definition Drafts; this source does not admit them through a renamed token alone. This preparation performs no runtime change, generated-view refresh or promotion.
-- `CA-M-442@3`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-442@3`
+    Proposed N+1 successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md`, Version 20, SHA-256 `86690d15dde34b2d48d66002bfdf70e5eb4f11133d0590ac20d0911691ce3236`. Current bytes remain unchanged. The new Relation names depend on the pending IS_PROPERTY_OF / HAS_PROPERTY Relation Definition Drafts; this source does not admit them through a renamed token alone. This preparation performs no runtime change, generated-view refresh or promotion.
+- `CA-M-442@5`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-442@5`
   - Claim Scope:
     authoring an Atom's prose CCE primary contribution, its applicability, **and** its derived Summary. The same Claim may contain readable prose and an optional R-only nested Formal claim under the Claim definition.
   - Remaining Claim prose:
@@ -12880,8 +13059,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     - write Summary **only after** the other body sections **and** the contribution review are complete. shorten the finalized primary contribution. use plain wording that expresses the Claim’s meaning. preserve established principle names such as DRY **and** MECE instead of paraphrasing them. a familiar name **or** short instruction **may** be the Summary; do **not** force it into a declarative sentence. for RMED, summarize the Claim within its finalized Scope, **not** the Scope alone; do **not** substitute supporting Results **or** TLDR as the source.
     - for an existing Atom, retain the established Summary **and** check its faithfulness; **if** the Summary needs changing, use a new Atom identity under the Atom identity rule.
     - derive **every** Translation from the full corresponding source content, **not** the Summary.
-- `CA-M-443@2`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-443@2`
+- `CA-M-443@4`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-443@4`
   - Claim Scope:
     authoring the boundary of **`=1`** coherent prose CCE Atom contribution. The same Claim may contain readable prose and an optional R-only nested Formal claim under the Claim definition.
   - Remaining Claim prose:
@@ -12892,8 +13071,8 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     3. resolve **`=1`** Claim Target Scope Unit independently of ownership. select the current Scope Unit **as** the default during authoring **or** select an explicitly permitted different target; carry the resolved value under the target Scope Unit carrier definition. express applicability **in** the registered body sections under the applicability carrier definition; for RMED, use Scope **and** write the Claim within that applicability; those restrictions alone do **not** make the Atom Relational.
     4. write the complete Claim **in** the current CCE version.
     5. remove **every** duplicate alternate authoritative statement.
-- `CA-M-445@2`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-445@2`
+- `CA-M-445@4`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-M-445@4`
   - Claim Scope:
     Model names in authored Methodology Sources, including their applicable child Scope Units.
   - Remaining Claim prose:
@@ -12906,41 +13085,24 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     **when** explaining an encoding, show the exact technical spelling as a Carrier key **or** serialization example. Preserve each canonical model name **and** do **not** invent aliases through stylistic changes.
   - Semantics:
     Readable model language includes technical Subjects. Technical key spelling belongs to the file-adapter Method; Carrier fields and encodings remain governed by Delivery authority. The choice of presentation does not change the identified concept or its permitted values.
-- `CA-M-447@4`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-M-447@4`
-  - Remaining Claim prose:
-    **to** construct a canonical decomposition that claims **to** cover a declared universe at one abstraction level, use parts drawn **only** from that universe that together cover the full declared universe **and** have no overlap between **any** two distinct parts at that level.
-- `CA-R-001@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-001@25`
-  - Remaining Claim prose:
-    the Project Scope Unit topology **must** distinguish Structural Level as nesting depth, Local Order as the order of ordered siblings under the same parent, **and** Navigational Order Number as presentation; dependency permission **must** follow its relation-family authority **and** **must not** be created by a filename number, nesting position, **or** the assumption that **every** Scope Unit is a Layer.
-- `CA-R-004@35`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-004@35`
+- `CA-R-004@37`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-004@37`
   - Claim Scope:
     **every** governed part of the CAPRMEDIO Framework Instance **in** **every** governed state, including **after** admissible instance changes.
   - Remaining Claim prose:
     the CAPRMEDIO Framework Instance **must** keep **every** governed part of itself under the Operator's control **and** keep the Operator able **to** change the Project through that instance.
   - Details (source-bound):
     control remains available throughout admissible Framework Instance changes.
-- `CA-R-007@31`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-007@31`
+- `CA-R-007@33`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-007@33`
   - Remaining Claim prose:
     CAPRMEDIO **must** record **all** **and** **only** the direct typed relations necessary **to** trace **every** governed authority **to** its real Implementation **and** material dependents; inverse, transitive, **and** aggregate relations **must** be derived.
-- `CA-R-028@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-028@25`
+- `CA-R-028@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-028@27`
   - Remaining Claim prose:
     CAPRMEDIO **must** provide the Operator with capabilities for resolving conflicts between Atoms.
-- `CA-R-029@34`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-029@34`
-  - Remaining Claim prose:
-    the caprmedio Project **must** use the effective Authority Mode for the Project **and** **every** configured Scope Unit under CA-R-1430:
-    
-    - Framework Instance Settings selects the Project mode **and** the default Scope Unit mode.
-    - a Scope Unit's explicit override comes **only** from its authoritative Project Structure declaration; an omitted override uses the effective Framework Instance setting.
-    
-    mode selection **must not** weaken active-authority consistency.
-- `CA-R-035@34`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-035@34`
+- `CA-R-035@36`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-035@36`
   - Remaining Claim prose:
     an AI Agent's assessment of necessary Project information **must** use progressive context acquisition: read **every** active Project-owned Tier 0 Atom **before** using indexes, Relations, **and** Subjects **to** identify applicable Atoms; read **and** check the full Claims of those Atoms; expand inspection **when** dependencies, conflicts, missing evidence, **or** uncertainty require it. indexes, Relations, **and** Subjects support discovery **and** **must not** substitute for checking the applicable Claims. shared ancestry, descendancy, **or** structural scope alone **must not** require loading **every** Atom's full content.
     
@@ -12951,72 +13113,72 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     Atom Scope.
   - Remaining Claim prose:
     an Atom Scope **must** include its current Scope Unit Scope **or** its Author's registered Operator fallback under CA-D-657-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim.
-- `CA-R-1044@31`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1044@31`
+- `CA-R-1044@33`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1044@33`
   - Claim Scope:
     the Autonomous Confidence Threshold.
   - Remaining Claim prose:
     An AI Agent may continue Plan work autonomously only when the applicable Decision Confidence reaches the Autonomous Confidence Threshold.
-- `CA-R-1045@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1045@24`
+- `CA-R-1045@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1045@27`
   - Claim Scope:
     Autonomous Confidence Threshold values.
   - Remaining Claim prose:
     **every** Autonomous Confidence Threshold **must** be an integer percentage **`>=0`** **and** **`<=100`**. resolve its effective value from the applicable source under CA-M-271; the methodology **must not** restrict that value **to** a closed list of preferred percentages.
-- `CA-R-1051@34`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1051@34`
+- `CA-R-1051@35`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1051@35`
   - Claim Scope:
     the active RMED authority graph and preserved historical states and transitions.
   - Remaining Claim prose:
     the active RMED authority graph represents **only** current governed state. historical states **and** transitions are excluded from that graph **and** preserved through canonical lifecycle placement **and** append-only Journals; generated Projections **may** render history **without** making it active RMED authority.
-- `CA-R-1056@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1056@28`
+- `CA-R-1056@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1056@30`
   - Remaining Claim prose:
     CAPRMEDIO **must** supply an LLM **only** the guidance necessary **to** meet the Operator-defined adequacy threshold under the currently observed model, host, task, **and** risk conditions.
-- `CA-R-1057@32`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1057@32`
+- `CA-R-1057@34`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1057@34`
   - Remaining Claim prose:
     CAPRMEDIO **must** expose **to** the Operator **only** the distinctions necessary **to** understand **and** control the current task.
-- `CA-R-1058@37`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1058@37`
+- `CA-R-1058@39`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1058@39`
   - Remaining Claim prose:
     CAPRMEDIO **must** establish **or** change governed Project meaning **only** through explicit per-action acceptance by the Operator **or** active authority explicitly delegated by the Operator **to** the identified AI Agent performing the change.
-- `CA-R-1174@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1174@24`
+- `CA-R-1174@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1174@27`
   - Claim Scope:
     CORE_META_MODEL.
   - Remaining Claim prose:
     CORE_META_MODEL **must** provide the minimal self-applicable canonical model necessary **and** sufficient **to** represent, govern, validate, **and** compile CAPRMEDIO Methodology authority.
-- `CA-R-1175@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1175@23`
+- `CA-R-1175@25`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1175@25`
   - Claim Scope:
     INSTALLED_EXTENSIONS.
   - Remaining Claim prose:
     INSTALLED_EXTENSIONS **must** preserve exact installed Extension source revisions **and** their provenance as immutable candidate inputs **to** methodology compilation **without** activating **or** modifying them.
-- `CA-R-1178@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1178@26`
+- `CA-R-1178@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1178@28`
   - Remaining Claim prose:
     FRAMEWORK_ENGINE **must** minimize token consumption, AI Agent mistakes, **and** irrelevant **or** stale context **when** applying the Applicable Methodology, while preserving required Project outcomes.
-- `CA-R-1179@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1179@28`
+- `CA-R-1179@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1179@30`
   - Remaining Claim prose:
     OPERATOR_DOCUMENTATION **must** provide the Operator with sufficient, readable information **to** use a CAPRMEDIO Framework Instance efficiently **to** achieve their Project Goals.
-- `CA-R-1180@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1180@26`
+- `CA-R-1180@29`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1180@29`
   - Remaining Claim prose:
     CORE_EXTENSIONS **must** provide CAPRMEDIO-maintained Extensions that add **or** specialize optional CAPRMEDIO capabilities **without** modifying canonical Core Meta-Model authority.
-- `CA-R-1181@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1181@28`
+- `CA-R-1181@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1181@30`
   - Remaining Claim prose:
     RELEASES **must** provide the Operator with usable, evaluated versions of CAPRMEDIO **and** their release notes describing changes, compatibility, **and** known limitations.
-- `CA-R-1206@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1206@26`
+- `CA-R-1206@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1206@28`
   - Claim Scope:
     Extension installation and activation applicability in the current Project.
   - Remaining Claim prose:
     installing an Extension **must** make its immutable authority available **to** Project Configuration **without** making the Extension authority applicable **to** the current Project.
-- `CA-R-1226@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1226@23`
+- `CA-R-1226@25`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1226@25`
   - Claim Scope:
     Project Customizations and their customized Core Meta-Model or Extension revisions.
   - Remaining Claim prose:
@@ -13101,8 +13263,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     the classification of Dependent Entity as an Entity.
   - Remaining Claim prose:
     the Term Dependent Entity **must** be NARROWER_THAN Entity.
-- `CA-R-1284@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1284@26`
+- `CA-R-1284@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1284@27`
   - Claim Scope:
     Type Properties and their use in qualified Entity kinds. A Type Property is
     optional generally; an applicable governing rule may require it in its context.
@@ -13146,7 +13308,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     
     ### Current source pin
     
-    Proposed successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md`, Version 23, SHA-256 `ed846912a5858e8103dfb5189cf574379488dcfde81d52521fafe48a4c7d0622`. This interpretation changes no Current carrier, allocates no identity and performs no promotion.
+    Proposed successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md`, Version 23, SHA-256 `ed846912a5858e8103dfb5189cf574379488dcfde81d52521fafe48a4c7d0622`. This interpretation changes no Current carrier, allocates no identity and performs no promotion.
 - `CA-R-1285@25`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1285@25`
   - Claim Scope:
@@ -13159,8 +13321,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     qualified Type domains.
   - Remaining Claim prose:
     an Extension **or** Project Configuration **may** add Type values under **`=1`** exact qualified Type Subject **without** creating another Type Property.
-- `CA-R-1293@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1293@28`
+- `CA-R-1293@29`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1293@29`
   - Claim Scope:
     Demand Atoms owned by Ordered Scope Units.
   - Remaining Claim prose:
@@ -13201,26 +13363,26 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     the most-specific applicable qualified Type Subject **and** the Entity occurrence's Type Property.
   - Remaining Claim prose:
     the most-specific applicable qualified Type Subject **must** determine the allowed-value set of the Entity occurrence's Type Property.
-- `CA-R-1354@22`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1354@22`
+- `CA-R-1354@24`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1354@24`
   - Claim Scope:
     CAPRMEDIO General System Prompt loading.
   - Remaining Claim prose:
     **only** the CAPRMEDIO Main Skill **may** load the CAPRMEDIO General System Prompt.
-- `CA-R-1355@22`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1355@22`
+- `CA-R-1355@24`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1355@24`
   - Claim Scope:
     requested registered branches **or** leaves handled by the CAPRMEDIO Main Skill.
   - Remaining Claim prose:
     the CAPRMEDIO Main Skill **must** route **every** requested registered branch **or** leaf through the CAPRMEDIO Routing Tree.
-- `CA-R-1356@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1356@24`
+- `CA-R-1356@26`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1356@26`
   - Claim Scope:
     CAPRMEDIO Direct Route Skills.
   - Remaining Claim prose:
     A CAPRMEDIO Direct Route Skill **must** be an Operator-defined Skill bound **to** **`=1`** branch **or** leaf registered **in** the CAPRMEDIO Routing Tree **and** **must** invoke **only** that bound target.
-- `CA-R-1360@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1360@26`
+- `CA-R-1360@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1360@28`
   - Claim Scope:
     parenthesized restricted Boolean expression occurrences **in** Atom Claims.
   - Remaining Claim prose:
@@ -13271,32 +13433,32 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     the Core allowed values of Artifact Type.
   - Remaining Claim prose:
     the Core allowed values of Artifact Type **must** be (Atom, Journal, Projection, Project Settings, Framework Instance Settings, Default Settings).
-- `CA-R-1407@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1407@26`
+- `CA-R-1407@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1407@28`
   - Remaining Claim prose:
     the CAPRMEDIO Framework Instance **and** the Implementation **must** form one connected Graph of Graphs.
-- `CA-R-1420@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1420@25`
+- `CA-R-1420@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1420@27`
   - Remaining Claim prose:
     the CAPRMEDIO Framework Instance **and** AI Agents **must** keep communication with the Operator necessary **and** sufficient for the Operator **to** make informed decisions.
 - `CA-R-1421@23`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1421@23`
   - Remaining Claim prose:
     the CAPRMEDIO Framework Instance **must** support Configuration of available capabilities **and** addition of new capabilities through Extensions.
-- `CA-R-1423@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1423@25`
+- `CA-R-1423@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1423@27`
   - Remaining Claim prose:
     CAPRMEDIO **must** support the Operator **in** producing **and** evaluating an improvement proposal for **every** material observed Project outcome, with the proposal limited **to** the narrowest scope affected by that outcome **and** kept within the Operator's current authority.
-- `CA-R-1424@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1424@26`
+- `CA-R-1424@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1424@28`
   - Remaining Claim prose:
     the CAPRMEDIO Framework Instance **must** provide Tools sufficient **to** evaluate, repair, **and** maintain instance alignment with the current Applicable Methodology from the Project's registered Framework Instance directory, including accurate reporting of orphan Atoms **and** other nonconformance; repair **must** remain under Operator control, **and** the Operator **may** leave findings unresolved **or** retain nonconforming Artifacts.
-- `CA-R-1426@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1426@23`
+- `CA-R-1426@25`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1426@25`
   - Remaining Claim prose:
     FRAMEWORK_ENGINE **must** provide observability **and** transparency sufficient for the Operator **to** understand execution, inspect changes **and** evidence, recognize failures **and** limitations, **and** make informed decisions.
-- `CA-R-1428@30`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1428@30`
+- `CA-R-1428@32`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1428@32`
   - Claim Scope:
     the source of a Confidence Threshold value.
   - Remaining Claim prose:
@@ -13311,12 +13473,6 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - **every** concrete section, field, **or** Carrier syntax specification **must** be specified explicitly.
     
     a setting **must not** require a shared settings specification **unless** a distinct shared specification requires independent authority.
-- `CA-R-1430@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1430@25`
-  - Claim Scope:
-    the selection **and** overrides of Authority Modes through Framework Instance Settings.
-  - Remaining Claim prose:
-    Framework Instance Settings **must** select the Project Authority Mode **and** default Scope Unit Authority Mode. a Scope Unit's explicit Authority Mode override **must** be owned **only** by its Project Structure declaration; an omitted override uses the effective Framework Instance setting **without** becoming an authored per-unit value. permitted values are `strict` **and** `casual`; neither changes the authority of active Atoms.
 - `CA-R-1439@23`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1439@23`
   - Claim Scope:
@@ -13417,14 +13573,14 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Both views retain exact governing source Claim and Revision evidence. Missing or ambiguous identity, metadata, schema or coverage stays visible as a limitation. Neither view admits new source facts, changes source Relation identity/storage, evaluates rules or claims unsupported semantic completeness.
     
     Preserve declared containment in the model tree using `Part +> Whole` or `Whole <+ Part` and `@` references to already declared Entities, without propagating Properties through containment. Preserve each independent pre-token Source count and post-token Target reverse count; an omitted count stays unspecified.
-- `CA-R-1466@21`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1466@21`
+- `CA-R-1466@23`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1466@23`
   - Claim Scope:
     Git integration in the Core Meta-Model.
   - Remaining Claim prose:
     Git integration **must** be optional Extension authority, **not** a prerequisite of the Core Meta-Model. Git commit policies, commit-message encodings, hooks, **and** event-to-commit references belong **to** that Extension; selecting it **must not** replace the authoritative Journal **or** make Git history an independent source for the same recorded facts. the Core Meta-Model **must** remain applicable **without** Git integration.
-- `CA-R-1470@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1470@26`
+- `CA-R-1470@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1470@27`
   - Claim Scope:
     the authority of independently maintained facts.
   - Remaining Claim prose:
@@ -13441,12 +13597,6 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     secondary CAPRMEDIO Graphs **must** be Projections derived from their selected authoritative sources **or** source-traceable upstream Projections. their nodes **and** Relations **must** preserve source identities **and** traceability **to** the governing derivation authority **and** source facts.
     
     storing, composing, filtering, **or** rebuilding a secondary graph **must not** make its contents another source of authority. a represented source fact is corrected **at** its authoritative source; an incorrect derivation is corrected under its governing methodology. neither case is resolved by independently editing the projected fact **or** fabricating source history.
-- `CA-R-1485@22`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1485@22`
-  - Claim Scope:
-    derived structural readability representations retained by a Project Structure.
-  - Remaining Claim prose:
-    Project Structure **may** retain derived ancestry/path representations for readability **only** **when** their authoritative parent declarations **and** consistency constraints are explicit. a retained authority path **must** satisfy applicable Carrier naming **and** placement rules, including admitted exceptions; no retained Structural Level or other depth field is an authored Project Structure property. inconsistent representations **must** produce a reported conflict **without** an automatic choice of a new Name, parent, order, **or** binding. readability does **not** establish another source of authority.
 - `CA-R-1487@21`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1487@21`
   - Claim Scope:
@@ -13475,8 +13625,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     recursive Structural Entity containment.
   - Remaining Claim prose:
     recursive Structural Entity containment **must** **`=`** the transitive closure of direct Structural Entity containment.
-- `CA-R-1504@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1504@23`
+- `CA-R-1504@25`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1504@25`
   - Claim Scope:
     coverage between Evaluation Atoms and their implementation realizations.
   - Remaining Claim prose:
@@ -13486,8 +13636,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - **`=1`** implementation **may** realize multiple Evaluation Atoms **only** **when** its result remains attributable **to** **every** covered Claim.
   - Details (source-bound):
     a shared implementation **must not** make its covered Claims **or** their result attribution implicit. this Claim governs coverage, **not** a new Carrier **or** a second implementation registry.
-- `CA-R-1506@19`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1506@19`
+- `CA-R-1506@21`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1506@21`
   - Claim Scope:
     mechanism labels and admitted Type values for Evaluation Atoms.
   - Remaining Claim prose:
@@ -13500,8 +13650,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     CAPRMEDIO Metamodel constructs.
   - Remaining Claim prose:
     the CAPRMEDIO Metamodel **must** admit a durable construct **only** **when** the existing Metamodel cannot preserve the required operational distinction.
-- `CA-R-1514@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1514@25`
+- `CA-R-1514@27`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1514@27`
   - Claim Scope:
     the CAPRMEDIO Project's governing RMED for an Implementation.
   - Remaining Claim prose:
@@ -13585,8 +13735,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     AI Agent actions under active Operator-issued delegation.
   - Remaining Claim prose:
     an AI Agent **may** perform **or** authorize a governed action **without** per-action Operator approval **only** **when** an active Operator-issued delegation authorizes that identified Agent, action, target scope, **and** applicable constraints.
-- `CA-R-1554@21`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1554@21`
+- `CA-R-1554@23`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1554@23`
   - Claim Scope:
     AI Agent participation in Scripted Migrations.
   - Remaining Claim prose:
@@ -13597,8 +13747,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - produce a reviewable change set.
     
     these conditions constrain the AI Agent's participation; they do **not** define the migration's Steps **or** Workflow control flow **or** grant additional mutation authority.
-- `CA-R-1555@21`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1555@21`
+- `CA-R-1555@23`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1555@23`
   - Claim Scope:
     identified AI Agents considering clarification omission under applicable configured confidence requirements.
   - Remaining Claim prose:
@@ -13610,8 +13760,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - entry criteria.
     
     confidence **must not** create delegated authority **or** bypass per-action Operator approval **when** active authority requires it.
-- `CA-R-1556@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1556@23`
+- `CA-R-1556@26`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1556@26`
   - Claim Scope:
     AI Agent creation of Spec Atoms and optional Analysis Reports before specification.
   - Remaining Claim prose:
@@ -13636,8 +13786,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - an explicit Operator request **to** create **or** change governed state takes precedence over question-shaped wording.
     - **otherwise**, Exploration Mode ends **only** **when** the Operator explicitly accepts a conclusion **or** requests its promotion. the AI Agent **must** **then** create **only** the minimum Artifacts required **to** preserve the accepted meaning within the authorized change.
     - whether a mode transition is announced is an interaction-reporting choice; it does **not** change this participation policy.
-- `CA-R-1559@24`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1559@24`
+- `CA-R-1559@26`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1559@26`
   - Claim Scope:
     changes to governing RMED Atoms during implementation.
   - Remaining Claim prose:
@@ -13650,14 +13800,14 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - a prohibition remains a prohibition; authorship **or** confidence **must not** create permission.
     - a missing **or** unresolved Author **must not** be treated as proof of AI authorship; apply the Author default under CA-R-1080@29.
     - an authorized RMED change establishes a new baseline under CA-M-262, **and** the applicable work **and** Evaluations **must** be resolved again against it.
-- `CA-R-1560@17`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1560@17`
+- `CA-R-1560@19`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1560@19`
   - Claim Scope:
     Operator-defined CAPRMEDIO Direct Route Skills.
   - Remaining Claim prose:
     the Operator **may** add a CAPRMEDIO Direct Route Skill.
-- `CA-R-1561@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1561@26`
+- `CA-R-1561@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1561@28`
   - Claim Scope:
     AI Agent resolution of Concerns under active delegated authority.
   - Remaining Claim prose:
@@ -13712,8 +13862,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     the Core Concern Status model.
   - Remaining Claim prose:
     the Core Concern Status model **must** inherit the allowed values of Atom.Status and add (Resolved, Canceled).
-- `CA-R-1611@25`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1611@25`
+- `CA-R-1611@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1611@28`
   - Claim Scope:
     Reverse-engineering results, including observed Implementation facts and proposed decisions about the intended refactored result.
   - Remaining Claim prose:
@@ -13724,8 +13874,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - unresolved behavior, missing evidence, **and** uncertain interpretations **must** remain explicit.
     
     an observed behavior **or** defect **must not** become a Requirement merely because it exists **in** the legacy Implementation. supporting evidence **must** remain recoverable **without** a proposed disposition **or** uncertainty being presented as an observed fact.
-- `CA-R-1627@29`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1627@29`
+- `CA-R-1627@31`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1627@31`
   - Claim Scope:
     secret values and their use across CAPRMEDIO surfaces.
   - Remaining Claim prose:
@@ -13760,8 +13910,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     the Framework Instance Settings Artifact and registered optional Projections.
   - Remaining Claim prose:
     the Framework Instance Settings Artifact **must** resolve **every** registered optional Projection as active **or** inactive, with inactive as the default **and** an unknown Type value under Projection rejected.
-- `CA-R-1635@39`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1635@39`
+- `CA-R-1635@42`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1635@42`
   - Claim Scope:
     production-relevant components and governed scopes.
   - Remaining Claim prose:
@@ -13792,26 +13942,26 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     a Production Evaluation Checklist presents the applicable controls for real production operation **without** becoming their authority. it is **not** a QA Case, **and** passing pre-release Test **or** Evaluation implementations does **not** by itself satisfy the production-evaluation obligation.
   - Details (source-bound):
     pre-release QA demonstrates behavior under bounded conditions, while production evaluation **must** detect degradation, incorrect state, **and** supportability failures during actual operation. atomic controls preserve independent lifecycle **and** replacement, while the checklist provides a navigable scope view **without** conflating definitions, implementations, **and** observations.
-- `CA-R-1637@30`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1637@30`
+- `CA-R-1637@33`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1637@33`
   - Claim Scope:
     the CAPRMEDIO Main Skill.
   - Remaining Claim prose:
     The CAPRMEDIO Main Skill **must** be the canonical Skill with identity `ca`.
-- `CA-R-1640@31`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1640@31`
+- `CA-R-1640@32`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1640@32`
   - Claim Scope:
     machine-readable and human-readable CAPRMEDIO Routing Trees.
   - Remaining Claim prose:
     **`=1`** machine-readable **and** human-readable routing tree **must** be registered as the sole owner of intent concepts, synonyms, entry criteria, route targets, authority effects, outputs, **and** approval requirements.
-- `CA-R-1641@31`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1641@31`
+- `CA-R-1641@33`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1641@33`
   - Claim Scope:
     skill route resolution.
   - Remaining Claim prose:
     skill routes **must** resolve by explicit precedence: project-local CAPRMEDIO routes override framework routes, which override provider-global routes.
-- `CA-R-1645@37`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1645@37`
+- `CA-R-1645@39`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1645@39`
   - Claim Scope:
     Governance Origin for the self-hosted caprmedio Project and its distributed CAPRMEDIO sources.
   - Remaining Claim prose:
@@ -13820,8 +13970,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - within the caprmedio Project, its Project-owned Methodology authority, framework authority, **and** other Project-owned Artifacts have internal Governance Origin.
     - a distributed CAPRMEDIO framework source has external Governance Origin relative **to** a consuming Project. that Project's own adaptation authority has internal Governance Origin; creating it does **not** transfer ownership of the external source **or** change that source's origin.
     - graph Relations, version-control authorship, filesystem ownership, **and** byte identity do **not** replace the governing ownership distinction.
-- `CA-R-1646@39`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1646@39`
+- `CA-R-1646@41`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1646@41`
   - Claim Scope:
     governed proof records, their applicable inputs, and all selected Workflows, release policies, and version-control mechanisms.
   - Remaining Claim prose:
@@ -13832,8 +13982,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - a changed material input makes the affected proof stale for that candidate **until** the required checks run against the changed inputs. a missing **or** unresolved binding is unknown, **not** current.
     - an unrelated change does **not** invalidate proof **unless** it changes the evaluated dependencies **or** satisfies an additional governing invalidation condition.
     - retain the historical record unchanged. **not** (a recent timestamp **or** a refreshed Projection) alone proves currentness.
-- `CA-R-1650@32`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1650@32`
+- `CA-R-1650@34`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1650@34`
   - Claim Scope:
     the bounded session-state envelope.
   - Remaining Claim prose:
@@ -13844,14 +13994,14 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     a Development Backlog Epic that **contains** **`>50`** Task Atoms.
   - Remaining Claim prose:
     Governance **must** propose narrower ordered Epics **and** **may** apply the split **only** **after** Operator approval.
-- `CA-R-1652@39`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1652@39`
+- `CA-R-1652@41`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1652@41`
   - Claim Scope:
     the necessary-information Confidence Threshold.
   - Remaining Claim prose:
     the necessary-information Confidence Threshold **must** have an Operator-configurable integer-percentage instance default.
-- `CA-R-1655@44`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1655@44`
+- `CA-R-1655@45`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1655@45`
   - Claim Scope:
     Artifact classifications resolved from Applicable Methodology and Project Configuration with structural context from authoritative Project Structure.
   - Remaining Claim prose:
@@ -13863,62 +14013,56 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - classify an unknown, disabled, stale, multiply mapped, **or** ambiguous value as an unresolved **or** failed classification, **not** as an accepted one.
     
     a derived Scope Unit Graph **must not** replace Project Structure as structural authority. reporting a classification failure does **not** itself impose a universal mutation **or** execution prohibition; the applicable Authority Mode **and** admission rules govern that consequence.
-- `CA-R-1658@31`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1658@31`
+- `CA-R-1658@32`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1658@32`
   - Claim Scope:
     Scope Unit ownership through a stored structural-parent relation.
   - Remaining Claim prose:
     a Scope Unit **must not** own a descendant Scope Unit through a stored structural-parent relation **when** another active Scope Unit lies between them.
-- `CA-R-1662@38`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1662@38`
+- `CA-R-1662@39`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1662@39`
   - Claim Scope:
     internal values of `Atom/Content Role: Evaluation/Type`.
   - Remaining Claim prose:
     Policy, Eval Case, QA Case, **and** Evaluation Control **must** be registered as internal values of `Atom/Content Role: Evaluation/Type`.
   - Details (source-bound):
     Eval Case is defined by CA-R-2116@9. QA Case remains registered for existing Atoms pending individually evidenced migration; this registration does not require bulk reclassification. Evaluation Control remains a distinct specific Type.
-- `CA-R-1663@36`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1663@36`
+- `CA-R-1663@37`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1663@37`
   - Claim Scope:
     internal values of `Atom/Content Role: Concern/Type`.
   - Remaining Claim prose:
     Question **and** Problem retain their canonical admission under CA-R-1231@28. Risk **and** Opportunity **must** be registered as additional internal values of `Atom/Content Role: Concern/Type`.
-- `CA-R-1664@36`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1664@36`
-  - Claim Scope:
-    `Atom/Content Role: Analysis/Type` values.
-  - Remaining Claim prose:
-    Rationale **must** be registered as an internal value of `Atom/Content Role: Analysis/Type` that owns **`=1`** explanatory conclusion **without** establishing **or** modifying normative specification.
-- `CA-R-1665@34`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1665@34`
+- `CA-R-1665@35`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1665@35`
   - Claim Scope:
     `Atom/Content Role: Delivery/Type` values.
   - Remaining Claim prose:
     Policy and Decision are the Delivery Type values for reusable delivery rules and bounded delivery choices. Release and Environment describe governed things or applicability; they do not require separate Delivery Types.
   - Details (source-bound):
     Policy and Decision are defined by CA-R-2267@2 and CA-R-2268@1. Delivery Atoms use these meanings independently of their Subjects. Registration does not constrain a Type value to a particular Tier.
-- `CA-R-1666@36`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1666@36`
+- `CA-R-1666@37`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1666@37`
   - Claim Scope:
     the CAPRMEDIO Project Configuration registration of `Atom/Content Role: Plan/Type` values.
   - Remaining Claim prose:
     the CAPRMEDIO Project Configuration **must** register Action Policy as an additional value of `Atom/Content Role: Plan/Type`; Plan retains its canonical admission under CA-R-1574@21-CORE_META_MODEL-DEFINITION--define-the-common-plan-atom; navigation Labels do **not** add further Type values.
-- `CA-R-1668@34`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1668@34`
+- `CA-R-1668@35`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1668@35`
   - Claim Scope:
     `Atom/Content Role: Method/Type: Eng Decision` values.
   - Remaining Claim prose:
     Eng Decision **means** the internal Type value under Content Role Method for one concrete implementation choice bounded **to** an explicit realization target.
   - Details (source-bound):
     This is the approved Method Eng Decision value under CA-R-2120@8; within PROGRAMMATIC and its declared descendants, admission is governed by CA-R-2123. This Type does not impose a Type-to-Tier restriction. The filename token is a carrier representation under CA-D-404, not a second YAML Type or a Label.
-- `CA-R-1678@29`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1678@29`
+- `CA-R-1678@31`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1678@31`
   - Claim Scope:
     operational mechanisms within CAPRMEDIO.
   - Remaining Claim prose:
     CAPRMEDIO **must** require operational mechanisms **to** be proportional **to** explicit failure risk **and** a declared authoritative-state boundary. CAPRMEDIO **must not** mandate one recovery **or** durability mechanism for **every** Project.
-- `CA-R-1679@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1679@28`
+- `CA-R-1679@31`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1679@31`
   - Claim Scope:
     CAPRMEDIO effect guarantees.
   - Remaining Claim prose:
@@ -13929,8 +14073,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     RMED Spec authority, CAPO Change content, concrete Implementation, actual executions, Verification judgments.
   - Remaining Claim prose:
     CAPRMEDIO **must** distinguish RMED Spec authority for governed Entities; CAPO Change content under CA-R-1549@21, including specific reusable Operations definitions under CA-R-2463; concrete Implementation; actual executions **and** their Journal Records carrying facts, state changes, **and** Claim-bound evidence; **and** Verification judgments about sufficiency **and** currentness. Evaluation results, evidence, dashboards, **and** Verification judgments **may** support, challenge, **or** invalidate reliance on a Claim, but **must not** themselves establish, edit, replace, **or** override semantic authority.
-- `CA-R-1687@31`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1687@31`
+- `CA-R-1687@34`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1687@34`
   - Claim Scope:
     provenance and Evidence for governed claims and Implementations.
   - Remaining Claim prose:
@@ -13952,8 +14096,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - existing Implementations remain bound **to** their consumed Revisions **until** lineage-impact review determines their disposition.
     
     Requirement authority defines the external boundary **and** admitted Type values. Delivery authority governs Carrier names, identities, **and** Catalog representations. this separation does **not** reclassify those Carrier specifications as Requirements because their source is external.
-- `CA-R-1692@36`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1692@36`
+- `CA-R-1692@38`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1692@38`
   - Claim Scope:
     target Versions and their selected authorized release events.
   - Remaining Claim prose:
@@ -13965,8 +14109,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - planning allocation, implementation completion, readiness acceptance, **or** release-candidate naming does **not** freeze the Version **before** the successful event.
   - Details (source-bound):
     this Project Configuration Claim does **not** impose its release Workflow on **every** Project.
-- `CA-R-1695@36`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1695@36`
+- `CA-R-1695@38`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1695@38`
   - Claim Scope:
     structural Scope Units that realize RMED Atoms.
   - Remaining Claim prose:
@@ -13981,14 +14125,14 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Implementation-role Projections are regenerated from the Journal **and** its declared current source **and** target frontier. they **may** present implementation coverage, mappings, missing realization, **and** potentially stale bindings, but they remain rebuildable **and** non-authoritative over the Journal, normative Atoms, native implementation, **or** evaluation conclusions.
   - Details (source-bound):
     **every** implementing Scope Unit **must** preserve storage-independent traceability from exact normative Atom Revisions **to** native implementation targets **in** the shared Project Work Journal **and** derive Implementation Projections from that Journal.
-- `CA-R-1698@31`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1698@31`
+- `CA-R-1698@32`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1698@32`
   - Claim Scope:
     governed authority in CAPRMEDIO.
   - Remaining Claim prose:
     CAPRMEDIO evolves governed authority through recoverable revisions that preserve the exact historical meaning on which accepted downstream work relied.
-- `CA-R-1700@32`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1700@32`
+- `CA-R-1700@33`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1700@33`
   - Claim Scope:
     Content Role Type admission.
   - Remaining Claim prose:
@@ -14001,8 +14145,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Artifact Type, Atom Content Role, and Governance Origin classification.
   - Remaining Claim prose:
     Artifact Type, Atom Content Role, **and** Governance Origin **must** remain distinct classification axes **without** requiring an Artifact **or** a new Type for **every** possible combination; the Content Role axis applies **to** Atoms **only**.
-- `CA-R-1703@38`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1703@38`
+- `CA-R-1703@40`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1703@40`
   - Claim Scope:
     Implementation Overview Projections.
   - Remaining Claim prose:
@@ -14013,28 +14157,20 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     the presence of this Projection does **not** require an internal Implementation Atom. storage, retention, **and** whether the Projection is committed **or** generated at runtime remain governed separately.
   - Details (source-bound):
     CAPRMEDIO represents the current view of project realization through an Implementation Overview Projection rather than an Implementation Atom.
-- `CA-R-1705@29`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1705@29`
-  - Claim Scope:
-    Rationale Atoms and their pre-existing specification subjects.
-  - Remaining Claim prose:
-    a Rationale is an Analysis Atom created **only** **after** **every** specification Atom it explains already exists. the Rationale stores the directed relation **to** its subjects; specification Atoms contain **none** of (embedded Rationale, persisted Rationale backlink).
-    
-    Rationale is explanatory rather than normative. Changing an obligation, boundary, Method, Evaluation condition, Delivery rule, **or** acceptance meaning requires a new applicable specification Atom rather than a Rationale.
 - `CA-R-1708@39`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1708@39`
   - Claim Scope:
     Artifacts and their Types.
   - Remaining Claim prose:
     an Artifact **must** have **`=1`** Type admitted by applicable authority; the Core values are specified by CA-R-1405 **and** remain open **to** permitted expansion.
-- `CA-R-1713@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1713@26`
+- `CA-R-1713@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1713@28`
   - Claim Scope:
     execution confidence and Operator authority.
   - Remaining Claim prose:
     Execution confidence **must** never create, extend, **or** replace operator authority.
-- `CA-R-1717@29`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1717@29`
+- `CA-R-1717@32`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1717@32`
   - Claim Scope:
     Generated-data stage names.
   - Remaining Claim prose:
@@ -14051,8 +14187,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Framework Instance Settings Artifact selection of available Tools **and** Extensions.
   - Remaining Claim prose:
     the Framework Instance Settings Artifact **may** select, combine, parameterize, activate **in** foreground **or** background, **or** disable available Tools **and** Extensions **and** **must** resolve composition precedence explicitly **without** changing **any** selected capability's governed meaning. installation establishes availability, **not** activation: an installed Extension **may** remain disabled, **and** its retained settings do **not** enable it **unless** the Framework Instance Settings Artifact explicitly does so. the Framework Instance Settings Artifact **must** own the current activation selection **and** selected revision of **every** selected Extension.
-- `CA-R-1726@29`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1726@29`
+- `CA-R-1726@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1726@30`
   - Claim Scope:
     admitted Concerns **and** their lifecycle dispositions.
   - Remaining Claim prose:
@@ -14063,84 +14199,68 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     improvement proposals **and** their evidence-backed causes.
   - Remaining Claim prose:
     an improvement proposal **must** target the narrowest governed owner capable of resolving its evidence-backed cause.
-- `CA-R-1736@30`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1736@30`
+- `CA-R-1736@33`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1736@33`
   - Claim Scope:
     the CAPRMEDIO expansion.
   - Remaining Claim prose:
-    CAPRMEDIO expands **to** Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Operations **in** that canonical order.
-- `CA-R-1742@27`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1742@27`
+    CAPRMEDIO expands **to** Concern, Analysis & Advisory, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Operations **in** that canonical order.
+- `CA-R-1742@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1742@30`
   - Claim Scope:
     Implementation of a recurrence Evaluation Atom.
   - Remaining Claim prose:
     Implementation **must** realize a recurrence Evaluation Atom through an executable test, evaluation, monitor, alert, **or** other conforming mechanism.
-- `CA-R-1747@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1747@28`
+- `CA-R-1747@29`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1747@29`
   - Claim Scope:
     native project targets **and** governed Artifacts.
   - Remaining Claim prose:
     a native project target is Implementation rather than a governed Artifact **unless** CAPRMEDIO separately admits an Artifact identity that represents **or** binds it.
-- `CA-R-1750@39`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1750@39`
-  - Claim Scope:
-    Operator-selected settings and their authoritative Settings Artifacts.
-  - Remaining Claim prose:
-    an Operator-selected setting **must** have **`=1`** authoritative owner: Project Settings for Project initialization inputs, including Project Settings Name **and** Project Settings Prefix; Framework Instance Settings for CAPRMEDIO behavior, configuration choices, **and** Authority Mode defaults; **or** Project Structure for an explicit per-Scope-Unit Authority Mode override. Atoms define permitted parameters, constraints, **and** applicability **without** fixing **or** duplicating current selected values **or** Default Settings values. definitions **and** storage rules for Project Settings Name **and** Project Settings Prefix belong **to** CORE_META_MODEL.
-    
-    ### Current source pin
-    
-    Proposed N+1 successor of `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md`, CA-R-1750@37, SHA-256 `a9222939e3847db6a2c5da16b55122c4108b4f467d8609452dc581088ea9d77c`. Current bytes remain unchanged; this Draft performs no promotion or runtime change.
-- `CA-R-1752@31`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1752@31`
+- `CA-R-1752@32`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1752@32`
   - Claim Scope:
     Project Adaptations that adapt Canonical Framework or Extension authority.
   - Remaining Claim prose:
     a Project Adaptation is project-owned PRMEDO authority that adds, specializes, narrows, **or** prohibits capabilities for one Project **without** modifying the Canonical Framework **or** Extension authority it adapts.
-- `CA-R-1753@30`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1753@30`
+- `CA-R-1753@31`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1753@31`
   - Claim Scope:
     Project Adaptation **and** Extension definitions, Framework Instance Settings Artifacts, **and** Project Scope Unit Graph Projections.
   - Remaining Claim prose:
     the governed definitions of Project Adaptation **and** Extension **must** be owned by their applicable Atoms. the Framework Instance Settings Artifact **may** select, disable, **and** parameterize them, **and** Project Scope Unit Graph Projections **may** expose the effective result, but Framework Instance Settings **and** Project Scope Unit Graph Projection **must not** redefine **or** amend those governed definitions.
-- `CA-R-1755@27`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1755@27`
+- `CA-R-1755@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1755@30`
   - Claim Scope:
     Extensions and their declared applicability boundaries.
   - Remaining Claim prose:
     **every** Extension **must** affect **only** its declared applicability boundary.
-- `CA-R-1756@35`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1756@35`
+- `CA-R-1756@36`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1756@36`
   - Claim Scope:
     Scope Units and their direct child Scope Units.
   - Remaining Claim prose:
     **every** Scope Unit **must** own **only** its direct child Scope Units through the same recursive structural-parent relation.
-- `CA-R-1758@35`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1758@35`
-  - Claim Scope:
-    Scope Unit Type values.
-  - Remaining Claim prose:
-    **every** Scope Unit **must** have **`=1`** Type value **in** (Ordered, Unordered).
 - `CA-R-1765@35`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1765@35`
   - Claim Scope:
     Artifact Type values.
   - Remaining Claim prose:
     an Artifact Type value **must not** use NARROWER_THAN **to** establish its admission as an Artifact.
-- `CA-R-1769@33`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1769@33`
+- `CA-R-1769@36`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1769@36`
   - Claim Scope:
     Methodology Source updates or downgrades applied by a Project.
   - Remaining Claim prose:
     a Project **must** apply a Methodology Source update **or** downgrade **only** by selecting an identified source revision **and** reconciling affected Project authority; the selection **must not** silently rewrite other Methodology Sources **or** Project-owned Atoms.
-- `CA-R-1770@31`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1770@31`
+- `CA-R-1770@32`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1770@32`
   - Claim Scope:
     a Concern whose subject spans multiple Structural scopes.
   - Remaining Claim prose:
     a Concern whose subject spans multiple Structural scopes belongs **to** their narrowest common ancestor.
-- `CA-R-1771@29`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1771@29`
+- `CA-R-1771@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1771@30`
   - Claim Scope:
     a Scope Unit whose Child Composition is MIXED.
   - Remaining Claim prose:
@@ -14151,14 +14271,14 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     parent Scope Units and their immediate child Scope Units.
   - Remaining Claim prose:
     **every** parent Scope Unit **must** own the Goal Atoms for its immediate child Scope Units under CA-R-926; those Goal Atoms belong **to** the parent's Owned Atoms **and** the child's Targeting Atoms **without** transferring their ownership.
-- `CA-R-1778@27`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1778@27`
+- `CA-R-1778@30`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1778@30`
   - Claim Scope:
     the Framework name.
   - Remaining Claim prose:
     the Framework name **must** be `CAPRMEDIO`.
-- `CA-R-1779@15`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1779@15`
+- `CA-R-1779@17`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1779@17`
   - Claim Scope:
     production-relevant components **and** their Logging Policies.
   - Remaining Claim prose:
@@ -14170,8 +14290,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - identifies the events **and** context required **to** understand normal operation, detect failure, correlate distributed work, **and** investigate real production issues.
   - Details (source-bound):
     the policy describes the evaluation boundary, while logger Implementation **and** emitted record Carriers realize it.
-- `CA-R-1780@11`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1780@11`
+- `CA-R-1780@14`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1780@14`
   - Claim Scope:
     Logging Policies for production-relevant components.
   - Remaining Claim prose:
@@ -14185,56 +14305,56 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     | `DEBUG` | sanitized internal state **or** decision detail is useful for bounded investigation but is unnecessary during normal production operation |
   - Details (source-bound):
     the four level meanings are one taxonomy **and** retain one lifecycle as a set.
-- `CA-R-1781@12`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1781@12`
+- `CA-R-1781@14`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1781@14`
   - Claim Scope:
     logging Implementation for high-frequency success, polling, **and** progress events under production Logging Policies.
   - Remaining Claim prose:
     logging Implementation **must** bound high-frequency success, polling, **and** progress events through aggregation, sampling, **or** emission as `DEBUG` **where** appropriate rather than creating unbounded `INFO` noise.
   - Details (source-bound):
     the alternatives bound repeated normal-event volume; the severity taxonomy separately classifies material operational milestones.
-- `CA-R-1782@13`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1782@13`
+- `CA-R-1782@15`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1782@15`
   - Claim Scope:
     logging Implementation for production DEBUG logging under Logging Policies.
   - Remaining Claim prose:
     logging Implementation **must** keep production DEBUG logging disabled by default. temporary enablement **must** be scoped by component, subject, run, entity, **or** another bounded selector, have an automatic expiry, **and** preserve the same redaction rules as **every** other level.
   - Details (source-bound):
     the selector **and** expiry bound temporary production DEBUG use while preserving its required redaction treatment.
-- `CA-R-1783@11`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1783@11`
+- `CA-R-1783@14`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1783@14`
   - Claim Scope:
     production Logging Policies **and** their retention, access, sampling, rotation, maximum size, back-pressure, unavailable-sink, **and** disk-pressure conditions.
   - Remaining Claim prose:
     a production Logging Policy **must** define retention, access, sampling, rotation, maximum size, back-pressure, unavailable-sink behavior, **and** disk-pressure behavior.
   - Details (source-bound):
     these settings define the policy’s retention **and** delivery controls.
-- `CA-R-1784@11`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1784@11`
+- `CA-R-1784@14`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1784@14`
   - Claim Scope:
     logging Implementation for production-relevant components.
   - Remaining Claim prose:
     logging Implementation **must not** make the primary operation silently fail.
   - Details (source-bound):
     the boundary prevents a logging failure from silently becoming a primary-operation failure.
-- `CA-R-1785@12`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1785@12`
+- `CA-R-1785@14`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1785@14`
   - Claim Scope:
     logging Implementation **when** required records are lost **or** suppressed under production Logging Policies.
   - Remaining Claim prose:
     logging Implementation **must** produce an observable failure signal **when** required records are lost **or** suppressed.
   - Details (source-bound):
     the signal preserves a visible failure condition **when** required records cannot be retained **or** delivered.
-- `CA-R-1786@11`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1786@11`
+- `CA-R-1786@14`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1786@14`
   - Claim Scope:
     important production health counters, thresholds, **and** service-level signals.
   - Remaining Claim prose:
     important production health counters, thresholds, **and** service-level signals receive explicit monitors.
   - Details (source-bound):
     the monitors provide production health observation.
-- `CA-R-1787@11`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1787@11`
+- `CA-R-1787@14`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1787@14`
   - Claim Scope:
     production evaluation decisions.
   - Remaining Claim prose:
@@ -14275,8 +14395,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     repeated delivery **or** reconnection for an Agentic Step Invocation.
   - Remaining Claim prose:
     the receiving context **must** report actual results against the identified Invocation. redelivery **or** reconnection **must not** imply permission **to** repeat already performed effects.
-- `CA-R-1795@12`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1795@12`
+- `CA-R-1795@15`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1795@15`
   - Claim Scope:
     Development Backlog candidates **after** a Release Record is accepted.
   - Remaining Claim prose:
@@ -14285,20 +14405,20 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - remove a candidate whose promoted Atoms were fully delivered **in** that release.
     - **every** candidate that is unfinished, partially delivered, excluded, **or** newly deferred **must** remain unscheduled **or** move **to** another target version.
     - a candidate **must not** be removed as shipped **unless** the released manifest accounts for its promoted Atoms.
-- `CA-R-1796@12`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1796@12`
+- `CA-R-1796@15`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1796@15`
   - Claim Scope:
     Development Backlog reconciliation **after** the Release Record is accepted.
   - Remaining Claim prose:
     CAPRMEDIO **must** append Journal records for Development Backlog reconciliation.
-- `CA-R-1798@13`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1798@13`
+- `CA-R-1798@16`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1798@16`
   - Claim Scope:
     released, executed, **and** planning-allocation history from Development Backlog reconciliation **after** the Release Record is accepted.
   - Remaining Claim prose:
     CAPRMEDIO **must** preserve delivered work, executed work, **and** planning-allocation changes **in** Release Records, Plans under `done/`, **and** Git history.
-- `CA-R-1799@18`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1799@18`
+- `CA-R-1799@20`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-1799@20`
   - Claim Scope:
     capabilities provided by the CAPRMEDIO Framework Instance.
   - Remaining Claim prose:
@@ -14315,22 +14435,6 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     the Core allowed values of Operations Status **must** be exactly (Draft, Active, Archived); that one Content Role Status model applies to Operations Atoms with Type Workflow, Step, or Action unless an admitted Extension or Project Configuration establishes a more-specific Status domain under that exact Content Role and Type path.
   - Details (source-bound):
     this Status is the Artifact Revision Property of the Operations Atom itself. it does **not** define a Status transition, carrier placement, setting, or a Workflow, Step, or Action Run outcome, receipt, retry state, result, or completion state.
-- `CA-R-1875@19`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1875@19`
-  - Claim Scope:
-    the default Status value domain of Analysis Atoms with Type Analysis Report or Rationale.
-  - Remaining Claim prose:
-    the Core Analysis Status model **must** inherit the allowed values of Atom.Status and add Done. That Content Role Status model applies to Analysis Atoms with Type Analysis Report or Rationale. An admitted Extension or Project Configuration **may** add values under the applicable complete Content Role and Type path; it **must not** remove inherited values.
-  - Details (source-bound):
-    this Status belongs to the Analysis Atom itself. It does **not** define a Status transition, carrier placement, setting, or a Workflow, Step, or Action Run outcome, receipt, retry state, result, or completion state. CA-R-1727@30 defines the meanings of Draft and Done for Analysis and the meaning of its archival.
-- `CA-R-1888@13`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-1888@13`
-  - Claim Scope:
-    the CAPRMEDIO Project Configuration contribution to `Atom/Content Role: Analysis/Type`.
-  - Remaining Claim prose:
-    the CAPRMEDIO Project Configuration **must** register FPF Analysis Report as an additional value of `Atom/Content Role: Analysis/Type` under CA-R-1286. this registration does **not** change the Core contribution under CA-R-1232@28 **or** create another Type Property.
-  - Details (source-bound):
-    CA-R-1889 defines the registered Type. CA-D-581 defines its filename token. The Type remains within Content Role Analysis.
 - `CA-R-1990@12`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1990@12`
   - Claim Scope:
@@ -14359,8 +14463,8 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Artifact is a Term for a Node instance delivered into one or more Carrier instances. Carrying a record of an occurrence does not carry the actual occurrence. Artifact does not name another Node kind or branch. A Carrier remains distinct from what it represents.
   - Details (source-bound):
     Graph Node categories are open. Continuant, Occurrent and Aspect are admitted category examples, not an exhaustive enumeration. A topic does not need to be forced into a temporal category.
-- `CA-R-2003@15`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-2003@15`
+- `CA-R-2003@16`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-2003@16`
   - Claim Scope:
     Declared Property occurrences and their direct IS_PROPERTY_OF connections.
   - Remaining Claim prose:
@@ -14368,15 +14472,15 @@ Entity {0+}((HAS_PROPERTY)){1} Property
   - Semantics:
     Property is the proposed kind `Entity/Property`, grounded in bearer dependence through IS_PROPERTY_OF. Its lexical Term is separately defined at `Term//Property`. Classifying an occurrence in that kind does not invent a bearer edge or treat a missing edge as proof of independence. The Property occurrence has identity qualified by its immediate bearer; the Property definition supplies its value Format and direct-value cardinality. The bearer-Relation count is distinct from the number of values a Property allows.
   - Details (source-bound):
-    This is a Current-pinned N+1 successor of CA-R-2003@13 at `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md`, SHA-256 `6a3eca859d913fb3800693219f3587bd35dc957f2509433e38606d2a1f8a730d`. It preserves the exactly-one immediate-bearer requirement and the existing declared-occurrence Selection criteria. The inherited Summary and source pin remain historical Current lineage; the proposed Selection-name mapping below is explicit and introduces no alias. The older @11 Draft is marked superseded preparation and is not overwritten or selected as the predecessor. No Current source is changed, no numeric identity is allocated, and no new Primary Entity branch is proposed.
+    This is a Current-pinned N+1 successor of CA-R-2003@13 at `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md`, SHA-256 `6a3eca859d913fb3800693219f3587bd35dc957f2509433e38606d2a1f8a730d`. It preserves the exactly-one immediate-bearer requirement and the existing declared-occurrence Selection criteria. The inherited Summary and source pin remain historical Current lineage; the proposed Selection-name mapping below is explicit and introduces no alias. The older @11 Draft is marked superseded preparation and is not overwritten or selected as the predecessor. No Current source is changed, no numeric identity is allocated, and no new Primary Entity branch is proposed.
     
     This Draft records the governed Selection-name mapping from `Entity/Object/Continuant/Selection//Dependent Entity Occurrences` to `Entity/Object/Continuant/Selection//Property Occurrences`. The renamed Selection continues to select every source-declared Property occurrence independently of whether its IS_PROPERTY_OF connection exists. It includes missing-edge cases and neither infers dependence from edges nor creates a bearer connection. The old name remains only in this source-mapping evidence, not as an admitted alias. A named Selection names criteria under Current CA-R-1966@12; this mapping creates no new Object, independent member copies or identity rules. The immutable Atom Summary, filename and identity are unchanged. This is a proposed source mapping, not Current adoption.
 - `CA-R-2157@10`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-2157@10`
   - Remaining Claim prose:
     the Operator holds original authority over the Project **and** its CAPRMEDIO Framework Instance **and** **may** perform **or** authorize governed actions within that authority.
-- `CA-R-2158@10`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-2158@10`
+- `CA-R-2158@12`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-2158@12`
   - Remaining Claim prose:
     an AI Agent has no original authority, **must not** create **or** expand its own authority, **and** **may** perform **or** authorize a governed action **only** **when** a current Operator-established AI Agent Delegation **or** authorization rule identifies that AI Agent **and** permits the complete action, its target, **and** its decision boundary.
 - `CA-R-2271@3`: Selected source is outside the declared model scope.
@@ -14410,8 +14514,8 @@ Project.Framework Settings.Extension Selections{0}
     This Term Definition is the dedicated authoritative meaning owner of the lexical Term ID under CA-R-1319 and CA-R-2468. M describes authoring and E evaluates well-formedness and conflicts. No dictionary Projection, extractor, or lookup service is required.
     
     The lexical target is introduced by this defining Claim under CA-R-1194@29, CA-R-1931@15, and CA-R-2002@15, using the Current Term kind from CA-R-1318@28. It is not asserted to preexist this definition or inferred from the letters in property names. The definition introduces no property, domain instance, prefix namespace, Relation, or other entity merely by naming it. It neither waives CA-R-1279 nor implements the deferred Terms Graph; C605's separate Term-placement reconciliation remains applicable.
-- `CA-R-2276@4`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-2276@4`
+- `CA-R-2276@6`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-2276@6`
   - Claim Scope:
     Every entity represented in the Subject Graph, every declared Relation Type entity, and every authored occurrence mentioning one of those entities in CAPRMEDIO Controlled English.
   - Remaining Claim prose:
@@ -14438,12 +14542,12 @@ Project.Framework Settings.Extension Selections{0}
     For / specialization, the narrower Definition inherits the broader Definition and states only its differences. For // instantiation, the instance follows its kind Definition and states only instance-specific facts. Reuse the applicable base structure, properties and constraints instead of copying them. Containment > adds no inheritance. A Method Atom is an Atom with Content Role Method, not a repeated definition of Atom.
   - Details (source-bound):
     The Operator confirmed all 133 shared/formal starting cases and later clarified that Aspects also retain one canonical Definition. Scoped additional Rs remain allowed. The exact-one invariant concerns definitions of model entities, not one new R for every runtime instance. Derived counterpart templates reference the main direction briefly instead of copying its full meaning.
-- `CA-R-2445@3`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-2445@3`
+- `CA-R-2445@6`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-2445@6`
   - Remaining Claim prose:
     COMMUNITY_EXTENSIONS **must** catalog externally maintained Extension packages **without** making those packages CAPRMEDIO-owned Scope Units.
-- `CA-R-2452@2`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-2452@2`
+- `CA-R-2452@4`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-2452@4`
   - Remaining Claim prose:
     The caprmedio Project **must** create **and** evolve a working CAPRMEDIO Framework. Given enough resources, that Framework **must** let **any** Operator use AI Agents **to** do **all** of the following for **any** feasible Project:
     
@@ -14451,62 +14555,54 @@ Project.Framework Settings.Extension Selections{0}
     - deliver the Project;
     - run the Project; **and**
     - maintain the Project.
-- `CA-R-380@42`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-380@42`
+- `CA-R-380@44`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-380@44`
   - Claim Scope:
     semantic-resolution Confidence Threshold instance defaults.
   - Remaining Claim prose:
     the semantic-resolution Confidence Threshold **must** have an Operator-configurable instance default.
-- `CA-R-633@19`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-633@19`
+- `CA-R-633@21`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-633@21`
   - Remaining Claim prose:
     a framework-improvement cycle **in** caprmedio **must** improve the capabilities, configuration, **or** operation of the CAPRMEDIO Framework Instance used within the Project.
-- `CA-R-634@20`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-634@20`
+- `CA-R-634@22`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-634@22`
   - Remaining Claim prose:
     a Project-improvement cycle **in** caprmedio **must** improve the CAPRMEDIO Framework being developed through changes **to** its PRMEDO authority, its Implementation, **or** their combination.
-- `CA-R-637@13`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-637@13`
+- `CA-R-637@15`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-637@15`
   - Claim Scope:
     Continuous-improvement recurrence protection checks.
   - Remaining Claim prose:
     **when** a resolved failure class can materially recur, Evaluation **must** detect it at the earliest practical boundary.
-- `CA-R-642@23`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-642@23`
-  - Remaining Claim prose:
-    **every** canonical decomposition **must** declare its bounded universe **and** one discriminating question per axis **and** assign **every** admissible member **to** **`=1`** value on **every** applicable axis.
-- `CA-R-706@31`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-706@31`
-  - Remaining Claim prose:
-    the caprmedio Project **must** include FRAMEWORK_METHODOLOGY, METHODOLOGY_SOURCES, **and** its Methodology Source Scope Units **in** its Project Scope Unit tree under the authority of its active Project-owned Tier 0 Atoms.
-- `CA-R-718@43`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-718@43`
+- `CA-R-718@44`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-718@44`
   - Claim Scope:
     the relationship between an Atom's Claim targeting, textual applicability, **and** structural ownership.
   - Remaining Claim prose:
     an Atom's Claim Target Scope Unit reference **and** applicability restrictions **in** its Main Content **must not**, by themselves, establish an additional edge **in** the Scope Unit tree **or** alter structural-parent ownership.
-- `CA-R-815@33`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-815@33`
+- `CA-R-815@35`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-815@35`
   - Remaining Claim prose:
     the CAPRMEDIO Framework Instance **must** support implementing **every** admissible priority model established by the Operator for possible Project trade-offs.
-- `CA-R-818@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-818@26`
+- `CA-R-818@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-818@28`
   - Remaining Claim prose:
     CAPRMEDIO **must** help the Operator keep the active rule set necessary **and** sufficient for the current scope, stage, **and** priorities.
-- `CA-R-826@19`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-826@19`
+- `CA-R-826@22`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-826@22`
   - Remaining Claim prose:
     CAPRMEDIO's current native LLM-application support set **contains** Codex **and** no other application. Native support **means** that CAPRMEDIO owns **and** maintains the application adapter required **to** install **and** invoke framework interfaces **and** resolve host-session identity **without** an Extension **or** operator-provided compatibility layer. **every** other LLM application remains outside native support **until** an applicable active Boundary Requirement expands **or** replaces this Boundary.
-- `CA-R-827@30`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-827@30`
+- `CA-R-827@32`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-827@32`
   - Remaining Claim prose:
     CAPRMEDIO **must** keep **every** governed Project part outside the CAPRMEDIO Framework Instance under the Operator's control throughout Project evolution.
-- `CA-R-831@26`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-831@26`
+- `CA-R-831@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-831@28`
   - Remaining Claim prose:
     CAPRMEDIO **must** govern independently evolvable reusable capabilities as explicit Extensions whose extension points, authority boundaries, **and** compatibility conditions are declared.
-- `CA-R-832@33`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-832@33`
+- `CA-R-832@35`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-832@35`
   - Remaining Claim prose:
     the CAPRMEDIO Framework Instance **must** provide configuration capabilities **to** select, combine, parameterize, **or** disable available optional canonical **and** Extension capabilities **only** within declared configuration boundaries **and** **without** redefining governed meanings.
     
@@ -14517,8 +14613,8 @@ Project.Framework Settings.Extension Selections{0}
     the normative-authority subgraph.
   - Remaining Claim prose:
     the normative-authority subgraph **must** form an explicit, typed, **and** acyclic hierarchy.
-- `CA-R-846@29`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-846@29`
+- `CA-R-846@31`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-846@31`
   - Remaining Claim prose:
     CAPRMEDIO **must** let the Operator create AI Agent Delegations **and** mandatory authorization rules for **every** identified AI Agent **and** inspect, limit, modify, suspend, **and** revoke **every** such delegation **or** rule.
 - `CA-R-852@32`: Selected source is outside the declared model scope.
@@ -14527,8 +14623,8 @@ Project.Framework Settings.Extension Selections{0}
     AI Agent Delegations.
   - Remaining Claim prose:
     **every** AI Agent Delegation **must** identify its Operator, AI Agent, allowed actions, allowed target Scopes, constraints, validity boundary, **and** revocation state.
-- `CA-R-853@27`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-853@27`
+- `CA-R-853@28`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-853@28`
   - Claim Scope:
     governed actions.
   - Remaining Claim prose:
@@ -14551,8 +14647,8 @@ Project.Framework Settings.Extension Selections{0}
     Allowed qualified Types of Relational Atom.
   - Remaining Claim prose:
     the Core contribution **to** allowed qualified Types of Relational Atom **must** be (`Atom/Content Role: Requirement/Type: Goal`, `Atom/Content Role: Requirement/Type: Demand`, `Atom/Content Role: Plan/Type: Plan`); a Plan is relational **only** **when** its actual Claim target differs under the Relational Atom definition, **not** merely because it has decomposition, blocking, **or** a particular Label.
-- `CA-R-926@38`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-926@38`
+- `CA-R-926@39`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-926@39`
   - Claim Scope:
     Non-Project Scope Units.
   - Remaining Claim prose:
@@ -14575,8 +14671,8 @@ Project.Framework Settings.Extension Selections{0}
     Demand directions.
   - Remaining Claim prose:
     a Demand direction **means** from its Consumer Atom Scope Unit **to** its Producer Claim Target Scope Unit.
-- `CA-R-947@39`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-947@39`
+- `CA-R-947@40`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-947@40`
   - Claim Scope:
     Goal Atoms.
   - Remaining Claim prose:
@@ -14593,24 +14689,6 @@ Project.Framework Settings.Extension Selections{0}
     Demand Atoms.
   - Remaining Claim prose:
     **every** Demand Atom **must** constrain **`=1`** Implementation result produced by its Claim Scope.
-- `CA-R-979@30`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-979@30`
-  - Claim Scope:
-    new Scope Units.
-  - Remaining Claim prose:
-    **every** new Scope Unit **must** use Unordered as its default Type value.
-- `CA-R-981@28`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-981@28`
-  - Claim Scope:
-    non-Project Scope Units.
-  - Remaining Claim prose:
-    **every** non-Project Scope Unit **must** receive a default Navigational Order Number equal **to** its one-based chronological creation position among Scope Units created under the same parent.
-- `CA-R-983@29`: Selected source is outside the declared model scope.
-- Selected evidence outside model scope: `CA-R-983@29`
-  - Claim Scope:
-    Navigational Order Number of non-Project Scope Units.
-  - Remaining Claim prose:
-    the Operator **may** replace the default Navigational Order Number independently for **every** non-Project Scope Unit.
 - `CA-R-999@26`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-999@26`
   - Claim Scope:
@@ -14624,24 +14702,22 @@ THEN ((Node, Node.**) >| (Independence == Property))
 AND ((Node, Node.**) {==0}((HAS_NARROWER)))
 AND ((Node, Node.**) {==0}((HAS_INSTANCE)))
 - `CA-R-2463@2`: Atom/(.Role: Operations)
-- `CA-R-2464@2`: Atom/(.Role: Operations)/Workflow
-- `CA-R-2465@2`: Atom/(.Role: Operations)/Step
-- `CA-R-2465@2`: ((Step//{:1+}((CONTAINS)) Substep//)
-AND (Step//{:0}((RUN)) Action//))
-OR
-((Step//{:0}((CONTAINS)) Substep//)
-AND (Step//{:1}((RUN)) Action//))
-- `CA-R-2466@2`: Atom/(.Role: Operations)/Substep
+- `CA-R-2464@4`: Atom/(.Role: Operations)/Workflow
+- `CA-R-2465@4`: Atom/(.Role: Operations)/Step
+- `CA-R-2465@4`: IF Step// {=0}((RUNS)) THEN Step// {:1+}((CONTAINS)) Substep//
+- `CA-R-2465@4`: IF Step// {>0}((RUNS)) THEN Step// {:0}((CONTAINS))
+- `CA-R-2465@4`: IF Step// {=0}((CONTAINS)) THEN Step// {:1}((RUNS)) (in (Action, Workflow))//
+- `CA-R-2466@4`: Atom/(.Role: Operations)/Substep
 - `CA-R-2467@2`: Atom/(.Role: Operations)/Action
 - `CA-R-2473@4`: ((IS_PROPERTY_OF)) == .
 - `CA-R-2475@4`: ((NARROWER_THAN)) == /
 - `CA-R-2476@4`: ((INSTANCE_OF)) == //
 - `CA-R-2477@4`: ((HAS_CLASSIFICATION)) == >|
 - `CA-R-2478@4`: ((IS_CONTAINED_BY)) == +>
-- `CA-R-2487@6`: p{:occurrence}: [value format]{:value count}
-- `CA-R-2487@6`: p.*[name format]{:immediate name count}
-- `CA-R-2487@6`: p.**[name format]{:recursive name count}
-- `CA-R-2487@6`: p.*[name format]{:immediate name count}: [value format]{:value count}
+- `CA-R-2487@8`: p{:occurrence}: [value format]{:value count}
+- `CA-R-2487@8`: p.*[name format]{:immediate name count}
+- `CA-R-2487@8`: p.**[name format]{:recursive name count}
+- `CA-R-2487@8`: p.*[name format]{:immediate name count}: [value format]{:value count}
 - `CA-R-2489@2`: Atom//$atom.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=1}, .object_output.id = $atom.ID, .object_output.version = $atom.Version, (.action = create OR .action = update)).happened_at)
 - `CA-R-2493@2`: IF ((Atom.Status >| Status Group = Current) OR (Atom.Status >| Status Group = Archived))
 THEN (IMMUTABLE(Atom.ID))
@@ -14672,7 +14748,6 @@ THEN (IMMUTABLE(Atom.ID))
 - `CA-R-2508@2`: Atom
 - `CA-R-2508@2`: UNIQUE(Atom//, (.ID, .Version))
 - `CA-R-2509@2`: Atom/(.Role: Concern)
-- `CA-R-2510@2`: Atom/(.Role: Analysis)
 - `CA-R-2511@2`: Atom/(.Role: Plan)
 - `CA-R-2511@2`: IF ((Atom/(.Role: Plan).Status = Active) AND (Atom/(.Role: Plan).Work Sequence Number{=1}))
 THEN (Atom/(.Role: Plan).Relations.contained_by{==1})
@@ -14680,7 +14755,6 @@ THEN (Atom/(.Role: Plan).Relations.contained_by{==1})
 - `CA-R-2513@2`: Atom/(.Role: Method)
 - `CA-R-2514@2`: Atom/(.Role: Evaluation)
 - `CA-R-2515@2`: Atom/(.Role: Delivery)
-- `CA-R-2516@4`: Atom/(.Role: Requirement)/(.Form: Declaration)
 - `CA-R-2518@2`: Atom/(.Role: Concern).Priority{:1}: [string]{:1}
 - `CA-R-2518@2`: Atom/(.Role: Concern).Priority.*[]{:0}
 - `CA-R-2518@2`: Atom/(.Role: Concern).Priority: High
@@ -14711,14 +14785,17 @@ THEN (Atom/(.Role: Plan).Work Sequence Number > 0)
 - `CA-R-2521@2`: Atom/(.Role: Operations)/Action.Execution Kind: Agentic
 - `CA-R-2523@2`: IF (Scope Unit//$unit not in (Scope Unit/Project//))
 THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)
-- `CA-R-2524@2`: Scope Unit/Project
+- `CA-R-2524@3`: Scope Unit/Project
+- `CA-R-2524@3`: Project//.order.ordered == false
 - `CA-R-2525@2`: IF (Package//$package not in (Package/Implementation//))
 THEN ($package {==1}((IS_CONTAINED_BY)) Package//)
+- `CA-R-2526@3`: IF (Scope Unit//$unit not in (Scope Unit/Project//))
+THEN ($unit.ID{:1})
 - `CA-R-2537@2`: DETERMINES(Projection//, (.Form, .Source.Named Selection), (.ID))
 - `CA-R-2537@2`: DETERMINES(Projection//, (.ID), (.Form, .Source.Named Selection))
 - `CA-R-2539@2`: Projection//$projection.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=0}, .object_output.id = $projection.ID, (.action = create OR .action = update)).happened_at)
 - `CA-R-2542@2`: Actor
-- `CA-R-2543@2`: Aspect
+- `CA-R-2543@4`: Aspect
 - `CA-R-2546@2`: IF (Atom.Status >| Status Group = Current)
 THEN (Atom.Subjects.Active{==1})
 - `CA-R-2553@2`: Package/Implementation
@@ -14757,6 +14834,8 @@ THEN ($contained.structural_level = $container.structural_level + 1)
 - `CA-R-2614@1`: @Operator//SelectionExclusion == "!()"
 - `CA-R-2615@1`: @Operator//SubjectValueSelection == ":="
 - `CA-R-2617@1`: ((CONTAINS)) == <+
+- `CA-R-2637@1`: Atom/(.Role: "Analysis & Advisory")
+- `CA-R-2686@1`: Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0}
 - `CA-D-665@2`: Projection// >> Carrier/Markdown_file//
 - `CA-D-664@2`: Atom >> @Carrier//Markdown file
 - `CA-D-664@2`: Atom.**!(.Content, .Content.**) >> @Carrier//Markdown file.frontmatter
@@ -14764,6 +14843,60 @@ THEN ($contained.structural_level = $container.structural_level + 1)
 - `CA-D-664@2`: @Carrier//Markdown file.filename{:1}: [string]{:1}
 - `CA-D-664@2`: @Carrier//Markdown file.location{:1}: [string]{:1}
 - `CA-D-664@2`: @Carrier//Markdown file.frontmatter.author{:0}
+- `CA-R-2640@1`: Project//caprmedio.Name == "caprmedio"
+- `CA-R-2648@1`: Scope Unit//FRAMEWORK_METHODOLOGY.ID == "CA-SU-9"
+- `CA-R-2648@1`: Scope Unit//FRAMEWORK_METHODOLOGY.Name == "FRAMEWORK_METHODOLOGY"
+- `CA-R-2648@1`: Scope Unit//FRAMEWORK_METHODOLOGY.Label == "LAYER"
+- `CA-R-2648@1`: Scope Unit//FRAMEWORK_METHODOLOGY.order.ordered == true
+- `CA-R-2648@1`: Scope Unit//FRAMEWORK_METHODOLOGY.order.number == 1
+- `CA-R-2649@1`: Scope Unit//METHODOLOGY_SOURCES.ID == "CA-SU-10"
+- `CA-R-2649@1`: Scope Unit//METHODOLOGY_SOURCES.Name == "METHODOLOGY_SOURCES"
+- `CA-R-2649@1`: Scope Unit//METHODOLOGY_SOURCES.Label == "SUPERLAYER"
+- `CA-R-2649@1`: Scope Unit//METHODOLOGY_SOURCES.order.ordered == true
+- `CA-R-2649@1`: Scope Unit//METHODOLOGY_SOURCES.order.number == 1
+- `CA-R-2650@1`: Scope Unit//CORE_META_MODEL.ID == "CA-SU-11"
+- `CA-R-2650@1`: Scope Unit//CORE_META_MODEL.Name == "CORE_META_MODEL"
+- `CA-R-2650@1`: Scope Unit//CORE_META_MODEL.Label == "LAYER"
+- `CA-R-2650@1`: Scope Unit//CORE_META_MODEL.order.ordered == true
+- `CA-R-2650@1`: Scope Unit//CORE_META_MODEL.order.number == 1
+- `CA-R-2651@1`: Scope Unit//INSTALLED_EXTENSIONS.ID == "CA-SU-12"
+- `CA-R-2651@1`: Scope Unit//INSTALLED_EXTENSIONS.Name == "INSTALLED_EXTENSIONS"
+- `CA-R-2651@1`: Scope Unit//INSTALLED_EXTENSIONS.Label == "LAYER"
+- `CA-R-2651@1`: Scope Unit//INSTALLED_EXTENSIONS.order.ordered == true
+- `CA-R-2651@1`: Scope Unit//INSTALLED_EXTENSIONS.order.number == 2
+- `CA-R-2652@1`: Scope Unit//PROJECT_CONFIGURATION.ID == "CA-SU-13"
+- `CA-R-2652@1`: Scope Unit//PROJECT_CONFIGURATION.Name == "PROJECT_CONFIGURATION"
+- `CA-R-2652@1`: Scope Unit//PROJECT_CONFIGURATION.Label == "LAYER"
+- `CA-R-2652@1`: Scope Unit//PROJECT_CONFIGURATION.order.ordered == true
+- `CA-R-2652@1`: Scope Unit//PROJECT_CONFIGURATION.order.number == 3
+- `CA-R-2653@1`: Scope Unit//FRAMEWORK_ENGINE.ID == "CA-SU-14"
+- `CA-R-2653@1`: Scope Unit//FRAMEWORK_ENGINE.Name == "FRAMEWORK_ENGINE"
+- `CA-R-2653@1`: Scope Unit//FRAMEWORK_ENGINE.Label == "LAYER"
+- `CA-R-2653@1`: Scope Unit//FRAMEWORK_ENGINE.order.ordered == true
+- `CA-R-2653@1`: Scope Unit//FRAMEWORK_ENGINE.order.number == 2
+- `CA-R-2664@1`: Scope Unit//OPERATOR_DOCUMENTATION.ID == "CA-SU-25"
+- `CA-R-2664@1`: Scope Unit//OPERATOR_DOCUMENTATION.Name == "OPERATOR_DOCUMENTATION"
+- `CA-R-2664@1`: Scope Unit//OPERATOR_DOCUMENTATION.Label == "LAYER"
+- `CA-R-2664@1`: Scope Unit//OPERATOR_DOCUMENTATION.order.ordered == true
+- `CA-R-2664@1`: Scope Unit//OPERATOR_DOCUMENTATION.order.number == 3
+- `CA-R-2665@1`: Scope Unit//CORE_EXTENSIONS.ID == "CA-SU-26"
+- `CA-R-2665@1`: Scope Unit//CORE_EXTENSIONS.Name == "CORE_EXTENSIONS"
+- `CA-R-2665@1`: Scope Unit//CORE_EXTENSIONS.Label == "LAYER"
+- `CA-R-2665@1`: Scope Unit//CORE_EXTENSIONS.order.ordered == true
+- `CA-R-2665@1`: Scope Unit//CORE_EXTENSIONS.order.number == 4
+- `CA-R-2666@1`: Scope Unit//RELEASES.ID == "CA-SU-27"
+- `CA-R-2666@1`: Scope Unit//RELEASES.Name == "RELEASES"
+- `CA-R-2666@1`: Scope Unit//RELEASES.Label == "LAYER"
+- `CA-R-2666@1`: Scope Unit//RELEASES.order.ordered == true
+- `CA-R-2666@1`: Scope Unit//RELEASES.order.number == 5
+- `CA-R-2667@1`: Scope Unit//COMMUNITY_EXTENSIONS.ID == "CA-SU-28"
+- `CA-R-2667@1`: Scope Unit//COMMUNITY_EXTENSIONS.Name == "COMMUNITY_EXTENSIONS"
+- `CA-R-2667@1`: Scope Unit//COMMUNITY_EXTENSIONS.Label == "FEATURE"
+- `CA-R-2667@1`: Scope Unit//COMMUNITY_EXTENSIONS.order.ordered == false
+- `CA-R-2668@1`: Scope Unit//FIELD.ID == "CA-SU-29"
+- `CA-R-2668@1`: Scope Unit//FIELD.Name == "FIELD"
+- `CA-R-2668@1`: Scope Unit//FIELD.Label == "FEATURE"
+- `CA-R-2668@1`: Scope Unit//FIELD.order.ordered == false
 - `CA-D-662@4`: Atom.Role >> @Carrier//Markdown file.frontmatter.role
 - `CA-D-662@4`: Atom.Form >> @Carrier//Markdown file.frontmatter.form
 - `CA-D-662@4`: Atom.Subjects.Active >> @Carrier//Markdown file.frontmatter.subjects.active
@@ -14780,8 +14913,8 @@ THEN ($contained.structural_level = $container.structural_level + 1)
 - `CA-R-2588@2`: CFEL fence is outside Claim; its contents were not interpreted.
 - `CA-R-2588@2`: CFEL fence is outside Claim; its contents were not interpreted.
 - `CA-R-2588@2`: CFEL fence is outside Claim; its contents were not interpreted.
-- `CA-R-2243@9`: p{:occurrence}: [value format]{:value count}
-- `CA-R-2243@9`: p.*[immediate name format]{:immediate name count}
-- `CA-R-2243@9`: p.**[recursive name format]{:recursive name count}
-- `CA-R-2243@9`: p.*[name format]{:name count}: [value format]{:value count}
+- `CA-R-2243@11`: p{:occurrence}: [value format]{:value count}
+- `CA-R-2243@11`: p.*[immediate name format]{:immediate name count}
+- `CA-R-2243@11`: p.**[recursive name format]{:recursive name count}
+- `CA-R-2243@11`: p.*[name format]{:name count}: [value format]{:value count}
 - `CA-R-2277@4`: Named Selection//Extension Sources

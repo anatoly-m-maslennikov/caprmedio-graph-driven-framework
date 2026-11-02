@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "checks": [
+    "10 existing-ID publications, 10 archives, no new or retired IDs",
+    "all selected and candidate hashes match",
+    "archives preserve body and metadata except ID and status",
+    "shared cooperative lock covers version checks, writes, removals and guarded rollback",
+    "Journal outputs use immutable accepted bytes captured under lock"
+  ],
+  "condition": "Coordinator must independently verify coordination.json role_source_promotion_window=true before apply; apply script itself does not enforce this cross-chat condition.",
+  "apply_script_sha256": "2b58ec3ba98bdb1ccaaecc361f334db5becb90b94213adf18bc26953153b0231",
+  "limits": [
+    "Apply not executed; no runtime or projection validation."
+  ]
+}

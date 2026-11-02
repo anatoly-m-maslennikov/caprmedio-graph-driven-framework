@@ -13,10 +13,10 @@ subjects:
   governs: Subject/Graph Node/Engineering/Action
   depends_on:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis & Advisory'
   - Subject/Graph Node/Engineering/Evaluation Technique Selection
-version: 7
-updated_at: 2026-10-25 17:32:27 +0400
+version: 8
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
   is_decomposition_of:
   - CA-P-1131

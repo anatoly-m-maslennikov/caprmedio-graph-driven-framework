@@ -1,0 +1,167 @@
+======================================================================
+ERROR: test_apply_rejects_edit_to_preexisting_skill_after_preflight (test_project_installation.ProjectInstallationTests.test_apply_rejects_edit_to_preexisting_skill_after_preflight)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/project_installation_sources.py", line 91, in select_project
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/tests/test_project_installation.py", line 143, in test_apply_rejects_edit_to_preexisting_skill_after_preflight
+    plan = _plan(self.project, None, self.source)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/project_installation.py", line 97, in _plan
+    selection = select_project(root, CONTROL_PREFIX)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/project_installation_sources.py", line 94, in select_project
+    _fail("project-selection-conflict", str(error))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/project_installation_sources.py", line 29, in _fail
+    raise ProjectInstallationError(code, message)
+INSTALL_TOOLS.project_installation_sources.ProjectInstallationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+ERROR: test_fresh_name_with_spaces_is_preserved (test_project_installation.ProjectInstallationTests.test_fresh_name_with_spaces_is_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/tests/test_project_installation.py", line 105, in test_fresh_name_with_spaces_is_preserved
+    self.assertEqual("Friendly Demo", resolve_project(project).settings["project"]["name"])
+                                      ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+ERROR: test_fresh_seed_dry_run_apply_and_resolve_prefix (test_project_installation.ProjectInstallationTests.test_fresh_seed_dry_run_apply_and_resolve_prefix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/tests/test_project_installation.py", line 74, in test_fresh_seed_dry_run_apply_and_resolve_prefix
+    selection = resolve_project(self.project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+ERROR: test_repeat_is_no_op_and_preserves_unrelated_files_and_global_config (test_project_installation.ProjectInstallationTests.test_repeat_is_no_op_and_preserves_unrelated_files_and_global_config)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/project_installation_sources.py", line 91, in select_project
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/tests/test_project_installation.py", line 95, in test_repeat_is_no_op_and_preserves_unrelated_files_and_global_config
+    second = install_project(self.project, apply=True, source_root=self.source)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/project_installation.py", line 178, in install_project
+    plan = _plan(project_root, prefix, source_root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/project_installation.py", line 97, in _plan
+    selection = select_project(root, CONTROL_PREFIX)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/project_installation_sources.py", line 94, in select_project
+    _fail("project-selection-conflict", str(error))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/project_installation_sources.py", line 29, in _fail
+    raise ProjectInstallationError(code, message)
+INSTALL_TOOLS.project_installation_sources.ProjectInstallationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+FAIL: test_project_setup_never_changes_host_state (test_install_scopes.InstallScopesTests.test_project_setup_never_changes_host_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/tests/test_install_scopes.py", line 88, in test_project_setup_never_changes_host_state
+    self.run_cli(*arguments, "--apply")
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/tests/test_install_scopes.py", line 42, in run_cli
+    self.assertEqual(result.returncode, 0 if ok else 2, result.stderr + result.stdout)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : {"timestamp":"2026-11-02T15:05:24.808Z","severity":"WARNING","event":"operation_failure","component":"TOOL_PROCESS","environment":"host","version":"0.4.4.10","operation":"INSTALL_TOOLS/install","outcome":"failed","code":"process_nonzero_exit","relative_path":"","reason":"Operation failed: process_nonzero_exit","project_binding":"unbound"}
+caprmedio: technical diagnostics unavailable
+{"error": "ProjectInstallationError", "message": "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement", "ok": false}
+
+
+======================================================================
+FAIL: test_existing_prefix_mismatch_refuses_before_mutation (test_project_installation.ProjectInstallationTests.test_existing_prefix_mismatch_refuses_before_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/project_installation_sources.py", line 91, in select_project
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+During handling of the above exception, another exception occurred:
+
+INSTALL_TOOLS.project_installation_sources.ProjectInstallationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/tests/test_project_installation.py", line 110, in test_existing_prefix_mismatch_refuses_before_mutation
+    with self.assertRaisesRegex(ProjectInstallationError, "requested prefix"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "requested prefix" does not match "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+
+----------------------------------------------------------------------
+Ran 31 tests in 42.247s
+
+FAILED (failures=2, errors=4)

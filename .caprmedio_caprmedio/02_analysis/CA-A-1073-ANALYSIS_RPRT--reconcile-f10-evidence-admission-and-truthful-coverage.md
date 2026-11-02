@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1073
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -15,11 +15,24 @@ subjects:
   - Analysis
   - Evaluation
   - Methodology Sources
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1355]
-  relates_to: [CA-P-1404, CA-P-1416, CA-P-1417, CA-A-1063, CA-A-1124, CA-A-1136, CA-A-1137, CA-A-1070, CA-A-1123, CA-A-1135, CA-C-376, CA-P-1372]
+  analysis_for:
+  - CA-P-1355
+  relates_to:
+  - CA-P-1404
+  - CA-P-1416
+  - CA-P-1417
+  - CA-A-1063
+  - CA-A-1124
+  - CA-A-1136
+  - CA-A-1137
+  - CA-A-1070
+  - CA-A-1123
+  - CA-A-1135
+  - CA-C-376
+  - CA-P-1372
 ---
 # Summary
 

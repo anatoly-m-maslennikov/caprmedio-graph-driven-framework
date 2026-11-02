@@ -1,0 +1,18 @@
+{
+  "scope":"Current Delivery evidence for calculated Atom carrier destinations; distinct from observed Carrier metadata.",
+  "current_atoms":[
+    ["CA-D-282",26,"368347d88ed473b38097922c31696685b1d61c35ce16bcbc708cfd22f935de7f","summary slug from Summary"],
+    ["CA-D-283",32,"4fb2543a51a184b13ebe3a5e6cbae7b275fc574067f4681dea2a951f311d97cb","ordinary project-owned Markdown basename: ID/owner/tier/type tokens plus --summary-slug and extension"],
+    ["CA-D-289",24,"aea401c0e7e262a8e77ac2ef900c2068da1ce40947f04158117b46488bd88ee6","archive revision version suffix immediately before extension"],
+    ["CA-D-302",28,"355802634ee03ff705308e858505348efbf99927fdd6e3dc9345c1e603d0ba89","Scope Unit references as filename tokens"],
+    ["CA-D-363",28,"85aef9260003c6631de50612cbc8fc7099871355d6f8c7d159c7bbc581762e63","Project Settings filename"],
+    ["CA-D-364",29,"74f5e17050822af08829e8f2ae6ff47340aa5a4ab2efa7db357e668a3d591b4d","bind Project Settings to authoritative file carrier"],
+    ["CA-D-469",24,"25fac75b876e4c3feb1c26e61c97567daafd27ca2ef26aff6002c6b78f9eccb5","Plan carrier stem"],
+    ["CA-D-434",25,"4b90764e0167bbdb73dccd52bed10b63baa5c29370a2b27ba83dac11cd8db19a","Operations carrier in owner/09_operations"],
+    ["CA-D-461",29,"92176c74215e4a23f83b40819bb39be372efd819d88cf2881a137ac56862a68e","Plan Status/container placement; archived plans flat under owner 03_plan/archived; contained plans use immediate parent/status"],
+    ["CA-D-466",22,"49e60d5f64b361b59bf3074913d600414dcc20cf05f179ea5cf5c75f4d0c04d0","most-specific applicable status rule, otherwise current directory or lowercase Status subdirectory"]
+  ],
+  "common_path_prefix":".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/",
+  "runtime_helpers":["LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py","LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py","LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/current_atom_locator.py"],
+  "minimum_draft":"Declare calculated Atom.carrier_destination.file.name (complete basename including extension) and Atom.carrier_destination.file.path (repository-relative containing directory); bind to these existing rules, without CFEL invention or observed Carrier metadata changes."
+}

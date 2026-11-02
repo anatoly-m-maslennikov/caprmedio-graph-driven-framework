@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "scope": "Read-only review of the quoted allowed-value parser change and its focused unittest. The concurrent atom_search provenance diff is outside this parser gate.",
+  "reviewed_files": {
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/subject_notation.py": "b77f7aa5e43c38563259959caccf056df6c7635ba2ac97c544494d683fa1dff1",
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_notation.py": "10621349c60f879a84f1850e68d66f414bc30d711dc75f3fbb4387f08808b009"
+  },
+  "checks": [
+    {
+      "name": "quoted_ampersand_value",
+      "status": "PASS",
+      "evidence": "A quoted allowed value such as Analysis & Advisory parses as one ValueLiteral and renders canonically with quotes; an unquoted ampersand remains rejected."
+    },
+    {
+      "name": "malformed_quoted_values",
+      "status": "PASS",
+      "evidence": "Unterminated, empty, whitespace-only, backslash-containing, control-character-containing, and quote-adjacent junk forms reject with SubjectNotationError."
+    },
+    {
+      "name": "rendering_and_round_trip",
+      "status": "PASS",
+      "evidence": "Reserved printable literal values render quoted, avoiding reinterpretation as Subject grammar; ordinary existing unquoted values retain the existing name path."
+    },
+    {
+      "name": "focused_unittest",
+      "status": "PASS",
+      "command": ".venv/bin/python -m unittest 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_notation.py",
+      "evidence": "11 tests passed on Python 3.14.7."
+    },
+    {
+      "name": "changed_file_lint_delta",
+      "status": "PASS_WITH_BASELINE_LIMIT",
+      "evidence": "Ruff reports only C901 on _parse_selector_literal and path. The same two diagnostics occur on the HEAD version; neither is introduced by this patch."
+    }
+  ],
+  "blockers": [],
+  "not_checked": [
+    "The concurrent atom_search provenance change",
+    "Repository-wide lint or tests",
+    "Current source publication, projections, runtime, full evaluator, or deployment behavior"
+  ]
+}

@@ -1,0 +1,28 @@
+---
+subjects:
+  active: Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  passive:
+  - Aspects <+ UX <+ Entry
+  - Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1354@23-draft
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Draft
+tier: 2
+role: Requirement
+form: Rule
+---
+## Summary
+
+Restrict General System Prompt Loading to Main Skill
+
+## Claim scope
+
+CAPRMEDIO General System Prompt loading.
+
+## Claim
+
+**only** the CAPRMEDIO Main Skill **may** load the CAPRMEDIO General System Prompt.

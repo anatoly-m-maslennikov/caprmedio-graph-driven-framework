@@ -1,0 +1,3194 @@
+{
+  "source_frontier": {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/current-source-frontier.json",
+    "sha256": "9226f8d1a16f154e3faee18d86b82f9d1112c2adad519de8065869bd8b78f012",
+    "selected_operations": 1134
+  },
+  "inventory": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/aspect-consumer-inventory.json",
+    "sha256": "ce83166e68a6922d5b65140489e9b13fbbcdb5f984ead650d90bfc5e5ccf5332",
+    "unique_mapping_count": 31
+  },
+  "mapping_table": {
+    "Entity/Aspect/Documentation Aspect": "Aspects <+ Documentation Aspect",
+    "Entity/Aspect/Engineering": "Aspects <+ Engineering",
+    "Entity/Aspect/Engineering/Architecture/Communication": "Aspects <+ Engineering <+ Architecture <+ Communication",
+    "Entity/Aspect/Engineering/Architecture/Component Structure": "Aspects <+ Engineering <+ Architecture <+ Component Structure",
+    "Entity/Aspect/Engineering/Authoring": "Aspects <+ Engineering <+ Authoring",
+    "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English",
+    "Entity/Aspect/Engineering/Authoring/Prompt Authoring": "Aspects <+ Engineering <+ Authoring <+ Prompt Authoring",
+    "Entity/Aspect/Engineering/Data Handling": "Aspects <+ Engineering <+ Data Handling",
+    "Entity/Aspect/Engineering/Data Handling/Data Transformation": "Aspects <+ Engineering <+ Data Handling <+ Data Transformation",
+    "Entity/Aspect/Engineering/Data Handling/Data Validation": "Aspects <+ Engineering <+ Data Handling <+ Data Validation",
+    "Entity/Aspect/Engineering/Data Handling/Output Publication": "Aspects <+ Engineering <+ Data Handling <+ Output Publication",
+    "Entity/Aspect/Engineering/Data Handling/Parsing": "Aspects <+ Engineering <+ Data Handling <+ Parsing",
+    "Entity/Aspect/Engineering/Data Handling/Serialization": "Aspects <+ Engineering <+ Data Handling <+ Serialization",
+    "Entity/Aspect/Engineering/Data Handling/Source Selection": "Aspects <+ Engineering <+ Data Handling <+ Source Selection",
+    "Entity/Aspect/Engineering/Execution Control": "Aspects <+ Engineering <+ Execution Control",
+    "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence",
+    "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization",
+    "Entity/Aspect/Engineering/Execution Control/Failure Handling": "Aspects <+ Engineering <+ Execution Control <+ Failure Handling",
+    "Entity/Aspect/Engineering/Observability": "Aspects <+ Engineering <+ Observability",
+    "Entity/Aspect/Engineering/Observability/Logging": "Aspects <+ Engineering <+ Observability <+ Logging",
+    "Entity/Aspect/Engineering/Observability/Monitoring": "Aspects <+ Engineering <+ Observability <+ Monitoring",
+    "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability",
+    "Entity/Aspect/Engineering/Verification": "Aspects <+ Engineering <+ Verification",
+    "Entity/Aspect/Engineering/Verification/Coverage": "Aspects <+ Engineering <+ Verification <+ Coverage",
+    "Entity/Aspect/Engineering/Verification/Dynamic Testing": "Aspects <+ Engineering <+ Verification <+ Dynamic Testing",
+    "Entity/Aspect/Engineering/Verification/Static Analysis": "Aspects <+ Engineering <+ Verification <+ Static Analysis",
+    "Entity/Aspect/Engineering/Verification/Test Design": "Aspects <+ Engineering <+ Verification <+ Test Design",
+    "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product",
+    "Entity/Aspect/Text Writing Style": "Aspects <+ Text Writing Style",
+    "Entity/Aspect/UX/Discovery and Navigation": "Aspects <+ UX <+ Discovery and Navigation",
+    "Entity/Aspect/UX/Entry": "Aspects <+ UX <+ Entry"
+  },
+  "counts": {
+    "active_before": 106,
+    "passive_before": 147,
+    "active_after": 106,
+    "passive_after": 147
+  },
+  "affected_source_count": 207,
+  "affected_source_ids": [
+    "CA-D-280",
+    "CA-D-339",
+    "CA-D-344",
+    "CA-D-346",
+    "CA-D-361",
+    "CA-D-368",
+    "CA-D-369",
+    "CA-D-372",
+    "CA-D-388",
+    "CA-D-396",
+    "CA-D-472",
+    "CA-D-485",
+    "CA-D-500",
+    "CA-D-501",
+    "CA-D-559",
+    "CA-E-001",
+    "CA-E-206",
+    "CA-E-207",
+    "CA-E-228",
+    "CA-E-229",
+    "CA-E-230",
+    "CA-E-241",
+    "CA-E-383",
+    "CA-E-384",
+    "CA-E-405",
+    "CA-E-407",
+    "CA-E-435",
+    "CA-E-436",
+    "CA-E-437",
+    "CA-E-439",
+    "CA-E-440",
+    "CA-E-441",
+    "CA-E-442",
+    "CA-E-443",
+    "CA-E-448",
+    "CA-E-471",
+    "CA-E-472",
+    "CA-E-474",
+    "CA-E-483",
+    "CA-E-487",
+    "CA-E-488",
+    "CA-E-501",
+    "CA-E-512",
+    "CA-E-520",
+    "CA-E-588",
+    "CA-E-622",
+    "CA-E-624",
+    "CA-E-652",
+    "CA-E-666",
+    "CA-M-094",
+    "CA-M-095",
+    "CA-M-097",
+    "CA-M-098",
+    "CA-M-099",
+    "CA-M-100",
+    "CA-M-112",
+    "CA-M-113",
+    "CA-M-120",
+    "CA-M-122",
+    "CA-M-123",
+    "CA-M-127",
+    "CA-M-135",
+    "CA-M-138",
+    "CA-M-139",
+    "CA-M-229",
+    "CA-M-230",
+    "CA-M-233",
+    "CA-M-234",
+    "CA-M-235",
+    "CA-M-236",
+    "CA-M-240",
+    "CA-M-241",
+    "CA-M-263",
+    "CA-M-266",
+    "CA-M-270",
+    "CA-M-271",
+    "CA-M-276",
+    "CA-M-277",
+    "CA-M-278",
+    "CA-M-294",
+    "CA-M-298",
+    "CA-M-299",
+    "CA-M-304",
+    "CA-M-306",
+    "CA-M-307",
+    "CA-M-308",
+    "CA-M-309",
+    "CA-M-310",
+    "CA-M-311",
+    "CA-M-312",
+    "CA-M-314",
+    "CA-M-315",
+    "CA-M-345",
+    "CA-M-442",
+    "CA-M-443",
+    "CA-M-444",
+    "CA-M-445",
+    "CA-R-004",
+    "CA-R-007",
+    "CA-R-024",
+    "CA-R-028",
+    "CA-R-035",
+    "CA-R-047",
+    "CA-R-053",
+    "CA-R-1044",
+    "CA-R-1045",
+    "CA-R-1056",
+    "CA-R-1057",
+    "CA-R-1058",
+    "CA-R-1174",
+    "CA-R-1175",
+    "CA-R-1178",
+    "CA-R-1179",
+    "CA-R-1180",
+    "CA-R-1181",
+    "CA-R-1206",
+    "CA-R-1226",
+    "CA-R-1297",
+    "CA-R-1354",
+    "CA-R-1355",
+    "CA-R-1356",
+    "CA-R-1360",
+    "CA-R-1407",
+    "CA-R-1420",
+    "CA-R-1423",
+    "CA-R-1424",
+    "CA-R-1426",
+    "CA-R-1428",
+    "CA-R-1437",
+    "CA-R-1466",
+    "CA-R-1503",
+    "CA-R-1504",
+    "CA-R-1505",
+    "CA-R-1506",
+    "CA-R-1514",
+    "CA-R-1515",
+    "CA-R-1518",
+    "CA-R-1554",
+    "CA-R-1555",
+    "CA-R-1559",
+    "CA-R-1560",
+    "CA-R-1561",
+    "CA-R-1587",
+    "CA-R-1591",
+    "CA-R-1611",
+    "CA-R-1612",
+    "CA-R-1616",
+    "CA-R-1627",
+    "CA-R-1633",
+    "CA-R-1635",
+    "CA-R-1637",
+    "CA-R-1641",
+    "CA-R-1645",
+    "CA-R-1646",
+    "CA-R-1650",
+    "CA-R-1652",
+    "CA-R-1678",
+    "CA-R-1679",
+    "CA-R-1687",
+    "CA-R-1692",
+    "CA-R-1695",
+    "CA-R-1703",
+    "CA-R-1713",
+    "CA-R-1717",
+    "CA-R-1736",
+    "CA-R-1742",
+    "CA-R-1755",
+    "CA-R-1769",
+    "CA-R-1772",
+    "CA-R-1776",
+    "CA-R-1778",
+    "CA-R-1779",
+    "CA-R-1780",
+    "CA-R-1781",
+    "CA-R-1782",
+    "CA-R-1783",
+    "CA-R-1784",
+    "CA-R-1785",
+    "CA-R-1786",
+    "CA-R-1787",
+    "CA-R-1795",
+    "CA-R-1796",
+    "CA-R-1798",
+    "CA-R-1799",
+    "CA-R-1800",
+    "CA-R-2158",
+    "CA-R-2276",
+    "CA-R-2425",
+    "CA-R-2444",
+    "CA-R-2445",
+    "CA-R-2448",
+    "CA-R-2452",
+    "CA-R-380",
+    "CA-R-622",
+    "CA-R-632",
+    "CA-R-633",
+    "CA-R-634",
+    "CA-R-637",
+    "CA-R-686",
+    "CA-R-815",
+    "CA-R-818",
+    "CA-R-819",
+    "CA-R-826",
+    "CA-R-827",
+    "CA-R-831",
+    "CA-R-832",
+    "CA-R-846"
+  ],
+  "all_selected_body_old_address_hits": [],
+  "records": [
+    {
+      "source_id": "CA-D-280",
+      "source_version": 25,
+      "draft_id": "CA-D-280@26-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-280-CORE_META_MODEL-ENG_DECISION--serialize-cce-operators-in-bold.md",
+      "source_sha256": "ac10b8b47ed513bcdd06449b10f728a49a27055cafeea60a7b5cda0e269f5a59",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-280@26-draft.md",
+      "draft_sha256": "ae55dba3ccfa8844f53731610ba9d3436c0708f3a90b617b68096fb6217f08f5",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-339",
+      "source_version": 27,
+      "draft_id": "CA-D-339@28-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-339-PROJECT_CONFIGURATION-ENG_DECISION--serialize-the-shared-project-journal.md",
+      "source_sha256": "47493b5fe47145081092235316cfa17bf81ffb42973093bd8b08f26be8f46cc2",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-339@28-draft.md",
+      "draft_sha256": "a4c7c3342cd3f97a722adc277038cfdb30ceeff5946f2c75b08eac8d3a175e7a",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Serialization": "Aspects <+ Engineering <+ Data Handling <+ Serialization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-344",
+      "source_version": 21,
+      "draft_id": "CA-D-344@22-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-344-PROJECT_CONFIGURATION-ENG_DECISION--serialize-main-skill-invocation-per-host.md",
+      "source_sha256": "121c5e81dc804428cec670efab49e1fe7c0d07d0832978c1d266c3789ae9847e",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-344@22-draft.md",
+      "draft_sha256": "2757efebfda6ebf4610c858f58bac30701109de3e6b807d0f6be70edbb6e59d1",
+      "mapping": {
+        "Entity/Aspect/UX/Entry": "Aspects <+ UX <+ Entry"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-346",
+      "source_version": 34,
+      "draft_id": "CA-D-346@35-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL-DECISION--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "source_sha256": "92f955024820c6d8205227bfcceee9813892cc373b46a462c90b029f2a7a0867",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-346@35-draft.md",
+      "draft_sha256": "742af107dd03ab8f9cf33f1b12c4c061e0728ee60bf9aee89d89d5f65f422cbb",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Output Publication": "Aspects <+ Engineering <+ Data Handling <+ Output Publication",
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-361",
+      "source_version": 30,
+      "draft_id": "CA-D-361@31-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL-ENG_DECISION--serialize-framework-settings-content-in-toml.md",
+      "source_sha256": "b9988345a442c6746101b4bab841b4d432cb00939ab184fad8ceb52a39920342",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-361@31-draft.md",
+      "draft_sha256": "879b87b825d1c2a96a5bf6db24f0772193002d81e004162a4552417461e98da8",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Serialization": "Aspects <+ Engineering <+ Data Handling <+ Serialization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-368",
+      "source_version": 27,
+      "draft_id": "CA-D-368@28-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL-ENG_DECISION--serialize-the-necessary-information-confidence-default.md",
+      "source_sha256": "4391041c657e1512903ef9cc8191c7681f410f63e553a46c8a410bcdd5742c21",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-368@28-draft.md",
+      "draft_sha256": "b35818bc5ae2fa44d7854c34c1f057b9c1ad9e93885e5a2908f338d192f08ae3",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-369",
+      "source_version": 26,
+      "draft_id": "CA-D-369@27-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-369-CORE_META_MODEL-ENG_DECISION--serialize-the-semantic-resolution-confidence-default.md",
+      "source_sha256": "54dd203ef25ed4c182588ee816253415fefe94c84583866b74b5f3b209b4a601",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-369@27-draft.md",
+      "draft_sha256": "c8e2a499bb56ff97cb11de0c2e70f4995ab8858c3d2543244e328859a0a8ef4d",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-372",
+      "source_version": 25,
+      "draft_id": "CA-D-372@26-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-372-CORE_META_MODEL-ENG_DECISION--serialize-instance-tool-selections.md",
+      "source_sha256": "86bd84dbec71393ac96655f428a45002101c355cbd5aa6ec445a24c8f4d9cc92",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-372@26-draft.md",
+      "draft_sha256": "dd610f59073e47c135c5de5b54f68d064db24bd44d29a6643632e01a14130547",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Serialization": "Aspects <+ Engineering <+ Data Handling <+ Serialization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-388",
+      "source_version": 21,
+      "draft_id": "CA-D-388@22-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-388-PROJECT_CONFIGURATION-ENG_DECISION--serialize-generated-data-stage-prefixes-and-formats.md",
+      "source_sha256": "41885e01d257aad2a2c9ffcaa4ce057c0acc393b86d2fc82d7aa9a4f636d1b18",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-388@22-draft.md",
+      "draft_sha256": "57c5815812b5bf7690b234520ef0ec1340bd4410010d6c81c002a20e979fa322",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Serialization": "Aspects <+ Engineering <+ Data Handling <+ Serialization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-396",
+      "source_version": 21,
+      "draft_id": "CA-D-396@22-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-396-PROJECT_CONFIGURATION-ENG_DECISION--serialize-structured-production-log-records.md",
+      "source_sha256": "9f440b657a7c06c2d9c95ab4e95a2da8f14bada9bba47f42942f93e456d77cb4",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-396@22-draft.md",
+      "draft_sha256": "db4193cb011c2eec12c72c793c950bfbde15617e488b879ad2c9b83bca021e2a",
+      "mapping": {
+        "Entity/Aspect/Engineering/Observability/Logging": "Aspects <+ Engineering <+ Observability <+ Logging"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-472",
+      "source_version": 27,
+      "draft_id": "CA-D-472@28-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "source_sha256": "27cb5ebb84c38a4b71330c66c273beccf14c4361ca72d6acae0e31d7e2212a08",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-472@28-draft.md",
+      "draft_sha256": "57fb1e5c0c65d8e3ff0acd8d88d0651fe7e1e92128e7056ea420ab452b016836",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-485",
+      "source_version": 24,
+      "draft_id": "CA-D-485@25-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-ENG_DECISION--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+      "source_sha256": "5273c0d88e10b7334432b061bae7e333d975d62d4ebbf27ab6f717e1e63ad589",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-485@25-draft.md",
+      "draft_sha256": "528aded368f8666b215fe237327f8f886f157f88f0c3e915521f55154655369d",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-500",
+      "source_version": 13,
+      "draft_id": "CA-D-500@14-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-500-PROJECT_CONFIGURATION-ENG_DECISION--select-material-production-log-events.md",
+      "source_sha256": "b1c99d40039cfb4771cf2897064504df04613cbce17dba4d35a68805c55a79ec",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-500@14-draft.md",
+      "draft_sha256": "9ad01a6660f8e98945ffa34da9b097e02106b26b437d003f5819a6072565969a",
+      "mapping": {
+        "Entity/Aspect/Engineering/Observability/Logging": "Aspects <+ Engineering <+ Observability <+ Logging"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-501",
+      "source_version": 13,
+      "draft_id": "CA-D-501@14-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-501-PROJECT_CONFIGURATION-ENG_DECISION--prevent-duplicate-production-exception-stack-traces.md",
+      "source_sha256": "9f8e17c05bfd11f49f2a4f55e3a652191f5c421624a71fe17dbdcee3d9ced76b",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-501@14-draft.md",
+      "draft_sha256": "2baaebb21b9865e29f8a483213641f3973cb4090a39a597c81cf12e6fd21fbd0",
+      "mapping": {
+        "Entity/Aspect/Engineering/Observability/Logging": "Aspects <+ Engineering <+ Observability <+ Logging"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-D-559",
+      "source_version": 17,
+      "draft_id": "CA-D-559@18-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL-ENG_DECISION--deliver-runtime-journals-to-configured-sinks.md",
+      "source_sha256": "4c547c26fe43aa645adbbdb0fc31ef926811c9bb79be22ec4167f9afcc2fa2b1",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-D-559@18-draft.md",
+      "draft_sha256": "bdec10a08302be114a960b145f4d95eb83c8c72dc19e41e48a835888476c9683",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Output Publication": "Aspects <+ Engineering <+ Data Handling <+ Output Publication"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-001",
+      "source_version": 33,
+      "draft_id": "CA-E-001@34-draft",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-001-CAPRMEDIO-SCOPE_CONTRACT-EVAL-POLICY--make-governed-commitments-and-results-checkable.md",
+      "source_sha256": "57ed62d6667e29bed002480ec44ec493966684f3e7a0eb693be0a57594991d2c",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-001@34-draft.md",
+      "draft_sha256": "a112b8be1bdd9615620e12dce6d0e698096fb9197f4054ffe142f4f6ff123aeb",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification": "Aspects <+ Engineering <+ Verification"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-206",
+      "source_version": 24,
+      "draft_id": "CA-E-206@25-draft",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-206-POLICY--require-usable-inputs-for-reliance.md",
+      "source_sha256": "95ddbdb0abbbe19891da45b731ec918c53024eaf2819c6b2bbecb4679e8bb0f0",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-206@25-draft.md",
+      "draft_sha256": "feb4743a88c0f7b206c4cfd661c061711090c2dde353e7060fe048e675b46e37",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification": "Aspects <+ Engineering <+ Verification"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-207",
+      "source_version": 34,
+      "draft_id": "CA-E-207@35-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-207-PROJECT_CONFIGURATION-POLICY--evaluate-priority-governed-alternative-selection.md",
+      "source_sha256": "7e8963e35f3c105254254fe6b5bea072fb20ce652acd366bf1115cdc0518f543",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-207@35-draft.md",
+      "draft_sha256": "66f2216c267e91e9956f95d68e8b84b09f647042d29fc7009be6edae30f1c09f",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-228",
+      "source_version": 26,
+      "draft_id": "CA-E-228@27-draft",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-228-POLICY--evaluate-operator-control-over-the-caprmedio-instance.md",
+      "source_sha256": "22cf6f5fba0fb7475c22c6182b5f0f288a38df37e28c17d77e16214346014dd5",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-228@27-draft.md",
+      "draft_sha256": "4737d582169a0b5f4e89fea5fb00fa16f961f86092df138948760f5f988fa4db",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-229",
+      "source_version": 26,
+      "draft_id": "CA-E-229@27-draft",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-229-POLICY--evaluate-operator-control-outside-the-framework-instance.md",
+      "source_sha256": "0c15b3d4d3300d78a9df90caa1a3e7668e30428d2bfe5030e4c6a9143accfe69",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-229@27-draft.md",
+      "draft_sha256": "50ca943ba4373ba7f2f41521cc0f518bc50022754decc3cd21a0a5acccd91665",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-230",
+      "source_version": 25,
+      "draft_id": "CA-E-230@26-draft",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-230-EVAL_CASE--evaluate-operator-control-of-ai-permissions.md",
+      "source_sha256": "f54aa2e24a189f65efcc0390ca9087ec263f958e891561d994d1d05ab73455ce",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-230@26-draft.md",
+      "draft_sha256": "c7716eaf70ee9d743011f92f5dab1abac6d667ef8656e57f5174a37171f940d6",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization",
+        "Entity/Aspect/Engineering/Verification/Dynamic Testing": "Aspects <+ Engineering <+ Verification <+ Dynamic Testing"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-241",
+      "source_version": 45,
+      "draft_id": "CA-E-241@46-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md",
+      "source_sha256": "3e0e0ae32193a86ec6252f3bbdd92001fd9e97275de1be0571f120928ad3fe54",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-241@46-draft.md",
+      "draft_sha256": "9c67e5cff775e1008403e1412ba057e13d02f314d951af145341862b9dc487cb",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-383",
+      "source_version": 43,
+      "draft_id": "CA-E-383@44-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "source_sha256": "562c9a4613363435a9e5fc3d256a19dd0d470d5a38a70836d7bbb26d7f4aea0a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-383@44-draft.md",
+      "draft_sha256": "c370f6637cf47a82a3b0abe59c24b2110d706286519a89ebbd2792cd1c8075b7",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Data Validation": "Aspects <+ Engineering <+ Data Handling <+ Data Validation"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-384",
+      "source_version": 40,
+      "draft_id": "CA-E-384@41-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-384-CORE_META_MODEL-POLICY--validate-composite-claims-and-derived-summaries.md",
+      "source_sha256": "5e5a939bbe02bc25c9f19970004beea8758988a996892192c508e700564eaef3",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-384@41-draft.md",
+      "draft_sha256": "10ada9dbdf14248f14117f330870863a387e70fdd05dd38f7024315d3a9fbb6a",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-405",
+      "source_version": 29,
+      "draft_id": "CA-E-405@30-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-405-CORE_META_MODEL-POLICY--validate-restricted-cce-canonical-signature-boundary.md",
+      "source_sha256": "fa7040a0cdd445168cdde6bc89095efc0be274dfb95ca3ad05beeab530838268",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-405@30-draft.md",
+      "draft_sha256": "d220674c11288f57f58a185602515bdf64292a28e2f02537116746deaad4248b",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Data Transformation": "Aspects <+ Engineering <+ Data Handling <+ Data Transformation",
+        "Entity/Aspect/Engineering/Data Handling/Data Validation": "Aspects <+ Engineering <+ Data Handling <+ Data Validation"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-407",
+      "source_version": 28,
+      "draft_id": "CA-E-407@29-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-407-CORE_META_MODEL-POLICY--validate-canonical-scope-signature-boundary.md",
+      "source_sha256": "6f71b4dcf338bac500cb655ad657ec478c3590a3f62490b210b0b320c46c145b",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-407@29-draft.md",
+      "draft_sha256": "08e219b7897b7de2c3abd7a82e44603bc9b6ac3c36b4a484afe924c53d4eca53",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Data Transformation": "Aspects <+ Engineering <+ Data Handling <+ Data Transformation",
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-435",
+      "source_version": 24,
+      "draft_id": "CA-E-435@25-draft",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-435-POLICY--evaluate-reconstruction-readiness.md",
+      "source_sha256": "f8d17ff2717e795f02366348289e4ea297516750dcbe639e8a3f6e9afb125d33",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-435@25-draft.md",
+      "draft_sha256": "3934067dc7d9c39231d1bcc2261640629c48e0a33dec768490bf0cda9e9828d2",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification/Static Analysis": "Aspects <+ Engineering <+ Verification <+ Static Analysis"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-436",
+      "source_version": 28,
+      "draft_id": "CA-E-436@29-draft",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-436-EVAL_POLICY--evaluate-graph-of-graphs-connectivity.md",
+      "source_sha256": "2a8c055dc657fc62c9eec9f9790d7f23c9f6d2418376e12679dfcecab0e7ac11",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-436@29-draft.md",
+      "draft_sha256": "2747c99a8982384f540ab2fdb2191ad4af16d383f76a211e4e525c2621cccb14",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability",
+        "Entity/Aspect/Engineering/Architecture/Component Structure": "Aspects <+ Engineering <+ Architecture <+ Component Structure"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-437",
+      "source_version": 25,
+      "draft_id": "CA-E-437@26-draft",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-437-POLICY--evaluate-methodology-alignment-support.md",
+      "source_sha256": "4af92d33422384c02334f8766859854e22bcae92625f82b92bb1829f5be948e8",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-437@26-draft.md",
+      "draft_sha256": "354869f956f15a6f7016c6de7722fd9f6c59f7f9fd29ef5c478464475f5bd226",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-439",
+      "source_version": 27,
+      "draft_id": "CA-E-439@28-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-439-PROJECT_CONFIGURATION-POLICY--evaluate-the-evaluation-first-implementation-loop.md",
+      "source_sha256": "a10c070b7e08e8cc79298a3e0540541c47e8bc49b3136c7a8eaf0aa8a0502f47",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-439@28-draft.md",
+      "draft_sha256": "9701b7fd6c4ba75714970d5ba415b8ecff36cb509165b495ecf255ac2447bca9",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification": "Aspects <+ Engineering <+ Verification"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-440",
+      "source_version": 34,
+      "draft_id": "CA-E-440@35-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-POLICY--evaluate-governing-atom-change-approval.md",
+      "source_sha256": "8c3193c1f6515072c748dd7debacf06ce89ffff401741bdb0637826b920daa4d",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-440@35-draft.md",
+      "draft_sha256": "1c05f4a8870e76619b4943232a816595c7964eeb1d235c8e16b924176d4140c8",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-441",
+      "source_version": 33,
+      "draft_id": "CA-E-441@34-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-441-PROJECT_CONFIGURATION-POLICY--evaluate-retry-budget-and-escalation.md",
+      "source_sha256": "29384eb6b8f8d85c7368a69bb55ad99ab7105db2b411c56cbee25472e9afcb44",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-441@34-draft.md",
+      "draft_sha256": "050497e8e40379cf1bba641b2f8e729245149c0ac190be0c6120113283998551",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Failure Handling": "Aspects <+ Engineering <+ Execution Control <+ Failure Handling"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-442",
+      "source_version": 24,
+      "draft_id": "CA-E-442@25-draft",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-442-POLICY--evaluate-refactoring-verification-readiness.md",
+      "source_sha256": "599e163a7b39ee2b29d6e5b3b81ae00f3c0bcfe7118631eb8a48921c6258db49",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-442@25-draft.md",
+      "draft_sha256": "e5109cd2fdbd72219c8c61667a8ba5ced614d2403b72d5730cc0f76df63477f9",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification/Test Design": "Aspects <+ Engineering <+ Verification <+ Test Design"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-443",
+      "source_version": 32,
+      "draft_id": "CA-E-443@33-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-EVAL_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+      "source_sha256": "c3f58a24f36433a424f24179a955401ec40e3d6eb82f2f9f77cd2b481d0570ba",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-443@33-draft.md",
+      "draft_sha256": "6ea7195ea89f1cd558883e56f5c51077fba443ec6404b1279c3949c66dd163b8",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-448",
+      "source_version": 30,
+      "draft_id": "CA-E-448@31-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-448-CORE_META_MODEL-POLICY--validate-accidental-atom-id-reuse-repair.md",
+      "source_sha256": "9fbdfb2978b2010c69ed0a46682e135e4c2c5054c7c6268152077f0a44eb6236",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-448@31-draft.md",
+      "draft_sha256": "a6ec51dd65903fa7e0c102c4547e46fefdc2e30fad1421901c95504ec2aba510",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-471",
+      "source_version": 25,
+      "draft_id": "CA-E-471@26-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-471-PROJECT_CONFIGURATION-POLICY--validate-structural-change-cutover.md",
+      "source_sha256": "134858c87d4348d2ff811f293f5ced07ec4e776e4f16f0e6984ca1a641b50b74",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-471@26-draft.md",
+      "draft_sha256": "0f0d20d9ca079f4cebcf6254b8694309583bfe59e9895201460c473d6e4af5ad",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-472",
+      "source_version": 28,
+      "draft_id": "CA-E-472@29-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-472-CORE_META_MODEL-POLICY--check-simple-wording-without-meaning-loss.md",
+      "source_sha256": "2fce151d3484e27f5b6bbdf97cadaa8d6214eced8d9b88b4b2743ae993cbe3e9",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-472@29-draft.md",
+      "draft_sha256": "93a39cbde4bbcdf530912b167401dd42fd150e8bbe3bc3b37aa8d626589243fd",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-474",
+      "source_version": 25,
+      "draft_id": "CA-E-474@26-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-474-PROJECT_CONFIGURATION-EVAL_CASE--validate-configurable-release-readiness.md",
+      "source_sha256": "84e8932622e8983681cac7eb6ea806ca81020e0287f3a5364a5c347603afc61d",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-474@26-draft.md",
+      "draft_sha256": "4e831a5527e67d0a669e010a9b3eeee5dce7a393fa3dfe67a4f6473f8e3655da",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-483",
+      "source_version": 18,
+      "draft_id": "CA-E-483@19-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-483-PROJECT_CONFIGURATION-POLICY--validate-the-routing-tree.md",
+      "source_sha256": "caf7e26d6950370d67f902f6e9ce8bb1cfcf5301d68e4b822d4048ccffa22ef6",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-483@19-draft.md",
+      "draft_sha256": "81355370312adcf1f11a0fe54ea139cdce219dc8b77352c58aa0386029de112c",
+      "mapping": {
+        "Entity/Aspect/Engineering/Architecture/Communication": "Aspects <+ Engineering <+ Architecture <+ Communication"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-487",
+      "source_version": 26,
+      "draft_id": "CA-E-487@27-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-487-PROJECT_CONFIGURATION-EVAL_CASE--validate-workflow-independent-implementation-specifications.md",
+      "source_sha256": "57fe5057faeeb7f319b9bf5a012ec1a51b0c55ade2242cc8e790b7a26294e6d5",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-487@27-draft.md",
+      "draft_sha256": "c05da19d2215dc70416e4dfe32334f0ecc2d7f1e669a82bb36f2940d8208f516",
+      "mapping": {
+        "Entity/Aspect/Engineering/Architecture/Component Structure": "Aspects <+ Engineering <+ Architecture <+ Component Structure"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-488",
+      "source_version": 23,
+      "draft_id": "CA-E-488@24-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-488-PROJECT_CONFIGURATION-EVAL_CASE--validate-tool-action-bindings-and-evaluation-ownership.md",
+      "source_sha256": "cd1bbad33dc04556ff9da4dadeb4ff590c2fd02d3808ff2424ecdc8deb0f0043",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-488@24-draft.md",
+      "draft_sha256": "96f00691bcad7efc35570b30c401e7f7a273cdc358f7b65456df770934910474",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-501",
+      "source_version": 28,
+      "draft_id": "CA-E-501@29-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-EVAL_CASE--validate-common-plan-authoring.md",
+      "source_sha256": "5220b52bb2db0ea1e3453ae79fc0b5b67d5a7b51584d1463e3bd4e1c4ec680aa",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-501@29-draft.md",
+      "draft_sha256": "3b5e86682ead38610ad6da69818b8c124413a59a5070893f1c63af5ad42bb6ee",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-512",
+      "source_version": 25,
+      "draft_id": "CA-E-512@26-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-EVAL_CASE--validate-cce-lexical-case.md",
+      "source_sha256": "68b110788e5e88f342530b7450cb1309adef6ccf57f0f76ed0e96c22fd53bdc9",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-512@26-draft.md",
+      "draft_sha256": "a16e871f85869dd2120dadc457d6a585b9b78bf831f324ba5d224afdd06897f1",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-520",
+      "source_version": 30,
+      "draft_id": "CA-E-520@31-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVAL-POLICY--check-rmed-atom-coherence.md",
+      "source_sha256": "5d1b3dd901408bf5eec92167a5de7c7c1064883577ea6aae13c9013212f40b4b",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-520@31-draft.md",
+      "draft_sha256": "894bcf65c0d2da4da20b586208debc29a49fe9cc928095bd0b6f6b0047c87fba",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English",
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-588",
+      "source_version": 16,
+      "draft_id": "CA-E-588@17-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "source_sha256": "ff8f85c304d529c863a7575cfe4e1bb846ba8536ff63df309c5c1935206103a0",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-588@17-draft.md",
+      "draft_sha256": "d01834df5682eee27d56a4435fe9bf3eb7fa6eaba2dba09cc240bca0eac2d339",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-622",
+      "source_version": 51,
+      "draft_id": "CA-E-622@52-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "source_sha256": "a2169f7a351548133394626c0d98ddc1d7f8b185db8d2b89b54e69e890835a0a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-622@52-draft.md",
+      "draft_sha256": "5ed70d31627ba647782fad2dd170e5f1a2b7717671e7d29cf5e5ccd7c607c670",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-624",
+      "source_version": 36,
+      "draft_id": "CA-E-624@37-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-624-CORE_META_MODEL-POLICY--validate-generated-only-provenance-boundary.md",
+      "source_sha256": "e4ab792a1ce0842bf34763437e4227a4db3a0f78f8856586911ccf6f0eca2f53",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-624@37-draft.md",
+      "draft_sha256": "21b99da3f5822663ec8b0747eb00b07adb1f021bafd9a30b4891c950114415e9",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-652",
+      "source_version": 20,
+      "draft_id": "CA-E-652@21-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-652-PROJECT_CONFIGURATION-EVAL_CASE--check-shared-context-test-first-implementation-and-method-learning.md",
+      "source_sha256": "c9210aa6e26cd799cf0a8e91a6b3fa405ca22eefdd7d9b6b4ed51daf3c3a9b5a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-652@21-draft.md",
+      "draft_sha256": "a826059bb1a8172368f80c20738d4d6242a2de24349402b3648e95a1726e82e7",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification/Test Design": "Aspects <+ Engineering <+ Verification <+ Test Design",
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-E-666",
+      "source_version": 2,
+      "draft_id": "CA-E-666@3-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-666-PROJECT_CONFIGURATION-EVAL_CASE--check-gap-free-rmedo-conflict-resolution.md",
+      "source_sha256": "661da6e23ba5c0e52638a617402c5e65413ae93a5c44cb16ff708d25246e9267",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-E-666@3-draft.md",
+      "draft_sha256": "3fb4d72db30feb0f158373b8a45b1e6b506702b2620098aafb32ef5850482793",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-094",
+      "source_version": 23,
+      "draft_id": "CA-M-094@24-draft",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-094-IMPLEMENTATION_METHOD--optimize-delivered-result-performance-at-its-declared-priority.md",
+      "source_sha256": "ffc4bbcda22c1c17363ae09b7328787722806b57896c3fde30ebc0fa5ee9fc08",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-094@24-draft.md",
+      "draft_sha256": "cb3494d2f5cf87dfa50ccd55b2377b7ad451b6abbc267d2280ff8e6116733c2d",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-095",
+      "source_version": 24,
+      "draft_id": "CA-M-095@25-draft",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-095-IMPLEMENTATION_METHOD--optimize-correctness-at-its-declared-priority.md",
+      "source_sha256": "66c6857cda680e6242d87f6e837578574189d12b82929a19a487d6e051970d9a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-095@25-draft.md",
+      "draft_sha256": "6301c4903e76c767198a96ee2d05d1b29b03f5352c3f5892228292eeba5cee01",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-097",
+      "source_version": 25,
+      "draft_id": "CA-M-097@26-draft",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-097-IMPLEMENTATION_METHOD--apply-declared-rule-conformance-to-the-active-rule-set.md",
+      "source_sha256": "8ed64a1b1fc7b6498c22ef98de6037b578f812be53f84ab11d784b4fc1cf852a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-097@26-draft.md",
+      "draft_sha256": "34170e2a50448b8906a29e3ce407bc7e7f0a13a103f3f788dcbf96f92825c2df",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-098",
+      "source_version": 24,
+      "draft_id": "CA-M-098@25-draft",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-098-IMPLEMENTATION_METHOD--minimize-human-effort-at-its-declared-priority.md",
+      "source_sha256": "9b85ffe79d95c2bde08cf552e2391601ccf25d64770b425d13406c833fc2e5f0",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-098@25-draft.md",
+      "draft_sha256": "530f0199cbcd1e034d9027c8a14a23f18c4702964b41d0fbd754d74587a56805",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-099",
+      "source_version": 24,
+      "draft_id": "CA-M-099@25-draft",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-099-IMPLEMENTATION_METHOD--minimize-external-expense-at-its-declared-priority.md",
+      "source_sha256": "b8d6484bdc14ebaea68d9e41f3036e8d4026e154a3b9ece2ec9911cdbd9269fc",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-099@25-draft.md",
+      "draft_sha256": "e97e65dde4e3df8121967a259f21a7f1214530c601bac4e886c28704e61b922c",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-100",
+      "source_version": 25,
+      "draft_id": "CA-M-100@26-draft",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-100-IMPLEMENTATION_METHOD--optimize-flexibility-at-its-declared-priority.md",
+      "source_sha256": "85dda9ecf35234a5af1957a9e3c42c7be99ad6163021880efa1a6d086e5437a6",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-100@26-draft.md",
+      "draft_sha256": "a05d8e867ce6570de60a08bf4dbf433bb53d06cbc97221a1b4f18b1c6d2dd52a",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-112",
+      "source_version": 27,
+      "draft_id": "CA-M-112@28-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-english-as-the-project-language.md",
+      "source_sha256": "38f05775c8ecb8396f0e59f52d11fae24520b10aea9c3db3d4d703c2c91ba132",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-112@28-draft.md",
+      "draft_sha256": "4b51e93ffd0056f745b01d7e94c34b918d9be83840d3a14257147a88027e1ba5",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-113",
+      "source_version": 40,
+      "draft_id": "CA-M-113@41-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-claims-in-caprmedio-controlled-english.md",
+      "source_sha256": "6f24fcdbbd57877184b1a389b7017f54042c47ca2407c93fdc0ffaa8e85bdac6",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-113@41-draft.md",
+      "draft_sha256": "06b31fcab304e31a0b418f7a73d1b1db63c536ce63cb86a7a4608538f1fc21cb",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-120",
+      "source_version": 41,
+      "draft_id": "CA-M-120@42-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-IMPLEMENTATION_METHOD--compile-the-direct-relation-registry.md",
+      "source_sha256": "aa7220b54cfdd328fcfcf24f395752fea2c538ecf50b360d03e1a25b3f78a22a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-120@42-draft.md",
+      "draft_sha256": "459240ae011aa975b1f22992d6e09c722138c3a2bf0ca63d428c4a3a1ed445a5",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-122",
+      "source_version": 28,
+      "draft_id": "CA-M-122@29-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-IMPLEMENTATION_METHOD--evaluate-condition-expressions.md",
+      "source_sha256": "8cdb18c67a66898b2f0db670ebb31f5f5b1b2ba0a96994a98636900b3f29df7b",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-122@29-draft.md",
+      "draft_sha256": "36a0523c0ebad6adefb55a30174e39a9510df7c5a35b5875a5db2f5dcc52e63c",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English",
+        "Entity/Aspect/Engineering/Data Handling/Parsing": "Aspects <+ Engineering <+ Data Handling <+ Parsing"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-123",
+      "source_version": 29,
+      "draft_id": "CA-M-123@30-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-definitions-of-done.md",
+      "source_sha256": "4c8550f7e64c86b700769971b7d399b323456bfd1677d452039acac79b6eeb0a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-123@30-draft.md",
+      "draft_sha256": "5f4c51ae1482e419406a1641e6eb1143dfc667a287d5d3e8260018cb1e52915f",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-127",
+      "source_version": 29,
+      "draft_id": "CA-M-127@30-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-127-CORE_META_MODEL-IMPLEMENTATION_METHOD--evaluate-set-valued-property-membership.md",
+      "source_sha256": "86d181fe2e883aff8b2d3ca24359a89e137c631bef80f04102055be35cf38444",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-127@30-draft.md",
+      "draft_sha256": "6596b41bf99049b2062f7a3bd3d40e97a5a7d5d5d0972edc1d0b5446099e4f34",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-135",
+      "source_version": 29,
+      "draft_id": "CA-M-135@30-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-135-CORE_META_MODEL-IMPLEMENTATION_METHOD--exclude-generated-only-implementation-edges.md",
+      "source_sha256": "d99b7cca548bce1caa8840ffecd777426cbd00fca69f82c582402b700262bc5e",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-135@30-draft.md",
+      "draft_sha256": "5255fcffca9d2a3103b65da637c7097bf62df5a84c95da9e3a3a5fa188e36978",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-138",
+      "source_version": 27,
+      "draft_id": "CA-M-138@28-draft",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-138-IMPLEMENTATION_METHOD--author-in-canonical-framework-language.md",
+      "source_sha256": "f345482e0f1edeee6fcc4f237ce87d5af5c98c79b55b13e2729c76647525f467",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-138@28-draft.md",
+      "draft_sha256": "c619a30c00c3939d26b1222bc107353cc435c62cfbc4cba79dd5422d51fb4038",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring": "Aspects <+ Engineering <+ Authoring",
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-139",
+      "source_version": 26,
+      "draft_id": "CA-M-139@27-draft",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-139-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md",
+      "source_sha256": "0acb7ae8523b0a6e7ca871b8146136f6e5f2b7e7ef3d67a1d5e0f20d006b5b51",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-139@27-draft.md",
+      "draft_sha256": "a5bf676076634fbc513c10588f6ee20da227c67dedc25f6dd78c079761a31137",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-229",
+      "source_version": 31,
+      "draft_id": "CA-M-229@32-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL-IMPLEMENTATION_METHOD--render-governed-terms-and-cce-operators-distinctly.md",
+      "source_sha256": "478f94a0a6f8f685829c2171ce716412abf70ab2684a884f9b8c63339c08f80b",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-229@32-draft.md",
+      "draft_sha256": "2428dc8417ba3d67345c3ef74df6195af0082c5cd888e88e8a61f43a723325d8",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-230",
+      "source_version": 23,
+      "draft_id": "CA-M-230@24-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-230-CORE_META_MODEL-IMPLEMENTATION_METHOD--define-registered-cce-operators-through-cce-methods.md",
+      "source_sha256": "dfc9b5f4a2cb14c58524856fab9723c4a84188a388db72d741200e8776fdc305",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-230@24-draft.md",
+      "draft_sha256": "d9a4c78764353a6d76b7f30a7cf28b0cdbf91e30c2092f63dd45455fa9b83c0e",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-233",
+      "source_version": 29,
+      "draft_id": "CA-M-233@30-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-233-CORE_META_MODEL-IMPLEMENTATION_METHOD--prefer-positive-normative-statements.md",
+      "source_sha256": "1c42ad1c9d4d16abd09d8c21ae942cb68eb4575d8876ba32bb2668b6e56c6c88",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-233@30-draft.md",
+      "draft_sha256": "3d1aa7f2ec7aeb835a03750f2d83336fd98c56f5d133be19d6fb29b1a2f5f85b",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring": "Aspects <+ Engineering <+ Authoring",
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-234",
+      "source_version": 22,
+      "draft_id": "CA-M-234@23-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL-IMPLEMENTATION_METHOD--register-expandable-canonical-cce-operator-list.md",
+      "source_sha256": "9a47c048cbf4c9c079b0219cda48e1e941e88d63e91bb2a144c9012f9fde6935",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-234@23-draft.md",
+      "draft_sha256": "68427cbf446c36cb677ddba8439a3512699509036dd7f7e7097fbb5f569b884a",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-235",
+      "source_version": 22,
+      "draft_id": "CA-M-235@23-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-235-CORE_META_MODEL-IMPLEMENTATION_METHOD--express-cardinality-with-comparison-operators-and-integer-literals.md",
+      "source_sha256": "f853547b9fa8ef499c8dd123dc58479b60c08e12c4db659b4c3b3a0eab1f87ee",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-235@23-draft.md",
+      "draft_sha256": "059760365988eebeb1e022879ea0a6184486f1ddcf7180794aa45fc5831e36f5",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-236",
+      "source_version": 22,
+      "draft_id": "CA-M-236@23-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL-IMPLEMENTATION_METHOD--normalize-noncanonical-cce-operator-expressions.md",
+      "source_sha256": "01b11c5792b602d4e4955f51f6bc8f88341237ffe151adfe83d94244b178e71b",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-236@23-draft.md",
+      "draft_sha256": "a337a9e2d038015b8b95ac2f5e1015ba7c55c8d59d95d58a0a5f78237eec0de8",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-240",
+      "source_version": 28,
+      "draft_id": "CA-M-240@29-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md",
+      "source_sha256": "02c119b666c4d0015b490276193ceec16c286b540849ab4fe2525a3b4914e899",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-240@29-draft.md",
+      "draft_sha256": "ab863d3a1371ccc89631c6140de238fb7eb7c93580919ddb75f755dda6924947",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Data Transformation": "Aspects <+ Engineering <+ Data Handling <+ Data Transformation",
+        "Entity/Aspect/Engineering/Data Handling/Parsing": "Aspects <+ Engineering <+ Data Handling <+ Parsing"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-241",
+      "source_version": 26,
+      "draft_id": "CA-M-241@27-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-241-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-canonical-scope-signatures-without-source-rewrite.md",
+      "source_sha256": "736c4f637979aa87b22644ab19d5f58ffa91a48d32baf7e0aed70a97963b2769",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-241@27-draft.md",
+      "draft_sha256": "d5dfde9a7442d477ecfbb10a42d2ab117a0ba7c539c08c6bdc1a86f2132e4617",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Data Transformation": "Aspects <+ Engineering <+ Data Handling <+ Data Transformation",
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-263",
+      "source_version": 21,
+      "draft_id": "CA-M-263@22-draft",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-263-IMPLEMENTATION_METHOD--make-information-clear-to-the-operator.md",
+      "source_sha256": "4aa248a0d86815069643c6e31953178fea875249f172eaf3d0804a24db61055e",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-263@22-draft.md",
+      "draft_sha256": "a2e595f3c78c2fa56ef60a88970a1217b925bf6b4464375743fc7a7b92b6e272",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-266",
+      "source_version": 23,
+      "draft_id": "CA-M-266@24-draft",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-266-IMPLEMENTATION_METHOD--follow-the-operator-selected-implementation-mode.md",
+      "source_sha256": "371cb062deab947733b6d673c05e8ebfb78868badb2b503654d35791f48a4510",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-266@24-draft.md",
+      "draft_sha256": "15328525aed290fdf09bf2255a737cf27e41ba7327253687ecdbd4fe56d6a094",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-270",
+      "source_version": 27,
+      "draft_id": "CA-M-270@28-draft",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-270-IMPLEMENTATION_METHOD--prepare-verification-before-refactoring.md",
+      "source_sha256": "6c1f7aa6fa780189b8d2dff657828071dfc35f85fe1676050c5f7d8c7bd7b8f2",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-270@28-draft.md",
+      "draft_sha256": "42964f660d3479b82a4c9da8e9c56e00f4f22254766346032b337e9fdc287c38",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification/Test Design": "Aspects <+ Engineering <+ Verification <+ Test Design"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-271",
+      "source_version": 27,
+      "draft_id": "CA-M-271@28-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md",
+      "source_sha256": "6ea37c3fa9f91a309e1d97859381134470bdd5e6a0e216098c84d86dd607e423",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-271@28-draft.md",
+      "draft_sha256": "7626e806c190d8d30ffa716e7cc8c92f76ffb58b9669f4db91028f8cbc336b89",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-276",
+      "source_version": 29,
+      "draft_id": "CA-M-276@30-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-IMPLEMENTATION_METHOD--repair-accidental-atom-id-reuse.md",
+      "source_sha256": "189c523e522d2f8f3d5e678308cd33883d321d7fcc2fd0d64bfc1934682f1f2f",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-276@30-draft.md",
+      "draft_sha256": "0b2bffdec5bcab9f2d55494942a68b582516052f1e264a745a86094d582bef49",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-277",
+      "source_version": 31,
+      "draft_id": "CA-M-277@32-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-277-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-silent-mode.md",
+      "source_sha256": "b38b3ceb719cadd061352f79d4b837867caa62e08d8da5a75a1fbbe4cc6050da",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-277@32-draft.md",
+      "draft_sha256": "a5dbb28dddd1dd3a34d4a4f56c89988c64cbb5d2d188f92b115e90659584200b",
+      "mapping": {
+        "Entity/Aspect/Engineering/Architecture/Communication": "Aspects <+ Engineering <+ Architecture <+ Communication"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-278",
+      "source_version": 28,
+      "draft_id": "CA-M-278@29-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-278-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-verbose-mode.md",
+      "source_sha256": "65441b93b40c6638ae46b8627d82786cb47e468e396a1fbbf5e7bfa8c8d91b60",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-278@29-draft.md",
+      "draft_sha256": "f8ce9b02f2f584c0b0835ae378d5dcafc4da3bbee1cc7a8c5215bd44962d0b5e",
+      "mapping": {
+        "Entity/Aspect/Engineering/Architecture/Communication": "Aspects <+ Engineering <+ Architecture <+ Communication"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-294",
+      "source_version": 25,
+      "draft_id": "CA-M-294@26-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-294-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-simpler-words-without-losing-meaning.md",
+      "source_sha256": "84f1399d1f154697b2850faaa4af28d0da0249c1960564c73aa23909ce7686dd",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-294@26-draft.md",
+      "draft_sha256": "e01745603d6d661ba297bc41a842804b56e9a68ed8773a209f9732f591559933",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-298",
+      "source_version": 24,
+      "draft_id": "CA-M-298@25-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-298-CORE_META_MODEL-IMPLEMENTATION_METHOD--describe-methodology-expansion-mappings.md",
+      "source_sha256": "9d447874ee488f9dba353553c2cf9fa278919cf98d9ac51d8ed97b5d003993d5",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-298@25-draft.md",
+      "draft_sha256": "de3daa0212a7cba54852924d6b45d4faa7225294b314f6bde4649c78151971d5",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring": "Aspects <+ Engineering <+ Authoring"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-299",
+      "source_version": 18,
+      "draft_id": "CA-M-299@19-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-299-CORE_META_MODEL-IMPLEMENTATION_METHOD--distinguish-scope-unit-names-from-ordinary-english.md",
+      "source_sha256": "cb0e30fdca93f3d5f60c30951e1ab1aade016444443228970701af55ff969d2b",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-299@19-draft.md",
+      "draft_sha256": "76dd398a1244e74ecaa2da2ffb610a0c6c7b39da5ac60ba11a210a93476fddac",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-304",
+      "source_version": 24,
+      "draft_id": "CA-M-304@25-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-self-contained-agentic-action-instructions.md",
+      "source_sha256": "45fdb125813748df95d31e26d400287f79a58f89c4733108e21d54ee16450464",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-304@25-draft.md",
+      "draft_sha256": "f646f270bdfc7ab139ac479a0ebd92b62f1594bb3c7a3494b58880c2d3dabce4",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Prompt Authoring": "Aspects <+ Engineering <+ Authoring <+ Prompt Authoring"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-306",
+      "source_version": 30,
+      "draft_id": "CA-M-306@31-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md",
+      "source_sha256": "0c14200dbd0f1bc0edb59a55f155e55d085de4facad36cadb844cb95b40b0eb7",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-306@31-draft.md",
+      "draft_sha256": "87ed53cd2ec469eb3585a6e453bcdab957e0a1bc7fddeb9518072ec87738041f",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-307",
+      "source_version": 27,
+      "draft_id": "CA-M-307@28-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-IMPLEMENTATION_METHOD--define-content-role-specific-cce-profiles.md",
+      "source_sha256": "bd5345026d298e89f81f477729d4ea84d09f50c70bba2197d1d47decbe582bee",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-307@28-draft.md",
+      "draft_sha256": "52f4573d384d018fe1cb900e8c6abb5c29a40464607b3448936d0cd09f2ff51a",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-308",
+      "source_version": 23,
+      "draft_id": "CA-M-308@24-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL--resolve-the-effective-cce-role-profile.md",
+      "source_sha256": "02b516647b41684079c0007705b5ed33fc0936cd07ab2c3abf1670f33982db8b",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-308@24-draft.md",
+      "draft_sha256": "a90f0516b838f61ea88a5e945ed00166b7643578ef7b543d75c230b9662223a9",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-309",
+      "source_version": 21,
+      "draft_id": "CA-M-309@22-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md",
+      "source_sha256": "751ad1f5fc36f694bf0552a3623d465ea0a94bcb24c03e33038252f881560d27",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-309@22-draft.md",
+      "draft_sha256": "3be254dd8cf421f5bbbb0ef9a44f0d45f52fe264236c7f147fa31fb2abb7855e",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-310",
+      "source_version": 23,
+      "draft_id": "CA-M-310@24-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-310-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-requirement-claims-with-the-requirement-cce-profile.md",
+      "source_sha256": "2d591daf96844cecbae4227dd1ebfb7341e22f1c76ec11ced57413d734ed7c05",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-310@24-draft.md",
+      "draft_sha256": "8f35cdae159220872227c8d135ffc1645bd25c604d0585397bd807c9630b7e44",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-311",
+      "source_version": 23,
+      "draft_id": "CA-M-311@24-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-311-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-method-claims-with-the-method-cce-profile.md",
+      "source_sha256": "fc62c260c08e26d48a2f8348010a4be02ac725a25cb6b9fbab5466b5b2810597",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-311@24-draft.md",
+      "draft_sha256": "2cc85978c7dee287e9c5bbbc9abf6c76b5dc6b5d6fc0dbfb0ae0fbe20a2904c2",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-312",
+      "source_version": 22,
+      "draft_id": "CA-M-312@23-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-312-CORE_META_MODEL-ENG_DECISION--write-evaluation-claims-with-the-evaluation-cce-profile.md",
+      "source_sha256": "1e1f43e488497d9ea28425088ddf785c49da7efe66d78cff974ab9c3aa92b5f1",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-312@23-draft.md",
+      "draft_sha256": "e170e8ba48053de1b20c951f8ec17c1da373e963b37155ce6a8fb0532bd58c1b",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-314",
+      "source_version": 22,
+      "draft_id": "CA-M-314@23-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-314-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-operations-claims-with-type-specific-cce-profiles.md",
+      "source_sha256": "d6ad348fba2fcb9b33855dc480915ee2c4a0a041ae52e7720a5abe9e1580f1db",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-314@23-draft.md",
+      "draft_sha256": "7f37be0329a85a28a37aa879bfc6f221eabee063b719329b97b32edd064edd67",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-315",
+      "source_version": 24,
+      "draft_id": "CA-M-315@25-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-315-CORE_META_MODEL--validate-claims-against-effective-cce-role-profiles.md",
+      "source_sha256": "f804a24357e134a9b8b83882012b40148f8f53391be428a286c1b13cecd080fb",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-315@25-draft.md",
+      "draft_sha256": "5e540a0ad776c25efd1e8e013644790cb0c44a95bd567678bfca109cd3984c88",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English",
+        "Entity/Aspect/Engineering/Data Handling/Data Validation": "Aspects <+ Engineering <+ Data Handling <+ Data Validation"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-345",
+      "source_version": 16,
+      "draft_id": "CA-M-345@17-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "source_sha256": "140fc029de7804c29e11dc14a764a7a6878fe62558ead2177be0f51b9b96f77d",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-345@17-draft.md",
+      "draft_sha256": "37424a5b76efc94ff14cdf61d15cb71e7dc3901490f0f4e76cf25cc672feedf6",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-442",
+      "source_version": 3,
+      "draft_id": "CA-M-442@4-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-442-CORE_META_MODEL-IMPLEMENTATION_METHOD--an-atom-s-content-expresses-one-scoped-contribution-with-a-faithful-summary-and-translations.md",
+      "source_sha256": "cc1c8b9ffe59602ff473308623eafb97169c796825a49efdd086b4ea9e005c65",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-442@4-draft.md",
+      "draft_sha256": "c6b5cbcd517b6313285fbc5a5794eaa260822e1fad5d86ea6dd000fd837f8b58",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring": "Aspects <+ Engineering <+ Authoring",
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-443",
+      "source_version": 2,
+      "draft_id": "CA-M-443@3-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-443-CORE_META_MODEL-IMPLEMENTATION_METHOD--each-atom-expresses-one-coherent-meaning-covered-by-its-summary.md",
+      "source_sha256": "73775e2dc011f7500324aa2329cfbd48aafdef136cdbf8abb23e939f7518b6be",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-443@3-draft.md",
+      "draft_sha256": "18b9add40dcaa3a51841ad8f1ba5bb74664a2c9f5031d4076eccca1504d9a5ca",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring": "Aspects <+ Engineering <+ Authoring",
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-444",
+      "source_version": 3,
+      "draft_id": "CA-M-444@4-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly.md",
+      "source_sha256": "64cd41db33d0827e2dddbbe2184669d0d745291080b1f8c2cf83991e9e143884",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-444@4-draft.md",
+      "draft_sha256": "d6c337df28e456ceb4a57da697e3268232066d21c8767e935515f4ffe7c18cee",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-M-445",
+      "source_version": 2,
+      "draft_id": "CA-M-445@3-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/05_method/CA-M-445-METHODOLOGY_SOURCES-ENG_POLICY--model-concepts-use-their-readable-names-in-authored-methodology.md",
+      "source_sha256": "e6120c54ac92db65aab555de8a8fa279ec12af4306699686249ae014bd2e557a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-M-445@3-draft.md",
+      "draft_sha256": "988c1eb478e71ded7cceff66cb2af7b2cb1eef221119567767604f599cd93287",
+      "mapping": {
+        "Entity/Aspect/Text Writing Style": "Aspects <+ Text Writing Style"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-004",
+      "source_version": 35,
+      "draft_id": "CA-R-004@36-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-004-RULE--keep-the-framework-under-operator-control.md",
+      "source_sha256": "13eed386afb3568bc34b054d320955dad146ae08920f3252cd9f288745e24048",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-004@36-draft.md",
+      "draft_sha256": "ef8676bb1e624466151354feb42f20ee68b719decf57d2dd4b331272268d6c27",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-007",
+      "source_version": 31,
+      "draft_id": "CA-R-007@32-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-007-RULE--full-minimal-traceability.md",
+      "source_sha256": "96d21407108071bb8fa15ac0ef15b5c2b7c5acb8c6c4b9bdef2e48feb5692eb4",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-007@32-draft.md",
+      "draft_sha256": "99606438e3407ce85a7d15ec7d56879d6c64c86faba218377dd5f692107f4fa7",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product",
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-024",
+      "source_version": 27,
+      "draft_id": "CA-R-024@28-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-024-CAPRMEDIO-RULE--govern-requirement-conflicts-by-tier.md",
+      "source_sha256": "95fdfbb5e94545619f36f1e208667cce905626cb3309b13de892ce9081c8b051",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-024@28-draft.md",
+      "draft_sha256": "17114948e4e41154a9b830cbea1df44ddd6527b52b857fc2a973233a66129565",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-028",
+      "source_version": 25,
+      "draft_id": "CA-R-028@26-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-028-RULE--provide-means-to-resolve-atom-conflicts.md",
+      "source_sha256": "62efc68f5c9ad8e9e04bc7361a07d58d4c6d81095303a3d69e84c41b5421a0cb",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-028@26-draft.md",
+      "draft_sha256": "f6fb3df14ac575895192191cfdfbe75f93411a22e8198c29efa12fac467eb4c1",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-035",
+      "source_version": 34,
+      "draft_id": "CA-R-035@35-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-035-CAPRMEDIO-RULE--identify-necessary-information-by-confidence.md",
+      "source_sha256": "197a01c08d0007a4c77c336d2ecec249857da77ddb3ff77bf1b4ffa57f2746e9",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-035@35-draft.md",
+      "draft_sha256": "24f65eaa05155e4b14d730d8f861b1d36afab5dbbce191970cb8ebd4abe7fb6c",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product",
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-047",
+      "source_version": 35,
+      "draft_id": "CA-R-047@36-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-047-RULE--separate-self-improvement-stages.md",
+      "source_sha256": "2fabfb9f927fab6e8c6a1db7ae976a5b40dc6e32deaa66a5e365271b1a42ea83",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-047@36-draft.md",
+      "draft_sha256": "884d0521969379870ff9d4ea17cb1cd5e28087566bce1b298c9a9408d2018384",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-053",
+      "source_version": 26,
+      "draft_id": "CA-R-053@27-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-053-RULE--bound-improvement-claims-to-a-comparison-frame.md",
+      "source_sha256": "ded9a7b52837e073ebc40fde06eb22115d2cb12a968575c11ec7683c688dc9c9",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-053@27-draft.md",
+      "draft_sha256": "cd43224a09f3b8c6ca8685e710748701bfa86e01f5136542c5528a4785dc4e22",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1044",
+      "source_version": 31,
+      "draft_id": "CA-R-1044@32-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-DEFINITION--define-autonomous-confidence-threshold.md",
+      "source_sha256": "7b2d09e18b06ba1d7ef1d83b02a6126802a1aa544b33f5410a98f9804a3a5666",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1044@32-draft.md",
+      "draft_sha256": "b17600208deb42d0e3660e66a02de2967f4f1dcd2309c7315f904acafa061843",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1045",
+      "source_version": 24,
+      "draft_id": "CA-R-1045@25-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1045-CORE_META_MODEL-RULE--restrict-autonomous-confidence-threshold-values.md",
+      "source_sha256": "4f35e38312e146d23d95d9b74896ae1d8cf9de1b85620c7dfbe7a71f637d475a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1045@25-draft.md",
+      "draft_sha256": "88ea4f26a16cc1817fe41d178001a841e0c8a483a31b441be1599fcc8f4dc6e7",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1056",
+      "source_version": 28,
+      "draft_id": "CA-R-1056@29-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1056-GOAL--minimum-sufficient-guidance.md",
+      "source_sha256": "03af6784592514c7fd57197aec70d07800412f634a4c9d5a0b517951910bff18",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1056@29-draft.md",
+      "draft_sha256": "032f3ff2bfdd247493e0186e13c59ba289b9b2f29f4c4c1cb921e38460db5ca6",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1057",
+      "source_version": 32,
+      "draft_id": "CA-R-1057@33-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1057-GOAL--expose-only-task-necessary-distinctions.md",
+      "source_sha256": "01fecc2171948f39bb1773db55b39c31f12a8d9ec8de419f5a8f5183b1bc5e4b",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1057@33-draft.md",
+      "draft_sha256": "1e88be021d07694db3a59d7140c0c1e99f3cb99a7143f0b0513ccf38f4f68caa",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1058",
+      "source_version": 37,
+      "draft_id": "CA-R-1058@38-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1058-RULE--require-operator-authority-for-governed-change.md",
+      "source_sha256": "68030c691eb40ce984c1be60d2437ec0ac8c2269f5a0d28fec6b182fc8b40e8f",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1058@38-draft.md",
+      "draft_sha256": "b92110b7813a1b6f218581261bdef54100992a306eb581c3b4792219a5716151",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1174",
+      "source_version": 24,
+      "draft_id": "CA-R-1174@25-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/04_requirement/CA-R-1174-METHODOLOGY_SOURCES-GOAL-CORE_META_MODEL--provide-the-minimal-self-applicable-canonical-methodology-model.md",
+      "source_sha256": "b01e34f22e3f092cd87c224b68dda2839be85aa333585d5ee0eb9c8e0303cdd3",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1174@25-draft.md",
+      "draft_sha256": "5b6f18ed917d243c5480c1d9d406cd204b3e637651fe76f18f5b5bcd65a49668",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1175",
+      "source_version": 23,
+      "draft_id": "CA-R-1175@24-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/04_requirement/CA-R-1175-METHODOLOGY_SOURCES-GOAL-INSTALLED_EXTENSIONS--preserve-installed-extension-revisions-as-candidate-inputs.md",
+      "source_sha256": "8611c0276c384b0ad7a9a1decfc6d7be195aa029963829af1946187908031981",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1175@24-draft.md",
+      "draft_sha256": "33c15ef522d704981091fd8dff4e2f6dac64460ea9bc75acec570c0ee3049c07",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Source Selection": "Aspects <+ Engineering <+ Data Handling <+ Source Selection"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1178",
+      "source_version": 26,
+      "draft_id": "CA-R-1178@27-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1178-CAPRMEDIO-SCOPE_CONTRACT-GOAL--reduce-tokens-mistakes-and-context-clutter.md",
+      "source_sha256": "156a9333511f0ab4d4f49299808eb08ecf45e1d60e6417bfe022f7c49d1c7860",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1178@27-draft.md",
+      "draft_sha256": "4bb4b2e7e9617dda145c468278aedbdba75f60cbab9d4c93e99720ce0d8d5275",
+      "mapping": {
+        "Entity/Aspect/Engineering": "Aspects <+ Engineering"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1179",
+      "source_version": 28,
+      "draft_id": "CA-R-1179@29-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1179-CAPRMEDIO-SCOPE_CONTRACT-GOAL--help-operators-use-caprmedio-to-achieve-project-goals.md",
+      "source_sha256": "8a4fae77bd67428883cc28de2a89929593fb99b1c0612179704b26d380332a94",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1179@29-draft.md",
+      "draft_sha256": "047f7824b632459185b9cf874a63b7f878a087f9090e7d39ccf2cbfad2ff9ff2",
+      "mapping": {
+        "Entity/Aspect/Documentation Aspect": "Aspects <+ Documentation Aspect",
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1180",
+      "source_version": 26,
+      "draft_id": "CA-R-1180@27-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1180-CAPRMEDIO-SCOPE_CONTRACT-GOAL--provide-caprmedio-maintained-optional-extensions.md",
+      "source_sha256": "a62e5ec11141aa7c5512a53771d2d85f095bd626682a361e72bbda3ed16cf263",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1180@27-draft.md",
+      "draft_sha256": "87f655b36fc73ac692f240ed4e155d679d982d062769e32e9a608289d4f369b8",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1181",
+      "source_version": 28,
+      "draft_id": "CA-R-1181@29-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1181-CAPRMEDIO-SCOPE_CONTRACT-GOAL--provide-usable-caprmedio-versions-and-release-notes.md",
+      "source_sha256": "0717d34dcb26283e4f5d7745e04839e38e619dc9c8b314e8142218ce75d922e2",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1181@29-draft.md",
+      "draft_sha256": "2614bd0d78e9e10283bbc88620228a2fd46541051644f0bc3c9345d6c6a3b6e0",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1206",
+      "source_version": 26,
+      "draft_id": "CA-R-1206@27-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1206-CORE_META_MODEL-RULE--separate-extension-installation-from-activation.md",
+      "source_sha256": "2b311c2b4097837ea92b0771ff6f213b296f0f9280acf793edae2b8cd6e04ab5",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1206@27-draft.md",
+      "draft_sha256": "d47c6860b7f0b808a19f897003114c7eb4d91de51d0c7b859d9e3453367c47f2",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1226",
+      "source_version": 23,
+      "draft_id": "CA-R-1226@24-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1226-PROJECT_CONFIGURATION-RULE--bind-each-project-customization-to-one-source-revision.md",
+      "source_sha256": "b3644296fa2095cfd0b46e1736e014e790ac63b9efef09d78e9575283e2aafa1",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1226@24-draft.md",
+      "draft_sha256": "3aa3cfdea5eb7b2b3ff8ee6e14ba2ee45ab688b18dc499babce1b17300618e74",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1297",
+      "source_version": 26,
+      "draft_id": "CA-R-1297@27-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1297-CORE_META_MODEL-RULE--prohibit-cce-operator-scope-unit-names.md",
+      "source_sha256": "81d01a6e4803d1bc1dee670e662451e7de3e1439c309ddede61c0d487c1ce73c",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1297@27-draft.md",
+      "draft_sha256": "0c999789a146303a7568f341fc8578843cb1029e36e2f8aa91d36b71dbf20a52",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1354",
+      "source_version": 22,
+      "draft_id": "CA-R-1354@23-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1354-PROJECT_CONFIGURATION--restrict-general-system-prompt-loading-to-main-skill.md",
+      "source_sha256": "bed324b50252b5f7385717f10d368f79b8b73066f83f4516c7feaf0c873a32e2",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1354@23-draft.md",
+      "draft_sha256": "c7c2ef8740b6603116c9ef699236bbd87f9b1d6b2995e056bf87a743160c5920",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization",
+        "Entity/Aspect/UX/Entry": "Aspects <+ UX <+ Entry",
+        "Entity/Aspect/Engineering/Authoring/Prompt Authoring": "Aspects <+ Engineering <+ Authoring <+ Prompt Authoring"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1355",
+      "source_version": 22,
+      "draft_id": "CA-R-1355@23-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1355-PROJECT_CONFIGURATION--route-main-skill-through-canonical-routing-tree.md",
+      "source_sha256": "ead24e9e009d4d354f7218bc4b5f0c43ec7223b07790dcd89f6f646c54a8d967",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1355@23-draft.md",
+      "draft_sha256": "c590807688f1fde428375aa37addf0aacaefec62abd85c72514ba4304e81d82c",
+      "mapping": {
+        "Entity/Aspect/UX/Discovery and Navigation": "Aspects <+ UX <+ Discovery and Navigation",
+        "Entity/Aspect/UX/Entry": "Aspects <+ UX <+ Entry",
+        "Entity/Aspect/Engineering": "Aspects <+ Engineering"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1356",
+      "source_version": 24,
+      "draft_id": "CA-R-1356@25-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1356-PROJECT_CONFIGURATION--define-caprmedio-direct-route-skill.md",
+      "source_sha256": "4840e74868a8c6f094209dd4767c6d16cbf5613f62fbe80dabdebe40033c4635",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1356@25-draft.md",
+      "draft_sha256": "8a7ec19e04e3c27ee8218f523950a6de2f6734fb12bb56f2b28e691b5f734103",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization",
+        "Entity/Aspect/Engineering": "Aspects <+ Engineering"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1360",
+      "source_version": 26,
+      "draft_id": "CA-R-1360@27-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1360-CORE_META_MODEL-DEFINITION--define-restricted-cce-canonical-signature.md",
+      "source_sha256": "d14d088b040b6dea79cfc8fce65177d8830596746203c61d99e626c8d46e9b91",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1360@27-draft.md",
+      "draft_sha256": "58645931b2600a23161b6e9aa04848c5a9cc75da25dbbedbfda770048f83ab1f",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Data Transformation": "Aspects <+ Engineering <+ Data Handling <+ Data Transformation",
+        "Entity/Aspect/Engineering/Data Handling/Parsing": "Aspects <+ Engineering <+ Data Handling <+ Parsing"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1407",
+      "source_version": 26,
+      "draft_id": "CA-R-1407@27-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1407-CAPRMEDIO-SCOPE_CONTRACT-RULE--the-caprmedio-instance-and-the-implementation-form-a-graph-of-graphs.md",
+      "source_sha256": "9574874a9d374fd168f4874bd1b7f50676dea48a0887df422ea7313ef5fd89c2",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1407@27-draft.md",
+      "draft_sha256": "a8c590adcf341ac07a05a7ac0e8fca3ca8b82e4e4fd30a6900d792de91926754",
+      "mapping": {
+        "Entity/Aspect/Engineering": "Aspects <+ Engineering",
+        "Entity/Aspect/Engineering/Architecture/Component Structure": "Aspects <+ Engineering <+ Architecture <+ Component Structure"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1420",
+      "source_version": 25,
+      "draft_id": "CA-R-1420@26-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1420-CAPRMEDIO-SCOPE_CONTRACT-GOAL--support-informed-operator-decisions.md",
+      "source_sha256": "ef8f76bdfe3111aae403447b806950d5be00f1d6b1815cc36c575e93e36ee7eb",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1420@26-draft.md",
+      "draft_sha256": "afcd54ebbfee31f3720f6a1e6c8bcdee852bb99ecc485917e3f60f8649c41400",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1423",
+      "source_version": 25,
+      "draft_id": "CA-R-1423@26-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1423-CAPRMEDIO-SCOPE_CONTRACT-GOAL--support-improvement-from-observed-outcomes.md",
+      "source_sha256": "342c259328fd6aba6c618557958f3ac13a799345ba59d0042245d4bc37f5751a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1423@26-draft.md",
+      "draft_sha256": "98a302e409a9eb07ea16058d6070fbc8d725a8cac9d3cee5170435d5ac85e231",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1424",
+      "source_version": 26,
+      "draft_id": "CA-R-1424@27-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1424-GOAL--provide-tools-to-maintain-methodology-alignment.md",
+      "source_sha256": "0d4c01339b19b266e32bf79c496446515fc41d200a391feb95e4c41b767bc478",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1424@27-draft.md",
+      "draft_sha256": "f51d53946f4a506e6c2b3a88bc9809898d2990c6614b10e85bbe57e9d7111dd3",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1426",
+      "source_version": 23,
+      "draft_id": "CA-R-1426@24-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1426-CAPRMEDIO-SCOPE_CONTRACT-GOAL--make-engine-execution-observable-and-transparent.md",
+      "source_sha256": "cca1721a50bcbeddb949a59e041f1c86b4f8805c0178a41b827eddc323c072bc",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1426@24-draft.md",
+      "draft_sha256": "a5583945a9f4364adf4f6088cffa3bbcce94366666d7d29543eee355df370735",
+      "mapping": {
+        "Entity/Aspect/Engineering/Observability": "Aspects <+ Engineering <+ Observability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1428",
+      "source_version": 30,
+      "draft_id": "CA-R-1428@31-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL--permit-confidence-threshold-defaults-and-overrides.md",
+      "source_sha256": "28f66146b842b15e035173367e4d48e865842c606557b8de3e36fc47839bcbf4",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1428@31-draft.md",
+      "draft_sha256": "9412b9479fe986d3645747c1147668ef605306e311907bf1b00c2287de27181a",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1437",
+      "source_version": 30,
+      "draft_id": "CA-R-1437@31-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-RULE--keep-one-source-for-each-relation-fact.md",
+      "source_sha256": "104319acdc946206b19898680d5b2b116dfa5c324659974dcd9dfaab67a18d0f",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1437@31-draft.md",
+      "draft_sha256": "d64b1c04c1529ba8228da185b4d32754f957fb10797aa430880755fe014f0a51",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1466",
+      "source_version": 21,
+      "draft_id": "CA-R-1466@22-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1466-CORE_META_MODEL--keep-git-integration-in-an-extension.md",
+      "source_sha256": "985183425e733700c2832ad52a1b1a496a1e523ea6462055e3daf2207f86f095",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1466@22-draft.md",
+      "draft_sha256": "a11bf6190ba163678e3e444e0b2fe4ba82410d570d8bdb0a9cd314eb47da0f90",
+      "mapping": {
+        "Entity/Aspect/Engineering/Architecture/Component Structure": "Aspects <+ Engineering <+ Architecture <+ Component Structure"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1503",
+      "source_version": 21,
+      "draft_id": "CA-R-1503@22-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1503-CORE_META_MODEL-RULE--keep-evaluation-atoms-mechanism-neutral.md",
+      "source_sha256": "f1aad7b7891903325f97b2efcb5aa4cfcf99425bf3ddc587ee90f26fb20f3cd7",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1503@22-draft.md",
+      "draft_sha256": "932c6aa274d7f796dca4d20d7b4cfdc21e755dfe548197f5e96f38188d4af4df",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification": "Aspects <+ Engineering <+ Verification"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1504",
+      "source_version": 23,
+      "draft_id": "CA-R-1504@24-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1504-CORE_META_MODEL-RULE--keep-evaluation-implementation-coverage-explicit.md",
+      "source_sha256": "a4285653ef91f56a8003f86c8732c6daa3a277d7288fa48217fdae628d1aba67",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1504@24-draft.md",
+      "draft_sha256": "5963d5ed49c2028ab1e8d5631cd6a013f83d15895aca6fa4b5ef796dc6e6ae15",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification/Coverage": "Aspects <+ Engineering <+ Verification <+ Coverage"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1505",
+      "source_version": 25,
+      "draft_id": "CA-R-1505@26-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1505-CORE_META_MODEL-RULE--keep-evaluation-realization-chains-distinct.md",
+      "source_sha256": "7c413106cdc7b536d0768ee7445c4b26af5de6edde3b6f6827b6ff44658d013d",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1505@26-draft.md",
+      "draft_sha256": "e888b2e2b528a5aaa8943e8b3bb66c2e46220b6fbb9d927793ddc825f28dce96",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1506",
+      "source_version": 19,
+      "draft_id": "CA-R-1506@20-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1506-CORE_META_MODEL-RULE--separate-check-mechanism-labels-from-evaluation-atom-types.md",
+      "source_sha256": "f8ee788aeb26773d49b44a02575cd8b8fa580a9b06948003700733df65cc8ca2",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1506@20-draft.md",
+      "draft_sha256": "df4136813bc93fff6c1fbb7a31cb15f563ba6ec1905020e833d8791b07495500",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification": "Aspects <+ Engineering <+ Verification"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1514",
+      "source_version": 25,
+      "draft_id": "CA-R-1514@26-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1514-PROJECT_CONFIGURATION-RULE--keep-implementation-specifications-independent-of-production-workflows.md",
+      "source_sha256": "eed8991e1a7584d1b5dfc34dbcbd9974e85e6521f8a81d25a5d10aeaf69fc465",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1514@26-draft.md",
+      "draft_sha256": "fd91b2d93d9ab157b871c713d5342854d3a5c2a9ae228499e2ac52a181305527",
+      "mapping": {
+        "Entity/Aspect/Engineering/Architecture/Component Structure": "Aspects <+ Engineering <+ Architecture <+ Component Structure"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1515",
+      "source_version": 23,
+      "draft_id": "CA-R-1515@24-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1515-PROJECT_CONFIGURATION-RULE--keep-canonical-actions-and-workflows-in-methodology.md",
+      "source_sha256": "dea671a41f3eb270efb8597033697b101b586c8c648e287b8a86a6ca2b1e5a67",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1515@24-draft.md",
+      "draft_sha256": "8cdfaaa0679a9b142bb93b2ead2bbd08bffccf9a7770966a73bd15d4825c1f7c",
+      "mapping": {
+        "Entity/Aspect/Engineering/Architecture/Component Structure": "Aspects <+ Engineering <+ Architecture <+ Component Structure"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1518",
+      "source_version": 23,
+      "draft_id": "CA-R-1518@24-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.md",
+      "source_sha256": "b6d6f911b72b3cedbb55b19aa4c503efc664b8e7852c3b394c913a0d7de623e4",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1518@24-draft.md",
+      "draft_sha256": "f08089a77ce387c899f36579b89543b7448a9354816c64313a0ad7c925b0bb95",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification": "Aspects <+ Engineering <+ Verification"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1554",
+      "source_version": 21,
+      "draft_id": "CA-R-1554@22-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-RULE--bound-scripted-migrations.md",
+      "source_sha256": "b92a3870d053c3a18c2859f6df3cfa3e34c55dd0a4db4042fcdbba856a8c67bb",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1554@22-draft.md",
+      "draft_sha256": "833562e082c8eb12a2d393979e2287317b105aca614447bd503a751935dd18c3",
+      "mapping": {
+        "Entity/Aspect/Engineering": "Aspects <+ Engineering"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1555",
+      "source_version": 21,
+      "draft_id": "CA-R-1555@22-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL--govern-ca-execution-gates.md",
+      "source_sha256": "d29ec9aeb0ea0fc6145d53b483f870ee5160d64e07973f4798a80958127802d1",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1555@22-draft.md",
+      "draft_sha256": "f8cc1994de1046d43af9b2279ebd61d49631774eece7142302066692bf42245e",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization",
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1559",
+      "source_version": 24,
+      "draft_id": "CA-R-1559@25-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-RULE--gate-governing-atom-changes-during-implementation.md",
+      "source_sha256": "ed6dda8d8b5c2c066a3cc406757ff65b606569e850557690ed59d8c966f45be3",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1559@25-draft.md",
+      "draft_sha256": "c58d9e1f98f70a9dd418a3b731e6ad2ea24200d68e8aa4068e4928e314a32cb1",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1560",
+      "source_version": 17,
+      "draft_id": "CA-R-1560@18-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1560-PROJECT_CONFIGURATION-RULE--permit-operator-defined-direct-route-skills.md",
+      "source_sha256": "c6a3ca8510d8d0942f370f3083c93826975f1855cc14c043f8a2f9125502e04d",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1560@18-draft.md",
+      "draft_sha256": "3144885c5b90d8506d76e10ad1b6aaa4bfb9ebdbd724d0a14d554bdf66115194",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1561",
+      "source_version": 26,
+      "draft_id": "CA-R-1561@27-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-RULE--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+      "source_sha256": "da8b49bf7280bc5795c3887870e33d11eb6863917a53648e41bae1dd2d663ec7",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1561@27-draft.md",
+      "draft_sha256": "0028af82bbd43cfeda7e09acd62c84ab6452d29ac25310e588637c7c23282007",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization",
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1587",
+      "source_version": 24,
+      "draft_id": "CA-R-1587@25-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-RULE--require-an-effective-confidence-threshold-for-plan-execution.md",
+      "source_sha256": "e4a667738fa2cfbb49f3901137355441f38dce61677398b0baac2eef72860cf3",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1587@25-draft.md",
+      "draft_sha256": "8c7161acd62e78633030fecee8203e9803dd91026ac4f3009bcff41589d70c48",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1591",
+      "source_version": 26,
+      "draft_id": "CA-R-1591@27-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1591-CORE_META_MODEL-RULE--apply-autonomous-confidence-thresholds-to-plan-execution.md",
+      "source_sha256": "97522a1c1d740265e3b9cd463334c8f6839f981eb1f2b1433b04fa97e358252f",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1591@27-draft.md",
+      "draft_sha256": "a37a7e94f5b4cb9cf0eabfb203ea925c83087df369d55b0084252feb08c849dc",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1611",
+      "source_version": 26,
+      "draft_id": "CA-R-1611@27-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1611-CORE_META_MODEL-RULE--separate-legacy-observations-from-refactoring-decisions.md",
+      "source_sha256": "859cc66088e5817f5bfbf54a4136cc187957a36db214aa27024ba1490bc1909d",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1611@27-draft.md",
+      "draft_sha256": "1b8fdb0c7af8037a5302952da5a3bc12c65e138594b537b1184bd07bf572110d",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1612",
+      "source_version": 24,
+      "draft_id": "CA-R-1612@25-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1612-PROJECT_CONFIGURATION-RULE--allow-pre-runtime-pass-only-with-sufficient-evidence.md",
+      "source_sha256": "e0561977de830743b53781b598105db62b7cf98fb91cf256ddb2c3d34d8c7cf9",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1612@25-draft.md",
+      "draft_sha256": "82e1f339b3c5af27bc54dbcb8accaaccefc2c99ccf09a5dbbd177390a3d31761",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification": "Aspects <+ Engineering <+ Verification"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1616",
+      "source_version": 23,
+      "draft_id": "CA-R-1616@24-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1616-PROJECT_CONFIGURATION-RULE--define-realization-graph.md",
+      "source_sha256": "5901d451f4b23da070f9df93deadbac3ffd5ee66beddca4f9668686ae096b40d",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1616@24-draft.md",
+      "draft_sha256": "534abca31d4e51f90e2484151612af918a1486b4080ea3b296edd10656e34634",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1627",
+      "source_version": 29,
+      "draft_id": "CA-R-1627@30-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1627-CORE_META_MODEL-RULE--requirement-exclude-secrets-from-caprmedio.md",
+      "source_sha256": "8bfb9cb309f5ef4fb893ad5f89bffe72fac8588c310a5a8f686828e099a8f233",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1627@30-draft.md",
+      "draft_sha256": "41fdf8f09a8f715d329483cebba4850d3d5ca8396acede9fc0699398403d5df5",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling": "Aspects <+ Engineering <+ Data Handling"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1633",
+      "source_version": 41,
+      "draft_id": "CA-R-1633@42-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-RULE--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+      "source_sha256": "a692ad3d5b7666379af735a6fff0ba3209676fd3e4642ad2d7bf990080a91fc4",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1633@42-draft.md",
+      "draft_sha256": "f168ea12fc85b8fd118bb25d6e548f4c5c15d00b3808c10f86ed3c04db360698",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1635",
+      "source_version": 39,
+      "draft_id": "CA-R-1635@40-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1635-PROJECT_CONFIGURATION-RULE--require-production-evaluation-checklists.md",
+      "source_sha256": "40e4e423350b8085e7f3ac54bb47aa1faf410980ed04f9f69baf3761b264629a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1635@40-draft.md",
+      "draft_sha256": "49cff2ffc2061204a1fd4ddcd1f36159cb674b847aa27ca77c97ebcfd7683cb6",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification": "Aspects <+ Engineering <+ Verification"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1637",
+      "source_version": 30,
+      "draft_id": "CA-R-1637@31-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1637-PROJECT_CONFIGURATION-DEFINITION--define-caprmedio-main-skill.md",
+      "source_sha256": "46af4e7002f6c5867fa76f072d84fe98169fe88628aaf521c982f51b7bef7577",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1637@31-draft.md",
+      "draft_sha256": "2c4d52a8b3170ffdf85e3891374590908c298f84286ddca81a776322483cd735",
+      "mapping": {
+        "Entity/Aspect/UX/Entry": "Aspects <+ UX <+ Entry"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1641",
+      "source_version": 31,
+      "draft_id": "CA-R-1641@32-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1641-PROJECT_CONFIGURATION-RULE--resolve-skill-routing-precedence.md",
+      "source_sha256": "93688ef0313582b84243937cb569837deb40e66bb6ba2f01a44d4ff7d826540e",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1641@32-draft.md",
+      "draft_sha256": "40dd501d1763af9a9b643894878b662932672f15770fdcd1ad33ed475f47c208",
+      "mapping": {
+        "Entity/Aspect/UX/Entry": "Aspects <+ UX <+ Entry",
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1645",
+      "source_version": 37,
+      "draft_id": "CA-R-1645@38-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1645-PROJECT_CONFIGURATION-RULE--define-self-hosted-governance-origins.md",
+      "source_sha256": "7ae178ce2670a6f98b755c098c66066f95f5d343109469cad7add6289a6c7485",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1645@38-draft.md",
+      "draft_sha256": "8d458e561988afbe637d09050d651a4c830ec41bd69a65f96c04fbac716dcd10",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1646",
+      "source_version": 39,
+      "draft_id": "CA-R-1646@40-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-RULE--bind-proof-records-to-dependency-frontiers.md",
+      "source_sha256": "e2ad3b6e4c32face9a3f830cfcae93b2b1f4a6901f875c7a75a79b9eb3179e4a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1646@40-draft.md",
+      "draft_sha256": "8902e80d2285666e3eb149f60015fad057fb84972d82074bc390c4aac16a50a4",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1650",
+      "source_version": 32,
+      "draft_id": "CA-R-1650@33-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-RULE--define-the-bounded-session-state-envelope.md",
+      "source_sha256": "4b93d036813af38028129be1e746dd01ad0c61f78308fcc042787e1bc365af57",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1650@33-draft.md",
+      "draft_sha256": "4ba41e363c8ab09874fc8d7e5859257f366b8011eff65c1337e7eb9f34bf383b",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Data Validation": "Aspects <+ Engineering <+ Data Handling <+ Data Validation"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1652",
+      "source_version": 39,
+      "draft_id": "CA-R-1652@40-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL--configure-necessary-information-confidence-threshold.md",
+      "source_sha256": "7e44c3b6fbc2ebc0357512b2428dc274f4bff51082e625606bb6a63c481992d0",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1652@40-draft.md",
+      "draft_sha256": "5fd2205c2a37c5af86f7416b80e3ab9a57c2a19b6302695f5d7c70cf2529e444",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1678",
+      "source_version": 29,
+      "draft_id": "CA-R-1678@30-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1678-CORE_META_MODEL-RULE--requirement-scale-operational-mechanisms-to-risk.md",
+      "source_sha256": "11677f82edd9b6951d1f586d6bc5450f7b76e3400f91f72d13f5d350a17dc9ef",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1678@30-draft.md",
+      "draft_sha256": "5f3b075dab84e17f06f75136bc6d7899884b780219a94521ea1075e92b242454",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control": "Aspects <+ Engineering <+ Execution Control"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1679",
+      "source_version": 28,
+      "draft_id": "CA-R-1679@29-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1679-CORE_META_MODEL--requirement-bound-effect-guarantees.md",
+      "source_sha256": "a61369ce9a881aaca6b77d98cf95b22868e17c3aeaf6bf2121f90581afdf48bd",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1679@29-draft.md",
+      "draft_sha256": "4ebf140523fb02afa5b6b8fee26ae48bbfe98afa45b135448ce5c8b06cd4b52a",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1687",
+      "source_version": 31,
+      "draft_id": "CA-R-1687@32-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1687-CORE_META_MODEL-RULE--requirement-keep-provenance-separate-from-evidence.md",
+      "source_sha256": "98478942f0a128a4638751d96bcac3208a99da6698321671cb5a757dc977010a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1687@32-draft.md",
+      "draft_sha256": "36d277dfeb7d55d2da80a4092ebc3a9e358392e9fbc4b9310e85357e940c7eb6",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1692",
+      "source_version": 36,
+      "draft_id": "CA-R-1692@37-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1692-PROJECT_CONFIGURATION-RULE--requirement-freeze-a-version-only-at-release.md",
+      "source_sha256": "e24da4d0ba967ed47dae15faa78f025ceea4a2c3aa8253bfb3ad72aee0808777",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1692@37-draft.md",
+      "draft_sha256": "fdf145e2a03f1a39d342d93db09332ab04d82c451dc10cf3ea816393d2ceb736",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1695",
+      "source_version": 36,
+      "draft_id": "CA-R-1695@37-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-RULE--preserve-implementation-traceability-in-the-shared-project-journal.md",
+      "source_sha256": "0a9c06da8ab1c75d2f035a149ae59ebaa63a0a573b9254b461450beadeb57dad",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1695@37-draft.md",
+      "draft_sha256": "71f94a6441f9ff4573c11a10e014997b7e1ac844aa460ccf6a97acfadd660098",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1703",
+      "source_version": 38,
+      "draft_id": "CA-R-1703@39-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-RULE--use-implementation-overview-as-a-projection.md",
+      "source_sha256": "7edac7ff5184801733b0ee7a6a3ac2702db5c76b2942118fe4a5827c110cba8d",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1703@39-draft.md",
+      "draft_sha256": "c56d031477d65e09b595ba9eee00b12b69d44d4a6320ded2e7daeacd2dcaca9b",
+      "mapping": {
+        "Entity/Aspect/Engineering/Traceability": "Aspects <+ Engineering <+ Traceability"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1713",
+      "source_version": 26,
+      "draft_id": "CA-R-1713@27-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1713-CORE_META_MODEL-RULE--keep-confidence-subordinate-to-authority.md",
+      "source_sha256": "a49dcc076316c095cebba492980c8cbced7c8287bb0dbf484894c558954f6f79",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1713@27-draft.md",
+      "draft_sha256": "17ad9a9ba57265fcf380b55c97b83b494d75a2cf563111a226531fb878f9bfe3",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1717",
+      "source_version": 29,
+      "draft_id": "CA-R-1717@30-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1717-CORE_META_MODEL-RULE--keep-data-stages-orthogonal-to-artifact-semantics.md",
+      "source_sha256": "a0864a2bf97ceabeef7c5285b25db5ecd13cbb2aec091a346e105ce1253a6ff7",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1717@30-draft.md",
+      "draft_sha256": "9df2c4f1ee2b1702611b500e22df230c9131e69e41150b32a4efacc5cdb12c19",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Data Transformation": "Aspects <+ Engineering <+ Data Handling <+ Data Transformation"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1736",
+      "source_version": 31,
+      "draft_id": "CA-R-1736@32-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1736-PROJECT_CONFIGURATION-RULE--define-the-caprmedio-expansion.md",
+      "source_sha256": "c1093098efc48d53200e6807ee19f61ce911e12a16ce068e1b3267a02c767d95",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1736@32-draft.md",
+      "draft_sha256": "f172dea6e17d0cf6c8ebc6534096944c970ec9affcad628e708f1275526b18da",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1742",
+      "source_version": 27,
+      "draft_id": "CA-R-1742@28-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1742-CORE_META_MODEL-RULE--realize-recurrence-evaluation-through-implementation.md",
+      "source_sha256": "86d9e3cfea0c77ee111786dd34dc94fa414e08e0f55c16b7653bae93d5784548",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1742@28-draft.md",
+      "draft_sha256": "00df42fde1756fa353be1569faf0800317b2bd581b570a361af930915e3e2d60",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification": "Aspects <+ Engineering <+ Verification"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1755",
+      "source_version": 27,
+      "draft_id": "CA-R-1755@28-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1755-CORE_META_MODEL--bound-extension-applicability.md",
+      "source_sha256": "f4edb6b83c104718d5a2d5b599d79499aa7f890e9aece53b6bacbe98b4ae0e7f",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1755@28-draft.md",
+      "draft_sha256": "cbc305ef24ca6df3356479f32beb91f9a39a491fe6c8aba33e18dd86c8a2f26d",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1769",
+      "source_version": 33,
+      "draft_id": "CA-R-1769@34-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1769-PROJECT_CONFIGURATION-RULE--select-methodology-source-revisions-explicitly.md",
+      "source_sha256": "e342565129a34cced83c9538d1d9278d5449581525a5792a59e8d24da6f47807",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1769@34-draft.md",
+      "draft_sha256": "219fdb94aa07f11373565c0f7454fa85fabc647fd9fc5459e450d3398e19e40e",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Source Selection": "Aspects <+ Engineering <+ Data Handling <+ Source Selection"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1772",
+      "source_version": 35,
+      "draft_id": "CA-R-1772@36-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1772-CORE_META_MODEL-RULE--minimal-default-project-model.md",
+      "source_sha256": "61dc66c90b07531651f11aec8cbcda0eb8efa58118f87d91eeb96c08dacee048",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1772@36-draft.md",
+      "draft_sha256": "e3eaa5e8fd4110a8803ad9705a75b948f665858f1c9c54a19b7cda4a450353db",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1776",
+      "source_version": 38,
+      "draft_id": "CA-R-1776@39-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1776-CORE_META_MODEL-RULE--separate-graph-dimensions.md",
+      "source_sha256": "188a90c7c7e09e1361ca84c967d183f4cbada254d1da3bd4a54b8fad57d4d466",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1776@39-draft.md",
+      "draft_sha256": "327478826bbe1a6d2a205ba23dc2f98f2bcdaf810386e7c4cacb6dae946ea877",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1778",
+      "source_version": 27,
+      "draft_id": "CA-R-1778@28-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1778-PROJECT_CONFIGURATION-RULE--name-the-framework-caprmedio.md",
+      "source_sha256": "ed8947de4c2d2f4247b6f281169d309468c8db1127876cf024a8f1b1782d4ffb",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1778@28-draft.md",
+      "draft_sha256": "5360921102670b8c24e08ac01c2f7afdf02de6d152d2b269432643a5697160ac",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1779",
+      "source_version": 15,
+      "draft_id": "CA-R-1779@16-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1779-PROJECT_CONFIGURATION-RULE--require-production-logging-policies.md",
+      "source_sha256": "db6c617d29c29a291961a3bb26fc1f1e54e03775d7d7ff2ab69adb3f267edd8d",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1779@16-draft.md",
+      "draft_sha256": "09641ad7ecb8b24e20ff2abe5e177ad1f0cedc00b914b2e3f75f3d701bc08308",
+      "mapping": {
+        "Entity/Aspect/Engineering/Observability/Logging": "Aspects <+ Engineering <+ Observability <+ Logging"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1780",
+      "source_version": 11,
+      "draft_id": "CA-R-1780@12-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1780-PROJECT_CONFIGURATION-RULE--define-production-log-severity-meanings.md",
+      "source_sha256": "ce37cc1dd09c10fd15c8e44eda5fb8b9804a6d12fe410c5dc12c772d1429516a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1780@12-draft.md",
+      "draft_sha256": "d4b39dbca1dd35a37e1e4ff5abd11d425030f0692d606d02bdbf11600bb87076",
+      "mapping": {
+        "Entity/Aspect/Engineering/Observability/Logging": "Aspects <+ Engineering <+ Observability <+ Logging"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1781",
+      "source_version": 12,
+      "draft_id": "CA-R-1781@13-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1781-PROJECT_CONFIGURATION-RULE--bound-high-frequency-info-logging.md",
+      "source_sha256": "17ddecad8c0a615b4bbdf9b1aa106d833fa1bfd7ff656abd1566895c364c7b57",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1781@13-draft.md",
+      "draft_sha256": "e779ecae1a60f3bc0df2447b54ee88f5d83463530edb47373dd8336e81081d67",
+      "mapping": {
+        "Entity/Aspect/Engineering/Observability/Logging": "Aspects <+ Engineering <+ Observability <+ Logging"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1782",
+      "source_version": 13,
+      "draft_id": "CA-R-1782@14-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1782-PROJECT_CONFIGURATION-RULE--control-production-debug-enablement.md",
+      "source_sha256": "50d66c1b8c37cd8a2aedf0eb38e97c40946fe080bf62e21bfd80c8a0a1919cef",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1782@14-draft.md",
+      "draft_sha256": "d3abc22c3b3db3f1f647e1643b4810ddcde4aeb4223ec26babd57ba551e6338c",
+      "mapping": {
+        "Entity/Aspect/Engineering/Observability/Logging": "Aspects <+ Engineering <+ Observability <+ Logging"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1783",
+      "source_version": 11,
+      "draft_id": "CA-R-1783@12-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1783-PROJECT_CONFIGURATION-RULE--require-production-logging-lifecycle-settings.md",
+      "source_sha256": "7fbf0b3b993a3d704d9fd856b2615d9bae771e66d825e9a1aaa5a18c6358eee3",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1783@12-draft.md",
+      "draft_sha256": "508f93196fcf612827bfd2e5d190313b66c23238597d673f6f3d6ba55c40b15c",
+      "mapping": {
+        "Entity/Aspect/Engineering/Observability/Logging": "Aspects <+ Engineering <+ Observability <+ Logging"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1784",
+      "source_version": 11,
+      "draft_id": "CA-R-1784@12-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1784-PROJECT_CONFIGURATION-RULE--protect-primary-operations-from-logging-failure.md",
+      "source_sha256": "3dd1f4669c5f19c4fc980d55569d8ed361d5f5d6a1e38a1c88bf4605cdc8ae27",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1784@12-draft.md",
+      "draft_sha256": "bb23ab569a1f3e21db06977159275cc8e67b73fcbd0e28005c1514af9cad0e05",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Failure Handling": "Aspects <+ Engineering <+ Execution Control <+ Failure Handling"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1785",
+      "source_version": 12,
+      "draft_id": "CA-R-1785@13-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1785-PROJECT_CONFIGURATION-RULE--make-required-production-record-loss-observable.md",
+      "source_sha256": "7a257ed1ca9bd65bfc638848193abcd80141b8097406c1c9770c0838bf66c4c0",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1785@13-draft.md",
+      "draft_sha256": "de687ae4a61dc9924329a322d81dd87b68f86a0304df4d046f3899e2013d5d37",
+      "mapping": {
+        "Entity/Aspect/Engineering/Observability": "Aspects <+ Engineering <+ Observability",
+        "Entity/Aspect/Engineering/Observability/Logging": "Aspects <+ Engineering <+ Observability <+ Logging"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1786",
+      "source_version": 11,
+      "draft_id": "CA-R-1786@12-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1786-PROJECT_CONFIGURATION-RULE--require-monitors-for-important-production-health-signals.md",
+      "source_sha256": "d48821a54c07d5ad4744c8b39efd52613ed10d96de85e255c3ff5a1a1d7136f5",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1786@12-draft.md",
+      "draft_sha256": "8812e519a7465eaeacefb9869a036bbd05d5cc33b3251ac68ba03cd59a04252f",
+      "mapping": {
+        "Entity/Aspect/Engineering/Observability/Monitoring": "Aspects <+ Engineering <+ Observability <+ Monitoring"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1787",
+      "source_version": 11,
+      "draft_id": "CA-R-1787@12-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1787-PROJECT_CONFIGURATION-RULE--exclude-log-prose-as-sole-production-evaluation-evidence.md",
+      "source_sha256": "62c6230b6f127b61e3c37ec8578f2ffdf51f4548386b188297380b210960e349",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1787@12-draft.md",
+      "draft_sha256": "685a3d8a3aab2fdb593d30435ba18f850fb42fac888e35d102b719835bae68db",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification": "Aspects <+ Engineering <+ Verification"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1795",
+      "source_version": 12,
+      "draft_id": "CA-R-1795@13-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1795-PROJECT_CONFIGURATION-RULE--reconcile-development-backlog-candidates-after-release.md",
+      "source_sha256": "fe21bd9ccd3a65b0b1d48fddc26248ed4ec95bbf00a26abb75dbaf1db4175e65",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1795@13-draft.md",
+      "draft_sha256": "9c146c314b3d7587ab4d3cea9ea03c986c8ee101250d4b2d775e0f67a789db3e",
+      "mapping": {
+        "Entity/Aspect/Engineering": "Aspects <+ Engineering"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1796",
+      "source_version": 12,
+      "draft_id": "CA-R-1796@13-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1796-PROJECT_CONFIGURATION-RULE--record-development-backlog-reconciliation-in-journal-after-release-record-acceptance.md",
+      "source_sha256": "add6047c7705824752d69cc6ab366c90b2cebad35996aa8fa4efd728ea19cb7a",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1796@13-draft.md",
+      "draft_sha256": "a5ce12650ab7c5e597b33a17739c3875d65fe833b4341c703fdbce4473559477",
+      "mapping": {
+        "Entity/Aspect/Engineering": "Aspects <+ Engineering"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1798",
+      "source_version": 13,
+      "draft_id": "CA-R-1798@14-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1798-PROJECT_CONFIGURATION-RULE--preserve-development-backlog-reconciliation-history-after-release-record-acceptance.md",
+      "source_sha256": "c0d90d2dfaaae4703b57764b5b0db057541b38e5adb4979fb482929c5280f909",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1798@14-draft.md",
+      "draft_sha256": "5735881cefa21eadeb1138fb964b0301e6934168e8cc40a3bcc76210aa180753",
+      "mapping": {
+        "Entity/Aspect/Engineering": "Aspects <+ Engineering"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1799",
+      "source_version": 18,
+      "draft_id": "CA-R-1799@19-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1799-RULE--provide-capabilities-without-forcing-their-execution.md",
+      "source_sha256": "103bc30cb4abaee817b1661169edc872655c9b0d29065e4d8520ea21baac7b79",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1799@19-draft.md",
+      "draft_sha256": "ffb82b669fbc518112495386d4637b4808cdbc00becf1dee4c8ae5fc2c2c07ec",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-1800",
+      "source_version": 17,
+      "draft_id": "CA-R-1800@18-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1800-PROJECT_CONFIGURATION-RULE--bind-every-tool-to-one-methodology-action.md",
+      "source_sha256": "ae82716c1cb1cb2de0d6f35f47d37b7274e8fd92096ba6b271e18d630da10b2e",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-1800@18-draft.md",
+      "draft_sha256": "ef75c2f14728e83492419b8ef6b8cf3d2bac757d74648ae6f90c311ec8ebe51f",
+      "mapping": {
+        "Entity/Aspect/Engineering/Architecture/Component Structure": "Aspects <+ Engineering <+ Architecture <+ Component Structure",
+        "Entity/Aspect/Engineering": "Aspects <+ Engineering"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-2158",
+      "source_version": 10,
+      "draft_id": "CA-R-2158@11-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-2158-RULE--ai-agents-act-within-permission.md",
+      "source_sha256": "d5520374dc4e3ec3d69db53ab0570d15d8f2acfadca1671e68ec5226011201af",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-2158@11-draft.md",
+      "draft_sha256": "0eed62e50124a1ed06d8211829ae90003e81fd28a58b60e3a5bf9d9530eda20f",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-2276",
+      "source_version": 4,
+      "draft_id": "CA-R-2276@5-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "source_sha256": "ac92d139e8ac52bb98807c937954d5935f734943afbb0a82c74e205a1970e376",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-2276@5-draft.md",
+      "draft_sha256": "2634378867cc101c8f2136e8d9ea7a039c27414a210f7cf5308e529e0317296c",
+      "mapping": {
+        "Entity/Aspect/Engineering/Authoring/Controlled English": "Aspects <+ Engineering <+ Authoring <+ Controlled English"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-2425",
+      "source_version": 2,
+      "draft_id": "CA-R-2425@3-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2425-CORE_META_MODEL-RULE--reserve-project-wide-invariant-conflict-resolution-to-the-operator.md",
+      "source_sha256": "fc9e3c68f18b39870cc8243fb381f48934b9bc1bbb0d7222610d62b60a42f978",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-2425@3-draft.md",
+      "draft_sha256": "327d661c277fa3c6e014e8dd13c507efe9e7c103dfe5a9f8ea69d44287cb831f",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization",
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-2444",
+      "source_version": 3,
+      "draft_id": "CA-R-2444@4-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-2444-CAPRMEDIO-SCOPE_CONTRACT-GOAL--collect-input-from-other-caprmedio-users.md",
+      "source_sha256": "d6895c61cb65628c06853fcbc6477652da22d6181b2fdf0819ac2435b96f1416",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-2444@4-draft.md",
+      "draft_sha256": "65ebec09755747c9e0ccb347bb590d96ded5944d36b57572d4505d147127323f",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-2445",
+      "source_version": 3,
+      "draft_id": "CA-R-2445@4-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-2445-CAPRMEDIO-SCOPE_CONTRACT-GOAL--catalog-externally-maintained-extension-packages.md",
+      "source_sha256": "79445043850e0a259c1d5c3c224cf34af433aebe86cd94cb832033c48a3e01df",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-2445@4-draft.md",
+      "draft_sha256": "d9112c998852b76657e67de3977712990cc1fbf30c0fdc3e16791b13f2d5661f",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-2448",
+      "source_version": 3,
+      "draft_id": "CA-R-2448@4-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-2448-CAPRMEDIO-SCOPE_CONTRACT-GOAL--keep-valuable-project-information-recoverable.md",
+      "source_sha256": "4087b7eca3f33fb99595310dcb184460617952e1c4052c9694e4fe917e30419f",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-2448@4-draft.md",
+      "draft_sha256": "70e6c11d7141d2172b8697fba2f1cf930bb029ece24efc783e72c2bdd3098407",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-2452",
+      "source_version": 2,
+      "draft_id": "CA-R-2452@3-draft",
+      "source_path": ".caprmedio_caprmedio/CA-R-2452-ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-caprmedio--create-and-evolve-a-working-caprmedio-framework.md",
+      "source_sha256": "a0562baccfa0a2ad73adf477dd381cebd312dec45f2537d6bf46da795b880ff5",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-2452@3-draft.md",
+      "draft_sha256": "2b54eaf1598d581e8855bd75bd5f62ff62bb1ce4f52424239e1decc98b2936e7",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-380",
+      "source_version": 42,
+      "draft_id": "CA-R-380@43-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL--configure-the-semantic-resolution-confidence-default.md",
+      "source_sha256": "3298a038c86dc8c2ecf42512a055307c280147a671b5ad0d867ae423abd7a8eb",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-380@43-draft.md",
+      "draft_sha256": "f4d16e266a31a4a057c9c6de94b3c5b912c99ac7010c54de66ffb8c974cfddfd",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Decision Confidence": "Aspects <+ Engineering <+ Execution Control <+ Decision Confidence"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-622",
+      "source_version": 32,
+      "draft_id": "CA-R-622@33-draft",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-622-PROJECT_CONFIGURATION-RULE--keep-selected-settings-in-their-authoritative-settings-artifact.md",
+      "source_sha256": "b007fcd12aace49bb80b00e20b3be8a2c812eb6881d3e5b7cbe19ff779b5f363",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-622@33-draft.md",
+      "draft_sha256": "b9afffdb3aabd06c71abcd567672c34188ea3fcea073fbd59591999e4b1f1182",
+      "mapping": {
+        "Entity/Aspect/Engineering/Data Handling/Source Selection": "Aspects <+ Engineering <+ Data Handling <+ Source Selection"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-632",
+      "source_version": 27,
+      "draft_id": "CA-R-632@28-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-632-RULE--distinguish-framework-and-project-improvement-targets.md",
+      "source_sha256": "02d2ccf5787b3cc63060e87c293e093463a80657187ed4799b299ecc02cc6b70",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-632@28-draft.md",
+      "draft_sha256": "0d6eadcc3cf2b6e1ae3570cb412c1782f7685071ff4199e7d48bd9ca5e2c7813",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-633",
+      "source_version": 19,
+      "draft_id": "CA-R-633@20-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-633-RULE--target-framework-improvement-at-the-operating-framework.md",
+      "source_sha256": "68f634b60924de1ed08fad48da97c69f04e736cd1975d6f19db3ba263c47a306",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-633@20-draft.md",
+      "draft_sha256": "6b03993110ec7d17589e0198e65cb4e4dd7074237014da3464d533ce5dede8fa",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-634",
+      "source_version": 20,
+      "draft_id": "CA-R-634@21-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-634-RULE--target-project-improvement-at-the-system-being-developed.md",
+      "source_sha256": "1687db64fb68888d64dc3f9e75543fd4e091e00c0b1310e70b542843d0908607",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-634@21-draft.md",
+      "draft_sha256": "c69543f42f1ccd568de03534fe2e65ec293446c0dee0cc7cf299f24221aa6f6b",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-637",
+      "source_version": 13,
+      "draft_id": "CA-R-637@14-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-637-RULE--establish-recurrence-protection.md",
+      "source_sha256": "7a19000679cc5b41afab2dd39703e2d105548816073dd1ebc41dc905f372a6b5",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-637@14-draft.md",
+      "draft_sha256": "0cab99708745507048d16566f8194ea3e408ce5db3af622f30d2afe64d396b81",
+      "mapping": {
+        "Entity/Aspect/Engineering/Verification": "Aspects <+ Engineering <+ Verification"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-686",
+      "source_version": 30,
+      "draft_id": "CA-R-686@31-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-686-RULE--separate-core-extension-and-project-configuration-authority.md",
+      "source_sha256": "3d77ba778db00bc686c11c254c39467268daa1e9b96b28908bc94d1869d194a1",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-686@31-draft.md",
+      "draft_sha256": "59a3c2f2e553cae4fa794c5b3af83fd9b41b38f04c003ede4ca9272b227cf4b6",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-815",
+      "source_version": 33,
+      "draft_id": "CA-R-815@34-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-815-GOAL--follow-the-operator-s-priorities.md",
+      "source_sha256": "b5dd654ddc0c556c129ac0d727db42efb4589505c578490a12a76e94dec4785d",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-815@34-draft.md",
+      "draft_sha256": "db218fd08b9d6bf6b14041c7271a49cfea8c5f57cce4dedc9b481eef0b55a8af",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-818",
+      "source_version": 26,
+      "draft_id": "CA-R-818@27-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-818-GOAL--help-operators-optimize-the-active-rule-set.md",
+      "source_sha256": "ae343eafac57914c46237945730b134dbfce56d5b2eda0ce28e76267e587260b",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-818@27-draft.md",
+      "draft_sha256": "6745d831f26512b4aef23eed87495b7ca77e9213ee87724d676fad91d71012e4",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-819",
+      "source_version": 36,
+      "draft_id": "CA-R-819@37-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-819-CAPRMEDIO-SCOPE_CONTRACT-RULE--do-not-require-human-participants-to-master-or-personally-perform-specialist-work.md",
+      "source_sha256": "04eb8447bd9d3335ee445dff6485e5951c5685f13e105c369a2b197e617a72f7",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-819@37-draft.md",
+      "draft_sha256": "f75a74227c3994b836e4acd0b46126885065af76c9440be9bca7981dffe5e817",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-826",
+      "source_version": 19,
+      "draft_id": "CA-R-826@20-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-826-BOUNDARY--codex-native-support-only.md",
+      "source_sha256": "c0ab82fb78019c66fc19b4d7fa5f295549f43b9b10f5d621f4e51590c38e0d46",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-826@20-draft.md",
+      "draft_sha256": "07c9cb4f6df2d2b05fc426b7e0405758e59fad19130c930cd8e46db2f502e090",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-827",
+      "source_version": 30,
+      "draft_id": "CA-R-827@31-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-827-BOUNDARY--keep-the-project-under-operator-control.md",
+      "source_sha256": "a88f5a385635569e6e26c92364dfe72668d80a2ee8a722c7021b3113830b2329",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-827@31-draft.md",
+      "draft_sha256": "a46746efe66ab912cbc931ef518210163d030c63778721761addcdb723c47670",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-831",
+      "source_version": 26,
+      "draft_id": "CA-R-831@27-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-831-RULE--add-reusable-capabilities-through-extensions.md",
+      "source_sha256": "fc6fc03f8e61e100c7590d2fef5338bdbc8f3e661a3f8684760a5c398c21ad38",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-831@27-draft.md",
+      "draft_sha256": "e086046b444fcb34c23d83bb80a0fcf85dd4e4a4381a75019bf86d155803e0d1",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-832",
+      "source_version": 33,
+      "draft_id": "CA-R-832@34-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-832-GOAL--select-optional-capabilities-through-configuration.md",
+      "source_sha256": "6307c18bf0a3ffa0d750d5dcecec3e2db6b4d2bc97a8cee8edc974ebca070537",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-832@34-draft.md",
+      "draft_sha256": "e1573e6a951adda233e812d28e3a8700bc70ea64d42e9091ecb1fa475d90e059",
+      "mapping": {
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    },
+    {
+      "source_id": "CA-R-846",
+      "source_version": 29,
+      "draft_id": "CA-R-846@30-draft",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-846-GOAL--let-the-operator-control-ai-permissions.md",
+      "source_sha256": "dfd8ae6b134f87b132b0a13f1bd35102fc9708501c9a6e9c2574498a7568a055",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/consumers/drafts/CA-R-846@30-draft.md",
+      "draft_sha256": "f1d0eb6b95abe056c364915965cda8c6c20b08e98c381b28d0ddcf8be8056b47",
+      "mapping": {
+        "Entity/Aspect/Engineering/Execution Control/Effect Authorization": "Aspects <+ Engineering <+ Execution Control <+ Effect Authorization",
+        "Entity/Aspect/Product: CAPRMEDIO Framework": "Aspects <+ Product"
+      },
+      "body_old_address_hits": [],
+      "body_unchanged": true
+    }
+  ]
+}

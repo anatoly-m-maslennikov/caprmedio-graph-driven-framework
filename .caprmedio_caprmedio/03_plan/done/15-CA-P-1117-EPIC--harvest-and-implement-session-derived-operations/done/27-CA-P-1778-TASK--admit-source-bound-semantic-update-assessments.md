@@ -9,13 +9,13 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 10
-updated_at: 2026-10-25 17:32:27 +0400
+version: 11
+updated_at: 2026-11-02 15:49:28 +0400
 subjects:
   governs: Subject/Graph Node/Engineering/Implementation
   depends_on:
   - Subject/Graph Node/Engineering/Implementation
-  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis'
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis & Advisory'
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Engineering/Permission

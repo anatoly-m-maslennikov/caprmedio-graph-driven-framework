@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "scope": "Semantic review of the three C627 consumer Drafts against their pinned Current predecessors and the accepted C627 model packet. This review does not establish Current publication, runtime, projection, parser, solver, or evaluator conformance.",
+  "accepted_model_packet": {
+    "model_manifest_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/manifest.json",
+    "model_manifest_sha256": "c96a5e8f8b2fba2b08b64d242edd8dd8e1caf5f5d85b0b3ab2766d98fbc4366f",
+    "step_draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2465@3-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+    "step_draft_sha256": "0080349925911cd126a8383e42a67b882e93ed6bd06c27cdf96eda4f37999598",
+    "semantic_gate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/verification/semantic-review.json",
+    "semantic_gate_sha256": "032d46769328af2ec07b67ad4cbdb4b4bb42459a436bb46324eb57ad3093e8e8"
+  },
+  "reviewed_consumer_artifacts": {
+    "manifest_sha256": "c110df732db3991cf4d4814b76a04e975a180dec141856b6fc7f2d760056d018",
+    "CA-E-500@27-draft": {
+      "source_sha256": "06eed04182fe75b38bef545858a2b6d97f9e4c0bb44e229d4e06f7e50563583a",
+      "candidate_sha256": "39952c680057b7aba974e45af71c4f5226c413fb3fa7ce09be6863d2bb0e3fae"
+    },
+    "CA-E-658@13-draft": {
+      "source_sha256": "4c8c7fe11ec4830af88cd5f36c702c89e6f5304b964768c5b1e6f63d8c976afd",
+      "candidate_sha256": "f42fd594aaf4ebee1327b9081c6d7436fd3673969926f1b4c8565f177ff6966c"
+    },
+    "CA-D-467@27-draft": {
+      "source_sha256": "af72ac2b987162ac7f847bf9e3c45636aecd2c1a0a6445f7a44cc2f7b48a60d2",
+      "candidate_sha256": "ed8af6d185f865d836d7d8f67cf354a7b924a4f670c82a3c138919f8103ab60a"
+    }
+  },
+  "checks": [
+    {
+      "name": "CA-E-658_body_preservation_and_retarget",
+      "status": "PASS",
+      "evidence": "The body after frontmatter is byte-identical to CA-E-658@12. Only successor metadata changes, including evaluation_for CA-R-1569 to CA-R-2465."
+    },
+    {
+      "name": "CA-E-500_and_CA-D-467_essential_coverage",
+      "status": "PASS",
+      "evidence": [
+        "Both retain separate Action carriers outside the Workflow and Step directory tree, no folder-derived Relation/order/inheritance, and existing carrier/status/archive checks.",
+        "Both replace Action-only leaf wording with exactly one Action or Workflow and align the carrier layout to one level of containing Step-to-leaf Substep carriers; nested-Step and Substep directories are rejected.",
+        "Neither adds an outside-tree or other placement ban for a called Workflow; it remains a separately identified referenced Workflow."
+      ]
+    },
+    {
+      "name": "accepted_step_xor_and_binding_sources",
+      "status": "PASS",
+      "evidence": [
+        "The leaf-call XOR and one-level Step-to-leaf-Substep carrier wording match CA-R-2465@3-draft.",
+        "CA-E-500 explicitly allows Action-or-Workflow leaf bindings only from previous Step outputs, enclosing Workflow Run input, or fixed Step values."
+      ]
+    },
+    {
+      "name": "relation_retarget",
+      "status": "PASS",
+      "evidence": "CA-E-500 evaluation_for and CA-D-467 delivery_for retarget CA-R-1569 to CA-R-2465; CA-E-658 retargets evaluation_for CA-R-1569 to CA-R-2465 only."
+    }
+  ],
+  "blockers": [],
+  "not_checked": [
+    "Publication, archive, journal, or Git operations",
+    "Runtime and actual-instance behavior",
+    "Parser, solver, projection, graph-builder, SDK, workflow, fixture, or full evaluator conformance"
+  ]
+}

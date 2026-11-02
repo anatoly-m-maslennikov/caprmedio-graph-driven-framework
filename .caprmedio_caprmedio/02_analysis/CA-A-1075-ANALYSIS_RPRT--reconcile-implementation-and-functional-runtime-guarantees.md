@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1075
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -14,11 +14,26 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Implementation
   - Evaluation
-version: 3
-updated_at: 2026-10-23 03:14:50 +0400
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1357]
-  relates_to: [CA-A-1063, CA-P-1130, CA-C-370, CA-O-016, CA-O-017, CA-O-018, CA-O-020, CA-O-021, CA-O-102, CA-M-261, CA-M-270, CA-M-285, CA-E-389, CA-E-536]
+  analysis_for:
+  - CA-P-1357
+  relates_to:
+  - CA-A-1063
+  - CA-P-1130
+  - CA-C-370
+  - CA-O-016
+  - CA-O-017
+  - CA-O-018
+  - CA-O-020
+  - CA-O-021
+  - CA-O-102
+  - CA-M-261
+  - CA-M-270
+  - CA-M-285
+  - CA-E-389
+  - CA-E-536
 ---
 # Summary
 

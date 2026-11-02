@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1295
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Specification Proposal
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
@@ -8,10 +8,10 @@ status: Done
 author: Anatoly Maslennikov
 subjects:
   governs: Model::CAPRMEDIO::Graph Syntax
-version: 2
+version: 3
 relations: {}
 tier: 3
-updated_at: 2026-10-29 21:51:04 +0400
+updated_at: 2026-11-02 15:49:28 +0400
 ---
 # Summary
 

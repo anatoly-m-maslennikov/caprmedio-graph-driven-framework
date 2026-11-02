@@ -1,13 +1,13 @@
 ---
-version: 23
-updated_at: 2026-11-02 00:18:22 +0400
+version: 25
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-R-815
   method_for:
   - CA-R-815
 subjects:
-  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  active: Aspects <+ Product
   passive:
   - Project
   - Entity/Object/Continuant/Actor/Operator

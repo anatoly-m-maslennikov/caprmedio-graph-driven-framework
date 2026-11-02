@@ -1,0 +1,54 @@
+======================================================================
+ERROR: test_current_declarations_supply_all_release_places (test_methodology_layout.LayoutTests.test_current_declarations_supply_all_release_places)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/tests/test_methodology_layout.py", line 29, in test_current_declarations_supply_all_release_places
+    layout = methodology_layout.resolve_methodology_layout(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/methodology_layout.py", line 44, in resolve_methodology_layout
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+FAIL: test_symlinked_source_ancestor_is_refused (test_methodology_layout.LayoutTests.test_symlinked_source_ancestor_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/tests/test_methodology_layout.py", line 45, in test_symlinked_source_ancestor_is_refused
+    with self.assertRaisesRegex(ValueError, "unsafe"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "unsafe" does not match "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.026s
+
+FAILED (failures=1, errors=1)

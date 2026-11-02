@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "selected_sources": 1134,
+  "affected_sources": 207,
+  "product_sources": 47,
+  "occurrences": {
+    "active": 106,
+    "passive": 147
+  },
+  "legacy_aspect_subjects_remaining": 0,
+  "body_address_hits": 0,
+  "model_narrowing_inventory_unchanged": true,
+  "new_coverage_gaps": 0,
+  "official_projection_write": false,
+  "scoped_diff_check": "PASS",
+  "publication_followup": "format-fix/receipt.json",
+  "journal_records_across_receipts": 210,
+  "final_question_version": 7,
+  "limits": [
+    "No runtime or native STRUCTURE registration validation",
+    "Official projections await separate Role migration; Git publication pending"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "scope": "Read-only artifact gate for six staged projection views against the adopted 1,128-source Current frontier. This does not publish an official projection or establish runtime conformance.",
+  "reviewed_files": {
+    "staging_manifest": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/projection-preparation/stageddocs/staging-manifest.json",
+      "sha256": "e3c6fd7a3914fbba45d641d25dcb30e9ffc3a68736a7efcb8496c08ba48f2a81"
+    },
+    "adopted_current_frontier": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/current-source-frontier.json",
+      "sha256": "086527d582e14ff20a07f8dd382a20d2d5a3da98127e33b5a9e1f4cf675d390b",
+      "operations": 1128
+    },
+    "staged_projections": {
+      "CA-PROJ-014": "ae7899f91204cc5623493a2eab7c65e2e980454ff9fec23ca0bad4fdc4374a12",
+      "CA-PROJ-015": "fc779997677e642cde29e6f65df832c0a79d62f67230ee0e77d0057e661424e0",
+      "CA-PROJ-016": "1eb411b7f1124765573fd7aee3679387f2f2dfeec8fdad9aced493530d5b084e",
+      "CA-PROJ-017": "124d48145d18606f9e08c0c360a99e0de84e0e960ff79a004c52fe6aabad9409",
+      "CA-PROJ-018": "5a84af7e6e20279446f56e4d1c935fa6c9f8ea4c521fda01b5338c3a513a117c",
+      "CA-PROJ-019": "fb0719c16936e78189698117f3af1ac008de45b17079e795db5510467c275b05"
+    }
+  },
+  "checks": [
+    {
+      "name": "pins_and_moved_source_authorities",
+      "status": "PASS",
+      "evidence": "All six staged and six predecessor SHA-256 pins match. All 1,128 adopted-frontier destination paths exist under the moved authorities and match their frontier SHA-256 values."
+    },
+    {
+      "name": "projection_headers_and_source_vectors",
+      "status": "PASS",
+      "evidence": "Every staged header is Projection/Form Map and has no version. CA-PROJ-014/015/016/019 each retain the exact 1,128-item manifest source vector; CA-PROJ-017/018 retain source-vector subsets of that same frontier. The manifest vector and frontier have the same 1,128 unique source identities (their ordering differs only after lexicographic IDs such as CA-R-117 and CA-R-1174)."
+    },
+    {
+      "name": "containment_and_tree_views",
+      "status": "PASS",
+      "evidence": "CA-PROJ-014 contains direct Aspects <+ Product facts and nested Aspects containment chains. CA-PROJ-018's Primary entities tree has no native // instance selector, retaining node-only MODEL-tree semantics."
+    },
+    {
+      "name": "formal_contract_view",
+      "status": "PASS",
+      "evidence": "CA-PROJ-019 has 41 relation sections, each with Semantics and Direct or Derived metadata; it retains 233 fenced raw Claim blocks. Manifest coverage has zero gaps, duplicate declarations, missing relation semantics, instance-kind gaps, and inheritance diagnostics."
+    },
+    {
+      "name": "unsupported_cfel_boundary",
+      "status": "PASS_WITH_BOUNDARY",
+      "evidence": "The view explicitly retains 195 unresolved/unsupported CFEL records. This is source-faithful extraction evidence, not runtime CFEL execution or full evaluator conformance."
+    }
+  ],
+  "blockers": [],
+  "not_checked": [
+    "Official projection publication or predecessor archive/retirement",
+    "Runtime CFEL execution, full evaluator conformance, deployment, or release",
+    "A broad repository audit beyond the staged artifacts and adopted frontier"
+  ]
+}

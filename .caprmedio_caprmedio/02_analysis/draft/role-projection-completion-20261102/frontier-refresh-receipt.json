@@ -1,0 +1,30 @@
+{
+  "status": "APPLIED",
+  "accepted_at": "2026-11-02 20:18:51 +0400",
+  "frontier_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/current-source-frontier.json",
+  "before_sha256": "5f7258daa087843149baa8294d85cd3545b5fdb5627897e4920f1b4328b5c0a9",
+  "sha256": "086527d582e14ff20a07f8dd382a20d2d5a3da98127e33b5a9e1f4cf675d390b",
+  "selection_capture_sha256": "03fd1d716b53e0c6f897dba329dfe7bad336d871e245702f99213ce038a90ca5",
+  "sources": 1128,
+  "coverage": {
+    "candidate_sources": 1128,
+    "bound_sources": 799,
+    "declared_entity_targets": 135,
+    "declared_component_targets": 43,
+    "declared_relation_targets": 41,
+    "shared_sources": 580,
+    "fenced_claim_blocks": 233,
+    "cfel_blocks": 206,
+    "recognized_clauses": 357,
+    "unsupported_clauses": 195,
+    "coverage_gaps": 0,
+    "outside_model_scope_sources": 329,
+    "duplicate_declarations": 0,
+    "missing_relation_semantics": 0,
+    "instance_kind_gaps": 0,
+    "inheritance_diagnostics": 0
+  },
+  "relation_count": 41,
+  "scope": "Current Methodology/direct Project RMED owner scope with receipt-proven replacements and necessary native Scope Unit declarations",
+  "projections_written": false
+}

@@ -1,0 +1,1191 @@
+"""Selected W01--W04 and W09--W15 Docker/MCP golden evidence harness.
+
+This is intentionally an opt-in Docker suite.  With ``CAPRMEDIO_DOCKER_E2E=1``
+it fails on an absent route manifest, MCP registration, shared-run integration,
+or functional evidence; it never turns any of those states into a skip/pass.
+The existing Base Revise Docker tests remain a separate regression suite.
+"""
+from __future__ import annotations
+
+import asyncio
+from contextlib import asynccontextmanager
+import hashlib
+import json
+import os
+from pathlib import Path
+import sys
+import tempfile
+import time
+import unittest
+from typing import Any, AsyncIterator, Mapping
+
+
+APP = Path(__file__).resolve().parents[1]
+ROOT = APP.parents[3]
+TOOLS = APP.parents[1] / "FEATURE_TOOLS"
+sys.path.insert(0, str(APP / "docker"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(TOOLS))
+
+from atom_operations import atom_from_path, frontmatter_scalar  # noqa: E402
+from runtime import Runtime  # noqa: E402
+from subject_notation import get_profile  # noqa: E402
+from current_code_e2e_context import load_test_context  # noqa: E402
+from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier  # noqa: E402
+from frozen_selected_workflows import (  # noqa: E402
+    frozen_behavior_bindings,
+    frozen_graph_authority,
+    frozen_preparation_bindings,
+    frozen_source_bytes,
+)
+from selected_workflows_docker_fixture import (  # noqa: E402
+    GoldenCase,
+    GoldenCorpusError,
+    GoldenProject,
+    FixtureLease,
+    JOURNAL_CASES,
+    ROUTE_CASES,
+    digest,
+    frozen_authority_fixture_bytes,
+)
+
+E2E_CONTEXT = load_test_context(os.environ, ROOT / ".caprmedio_tmp")
+# Native mutation and read-only query cover the shared reconnect transport.
+_RECONNECT_CASES = {"W01", "W15"}
+# The gateway allows 90s for generation readiness and ordinary Tool calls.
+# Keep client bounds above that allowance for process/transport overhead.
+MCP_STARTUP_TIMEOUT_SECONDS = 120
+MCP_CALL_TIMEOUT_SECONDS = 120
+
+
+def _materialize_frozen_bindings(
+    fixture: GoldenProject, bindings: Mapping[str, Mapping[str, Any]]
+) -> None:
+    """Materialize only checked-in source pins into this disposable Project."""
+    for entry in bindings.values():
+        fixture._copy_pinned(Path(entry["source_path"]), entry["sha256"])
+
+
+def _materialize_frozen_frontier(fixture: GoldenProject) -> None:
+    """Materialize the selected carrier frontier at its production paths."""
+    from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
+        _FRONTIER_IDS, _entry,
+    )
+
+    graph = frozen_graph_authority()
+    for identifier in _FRONTIER_IDS:
+        if identifier in graph:
+            continue
+        path = Path(_entry(identifier)["source_path"])
+        fixture._copy_pinned(path, hashlib.sha256(frozen_source_bytes(path)).hexdigest())
+
+
+def _materialize_current_concern_target(fixture: GoldenProject) -> None:
+    """Complete the native target with the owner field relation admission reads."""
+    path = fixture._authority_dir / "CA-R-100--target.md"
+    raw = path.read_text(encoding="utf-8")
+    if "current_scope_unit:" not in raw:
+        path.write_text(
+            raw.replace("content_role: Requirement\n", "content_role: Requirement\ncurrent_scope_unit: PARENT\n"),
+            encoding="utf-8",
+        )
+
+
+def _materialize_approved_grammar(fixture: GoldenProject) -> None:
+    """Place static schema fixtures at the approved profile's exact paths."""
+    for pin in get_profile("approved").grammar_pins:
+        path = fixture.root / pin.path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(frozen_authority_fixture_bytes(pin.atom_id))
+
+
+def _approved_subject_request(target: Path) -> tuple[bytes, dict[str, Any]]:
+    raw = target.read_bytes()
+    return raw, {
+        "operation": "preview_subjects", "subject_profile": "approved",
+        "atoms": [{"atom_id": "CA-R-8602", "version": 3,
+                   "sha256": hashlib.sha256(raw).hexdigest(),
+                   "subject_patches": [{
+                       "field": "governs", "old": "Atom/Test",
+                       "new": "Entity/Workflow//Operations:Daily.Build",
+                   }]}],
+    }
+
+
+def _structured_tool_result(response: Any) -> dict[str, Any]:
+    """Unwrap the installed MCP 2.3 result without inferring JSON from text."""
+    if response.is_error:
+        raise AssertionError(f"MCP Tool returned an error: {response}")
+    if response.result_type != "complete":
+        raise AssertionError(f"MCP Tool returned an incomplete result: {response}")
+    value = response.structured_content
+    if not isinstance(value, dict):
+        raise AssertionError(f"MCP Tool did not return a structured object: {response}")
+    return value
+
+
+def _normalized_source_result(value: object) -> str:
+    """Compare the executor's underscore labels with source-table wording."""
+    if not isinstance(value, str) or not value:
+        raise AssertionError(f"source result condition is invalid: {value!r}")
+    return value.replace(" ", "_")
+
+
+def _w09_admitted_source_edges(root: Path, route: Mapping[str, Any]) -> list[dict[str, str]]:
+    """Read the exact pinned O016 table that supersedes its stale projection."""
+    workflow = route.get("workflow")
+    if not isinstance(workflow, Mapping):
+        raise AssertionError("W09 has no pinned Workflow binding")
+    path, digest = workflow.get("source_path"), workflow.get("digest")
+    if not isinstance(path, str) or not isinstance(digest, str):
+        raise AssertionError("W09 Workflow binding is incomplete")
+    source = root / path
+    raw = source.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != digest:
+        raise AssertionError("W09 Workflow definition changed after admission")
+    lines = raw.decode("utf-8").splitlines()
+    header = "| From Step | Result condition | Next Step **or** terminal result |"
+    indexes = [index for index, line in enumerate(lines) if line.strip() == header]
+    if len(indexes) != 1 or indexes[0] + 1 >= len(lines):
+        raise AssertionError("W09 admitted Workflow table is unavailable")
+    edges: list[dict[str, str]] = []
+    for line in lines[indexes[0] + 2:]:
+        if not line.strip().startswith("|"):
+            break
+        cells = [value.strip() for value in line.strip().strip("|").split("|")]
+        if len(cells) != 3 or not all(cells):
+            raise AssertionError("W09 admitted Workflow table is invalid")
+        edges.append({"from": cells[0], "condition": cells[1], "to": cells[2]})
+    if not edges:
+        raise AssertionError("W09 admitted Workflow table has no edges")
+    return edges
+
+
+@asynccontextmanager
+async def _stdio_client(parameters: Any) -> AsyncIterator[Any]:
+    """One uncached MCP connection, scoped to its disposable Project."""
+    from mcp import Client
+
+    # Docker/bootstrap precedes the gateway's independently bounded child startup.
+    async with Client(
+        parameters, cache=None, mode="legacy", read_timeout_seconds=MCP_STARTUP_TIMEOUT_SECONDS
+    ) as client:
+        yield client
+
+
+async def _stdio_tool_names(client: Any) -> set[str]:
+    """Read the installed SDK's Tool page under the existing call budget."""
+    async with asyncio.timeout(MCP_CALL_TIMEOUT_SECONDS):
+        return {tool.name for tool in (await client.list_tools()).tools}
+
+
+async def _stdio_tool_call(parameters: Any, tool: str, request: dict[str, Any]) -> dict[str, Any]:
+    """A fresh connection for transport checks that explicitly prove reconnect."""
+    async with _stdio_client(parameters) as client:
+        response = await client.call_tool(
+            tool, {"request": request}, read_timeout_seconds=MCP_CALL_TIMEOUT_SECONDS
+        )
+    return _structured_tool_result(response)
+
+
+@unittest.skipUnless(
+    os.environ.get("CAPRMEDIO_DOCKER_E2E") == "1" and E2E_CONTEXT is not None,
+    "requires CAPRMEDIO_DOCKER_E2E=1 and an explicit built image/scratch context",
+)
+class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
+    """One runtime and one disposable Git Project per source-bound route."""
+
+    async def _connect(self, runtime: Runtime, root: Path) -> None:
+        """Complete transport startup before observing any Tool effects."""
+        try:
+            from mcp import StdioServerParameters
+        except ImportError as error:  # exact command must use the declared MCP group
+            self.fail(f"Docker/MCP harness dependency is unavailable: {error}")
+        parameters = StdioServerParameters(
+            command=sys.executable,
+            args=[str(APP / "docker/runtime.py"), "--project-root", str(root), "--image",
+                  E2E_CONTEXT.candidate_image_digest, "--mock", "mcp"],
+        )
+        self.assertEqual(runtime.root, root.resolve(strict=True), "MCP runtime must bind the same fixture")
+        if getattr(self, "_mcp_client", None) is None:
+            self._mcp_context = _stdio_client(parameters)
+            self._mcp_client = await self._mcp_context.__aenter__()
+            self._mcp_root = runtime.root
+        self.assertEqual(self._mcp_root, runtime.root, "MCP client must not cross fixture roots")
+
+    async def _call(self, runtime: Runtime, root: Path, tool: str, request: dict) -> dict:
+        """Reuse one fixture-bound client until an explicit reconnect boundary."""
+        await self._connect(runtime, root)
+        response = await self._mcp_client.call_tool(
+            tool, {"request": request}, read_timeout_seconds=MCP_CALL_TIMEOUT_SECONDS
+        )
+        return _structured_tool_result(response)
+
+    async def _disconnect(self) -> None:
+        if getattr(self, "_mcp_client", None) is not None:
+            try:
+                await self._mcp_context.__aexit__(None, None, None)
+            finally:
+                self._mcp_client = None
+
+    async def _start(self, runtime: Runtime) -> None:
+        try:
+            started = await asyncio.to_thread(runtime.start)
+        except RuntimeError as error:
+            self.fail(f"mock Docker runtime did not start: {error}")
+        self.assertEqual("ready", started.get("outcome"), started)
+        self.assertEqual("mock", started.get("agent_mode"), started)
+
+    async def _stop(self, runtime: Runtime, *, http: bool = False) -> None:
+        try:
+            await self._disconnect()
+        finally:
+            await asyncio.to_thread(runtime.call, "down", "--volumes", http=http, timeout=60)
+
+    def _new_fixture(self, case: GoldenCase) -> tuple[FixtureLease, Path, GoldenProject]:
+        parent = Path(E2E_CONTEXT.scratch_root) / "selected-workflows-docker-e2e"
+        parent.mkdir(parents=True, exist_ok=True)
+        root = Path(tempfile.mkdtemp(dir=parent))
+        fixture = GoldenProject(ROOT, root, case, execution_project_root="/project")
+        return FixtureLease(root), root, fixture
+
+    @staticmethod
+    def _runtime(root: Path) -> Runtime:
+        return Runtime(root, mock=True, image=E2E_CONTEXT.candidate_image_digest)
+
+    async def _preview(self, runtime: Runtime, root: Path, fixture: GoldenProject,
+                       request_id: str) -> dict:
+        # Input preparation belongs to the disposable fixture, not the MCP
+        # preview. Seal the complete request before observing that boundary.
+        request = fixture.request(request_id=request_id)
+        await self._connect(runtime, root)
+        before = fixture.snapshot()
+        records_before = self._recording_snapshot(root)
+        initial_events = self._events(root)
+        result = await self._call(runtime, root, fixture.case.route, request)
+        self.assertEqual("preview", result.get("disposition"), result)
+        self.assertIn("proposal_receipt", result, result)
+        self.assertIn("proposal_receipt_digest", result, result)
+        self.assertEqual(before, fixture.snapshot(), "a preview must not mutate admitted authority")
+        self.assertEqual(records_before, self._recording_snapshot(root), "preview must not write Journal or Run records")
+        self.assertEqual(initial_events, self._events(root), "preview must preserve initial Journal evidence")
+        return result
+
+    async def _preview_for_execution(
+        self, runtime: Runtime, root: Path, fixture: GoldenProject, request_id: str,
+    ) -> dict[str, Any]:
+        preview = await self._preview(runtime, root, fixture, request_id)
+        if fixture.case.case_id in _RECONNECT_CASES:
+            await self._disconnect()
+            reconnected = await self._preview(runtime, root, fixture, request_id)
+            self.assertEqual(preview, reconnected, "preview must survive MCP reconnect unchanged")
+        return preview
+
+    @staticmethod
+    def _recording_snapshot(root: Path) -> dict[str, str]:
+        """Observe canonical Journal and selected/shared recorder files only."""
+        roots = [root / ".caprmedio_caprmedio/_journal", root / ".caprmedio_runtime",
+                 root / ".caprmedio_install/workflow_orchestrator/runs"]
+        snapshot = {}
+        for directory in roots:
+            for path in directory.rglob("*"):
+                if path.is_symlink():
+                    raise AssertionError("preview recording boundary contains a symbolic link")
+                if not path.is_file():
+                    continue
+                if path.name == ".env" or path.name.startswith(".env.") or path.name.endswith(".env"):
+                    raise AssertionError("unexpected environment file in disposable recording boundary")
+                snapshot[path.relative_to(root).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
+        return snapshot
+
+    async def _terminal_status(
+        self, runtime: Runtime, root: Path, run_id: str, *, reconnect: bool = True,
+    ) -> dict:
+        """Observe terminal status; representatives also prove reconnect after enqueue."""
+        if reconnect:
+            await self._disconnect()
+        deadline = time.monotonic() + 75
+        pending = {"queued", "admitted", "started", "running", "pending"}
+        observed: dict = {}
+        while time.monotonic() < deadline:
+            observed = await self._call(
+                runtime, root, "workflow_orchestrator", {"operation": "status", "run_id": run_id}
+            )
+            if observed.get("outcome") not in pending:
+                return observed
+            await asyncio.sleep(0.25)
+        self.fail(f"selected Workflow did not reach a truthful terminal state: {observed}")
+
+    async def _execute_status_case(
+        self, runtime: Runtime, root: Path, fixture: GoldenProject, path: Path,
+        status: str, request_id: str, *, expected_outcome: str = "completed", assert_journal: bool = True,
+    ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+        """Exercise W04 through preview, selected enqueue, and reconnect status."""
+        if expected_outcome not in {"completed", "no_op"}:
+            raise AssertionError(f"unsupported W04 expected terminal outcome: {expected_outcome!r}")
+        preview = await self._call(
+            runtime, root, fixture.case.route,
+            fixture.request_for_status(path, status, request_id=request_id),
+        )
+        self.assertEqual("preview", preview.get("disposition"), preview)
+        execute = fixture.request_for_status(
+            path, status, request_id=request_id, mode="execute",
+            receipt=preview["proposal_receipt"], receipt_digest=preview["proposal_receipt_digest"],
+        )
+        admitted = await self._call(
+            runtime, root, "workflow_orchestrator",
+            {"operation": "enqueue_selected", "run_id": request_id, "execution": execute},
+        )
+        self.assertIn(admitted.get("outcome"), {"queued", "admitted", "started", "running", "pending", "completed"}, admitted)
+        terminal = await self._terminal_status(runtime, root, request_id)
+        self.assertEqual("terminal", terminal.get("disposition"), terminal)
+        self.assertEqual(expected_outcome, terminal.get("outcome"), terminal)
+        selected = terminal.get("selected_result")
+        self.assertIsInstance(selected, dict, terminal)
+        graph = self._graph_result(root, request_id)
+        rows = self._assert_graph_path_and_native_results(
+            root, fixture, request_id, graph, expected_outcome=expected_outcome,
+        )
+        if assert_journal:
+            self._assert_shared_run_journal(
+                root, request_id, self._route_binding(fixture), selected, graph,
+                expected_outcome=expected_outcome,
+            )
+        native = self._action_progress(root, request_id, rows[-1]["action_run_id"]).get("native_result")
+        self.assertIsInstance(native, dict, native)
+        return native, graph, selected
+
+    async def _execute_create_case(
+        self, runtime: Runtime, root: Path, fixture: GoldenProject, carrier: Mapping[str, Any], request_id: str,
+        *, reconnect: bool = True,
+    ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+        """Exercise a selected route through the same preview, enqueue, and reconnect boundary."""
+        preview = await self._call(
+            runtime, root, fixture.case.route, fixture.request_for_create(carrier, request_id=request_id),
+        )
+        self.assertEqual("preview", preview.get("disposition"), preview)
+        execute = fixture.request_for_create(
+            carrier, request_id=request_id, mode="execute",
+            receipt=preview["proposal_receipt"], receipt_digest=preview["proposal_receipt_digest"],
+        )
+        admitted = await self._call(
+            runtime, root, "workflow_orchestrator",
+            {"operation": "enqueue_selected", "run_id": request_id, "execution": execute},
+        )
+        self.assertIn(admitted.get("outcome"), {"queued", "admitted", "started", "running", "pending", "completed"}, admitted)
+        terminal = await self._terminal_status(runtime, root, request_id, reconnect=reconnect)
+        self.assertEqual("terminal", terminal.get("disposition"), terminal)
+        self.assertEqual("completed", terminal.get("outcome"), terminal)
+        selected = terminal.get("selected_result")
+        self.assertIsInstance(selected, dict, terminal)
+        graph = self._graph_result(root, request_id)
+        rows = self._assert_graph_path_and_native_results(root, fixture, request_id, graph)
+        self._assert_shared_run_journal(root, request_id, self._route_binding(fixture), selected, graph)
+        native = self._action_progress(root, request_id, rows[-1]["action_run_id"]).get("native_result")
+        self.assertIsInstance(native, dict, native)
+        return native, graph, selected
+
+    async def _assert_current_concern_targets(
+        self, runtime: Runtime, root: Path, fixture: GoldenProject,
+    ) -> None:
+        targets = (("CA-R-100", "Active"), ("CA-P-8603", "Done"), ("CA-P-8604", "Canceled"))
+        fixture.status_atom("Plan", "Done", number=8603)
+        fixture.status_atom("Plan", "Canceled", number=8604)
+        for index, (target_id, target_status) in enumerate(targets, start=1):
+            carrier = fixture.create_status_carrier("Concern", "Active", number=8600 + index)
+            carrier["frontmatter"] = carrier["frontmatter"].replace(
+                "relations: {}", f"relations:\n  concern_about: [{target_id}]",
+            )
+            native, _graph, _selected = await self._execute_create_case(
+                runtime, root, fixture, carrier,
+                f"p2437-concern-current-{target_status.casefold()}",
+            )
+            self.assertEqual("applied", native.get("outcome"), native)
+            observed_path = root / native["observed"]["path"]
+            observed = atom_from_path(root, observed_path)
+            metadata = parse_carrier(observed_path.read_bytes(), observed_path).metadata
+            self.assertEqual(f"CA-C-{8600 + index}", observed.atom_id)
+            self.assertEqual([target_id], metadata["relations"]["concern_about"])
+            self.assertEqual("Active", frontmatter_scalar(observed.frontmatter, "status"))
+
+    async def _assert_subject_stage(
+        self, runtime: Runtime, root: Path, target: Path,
+    ) -> None:
+        raw, request = _approved_subject_request(target)
+        await self._connect(runtime, root)
+        self.assertIn("atom_update", await _stdio_tool_names(self._mcp_client))
+        preview = await self._call(runtime, root, "atom_update", request)
+        self.assertEqual("preview_subjects", preview.get("operation"), preview)
+        self.assertEqual([], preview.get("errors"), preview)
+        sealed = preview["preview"]
+        staged = await self._call(
+            runtime, root, "atom_update",
+            {**request, "operation": "stage_subjects",
+             "preview_sha256": sealed["preview_sha256"],
+             "illustrative_updated_at": sealed["illustrative_updated_at"]},
+        )
+        self.assertEqual("stage_subjects", staged.get("operation"), staged)
+        self.assertEqual([], staged.get("errors"), staged)
+        self.assertTrue(staged["staging"]["staging_only"], staged)
+        self.assertEqual(raw, target.read_bytes(), "Subject staging changed the canonical source")
+
+    def _assert_status_admission_blocked(self, result: Mapping[str, Any]) -> None:
+        """Require the source-declared refusal carrier, not an MCP exception."""
+        self.assertEqual("blocked", result.get("disposition"), result)
+        self.assertEqual("blocked", result.get("outcome"), result)
+        self.assertEqual([], result.get("effect_refs"), result)
+        lifecycle_error = result.get("lifecycle_error")
+        self.assertIsInstance(lifecycle_error, Mapping, result)
+        self.assertEqual("status-unadmitted", lifecycle_error.get("code"), result)
+        self.assertNotIn("proposal_receipt", result)
+        self.assertNotIn("proposal_receipt_digest", result)
+
+    @staticmethod
+    def _read_json(path: Path, *, label: str) -> dict[str, Any]:
+        try:
+            value = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as error:
+            raise AssertionError(f"{label} is absent or not JSON: {path}") from error
+        if not isinstance(value, dict):
+            raise AssertionError(f"{label} must be a JSON object: {path}")
+        return value
+
+    @staticmethod
+    def _safe_existing_ref(root: Path, reference: object, *, label: str) -> Path:
+        if not isinstance(reference, str) or not reference:
+            raise AssertionError(f"{label} must be a non-empty repository-relative reference: {reference!r}")
+        relative = Path(reference)
+        if relative.is_absolute() or ".." in relative.parts:
+            raise AssertionError(f"{label} escapes the disposable Project: {reference!r}")
+        path = root / relative
+        if not path.is_file():
+            raise AssertionError(f"{label} does not name an existing file: {reference!r}")
+        return path
+
+    @staticmethod
+    def _route_binding(fixture: GoldenProject) -> dict[str, Any]:
+        if fixture.manifest is None:
+            raise AssertionError("the golden fixture has no frozen manifest")
+        route = next((row for row in fixture.manifest["routes"] if row.get("route") == fixture.case.route), None)
+        if not isinstance(route, dict):
+            raise AssertionError(f"the frozen manifest has no binding for {fixture.case.route}")
+        return route
+
+    def _graph_result(self, root: Path, run_id: str) -> dict[str, Any]:
+        return self._read_json(
+            root / ".caprmedio_install/workflow_orchestrator/runs" / run_id / "graph_result.json",
+            label="selected graph result",
+        )
+
+    def _action_progress(self, root: Path, run_id: str, action_run_id: object) -> dict[str, Any]:
+        if not isinstance(action_run_id, str):
+            raise AssertionError(f"selected action run identity is invalid: {action_run_id!r}")
+        return self._read_json(
+            root / ".caprmedio_install/workflow_orchestrator/runs" / run_id / f"{action_run_id}.json",
+            label="native Action progress",
+        )
+
+    def _w10_native_result(
+        self, root: Path, request_id: str, graph: Mapping[str, Any]
+    ) -> dict[str, Any]:
+        rows = [row for row in graph["step_results"] if row["action_definition_id"] == "CA-O-131"]
+        self.assertEqual(1, len(rows), rows)
+        native = self._action_progress(root, request_id, rows[0]["action_run_id"])["native_result"]
+        self.assertIsInstance(native, dict, native)
+        return native
+
+    def _assert_w10_lifecycle_effect(self, root: Path, effect: Mapping[str, Any]) -> None:
+        binding = effect["capability_binding"]
+        self.assertEqual("lifecycle.update_atom", binding["capability_id"])
+        receipt = effect["receipt"]
+        self.assertEqual(binding["capability_id"], receipt["capability_id"])
+        self.assertEqual(binding["evidence_refs"], receipt["evidence_refs"])
+        native = receipt["native_result"]
+        self.assertEqual("applied", native["outcome"], native)
+        self.assertEqual(effect["expected_result_hash"], hashlib.sha256(
+            json.dumps(native["observed"], sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest(), native)
+        current_before = native["history"]["prior"]
+        self.assertEqual(effect["expected_current_hash"], digest(current_before))
+        prior = native["history"]["prior_revision"]
+        archived = self._safe_existing_ref(root, prior["path"], label="W10 prior lifecycle revision")
+        self.assertEqual(prior["digest"], hashlib.sha256(archived.read_bytes()).hexdigest())
+
+    def _assert_w10_effect_refs(
+        self,
+        root: Path,
+        request_id: str,
+        native: Mapping[str, Any],
+        references: object,
+    ) -> None:
+        frozen = self._read_json(
+            root
+            / ".caprmedio_install/workflow_orchestrator/runs"
+            / request_id
+            / "selected_request.json",
+            label="W10 frozen request",
+        )
+        approved = frozen["request"]["execution"]["parameters"]["approved_reversal_manifest"]
+        self.assertEqual(approved["manifest_id"], native["manifest_id"], native)
+        self.assertEqual("reverted", native["outcome"], native)
+        expected = approved["request"]["ordered_effects"]
+        account = native["effect_account"]
+        self.assertEqual(len(expected), account["applied_effect_count"], native)
+        self.assertEqual(len(expected), len(account["effects"]), native)
+        for selected, effect in zip(expected, account["effects"]):
+            self.assertEqual(
+                selected,
+                {key: value for key, value in effect.items() if key not in {"status", "receipt"}},
+            )
+            self.assertEqual("completed", effect["status"], effect)
+            self._assert_w10_lifecycle_effect(root, effect)
+        # These are logical completed-effect keys, not fabricated file carriers.
+        self.assertEqual(
+            [
+                f".caprmedio_runtime/revert_changes/{native['manifest_id']}:terminal/{effect['effect_id']}"
+                for effect in expected
+            ],
+            references,
+        )
+
+    def _assert_terminal_refs(
+        self,
+        root: Path,
+        request_id: str,
+        definition_id: str,
+        terminal: Mapping[str, Any],
+        reversal: Mapping[str, Any] | None,
+    ) -> None:
+        if reversal is not None and definition_id == "CA-O-131":
+            self.assertEqual(
+                f".caprmedio_runtime/revert_changes/{reversal['manifest_id']}:terminal.json",
+                terminal.get("result_ref"),
+            )
+            for key in ("run_id", "disposition", "outcome", "result_ref", "effect_refs"):
+                self.assertEqual(reversal["run_receipt_refs"][-1][key], terminal[key])
+        else:
+            self._safe_existing_ref(root, terminal.get("result_ref"), label="terminal result")
+        effects = terminal.get("effect_refs")
+        self.assertIsInstance(effects, list, terminal)
+        if reversal is not None:
+            self._assert_w10_effect_refs(root, request_id, reversal, effects)
+        else:
+            for effect in effects:
+                self._safe_existing_ref(root, effect, label="terminal effect")
+
+    def _assert_shared_run_journal(
+        self,
+        root: Path,
+        request_id: str,
+        route: Mapping[str, Any],
+        selected: Mapping[str, Any],
+        graph: Mapping[str, Any],
+        *,
+        expected_outcome: str = "completed",
+    ) -> None:
+        """Bind J01--J08 to actual per-Run records, never marker presence."""
+        rows = graph.get("step_results")
+        self.assertIsInstance(rows, list, graph)
+        self.assertTrue(rows, graph)
+        expected_run_ids = [request_id]
+        expected_definitions: dict[str, Mapping[str, Any]] = {request_id: route["workflow"]}
+        expected_parent: dict[str, str | None] = {request_id: None}
+        route_steps = {item["step"]["atom_id"]: item for item in route["ordered_steps"]}
+        for row in rows:
+            self.assertIsInstance(row, dict, row)
+            step_id = row.get("step_definition_id")
+            action_id = row.get("action_definition_id")
+            self.assertIn(step_id, route_steps, row)
+            binding = route_steps[step_id]
+            self.assertEqual(binding["action"]["atom_id"], action_id, row)
+            step_run_id = row.get("step_run_id")
+            action_run_id = row.get("action_run_id")
+            self.assertIsInstance(step_run_id, str, row)
+            self.assertIsInstance(action_run_id, str, row)
+            expected_run_ids.extend((step_run_id, action_run_id))
+            expected_definitions[step_run_id] = binding["step"]
+            expected_definitions[action_run_id] = binding["action"]
+            expected_parent[step_run_id] = request_id
+            expected_parent[action_run_id] = step_run_id
+            native_child_by_route = {
+                "create_atom": "CA-O-032",
+                "update_atom": "CA-O-030",
+                "replace_atom": "CA-O-051",
+            }
+            child_atom_id = native_child_by_route.get(route.get("route"))
+            if expected_outcome == "completed" and action_id == "CA-O-128" and child_atom_id is not None:
+                children = [
+                    item for item in route.get("native_action_calls", [])
+                    if isinstance(item, Mapping) and item.get("atom_id") == child_atom_id
+                ]
+                self.assertEqual(1, len(children), route)
+                child_run_id = f"{action_run_id}:nested:{child_atom_id}"
+                expected_run_ids.append(child_run_id)
+                expected_definitions[child_run_id] = children[0]
+                expected_parent[child_run_id] = action_run_id
+
+        # J01: the retained selected result must be a clean terminal receipt,
+        # not the outer DBOS acknowledgement returned by enqueue_selected.
+        self.assertEqual("terminal", selected.get("disposition"), selected)
+        terminals = selected.get("terminal_runs")
+        self.assertIsInstance(terminals, list, selected)
+        workflow_terminals = [row for row in terminals if row.get("run_id") == request_id]
+        self.assertEqual(1, len(workflow_terminals), terminals)
+        self.assertEqual(expected_outcome, workflow_terminals[0].get("outcome"), workflow_terminals[0])
+        self.assertEqual(expected_run_ids, selected.get("run_ids"), selected)
+        self.assertEqual(len(expected_run_ids), len(terminals), terminals)
+        terminal_by_run_id = {row.get("run_id"): row for row in terminals}
+        self.assertEqual(set(expected_run_ids), set(terminal_by_run_id), terminals)
+
+        # J02/J03: every actual Workflow/Step/Action has exactly one start and
+        # one clean terminal fact with the requested outcome.
+        # Interrupted/failed facts cannot substitute for it.
+        events = [
+            event for event in self._events(root)
+            if event.get("schema_version") == 5 and event.get("kind") == "workflow_execution"
+            and event.get("llm_session", {}).get("uuid") == request_id
+        ]
+        self.assertEqual(2 * len(expected_run_ids), len(events), events)
+        self.assertEqual(len({event.get("event_id") for event in events}), len(events), events)
+        self.assertTrue(all(event.get("schema_version") == 5 for event in events), events)
+        self.assertTrue(all(event.get("event") not in {"failed", "interrupted", "abandoned"} for event in events), events)
+        for run_id in expected_run_ids:
+            facts = [event for event in events if event.get("run", {}).get("run_id") == run_id]
+            self.assertEqual(["started", "completed"], [event.get("event") for event in facts], facts)
+            self.assertIsNone(facts[0].get("outcome"), facts[0])
+            self.assertEqual(expected_outcome, facts[1].get("outcome"), facts[1])
+
+            # J04/J05: source-bound definition and parent identities on both
+            # facts must match the frozen manifest, not merely a similarly named Run.
+            for event in facts:
+                definition = event["run"].get("definition")
+                pinned = expected_definitions[run_id]
+                self.assertEqual(
+                    {"atom_id": pinned["atom_id"], "version": pinned["version"],
+                     "path": pinned["source_path"], "digest": pinned["digest"]},
+                    definition,
+                    event,
+                )
+                parent = expected_parent[run_id]
+                if parent is None:
+                    self.assertNotIn("parent_run_id", event["run"], event)
+                else:
+                    self.assertEqual(parent, event["run"].get("parent_run_id"), event)
+
+        if route.get("route") == "replace_atom":
+            replacement_events = [
+                event for event in self._events(root)
+                if event.get("schema_version") == 3
+                and event.get("event_id") == f"selected-replacement:{request_id}:step:1:action:1:nested:CA-O-051"
+            ]
+            self.assertEqual(1, len(replacement_events), replacement_events)
+            replacement = replacement_events[0]
+            self.assertEqual("CA-R-100", replacement.get("predecessor_atom_id"), replacement)
+            self.assertEqual(["CA-R-103"], replacement.get("successor_atom_ids"), replacement)
+            self._safe_existing_ref(root, replacement.get("result", {}).get("path"), label="replacement archive")
+
+        # J06/J07/J08: status's terminal records and Journal evidence agree on
+        # clean outcome and actual retained result/effect references.
+        reversal = self._w10_native_result(root, request_id, graph) if route.get("route") == "revert_changes" else None
+        for run_id in expected_run_ids:
+            terminal = terminal_by_run_id[run_id]
+            self.assertEqual("terminal", terminal.get("disposition"), terminal)
+            self.assertEqual(expected_outcome, terminal.get("outcome"), terminal)
+            SelectedWorkflowsDockerEndToEnd._assert_terminal_refs(
+                self, root, request_id, expected_definitions[run_id]["atom_id"], terminal, reversal,
+            )
+
+    def _assert_graph_path_and_native_results(
+        self,
+        root: Path,
+        fixture: GoldenProject,
+        request_id: str,
+        graph: Mapping[str, Any],
+        *,
+        expected_outcome: str = "completed",
+    ) -> list[dict[str, Any]]:
+        route = self._route_binding(fixture)
+        self.assertEqual(expected_outcome, graph.get("outcome"), graph)
+        self.assertEqual(request_id, graph.get("workflow_run_id"), graph)
+        self.assertEqual(route["workflow"]["atom_id"], graph.get("workflow_definition_id"), graph)
+        rows = graph.get("step_results")
+        self.assertIsInstance(rows, list, graph)
+        self.assertTrue(rows, graph)
+        steps = {item["step"]["atom_id"]: item for item in route["ordered_steps"]}
+        source_edges = _w09_admitted_source_edges(root, route) if route.get("route") == "run_implementation_workflow" else None
+        self.assertEqual(route["entry_step"], rows[0].get("step_definition_id"), rows)
+        for index, row in enumerate(rows):
+            self.assertIsInstance(row, dict, row)
+            step_id = row.get("step_definition_id")
+            self.assertIn(step_id, steps, row)
+            bound = steps[step_id]
+            self.assertEqual(bound["action"]["atom_id"], row.get("action_definition_id"), row)
+            ordinal = next(
+                ordinal for ordinal, item in enumerate(route["ordered_steps"], start=1)
+                if item["step"]["atom_id"] == step_id
+            )
+            expected_step = f"{request_id}:step:{ordinal}"
+            actual_step = row.get("step_run_id")
+            self.assertTrue(
+                actual_step == expected_step or (
+                    isinstance(actual_step, str) and actual_step.startswith(expected_step + ":visit:")
+                ),
+                row,
+            )
+            self.assertEqual(f"{actual_step}:action:1", row.get("action_run_id"), row)
+            self.assertIsInstance(row.get("result"), str, row)
+            self.assertIsInstance(row.get("effect_refs"), list, row)
+            if route.get("route") == "revert_changes":
+                native = self._action_progress(root, request_id, row["action_run_id"])["native_result"]
+                self._assert_w10_effect_refs(root, request_id, native, row["effect_refs"])
+            else:
+                for effect in row["effect_refs"]:
+                    self._safe_existing_ref(root, effect, label="native Action effect")
+            if index:
+                previous = rows[index - 1]
+                transitions = source_edges if source_edges is not None else route["on_result"]
+                admissible = [
+                    transition for transition in transitions
+                    if transition["from"] == previous["step_definition_id"]
+                    and _normalized_source_result(transition["condition"])
+                    == _normalized_source_result(previous["result"])
+                ]
+                self.assertEqual(1, len(admissible), {"previous": previous, "current": row, "route": route})
+                self.assertEqual(step_id, admissible[0]["to"], {"previous": previous, "current": row, "route": route})
+
+            progress = self._action_progress(root, request_id, row["action_run_id"])
+            self.assertEqual(row["action_run_id"], progress.get("action_run_id"), progress)
+            self.assertEqual(row["result"], progress.get("result"), progress)
+            if fixture.case.case_id not in {"W11", "W12"}:
+                self.assertIsInstance(progress.get("native_result"), dict, progress)
+        if source_edges is not None:
+            final = rows[-1]
+            completion = [
+                transition for transition in source_edges
+                if transition["from"] == final["step_definition_id"]
+                and _normalized_source_result(transition["condition"])
+                == _normalized_source_result(final["result"])
+            ]
+            self.assertEqual(1, len(completion), {"final": final, "source_edges": source_edges})
+            self.assertEqual("completed", completion[0]["to"], {"final": final, "completion": completion})
+        return rows
+
+    def _assert_route_specific_effects(
+        self,
+        root: Path,
+        fixture: GoldenProject,
+        execute: Mapping[str, Any],
+        before: Mapping[str, str],
+        rows: list[dict[str, Any]],
+    ) -> None:
+        case_id = fixture.case.case_id
+        effects = sorted({effect for row in rows for effect in row["effect_refs"]})
+        if case_id in {"W01", "W02", "W03", "W04"}:
+            self.assertTrue(effects, rows)
+            self.assertNotEqual(before, fixture.snapshot(), "a native authority success must alter admitted state")
+            if case_id in {"W01", "W02", "W03", "W04"}:
+                native = self._action_progress(root, execute["request_id"], rows[-1]["action_run_id"]).get("native_result")
+                self.assertIsInstance(native, dict, native)
+                self.assertEqual("applied", native.get("outcome"), native)
+                self.assertTrue(native.get("effects"), native)
+        elif case_id == "W09":
+            retained = execute["parameters"]["base_packet"]["retained_state"]
+            self.assertEqual("mock-not-live-llm", retained.get("transport"), retained)
+            native = self._action_progress(root, execute["request_id"], rows[2]["action_run_id"]).get("native_result")
+            self.assertIsInstance(native, dict, native)
+            self.assertIn(
+                "mock-not-live-llm",
+                json.dumps(native, sort_keys=True),
+                "W09 evidence must say mock-not-live-llm; it is not live Agent proof",
+            )
+        elif case_id == "W10":
+            self.assertTrue(effects, rows)
+        elif case_id in {"W11", "W12"}:
+            self.assertTrue(effects, rows)
+            for effect in effects:
+                payload = self._safe_existing_ref(root, effect, label="projection effect").read_bytes()
+                self.assertTrue(payload, effect)
+                projection = json.loads(payload)
+                self.assertIs(True, projection.get("non_authoritative"), projection)
+                self.assertTrue(projection.get("source_frontier_evidence"), projection)
+        elif case_id == "W13":
+            self.assertTrue(effects, rows)
+            native = self._action_progress(root, execute["request_id"], rows[-1]["action_run_id"]).get("native_result")
+            self.assertIsInstance(native, dict, native)
+            self.assertTrue(native.get("source_frontier_digest"), native)
+            for effect in effects:
+                self.assertTrue(self._safe_existing_ref(root, effect, label="compiled projection").read_bytes(), effect)
+        elif case_id in {"W14", "W15"}:
+            self.assertEqual([], effects, rows)
+            self.assertEqual(before, fixture.snapshot(), "native queries are read-only")
+            progress = self._action_progress(root, execute["request_id"], rows[0]["action_run_id"])
+            native = progress["native_result"]
+            self.assertIsInstance(native, dict, progress)
+            self.assertIsInstance(native.get("snapshot"), dict, native)
+            self.assertIsInstance(native.get("results"), list, native)
+            if case_id == "W14":
+                self.assertTrue(native["snapshot"].get("digest"), native)
+                self.assertTrue(native.get("coverage", {}).get("complete"), native)
+                self.assertTrue(all(set(row) == {"artifact_id"} for row in native["results"]), native)
+            else:
+                self.assertIn(native.get("status"), {"complete", "incomplete"}, native)
+                own_event_ids = {
+                    event.get("event_id") for event in self._events(root)
+                    if event.get("llm_session", {}).get("uuid") == execute["request_id"]
+                }
+                self.assertTrue(set(native["snapshot"].get("event_ids", [])).isdisjoint(own_event_ids), native)
+                self.assertTrue(all(isinstance(event_id, str) for event_id in native["results"]), native)
+        else:
+            self.fail(f"no strict route-specific evidence assertion for {case_id}")
+
+    @staticmethod
+    def _events(root: Path) -> list[dict]:
+        journal = root / ".caprmedio_caprmedio/_journal"
+        values: list[dict] = []
+        for path in sorted(journal.glob("*.ndjson")):
+            values.extend(json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line)
+        return values
+
+    async def test_golden_corpus_covers_exact_closed_routes_and_j01_j08(self) -> None:
+        self.assertEqual(11, len(ROUTE_CASES))
+        self.assertEqual(
+            ("W01", "W02", "W03", "W04", "W09", "W10", "W11", "W12", "W13", "W14", "W15"),
+            tuple(case for case, _ in ROUTE_CASES),
+        )
+        self.assertEqual(tuple(f"J{number:02d}" for number in range(1, 9)), JOURNAL_CASES)
+        for case_id, route in ROUTE_CASES:
+            temporary, _root, fixture = self._new_fixture(GoldenCase(case_id, route))
+            try:
+                manifest = fixture.prepare()
+                self.assertEqual(route, next(item["route"] for item in manifest["routes"] if item["route"] == route))
+            except GoldenCorpusError as error:
+                self.fail(str(error))
+            finally:
+                temporary.cleanup()
+
+    async def test_fresh_image_runtime_does_not_mount_host_implementation(self) -> None:
+        """The selected proof must execute `/workspace` code, not a host Engine mount."""
+        temporary, root, fixture = self._new_fixture(GoldenCase("W01", "create_atom"))
+        try:
+            fixture.prepare()
+            runtime = self._runtime(root)
+            config = json.loads(
+                await asyncio.to_thread(
+                    runtime.call, "--profile", "stdio", "config", "--format", "json"
+                )
+            )
+            for name in ("worker", "mcp"):
+                mounts = config["services"][name]["volumes"]
+                targets = {mount["target"] for mount in mounts}
+                self.assertNotIn("/project/LAYER_2_FRAMEWORK_ENGINE", targets, config["services"][name])
+                self.assertIn("/project", targets, config["services"][name])
+                git = next(mount for mount in mounts if mount["target"] == "/project/.git")
+                self.assertTrue(git.get("read_only", False), config["services"][name])
+        except GoldenCorpusError as error:
+            self.fail(str(error))
+        finally:
+            temporary.cleanup()
+
+    async def test_nine_supported_routes_execute_with_native_effects_and_clean_shared_run_lineage(self) -> None:
+        """Read-only previews and native effects share only one route's fresh stack."""
+        # W11/W12 full semantic publication is deferred; their corpus/admission checks remain.
+        supported = [case for case in ROUTE_CASES if case[0] not in {"W11", "W12"}]
+        self.assertEqual(9, len(supported))
+        for case_id, route_name in supported:
+            with self.subTest(case=case_id):
+                case = GoldenCase(case_id, route_name)
+                temporary, root, fixture = self._new_fixture(case)
+                runtime = self._runtime(root)
+                launched = False
+                try:
+                    fixture.prepare()
+                    launched = True
+                    await self._start(runtime)
+                    request_id = f"golden-{case_id.lower()}-happy"
+                    preview = await self._preview_for_execution(runtime, root, fixture, request_id)
+                    before = fixture.snapshot()
+                    execute = fixture.request(
+                        request_id=request_id,
+                        mode="execute",
+                        receipt=preview["proposal_receipt"],
+                        receipt_digest=preview["proposal_receipt_digest"],
+                    )
+                    admitted = await self._call(
+                        runtime,
+                        root,
+                        "workflow_orchestrator",
+                        {"operation": "enqueue_selected", "run_id": request_id, "execution": execute},
+                    )
+                    self.assertIn(
+                        admitted.get("outcome"),
+                        {"queued", "admitted", "started", "running", "pending", "completed"},
+                        admitted,
+                    )
+                    terminal = await self._terminal_status(
+                        runtime, root, request_id, reconnect=case_id in _RECONNECT_CASES,
+                    )
+                    # backend.status flattens outcome/disposition for convenience,
+                    # but all selected execution evidence remains nested here.
+                    self.assertEqual("terminal", terminal.get("disposition"), terminal)
+                    self.assertEqual("completed", terminal.get("outcome"), terminal)
+                    selected = terminal.get("selected_result")
+                    self.assertIsInstance(selected, dict, terminal)
+                    graph = self._graph_result(root, request_id)
+                    rows = self._assert_graph_path_and_native_results(root, fixture, request_id, graph)
+                    self._assert_shared_run_journal(root, request_id, self._route_binding(fixture), selected, graph)
+                    self._assert_route_specific_effects(root, fixture, execute, before, rows)
+                except GoldenCorpusError as error:
+                    self.fail(str(error))
+                finally:
+                    if launched:
+                        await self._stop(runtime)
+                    temporary.cleanup()
+
+    async def test_w01_direct_non_draft_status_create_through_docker(self) -> None:
+        """A requested admitted non-Draft Status survives the actual W01 MCP path."""
+        temporary, root, fixture = self._new_fixture(GoldenCase("W01", "create_atom"))
+        runtime = self._runtime(root)
+        launched = False
+        try:
+            fixture.prepare()
+            launched = True
+            await self._start(runtime)
+            carrier = fixture._carrier("CA-R-102", "direct-archived", "Direct archived creation", status="Archived")
+            native, _graph, _selected = await self._execute_create_case(
+                runtime, root, fixture, carrier, "p2385-direct-archived-create",
+            )
+            self.assertEqual("applied", native.get("outcome"), native)
+            observed = root / native["observed"]["path"]
+            self.assertTrue(observed.is_file(), native)
+            self.assertEqual("Archived", native["observed"]["status"], native)
+        except GoldenCorpusError as error:
+            self.fail(str(error))
+        finally:
+            if launched:
+                await self._stop(runtime)
+            temporary.cleanup()
+
+    async def test_w01_active_concern_about_resolves_current_atom_through_docker(self) -> None:
+        """Concern admission binds uniquely resolved Current Atom targets."""
+        temporary, root, fixture = self._new_fixture(GoldenCase("W01", "create_atom"))
+        runtime = self._runtime(root)
+        launched = False
+        try:
+            fixture.prepare()
+            _materialize_current_concern_target(fixture)
+            _materialize_frozen_bindings(fixture, frozen_graph_authority())
+            _materialize_frozen_frontier(fixture)
+            _materialize_frozen_bindings(
+                fixture, {"CA-D-378": frozen_behavior_bindings()["CA-D-378"]}
+            )
+            launched = True
+            await self._start(runtime)
+            await self._assert_current_concern_targets(runtime, root, fixture)
+        except GoldenCorpusError as error:
+            self.fail(str(error))
+        finally:
+            if launched:
+                await self._stop(runtime)
+            temporary.cleanup()
+
+    async def test_atom_update_stages_approved_double_slash_subject_through_docker(self) -> None:
+        """Public Subject staging preserves the approved double-slash grammar."""
+        temporary, root, fixture = self._new_fixture(GoldenCase("W01", "create_atom"))
+        runtime = self._runtime(root)
+        launched = False
+        try:
+            fixture.prepare()
+            _materialize_frozen_bindings(fixture, frozen_preparation_bindings())
+            _materialize_approved_grammar(fixture)
+            target = fixture.status_atom("Requirement", "Active", number=8602)
+            launched = True
+            await self._start(runtime)
+            await self._assert_subject_stage(runtime, root, target)
+        except GoldenCorpusError as error:
+            self.fail(str(error))
+        finally:
+            if launched:
+                await self._stop(runtime)
+            temporary.cleanup()
+
+    async def test_w04_manual_draft_promotion_noop_and_refusal_through_docker(self) -> None:
+        """Manual ID-free Drafts do not need retained history to reach their admitted Status."""
+        temporary, root, fixture = self._new_fixture(GoldenCase("W04", "change_atom_status"))
+        runtime = self._runtime(root)
+        launched = False
+        try:
+            fixture.prepare()
+            launched = True
+            await self._start(runtime)
+            path = fixture.status_atom("Requirement", "Draft", draft=True)
+            history = root / ".caprmedio_caprmedio/archive/_draft_history"
+            self.assertFalse(history.exists())
+            native, _graph, _selected = await self._execute_status_case(
+                runtime, root, fixture, path, "Active", "p2385-manual-draft-promote",
+            )
+            self.assertEqual("applied", native.get("outcome"), native)
+            observed = root / native["observed"]["path"]
+            self.assertTrue(observed.is_file(), native)
+            self.assertEqual("Active", native["observed"]["status"], native)
+            self.assertRegex(str(native["observed"]["atom_id"]), r"^CA-R-[0-9]+$", native)
+            self.assertFalse(history.exists(), "manual promotion must not fabricate Draft history")
+            before_noop = fixture.snapshot()
+            noop, _graph, _selected = await self._execute_status_case(
+                runtime, root, fixture, observed, "Active", "p2385-manual-draft-noop",
+                expected_outcome="no_op",
+            )
+            self.assertEqual("no-op", noop.get("outcome"), noop)
+            self.assertTrue(all(effect.get("state") == "unchanged" for effect in noop.get("effects", [])), noop)
+            self.assertEqual(before_noop, fixture.snapshot(), "no-op changed authority")
+            before = fixture.snapshot()
+            records_before = self._recording_snapshot(root)
+            rejected = await self._call(
+                runtime, root, fixture.case.route,
+                fixture.request_for_status(observed, "NotAdmitted", request_id="p1616-requirement-rejected"),
+            )
+            self._assert_status_admission_blocked(rejected)
+            self.assertEqual(before, fixture.snapshot(), "rejected W04 request changed authority")
+            self.assertEqual(records_before, self._recording_snapshot(root), "refusal wrote Journal or Run records")
+        except GoldenCorpusError as error:
+            self.fail(str(error))
+        finally:
+            if launched:
+                await self._stop(runtime)
+            temporary.cleanup()
+
+    async def test_w04_incomplete_journal_does_not_block_status_change_through_docker(self) -> None:
+        """A pre-existing incomplete Journal remains observational, not W04 admission evidence."""
+        temporary, root, fixture = self._new_fixture(GoldenCase("W04", "change_atom_status"))
+        runtime = self._runtime(root)
+        launched = False
+        try:
+            fixture.prepare()
+            journal = fixture.set_journal_state("incomplete")
+            self.assertTrue((journal / "preexisting.ndjson").is_file())
+            launched = True
+            await self._start(runtime)
+            path = fixture.status_atom("Requirement", "Active", number=8021)
+            native, _graph, _selected = await self._execute_status_case(
+                runtime, root, fixture, path, "Archived", "p2385-incomplete-journal-status",
+                assert_journal=False,
+            )
+            self.assertEqual("applied", native.get("outcome"), native)
+            self.assertEqual("Archived", native["observed"]["status"], native)
+            self.assertTrue((journal / "preexisting.ndjson").is_file())
+        except GoldenCorpusError as error:
+            self.fail(str(error))
+        finally:
+            if launched:
+                await self._stop(runtime)
+            temporary.cleanup()
+
+    async def test_stale_source_rejects_without_workflow_or_journal_effect(self) -> None:
+        case = GoldenCase("W13", "build_applicable_methodology")
+        temporary, root, fixture = self._new_fixture(case)
+        runtime = self._runtime(root)
+        launched = False
+        try:
+            fixture.prepare()
+            launched = True
+            await self._start(runtime)
+            await self._connect(runtime, root)
+            self.assertIn(case.route, await _stdio_tool_names(self._mcp_client))
+            fixture.corrupt_one_bound_source()
+            before = fixture.snapshot()
+            result = await self._call(
+                runtime, root, case.route, fixture.request(request_id="golden-w13-stale")
+            )
+            self.assertEqual("rejected", result.get("disposition"), result)
+            self.assertIn("definition_manifest is stale or does not identify the canonical binding", result.get("diagnostics", []), result)
+            self.assertEqual(before, fixture.snapshot())
+            self.assertFalse(list((root / ".caprmedio_caprmedio/_journal").glob("*.ndjson")))
+        except GoldenCorpusError as error:
+            self.fail(str(error))
+        finally:
+            if launched:
+                await self._stop(runtime)
+            temporary.cleanup()
+
+
+class SelectedWorkflowJournalHarnessTest(unittest.TestCase):
+    """Non-Docker regression for the W01 child-Run evidence contract."""
+
+    _events = staticmethod(SelectedWorkflowsDockerEndToEnd._events)
+    _safe_existing_ref = staticmethod(SelectedWorkflowsDockerEndToEnd._safe_existing_ref)
+
+    def test_create_atom_requires_the_source_bound_o032_child_run(self) -> None:
+        request_id = "w01-harness"
+        step_run_id = f"{request_id}:step:1"
+        action_run_id = f"{step_run_id}:action:1"
+        child_run_id = f"{action_run_id}:nested:CA-O-032"
+        pins = {
+            "workflow": {"atom_id": "CA-O-127", "version": 1, "source_path": "definitions/workflow.md", "digest": "a" * 64},
+            "step": {"atom_id": "CA-O-129", "version": 1, "source_path": "definitions/step.md", "digest": "b" * 64},
+            "action": {"atom_id": "CA-O-128", "version": 1, "source_path": "definitions/action.md", "digest": "c" * 64},
+            "creation": {"atom_id": "CA-O-032", "version": 1, "source_path": "definitions/creation.md", "digest": "d" * 64},
+        }
+        route = {
+            "route": "create_atom", "workflow": pins["workflow"],
+            "ordered_steps": [{"step": pins["step"], "action": pins["action"]}],
+            "native_action_calls": [pins["creation"]],
+        }
+        graph = {"step_results": [{"step_run_id": step_run_id, "action_run_id": action_run_id,
+                                   "step_definition_id": "CA-O-129", "action_definition_id": "CA-O-128"}]}
+        run_pins = {
+            request_id: pins["workflow"], step_run_id: pins["step"], action_run_id: pins["action"],
+            child_run_id: {"atom_id": "CA-O-032", "version": 1, "source_path": "definitions/creation.md", "digest": "d" * 64},
+        }
+        parents = {request_id: None, step_run_id: request_id, action_run_id: step_run_id, child_run_id: action_run_id}
+        with tempfile.TemporaryDirectory(dir=Path.cwd() / ".caprmedio_tmp", ignore_cleanup_errors=True) as directory:
+            root = Path(directory)
+            journal = root / ".caprmedio_caprmedio/_journal"
+            journal.mkdir(parents=True)
+            events = []
+            terminals = []
+            for run_id, pin in run_pins.items():
+                for event_name, outcome in (("started", None), ("completed", "completed")):
+                    run = {"run_id": run_id, "definition": {"atom_id": pin["atom_id"], "version": pin["version"],
+                                                               "path": pin["source_path"], "digest": pin["digest"]}}
+                    if parents[run_id] is not None:
+                        run["parent_run_id"] = parents[run_id]
+                    events.append({"schema_version": 5, "kind": "workflow_execution", "event_id": f"{run_id}-{event_name}",
+                                   "event": event_name, "outcome": outcome, "llm_session": {"uuid": request_id}, "run": run})
+                result_ref = f"evidence/{run_id}.json"
+                result = root / result_ref
+                result.parent.mkdir(parents=True, exist_ok=True)
+                result.write_text("{}", encoding="utf-8")
+                terminals.append({"run_id": run_id, "disposition": "terminal", "outcome": "completed",
+                                  "result_ref": result_ref, "effect_refs": []})
+            (journal / "runs.ndjson").write_text("\n".join(json.dumps(event) for event in events) + "\n", encoding="utf-8")
+            selected = {"disposition": "terminal", "run_ids": list(run_pins), "terminal_runs": terminals}
+
+            SelectedWorkflowsDockerEndToEnd._assert_shared_run_journal(self, root, request_id, route, selected, graph)
+
+    def test_w09_source_conditions_normalize_labels_and_reach_completion(self) -> None:
+        with tempfile.TemporaryDirectory(dir=Path.cwd() / ".caprmedio_tmp", ignore_cleanup_errors=True) as directory:
+            root = Path(directory)
+            source = root / "definitions/workflow.md"
+            source.parent.mkdir(parents=True)
+            source.write_text(
+                "| From Step | Result condition | Next Step **or** terminal result |\n"
+                "|---|---|---|\n"
+                "| CA-O-091 | evaluation ready | CA-O-092 |\n"
+                "| CA-O-091 | complete | completed |\n",
+                encoding="utf-8",
+            )
+            route = {"workflow": {"source_path": "definitions/workflow.md",
+                                    "digest": hashlib.sha256(source.read_bytes()).hexdigest()}}
+            edges = _w09_admitted_source_edges(root, route)
+            successor = [edge for edge in edges if edge["from"] == "CA-O-091"
+                         and _normalized_source_result(edge["condition"])
+                         == _normalized_source_result("evaluation_ready")]
+            completion = [edge for edge in edges if edge["from"] == "CA-O-091"
+                          and _normalized_source_result(edge["condition"])
+                          == _normalized_source_result("complete")]
+
+            self.assertEqual(["CA-O-092"], [edge["to"] for edge in successor])
+            self.assertEqual(["completed"], [edge["to"] for edge in completion])
+
+
+if __name__ == "__main__":
+    unittest.main()

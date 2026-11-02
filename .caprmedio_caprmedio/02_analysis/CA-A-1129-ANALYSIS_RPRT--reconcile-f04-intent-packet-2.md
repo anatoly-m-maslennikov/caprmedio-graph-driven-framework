@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1129
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -13,11 +13,20 @@ subjects:
   depends_on:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Methodology Sources
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1409]
-  relates_to: [CA-P-1349, CA-A-1063, CA-A-1060, CA-A-1121, CA-O-051, CA-O-058, CA-O-067, CA-C-385]
+  analysis_for:
+  - CA-P-1409
+  relates_to:
+  - CA-P-1349
+  - CA-A-1063
+  - CA-A-1060
+  - CA-A-1121
+  - CA-O-051
+  - CA-O-058
+  - CA-O-067
+  - CA-C-385
 ---
 # Summary
 

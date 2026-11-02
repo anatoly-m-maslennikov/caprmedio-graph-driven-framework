@@ -1,0 +1,132 @@
+{
+  "status": "APPLIED",
+  "accepted_at": "2026-11-02 15:50:22 +0400",
+  "decision": "Concrete Extensions model deferred to future versions; future concept is templates plus a custom MODEL.",
+  "operations": [
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2532",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "source_sha256": "2a336efd3d5d7d8282929f93814042b6f8830734990e7a33a9734229dcd668a3",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2532@4-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "archive_sha256": "5042cce305f75f6f1d7d66588a6a6967df47ba18b8602f1cf915e5a02673a644",
+      "old_version": 4,
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "candidate_sha256": "0fdc02dbc78b55286c2ed2de295f9cb87639f056a3596f2a410a4f48778cae39",
+      "version": 6,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/question-resolutions-20261102/CA-R-2532@5-draft-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "draft_sha256": "dfbd8e8528cfc1dc2277a8f3fe42896e3a17e5136843903fd3ddf5a77c1fde3c"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-C-619",
+      "source_path": ".caprmedio_caprmedio/01_concern/CA-C-619-QUESTION--resolve-the-logical-dependent-properties-for-extension-selections.md",
+      "source_sha256": "0641148ebc8c32c8ec3b12ccacd2e372b391bc757573d1f8661341582fec60d0",
+      "archive_path": ".caprmedio_caprmedio/01_concern/archive/CA-C-619@1-QUESTION--resolve-the-logical-dependent-properties-for-extension-selections.md",
+      "archive_sha256": "714fbe652dadbf441963bb06f6af474b128371ceb18983c4b4255b0643d412bf",
+      "old_version": 1,
+      "destination_path": ".caprmedio_caprmedio/01_concern/CA-C-619-QUESTION--resolve-the-logical-dependent-properties-for-extension-selections.md",
+      "candidate_sha256": "49bdb3f7374409a7b2739d04eef28f3e1f05594cb0c46bfdd7ec846bbe50f159",
+      "version": 3,
+      "status": "Resolved",
+      "draft_path": ".caprmedio_caprmedio/01_concern/draft/question-resolutions-20261102/CA-C-619@2-draft-QUESTION--resolve-the-logical-dependent-properties-for-extension-selections.md",
+      "draft_sha256": "b1015af46cffc5b17023d646734942a4ec092fa255f8d164458fd67013c501e8"
+    },
+    {
+      "kind": "retire",
+      "base_id": "CA-R-2627",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2627-CORE_META_MODEL-DECLARATION--declare-project-settings-extension-selections.md",
+      "source_sha256": "844049959a7ba9955a9bcaf30066d6058ed2f09beaa20e3f80ec31cf531fa5c8",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2627@1-CORE_META_MODEL-DECLARATION--declare-project-settings-extension-selections.md",
+      "archive_sha256": "e41e96aa7cf2e14674c651dc376c0fc113abcec34545192665a235de470b048c",
+      "old_version": 1
+    }
+  ],
+  "retired_ids": [
+    "CA-R-2627"
+  ],
+  "scope": "Current minimal MODEL and C619 only; legacy compatibility sources and runtime unchanged.",
+  "events": [
+    {
+      "event_id": "43c364a9-ec02-4142-a861-5843a011f50c",
+      "happened_at": "2026-11-02 15:50:22 +0400",
+      "inserted_at": "2026-11-02T15:50:22.700460+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-R-2532",
+        "version": 4,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "object_output": {
+        "id": "CA-R-2532",
+        "version": 6,
+        "updated_at": "2026-11-02 15:50:22 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "e5166b0b-8ae6-421e-832d-6f7bd3db3b0e",
+      "happened_at": "2026-11-02 15:50:22 +0400",
+      "inserted_at": "2026-11-02T15:50:22.701403+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-C-619",
+        "version": 1,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "object_output": {
+        "id": "CA-C-619",
+        "version": 3,
+        "updated_at": "2026-11-02 15:50:22 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "16cca25f-6fd1-4272-8226-5709dd69ae13",
+      "happened_at": "2026-11-02 15:50:22 +0400",
+      "inserted_at": "2026-11-02T15:50:22.702284+04:00",
+      "action": "archive",
+      "object_input": {
+        "id": "CA-R-2627",
+        "version": 1,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "object_output": {
+        "id": "CA-R-2627",
+        "version": 1,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    }
+  ],
+  "journal_receipts": [
+    {
+      "event_id": "43c364a9-ec02-4142-a861-5843a011f50c",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 143
+    },
+    {
+      "event_id": "e5166b0b-8ae6-421e-832d-6f7bd3db3b0e",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 144
+    },
+    {
+      "event_id": "16cca25f-6fd1-4272-8226-5709dd69ae13",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 145
+    }
+  ]
+}

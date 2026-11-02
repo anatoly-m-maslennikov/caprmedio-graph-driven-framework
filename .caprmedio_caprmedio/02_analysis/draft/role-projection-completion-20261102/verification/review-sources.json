@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "scope": "Read-only semantic and source-fidelity review of the finalized Analysis & Advisory Role/Form successor drafts and source manifest. This is not Current publication, projection acceptance, runtime conformance, or a full evaluator result.",
+  "reviewed_files": {
+    "source_manifest": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-manifest.json",
+      "sha256": "53059ed054cd432c8f455d87b4ffd9db490ce849048d45a15cad96beb7b877b3"
+    },
+    "explicit_current_frontier": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/current-source-frontier.json",
+      "sha256": "5f7258daa087843149baa8294d85cd3545b5fdb5627897e4920f1b4328b5c0a9",
+      "operations": 1134
+    }
+  },
+  "reviewed_successors": {
+    "CA-D-389@26-draft": "c906427e050e7727de5a011495f16a490bba2e4615fb212c3a248e50f15cffb2",
+    "CA-D-581@16-draft": "b5b357d7d8694f6f5330e7e5ea927d8ae023fa865199a6f4752c5dd3bce94317",
+    "CA-E-588@19-draft": "367988921a93ce81fbd3f56378aac6babbde025a64e33837489823e8356b2c03",
+    "CA-M-345@19-draft": "698c0cda324f795346c1ca9696a24ee29b0269afdec0f83acab4e74a8f7a174a",
+    "CA-R-1556@25-draft": "587c14c107f1f7e608ef924a9d94745db676b63187f980ce5d0496f15cf78113",
+    "CA-R-1664@38-draft": "acae454e6825ac01bd56318855e764146833856f4e276d41b85064f4f4054931",
+    "CA-R-1705@31-draft": "da586866f6300c3313b2edbb2182b412a2a79d6c9bf25b00404d27deeda345f3",
+    "CA-R-1875@21-draft": "6032bb4466c0d620d30dc86952380d985d12d1b8eafcb4f6a8589c3b9e9d40d2",
+    "CA-R-1888@15-draft": "ed0a4cad56f1e5738b4026503277afe47065aa9de8542adda2bbedd33fd524ec",
+    "CA-R-1889@19-draft": "d2d2e33d5a77240cc1b2db280f1374cbb6e87a5178f8b76cfcabc089dcc6e9d7"
+  },
+  "checks": [
+    {
+      "name": "native_draft_metadata_and_stable_identity",
+      "status": "PASS",
+      "evidence": "All 10 manifest source and draft SHA-256 values match their files. Each successor has its source base ID, source version plus one, a -draft atom_id, Draft status, and unchanged Summary, role, and form metadata. CA-E-588 and CA-M-345 are correctly pinned to their actual Current v18 sources rather than the older C620 frontier records."
+    },
+    {
+      "name": "selected_legacy_subject_coverage",
+      "status": "PASS",
+      "evidence": "The 1,134-operation explicit Current frontier hash-verifies completely. Its 10 Analysis & Advisory legacy Content Role/Type subject occurrences are exactly CA-D-389, CA-D-581, CA-E-588, CA-M-345, CA-R-1556, CA-R-1664, CA-R-1705, CA-R-1875, CA-R-1888, and CA-R-1889; all have one reviewed successor."
+    },
+    {
+      "name": "role_form_subject_notation",
+      "status": "PASS",
+      "evidence": "Generic Form property references use Atom/(.Role := \"Analysis & Advisory\").Form; value conditions use Atom/(.Role := \"Analysis & Advisory\")/(.Form := value). No successor retains a legacy Content Role subject."
+    },
+    {
+      "name": "body_vocabulary_and_semantic_fidelity",
+      "status": "PASS",
+      "evidence": "Review of the source-to-draft diffs found only native Draft metadata, subject migration, and Type-to-Form/Content Role-to-Role vocabulary changes. The three unchanged Summary titles retain historical Type wording by design; no body contains legacy Content Role or Type vocabulary. Frozen report import byte/length/hash checks, filename tokens, role/form metadata checks, lifecycle constraints, and the Rationale/Analysis Report business constraints remain present."
+    }
+  ],
+  "blockers": [],
+  "not_checked": [
+    "Current publication or archive/retirement operations",
+    "Projection rebuild, runtime instances, full evaluator conformance, deployment, or release",
+    "The broader unit run, which is presently blocked by unrelated CA #8: Main active full Scope Unit authority, TOML retirement, and folder-migration work"
+  ]
+}

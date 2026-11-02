@@ -1,0 +1,30 @@
+---
+atom_id: CA-R-2466@3-draft
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: Atom/(.Role := Operations)/Substep
+version: 3
+updated_at: 2026-11-02 00:00:00 +0400
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare Substep
+
+## Claim
+
+```CFEL
+Atom/(.Role: Operations)/Substep;
+Substep//{:1}((IS_CONTAINED_BY)) Step//;
+Substep//{:1}((RUNS)) Action//
+```
+
+## Semantics
+
+A Substep is a leaf unit within a Step and runs exactly one reusable Action.

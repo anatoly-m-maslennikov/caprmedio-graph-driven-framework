@@ -9,13 +9,25 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: unresolved
 subjects:
-  governs: "F05 owning Operations Carrier Property headings"
-  depends_on: [Operations, "Markdown Atom Carrier/Main Content"]
-version: 1
-updated_at: "2026-10-04 13:31:22 +0000"
+  governs: F05 owning Operations Carrier Property headings
+  depends_on:
+  - Operations
+  - Markdown Atom Carrier/Main Content
+version: 2
+updated_at: 2026-11-02 19:18:45 +0400
 relations:
-  concern_about: [CA-O-012, CA-O-013, CA-O-014, CA-O-015, CA-O-058, CA-O-067, CA-O-077, CA-O-078]
-  relates_to: [CA-P-1350, CA-A-1068, CA-D-479]
+  concern_about:
+  - CA-O-012
+  - CA-O-013
+  - CA-O-014
+  - CA-O-015
+  - CA-O-058
+  - CA-O-067
+  - CA-O-077
+  relates_to:
+  - CA-P-1350
+  - CA-A-1068
+  - CA-D-479
 ---
 # Summary
 

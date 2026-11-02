@@ -5,7 +5,7 @@ form: Map
 source:
   named_selection: Named Selection//Current Declared MODEL
   atoms:
-  - CA-R-1016@30
+  - CA-R-1016@31
   - CA-R-1017@30
   - CA-R-1018@37
   - CA-R-1019@29
@@ -18,7 +18,7 @@ source:
   - CA-R-1580@26
   - CA-R-1639@37
   - CA-R-1654@37
-  - CA-R-1660@35
+  - CA-R-1660@36
   - CA-R-1977@15
   - CA-R-1978@15
   - CA-R-1979@15
@@ -38,16 +38,15 @@ source:
   - CA-R-2422@4
   - CA-R-2462@2
   - CA-R-2463@2
-  - CA-R-2464@2
-  - CA-R-2465@2
-  - CA-R-2466@2
+  - CA-R-2464@4
+  - CA-R-2465@4
+  - CA-R-2466@4
   - CA-R-2467@2
   - CA-R-2473@4
   - CA-R-2475@4
   - CA-R-2476@4
   - CA-R-2477@4
   - CA-R-2478@4
-  - CA-R-2480@4
   - CA-R-2485@4
   - CA-R-2488@2
   - CA-R-2489@2
@@ -71,27 +70,25 @@ source:
   - CA-R-2507@2
   - CA-R-2508@2
   - CA-R-2509@2
-  - CA-R-2510@2
   - CA-R-2511@2
   - CA-R-2512@2
   - CA-R-2513@2
   - CA-R-2514@2
   - CA-R-2515@2
-  - CA-R-2516@4
+  - CA-R-2516@5
   - CA-R-2518@2
   - CA-R-2519@2
   - CA-R-2520@2
   - CA-R-2521@2
   - CA-R-2523@2
-  - CA-R-2524@2
+  - CA-R-2524@3
   - CA-R-2525@2
-  - CA-R-2526@2
+  - CA-R-2526@3
   - CA-R-2527@2
   - CA-R-2528@2
-  - CA-R-2529@2
   - CA-R-2530@2
   - CA-R-2531@2
-  - CA-R-2532@4
+  - CA-R-2532@8
   - CA-R-2533@2
   - CA-R-2534@2
   - CA-R-2535@2
@@ -102,7 +99,7 @@ source:
   - CA-R-2540@2
   - CA-R-2541@2
   - CA-R-2542@2
-  - CA-R-2543@2
+  - CA-R-2543@4
   - CA-R-2544@2
   - CA-R-2545@2
   - CA-R-2546@2
@@ -164,21 +161,23 @@ source:
   - CA-R-2620@1
   - CA-R-2621@1
   - CA-R-2622@1
-  - CA-R-2623@1
+  - CA-R-2623@3
   - CA-R-2624@1
   - CA-R-2625@1
   - CA-R-2626@1
-  - CA-R-2627@1
-  - CA-R-2628@1
   - CA-R-2629@1
   - CA-R-2630@1
   - CA-R-2631@1
-  - CA-R-2632@1
+  - CA-R-2632@2
   - CA-R-2633@1
   - CA-R-2634@1
   - CA-R-2635@1
+  - CA-R-2637@1
+  - CA-R-2638@2
+  - CA-R-2685@1
+  - CA-R-2686@1
   - CA-R-796@43
-updated_at: 2026-11-02 08:06:55 +0400
+updated_at: 2026-11-02 20:24:45 +0400
 ---
 
 ## Model graph
@@ -194,7 +193,7 @@ This is a derived Projection, not independent model authority.
 - `Actor`
 - `Aspect`
 - `Atom`
-- `Atom/(.Role:=Analysis)`
+- `Atom/(.Role:="Analysis & Advisory")`
 - `Atom/(.Role:=Concern)`
 - `Atom/(.Role:=Delivery)`
 - `Atom/(.Role:=Evaluation)`
@@ -275,7 +274,6 @@ This is a derived Projection, not independent model authority.
 - `Project.Settings.Confidence`
 - `Project.Settings.Confidence.Necessary Information Threshold`
 - `Project.Settings.Confidence.Semantic Resolution Threshold`
-- `Project.Settings.Extension Selections`
 - `Project.Settings.Framework Control-Root Locator`
 - `Project.Settings.Implementation Retry Limit`
 - `Project.Settings.Interaction`
@@ -285,7 +283,6 @@ This is a derived Projection, not independent model authority.
 - `Project.Settings.RMED Review`
 - `Project.Settings.RMED Review.Context Headroom Fraction`
 - `Project.Settings.RMED Review.Max Atoms`
-- `Project.Settings.Tool Selections`
 - `Projection.Form`
 - `Projection.ID`
 - `Projection.Source`
@@ -294,10 +291,11 @@ This is a derived Projection, not independent model authority.
 - `Projection.Updated At`
 - `Scope Unit.ID`
 - `Scope Unit.Label`
-- `Scope Unit.Local Order`
 - `Scope Unit.Name`
 - `Scope Unit.Path`
 - `Scope Unit.Project Boundary Position`
+- `Scope Unit.order.number`
+- `Scope Unit.order.ordered`
 - `Scope Unit.structural_level`
 
 ## Instances
@@ -352,7 +350,7 @@ This is a derived Projection, not independent model authority.
 - `Atom.Tier.Label` — CA-R-2505
 - `Atom.Updated At` — CA-R-2489
 - `Atom.Version` — CA-R-2496
-- `Atom/(.Role := Analysis)` — CA-R-2510
+- `Atom/(.Role := "Analysis & Advisory")` — CA-R-2637
 - `Atom/(.Role := Concern)` — CA-R-2509
 - `Atom/(.Role := Concern).Priority` — CA-R-2518
 - `Atom/(.Role := Delivery)` — CA-R-1018
@@ -374,6 +372,8 @@ This is a derived Projection, not independent model authority.
 - `Atom/(.Role := Requirement)` — CA-R-1018
 - `Atom/(.Role := Requirement)` — CA-R-2512
 - `Atom/(.Role := Requirement)/(.Form := Declaration)` — CA-R-2516
+- `CFEL <+ Format/bool` — CA-R-2685
+- `CFEL <+ Format/int` — CA-R-2686
 - `CFEL <+ Relation` — CA-R-1026
 - `CFEL <+ Relation//BLOCKS` — CA-R-1580
 - `CFEL <+ Relation//CARRIES` — CA-R-1993
@@ -403,7 +403,7 @@ This is a derived Projection, not independent model authority.
 - `CFEL <+ Relation//IS_RUN_BY` — CA-R-2623
 - `CFEL <+ Relation//NARROWER_THAN` — CA-R-2475
 - `CFEL <+ Relation//RECORDS` — CA-R-2246
-- `CFEL <+ Relation//RUN` — CA-R-2480
+- `CFEL <+ Relation//RUNS` — CA-R-2638
 - `CFEL <+ Relation//child_of` — CA-R-796
 - `CFEL <+ Relation//concern_about` — CA-R-1022
 - `CFEL <+ Relation//delivery_for` — CA-R-1019
@@ -467,7 +467,6 @@ This is a derived Projection, not independent model authority.
 - `Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan` — CA-R-1200
 - `Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan` — CA-R-1580
 - `Entity/Object/Continuant/History/Journal > Event Record` — CA-R-2246
-- `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure` — CA-R-1660
 - `Entity/Object/Occurrent/Execution/Workflow Run` — CA-R-2245
 - `Entity/Object/Occurrent/Execution/Workflow Run` — CA-R-2246
 - `Entity/Object/Occurrent/Execution/Workflow Run` — CA-R-2255
@@ -509,7 +508,6 @@ This is a derived Projection, not independent model authority.
 - `Project.Settings.Confidence` — CA-R-1979
 - `Project.Settings.Confidence.Necessary Information Threshold` — CA-R-2624
 - `Project.Settings.Confidence.Semantic Resolution Threshold` — CA-R-2625
-- `Project.Settings.Extension Selections` — CA-R-2627
 - `Project.Settings.Framework Control-Root Locator` — CA-R-1980
 - `Project.Settings.Implementation Retry Limit` — CA-R-2635
 - `Project.Settings.Interaction` — CA-R-1982
@@ -519,7 +517,6 @@ This is a derived Projection, not independent model authority.
 - `Project.Settings.RMED Review` — CA-R-2631
 - `Project.Settings.RMED Review.Context Headroom Fraction` — CA-R-2629
 - `Project.Settings.RMED Review.Max Atoms` — CA-R-2630
-- `Project.Settings.Tool Selections` — CA-R-2628
 - `Projection` — CA-R-1580
 - `Projection` — CA-R-2535
 - `Projection.Form` — CA-R-2538
@@ -532,10 +529,14 @@ This is a derived Projection, not independent model authority.
 - `Scope Unit` — CA-R-2523
 - `Scope Unit.ID` — CA-R-2526
 - `Scope Unit.Label` — CA-R-2528
-- `Scope Unit.Local Order` — CA-R-2529
 - `Scope Unit.Name` — CA-R-2527
 - `Scope Unit.Path` — CA-R-2530
 - `Scope Unit.Project Boundary Position` — CA-R-2531
+- `Scope Unit.order` — CA-R-2685
+- `Scope Unit.order` — CA-R-2686
+- `Scope Unit.order.number` — CA-R-2686
+- `Scope Unit.order.ordered` — CA-R-2686
+- `Scope Unit.order.ordered` — CA-R-2685
 - `Scope Unit.structural_level` — CA-R-2554
 - `Term//Artifact` — CA-R-1026
 - `Term//Artifact` — CA-R-1639
@@ -579,7 +580,7 @@ This is a derived Projection, not independent model authority.
 - `classification_condition`: `((IS_RUN_BY)) >| Derivation == Derived` — CA-R-2623
 - `classification_condition`: `((NARROWER_THAN)) >| Derivation == Direct` — CA-R-2475
 - `classification_condition`: `((RECORDS)) >| Derivation == Direct` — CA-R-2246
-- `classification_condition`: `((RUN)) >| Derivation == Direct` — CA-R-2480
+- `classification_condition`: `((RUNS)) >| Derivation == Direct` — CA-R-2638
 - `classification_condition`: `((child_of)) >| Derivation == Direct` — CA-R-796
 - `classification_condition`: `((concern_about)) >| Derivation == Direct` — CA-R-1022
 - `classification_condition`: `((delivery_for)) >| Derivation == Direct` — CA-R-1019
@@ -670,7 +671,7 @@ This is a derived Projection, not independent model authority.
 - `property_constraint`: `Package.structural_level.*[]{:0}` — CA-R-2555
 - `property_constraint`: `Package.structural_level{:1}: [int]{:1}` — CA-R-2555
 - `property_constraint`: `Package/Implementation//{:1}` — CA-R-2553
-- `property_constraint`: `Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Extension Selections, Implementation Retry Limit, Tool Selections, RMED Review)]{:3..13}` — CA-R-2532
+- `property_constraint`: `Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Implementation Retry Limit, RMED Review)]{:3..11}` — CA-R-2532
 - `property_constraint`: `Project.Settings.AI Agent Confidence Threshold.*[]{:0}` — CA-R-2564
 - `property_constraint`: `Project.Settings.AI Agent Confidence Threshold{:1}: [int]{:1}` — CA-R-2564
 - `property_constraint`: `Project.Settings.Artifact Timestamp Timezone.*[]{:0}` — CA-R-1977
@@ -689,8 +690,6 @@ This is a derived Projection, not independent model authority.
 - `property_constraint`: `Project.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}` — CA-R-2625
 - `property_constraint`: `Project.Settings.Confidence.Semantic Resolution Threshold{:0..1}: [int]{:1}` — CA-R-2625
 - `property_constraint`: `Project.Settings.Confidence{:0..1}: []{:0}` — CA-R-1979
-- `property_constraint`: `Project.Settings.Extension Selections.*[string]{:0+}` — CA-R-2627
-- `property_constraint`: `Project.Settings.Extension Selections{:0..1}: []{:0}` — CA-R-2627
 - `property_constraint`: `Project.Settings.Framework Control-Root Locator.*[]{:0}` — CA-R-1980
 - `property_constraint`: `Project.Settings.Framework Control-Root Locator{:0..1}: [string]{:1}` — CA-R-1980
 - `property_constraint`: `Project.Settings.Implementation Retry Limit.*[]{:0}` — CA-R-2635
@@ -709,9 +708,9 @@ This is a derived Projection, not independent model authority.
 - `property_constraint`: `Project.Settings.RMED Review.Max Atoms.*[]{:0}` — CA-R-2630
 - `property_constraint`: `Project.Settings.RMED Review.Max Atoms{:0..1}: [int]{:1}` — CA-R-2630
 - `property_constraint`: `Project.Settings.RMED Review{:0..1}: []{:0}` — CA-R-2631
-- `property_constraint`: `Project.Settings.Tool Selections.*[string]{:0+}` — CA-R-2628
-- `property_constraint`: `Project.Settings.Tool Selections{:0..1}: []{:0}` — CA-R-2628
 - `property_constraint`: `Project.Settings{:1}: []{:0}` — CA-R-2532
+- `property_constraint`: `Project//.ID: []{:0}` — CA-R-2524
+- `property_constraint`: `Project//.order.number: []{:0}` — CA-R-2524
 - `property_constraint`: `Projection.Form.*[]{:0}` — CA-R-2538
 - `property_constraint`: `Projection.Form{:1}: [string]{:1}` — CA-R-2538
 - `property_constraint`: `Projection.ID.*[]{:0}` — CA-R-2537
@@ -725,17 +724,18 @@ This is a derived Projection, not independent model authority.
 - `property_constraint`: `Projection.Updated At.*[]{:0}` — CA-R-2539
 - `property_constraint`: `Projection.Updated At{:1}: [datetime]{:1}` — CA-R-2539
 - `property_constraint`: `Scope Unit.ID.*[]{:0}` — CA-R-2526
-- `property_constraint`: `Scope Unit.ID{:1}: [string]{:1}` — CA-R-2526
+- `property_constraint`: `Scope Unit.ID{:0..1}: [string]{:1}` — CA-R-2526
 - `property_constraint`: `Scope Unit.Label.*[]{:0}` — CA-R-2528
 - `property_constraint`: `Scope Unit.Label{:0..1}: [string]{:1}` — CA-R-2528
-- `property_constraint`: `Scope Unit.Local Order.*[]{:0}` — CA-R-2529
-- `property_constraint`: `Scope Unit.Local Order{:0..1}: [int]{:1}` — CA-R-2529
 - `property_constraint`: `Scope Unit.Name.*[]{:0}` — CA-R-2527
 - `property_constraint`: `Scope Unit.Name{:1}: [string]{:1}` — CA-R-2527
 - `property_constraint`: `Scope Unit.Path.*[]{:0}` — CA-R-2530
 - `property_constraint`: `Scope Unit.Path{:1}: [string]{:1+}` — CA-R-2530
 - `property_constraint`: `Scope Unit.Project Boundary Position.*[]{:0}` — CA-R-2531
 - `property_constraint`: `Scope Unit.Project Boundary Position{:1}: [string]{:1}` — CA-R-2531
+- `property_constraint`: `Scope Unit.order.number.*[]{:0}` — CA-R-2686
+- `property_constraint`: `Scope Unit.order.ordered.*[]{:0}` — CA-R-2685
+- `property_constraint`: `Scope Unit.order.ordered: [bool]{:1}` — CA-R-2685
 - `property_constraint`: `Scope Unit.structural_level.*[]{:0}` — CA-R-2554
 - `property_constraint`: `Scope Unit.structural_level{:1}: [int]{:1}` — CA-R-2554
 - `property_constraint`: `Scope Unit/Project//{:1}` — CA-R-2524
@@ -784,13 +784,12 @@ This is a derived Projection, not independent model authority.
 - `relation_cardinality`: `((IS_PROPERTY_OF)) ((HAS_INVERSE)) ((HAS_PROPERTY))` — CA-R-2473
 - `relation_cardinality`: `((IS_PROPERTY_OF)) ((HAS_INVERSE)) ((HAS_PROPERTY))` — CA-R-2621
 - `relation_cardinality`: `((IS_RECORDED_BY)) ((IS_DERIVED_RELATION_OF)) ((RECORDS))` — CA-R-2421
-- `relation_cardinality`: `((IS_RUN_BY)) ((IS_DERIVED_RELATION_OF)) ((RUN))` — CA-R-2623
+- `relation_cardinality`: `((IS_RUN_BY)) ((IS_DERIVED_RELATION_OF)) ((RUNS))` — CA-R-2623
 - `relation_cardinality`: `((NARROWER_THAN)) ((HAS_INVERSE)) ((HAS_NARROWER))` — CA-R-2475
 - `relation_cardinality`: `((NARROWER_THAN)) ((HAS_INVERSE)) ((HAS_NARROWER))` — CA-R-2620
 - `relation_cardinality`: `((RECORDS)) ((HAS_INVERSE)) ((IS_RECORDED_BY))` — CA-R-2246
 - `relation_cardinality`: `((RECORDS)) ((HAS_INVERSE)) ((IS_RECORDED_BY))` — CA-R-2421
-- `relation_cardinality`: `((RUN)) ((HAS_INVERSE)) ((IS_RUN_BY))` — CA-R-2480
-- `relation_cardinality`: `((RUN)) ((HAS_INVERSE)) ((IS_RUN_BY))` — CA-R-2623
+- `relation_cardinality`: `((RUNS)) ((HAS_INVERSE)) ((IS_RUN_BY))` — CA-R-2638
 - `relation_cardinality`: `((depends_on)) ((HAS_INVERSE)) ((required_by))` — CA-R-1026
 - `relation_cardinality`: `((depends_on)) ((HAS_INVERSE)) ((required_by))` — CA-R-2422
 - `relation_cardinality`: `((required_by)) ((IS_DERIVED_RELATION_OF)) ((depends_on))` — CA-R-2422
@@ -800,17 +799,15 @@ This is a derived Projection, not independent model authority.
 - `relation_cardinality`: `(Node//).** {:1}((IS_PROPERTY_OF)) (Node//, (Node//).**)` — CA-R-2462
 - `relation_cardinality`: `(Node//, (Node//).**) {:0+}((HAS_PROPERTY)) (Node//).**` — CA-R-2462
 - `relation_cardinality`: `(Node//, (Node//).**) {:0}((*))` — CA-R-2462
-- `relation_cardinality`: `(in (Step, Substep))// ((RUN)) Action//` — CA-R-2480
 - `relation_cardinality`: `@Operator//NamedRelationDirection == "((RELATION)) / <((RELATION))"` — CA-R-2609
 - `relation_cardinality`: `@Operator//RelationEndpointSignature == "$host ((RELATION)) $target"` — CA-R-2613
-- `relation_cardinality`: `Action// ((IS_RUN_BY)) (in (Step, Substep))//` — CA-R-2480
 - `relation_cardinality`: `Action// ((IS_RUN_BY)) (in (Step, Substep))//` — CA-R-2623
 - `relation_cardinality`: `Action//{:0+}((IS_RUN_BY)) (in (Step, Substep))//` — CA-R-2467
 - `relation_cardinality`: `Actor ((NARROWER_THAN)) @Continuant` — CA-R-2542
 - `relation_cardinality`: `Actor// ((IS_EVENT_AUTHOR_OF)) Event Record//` — CA-R-2622
 - `relation_cardinality`: `Aspect ((NARROWER_THAN)) @Node` — CA-R-2543
 - `relation_cardinality`: `Atom ((NARROWER_THAN)) @Continuant` — CA-R-2508
-- `relation_cardinality`: `Atom/(.Role: Analysis)/(.Form: Rationale)// ((rationale_for)) Atom//` — CA-R-1016
+- `relation_cardinality`: `Atom/(.Role: "Analysis & Advisory")/(.Form: Rationale)// ((rationale_for)) Atom//` — CA-R-1016
 - `relation_cardinality`: `Atom/(.Role: Concern)// ((concern_about)) $governed` — CA-R-1022
 - `relation_cardinality`: `Atom/(.Role: Delivery)// ((delivery_for)) Atom//` — CA-R-1019
 - `relation_cardinality`: `Atom/(.Role: Evaluation)// ((evaluation_for)) Atom//` — CA-R-1018
@@ -855,10 +852,14 @@ This is a derived Projection, not independent model authority.
 - `relation_cardinality`: `Scope Unit// ((feature_realization)) $realization_target` — CA-R-1654
 - `relation_cardinality`: `Scope Unit//{:0+}((CONTAINS)) Scope Unit//` — CA-R-2523
 - `relation_cardinality`: `Scope Unit//{:0..1}((IS_CONTAINED_BY)) Scope Unit//` — CA-R-2523
+- `relation_cardinality`: `Step// ((RUNS)) (in (Action, Workflow))//` — CA-R-2638
 - `relation_cardinality`: `Step//{:1}((IS_CONTAINED_BY)) Workflow//` — CA-R-2465
+- `relation_cardinality`: `Substep// ((RUNS)) Action//` — CA-R-2638
 - `relation_cardinality`: `Substep//{:1}((IS_CONTAINED_BY)) Step//` — CA-R-2466
-- `relation_cardinality`: `Substep//{:1}((RUN)) Action//` — CA-R-2466
+- `relation_cardinality`: `Substep//{:1}((RUNS)) Action//` — CA-R-2466
 - `relation_cardinality`: `Workflow// ((HAS_EXECUTION)) $workflow_run` — CA-R-2417
+- `relation_cardinality`: `Workflow// ((IS_RUN_BY)) Step//` — CA-R-2623
+- `relation_cardinality`: `Workflow//{:0+}((IS_RUN_BY)) Step//` — CA-R-2464
 - `relation_cardinality`: `Workflow//{:1+}((CONTAINS)) Step//` — CA-R-2464
 
 ## Unsupported CFEL
@@ -869,11 +870,6 @@ This is a derived Projection, not independent model authority.
 - `cfel-expression-unsupported`: `((IS_CONTAINED_BY)) == +>` — CA-R-2478
 - `cfel-expression-unsupported`: `((IS_PROPERTY_OF)) == .` — CA-R-2473
 - `cfel-expression-unsupported`: `((NARROWER_THAN)) == /` — CA-R-2475
-- `cfel-expression-unsupported`: `((Step//{:1+}((CONTAINS)) Substep//)
-AND (Step//{:0}((RUN)) Action//))
-OR
-((Step//{:0}((CONTAINS)) Substep//)
-AND (Step//{:1}((RUN)) Action//))` — CA-R-2465
 - `cfel-expression-unsupported`: `@Operator//Addition == "+"` — CA-R-2591
 - `cfel-expression-unsupported`: `@Operator//AllowedValue == ":"` — CA-R-2592
 - `cfel-expression-unsupported`: `@Operator//Conclusion == "=="` — CA-R-2593
@@ -911,7 +907,7 @@ AND (Step//{:1}((RUN)) Action//))` — CA-R-2465
 - `cfel-expression-unsupported`: `Atom/(.Role in RMED).Content.Details{:0..1}: [markdown]{:1}` — CA-R-2503
 - `cfel-expression-unsupported`: `Atom/(.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502
 - `cfel-expression-unsupported`: `Atom/(.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1}` — CA-R-2502
-- `cfel-expression-unsupported`: `Atom/(.Role: Analysis)` — CA-R-2510
+- `cfel-expression-unsupported`: `Atom/(.Role: "Analysis & Advisory")` — CA-R-2637
 - `cfel-expression-unsupported`: `Atom/(.Role: Concern)` — CA-R-2509
 - `cfel-expression-unsupported`: `Atom/(.Role: Concern).Priority.*[]{:0}` — CA-R-2518
 - `cfel-expression-unsupported`: `Atom/(.Role: Concern).Priority: High` — CA-R-2518
@@ -939,7 +935,6 @@ AND (Step//{:1}((RUN)) Action//))` — CA-R-2465
 - `cfel-expression-unsupported`: `Atom/(.Role: Plan).Work Sequence Number.*[]{:0}` — CA-R-2520
 - `cfel-expression-unsupported`: `Atom/(.Role: Plan).Work Sequence Number{:0..1}: [int]{:1}` — CA-R-2520
 - `cfel-expression-unsupported`: `Atom/(.Role: Requirement)` — CA-R-2512
-- `cfel-expression-unsupported`: `Atom/(.Role: Requirement)/(.Form: Declaration)` — CA-R-2516
 - `cfel-expression-unsupported`: `Atom//$atom.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=1}, .object_output.id = $atom.ID, .object_output.version = $atom.Version, (.action = create OR .action = update)).happened_at)` — CA-R-2489
 - `cfel-expression-unsupported`: `COUNT(Atom.Subjects.Passive: $) = COUNT(DISTINCT Atom.Subjects.Passive: $)` — CA-R-2506
 - `cfel-expression-unsupported`: `DETERMINES(
@@ -978,12 +973,19 @@ THEN ($package {==1}((IS_CONTAINED_BY)) Package//)` — CA-R-2525
 THEN ($contained.structural_level = $container.structural_level + 1)` — CA-R-2554
 - `cfel-expression-unsupported`: `IF (Scope Unit//$unit not in (Scope Unit/Project//))
 THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)` — CA-R-2523
+- `cfel-expression-unsupported`: `IF (Scope Unit//$unit not in (Scope Unit/Project//))
+THEN ($unit.ID{:1})` — CA-R-2526
+- `cfel-expression-unsupported`: `IF Step// {=0}((CONTAINS)) THEN Step// {:1}((RUNS)) (in (Action, Workflow))//` — CA-R-2465
+- `cfel-expression-unsupported`: `IF Step// {=0}((RUNS)) THEN Step// {:1+}((CONTAINS)) Substep//` — CA-R-2465
+- `cfel-expression-unsupported`: `IF Step// {>0}((RUNS)) THEN Step// {:0}((CONTAINS))` — CA-R-2465
 - `cfel-expression-unsupported`: `Node/Continuant` — CA-R-2589
 - `cfel-expression-unsupported`: `Node/Occurrent` — CA-R-2590
 - `cfel-expression-unsupported`: `Package.structural_level >= 0` — CA-R-2555
 - `cfel-expression-unsupported`: `Package/Implementation` — CA-R-2553
 - `cfel-expression-unsupported`: `Package/Implementation//$implementation.structural_level = 0` — CA-R-2555
+- `cfel-expression-unsupported`: `Project//.order.ordered == false` — CA-R-2524
 - `cfel-expression-unsupported`: `Projection//$projection.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=0}, .object_output.id = $projection.ID, (.action = create OR .action = update)).happened_at)` — CA-R-2539
+- `cfel-expression-unsupported`: `Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0}` — CA-R-2686
 - `cfel-expression-unsupported`: `Scope Unit.structural_level >= 0` — CA-R-2554
 - `cfel-expression-unsupported`: `Scope Unit/Project` — CA-R-2524
 - `cfel-expression-unsupported`: `Scope Unit/Project//$project.structural_level = 0` — CA-R-2554

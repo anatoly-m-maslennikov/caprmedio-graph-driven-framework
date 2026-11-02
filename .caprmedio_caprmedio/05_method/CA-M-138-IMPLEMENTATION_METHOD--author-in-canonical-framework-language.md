@@ -1,15 +1,15 @@
 ---
-version: 27
-updated_at: 2026-11-02 00:18:22 +0400
+version: 29
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-M-006
 subjects:
-  active: Entity/Aspect/Engineering/Authoring
+  active: Aspects <+ Engineering <+ Authoring
   passive:
   - Entity/Object/Continuant/Term//Artifact
   - Entity/Object/Continuant/Term
-  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  - Aspects <+ Product
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

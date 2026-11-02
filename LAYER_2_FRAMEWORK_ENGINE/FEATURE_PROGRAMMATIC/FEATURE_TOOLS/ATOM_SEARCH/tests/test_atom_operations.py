@@ -1,0 +1,506 @@
+from __future__ import annotations
+
+import argparse
+import json
+import shutil
+import subprocess
+import sys
+import unittest
+from pathlib import Path
+
+TOOLS = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(TOOLS / "tests"))
+
+import atom_operations as operations  # noqa: E402
+from project_selection import active_selection  # noqa: E402
+import test_model_driven_status_lifecycle as model_fixture  # noqa: E402
+
+
+class AtomOperationsTest(unittest.TestCase):
+    def setUp(self) -> None:
+        # Reuse the checked-in frozen authority closure so native promotion reaches
+        # its real complete-carrier checks without touching the live corpus.
+        self.model_fixture = model_fixture.ModelDrivenStatusLifecycleTest("run")
+        self.model_fixture.setUp()
+        self.temporary = self.model_fixture.temporary
+        self.root = self.model_fixture.root
+        self.scope = "STATUS_FIXTURE"
+        selection = active_selection(self.root)
+        declared = {
+            row["scope_unit_name"]: self.root / row["authority_path"]
+            for row in selection.structure["scope_units"]
+        }
+        core_source = self.root / ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL"
+        config_source = self.root / ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION"
+        shutil.copytree(core_source, declared["CORE_META_MODEL"], dirs_exist_ok=True)
+        shutil.copytree(config_source, declared["PROJECT_CONFIGURATION"], dirs_exist_ok=True)
+        projection = self.root / ".caprmedio_caprmedio/_projection/project_scope_unit_graph.projection.toml"
+        projection.parent.mkdir(parents=True, exist_ok=True)
+        projection.write_text(
+            "[[scope_units]]\n"
+            'name = "STATUS_FIXTURE"\n'
+            'unit_name = "STATUS_FIXTURE"\n'
+            f'authority_path = "{declared["STATUS_FIXTURE"].relative_to(self.root).as_posix()}"\n'
+            'parent = "caprmedio"\n',
+            encoding="utf-8",
+        )
+        self.requirements = declared[self.scope] / "04_requirement"
+        self.methods = declared[self.scope] / "05_method"
+        self.archive = self.requirements / "archive"
+        self.drafts = self.requirements / "drafts"
+        self.done = self.requirements / "done"
+        for directory in (self.requirements, self.methods, self.archive, self.drafts, self.done):
+            directory.mkdir(parents=True, exist_ok=True)
+        settings = self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
+        settings.write_text(
+            settings.read_text(encoding="utf-8").replace(
+                'journal_root = ".caprmedio_caprmedio/_journal"',
+                'journal_root = ".caprmedio_caprmedio/_journal"\n[artifact_timestamps]\ntimezone = "Asia/Kolkata"',
+            ),
+            encoding="utf-8",
+        )
+        self.first = self._atom(self.requirements / "CA-R-343-STATUS_FIXTURE-REQUIREMENT--first.md", "# First\n\nAlpha")
+        self.second = self._atom(self.methods / "CA-M-101-STATUS_FIXTURE-IMPL_METHOD--second.md", "# Second\n\nBeta")
+        self._atom(self.archive / "CA-R-100-STATUS_FIXTURE-REQUIREMENT--old.md", "# Old")
+        self._atom(self.drafts / "CA-R--STATUS_FIXTURE-REQUIREMENT--candidate.md", "# Candidate")
+        self._atom(self.done / "CA-R-345-STATUS_FIXTURE-REQUIREMENT--completed.md", "# Completed")
+        self.plan_task = self._atom(
+            self.requirements.parent / "03_plan/EPIC/12-CA-P-346-STATUS_FIXTURE-TASK--sequence-prefixed.md",
+            "# Sequence-prefixed Task",
+        )
+        (self.root / ".caprmedio_caprmedio/README.md").write_text("not an Atom", encoding="utf-8")
+
+    def tearDown(self) -> None:
+        self.temporary.cleanup()
+
+    @staticmethod
+    def _atom(path: Path, content: str, version: int = 1) -> Path:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        match = operations.ATOM_ID.search(path.name)
+        identity = f"atom_id: {match.group(1)}\n" if match and "drafts" not in path.parts else ""
+        role = {"R": "Requirement", "M": "Method", "P": "Plan"}.get(
+            match.group(1).split("-")[1] if match else "R", "Requirement"
+        )
+        status = "Draft" if "drafts" in path.parts else "Archived" if "archive" in path.parts else "Done" if "done" in path.parts else "Active"
+        body = f"# Summary\n\nFixture content: {content.strip()}\n\n## Scope\n\nFixture scope.\n\n## Claim\n\nFixture claim.\n\n## Details\n\nFixture details.\n"
+        path.write_text(
+            f"---\n{identity}content_role: {role}\nstatus: {status}\n"
+            "current_scope_unit: STATUS_FIXTURE\nclaim_target_scope_unit: STATUS_FIXTURE\n"
+            "local_tier: Standard\nglobal_tier: 11\nauthor: Anatoly Maslennikov\n"
+            f"version: {version}\nupdated_at: 2026-01-01 00:00:00 +0530\n"
+            "subjects:\n  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n"
+            f"{body}", encoding="utf-8"
+        )
+        return path
+
+    def _input(self, payload: dict) -> str:
+        path = self.root / "input.json"
+        path.write_text(json.dumps(payload), encoding="utf-8")
+        return str(path)
+
+    def _assert_configured_timestamp(self, path: Path) -> None:
+        self.assertRegex(
+            path.read_text(encoding="utf-8"),
+            r'(?m)^updated_at: "\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} \+0530"$',
+        )
+
+    def _wrapper_result(self, tool: str, payload: dict, *, apply: bool) -> subprocess.CompletedProcess[str]:
+        input_path = self._input(payload)
+        wrapper = TOOLS / tool / f"{tool.lower()}.py"
+        command = [sys.executable, str(wrapper), "--repository", str(self.root), "run", "--input", input_path]
+        if apply:
+            command.append("--apply")
+        return subprocess.run(command, text=True, capture_output=True, check=False)
+
+    def _snapshot(self) -> dict[str, bytes]:
+        return {
+            path.relative_to(self.root).as_posix(): path.read_bytes()
+            for path in self.root.rglob("*")
+            if path.is_file()
+        }
+
+    def test_resolves_id_filename_stem_and_path(self) -> None:
+        selectors = ["CA-R-343", self.first.name, self.first.stem, self.first.relative_to(self.root).as_posix()]
+        for selector in selectors:
+            self.assertEqual(operations.resolve_selector(self.root, selector).atom_id, "CA-R-343")
+
+    def test_projection_directory_is_excluded_from_atom_lookup(self) -> None:
+        projected = self._atom(
+            self.root / ".caprmedio_caprmedio/_projection/APPLICABLE_METHODOLOGY/04_requirement" / self.first.name,
+            "# Non-authoritative view",
+        )
+
+        self.assertEqual(operations.resolve_selector(self.root, "CA-R-343").path, self.first)
+        self.assertNotIn(projected, [atom.path for atom in operations.scan_atoms(self.root)])
+        with self.assertRaises(operations.ToolError) as error:
+            operations.atom_from_path(self.root, projected)
+        self.assertEqual(error.exception.code, "not-markdown-atom")
+
+    def test_legacy_projected_atom_copies_are_excluded_by_metadata(self) -> None:
+        for metadata in ("projection:\n  source_carrier_path: source.md", "projection: {source_carrier_path: source.md}"):
+            with self.subTest(metadata=metadata):
+                projected = self._atom(
+                    self.root / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/04_requirement" / self.first.name,
+                    "# Copied source",
+                )
+                projected.write_text(projected.read_text().replace("---\n#", metadata + "\n---\n#"))
+
+                self.assertEqual(operations.resolve_selector(self.root, "CA-R-343").path, self.first)
+                self.assertNotIn(projected, [atom.path for atom in operations.scan_atoms(self.root)])
+                with self.assertRaises(operations.ToolError) as error:
+                    operations.atom_from_path(self.root, projected)
+                self.assertEqual(error.exception.code, "not-markdown-atom")
+
+    def test_scalar_id_spellings_survive_create_read_search_and_update(self) -> None:
+        for number, quote in enumerate(("", "'", '"'), start=400):
+            atom_id = f"CA-R-{number}"
+            identity = f"atom_id: {quote}{atom_id}{quote}"
+            path = self.requirements / f"{atom_id}-STATUS_FIXTURE-REQUIREMENT--quoted-id.md"
+            with self.subTest(quote=quote):
+                payload = {"atoms": [{
+                    "path": path.relative_to(self.root).as_posix(),
+                    "frontmatter": identity,
+                    "content": "# Quoted identity\n",
+                }]}
+                operations.run_create(self.root, argparse.Namespace(input=self._input(payload), apply=True))
+                for selector in (atom_id, path.name, path.relative_to(self.root).as_posix()):
+                    read = operations.run_read(self.root, argparse.Namespace(atom=[selector], view="both"))
+                    self.assertEqual(read["atoms"][0]["metadata"]["atom_id"], atom_id)
+                    self.assertIn(identity, read["atoms"][0]["metadata"]["frontmatter"])
+                search = operations.run_search(self.root, argparse.Namespace(
+                    under=None, lifecycle="active", atom=None, query=[atom_id], limit=None, view="metadata",
+                ))
+                self.assertEqual(search["count"], 1)
+                update = {"atoms": [{"selector": atom_id, "content": "# Updated\n"}]}
+                operations.run_update(self.root, argparse.Namespace(input=self._input(update), apply=True))
+                updated = operations.resolve_selector(self.root, atom_id)
+                self.assertIn(identity, updated.frontmatter)
+                self.assertEqual(operations.atom_version(updated), 2)
+                self.assertEqual(updated.content, "# Updated\n")
+
+    def test_quoted_id_validation_rejects_duplicates_mismatch_and_malformed_values(self) -> None:
+        cases = (
+            ('atom_id: "CA-R-343"\natom_id: CA-R-343', "atom-frontmatter-invalid"),
+            ('atom_id: CA-R-343\natom_id: "invalid"', "atom-frontmatter-invalid"),
+            ('atom_id: "CA-R-999"', "atom-frontmatter-id-mismatch"),
+            ('atom_id: "CA-R-343', "atom-frontmatter-invalid"),
+        )
+        for identity, code in cases:
+            with self.subTest(identity=identity):
+                self.first.write_text(f"---\n{identity}\nversion: 1\n---\n# Fixture\n", encoding="utf-8")
+                with self.assertRaises(operations.ToolError) as context:
+                    operations.atom_from_path(self.root, self.first)
+                self.assertEqual(context.exception.code, code)
+
+    def test_draft_rejects_quoted_stable_identity(self) -> None:
+        path = self.drafts / "CA-R--STATUS_FIXTURE-REQUIREMENT--candidate.md"
+        for quote in ("'", '"'):
+            with self.subTest(quote=quote):
+                path.write_text(f"---\natom_id: {quote}CA-R-343{quote}\n---\n# Draft\n", encoding="utf-8")
+                with self.assertRaises(operations.ToolError) as context:
+                    operations.atom_from_path(self.root, path)
+                self.assertEqual(context.exception.code, "draft-has-stable-id")
+
+    def test_draft_marker_parser_accepts_role_only_versioned_and_legacy_forms(self) -> None:
+        cases = (
+            ("CA-R-draft", None, None),
+            ("CA-R-343@4-draft", "CA-R-343", 4),
+            ("CA-R-343@draft", "CA-R-343", None),
+        )
+        for value, canonical_id, proposed_version in cases:
+            with self.subTest(value=value):
+                marker = operations.parse_draft_marker(value, project_prefix="CA", role_letter="R")
+                self.assertEqual((marker.canonical_id, marker.proposed_version), (canonical_id, proposed_version))
+        with self.assertRaises(ValueError):
+            operations.parse_draft_marker("CA-R-343", project_prefix="CA", role_letter="R")
+
+    def test_draft_marker_keeps_atom_identity_unassigned_and_requires_filename_alignment(self) -> None:
+        path = self.drafts / "CA-R-343@4-draft--candidate.md"
+        path.write_text(
+            "---\natom_id: CA-R-343@4-draft\ncontent_role: Requirement\nstatus: Draft\n"
+            "version: 4\n---\n# Draft\n",
+            encoding="utf-8",
+        )
+        atom = operations.atom_from_path(self.root, path)
+        self.assertIsNone(atom.atom_id)
+        path.write_text(path.read_text(encoding="utf-8").replace("CA-R-343@4-draft", "CA-R-343@draft"), encoding="utf-8")
+        with self.assertRaises(operations.ToolError) as context:
+            operations.atom_from_path(self.root, path)
+        self.assertEqual(context.exception.code, "atom-frontmatter-id-mismatch")
+
+    def test_promote_carried_marker_requires_sealed_target_without_allocating_a_fresh_identity(self) -> None:
+        path = self.drafts / "CA-R-343@4-draft--candidate.md"
+        path.write_text(
+            "---\natom_id: CA-R-343@4-draft\ncontent_role: Requirement\nstatus: Draft\n"
+            "version: 4\n---\n# Draft\n",
+            encoding="utf-8",
+        )
+        payload = {"atoms": [{"selector": path.name, "atom_id": "CA-R-344"}]}
+        with self.assertRaises(operations.ToolError) as context:
+            operations.run_promote(self.root, argparse.Namespace(input=self._input(payload), apply=True))
+        self.assertEqual(context.exception.code, "carrier-fields-invalid")
+        self.assertTrue(path.exists())
+
+    def test_create_and_update_preserve_role_only_draft_marker_without_assigning_identity(self) -> None:
+        path = self.drafts / "CA-R-draft--created.md"
+        payload = {"atoms": [{
+            "path": path.relative_to(self.root).as_posix(),
+            "frontmatter": "atom_id: CA-R-draft\ncontent_role: Requirement\nstatus: Draft",
+            "content": "# Created Draft\n",
+        }]}
+        operations.run_create(self.root, argparse.Namespace(input=self._input(payload), apply=True))
+        created = operations.atom_from_path(self.root, path)
+        self.assertIsNone(created.atom_id)
+        self.assertEqual("CA-R-draft", operations.frontmatter_scalar(created.frontmatter, "atom_id"))
+        update = {"atoms": [{"selector": path.name, "content": "# Updated Draft\n"}]}
+        operations.run_update(self.root, argparse.Namespace(input=self._input(update), apply=True))
+        updated = operations.atom_from_path(self.root, path)
+        self.assertIsNone(updated.atom_id)
+        self.assertEqual("CA-R-draft", operations.frontmatter_scalar(updated.frontmatter, "atom_id"))
+        self.assertEqual(2, operations.atom_version(updated))
+
+    def test_frontmatter_identity_resolves_sequence_prefixed_plan_carrier(self) -> None:
+        atom = operations.resolve_selector(self.root, "CA-P-346")
+        self.assertEqual(atom.path, self.plan_task.resolve())
+        self.assertEqual(atom.lifecycle, "active")
+
+    def test_done_folder_is_a_current_lifecycle_selector_before_archive_history(self) -> None:
+        atom = operations.resolve_selector(self.root, "CA-R-345")
+        self.assertEqual(atom.lifecycle, "done")
+        found = operations.run_search(
+            self.root,
+            argparse.Namespace(under=None, lifecycle="done", atom=None, query=None, limit=None, view="metadata"),
+        )
+        self.assertEqual(found["count"], 1)
+
+    def test_resolved_concern_is_not_an_active_atom(self) -> None:
+        path = self.root / ".caprmedio_caprmedio/01_concern/resolved/CA-C-347--resolved-problem.md"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("---\natom_id: CA-C-347\ncontent_role: Concern\nstatus: resolved\nversion: 1\n---\n# Summary\n\nResolved problem\n")
+        self.assertEqual(operations.resolve_selector(self.root, "CA-C-347").lifecycle, "resolved")
+        self.assertNotIn("CA-C-347", [atom.atom_id for atom in operations.scan_atoms(self.root, lifecycle="active")])
+
+    def test_read_views_are_selective_and_bulk(self) -> None:
+        content = operations.run_read(self.root, argparse.Namespace(atom=["CA-R-343"], view="content"))
+        self.assertEqual(set(content["atoms"][0]), {"content"})
+        metadata = operations.run_read(self.root, argparse.Namespace(atom=["CA-R-343", "CA-M-101"], view="metadata"))
+        self.assertEqual(metadata["count"], 2)
+        self.assertEqual(set(metadata["atoms"][0]), {"metadata"})
+
+    def test_search_filters_lifecycle_content_and_non_atoms(self) -> None:
+        args = argparse.Namespace(under=None, lifecycle="active", atom=None, query=["beta"], limit=None, view="metadata")
+        result = operations.run_search(self.root, args)
+        self.assertEqual(result["count"], 1)
+        self.assertEqual(result["atoms"][0]["metadata"]["atom_id"], "CA-M-101")
+        self.assertNotIn("README.md", [atom.relative for atom in operations.scan_atoms(self.root)])
+
+    def test_create_is_dry_run_then_bulk_apply(self) -> None:
+        paths = [self.requirements / "CA-R-344-STATUS_FIXTURE-REQUIREMENT--third.md", self.methods / "CA-M-102-STATUS_FIXTURE-IMPL_METHOD--fourth.md"]
+        payload = {"atoms": [{"path": path.relative_to(self.root).as_posix(), "frontmatter": "subject_scopes:\n  - test", "content": "# New\n"} for path in paths]}
+        dry = operations.run_create(self.root, argparse.Namespace(input=self._input(payload), apply=False))
+        self.assertEqual(dry["count"], 2)
+        self.assertTrue(all(not path.exists() for path in paths))
+        operations.run_create(self.root, argparse.Namespace(input=self._input(payload), apply=True))
+        self.assertTrue(all(path.exists() for path in paths))
+        self.assertIn("version: 1", paths[0].read_text(encoding="utf-8"))
+        for path in paths:
+            self._assert_configured_timestamp(path)
+
+    def test_canonical_create_and_update_wrappers_refuse_standalone_apply_but_preview(self) -> None:
+        create_path = self.requirements / "CA-R-344-STATUS_FIXTURE-REQUIREMENT--cli-create.md"
+        create_payload = {"atoms": [{
+            "path": create_path.relative_to(self.root).as_posix(),
+            "frontmatter": "subjects:\n  governs:\n    continuant:\n      - Test",
+            "content": "# CLI create\n",
+        }]}
+        update_payload = {"atoms": [{"selector": "CA-R-343", "content": "# CLI update\n"}]}
+
+        for tool, payload in (
+            ("ATOM_CREATE", create_payload),
+            ("ATOM_UPDATE", update_payload),
+        ):
+            with self.subTest(tool=tool, mode="apply"):
+                self._input(payload)
+                before = self._snapshot()
+                refused = self._wrapper_result(tool, payload, apply=True)
+                self.assertEqual(2, refused.returncode, refused.stderr + refused.stdout)
+                envelope = json.loads(refused.stdout)
+                self.assertFalse(envelope["ok"])
+                self.assertEqual("standalone-apply-not-admitted", envelope["diagnostics"][0]["code"])
+                technical = json.loads(refused.stderr)
+                self.assertEqual("WARNING", technical["severity"])
+                self.assertEqual("operation_failure", technical["event"])
+                self.assertEqual("ATOM_OPERATIONS", technical["component"])
+                self.assertEqual("standalone-apply-not-admitted", technical["code"])
+                self.assertEqual("CA", technical["project_prefix"])
+                self.assertEqual(before, self._snapshot())
+                self.assertFalse(create_path.exists())
+
+            with self.subTest(tool=tool, mode="preview"):
+                self._input(payload)
+                before = self._snapshot()
+                preview = self._wrapper_result(tool, payload, apply=False)
+                self.assertEqual(0, preview.returncode, preview.stderr)
+                envelope = json.loads(preview.stdout)
+                self.assertTrue(envelope["ok"])
+                self.assertEqual("dry-run", envelope["mode"])
+                self.assertEqual(1, envelope["result"]["count"])
+                self.assertEqual(before, self._snapshot())
+                self.assertFalse(create_path.exists())
+
+    def test_create_collision_preflights_whole_bulk(self) -> None:
+        new_path = self.requirements / "CA-R-344-STATUS_FIXTURE-REQUIREMENT--new.md"
+        payload = {"atoms": [
+            {"path": new_path.relative_to(self.root).as_posix(), "content": "# New"},
+            {"path": self.first.relative_to(self.root).as_posix(), "content": "# Collision"},
+        ]}
+        with self.assertRaises(operations.ToolError):
+            operations.run_create(self.root, argparse.Namespace(input=self._input(payload), apply=True))
+        self.assertFalse(new_path.exists())
+
+    def test_update_preserves_identity_and_advances_revision(self) -> None:
+        before_path = self.first
+        payload = {"atoms": [{"selector": "CA-R-343", "content": "# Changed\n"}, {"selector": "CA-M-101", "frontmatter": "subjects:\n  governs:\n    continuant:\n      - Changed\nversion: 4"}]}
+        operations.run_update(self.root, argparse.Namespace(input=self._input(payload), apply=False))
+        self.assertIn("Alpha", self.first.read_text(encoding="utf-8"))
+        operations.run_update(self.root, argparse.Namespace(input=self._input(payload), apply=True))
+        self.assertEqual(before_path, self.first)
+        self.assertIn("# Changed", self.first.read_text(encoding="utf-8"))
+        self.assertIn("version: 2", self.first.read_text(encoding="utf-8"))
+        self.assertIn("version: 5", self.second.read_text(encoding="utf-8"))
+        self._assert_configured_timestamp(self.first)
+        self._assert_configured_timestamp(self.second)
+
+    def test_move_is_dry_run_and_preserves_bytes(self) -> None:
+        target = self.root / ".caprmedio_caprmedio/TEST-SU-1_METHODOLOGY_METHODOLOGY_SOURCES/TEST-SU-2_METHODOLOGY_CORE_META_MODEL/04_requirement"
+        before = self.first.read_bytes()
+        args = argparse.Namespace(atom=["CA-R-343"], from_path=None, to=target.relative_to(self.root).as_posix(), flatten=False, apply=False)
+        operations.run_move(self.root, args)
+        self.assertTrue(self.first.exists())
+        args.apply = True
+        operations.run_move(self.root, args)
+        moved = target / self.first.name
+        self.assertEqual(moved.read_bytes(), before)
+        self.assertFalse(self.first.exists())
+
+    def test_bulk_move_preserves_subtree_by_default_and_flattens_explicitly(self) -> None:
+        nested = self.archive / "nested"
+        source_atom = self._atom(nested / "CA-R-101-STATUS_FIXTURE-REQUIREMENT--nested.md", "# Nested")
+        target = self.root / ".caprmedio_caprmedio/TEST-SU-1_METHODOLOGY_METHODOLOGY_SOURCES/TEST-SU-2_METHODOLOGY_CORE_META_MODEL/04_requirement"
+        args = argparse.Namespace(atom=None, from_path=self.requirements.relative_to(self.root).as_posix(), to=target.relative_to(self.root).as_posix(), flatten=False, apply=True)
+        operations.run_move(self.root, args)
+        self.assertTrue((target / "archive/nested" / source_atom.name).exists())
+        flattened = self.root / ".caprmedio_caprmedio/TEST-SU-1_METHODOLOGY_METHODOLOGY_SOURCES/TEST-SU-3_METHODOLOGY_PROJECT_CONFIGURATION/04_requirement"
+        args = argparse.Namespace(atom=None, from_path=(target / "archive").relative_to(self.root).as_posix(), to=flattened.relative_to(self.root).as_posix(), flatten=True, apply=True)
+        operations.run_move(self.root, args)
+        self.assertTrue((flattened / source_atom.name).exists())
+
+    def test_rejects_paths_outside_control_root(self) -> None:
+        with self.assertRaises(operations.ToolError) as context:
+            operations.safe_path(self.root, "outside.md")
+        self.assertEqual(context.exception.code, "outside-control-root")
+
+    def test_archive_is_dry_run_then_bulk_apply(self) -> None:
+        first_bytes = self.first.read_bytes()
+        args = argparse.Namespace(atom=["CA-R-343", "CA-M-101"], apply=False)
+        result = operations.run_archive(self.root, args)
+        self.assertEqual(result["count"], 2)
+        self.assertTrue(self.first.exists())
+        args.apply = True
+        operations.run_archive(self.root, args)
+        first_target = self.requirements / "archive" / self.first.name
+        second_target = self.methods / "archive" / self.second.name
+        self.assertEqual(first_target.read_bytes(), first_bytes)
+        self.assertTrue(second_target.exists())
+
+    def test_archive_rejects_drafts_and_archived_atoms(self) -> None:
+        for selector in ("CA-R--STATUS_FIXTURE-REQUIREMENT--candidate.md", "CA-R-100"):
+            with self.assertRaises(operations.ToolError) as context:
+                operations.run_archive(self.root, argparse.Namespace(atom=[selector], apply=False))
+            self.assertEqual(context.exception.code, "atom-not-active")
+
+    def test_promote_assigns_identity_and_preserves_bytes(self) -> None:
+        draft = self.drafts / "CA-R--STATUS_FIXTURE-REQUIREMENT--candidate.md"
+        payload = {"atoms": [{"selector": draft.name, "atom_id": "CA-R-344"}]}
+        args = argparse.Namespace(input=self._input(payload), apply=False)
+        result = operations.run_promote(self.root, args)
+        target = self.requirements / "CA-R-344-STATUS_FIXTURE-REQUIREMENT--candidate.md"
+        self.assertEqual(result["count"], 1)
+        self.assertTrue(draft.exists())
+        self.assertFalse(target.exists())
+        args.apply = True
+        operations.run_promote(self.root, args)
+        self.assertFalse(draft.exists())
+        self.assertIn("atom_id: CA-R-344", target.read_text(encoding="utf-8"))
+        self.assertIn("# Candidate", target.read_text(encoding="utf-8"))
+        self.assertEqual(operations.resolve_selector(self.root, "CA-R-344").lifecycle, "active")
+
+    def test_promote_bulk_preflight_rejects_role_mismatch_without_mutation(self) -> None:
+        second_draft = self._atom(self.drafts / "CA-R--STATUS_FIXTURE-REQUIREMENT--another.md", "# Another")
+        original = self.drafts / "CA-R--STATUS_FIXTURE-REQUIREMENT--candidate.md"
+        payload = {"atoms": [
+            {"selector": original.name, "atom_id": "CA-R-344"},
+            {"selector": second_draft.name, "atom_id": "CA-M-102"},
+        ]}
+        with self.assertRaises(operations.ToolError) as context:
+            operations.run_promote(self.root, argparse.Namespace(input=self._input(payload), apply=True))
+        self.assertEqual(context.exception.code, "atom-id-role-mismatch")
+        self.assertTrue(original.exists())
+        self.assertTrue(second_draft.exists())
+
+    def test_upgrade_requires_explicit_higher_tier_and_bulk_applies(self) -> None:
+        payload = {"atoms": [
+            {"selector": "CA-R-343", "tier": "core"},
+            {"selector": "CA-M-101", "tier": "core"},
+        ]}
+        args = argparse.Namespace(input=self._input(payload), apply=False)
+        result = operations.run_upgrade(self.root, args)
+        self.assertEqual(result["count"], 2)
+        self.assertNotIn("-CORE-", self.first.name)
+        args.apply = True
+        operations.run_upgrade(self.root, args)
+        upgraded = self.requirements / "CA-R-343-STATUS_FIXTURE-CORE-REQUIREMENT--first.md"
+        self.assertTrue(upgraded.exists())
+        self.assertIn("version: 2", upgraded.read_text(encoding="utf-8"))
+        self.assertIn("version: 2", (self.methods / "CA-M-101-STATUS_FIXTURE-CORE-IMPL_METHOD--second.md").read_text(encoding="utf-8"))
+        self._assert_configured_timestamp(upgraded)
+        self._assert_configured_timestamp(self.methods / "CA-M-101-STATUS_FIXTURE-CORE-IMPL_METHOD--second.md")
+        invalid = {"atoms": [{"selector": "CA-R-343", "tier": "core"}]}
+        with self.assertRaises(operations.ToolError) as context:
+            operations.run_upgrade(self.root, argparse.Namespace(input=self._input(invalid), apply=False))
+        self.assertEqual(context.exception.code, "target-tier-not-higher")
+
+    def test_upgrade_to_upper_scope_moves_and_rewrites_scope_segment(self) -> None:
+        before_id = operations.resolve_selector(self.root, "CA-R-343").atom_id
+        payload = {"atoms": [{"selector": "CA-R-343", "tier": "standard", "to_scope": "CAPRMEDIO"}]}
+        args = argparse.Namespace(input=self._input(payload), apply=False)
+        result = operations.run_upgrade(self.root, args)
+        target = self.root / ".caprmedio_caprmedio/04_requirement/CA-R-343-REQUIREMENT--first.md"
+        self.assertEqual(result["changes"][0]["to_scope"], "caprmedio")
+        self.assertFalse(target.exists())
+        args.apply = True
+        operations.run_upgrade(self.root, args)
+        self.assertFalse(self.first.exists())
+        self.assertTrue(target.exists())
+        self.assertEqual(operations.resolve_selector(self.root, "CA-R-343").atom_id, before_id)
+        self._assert_configured_timestamp(target)
+
+    def test_upgrade_rejects_missing_explicit_tier(self) -> None:
+        payload = {"atoms": [{"selector": "CA-R-343"}]}
+        with self.assertRaises(operations.ToolError) as context:
+            operations.run_upgrade(self.root, argparse.Namespace(input=self._input(payload), apply=False))
+        self.assertEqual(context.exception.code, "target-tier-invalid")
+
+    def test_draft_has_no_derived_atom_id_and_cannot_move_to_active(self) -> None:
+        draft = operations.resolve_selector(self.root, "CA-R--STATUS_FIXTURE-REQUIREMENT--candidate.md")
+        self.assertIsNone(draft.atom_id)
+        target = self.root / ".caprmedio_caprmedio/TEST-SU-1_METHODOLOGY_METHODOLOGY_SOURCES/TEST-SU-2_METHODOLOGY_CORE_META_MODEL/04_requirement"
+        args = argparse.Namespace(atom=[draft.filename], from_path=None, to=target.relative_to(self.root).as_posix(), flatten=False, apply=False)
+        with self.assertRaises(operations.ToolError) as context:
+            operations.run_move(self.root, args)
+        self.assertEqual(context.exception.code, "atom-id-required")
+
+
+if __name__ == "__main__":
+    unittest.main()

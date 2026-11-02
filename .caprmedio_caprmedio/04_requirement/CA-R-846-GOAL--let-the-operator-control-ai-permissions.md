@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-version: 29
-updated_at: 2026-11-02 00:18:22 +0400
+version: 31
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-R-2157
@@ -11,8 +11,8 @@ subjects:
   passive:
   - Entity/Object/Continuant/Actor/AI Agent
   - Entity/Object/Continuant/Actor/Operator
-  - Entity/Aspect/Engineering/Execution Control/Effect Authorization
-  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  - Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - Aspects <+ Product
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-846

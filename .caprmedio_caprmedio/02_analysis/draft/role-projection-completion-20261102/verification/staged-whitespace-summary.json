@@ -1,0 +1,14 @@
+{
+  "status": "WARNINGS_RECORDED",
+  "warnings": 5361,
+  "files": 144,
+  "archive_or_archived_files": 61,
+  "code_or_config_files": [
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/tests/test_container_lifecycle_admission.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/tests/interactive_direct_fixture.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_contract_graph.py"
+  ],
+  "conflict_markers": 0,
+  "decision": "Preserve the authorized mechanical snapshot, including exact historical archive bytes. No unrelated whitespace cleanup.",
+  "full_log": ".caprmedio_tmp/role-projection-publication/staged-whitespace-check.txt"
+}

@@ -1,0 +1,9 @@
+{
+  "operator_expression": "Project//.order.ordered == false\nProject//.order.number: []{:0}",
+  "scope": "Shared Project model; inherited by individual Project Declaration",
+  "project_scope_unit_id": null,
+  "project_authority_folder": ".caprmedio_<project name>",
+  "reason": "Project is not moved or renamed through Scope Unit operations. IDs distinguish those operations for other Scope Units.",
+  "superseded_expression": "Project//.ordered == false\nProject//.ordered.number: []{:0}",
+  "null": "Not used: null is a value; this rule requires zero values."
+}

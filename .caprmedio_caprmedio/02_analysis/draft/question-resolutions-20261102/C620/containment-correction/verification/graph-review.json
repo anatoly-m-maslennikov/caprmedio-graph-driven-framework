@@ -1,0 +1,83 @@
+{
+  "scope": "Counterfactual review only: the 1,134 pinned Current RMED inputs in the source frontier. No Current source, projection, runtime, graph, or Git state was changed.",
+  "source_pins": {
+    "frontier": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/current-source-frontier.json",
+      "sha256": "9226f8d1a16f154e3faee18d86b82f9d1112c2adad519de8065869bd8b78f012",
+      "selected_operations": 1134,
+      "all_operation_file_hashes_match_frontier": true
+    },
+    "notation_rule": {
+      "atom_id": "CA-R-2471@4",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "sha256": "68fbc248834677a9a5ae20132291ead59d73e2a2c42d3b81dbbcffc5c73d1239",
+      "evidence_lines": [21, 23],
+      "meaning": "// denotes an instance; +> and <+ are opposite composition views, not narrowing."
+    },
+    "tooling": {
+      "subject_notation": {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/subject_notation.py",
+        "sha256": "f0f16f473ff6676d9bef4c558267211c6f235927bce168a2e3442ea19a7523f9",
+        "evidence_lines": [215, 420, 632]
+      },
+      "current_subject_graph": {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/current_subject_graph.py",
+        "sha256": "77965c897073bb8eb3101d7089e8845e7381aece86c44b31c625950931e06bc2",
+        "evidence_lines": [107, 128]
+      },
+      "approved_parser_test": {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_notation.py",
+        "evidence_lines": [88, 90],
+        "meaning": "The approved parser test already accepts a three-endpoint <+ chain."
+      }
+    },
+    "baseline_comparison": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/verification/graph-comparison.json",
+      "sha256": "b031890b1f285c8b6e7f098839a0ec5f37e45e5860151a7b78cac4c4858635cb",
+      "coverage_gaps": 12,
+      "meaning": "The twelve parallel Role projection-preflight gaps are baseline and outside this Aspect-address correction."
+    }
+  },
+  "decision_tested": {
+    "model": "MODEL contains only the generic Aspect.",
+    "concrete_address_form": "Aspects <+ Product; nested paths use Aspects <+ Engineering <+ Traceability and preserve their labels.",
+    "forbidden_interpretations": ["Aspect//... instance addressing", "a new concrete MODEL kind", "inheritance/narrowing from a containment edge", "actual Aspect registration or runtime admission"]
+  },
+  "counterfactual_transform": {
+    "rule": "For every selected subjects.active or subjects.passive value beginning Entity/Aspect/, replace the prefix with Aspects <+ and replace every remaining / path separator with <+. The settled Product target is exactly Aspects <+ Product.",
+    "legacy_unique_subjects": 31,
+    "new_unique_subjects": 31,
+    "occurrences": {"active": 106, "passive": 147, "total": 253, "selected_source_atoms": 207},
+    "passive_reference_loss": 0,
+    "unique_direct_containment_facts": 33,
+    "maximum_chain_nodes": 4,
+    "representative_crosswalk": [
+      {"old": "Entity/Aspect/Product: CAPRMEDIO Framework", "new": "Aspects <+ Product", "active": 25, "passive": 23, "source_atoms": 47},
+      {"old": "Entity/Aspect/Engineering", "new": "Aspects <+ Engineering", "active": 5, "passive": 4, "source_atoms": 9},
+      {"old": "Entity/Aspect/Engineering/Traceability", "new": "Aspects <+ Engineering <+ Traceability", "active": 6, "passive": 15, "source_atoms": 21},
+      {"old": "Entity/Aspect/Engineering/Authoring/Controlled English", "new": "Aspects <+ Engineering <+ Authoring <+ Controlled English", "active": 7, "passive": 33, "source_atoms": 34},
+      {"old": "Entity/Aspect/UX/Entry", "new": "Aspects <+ UX <+ Entry", "active": 2, "passive": 4, "source_atoms": 5}
+    ],
+    "complete_legacy_count_source": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/aspect-consumer-inventory.json"
+  },
+  "recognition_results": {
+    "approved_source_parser": "pass",
+    "fact_projection": "pass",
+    "direct_checks": [
+      {"input": "Aspects <+ Product", "canonical": "Aspects <+ Product", "facts": ["Product IS_CONTAINED_BY Aspects"]},
+      {"input": "Aspects <+ Engineering <+ Traceability", "canonical": "Aspects <+ Engineering <+ Traceability", "facts": ["Engineering IS_CONTAINED_BY Aspects", "Traceability IS_CONTAINED_BY Engineering"]}
+    ],
+    "new_coverage_or_binding_gap": "none in the source-notation and direct-fact path",
+    "false_new_model_kind": "none: the parser emits relation facts only; it does not register a kind or an instance",
+    "tree_inheritance": "none: CA-R-2471 distinguishes composition from narrowing; no NARROWER_THAN fact is emitted",
+    "passive_references": "all 147 selected passive occurrences survive the counterfactual substitution"
+  },
+  "tool_decision": {
+    "result": "pass_no_tool_fix",
+    "reason": "The approved parser already accepts bare multi-link <+ relation chains and the current fact projector maps them to IS_CONTAINED_BY. Expanding the parser, adding a concrete Aspect schema/model kind, or changing a projection would not address an evidenced regression."
+  },
+  "boundary": {
+    "source_notation_and_graph": "Verified only for syntax and direct relation facts in the existing approved-profile tooling.",
+    "runtime_and_actual_instances": "Not exercised or implied. Actual PROJECT STRUCTURE Aspect registration, runtime/native graph admission, official projection refresh, and any adoption of the root migration remain separate work."
+  }
+}

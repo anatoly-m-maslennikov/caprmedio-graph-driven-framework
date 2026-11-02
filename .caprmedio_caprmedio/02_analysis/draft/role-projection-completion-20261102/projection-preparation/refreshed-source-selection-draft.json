@@ -1,0 +1,40 @@
+{
+  "status": "DRAFT_NOT_CURRENT_FRONTIER",
+  "purpose": "Selection rule for Root's later Current-frontier refresh after the completed authority-folder move. This file neither writes nor approves Current sources or projections.",
+  "pins": {
+    "coordination": {"path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/coordination.json", "source_paths_stable": true},
+    "folder_mapping": {"path": ".caprmedio_tmp/declaration-folder-migration/scope-unit-folder-mapping.json", "sha256": "68889da5a8272796a5ffbaf1931f54d5711a1916b3dabbe0a1d5826a97b34c40", "rule": "longest old_authority prefix maps to its new_authority"},
+    "cutover_manifests": [
+      ".caprmedio_tmp/declaration-source-cutover/model-publication-plan.json#20d1dfa070638ed3aa943d8edfa2b8a6d82f5ddd33a19930c5ca8fbd306e637f",
+      ".caprmedio_tmp/declaration-source-cutover/supplemental-retirements.json#ce9c266eac9f4b8790f36b2b9841ed147763e7a39fe0421dbe7586ed72e092d8",
+      ".caprmedio_tmp/declaration-source-cutover/final-three-source-publication.json#f575cb0a1ade02521a5d57a65162bc442408b928a3769d6a2ff70b6260fe6dc0"
+    ]
+  },
+  "named_selection": {
+    "proposed": "Current Methodology and direct Project RMED after Scope Unit authority migration",
+    "clarification_needed": true,
+    "why": "The old selection text does not distinguish an authority path moved by the longest-prefix map from an installed 000 fallback. The refreshed frontier must state that sources are selected from their mapped authority owners and exclude installed 000 copies."
+  },
+  "inclusion_rule": [
+    "Start with every Current R/M/E/D member of the prior selected authority scope, resolving its new physical path by the longest old_authority to new_authority mapping.",
+    "Retain a source only when the resolved mapped path exists, its Current metadata is Active, and its base ID/version/SHA-256 are captured at final readback.",
+    "Include a shared-model replacement only when its retired/replaced predecessor was selected and its replacement manifest names that replacement; preserve the predecessor-to-replacement reason in the refreshed receipt.",
+    "Include a native Scope Unit Declaration among the 44 only when its declared Scope Unit is an original selected authority owner or a selected owner ancestor required to address that source. Do not include declarations merely because they are shared model material or physically adjacent.",
+    "Include direct PROJECT_CONFIGURATION RMED under the same original direct-project scope rule."
+  ],
+  "exclusion_rule": [
+    "Exclude retired IDs, including CA-D-297 per the peer retirement/replacement receipt; do not recover it from Git or an archive.",
+    "Exclude installed 000 copies, archives, drafts, projections, runtime/fixture files, and a new carrier-destination design decision.",
+    "Exclude a replacement that lacks a selected predecessor/owner justification, even if it is listed in a shared model cutover manifest."
+  ],
+  "manifest_observations": {
+    "model_cutover_replacement_keys": ["CA-A-1313", "CA-D-297", "CA-D-298", "CA-D-299", "CA-D-391", "CA-D-398", "CA-D-440", "CA-D-441", "CA-D-442", "CA-D-443", "CA-D-445", "CA-D-465", "CA-E-006", "CA-E-446", "CA-E-469", "CA-E-470", "CA-E-621", "CA-M-291", "CA-R-1430", "CA-R-1484", "CA-R-1485", "CA-R-1750", "CA-R-1758", "CA-R-1759", "CA-R-1762", "CA-R-2133", "CA-R-2134", "CA-R-2516", "CA-R-2524", "CA-R-2526", "CA-R-2529", "CA-R-2632", "CA-R-862"],
+    "decision": "These are candidates for the ownership test, not automatic additions. CA-D-297 is explicitly excluded."
+  },
+  "final_capture_gate": [
+    "Recompute every resolved path, SHA-256, version, status, and content-role from physically present Current sources only.",
+    "Record exact inclusion/exclusion reason and predecessor/replacement linkage for every changed selected member.",
+    "Reject duplicate base IDs, a missing selected owner, any archive/draft/000 source, or a missing mapped path.",
+    "Only after a root-owned Current-frontier receipt may the projection staging runner use the refreshed frontier."
+  ]
+}

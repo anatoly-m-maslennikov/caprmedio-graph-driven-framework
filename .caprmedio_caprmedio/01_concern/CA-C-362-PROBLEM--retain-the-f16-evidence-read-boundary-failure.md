@@ -12,12 +12,15 @@ subjects:
   governs: F16 saved-candidate evidence read-boundary failure
   depends_on:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
-  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis'
-version: 5
-updated_at: 2026-10-23 03:14:50 +0400
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis & Advisory'
+version: 6
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  concern_about: [CA-P-1361]
-  relates_to: [CA-A-1079, CA-A-933]
+  concern_about:
+  - CA-P-1361
+  relates_to:
+  - CA-A-1079
+  - CA-A-933
 ---
 # Summary
 

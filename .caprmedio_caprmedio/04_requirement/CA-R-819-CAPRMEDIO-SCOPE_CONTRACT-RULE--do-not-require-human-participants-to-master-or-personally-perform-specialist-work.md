@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-version: 36
-updated_at: 2026-11-02 00:18:22 +0400
+version: 38
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-R-2452
@@ -11,7 +11,7 @@ subjects:
   passive:
   - Project
   - Entity/Object/Continuant/Actor/Operator
-  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  - Aspects <+ Product
 atom_id: CA-R-819
 status: Active
 current_scope_unit: caprmedio

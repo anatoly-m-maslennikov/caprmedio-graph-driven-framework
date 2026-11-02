@@ -1,0 +1,656 @@
+{
+  "status": "APPLIED",
+  "accepted_at": "2026-11-02 19:33:47 +0400",
+  "plan_sha256": "5d1b42c3c0b29b49de324e8abb9a70be248683f2feb96e880af2b8277b124fe4",
+  "timestamp_rebases": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/001-CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md",
+      "before_sha256": "63fd9eb993c40afdef640c66075d3ecc459b6aec8aac19d34834c7c5aa2a5149",
+      "after_sha256": "52b7b8cf0089eea1ed769fff29512d50219e8d36d4940202f939c0b1b7c028df"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/003-CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "before_sha256": "69e6032b8a48ddf74fd527d1bd787182326d4f7c49ed4b9012a1c2eb421c5339",
+      "after_sha256": "c9642014641c640079c26d022c9dae7f14f184101970ebaed522f4bc43450645"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/005-CA-R-1705-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md",
+      "before_sha256": "2d51541b2674dcb54d2db4020e621cf6d82eea2c82d11eb9c8bbc0ebc886ffb9",
+      "after_sha256": "2c20aa631343fb9aa1013fadeb6faf501ac9dc777b861accf44b3c8b5b0aee92"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/007-CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "before_sha256": "3d5d9282b9bf876c555a5ddfb718df58caf54d1fc2b7165d2843d2edc3a72cb0",
+      "after_sha256": "37e7f6571e2f675fbd099989d4f01aea7c1b59ec290547e30ef68cf2a88daece"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/009-CA-R-1664-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "before_sha256": "4967e60c59fef83ca172184fb08cc1af2565700d17d72e07c8ea4de04fc2c488",
+      "after_sha256": "7e4157615514b700c5c58edf1862f85c9d24de0288fbb96471e85d40c7fcdca3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/011-CA-R-1888-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+      "before_sha256": "5b54e8fdc1a3697a3aa95976a9c1d61caf753316516d1c2b03b31133409c1e97",
+      "after_sha256": "406f672170fd189a0bd00bd507f674df34b260fee408a83cf087366303168462"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/013-CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "before_sha256": "da8047f326495fb260df194cde4a2a381e536ec3f897427c24f57585f40629de",
+      "after_sha256": "f86bfac6d3e165049c34bd9d06969be9bd2d6072673752aa0635a793d316f224"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/015-CA-D-581-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+      "before_sha256": "2c0659a0802487a171fe7521d2dcbc84aaad529742ee7b314344fff9f8872e17",
+      "after_sha256": "184b74f017976369737b40878e976ddbb368b63a5c2637cbdc5225f362c38d80"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/017-CA-D-389-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md",
+      "before_sha256": "799bffdea0d8d6859dc734127919302a03d75c3ed2fc0998a133a1a26955f1f6",
+      "after_sha256": "fb68c90297c741b7d7678fad9644a063b3b197e81230126149e8e11395374d90"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/019-CA-R-1556-CORE_META_MODEL-RULE--keep-analysis-optional-before-specification.md",
+      "before_sha256": "ffcdf50f719c7326f8ac81e411b2e745d8c39cde807cde0c8d41bfb40c996347",
+      "after_sha256": "4fddbd6af74a932613c7951a2a2478ae73c23f82b9652fae3329703fa3e9bbfa"
+    }
+  ],
+  "operations": [
+    {
+      "kind": "archive",
+      "base_id": "CA-R-1889",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md",
+      "source_sha256": "fc67a1271740e5aa9890ed6c363017864428a4afe8648ef589041470942b9b38",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/000-CA-R-1889@18-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md",
+      "candidate_sha256": "a372bf7bd863783137706634260783d420ecbe2464e7d802529772d5ec440b9b",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/archive/CA-R-1889@18-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md",
+      "version": 18,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-1889",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md",
+      "source_sha256": "fc67a1271740e5aa9890ed6c363017864428a4afe8648ef589041470942b9b38",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/001-CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md",
+      "candidate_sha256": "52b7b8cf0089eea1ed769fff29512d50219e8d36d4940202f939c0b1b7c028df",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md",
+      "version": 20,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-R-1889@19-draft-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-M-345",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "source_sha256": "7d8d4577ce71f6d8e08d78f7012fb48113471aa529417049a5e44e0a75d67919",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/002-CA-M-345@18-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "candidate_sha256": "49d3860b7885c12bc2319303c07bfc5fdd917114857e878eed7c9e74ca04db20",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/archive/CA-M-345@18-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "version": 18,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-M-345",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "source_sha256": "7d8d4577ce71f6d8e08d78f7012fb48113471aa529417049a5e44e0a75d67919",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/003-CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "candidate_sha256": "c9642014641c640079c26d022c9dae7f14f184101970ebaed522f4bc43450645",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "version": 20,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-M-345@19-draft-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-1705",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md",
+      "source_sha256": "464bfd121551707f69b91d141f04ad0c4b14d0a38c70ba9ff8ef319327402377",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/004-CA-R-1705@30-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md",
+      "candidate_sha256": "dd7d19b23940c108ca76d7562e6124374be55aba4dab326a0b8e3abc3fa61015",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1705@30-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md",
+      "version": 30,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-1705",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md",
+      "source_sha256": "464bfd121551707f69b91d141f04ad0c4b14d0a38c70ba9ff8ef319327402377",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/005-CA-R-1705-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md",
+      "candidate_sha256": "2c20aa631343fb9aa1013fadeb6faf501ac9dc777b861accf44b3c8b5b0aee92",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md",
+      "version": 32,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-R-1705@31-draft-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-1875",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "source_sha256": "e646c7bf50743262505397099fe69837b7e3d99675026583d3ecc53714963a74",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/006-CA-R-1875@20-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "candidate_sha256": "920291eb0b96f61604536d2aa835c720dd2370e476730f82feddfaf3fc03d7e6",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1875@20-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "version": 20,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-1875",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "source_sha256": "e646c7bf50743262505397099fe69837b7e3d99675026583d3ecc53714963a74",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/007-CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "candidate_sha256": "37e7f6571e2f675fbd099989d4f01aea7c1b59ec290547e30ef68cf2a88daece",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "version": 22,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-R-1875@21-draft-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-1664",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "source_sha256": "611212ebd6fb43fb92cc9ee26a482a492805f11d34a580a899bcd7ea550fe2b5",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/008-CA-R-1664@37-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "candidate_sha256": "1006677b88507b7010fe49963e61f18af6be3eb8c19b532a927a2db22db712da",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1664@37-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "version": 37,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-1664",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "source_sha256": "611212ebd6fb43fb92cc9ee26a482a492805f11d34a580a899bcd7ea550fe2b5",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/009-CA-R-1664-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "candidate_sha256": "7e4157615514b700c5c58edf1862f85c9d24de0288fbb96471e85d40c7fcdca3",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "version": 39,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-R-1664@38-draft-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-1888",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1888-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+      "source_sha256": "b02073a45e057acba6efe552cab424259c582450ab31b21832699b22c90a6776",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/010-CA-R-1888@14-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+      "candidate_sha256": "0e5b5c958b3a5fb6a6bd73952423d8a064c8d6126f6295bbf4196e52bc363a89",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/archive/CA-R-1888@14-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+      "version": 14,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-1888",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1888-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+      "source_sha256": "b02073a45e057acba6efe552cab424259c582450ab31b21832699b22c90a6776",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/011-CA-R-1888-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+      "candidate_sha256": "406f672170fd189a0bd00bd507f674df34b260fee408a83cf087366303168462",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1888-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+      "version": 16,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-R-1888@15-draft-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-E-588",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "source_sha256": "cfd4663412da0704b943d607181661b2f4dfb13834c6c22b71e33986ca43d308",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/012-CA-E-588@18-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "candidate_sha256": "1bd44be6c6b6b8e300533801ecd9a20fb790ab696e15ac422c29b10864a6eb42",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/archive/CA-E-588@18-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "version": 18,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-E-588",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "source_sha256": "cfd4663412da0704b943d607181661b2f4dfb13834c6c22b71e33986ca43d308",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/013-CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "candidate_sha256": "f86bfac6d3e165049c34bd9d06969be9bd2d6072673752aa0635a793d316f224",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "version": 20,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-E-588@19-draft-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-D-581",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-581-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+      "source_sha256": "3ffbdfb958fba1cdff930b134e131c522acfc276c14a7cb9e4ec4681f010c8ae",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/014-CA-D-581@15-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+      "candidate_sha256": "3a8f1bcb435475e4840671126e95416db19aa5297d587742fdcc23959d69e188",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/archive/CA-D-581@15-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+      "version": 15,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-D-581",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-581-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+      "source_sha256": "3ffbdfb958fba1cdff930b134e131c522acfc276c14a7cb9e4ec4681f010c8ae",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/015-CA-D-581-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+      "candidate_sha256": "184b74f017976369737b40878e976ddbb368b63a5c2637cbdc5225f362c38d80",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-581-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+      "version": 17,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-D-581@16-draft-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-D-389",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-389-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md",
+      "source_sha256": "671e91927bab12399ae7a25660908c27c39deaee848c51ae075a154d67d46b76",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/016-CA-D-389@25-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md",
+      "candidate_sha256": "df07a22f58dbd964a745a899cb5bf187ab1e4ed4ba8a79b9d12398472ab4988f",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archive/CA-D-389@25-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md",
+      "version": 25,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-D-389",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-389-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md",
+      "source_sha256": "671e91927bab12399ae7a25660908c27c39deaee848c51ae075a154d67d46b76",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/017-CA-D-389-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md",
+      "candidate_sha256": "fb68c90297c741b7d7678fad9644a063b3b197e81230126149e8e11395374d90",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-389-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md",
+      "version": 27,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-D-389@26-draft-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-1556",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-RULE--keep-analysis-optional-before-specification.md",
+      "source_sha256": "c6c134fe8374de144efa015beacf24c0398b3e5ad81a9bae407c00ae4a4c2429",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/018-CA-R-1556@24-CORE_META_MODEL-RULE--keep-analysis-optional-before-specification.md",
+      "candidate_sha256": "b5ca8ada58a91f1a1810df9ad9b60bb618945c2de266d08b6d6ab7b49a5d7c8b",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1556@24-CORE_META_MODEL-RULE--keep-analysis-optional-before-specification.md",
+      "version": 24,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-1556",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-RULE--keep-analysis-optional-before-specification.md",
+      "source_sha256": "c6c134fe8374de144efa015beacf24c0398b3e5ad81a9bae407c00ae4a4c2429",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/staged/019-CA-R-1556-CORE_META_MODEL-RULE--keep-analysis-optional-before-specification.md",
+      "candidate_sha256": "4fddbd6af74a932613c7951a2a2478ae73c23f82b9652fae3329703fa3e9bbfa",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-RULE--keep-analysis-optional-before-specification.md",
+      "version": 26,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-R-1556@25-draft-CORE_META_MODEL-RULE--keep-analysis-optional-before-specification.md",
+      "identified_draft": null
+    }
+  ],
+  "retired_ids": [],
+  "original_sources": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-R-1889@19-draft-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md",
+      "sha256": "d2d2e33d5a77240cc1b2db280f1374cbb6e87a5178f8b76cfcabc089dcc6e9d7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md",
+      "sha256": "fc67a1271740e5aa9890ed6c363017864428a4afe8648ef589041470942b9b38"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-M-345@19-draft-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "sha256": "698c0cda324f795346c1ca9696a24ee29b0269afdec0f83acab4e74a8f7a174a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+      "sha256": "7d8d4577ce71f6d8e08d78f7012fb48113471aa529417049a5e44e0a75d67919"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-R-1705@31-draft-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md",
+      "sha256": "da586866f6300c3313b2edbb2182b412a2a79d6c9bf25b00404d27deeda345f3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md",
+      "sha256": "464bfd121551707f69b91d141f04ad0c4b14d0a38c70ba9ff8ef319327402377"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-R-1875@21-draft-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "sha256": "6032bb4466c0d620d30dc86952380d985d12d1b8eafcb4f6a8589c3b9e9d40d2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "sha256": "e646c7bf50743262505397099fe69837b7e3d99675026583d3ecc53714963a74"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-R-1664@38-draft-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "sha256": "acae454e6825ac01bd56318855e764146833856f4e276d41b85064f4f4054931"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "sha256": "611212ebd6fb43fb92cc9ee26a482a492805f11d34a580a899bcd7ea550fe2b5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-R-1888@15-draft-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+      "sha256": "ed0a4cad56f1e5738b4026503277afe47065aa9de8542adda2bbedd33fd524ec"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1888-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+      "sha256": "b02073a45e057acba6efe552cab424259c582450ab31b21832699b22c90a6776"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-E-588@19-draft-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "sha256": "367988921a93ce81fbd3f56378aac6babbde025a64e33837489823e8356b2c03"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+      "sha256": "cfd4663412da0704b943d607181661b2f4dfb13834c6c22b71e33986ca43d308"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-D-581@16-draft-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+      "sha256": "b5b357d7d8694f6f5330e7e5ea927d8ae023fa865199a6f4752c5dd3bce94317"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-581-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+      "sha256": "3ffbdfb958fba1cdff930b134e131c522acfc276c14a7cb9e4ec4681f010c8ae"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-D-389@26-draft-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md",
+      "sha256": "c906427e050e7727de5a011495f16a490bba2e4615fb212c3a248e50f15cffb2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-389-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md",
+      "sha256": "671e91927bab12399ae7a25660908c27c39deaee848c51ae075a154d67d46b76"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/source-drafts/CA-R-1556@25-draft-CORE_META_MODEL-RULE--keep-analysis-optional-before-specification.md",
+      "sha256": "587c14c107f1f7e608ef924a9d94745db676b63187f980ce5d0496f15cf78113"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-RULE--keep-analysis-optional-before-specification.md",
+      "sha256": "c6c134fe8374de144efa015beacf24c0398b3e5ad81a9bae407c00ae4a4c2429"
+    }
+  ],
+  "frozen_sources": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/frozen-inputs",
+  "limits": [
+    "No runtime or native PROJECT STRUCTURE registration change",
+    "Official projection refresh remains subject to clean graph preflight",
+    "Unrelated parallel edits are preserved"
+  ],
+  "archives": 10,
+  "current_writes": 10,
+  "removed_carriers": 10,
+  "events": [
+    {
+      "event_id": "1e83812c-8ba5-5a60-b7a4-b3669afa4f85",
+      "happened_at": "2026-11-02 19:33:47 +0400",
+      "inserted_at": "2026-11-02T19:33:49.332854+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-1889",
+        "version": 20,
+        "updated_at": "2026-11-02 19:33:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-1889",
+        "version": 18,
+        "updated_at": "2026-11-02 15:49:28 +0400"
+      }
+    },
+    {
+      "event_id": "38788eb0-196c-5847-bb6c-577315e38558",
+      "happened_at": "2026-11-02 19:33:47 +0400",
+      "inserted_at": "2026-11-02T19:33:49.334378+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-M-345",
+        "version": 20,
+        "updated_at": "2026-11-02 19:33:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-M-345",
+        "version": 18,
+        "updated_at": "2026-11-02 18:35:20 +0400"
+      }
+    },
+    {
+      "event_id": "08768833-e568-5e10-abf5-ee59fc63a13e",
+      "happened_at": "2026-11-02 19:33:47 +0400",
+      "inserted_at": "2026-11-02T19:33:49.335753+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-1705",
+        "version": 32,
+        "updated_at": "2026-11-02 19:33:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-1705",
+        "version": 30,
+        "updated_at": "2026-11-02 15:49:28 +0400"
+      }
+    },
+    {
+      "event_id": "a3afbcab-8aad-55f8-838c-b56a0ccbe0b9",
+      "happened_at": "2026-11-02 19:33:47 +0400",
+      "inserted_at": "2026-11-02T19:33:49.337254+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-1875",
+        "version": 22,
+        "updated_at": "2026-11-02 19:33:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-1875",
+        "version": 20,
+        "updated_at": "2026-11-02 15:49:28 +0400"
+      }
+    },
+    {
+      "event_id": "6ffced2c-0e63-5617-9ee8-42685b332f01",
+      "happened_at": "2026-11-02 19:33:47 +0400",
+      "inserted_at": "2026-11-02T19:33:49.338555+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-1664",
+        "version": 39,
+        "updated_at": "2026-11-02 19:33:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-1664",
+        "version": 37,
+        "updated_at": "2026-11-02 15:49:28 +0400"
+      }
+    },
+    {
+      "event_id": "de0d5e66-38c1-532d-8742-355dcbd4fde9",
+      "happened_at": "2026-11-02 19:33:47 +0400",
+      "inserted_at": "2026-11-02T19:33:49.339894+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-1888",
+        "version": 16,
+        "updated_at": "2026-11-02 19:33:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-1888",
+        "version": 14,
+        "updated_at": "2026-11-02 15:49:28 +0400"
+      }
+    },
+    {
+      "event_id": "ba7e0e00-7ad4-53f8-9b2d-58be685edd79",
+      "happened_at": "2026-11-02 19:33:47 +0400",
+      "inserted_at": "2026-11-02T19:33:49.341319+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-E-588",
+        "version": 20,
+        "updated_at": "2026-11-02 19:33:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-E-588",
+        "version": 18,
+        "updated_at": "2026-11-02 18:35:20 +0400"
+      }
+    },
+    {
+      "event_id": "7c8386bd-7157-5eb9-bfee-7113240319bd",
+      "happened_at": "2026-11-02 19:33:47 +0400",
+      "inserted_at": "2026-11-02T19:33:49.342763+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-D-581",
+        "version": 17,
+        "updated_at": "2026-11-02 19:33:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-D-581",
+        "version": 15,
+        "updated_at": "2026-11-02 15:49:28 +0400"
+      }
+    },
+    {
+      "event_id": "db244d62-e6c0-5f87-9382-e445b6e4a371",
+      "happened_at": "2026-11-02 19:33:47 +0400",
+      "inserted_at": "2026-11-02T19:33:49.344049+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-D-389",
+        "version": 27,
+        "updated_at": "2026-11-02 19:33:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-D-389",
+        "version": 25,
+        "updated_at": "2026-11-02 15:49:28 +0400"
+      }
+    },
+    {
+      "event_id": "11be4bd8-6168-51c3-ae3f-318a2f7e5911",
+      "happened_at": "2026-11-02 19:33:47 +0400",
+      "inserted_at": "2026-11-02T19:33:49.345595+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-1556",
+        "version": 26,
+        "updated_at": "2026-11-02 19:33:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-1556",
+        "version": 24,
+        "updated_at": "2026-11-02 15:49:28 +0400"
+      }
+    }
+  ],
+  "journal_receipts": [
+    {
+      "event_id": "1e83812c-8ba5-5a60-b7a4-b3669afa4f85",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 540
+    },
+    {
+      "event_id": "38788eb0-196c-5847-bb6c-577315e38558",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 541
+    },
+    {
+      "event_id": "08768833-e568-5e10-abf5-ee59fc63a13e",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 542
+    },
+    {
+      "event_id": "a3afbcab-8aad-55f8-838c-b56a0ccbe0b9",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 543
+    },
+    {
+      "event_id": "6ffced2c-0e63-5617-9ee8-42685b332f01",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 544
+    },
+    {
+      "event_id": "de0d5e66-38c1-532d-8742-355dcbd4fde9",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 545
+    },
+    {
+      "event_id": "ba7e0e00-7ad4-53f8-9b2d-58be685edd79",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 546
+    },
+    {
+      "event_id": "7c8386bd-7157-5eb9-bfee-7113240319bd",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 547
+    },
+    {
+      "event_id": "db244d62-e6c0-5f87-9382-e445b6e4a371",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 548
+    },
+    {
+      "event_id": "11be4bd8-6168-51c3-ae3f-318a2f7e5911",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 549
+    }
+  ],
+  "journal_records": 10
+}

@@ -9,8 +9,8 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-version: 10
-updated_at: 2026-10-25 17:32:27 +0400
+version: 11
+updated_at: 2026-11-02 19:44:26 +0400
 subjects:
   governs: Subject/Graph Node/Engineering/Evaluation Implementation
   depends_on:
@@ -24,7 +24,6 @@ subjects:
 relations:
   is_decomposition_of:
   - CA-P-1744
-  blocks: []
 tier: 3
 ---
 # Summary

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "scoped_diff_check": "PASS",
+  "official_projection_hashes_unchanged": [
+    "CA-PROJ-014",
+    "CA-PROJ-015",
+    "CA-PROJ-016",
+    "CA-PROJ-017",
+    "CA-PROJ-018",
+    "CA-PROJ-019"
+  ],
+  "current_receipt_sha256": "8829bfe1d7dc58d6edfb12633b127297e278de84ab1bc359caa11f0d68fcc60b",
+  "new_runtime_or_instance_work": false,
+  "git_index_or_remote_mutated_by_this_change": false
+}

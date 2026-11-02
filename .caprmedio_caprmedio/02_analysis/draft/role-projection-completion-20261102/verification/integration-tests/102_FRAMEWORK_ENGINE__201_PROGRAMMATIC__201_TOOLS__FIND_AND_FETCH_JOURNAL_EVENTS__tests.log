@@ -1,0 +1,1291 @@
+======================================================================
+ERROR: test_caller_rehashed_snapshot_cannot_inject_records_or_retarget_root (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_caller_rehashed_snapshot_cannot_inject_records_or_retarget_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 211, in test_caller_rehashed_snapshot_cannot_inject_records_or_retarget_root
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_current_configured_canonical_journal_boundary_is_rechecked (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_current_configured_canonical_journal_boundary_is_rechecked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 232, in test_current_configured_canonical_journal_boundary_is_rechecked
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_duplicate_rows_and_normal_json_keys_preserve_query_limits (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_duplicate_rows_and_normal_json_keys_preserve_query_limits)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 406, in test_duplicate_rows_and_normal_json_keys_preserve_query_limits
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_e575_typed_pointer_filtering_missing_vs_null_and_rejections (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_e575_typed_pointer_filtering_missing_vs_null_and_rejections)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 66, in test_e575_typed_pointer_filtering_missing_vs_null_and_rejections
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_e576_default_selected_and_full_fetches (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_e576_default_selected_and_full_fetches)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 104, in test_e576_default_selected_and_full_fetches
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_e577_pagination_cursor_context_and_frontier_failures (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_e577_pagination_cursor_context_and_frontier_failures)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 115, in test_e577_pagination_cursor_context_and_frontier_failures
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_e578_presealed_snapshot_allows_append_and_excludes_later_and_own_events (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_e578_presealed_snapshot_allows_append_and_excludes_later_and_own_events)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 140, in test_e578_presealed_snapshot_allows_append_and_excludes_later_and_own_events
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting) (name='access_token')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 175, in test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting) (name='refresh_token')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 175, in test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting) (name='session_cookie')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 175, in test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting) (name='signing_key')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 175, in test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting) (name='connection_string')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 175, in test_e579_additional_normalized_sensitive_names_are_redacted_with_parser_accounting
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_e579_secret_and_mutation_boundaries_do_not_leak_or_change_bytes (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_e579_secret_and_mutation_boundaries_do_not_leak_or_change_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 150, in test_e579_secret_and_mutation_boundaries_do_not_leak_or_change_bytes
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_e580_query_does_not_create_a_run_or_its_own_event (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_e580_query_does_not_create_a_run_or_its_own_event)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 203, in test_e580_query_does_not_create_a_run_or_its_own_event
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_json_decoding_missing_id_unreadable_and_secret_sentinel (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_json_decoding_missing_id_unreadable_and_secret_sentinel)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 259, in test_json_decoding_missing_id_unreadable_and_secret_sentinel
+    capture_snapshot(self.root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_limit_provenance_survives_snapshot_and_request_override (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_limit_provenance_survives_snapshot_and_request_override)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 384, in test_limit_provenance_survives_snapshot_and_request_override
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_parser_consumption_is_the_shared_parser_observation (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_parser_consumption_is_the_shared_parser_observation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 325, in test_parser_consumption_is_the_shared_parser_observation
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_rejected_selector_admission_retains_successful_parser_consumption (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_rejected_selector_admission_retains_successful_parser_consumption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 355, in test_rejected_selector_admission_retains_successful_parser_consumption
+    snapshot = capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_retired_nested_instance_settings_do_not_override_canonical_defaults (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_retired_nested_instance_settings_do_not_override_canonical_defaults)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 399, in test_retired_nested_instance_settings_do_not_override_canonical_defaults
+    result = query(capture_snapshot(self.root), {})
+                   ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_absent_and_nonstring_ids_preserve_arbitrary_json_values (test_journal_query_plain_records.PlainJournalQueryTests.test_absent_and_nonstring_ids_preserve_arbitrary_json_values)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_plain_records.py", line 45, in test_absent_and_nonstring_ids_preserve_arbitrary_json_values
+    snapshot = fixtures.capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_blank_lines_and_normal_duplicate_key_decoding_do_not_gate_read (test_journal_query_plain_records.PlainJournalQueryTests.test_blank_lines_and_normal_duplicate_key_decoding_do_not_gate_read)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_plain_records.py", line 61, in test_blank_lines_and_normal_duplicate_key_decoding_do_not_gate_read
+    result = fixtures.query(fixtures.capture_snapshot(self.root), {"mode": "full_events"})
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_direct_adapter_result_schema_accepts_missing_id (test_journal_query_plain_records.PlainJournalQueryTests.test_direct_adapter_result_schema_accepts_missing_id)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_plain_records.py", line 54, in test_direct_adapter_result_schema_accepts_missing_id
+    result = create_adapter(self.root).invoke({"mode": "full_events"})
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 925, in invoke
+    else capture_snapshot(self._root)
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_duplicate_ids_and_unverified_metadata_remain_distinct_rows (test_journal_query_plain_records.PlainJournalQueryTests.test_duplicate_ids_and_unverified_metadata_remain_distinct_rows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_plain_records.py", line 36, in test_duplicate_ids_and_unverified_metadata_remain_distinct_rows
+    snapshot = fixtures.capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_filter_and_snapshot_pagination_keep_original_duplicate_rows (test_journal_query_plain_records.PlainJournalQueryTests.test_filter_and_snapshot_pagination_keep_original_duplicate_rows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_plain_records.py", line 68, in test_filter_and_snapshot_pagination_keep_original_duplicate_rows
+    snapshot = fixtures.capture_snapshot(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_core_defaults_can_use_the_declared_project_source_location (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_core_defaults_can_use_the_declared_project_source_location)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 258, in test_core_defaults_can_use_the_declared_project_source_location
+    self.assertEqual(4, query(capture_snapshot(self.alpha), {})["limits"]["max_page_size"]["configured"])
+                              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_declared_defaults_and_partial_instance_overrides_are_project_local (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_declared_defaults_and_partial_instance_overrides_are_project_local)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 161, in test_declared_defaults_and_partial_instance_overrides_are_project_local
+    alpha = capture_snapshot(self.alpha)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_foreign_bound_project_and_stale_structure_are_refused (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_foreign_bound_project_and_stale_structure_are_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 222, in test_foreign_bound_project_and_stale_structure_are_refused
+    selected = resolve_project(self.alpha)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+======================================================================
+ERROR: test_missing_duplicate_and_unsafe_core_declarations_refuse (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_missing_duplicate_and_unsafe_core_declarations_refuse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 194, in test_missing_duplicate_and_unsafe_core_declarations_refuse
+    self.assertEqual(["same-event-id"], capture_snapshot(self.alpha)["event_ids"])
+                                        ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_other_project_changes_do_not_change_selected_snapshot (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_other_project_changes_do_not_change_selected_snapshot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 87, in test_other_project_changes_do_not_change_selected_snapshot
+    alpha = capture_snapshot(self.alpha)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+ERROR: test_sibling_non_git_projects_have_separate_snapshots_and_query_results (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_sibling_non_git_projects_have_separate_snapshots_and_query_results)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 65, in test_sibling_non_git_projects_have_separate_snapshots_and_query_results
+    alpha = capture_snapshot(self.alpha)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 437, in capture_snapshot
+    control, defaults, installed_instance = _control_and_settings(project_root)
+                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 247, in _control_and_settings
+    raise JournalQueryError("project-settings-unavailable") from error
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+======================================================================
+FAIL: test_all_configured_query_bounds_are_enforced_without_code_defaults (test_find_and_fetch_journal_events.JournalQueryGoldenTest.test_all_configured_query_bounds_are_enforced_without_code_defaults)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_find_and_fetch_journal_events.py", line 290, in test_all_configured_query_bounds_are_enforced_without_code_defaults
+    with self.assertRaisesRegex(JournalQueryError, "snapshot-member-limit-exceeded"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "snapshot-member-limit-exceeded" does not match "project-settings-unavailable"
+
+======================================================================
+FAIL: test_dangling_instance_settings_symlink_is_not_treated_as_absent (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_dangling_instance_settings_symlink_is_not_treated_as_absent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 144, in test_dangling_instance_settings_symlink_is_not_treated_as_absent
+    with self.assertRaisesRegex(JournalQueryError, "instance-settings-unavailable"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "instance-settings-unavailable" does not match "project-settings-unavailable"
+
+======================================================================
+FAIL: test_invalid_present_instance_values_refuse_without_default_fallback (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_invalid_present_instance_values_refuse_without_default_fallback) (value='true')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 216, in test_invalid_present_instance_values_refuse_without_default_fallback
+    self.assertEqual("invalid-limit", refused.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'invalid-limit' != 'project-settings-unavailable'
+- invalid-limit
++ project-settings-unavailable
+
+
+======================================================================
+FAIL: test_invalid_present_instance_values_refuse_without_default_fallback (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_invalid_present_instance_values_refuse_without_default_fallback) (value='0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 216, in test_invalid_present_instance_values_refuse_without_default_fallback
+    self.assertEqual("invalid-limit", refused.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'invalid-limit' != 'project-settings-unavailable'
+- invalid-limit
++ project-settings-unavailable
+
+
+======================================================================
+FAIL: test_invalid_present_instance_values_refuse_without_default_fallback (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_invalid_present_instance_values_refuse_without_default_fallback) (value='-1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 216, in test_invalid_present_instance_values_refuse_without_default_fallback
+    self.assertEqual("invalid-limit", refused.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'invalid-limit' != 'project-settings-unavailable'
+- invalid-limit
++ project-settings-unavailable
+
+
+======================================================================
+FAIL: test_invalid_present_instance_values_refuse_without_default_fallback (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_invalid_present_instance_values_refuse_without_default_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 218, in test_invalid_present_instance_values_refuse_without_default_fallback
+    with self.assertRaisesRegex(JournalQueryError, "instance-settings-unavailable"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "instance-settings-unavailable" does not match "project-settings-unavailable"
+
+======================================================================
+FAIL: test_missing_or_malformed_defaults_do_not_use_an_installed_fallback (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_missing_or_malformed_defaults_do_not_use_an_installed_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 202, in test_missing_or_malformed_defaults_do_not_use_an_installed_fallback
+    with self.assertRaisesRegex(JournalQueryError, "default-settings-unavailable"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "default-settings-unavailable" does not match "project-settings-unavailable"
+
+======================================================================
+FAIL: test_query_defaults_symlink_is_not_followed_to_another_project (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_query_defaults_symlink_is_not_followed_to_another_project)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 125, in test_query_defaults_symlink_is_not_followed_to_another_project
+    with self.assertRaisesRegex(JournalQueryError, "default-settings-unavailable"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "default-settings-unavailable" does not match "project-settings-unavailable"
+
+======================================================================
+FAIL: test_structure_drift_during_settings_reads_is_refused (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_structure_drift_during_settings_reads_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 248, in test_structure_drift_during_settings_reads_is_refused
+    with self.assertRaisesRegex(JournalQueryError, "query-settings-changed"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "query-settings-changed" does not match "project-settings-unavailable"
+
+======================================================================
+FAIL: test_unsafe_instance_parent_is_not_treated_as_optional_absence (test_journal_query_project_isolation.JournalQueryProjectIsolationTest.test_unsafe_instance_parent_is_not_treated_as_optional_absence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", line 235, in _control_and_settings
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+find_and_fetch_journal_events.JournalQueryError: project-settings-unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests/test_journal_query_project_isolation.py", line 150, in test_unsafe_instance_parent_is_not_treated_as_optional_absence
+    with self.assertRaisesRegex(JournalQueryError, "instance-settings-unavailable"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "instance-settings-unavailable" does not match "project-settings-unavailable"
+
+----------------------------------------------------------------------
+Ran 38 tests in 0.353s
+
+FAILED (failures=10, errors=30)

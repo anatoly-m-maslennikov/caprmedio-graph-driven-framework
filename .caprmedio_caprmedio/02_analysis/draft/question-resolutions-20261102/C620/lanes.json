@@ -1,0 +1,43 @@
+{
+  "lanes": [
+    {
+      "deliverable": "Generic Aspect versus actual STRUCTURE source review and two successor Drafts",
+      "owner": "terra_declaration_consistency",
+      "edit_scope": "C620 model review, two Drafts and manifest",
+      "dependencies": [],
+      "acceptance": "minimal source deltas, hashes and stable Summary/Role",
+      "status": "done"
+    },
+    {
+      "deliverable": "Selected Aspect consumer inventory and independent semantic review",
+      "owner": "step_runs_consumers",
+      "edit_scope": "C620 inventory and semantic report",
+      "dependencies": [
+        "successor Drafts for semantic gate"
+      ],
+      "acceptance": "1134 selected source pins, no object/Aspect conflation, no invented target",
+      "status": "done"
+    },
+    {
+      "deliverable": "Source adoption, archives, Journal and frontier preflight",
+      "owner": "root",
+      "edit_scope": "R2543, R2483, C620 successors and archives; receipt and selected frontier",
+      "dependencies": [
+        "semantic PASS"
+      ],
+      "acceptance": "guarded write, exact archives, no new graph gaps",
+      "status": "done"
+    },
+    {
+      "deliverable": "Independent lifecycle readback",
+      "owner": "terra_migration_plan_warden",
+      "edit_scope": "C620 verification report only",
+      "dependencies": [
+        "source adoption"
+      ],
+      "acceptance": "3Current,3archive,3Journal,3untouched source pins match",
+      "status": "done"
+    }
+  ],
+  "pending": "Concrete Aspect addresses await user decision; migration not inferred."
+}

@@ -1,0 +1,68 @@
+{
+  "status": "WAITING_FOR_DEPENDENT_FINALS",
+  "scope": "Pre-commit integrated-check plan for the authorized Role/projection completion work. This plan is read-only and does not authorize Current publication, commit, push, runtime-instance migration, a full evaluator run, or deployment.",
+  "inventory": {
+    "index_clean_before_staging": true,
+    "tracked_diff_lines": {
+      "added": 9180,
+      "deleted": 10766
+    },
+    "largest_changed_groups": {
+      ".caprmedio_caprmedio/02_analysis": 618,
+      ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY": 438,
+      ".caprmedio_caprmedio/03_plan": 139,
+      ".caprmedio_caprmedio/04_requirement": 119,
+      "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC": 93
+    },
+    "observed_untracked_file_types": ["md", "json", "py", "tsv", "ndjson"],
+    "unsafe_untracked_paths_found": [],
+    "note": "The planned journal file is within the authorized mechanical batch; no .env, key, certificate, database, archive, node_modules, virtualenv, or bytecode path was observed among untracked files."
+  },
+  "gates_before_stage_commit_push": [
+    {
+      "order": 1,
+      "check": "Wait for the parser worker, selected source-Draft worker, and projection rebuild worker to finish; then run the root-owned final semantic review over those exact final artifacts.",
+      "acceptance": "No semantic blocker; review pins final source, parser, and projection hashes."
+    },
+    {
+      "order": 2,
+      "check": "Run whitespace/error-marker validation over the exact full pending diff.",
+      "command": "git diff --check",
+      "acceptance": "Exit 0."
+    },
+    {
+      "order": 3,
+      "check": "Run the focused notation and entity-graph tests affected by subject parsing and approved-profile rendering.",
+      "command": "uv run pytest 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_notation.py 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_subject_notation_snapshot.py 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_selected_graphs.py",
+      "acceptance": "Exit 0; any unavailable test runner is a setup blocker, not a pass."
+    },
+    {
+      "order": 4,
+      "check": "Run the projection worker's approved rebuild against the final staged-source frontier, then run its focused graph/projection tests.",
+      "command": "Use the projection worker's recorded rebuild command; then uv run pytest 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_generate_entity_graph.py 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_graph_publication_safety.py",
+      "acceptance": "Rebuilt projections are source-pinned, generated outputs match the final frontier, and both tests exit 0."
+    },
+    {
+      "order": 5,
+      "check": "Lint the changed implementation surface after all worker changes land.",
+      "command": "uv run --group validate-atoms-dev ruff check 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC PROJECT_TOOLS",
+      "acceptance": "Exit 0."
+    },
+    {
+      "order": 6,
+      "check": "Immediately before the authorized all-file stage, rescan the final untracked set for unsafe file classes and inspect the staged diff summary.",
+      "command": "git status --porcelain; git diff --cached --check; git diff --cached --stat",
+      "acceptance": "No newly introduced secret/binary/environment artifact; staged whitespace check exits 0; staged paths equal the authorized final batch."
+    }
+  ],
+  "evidence_based_blockers": [
+    "The three dependent final artifacts are still owned by parallel workers, so their final hashes and integrated semantics are not yet available.",
+    "Repository CI intentionally does not run validation; a green PR policy is not test evidence, so the listed local focused checks are required before claiming verification."
+  ],
+  "not_required_for_this_commit": [
+    "Actual Workflow-instance migration",
+    "Runtime full-evaluator conformance",
+    "Deployment or release publication",
+    "A broad security audit or new feature work"
+  ]
+}

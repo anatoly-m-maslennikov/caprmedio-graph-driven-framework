@@ -29,7 +29,8 @@
     "local_order_bindings": 9,
     "explicit_strict_overrides": 5,
     "goal_targets_covered_units": 18,
-    "goal_target_missing_units": 26
+    "goal_target_missing_units": 26,
+    "independently_authored_folder_paths": 0
   },
   "operator_disposition": "APPLICABLE_METHODOLOGY is a special Projection; separate Scope Unit Draft withdrawn; original inventory checks kept as evidence.",
   "content_cleanup": {
@@ -39,5 +40,54 @@
     "frontmatter_change": "updated_at only; Draft version and proposed identities unchanged",
     "checked_at": "2026-11-01 00:59:08 +0400",
     "promotion": false
+  },
+  "folder_derivation_update": {
+    "delivery": "Derived under parent Delivery Folder",
+    "authority": "Same derived name under parent Authority Folder",
+    "ordered_name": "<label>_<order>_<name>",
+    "unordered_name": "<label>_<name>",
+    "copied_authority_paths_removed": 43,
+    "copied_delivery_paths_removed": 43,
+    "shared_policy": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/draft/scope-unit-governance-20261031/CA-D-draft-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md",
+    "root": "No invented parent folder for the Project root",
+    "current_sources_or_physical_folders_changed": false,
+    "formal_instance_conversion": "Pending; this correction removes redundant path values before that conversion."
+  },
+  "latest_formal_migration": {
+    "result": "PASS",
+    "instance_drafts_with_CFel": 44,
+    "non_root_scope_unit_ids": 43,
+    "project_root_scope_unit_id": null,
+    "ordered_non_root": 9,
+    "unordered_non_root": 34,
+    "preserved_strict_overrides_in_prose": 5,
+    "canonical_headers": 44,
+    "manifest_hashes": "44/44 and 11/11 model Drafts",
+    "shared_project_model": "unordered; no ordered.number; no Scope Unit ID",
+    "folder_rule": "Authority non-root ID prefix; Delivery no ID; root Authority .caprmedio_<project name>",
+    "independent_review": "scope_fresh_coherence_review PASS after current field-map refresh",
+    "current_toml": "unchanged",
+    "not_claimed": [
+      "Current adoption",
+      "CFEL parser/runtime admission",
+      "physical folder migration"
+    ]
+  },
+  "latest_order_grouping_review": {
+    "result": "PASS",
+    "order_grouping": "order has no direct value; ordered and number are siblings",
+    "instance_drafts_checked": 44,
+    "model_drafts_checked": 12,
+    "ordered_positive_numbers_checked": 9,
+    "ungrouped_paths_remaining": 0,
+    "project": "inherits order.ordered=false, no order.number and no Scope Unit ID",
+    "null_semantics": "No null substitution: zero values remains []{:0}.",
+    "dependency_fix": "Both child definitions depend on Scope Unit.order; number also depends on its ordered sibling for its condition.",
+    "verification": "Hash and source-value assertions passed. Independent review verified grouping/data and identified the precise dependency adjustment, now applied.",
+    "not_checked": [
+      "Parser/runtime acceptance",
+      "Current adoption",
+      "Physical folder migration"
+    ]
   }
 }

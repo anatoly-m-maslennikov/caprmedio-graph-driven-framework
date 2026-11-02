@@ -1,0 +1,1003 @@
+{
+  "status": "APPLIED",
+  "accepted_at": "2026-11-02 17:54:42 +0400",
+  "plan_sha256": "cc7ebbd070f9213430845eb3ce5c0aed355e07f20365b538de613873860ca20b",
+  "timestamp_rebases": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/004-CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "before_sha256": "d0b06096de27bf80504b8141cf4a3dcb2a92b17c1b70fb09ad96317ebf584641",
+      "after_sha256": "1d13c2c0e7b25ad434b9fb913e724ee1a420b2ef8d6715bcbbabc66fe49b8c1e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/006-CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "before_sha256": "908dc1a33a19be83d2916f924d9d27b836cec4f9f5d49c0ed5ba06b7b7556631",
+      "after_sha256": "0e8c482c048e2f1c1773ba59a3732ac6ad8d2752db7f87ea606155d68a69bfbc"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/008-CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "before_sha256": "f5cd76e612a1eaf677003be6e82bbfa948e2fedfc0b897d3e740cc802c2cf4b8",
+      "after_sha256": "e92583eb2784f9404d3378c5cbd52b3bc6d1783d54ce4dc8778bd0987ebaf0ae"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/009-CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "before_sha256": "91d03e6551a88f92769cfb8dee94cb88fd7c49a254d14a92392fded60f2c59f3",
+      "after_sha256": "ebc16b5f57ddeeff1a0aa54e37660c4258d8bcf294cbbe9e99df7eccbc501147"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/011-CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "before_sha256": "ac2fbe8bf3e673fcfeaf7feda4478e87532bf24591b874b0283b645d5503c3fc",
+      "after_sha256": "935bc12a55e01b3b9be830b10f139e4907b2bab4195791521f78d2253f50427f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/012-CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md",
+      "before_sha256": "735d90bc116f0e2f71c14878d5f0aaec15adac304210a268227036b85d9b3c9b",
+      "after_sha256": "25f7a43c3165232eb1d243c8077ad2ce18710345247db817af0024b5bfb7cf7c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/014-CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "before_sha256": "d329c1d0170b3bfbb56a8a7fbe10868ec46f90e64094e53767ca27ba7d52cfb0",
+      "after_sha256": "5021c9779c0b0215e229649e971b3a85c06b9759f2e65b96cfead4d3b53b094e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/016-CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "before_sha256": "9172d4d746d840f0561894590531dbd9357fde9e53466d5e0af0c77f435255ae",
+      "after_sha256": "f66e6ae7d41cd55dab979b106d8d7c10d74ad264c79aad94514e59d58152f349"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/018-CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "before_sha256": "baca935605842edb0d505c649b63f4a3ba075c88cb3d3c04926a04c8b0300ac1",
+      "after_sha256": "38d09e510df268054fb70d3089353f584a95829cffb6bab1f00a91393b636f67"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/020-CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "before_sha256": "2541e092bf37a97b42383cf5b51101fa77f2b80b65d9bb1d96264fa9e1a8822a",
+      "after_sha256": "4a0bdd258453f0b2bd72abadf9872a4cbf351656254c24a3e8ed03a212e7b93e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/022-CA-E-658-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "before_sha256": "031859b79c599143bd0c27902c274a28d274609f88e9720f99aee722b2c17019",
+      "after_sha256": "dbcb3d9509ee1f8fd8fd792b542dd90b110b7e03b7f623559aa936f6c576b54d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/024-CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "before_sha256": "38205f4632a4351f64d163cddabbf3078f64e6942ae77532a3e30eb10fca58b0",
+      "after_sha256": "ad16b57028ccd790f5f7ace828fde9e9ce4cd2284e75aa2039ab9353806518ad"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/026-CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "before_sha256": "f78ff20e8d80655e1144475fb98a46d3e9d6a45581ee0886dbd64f96b3fab5d4",
+      "after_sha256": "d069d751018b1a8986e2a70f842ad97d82fedce4e5752a5ffc066786a47b25cf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/028-CA-C-627-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "before_sha256": "a26fa3beaaeb10f92d482935bcd754528b00133d59e4ece2805a700511d849e8",
+      "after_sha256": "9bdd2cd95eefa01dba7b14610cccd915e63684dc510e4c2c291799dca76d87bb"
+    }
+  ],
+  "operations": [
+    {
+      "kind": "archive",
+      "base_id": "CA-R-1569",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1569-CORE_META_MODEL-RULE--define-the-step-operations-atom-type.md",
+      "source_sha256": "ebd3131b69b2701e7ac509a62ad4f4325495d23a94b47129ab05dc9161c79202",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/000-CA-R-1569@25-CORE_META_MODEL-RULE--define-the-step-operations-atom-type.md",
+      "candidate_sha256": "5d7e323229ff7ca1ca9884045c3d43ec0acfe1f84f458fb4dbe7159542628dab",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1569@25-CORE_META_MODEL-RULE--define-the-step-operations-atom-type.md",
+      "version": 25,
+      "status": "Archived"
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-1992",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1992-CORE_META_MODEL-RULE--enable-containment-for-step-atoms.md",
+      "source_sha256": "54bb7b2b4f14cb61de21e08f0e284b6d5771498c6c1cc6ead233ba30b2564099",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/001-CA-R-1992@15-CORE_META_MODEL-RULE--enable-containment-for-step-atoms.md",
+      "candidate_sha256": "ff30c6053437bcbad0d89a77b1ae6b6593209ebf424ddf98cc673c3b67ef1f28",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1992@15-CORE_META_MODEL-RULE--enable-containment-for-step-atoms.md",
+      "version": 15,
+      "status": "Archived"
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-2480",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2480-CORE_META_MODEL-DECLARATION--define-run.md",
+      "source_sha256": "5e3116b7e2b83202477c00aeaad18b202c06031e3d539ca12b10ce11b9480ba3",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/002-CA-R-2480@4-CORE_META_MODEL-DECLARATION--define-run.md",
+      "candidate_sha256": "206a86fbfc53b570ff7a71dbda1b9d4106f176cec7435837de5dd4149178d14f",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2480@4-CORE_META_MODEL-DECLARATION--define-run.md",
+      "version": 4,
+      "status": "Archived"
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-2465",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "source_sha256": "71c233e139abbbddc92d1e7f110f9a8e606c009e9924e2017262576e633dfc84",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/003-CA-R-2465@2-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "candidate_sha256": "bad303ebd20df798a92576f7c32f14c85a448ae6c73b952475be434fbefedbc1",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2465@2-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "version": 2,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2465",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "source_sha256": "71c233e139abbbddc92d1e7f110f9a8e606c009e9924e2017262576e633dfc84",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/004-CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "candidate_sha256": "1d13c2c0e7b25ad434b9fb913e724ee1a420b2ef8d6715bcbbabc66fe49b8c1e",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "version": 4,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2465@3-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-2466",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "source_sha256": "15bf6837b850ad0b28bc1453018c0d9869874f9cf03cd0ebf67aa70b0205e084",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/005-CA-R-2466@2-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "candidate_sha256": "c698ae54feb4ea12fba0011f83857bc67de747eaf3836fc5dc578e48714ecdb5",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2466@2-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "version": 2,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2466",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "source_sha256": "15bf6837b850ad0b28bc1453018c0d9869874f9cf03cd0ebf67aa70b0205e084",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/006-CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "candidate_sha256": "0e8c482c048e2f1c1773ba59a3732ac6ad8d2752db7f87ea606155d68a69bfbc",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "version": 4,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2466@3-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-2464",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "source_sha256": "1c58b24fd9c6113d568b84e56003e0832bec26a1cbba209c2e9f2f783783740e",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/007-CA-R-2464@2-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "candidate_sha256": "2129c1327ee5b1a8de8e257c57db1a62350f43ab85a1ae909f9cb7f89e1c43e6",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2464@2-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "version": 2,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2464",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "source_sha256": "1c58b24fd9c6113d568b84e56003e0832bec26a1cbba209c2e9f2f783783740e",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/008-CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "candidate_sha256": "e92583eb2784f9404d3378c5cbd52b3bc6d1783d54ce4dc8778bd0987ebaf0ae",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "version": 4,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2464@3-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2638",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/step-runs-20261102/CA-R-2638@1-draft-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "source_sha256": "5c69a5ddc5904e6054c9f633ea243be4c5f80545c185fada6a816d7efc27d8d7",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/009-CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "candidate_sha256": "ebc16b5f57ddeeff1a0aa54e37660c4258d8bcf294cbbe9e99df7eccbc501147",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "version": 2,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-draft-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "identified_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/step-runs-20261102/CA-R-2638@1-draft-CORE_META_MODEL-DECLARATION--define-runs.md"
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-2623",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "source_sha256": "24c1f6355857123485029c7657c7edeeed832fe244e9000b5966d4febfb4601a",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/010-CA-R-2623@1-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "candidate_sha256": "231f86826fbdf6df04dd384e70d806f0ed4de69aace16a8bdab7c578f2087143",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2623@1-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "version": 1,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2623",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "source_sha256": "24c1f6355857123485029c7657c7edeeed832fe244e9000b5966d4febfb4601a",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/011-CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "candidate_sha256": "935bc12a55e01b3b9be830b10f139e4907b2bab4195791521f78d2253f50427f",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "version": 3,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2623@2-draft-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2639",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/step-runs-20261102/CA-R-2639@1-draft-CORE_META_MODEL-RULE--bind-step-parameters.md",
+      "source_sha256": "4366a826f191e4047b9e9b59bd65e29e6baaf32db671df158ce5ef73a4632dcd",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/012-CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md",
+      "candidate_sha256": "25f7a43c3165232eb1d243c8077ad2ce18710345247db817af0024b5bfb7cf7c",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md",
+      "version": 2,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/rule-drafts/CA-R-draft-CORE_META_MODEL-RULE--bind-step-parameters.md",
+      "identified_draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/step-runs-20261102/CA-R-2639@1-draft-CORE_META_MODEL-RULE--bind-step-parameters.md"
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-1570",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "source_sha256": "05862aa820d782b98ffed092d70fdc9fec81bfc8175658e94a5da61f31315b34",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/013-CA-R-1570@24-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "candidate_sha256": "966822070ca3e003bd94fcdd1975f1011c7e050cbdba63f535d595023fb95a34",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1570@24-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "version": 24,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-1570",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "source_sha256": "05862aa820d782b98ffed092d70fdc9fec81bfc8175658e94a5da61f31315b34",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/014-CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "candidate_sha256": "5021c9779c0b0215e229649e971b3a85c06b9759f2e65b96cfead4d3b53b094e",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "version": 26,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/rule-drafts/CA-R-1570@25-draft-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-2487",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "source_sha256": "7fb3e95deb7b4757b58b2083c7dd7e1a257adefe32829ddec4342b1a09f42fdd",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/015-CA-R-2487@6-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "candidate_sha256": "eabcc0e3da16605bfbb54f74432ed4736dd74924a4aef286cb63b2f8fa7840f8",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2487@6-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "version": 6,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2487",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "source_sha256": "7fb3e95deb7b4757b58b2083c7dd7e1a257adefe32829ddec4342b1a09f42fdd",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/016-CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "candidate_sha256": "f66e6ae7d41cd55dab979b106d8d7c10d74ad264c79aad94514e59d58152f349",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "version": 8,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/count-drafts/CA-R-2487@7-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-R-2243",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "source_sha256": "8a0a10c6a6e7c881c2ca325cdabac0cf2643df5cfa984c80923d931a5f4270c8",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/017-CA-R-2243@9-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "candidate_sha256": "b94f268752b273305bc4fe56d92686b79f880bd5c95dfe1a90a4f5e0f2b236a5",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-2243@9-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "version": 9,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-R-2243",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "source_sha256": "8a0a10c6a6e7c881c2ca325cdabac0cf2643df5cfa984c80923d931a5f4270c8",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/018-CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "candidate_sha256": "38d09e510df268054fb70d3089353f584a95829cffb6bab1f00a91393b636f67",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "version": 11,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/count-drafts/CA-R-2243@10-draft-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-E-669",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "source_sha256": "a047be549b1147c80900459609e91b223b672c036405844b0a8f2387fdf7f64b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/019-CA-E-669@2-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "candidate_sha256": "7a6acaa6c7841f695678aa57dfd574cf6ffffa6bebd30ce90cddba2ea24acc86",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CA-E-669@2-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "version": 2,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-E-669",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "source_sha256": "a047be549b1147c80900459609e91b223b672c036405844b0a8f2387fdf7f64b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/020-CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "candidate_sha256": "4a0bdd258453f0b2bd72abadf9872a4cbf351656254c24a3e8ed03a212e7b93e",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "version": 4,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/eval-drafts/CA-E-669@3-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-E-658",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-658-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "source_sha256": "4c8c7fe11ec4830af88cd5f36c702c89e6f5304b964768c5b1e6f63d8c976afd",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/021-CA-E-658@12-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "candidate_sha256": "588c64acc4f6f050cefd536af368b55e07ccbdf2fab0d38fa2b16ce92192d878",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CA-E-658@12-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "version": 12,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-E-658",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-658-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "source_sha256": "4c8c7fe11ec4830af88cd5f36c702c89e6f5304b964768c5b1e6f63d8c976afd",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/022-CA-E-658-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "candidate_sha256": "dbcb3d9509ee1f8fd8fd792b542dd90b110b7e03b7f623559aa936f6c576b54d",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-658-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "version": 14,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/consumer-drafts/CA-E-658@13-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-E-500",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "source_sha256": "06eed04182fe75b38bef545858a2b6d97f9e4c0bb44e229d4e06f7e50563583a",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/023-CA-E-500@26-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "candidate_sha256": "56c6bfcea45e0ae847ac834541c7d29b10b406783c32ccf52e00886ab7809543",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CA-E-500@26-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "version": 26,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-E-500",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "source_sha256": "06eed04182fe75b38bef545858a2b6d97f9e4c0bb44e229d4e06f7e50563583a",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/024-CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "candidate_sha256": "ad16b57028ccd790f5f7ace828fde9e9ce4cd2284e75aa2039ab9353806518ad",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "version": 28,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/consumer-drafts/CA-E-500@27-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-D-467",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "source_sha256": "af72ac2b987162ac7f847bf9e3c45636aecd2c1a0a6445f7a44cc2f7b48a60d2",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/025-CA-D-467@26-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "candidate_sha256": "39af79ab615651aca3b54007a8199c6b3eff3645f0789001742bedcb9a99a660",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archive/CA-D-467@26-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "version": 26,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-D-467",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "source_sha256": "af72ac2b987162ac7f847bf9e3c45636aecd2c1a0a6445f7a44cc2f7b48a60d2",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/026-CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "candidate_sha256": "d069d751018b1a8986e2a70f842ad97d82fedce4e5752a5ffc066786a47b25cf",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "version": 28,
+      "status": "Active",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/consumer-drafts/CA-D-467@27-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "identified_draft": null
+    },
+    {
+      "kind": "archive",
+      "base_id": "CA-C-627",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-627-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "source_sha256": "ee24d98ff3c96927d0ae797771b2384741ea8eea29af2024cc734704f177f658",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/027-CA-C-627@1-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "candidate_sha256": "357f80b279a8deebd54856aca66728590cfa146777409768f3916ace96782a4f",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/archive/CA-C-627@1-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "version": 1,
+      "status": "Archived"
+    },
+    {
+      "kind": "publish",
+      "base_id": "CA-C-627",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-627-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "source_sha256": "ee24d98ff3c96927d0ae797771b2384741ea8eea29af2024cc734704f177f658",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/staged/028-CA-C-627-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "candidate_sha256": "9bdd2cd95eefa01dba7b14610cccd915e63684dc510e4c2c291799dca76d87bb",
+      "destination_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-627-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "version": 3,
+      "status": "Resolved",
+      "draft_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/CA-C-627@2-draft-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "identified_draft": null
+    }
+  ],
+  "retired_ids": [
+    "CA-R-1569",
+    "CA-R-1992",
+    "CA-R-2480"
+  ],
+  "original_sources": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1569-CORE_META_MODEL-RULE--define-the-step-operations-atom-type.md",
+      "sha256": "ebd3131b69b2701e7ac509a62ad4f4325495d23a94b47129ab05dc9161c79202"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1992-CORE_META_MODEL-RULE--enable-containment-for-step-atoms.md",
+      "sha256": "54bb7b2b4f14cb61de21e08f0e284b6d5771498c6c1cc6ead233ba30b2564099"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2480-CORE_META_MODEL-DECLARATION--define-run.md",
+      "sha256": "5e3116b7e2b83202477c00aeaad18b202c06031e3d539ca12b10ce11b9480ba3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2465@3-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "0080349925911cd126a8383e42a67b882e93ed6bd06c27cdf96eda4f37999598"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "71c233e139abbbddc92d1e7f110f9a8e606c009e9924e2017262576e633dfc84"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2466@3-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "sha256": "a10b8bff162ce14f757c6c235b66715b02b2a50a85d9ae4f886bebc7e1a33f90"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "sha256": "15bf6837b850ad0b28bc1453018c0d9869874f9cf03cd0ebf67aa70b0205e084"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2464@3-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "d215ec2d7f2d372b2529376a40e14252f2f009d5c6fd9dbb58ca202c67b1b2e6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "1c58b24fd9c6113d568b84e56003e0832bec26a1cbba209c2e9f2f783783740e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-draft-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "sha256": "29998d146f7cfb195cc966d48a9f2b4c8a62ac3f4685d56491b540189de25dea"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/step-runs-20261102/CA-R-2638@1-draft-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "sha256": "5c69a5ddc5904e6054c9f633ea243be4c5f80545c185fada6a816d7efc27d8d7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2623@2-draft-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "sha256": "ecf705bb812e070cd84ad4ff9f16dcac8c4e89fef5a2c15ea54196ed7735de8c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "sha256": "24c1f6355857123485029c7657c7edeeed832fe244e9000b5966d4febfb4601a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/rule-drafts/CA-R-draft-CORE_META_MODEL-RULE--bind-step-parameters.md",
+      "sha256": "dae102124eaee28ecb7c8fa9b5241064038f57b3e67f0522db22f42c4d1b53f8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/step-runs-20261102/CA-R-2639@1-draft-CORE_META_MODEL-RULE--bind-step-parameters.md",
+      "sha256": "4366a826f191e4047b9e9b59bd65e29e6baaf32db671df158ce5ef73a4632dcd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/rule-drafts/CA-R-1570@25-draft-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "sha256": "0f3ff99c1b472d54643631f6a15264108adbc03ee163c53e6d119302f9422d5b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "sha256": "05862aa820d782b98ffed092d70fdc9fec81bfc8175658e94a5da61f31315b34"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/count-drafts/CA-R-2487@7-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "ac61aad43ec55ba328f88893c0698212c8193fabeb06ffacd6b23e388a2c2c2b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "7fb3e95deb7b4757b58b2083c7dd7e1a257adefe32829ddec4342b1a09f42fdd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/count-drafts/CA-R-2243@10-draft-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "sha256": "9d7426f979d95782475f832a32f81813d4f70d5ba5329df4fe26a4d18d8c0091"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "sha256": "8a0a10c6a6e7c881c2ca325cdabac0cf2643df5cfa984c80923d931a5f4270c8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/eval-drafts/CA-E-669@3-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "sha256": "089c488953a265c94d7447aa783f43529f067a9fb51a1dde254033a6802d71bd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "sha256": "a047be549b1147c80900459609e91b223b672c036405844b0a8f2387fdf7f64b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/consumer-drafts/CA-E-658@13-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "sha256": "f42fd594aaf4ebee1327b9081c6d7436fd3673969926f1b4c8565f177ff6966c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-658-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "sha256": "4c8c7fe11ec4830af88cd5f36c702c89e6f5304b964768c5b1e6f63d8c976afd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/consumer-drafts/CA-E-500@27-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "sha256": "39952c680057b7aba974e45af71c4f5226c413fb3fa7ce09be6863d2bb0e3fae"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "sha256": "06eed04182fe75b38bef545858a2b6d97f9e4c0bb44e229d4e06f7e50563583a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/consumer-drafts/CA-D-467@27-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "sha256": "ed8af6d185f865d836d7d8f67cf354a7b924a4f670c82a3c138919f8103ab60a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "sha256": "af72ac2b987162ac7f847bf9e3c45636aecd2c1a0a6445f7a44cc2f7b48a60d2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/CA-C-627@2-draft-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "sha256": "f125c419dec9a36c0ca3f12ab7ac23bca0eaa018f1c72d569cc292518ff98de6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-627-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "sha256": "ee24d98ff3c96927d0ae797771b2384741ea8eea29af2024cc734704f177f658"
+    }
+  ],
+  "frozen_sources": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/frozen-inputs",
+  "limits": [
+    "No actual Operations-instance or runtime migration",
+    "Official projection refresh remains subject to clean graph preflight",
+    "Unrelated parallel edits are preserved"
+  ],
+  "archives": 15,
+  "current_writes": 14,
+  "removed_carriers": 19,
+  "events": [
+    {
+      "event_id": "76ed47ef-42ac-56b1-8f31-911f34de787b",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.904507+04:00",
+      "action": "archive",
+      "object_output": {
+        "id": "CA-R-1569",
+        "version": 25,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-1569",
+        "version": 25,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      }
+    },
+    {
+      "event_id": "728810a3-4f9f-5d00-bf70-8627c2a9b000",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.906014+04:00",
+      "action": "archive",
+      "object_output": {
+        "id": "CA-R-1992",
+        "version": 15,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-1992",
+        "version": 15,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      }
+    },
+    {
+      "event_id": "e720818b-7b7c-5ca5-a874-7fd1a8440b5d",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.907226+04:00",
+      "action": "archive",
+      "object_output": {
+        "id": "CA-R-2480",
+        "version": 4,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-2480",
+        "version": 4,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      }
+    },
+    {
+      "event_id": "d8180d8b-4b82-5e66-b836-5be6e6f51f29",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.908480+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-2465",
+        "version": 4,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-2465",
+        "version": 2,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      }
+    },
+    {
+      "event_id": "2f508e9f-f96d-5d38-90f8-c045c847ba99",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.909688+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-2466",
+        "version": 4,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-2466",
+        "version": 2,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      }
+    },
+    {
+      "event_id": "1612cc15-09ff-5898-b086-930c846818b4",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.910870+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-2464",
+        "version": 4,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-2464",
+        "version": 2,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      }
+    },
+    {
+      "event_id": "40e3be69-8dd2-5e31-b3a1-ac3798736699",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.912050+04:00",
+      "action": "create",
+      "object_output": {
+        "id": "CA-R-2638",
+        "version": 2,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "016fa36d-dc2d-5cb6-a7a6-998d76c923a8",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.913182+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-2623",
+        "version": 3,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-2623",
+        "version": 1,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      }
+    },
+    {
+      "event_id": "014a1cf6-5b38-5d63-9066-ae2decfed365",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.914461+04:00",
+      "action": "create",
+      "object_output": {
+        "id": "CA-R-2639",
+        "version": 2,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "7869242a-a2bc-5e7b-9cf5-bf081610c0b0",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.915847+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-1570",
+        "version": 26,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-1570",
+        "version": 24,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      }
+    },
+    {
+      "event_id": "5347bb45-eada-5f57-b80f-cc803ee99e06",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.917007+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-2487",
+        "version": 8,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-2487",
+        "version": 6,
+        "updated_at": "2026-11-02 08:12:18 +0400"
+      }
+    },
+    {
+      "event_id": "333197d5-0c8b-5d3b-89ef-ae484bca7dd7",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.918259+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-R-2243",
+        "version": 11,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-R-2243",
+        "version": 9,
+        "updated_at": "2026-11-02 08:12:18 +0400"
+      }
+    },
+    {
+      "event_id": "07b45e32-71e7-5520-8772-ca288f58be72",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.919415+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-E-669",
+        "version": 4,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-E-669",
+        "version": 2,
+        "updated_at": "2026-11-02 00:18:22 +0400"
+      }
+    },
+    {
+      "event_id": "3c17918f-1dc2-5550-8cbe-cd04826ed828",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.921156+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-E-658",
+        "version": 14,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-E-658",
+        "version": 12,
+        "updated_at": "2026-11-02 15:49:28 +0400"
+      }
+    },
+    {
+      "event_id": "cb167f55-93bb-5e13-85d5-a2a051c8857a",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.922700+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-E-500",
+        "version": 28,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-E-500",
+        "version": 26,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      }
+    },
+    {
+      "event_id": "f7072e83-30e9-51d6-916b-23df68f045e7",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.924218+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-D-467",
+        "version": 28,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-D-467",
+        "version": 26,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      }
+    },
+    {
+      "event_id": "713e2aed-3e2d-50cc-95a8-6f04003dfeb1",
+      "happened_at": "2026-11-02 17:54:42 +0400",
+      "inserted_at": "2026-11-02T17:54:43.925662+04:00",
+      "action": "update",
+      "object_output": {
+        "id": "CA-C-627",
+        "version": 3,
+        "updated_at": "2026-11-02 17:54:42 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      },
+      "object_input": {
+        "id": "CA-C-627",
+        "version": 1,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      }
+    }
+  ],
+  "journal_receipts": [
+    {
+      "event_id": "76ed47ef-42ac-56b1-8f31-911f34de787b",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 153
+    },
+    {
+      "event_id": "728810a3-4f9f-5d00-bf70-8627c2a9b000",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 154
+    },
+    {
+      "event_id": "e720818b-7b7c-5ca5-a874-7fd1a8440b5d",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 155
+    },
+    {
+      "event_id": "d8180d8b-4b82-5e66-b836-5be6e6f51f29",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 156
+    },
+    {
+      "event_id": "2f508e9f-f96d-5d38-90f8-c045c847ba99",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 157
+    },
+    {
+      "event_id": "1612cc15-09ff-5898-b086-930c846818b4",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 158
+    },
+    {
+      "event_id": "40e3be69-8dd2-5e31-b3a1-ac3798736699",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 159
+    },
+    {
+      "event_id": "016fa36d-dc2d-5cb6-a7a6-998d76c923a8",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 160
+    },
+    {
+      "event_id": "014a1cf6-5b38-5d63-9066-ae2decfed365",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 161
+    },
+    {
+      "event_id": "7869242a-a2bc-5e7b-9cf5-bf081610c0b0",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 162
+    },
+    {
+      "event_id": "5347bb45-eada-5f57-b80f-cc803ee99e06",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 163
+    },
+    {
+      "event_id": "333197d5-0c8b-5d3b-89ef-ae484bca7dd7",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 164
+    },
+    {
+      "event_id": "07b45e32-71e7-5520-8772-ca288f58be72",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 165
+    },
+    {
+      "event_id": "3c17918f-1dc2-5550-8cbe-cd04826ed828",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 166
+    },
+    {
+      "event_id": "cb167f55-93bb-5e13-85d5-a2a051c8857a",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 167
+    },
+    {
+      "event_id": "f7072e83-30e9-51d6-916b-23df68f045e7",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 168
+    },
+    {
+      "event_id": "713e2aed-3e2d-50cc-95a8-6f04003dfeb1",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 169
+    }
+  ],
+  "journal_records": 17
+}

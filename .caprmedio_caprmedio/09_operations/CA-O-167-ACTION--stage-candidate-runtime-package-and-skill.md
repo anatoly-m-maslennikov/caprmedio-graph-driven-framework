@@ -8,14 +8,15 @@ author: Anatoly Maslennikov
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Action'
   - Subject/CAPRMEDIO/Carrier
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-version: 17
-updated_at: 2026-10-27 19:59:47 +0400
+version: 18
+updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
 tier: 3
 ---
@@ -29,7 +30,7 @@ Stage candidate runtime package and Skill **means** the Action that prepares the
 
 ## Scope
 
-`stage_candidate` prepares the complete declared Framework package only under `.caprmedio_tmp/release_candidates/<run_id>/package/`, including the private active-source copy, compiled Methodology, Engine, complete `ca` Skill/default payload, dependency-lock identity, runtime input, and matching image context. It stages the `ca` payload for its Project target without replacing an active Skill or writing `101_FRAMEWORK_METHODOLOGY/` or the installed Framework.
+`stage_candidate` prepares the complete declared Framework package only under `.caprmedio_tmp/release_candidates/<run_id>/package/`, including the private active-source copy, compiled Methodology, Engine, complete `ca` Skill/default payload, dependency-lock identity, runtime input, and matching image context. It stages the `ca` payload for its Project target without replacing an active Skill or writing `LAYER_1_FRAMEWORK_METHODOLOGY/` or the installed Framework.
 
 ## Details
 

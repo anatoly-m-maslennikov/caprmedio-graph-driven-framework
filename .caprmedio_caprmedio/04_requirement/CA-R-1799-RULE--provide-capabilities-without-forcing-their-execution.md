@@ -3,10 +3,10 @@ atom_id: CA-R-1799
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
-version: 18
-updated_at: 2026-11-02 00:18:22 +0400
+version: 20
+updated_at: 2026-11-02 18:35:20 +0400
 subjects:
-  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  active: Aspects <+ Product
   passive:
   - Entity/Object/Continuant/Actor/Operator
   - Atom/(.Role := Requirement)

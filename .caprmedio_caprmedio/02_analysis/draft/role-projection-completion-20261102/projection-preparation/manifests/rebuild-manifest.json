@@ -1,0 +1,33 @@
+{
+  "status": "PREPARED_WAITING_FOR_SOURCE_AND_PARSER_LANES",
+  "scope": "Staging-only preparation for CA-PROJ-014 through CA-PROJ-019. Root alone performs official projection writes, Journal, commit, and push.",
+  "frontier": {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/current-source-frontier.json",
+    "sha256_at_preparation": "9226f8d1a16f154e3faee18d86b82f9d1112c2adad519de8065869bd8b78f012",
+    "selected_operations_at_preparation": 1134,
+    "requirement": "The runner derives the count from this frontier; it has no 1137 constant. Every source file must match its frontier SHA-256 immediately before staging."
+  },
+  "official_predecessors": {
+    "CA-PROJ-014": {"path": ".caprmedio_caprmedio/_projection/CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md", "sha256": "a3f3e2af76ec7c0d17c5540b4dc7ea1c050905ae4bc22bf8cacd098eabd879e8"},
+    "CA-PROJ-015": {"path": ".caprmedio_caprmedio/_projection/CA-PROJ-015-CAPRMEDIO--Subject-Graph-Properties--Current-Methodology-and-Project-RMED.md", "sha256": "c386d0deb4d9fe8e7adbb6e7eebc0430d6ed442eecdcd4d496e30ad666e4732c"},
+    "CA-PROJ-016": {"path": ".caprmedio_caprmedio/_projection/CA-PROJ-016-CAPRMEDIO--Subject-Graph-Instances--Current-Methodology-and-Project-RMED.md", "sha256": "4cb65bd8ddea2b1896986d9f1de71b1dfed6ccce4b229ee58466a58d3aad61ac"},
+    "CA-PROJ-017": {"path": ".caprmedio_caprmedio/_projection/CA-PROJ-017-CAPRMEDIO--Model-Graph--Current-MODEL-Declarations.md", "sha256": "b389f5aae86452222b8929736da41af25c523ada69c234b63c5b16391a62dcda"},
+    "CA-PROJ-018": {"path": ".caprmedio_caprmedio/_projection/CA-PROJ-018-CAPRMEDIO--Entities-Graph--Current-Subject-Narrowing-Tree.md", "sha256": "4c2b7bc0ebfdcabd9947b5fd25127296a5ff699ed0d7d636ca172a283c189636"},
+    "CA-PROJ-019": {"path": ".caprmedio_caprmedio/_projection/CA-PROJ-019-CAPRMEDIO--MODEL-Formal-Contracts.md", "sha256": "00771a8390216e22f42a72429b1f2cb986f7d40c23bfc7ad76249a3a4f1d029a"}
+  },
+  "required_staging_gates": [
+    "All 1,134-or-latest frontier source hashes match their rows and every row is Current RMED.",
+    "All six predecessor hashes match before staging; otherwise refresh this packet rather than overwrite an unrecorded successor.",
+    "Every staged frontmatter has source.named_selection and nonempty source.atoms; Projection.Version is absent.",
+    "CA-PROJ-014 contains source-bound direct IS_CONTAINED_BY facts from bare Aspects <+ chains.",
+    "CA-PROJ-018 has only NARROWER_THAN edges; containment does not enter its tree.",
+    "CA-PROJ-019 has complete contract coverage, no gaps/conflicts/missing relation semantics, and exactly 41 canonical-or-derived relations.",
+    "No staged document is publishable evidence: official writes remain a later root-owned transaction with durable predecessor copies and receipt."
+  ],
+  "known_preparation_findings": {
+    "old_publisher": "publish_completion_views.py is unsafe for this task because it hardcodes 1137 and writes official projections and Journal.",
+    "adapter": "caprmedio_projection_adapter.py can render CA-PROJ-014..016 but its former frontier routine hardcodes 1101 receipt rows; the staging runner reuses its document renderers only.",
+    "aspect_tree_gap_before_rebuild": "The live CA-PROJ-014 still contains legacy Entity/Aspect/... observations and no bare Aspects <+ chain. This is meaningful stale projection state, not a request for actual STRUCTURE registration."
+  },
+  "exact_ready_command": ".venv/bin/python .caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/projection-preparation/scripts/stage_official_views.py --frontier .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/current-source-frontier.json"
+}

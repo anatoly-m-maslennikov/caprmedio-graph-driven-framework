@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1024
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 local_tier: Standard
@@ -12,11 +12,18 @@ subjects:
   depends_on:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
-version: 4
-updated_at: 2026-10-23 03:14:50 +0400
+version: 5
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1306]
-  relates_to: [CA-P-1308, CA-P-1129, CA-A-1020, CA-A-905, CA-A-910, CA-C-323]
+  analysis_for:
+  - CA-P-1306
+  relates_to:
+  - CA-P-1308
+  - CA-P-1129
+  - CA-A-1020
+  - CA-A-905
+  - CA-A-910
+  - CA-C-323
 ---
 # Summary
 

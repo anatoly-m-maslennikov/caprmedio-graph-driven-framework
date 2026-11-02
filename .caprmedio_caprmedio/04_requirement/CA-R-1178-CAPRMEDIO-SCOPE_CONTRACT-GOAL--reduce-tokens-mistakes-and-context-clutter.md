@@ -2,13 +2,13 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: Entity/Aspect/Engineering
+  active: Aspects <+ Engineering
   passive:
   - Entity/Object/Continuant/Actor/AI Agent
   - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
   - Project
-version: 26
-updated_at: 2026-11-02 00:18:22 +0400
+version: 28
+updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

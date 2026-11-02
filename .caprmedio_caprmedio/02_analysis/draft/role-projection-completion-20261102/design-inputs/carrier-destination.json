@@ -1,0 +1,24 @@
+{
+  "status": "DESIGN_IN_PROGRESS",
+  "user_intent": "Calculated intended Carrier filename and path derived from other Atom Properties, separate from the observed real filename/path.",
+  "user_candidates": [
+    "atom.carrier.file.name",
+    "atom.carrier.file.path",
+    "atom.carrier_destination.file.name",
+    "atom.carrier_target.file.path"
+  ],
+  "recommendation": [
+    "atom.carrier_destination.file.name",
+    "atom.carrier_destination.file.path"
+  ],
+  "pending_question": "Is File required for every Atom, or optional for file delivery?",
+  "authority_change": "Naming and meaning recorded from user decisions; no Current Property/schema changes.",
+  "user_decision": "The path value is the containing directory only, relative to repository root.",
+  "user_decisions": {
+    "atom.carrier_destination.file.name": "Full calculated filename, including extension.",
+    "atom.carrier_destination.file.path": "Calculated containing directory only, relative to repository root.",
+    "storage": "Store calculated values in Atom frontmatter."
+  },
+  "latest_user_clarification": "file.name holds the full filename, including extension.",
+  "evidence_packet": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/carrier-destination-20261102"
+}

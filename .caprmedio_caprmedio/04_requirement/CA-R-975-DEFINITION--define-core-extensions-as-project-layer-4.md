@@ -6,10 +6,9 @@ subjects:
   passive:
   - Project
   - Scope Unit
-  - Scope Unit.Local Order
-  - 'Entity/Object/Continuant/Structural Unit/Scope Unit/Type: Ordered'
-version: 26
-updated_at: 2026-11-02 00:18:22 +0400
+  - Scope Unit.order.number
+version: 27
+updated_at: 2026-11-02 19:44:26 +0400
 relations:
   child_of:
   - CA-R-2450

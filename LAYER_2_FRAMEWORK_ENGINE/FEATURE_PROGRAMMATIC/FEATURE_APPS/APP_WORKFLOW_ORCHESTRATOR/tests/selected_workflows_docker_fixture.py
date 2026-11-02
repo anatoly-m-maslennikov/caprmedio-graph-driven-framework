@@ -1,0 +1,1336 @@
+"""Disposable, source-pinned corpus for selected Workflow Docker evidence.
+
+The corpus is deliberately only a harness input.  It resolves the reviewed
+manifest's current definitions and copies their exact pins into a throw-away
+Git Project; it never points a Docker worker at this repository's authority
+or an existing Run.
+"""
+from __future__ import annotations
+
+import copy
+from dataclasses import dataclass
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import sys
+import tempfile
+from typing import Any, Iterable, Mapping
+
+TOOLS_ROOT = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
+MCP_ROOT = Path(__file__).resolve().parents[3] / "FEATURE_MCP"
+if str(MCP_ROOT) not in sys.path:
+    sys.path.insert(0, str(MCP_ROOT))
+from scope_declaration_test_support import write_scope_unit_declarations
+
+from frozen_selected_workflows import (
+    frozen_complete_carrier_authority,
+    frozen_behavior_bindings,
+    frozen_implementation_bindings,
+    frozen_manifest,
+    frozen_source_bytes,
+    frozen_source_paths,
+    write_frozen_source,
+)
+
+VALIDATOR_TESTS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS/VALIDATE_ATOMS/tests"
+if str(VALIDATOR_TESTS) not in sys.path:
+    sys.path.insert(0, str(VALIDATOR_TESTS))
+from golden_authority import frozen_authority_fixture_bytes
+
+
+_RMED_PROMPTS = (
+    Path(__file__).resolve().parents[4]
+    / "FEATURE_AGENTIC/FEATURE_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW"
+)
+_RUNTIME_READINESS_O104 = {
+    "atom_id": "CA-O-104",
+    "version": 12,
+    "sha256": "c4655ae7caddf8279db86f3f2d0069d94431da7fc3537a6f2bfa5550de01b342",
+}
+_RUNTIME_READINESS_O104_SNAPSHOT = (
+    Path(__file__).with_name("fixtures") / "CA-O-104-v12-runtime-readiness.md"
+)
+
+
+MANIFEST_REF = ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json"
+ROUTE_CASES = (
+    ("W01", "create_atom"),
+    ("W02", "update_atom"),
+    ("W03", "replace_atom"),
+    ("W04", "change_atom_status"),
+    ("W09", "run_implementation_workflow"),
+    ("W10", "revert_changes"),
+    ("W11", "build_entities_graph"),
+    ("W12", "build_terms_graph"),
+    ("W13", "build_applicable_methodology"),
+    ("W14", "find_and_fetch_artifacts"),
+    ("W15", "find_and_fetch_journal_events"),
+)
+MANIFEST_ROUTE_NAMES = tuple(route for _, route in ROUTE_CASES)
+QUERY_SOURCE_ADMISSION_ROUTE_NAMES = MANIFEST_ROUTE_NAMES[-2:]
+_CONTEXT_DECLARATION_ATOM_ID = "CA-D-514"
+_CONTEXT_DECLARATION_PIN = frozen_behavior_bindings()[_CONTEXT_DECLARATION_ATOM_ID]
+_CONTEXT_DECLARATION_PATH = Path(_CONTEXT_DECLARATION_PIN["source_path"])
+_CONTEXT_DECLARATION_DIGEST = _CONTEXT_DECLARATION_PIN["sha256"]
+W10_LIFECYCLE_TIMESTAMP = "2026-10-05 12:00:00 +0000"
+_LEGACY_APPLICABLE_SOURCE_ROOT = Path(
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+    "000_APPLICABLE_MTHD_sources"
+)
+_LEGACY_DECLARED_SOURCE_ROOT = Path(
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES"
+)
+JOURNAL_CASES = tuple(f"J{number:02d}" for number in range(1, 9))
+STATUS_DOMAINS = (
+    ("Requirement", "R", "04_requirement", "CA-R-1309", ("Draft", "Active", "Archived")),
+    ("Method", "M", "05_method", "CA-R-1397", ("Draft", "Active", "Archived")),
+    ("Evaluation", "E", "06_evaluation", "CA-R-1398", ("Draft", "Active", "Archived")),
+    ("Delivery", "D", "07_delivery", "CA-R-1399", ("Draft", "Active", "Archived")),
+    ("Plan", "P", "03_plan", "CA-R-1539", ("Draft", "Active", "Archived", "Backlog", "Done", "Canceled")),
+    ("Concern", "C", "01_concern", "CA-R-1608", ("Draft", "Active", "Archived", "Resolved", "Canceled")),
+    ("Operations", "O", "09_operations", "CA-R-1874", ("Draft", "Active", "Archived")),
+    ("Analysis", "A", "02_analysis", "CA-R-1875", ("Draft", "Done", "Archived")),
+)
+SEMANTIC_ASSESSMENT_AUTHORITIES = ("CA-R-1432", "CA-R-1464")
+
+
+class GoldenCorpusError(RuntimeError):
+    """The selected-route delivery has not supplied a runnable frozen corpus."""
+
+
+def canonical_json(value: object) -> bytes:
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+
+
+def digest(value: object) -> str:
+    return hashlib.sha256(canonical_json(value)).hexdigest()
+
+
+def file_digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _safe_relative(value: object, *, name: str) -> Path:
+    if not isinstance(value, str) or not value:
+        raise GoldenCorpusError(f"{name} must be a non-empty repository-relative path")
+    path = Path(value)
+    if path.is_absolute() or ".." in path.parts:
+        raise GoldenCorpusError(f"{name} escapes the disposable fixture")
+    return path
+
+
+def _pin_paths(route: Mapping[str, Any]) -> Iterable[Mapping[str, Any]]:
+    yield route["workflow"]
+    for item in route["ordered_steps"]:
+        yield item["step"]
+        yield item["action"]
+    yield from route["ordered_actions"]
+    yield from route["native_action_calls"]
+
+
+def _admission_pin_paths(admission: Mapping[str, Any]) -> Iterable[Mapping[str, Any]]:
+    yield admission["acceptance_frontier"]
+    yield admission["workflow"]
+    for item in admission["ordered_steps"]:
+        yield item["step"]
+        yield item["action"]
+    yield from admission["ordered_actions"]
+
+
+@dataclass(frozen=True)
+class GoldenCase:
+    case_id: str
+    route: str
+
+    @property
+    def authority_path(self) -> str:
+        return f"fixture/authority/{self.case_id}.json"
+
+    @property
+    def expected_effect_path(self) -> str:
+        return f"fixture/effects/{self.case_id}.json"
+
+
+@dataclass(frozen=True)
+class FixtureLease:
+    """A scoped fixture path, with an explicit evidence-retention escape hatch."""
+
+    root: Path
+
+    def cleanup(self) -> None:
+        # macOS managed workspaces can deny deletion of a just-unmounted bind
+        # directory.  Retaining the scoped path is preferable to reporting a
+        # slow/failed deletion as route evidence; operators may set this only
+        # while diagnosing Docker failures.
+        if os.environ.get("CAPRMEDIO_KEEP_DOCKER_FIXTURES") == "1":
+            return
+        shutil.rmtree(self.root, ignore_errors=True)
+
+
+class GoldenProject:
+    """One fresh, source-pinned Project per Docker/MCP case."""
+
+    def __init__(self, source_root: Path, root: Path, case: GoldenCase,
+                 *, execution_project_root: str | None = None) -> None:
+        # Kept only for call-site compatibility.  A golden fixture must not
+        # inspect the caller's Project or any real Atom authority.
+        del source_root
+        self.root = Path(root).resolve(strict=True)
+        self.case = case
+        if execution_project_root is not None and (not execution_project_root.startswith("/") or execution_project_root.rstrip("/") == ""):
+            raise GoldenCorpusError("execution_project_root must be an absolute container-visible path")
+        self.execution_project_root = execution_project_root.rstrip("/") if execution_project_root else None
+        self.manifest: dict[str, Any] | None = None
+        self._create_parameters: dict[str, Any] | None = None
+        self._status_parameters: dict[str, Any] | None = None
+        self._semantic_update_parameters: dict[str, Any] | None = None
+        self._cached_revert_parameters: dict[str, Any] | None = None
+        self._cached_compiler_parameters: dict[str, Any] | None = None
+        self._cached_compiler_frontier_digest: str | None = None
+        self._scope_rows: dict[str, dict[str, Any]] | None = None
+
+    @property
+    def manifest_path(self) -> Path:
+        return self.root / MANIFEST_REF
+
+    def _execution_path(self, host_path: Path) -> str:
+        """Render one known fixture path for its mounted execution Project."""
+        relative = host_path.resolve(strict=True).relative_to(self.root).as_posix()
+        return (f"{self.execution_project_root}/{relative}" if self.execution_project_root else str(host_path))
+
+    def prepare(self) -> dict[str, Any]:
+        """Create the only Project a harness may mutate, then freeze its pins."""
+        (self.root / ".caprmedio_caprmedio").mkdir(parents=True, exist_ok=True)
+        (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
+            '[project]\nkey = "golden-fixture"\nname = "caprmedio"\nrepository_slug = "golden-fixture"\n'
+            '[artifacts.identity]\nproject_prefix = "CA"\n\n[paths]\n'
+            'control_root = ".caprmedio_caprmedio"\n'
+            'journal_root = ".caprmedio_caprmedio/_journal"\n'
+            'runtime_root = ".caprmedio_runtime"\n\n'
+            "[authority_modes]\n"
+            'default = "casual"\n',
+            encoding="utf-8",
+        )
+        (self.root / ".caprmedio_caprmedio/operators_registry.toml").write_text(
+            '[[operators]]\nname = "golden-operator"\nrole = "project owner"\n',
+            encoding="utf-8",
+        )
+        # A valid, empty canonical Journal is an observable query frontier;
+        # it is not a fabricated Run receipt.
+        (self.root / ".caprmedio_caprmedio/_journal").mkdir(parents=True, exist_ok=True)
+        if self.case.route in {"create_atom", "replace_atom", "change_atom_status"}:
+            self._write_complete_carrier_scope_declarations()
+        self._write_native_authority()
+        if self.case.route in {"create_atom", "replace_atom", "change_atom_status"}:
+            self._copy_complete_carrier_authority()
+        self._write_graph_authority()
+        self._write_compiler_authority()
+        if self.case.route == "update_atom":
+            target = self._descriptor("CA-R-100")
+            path = self.root / target["path"]
+            frontmatter, content = path.read_text(encoding="utf-8")[4:].split("\n---\n", 1)
+            proposed = {"frontmatter": frontmatter, "content": content + "\nClarified fixture acceptance detail.\n"}
+            self._semantic_update_parameters = {
+                "target": target, "proposed": proposed, "change_class": "semantic_revision",
+                "semantic_assessment_report": self._semantic_assessment_report(target, proposed),
+            }
+        # W09 source carriers and its writable sandbox are part of the
+        # disposable Project's initial state, not a preview-time mutation.
+        if self.case.case_id == "W09":
+            self.native_implementation_parameters()
+        (self.root / "fixture/authority").mkdir(parents=True, exist_ok=True)
+        (self.root / self.case.authority_path).write_text(
+            json.dumps({"case": self.case.case_id, "route": self.case.route, "state": "before"}),
+            encoding="utf-8",
+        )
+        # Runtime admission intentionally requires the Project Git authority
+        # mount to be a real directory.  A bare fixture marker is enough for
+        # these mock-only evidence cases and avoids a host Git repository that
+        # Docker can make non-removable on macOS file-sharing backends.
+        (self.root / ".git").mkdir()
+        self._copy_runtime_readiness_definition()
+        context_pin = frozen_behavior_bindings().get(_CONTEXT_DECLARATION_ATOM_ID)
+        if not isinstance(context_pin, Mapping):
+            raise GoldenCorpusError("GET_EXECUTION_CONTEXT declaration pin is unavailable")
+        context_path = _safe_relative(context_pin.get("source_path"), name="GET_EXECUTION_CONTEXT declaration")
+        try:
+            tools_index = context_path.parts.index("CA-SU-16_FEATURE_TOOLS")
+        except ValueError as error:
+            raise GoldenCorpusError("GET_EXECUTION_CONTEXT declaration has no Tool scope") from error
+        context_target = self._scope_path("TOOL_WORKFLOWS", "authority_path") / Path(
+            *context_path.parts[tools_index + 1:]
+        )
+        self._copy_frozen_to(context_path, context_target, context_pin.get("sha256"))
+        manifest = self._copy_reviewed_manifest()
+        from selected_routes import load_selected_manifest
+
+        manifest = load_selected_manifest(self.root)
+        self.manifest = manifest
+        return manifest
+
+    def set_journal_state(self, state: str) -> Path:
+        """Set a disposable pre-existing Journal condition after fixture admission."""
+        journal = self.root / ".caprmedio_caprmedio/_journal"
+        if state == "missing":
+            if journal.exists():
+                shutil.rmtree(journal)
+            return journal
+        if state == "empty":
+            if journal.exists() and any(journal.iterdir()):
+                shutil.rmtree(journal)
+            journal.mkdir(parents=True, exist_ok=True)
+            return journal
+        if state == "incomplete":
+            if journal.exists() and any(path.name != "preexisting.ndjson" for path in journal.iterdir()):
+                shutil.rmtree(journal)
+            journal.mkdir(parents=True, exist_ok=True)
+            (journal / "preexisting.ndjson").write_text(
+                '{"schema_version":5,"kind":"workflow_execution","event":"started"}\n',
+                encoding="utf-8",
+            )
+            return journal
+        raise GoldenCorpusError(f"unknown Journal fixture state: {state}")
+
+    @property
+    def _authority_dir(self) -> Path:
+        # Atom discovery uses the registered content-role directory convention.
+        return self._scope_path("PARENT", "authority_path") / "04_requirement"
+
+    def _scope_path(self, name: str, field: str) -> Path:
+        if self._scope_rows is None:
+            raise GoldenCorpusError("Scope Unit Declarations must be materialized before fixture paths")
+        row = self._scope_rows.get(name)
+        if not isinstance(row, Mapping):
+            raise GoldenCorpusError(f"fixture Scope Unit Declaration is missing: {name}")
+        value = row.get(field)
+        if not isinstance(value, (str, Path)) or not str(value):
+            raise GoldenCorpusError(f"fixture Scope Unit Declaration {name} has no {field}")
+        path = Path(value)
+        return path if path.is_absolute() else self.root / path
+
+    def _declared_source_path(self, relative: Path) -> Path:
+        """Map a frozen layer-relative source into its declared Scope Unit authority."""
+        layer_to_scope = {
+            "001_CORE_META_MODEL": "CORE_META_MODEL",
+            "002_INSTALLED_EXTENSIONS": "INSTALLED_EXTENSIONS",
+            "003_PROJECT_CONFIGURATION": "PROJECT_CONFIGURATION",
+            "CA-SU-11_LAYER_1_CORE_META_MODEL": "CORE_META_MODEL",
+            "CA-SU-13_LAYER_3_PROJECT_CONFIGURATION": "PROJECT_CONFIGURATION",
+        }
+        if not relative.parts or relative.parts[0] not in layer_to_scope:
+            raise GoldenCorpusError(f"frozen methodology source has an unsupported layer: {relative}")
+        return self._scope_path(layer_to_scope[relative.parts[0]], "authority_path") / Path(*relative.parts[1:])
+
+    def _status_model(self) -> dict[str, Any]:
+        """Resolve W03's required archive model from copied current authority."""
+        import sys
+        tools_root = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
+        if str(tools_root) not in sys.path:
+            sys.path.insert(0, str(tools_root))
+        from authoritative_status_models import resolve_status_model
+        return resolve_status_model(self.root, self._descriptor("CA-R-100"), "Archived")
+
+    def _write_atom(self, atom_id: str, slug: str, summary: str) -> Path:
+        path = self._authority_dir / f"{atom_id}--{slug}.md"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        frontmatter = f"atom_id: {atom_id}\ncontent_role: Requirement\nstatus: Active"
+        content = f"# Summary\n\n{summary}\n\n## Scope\n\nFixture scope.\n\n## Claim\n\nFixture claim.\n"
+        if self.case.route in {"replace_atom", "change_atom_status"}:
+            carrier = self._carrier(atom_id, slug, summary)
+            frontmatter, content = carrier["frontmatter"], carrier["content"]
+        path.write_text(
+            f"---\n{frontmatter}\nversion: 1\n"
+            "updated_at: 2026-10-05 00:00:00 +0000\n"
+            + ("" if self.case.route in {"replace_atom", "change_atom_status"} else "relations: {}\n")
+            + "---\n"
+            + content,
+            encoding="utf-8",
+        )
+        return path
+
+    def _write_native_authority(self) -> None:
+        """Create real disposable carriers and authority for W01--W04.
+
+        These are deliberately ordinary Project files, rather than a test-only
+        request schema: the native Action adapters validate them directly.
+        """
+        if self.case.route not in {"create_atom", "replace_atom", "change_atom_status"}:
+            self._scope_rows = write_scope_unit_declarations(self.root, (
+                {"scope_unit_name": "METHODOLOGY_SOURCES", "parent": "PROJECT", "scope_unit_type": "Unordered", "scope_unit_label": "METHODOLOGY"},
+                {"scope_unit_name": "CORE_META_MODEL", "parent": "METHODOLOGY_SOURCES", "scope_unit_type": "Unordered", "scope_unit_label": "METHODOLOGY"},
+                {"scope_unit_name": "INSTALLED_EXTENSIONS", "parent": "METHODOLOGY_SOURCES", "scope_unit_type": "Unordered", "scope_unit_label": "METHODOLOGY"},
+                {"scope_unit_name": "PROJECT_CONFIGURATION", "parent": "METHODOLOGY_SOURCES", "scope_unit_type": "Unordered", "scope_unit_label": "METHODOLOGY"},
+                {"scope_unit_name": "PARENT", "parent": "PROJECT", "scope_unit_type": "Ordered", "scope_unit_label": "LAYER", "local_order": 1},
+                {"scope_unit_name": "CHILD", "parent": "PARENT", "scope_unit_type": "Unordered", "scope_unit_label": "FEATURE"},
+                {"scope_unit_name": "DEST", "parent": "PROJECT", "scope_unit_type": "Unordered", "scope_unit_label": "LAYER"},
+                {"scope_unit_name": "TOOL_WORKFLOWS", "parent": "PROJECT", "scope_unit_type": "Unordered", "scope_unit_label": "FEATURE"},
+            ))
+        self._write_atom("CA-R-100", "target", "Stable summary")
+        self._write_atom("CA-R-101", "related", "Related summary")
+        (self.root / "fixture/reference.txt").parent.mkdir(parents=True, exist_ok=True)
+        (self.root / "fixture/reference.txt").write_text("CHILD\n", encoding="utf-8")
+
+    def _copy_complete_carrier_authority(self) -> None:
+        """Copy the fixed complete-carrier closure for W01/W03/W04."""
+        for atom_id, entry in frozen_complete_carrier_authority().items():
+            relative = _safe_relative(entry.get("source_path"), name="complete-carrier source")
+            expected = entry.get("sha256")
+            if not isinstance(expected, str):
+                raise GoldenCorpusError(f"complete-carrier source pin is unavailable: {atom_id}")
+            try:
+                source_relative = relative.relative_to(_LEGACY_DECLARED_SOURCE_ROOT)
+            except ValueError as error:
+                raise GoldenCorpusError(f"complete-carrier source is outside the declared methodology root: {relative}") from error
+            destination = self._declared_source_path(source_relative)
+            if atom_id == "CA-D-276":
+                # The shared validator fixture owns the reviewed historical
+                # encoding bytes; the selected-workflow corpus only carries a
+                # stale copy of this retired authority source.
+                raw = frozen_authority_fixture_bytes(atom_id)
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes(raw)
+                legacy_target = self.root / relative
+                if legacy_target != destination and legacy_target.exists():
+                    legacy_target.unlink()
+                continue
+            self._copy_frozen_to(relative, destination, expected)
+        status_sources = [
+            Path(path) for path in frozen_source_paths()
+            if "/04_requirement/CA-R-1309-" in path
+            and "/000_CAPRMEDIO_framework/" in path
+        ]
+        if len(status_sources) != 1:
+            raise GoldenCorpusError("complete-carrier Requirement status authority is ambiguous")
+        status_relative = status_sources[0].relative_to(_LEGACY_APPLICABLE_SOURCE_ROOT)
+        self._copy_frozen_to(
+            status_sources[0], self._declared_source_path(status_relative),
+            hashlib.sha256(frozen_source_bytes(status_sources[0])).hexdigest(),
+        )
+        draft_sources = []
+        for atom_id in ("CA-D-288", "CA-D-378"):
+            matches = [
+                Path(path) for path in frozen_source_paths()
+                if Path(path).name.startswith(f"{atom_id}-")
+            ]
+            if len(matches) != 1:
+                raise GoldenCorpusError(f"frozen {atom_id} draft-marker source is unavailable or ambiguous")
+            draft_sources.append(matches[0])
+        for source in draft_sources:
+            try:
+                source_relative = source.relative_to(_LEGACY_DECLARED_SOURCE_ROOT)
+            except ValueError as error:
+                raise GoldenCorpusError(f"draft marker source is outside the declared methodology root: {source}") from error
+            self._copy_frozen_to(
+                source, self._declared_source_path(source_relative),
+                hashlib.sha256(frozen_source_bytes(source)).hexdigest(),
+            )
+        declared_authority = self._declared_source_path(Path(
+            "001_CORE_META_MODEL/04_requirement/"
+            "CA-R-793-CORE_META_MODEL--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md"
+        ))
+        declared_authority.parent.mkdir(parents=True, exist_ok=True)
+        declared_authority.write_bytes(frozen_authority_fixture_bytes("CA-R-793"))
+
+    def _write_complete_carrier_scope_declarations(self) -> None:
+        """Use declaration Atoms for the complete-carrier fixture structure."""
+        self._scope_rows = write_scope_unit_declarations(self.root, (
+            {"scope_unit_name": "METHODOLOGY_SOURCES", "parent": "PROJECT", "scope_unit_type": "Unordered", "scope_unit_label": "METHODOLOGY"},
+            {"scope_unit_name": "CORE_META_MODEL", "parent": "METHODOLOGY_SOURCES", "scope_unit_type": "Unordered", "scope_unit_label": "METHODOLOGY"},
+            {"scope_unit_name": "INSTALLED_EXTENSIONS", "parent": "METHODOLOGY_SOURCES", "scope_unit_type": "Unordered", "scope_unit_label": "METHODOLOGY"},
+            {"scope_unit_name": "PROJECT_CONFIGURATION", "parent": "METHODOLOGY_SOURCES", "scope_unit_type": "Unordered", "scope_unit_label": "METHODOLOGY"},
+            {"scope_unit_name": "PARENT", "parent": "PROJECT", "scope_unit_type": "Ordered", "scope_unit_label": "LAYER", "local_order": 1},
+            {"scope_unit_name": "CHILD", "parent": "PARENT", "scope_unit_type": "Unordered", "scope_unit_label": "FEATURE"},
+            {"scope_unit_name": "DEST", "parent": "PROJECT", "scope_unit_type": "Unordered", "scope_unit_label": "LAYER"},
+            {"scope_unit_name": "TOOL_WORKFLOWS", "parent": "PROJECT", "scope_unit_type": "Unordered", "scope_unit_label": "FEATURE"},
+        ))
+
+    @property
+    def graph_source_dir(self) -> Path:
+        """The explicit selected source folder for the two graph Actions."""
+        return self.root / ".caprmedio_caprmedio/graph_sources"
+
+    def _write_graph_authority(self) -> None:
+        """Declare a minimal current Entity/Term frontier, never a graph fake."""
+        self.graph_source_dir.mkdir(parents=True, exist_ok=True)
+        def atom(atom_id: str, governs: str, depends_on: tuple[str, ...] = ()) -> str:
+            dependencies = ", ".join(json.dumps(value) for value in depends_on)
+            return (
+                "---\n"
+                f"atom_id: {atom_id}\ncontent_role: Requirement\ntype: Definition\n"
+                "current_scope_unit: PARENT\nclaim_target_scope_unit: PARENT\nstatus: Active\n"
+                "author: Golden Fixture\nversion: 1\nupdated_at: 2026-10-05 00:00:00 +0000\n"
+                "subjects:\n"
+                f"  governs: {json.dumps(governs)}\n  depends_on: [{dependencies}]\n"
+                "relations: {}\n---\n"
+                f"# {atom_id}\n\nDeclared fixture source.\n"
+            )
+        (self.graph_source_dir / "CA-R-201.md").write_text(atom("CA-R-201", "Entity"), encoding="utf-8")
+        (self.graph_source_dir / "CA-R-202.md").write_text(atom("CA-R-202", "Property", ("Entity",)), encoding="utf-8")
+        (self.graph_source_dir / "CA-R-203.md").write_text(
+            atom("CA-R-203", "Entity/Property: Label", ("Property",)), encoding="utf-8"
+        )
+
+    def native_graph_parameters(self, graph_kind: str) -> dict[str, Any]:
+        """Return the actual CA-O-134/O-137 request, with pinned source bytes."""
+        if graph_kind not in {"entities", "terms"}:
+            raise GoldenCorpusError("graph kind must be entities or terms")
+        import sys
+        graph_root = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS" / "GENERATE_ENTITY_GRAPH"
+        if str(graph_root) not in sys.path:
+            sys.path.insert(0, str(graph_root))
+        import generate_entity_graph
+        return {
+            "graph_kind": graph_kind,
+            "source_frontier": generate_entity_graph.source_frontier_for(self.root, self.graph_source_dir),
+            "selection": {"atom_ids": ["CA-R-201", "CA-R-202", "CA-R-203"], "scope_unit_names": ["PARENT"]},
+            "representation_configuration": {"format": "canonical-json"},
+            "capability_permission_evidence": {"authorized": True},
+            "run_recording_context": {"state": "confirmed", "receipt_refs": [f"golden-{self.case.case_id}"]},
+        }
+
+    @property
+    def compiler_source_dir(self) -> Path:
+        return self._scope_path("METHODOLOGY_SOURCES", "authority_path")
+
+    def _write_compiler_authority(self) -> None:
+        """Declare Core, selected Extension, and Project Configuration sources."""
+        source = self.compiler_source_dir
+        layer_paths = {
+            "001_CORE_META_MODEL": self._scope_path("CORE_META_MODEL", "authority_path"),
+            "002_INSTALLED_EXTENSIONS": self._scope_path("INSTALLED_EXTENSIONS", "authority_path"),
+            "003_PROJECT_CONFIGURATION": self._scope_path("PROJECT_CONFIGURATION", "authority_path"),
+        }
+        for layer in ("001_CORE_META_MODEL", "003_PROJECT_CONFIGURATION"):
+            for role in ("04_requirement", "05_method", "06_evaluation", "07_delivery", "09_operations"):
+                (layer_paths[layer] / role).mkdir(parents=True, exist_ok=True)
+        def carrier(atom_id: str) -> str:
+            return (
+                "---\n" + f"atom_id: {atom_id}\ncce_version: cce_1\ncce_form: obligation\n"
+                "status: Active\nversion: 1\nupdated_at: 2026-10-05 00:00:00 +0000\nrelations: {}\n---\n"
+                f"# {atom_id}\n\nDeclared compiler fixture source.\n"
+            )
+        (layer_paths["001_CORE_META_MODEL"] / "04_requirement/CA-R-301--core.md").write_text(carrier("CA-R-301"), encoding="utf-8")
+        extension = layer_paths["002_INSTALLED_EXTENSIONS"] / "example/v2/05_method"
+        extension.mkdir(parents=True, exist_ok=True)
+        (extension / "CA-M-302--extension.md").write_text(carrier("CA-M-302"), encoding="utf-8")
+        (layer_paths["003_PROJECT_CONFIGURATION"] / "07_delivery/CA-D-303--project.md").write_text(carrier("CA-D-303"), encoding="utf-8")
+        # W15 must inherit the authoritative bounded-query settings rather
+        # than an empty local fallback.  This is a source copy into the
+        # disposable Project, never a new defaults policy.
+        defaults_relative = (
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
+        )
+        self._copy_pinned(Path(defaults_relative), hashlib.sha256(
+            frozen_source_bytes(defaults_relative)
+        ).hexdigest())
+        self._copy_frozen_to(
+            Path(defaults_relative),
+            layer_paths["001_CORE_META_MODEL"] / "caprmedio_framework_default_settings.toml",
+            hashlib.sha256(frozen_source_bytes(defaults_relative)).hexdigest(),
+        )
+        instance_settings = self.root / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
+        instance_settings.parent.mkdir(parents=True, exist_ok=True)
+        instance_settings.write_text(
+            '[extensions.example]\nenabled = true\nrevision = "v2"\n', encoding="utf-8"
+        )
+        # W04 resolves its status domains from the Project's declared
+        # METHODOLOGY_SOURCES authority, not caller-supplied models.  Keep an
+        # exact copy of every current role authority available for lifecycle
+        # proofs.  W13's compiler scans the METHODOLOGY_SOURCES root itself;
+        # leave its declared child authority directory out of that topology.
+        if self.case.route != "build_applicable_methodology":
+            for atom_id in [row[3] for row in STATUS_DOMAINS] + ["CA-R-1947"]:
+                matches = [Path(path) for path in frozen_source_paths()
+                           if path.startswith(_LEGACY_APPLICABLE_SOURCE_ROOT.as_posix() + "/")
+                           and Path(path).name.startswith(f"{atom_id}-")]
+                if len(matches) != 1:
+                    raise GoldenCorpusError(
+                        f"frozen {atom_id} status-model source is unavailable or ambiguous"
+                    )
+                source_relative = matches[0].relative_to(_LEGACY_APPLICABLE_SOURCE_ROOT)
+                self._copy_frozen_to(
+                    matches[0], self._declared_source_path(source_relative),
+                    hashlib.sha256(frozen_source_bytes(matches[0])).hexdigest(),
+                )
+            for atom_id in SEMANTIC_ASSESSMENT_AUTHORITIES:
+                matches = [Path(path) for path in frozen_source_paths()
+                           if path.startswith(_LEGACY_APPLICABLE_SOURCE_ROOT.as_posix() + "/")
+                           and Path(path).name.startswith(f"{atom_id}-")]
+                if len(matches) != 1:
+                    raise GoldenCorpusError(f"frozen {atom_id} semantic-assessment source is unavailable or ambiguous")
+                source_relative = matches[0].relative_to(_LEGACY_APPLICABLE_SOURCE_ROOT)
+                self._copy_frozen_to(
+                    matches[0], self._declared_source_path(source_relative),
+                    hashlib.sha256(frozen_source_bytes(matches[0])).hexdigest(),
+                )
+
+    def native_compiler_parameters(self, operation: str = "dry_run", *, expected_source_frontier_digest: str | None = None,
+                                   execution_project_root: str | None = None) -> dict[str, Any]:
+        """Actual CA-O-011 request; it deliberately has no fabricated receipt."""
+        import sys
+        compiler_root = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS" / "COMPILE_APPLICABLE_METHODOLOGY"
+        if str(compiler_root) not in sys.path:
+            sys.path.insert(0, str(compiler_root))
+        import compile_applicable_methodology
+        request: dict[str, Any] = {
+            "operation": operation, "project_root": execution_project_root or self.root.as_posix(),
+            "governed_bindings": compile_applicable_methodology.governed_bindings(
+                self.root, compile_applicable_methodology.methodology_paths(self.root)
+            ),
+        }
+        if operation == "apply":
+            if not expected_source_frontier_digest:
+                raise GoldenCorpusError("compiler apply needs the just-assessed source frontier digest")
+            request["expected_source_frontier_digest"] = expected_source_frontier_digest
+        return request
+
+    def native_implementation_parameters(self) -> dict[str, Any]:
+        """Source-full CA-O-016 packets; mock transport is supplied separately."""
+        import sys
+        implementation_root = Path(__file__).resolve().parents[4] / "FEATURE_AGENTIC/FEATURE_PROMPTS/ACTION_PROMPTS/IMPLEMENTATION_WORKFLOW"
+        if str(implementation_root) not in sys.path:
+            sys.path.insert(0, str(implementation_root))
+        import implementation_actions
+        # Copy exactly the reviewed, bounded carrier frontier into the fresh
+        # Project.  The handler then re-observes it from that Project rather
+        # than borrowing this repository's prompt authority.
+        frozen_bindings = frozen_implementation_bindings()
+        for row in frozen_bindings:
+            relative = _safe_relative(row["path"], name="implementation source binding")
+            self._copy_pinned(relative, row["sha256"])
+        bindings = implementation_actions.current_source_bindings(self.root)
+        if {row["atom_id"] for row in bindings} != {row["atom_id"] for row in frozen_bindings}:
+            raise GoldenCorpusError(
+                "current implementation binding identities differ from the checked-in golden corpus"
+            )
+        for row in bindings:
+            source = self.root / row["path"]
+            if not source.is_file() or file_digest(source) != row["sha256"]:
+                raise GoldenCorpusError(
+                    f"current implementation binding is not a readable current carrier: {row['atom_id']}"
+                )
+        methods = [row["path"] for row in bindings if str(row["atom_id"]).startswith("CA-M-")]
+        requirements = implementation_actions.prepare_input_bindings(["CA-R-1843"], self.root)
+        delivery = implementation_actions.prepare_input_bindings(["CA-D-544"], self.root)
+        evaluations = implementation_actions.prepare_input_bindings(["CA-E-563"], self.root)
+        workspace = self.root / "fixture/disposable-workspace"
+        workspace.mkdir(parents=True, exist_ok=True)
+        candidate = "fixture-candidate"
+        phase = "implementation"
+        base = {
+            "context": "Isolated",
+            "selected_project": {"kind": "selected_project", "source_root": ".caprmedio_caprmedio",
+                                 "source_references": bindings},
+            "source_bindings": bindings,
+            "permissions": {"allowed": True, "implementation_workspace": {
+                "kind": "disposable_workspace", "path": self._execution_path(workspace), "allow_write": True}},
+            "workspace": self._execution_path(workspace),
+            "method_projection": implementation_actions.prepare_method_projection(methods, self.root),
+            "requirements": requirements, "delivery": delivery, "evaluations": evaluations,
+            "red": {"expectation": "the disposable candidate passes its golden assertion",
+                    "fixtures": ["fixture/disposable-workspace/test_caprmedio_mock_candidate.py"],
+                    "commands": ["python -I -B fixture/disposable-workspace/test_caprmedio_mock_candidate.py"],
+                    "scope": "selected implementation item"},
+            "plan_item": {"plan_id": "golden-W09-plan", "item_id": "golden-W09-implementation",
+                          "dod": ["candidate and golden check are retained"], "owned_paths": ["."],
+                          "estimated_minutes": 1},
+            "owned_paths": ["."], "candidate": candidate, "phase": phase,
+            "handoff_complete": True,
+            "golden_e2e": ["disposable executable assertion"],
+            "baseline_command": "python -I -B fixture/disposable-workspace/test_caprmedio_mock_candidate.py",
+            "confidence": {"observed": 1.0, "effective": 0.9,
+                            "source": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+                                     "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"},
+            "retry": {"consumed": 0, "effective_limit": 1,
+                      "source": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+                               "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml",
+                      "remaining_failure": True, "admitted": True},
+            "coverage": {"required": ["CA-E-563"], "checked": [], "complete": False,
+                         "candidate": candidate, "phase": phase},
+            "retained_state": {"transport": "mock-not-live-llm"},
+        }
+        return {"base_packet": base, "run_visit_limits": {"CA-O-091": 4, "CA-O-094": 2}, "step_packets": {
+            step: {"context": context, "step_marker": step}
+            for step, (_action, context) in implementation_actions.ACTION_BY_STEP.items()
+        }}
+
+    def native_query_parameters(self, route: str) -> dict[str, Any]:
+        """Closed P1563 query input shapes; both selected queries are read-only."""
+        if route == "find_and_fetch_artifacts":
+            return {"query_request": {"limit": 1}}
+        if route == "find_and_fetch_journal_events":
+            return {"query_request": {"limit": 1}}
+        raise GoldenCorpusError("query parameters require a selected query route")
+
+    def native_revert_parameters(self) -> dict[str, Any]:
+        """Return the admitted CA-O-131 lifecycle-update carrier for W10.
+
+        The target and every approval record exist only in this disposable
+        Project.  The forecast is the real lifecycle Action on a copied
+        Project, so the reversal binds to its exact current and resulting
+        Atom descriptors rather than to a structural marker.
+        """
+        if self._cached_revert_parameters is not None:
+            return self._cached_revert_parameters
+        import sys
+        revert_root = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS" / "WORKFLOW_OPERATIONS" / "REVERT_CHANGES"
+        if str(revert_root) not in sys.path:
+            sys.path.insert(0, str(revert_root))
+        tools_root = revert_root.parents[1]
+        if str(tools_root) not in sys.path:
+            sys.path.insert(0, str(tools_root))
+        import lifecycle_intents
+        from native_revert_provider import make_native_revert_service
+        from work_journal import canonical_json_bytes
+
+        def record(name: str, value: object) -> dict[str, str]:
+            evidence = self.root / ".caprmedio_caprmedio/evidence"
+            evidence.mkdir(parents=True, exist_ok=True)
+            path = evidence / name
+            path.write_bytes(canonical_json_bytes(value))
+            return {"evidence_ref": path.relative_to(self.root).as_posix(),
+                    "evidence_hash": file_digest(path)}
+
+        target = self._descriptor("CA-R-100")
+        target_path = self.root / target["path"]
+        frontmatter, content = target_path.read_text(encoding="utf-8")[4:].split("\n---\n", 1)
+        proposed = {"frontmatter": frontmatter, "content": content + "\nReverted detail.\n"}
+        parameters = {
+            "target": target,
+            "proposed": proposed,
+            "change_class": "semantic_revision",
+            "semantic_assessment_report": self._semantic_assessment_report(target, proposed),
+        }
+        from unittest.mock import patch
+
+        with tempfile.TemporaryDirectory(dir=self.root.parent, prefix="golden-w10-forecast-") as forecast_raw:
+            forecast = Path(forecast_raw)
+            (forecast / ".git").mkdir()
+            shutil.copytree(self.root / ".caprmedio_caprmedio", forecast / ".caprmedio_caprmedio")
+            with patch.object(lifecycle_intents, "current_timestamp", return_value=W10_LIFECYCLE_TIMESTAMP):
+                forecast_target = lifecycle_intents.carrier_descriptor(forecast, "CA-R-100")
+                predicted = lifecycle_intents.update_atom_action(
+                    forecast, {**parameters, "target": forecast_target}, execute=True, authorized=True,
+                )
+        if predicted.get("outcome") != "applied":
+            raise GoldenCorpusError(f"W10 lifecycle forecast was not applied: {predicted}")
+        before = "active version 1"
+        after = "active version 2"
+        effect: dict[str, Any] = {
+            "effect_id": "golden-lifecycle-reversal", "target_id": "atom:CA-R-100",
+            "expected_before": before, "expected_after": after,
+            "expected_current_hash": digest(target),
+            "expected_result_hash": digest(predicted["observed"]),
+            "before_evidence": "", "after_evidence": "",
+            "capability_binding": {
+                "capability_id": "lifecycle.update_atom",
+                "parameters": parameters, "target": target,
+                "permission_evidence": {"capability_id": "lifecycle.update_atom", "granted": True,
+                                        "evidence_ref": "", "evidence_hash": ""},
+                "evidence_refs": [],
+            },
+        }
+        request: dict[str, Any] = {
+            "selected_change_refs": [], "targets": [effect["target_id"]], "affected_reference_hashes": {},
+            "governing_definition_hash": "", "operator_decision": {
+                "decision_id": "golden-approved-lifecycle-reversal",
+                "approved_effect_ids": [effect["effect_id"]], "status": "approved"},
+            "cancellation_boundary": {"after_effect_ids": [effect["effect_id"]]},
+            "executor_permission": {"capability": "governed-reversal", "granted": True},
+            "durable_evidence_location": "journal://golden-disposable", "ordered_effects": [effect],
+            "expected_result": {"state": "reverted"}, "history_reference_evidence": [],
+            "current_hashes": {effect["target_id"]: digest(target)},
+        }
+        selected = record("selected-change.json", {"accepted": True, "selected_effect_ids": [effect["effect_id"]]})
+        history = record("preserved.json", {"history": "retained", "references": "preserved"})
+        before_pin = record("lifecycle-before.json", {"state": before})
+        after_pin = record("lifecycle-after.json", {"state": after})
+        permission = record("lifecycle-permission.json", {"capability_id": "lifecycle.update_atom", "granted": True})
+        request.update(selected_change=[selected], selected_change_refs=[selected["evidence_ref"]],
+                       history_record=[history], history_reference_evidence=[history["evidence_ref"]],
+                       affected_reference=[history], affected_reference_hashes={history["evidence_ref"]: history["evidence_hash"]},
+                       before_record=[before_pin], after_record=[after_pin])
+        effect.update(before_evidence=before_pin["evidence_ref"], after_evidence=after_pin["evidence_ref"])
+        effect["capability_binding"].update(permission_evidence={"capability_id": "lifecycle.update_atom", "granted": True, **permission},
+                                              evidence_refs=[before_pin["evidence_ref"], after_pin["evidence_ref"], history["evidence_ref"]])
+        for name in ("operator_decision", "executor_permission"):
+            value = dict(request[name])
+            observed = {**value, "ordered_effects": request["ordered_effects"]} if name == "operator_decision" else value
+            request[name] = {**value, **record(f"{name}.json", observed)}
+        definition_matches = [
+            Path(path) for path in frozen_source_paths()
+            if Path(path).name.startswith("CA-O-131-")
+        ]
+        if len(definition_matches) != 1:
+            raise GoldenCorpusError("frozen lifecycle reversal definition is unavailable or ambiguous")
+        definition_source = definition_matches[0]
+        try:
+            definition_relative = definition_source.relative_to(_LEGACY_DECLARED_SOURCE_ROOT)
+        except ValueError as error:
+            raise GoldenCorpusError("frozen lifecycle reversal definition is outside methodology authority") from error
+        definition_target = self._declared_source_path(definition_relative)
+        definition_digest = hashlib.sha256(frozen_source_bytes(definition_source)).hexdigest()
+        self._copy_frozen_to(definition_source, definition_target, definition_digest)
+        definition = definition_target.relative_to(self.root).as_posix()
+        definition_pin = file_digest(definition_target)
+        governing = lifecycle_intents.carrier_descriptor(self.root, definition)
+        request.update(governing_definition={"atom_id": governing["atom_id"], "revision": governing["version"],
+                                              "evidence_ref": definition, "evidence_hash": definition_pin},
+                       governing_definition_hash=definition_pin)
+        service = make_native_revert_service({"project_root": str(self.root), "approved_reversal_request": request})
+        admitted = service.admit(request)
+        if admitted.get("outcome") != "admitted":
+            raise GoldenCorpusError(f"W10 current evidence was not admitted: {admitted}")
+        self._cached_revert_parameters = {"approved_reversal_manifest": admitted["approved_reversal_manifest"]}
+        return self._cached_revert_parameters
+
+    def _carrier(self, atom_id: str, slug: str, summary: str, *, status: str = "Active") -> dict[str, str]:
+        requirement_statuses = next(row[4] for row in STATUS_DOMAINS if row[0] == "Requirement")
+        if status not in requirement_statuses:
+            raise GoldenCorpusError(f"status {status!r} is not admitted for Requirement")
+        folder = self._authority_dir
+        if status != "Active":
+            folder /= "draft" if status == "Draft" else status.casefold()
+        revision_suffix = "@1" if status == "Archived" else ""
+        return {
+            "path": (folder / f"{atom_id}--{slug}{revision_suffix}.md").relative_to(self.root).as_posix(),
+            "frontmatter": (
+                f"atom_id: {atom_id}\ncontent_role: Requirement\ncurrent_scope_unit: PARENT\n"
+                "claim_target_scope_unit: PARENT\nlocal_tier: Standard\nglobal_tier: 12\n"
+                f"author: golden-operator\nstatus: {status}\nsubjects:\n"
+                "  governs: Atom/Test\n  depends_on: []\nrelations: {}"
+            ),
+            "content": (
+                f"# Summary\n\n{summary}\n\n## Scope\n\nFixture scope.\n\n"
+                "## Claim\n\nFixture claim.\n\n## Details\n\nFixture details.\n"
+            ),
+        }
+
+    def create_status_carrier(self, role: str, status: str, *, number: int) -> dict[str, str]:
+        """Build one complete W01 carrier from the copied role/status model."""
+        try:
+            _, letter, directory, _source_id, statuses = next(row for row in STATUS_DOMAINS if row[0] == role)
+        except StopIteration as error:
+            raise GoldenCorpusError(f"unknown status-proof role: {role}") from error
+        if status not in statuses:
+            raise GoldenCorpusError(f"status {status!r} is not admitted for {role}")
+        draft = status.casefold() == "draft"
+        folder = self._scope_path("PARENT", "authority_path") / directory
+        if draft:
+            folder /= "draft"
+        elif role == "Plan" and status == "Backlog":
+            folder /= "001_backlog"
+        elif status.casefold() != "active":
+            folder /= status.casefold()
+        atom_id = None if draft else f"CA-{letter}-{number}"
+        slug = f"w01-{role.casefold()}-{status.casefold()}-{number}"
+        revision_suffix = "@1" if status == "Archived" else ""
+        filename = f"CA-{letter}--{slug}.md" if draft else f"{atom_id}--{slug}{revision_suffix}.md"
+        type_by_role = {
+            "Requirement": None,
+            "Method": None,
+            "Evaluation": "QA Case",
+            "Delivery": None,
+            "Plan": "Plan",
+            "Concern": "Problem",
+            "Operations": "Action",
+            "Analysis": "Analysis Report",
+        }
+        sections_by_role = {
+            "Requirement": ("Scope", "Claim", "Details"),
+            "Method": ("Scope", "Claim", "Details"),
+            "Evaluation": ("Scope", "Claim", "Details"),
+            "Delivery": ("Scope", "Claim", "Details"),
+            "Plan": ("Objective", "Details"),
+            "Concern": ("Concern", "Evidences", "Blast radius"),
+            "Operations": ("Operation", "Details"),
+            "Analysis": ("Question", "Scope", "Approach", "Results", "TLDR"),
+        }
+        identity = "" if atom_id is None else f"atom_id: {atom_id}\n"
+        atom_type = type_by_role[role]
+        type_line = "" if atom_type is None else f"type: {atom_type}\n"
+        priority_line = "priority: high\n" if role == "Concern" else ""
+        sections = "".join(
+            f"## {heading}\n\nW01 {role} {status} fixture value.\n\n"
+            for heading in sections_by_role[role]
+        )
+        if role == "Plan":
+            sections += "### Definition of Done\n\nW01 fixture completion condition.\n"
+        return {
+            "path": (folder / filename).relative_to(self.root).as_posix(),
+            "frontmatter": (
+                f"{identity}content_role: {role}\n{type_line}"
+                "current_scope_unit: PARENT\nclaim_target_scope_unit: PARENT\n"
+                "local_tier: Standard\nglobal_tier: 5\n"
+                "author: golden-operator\n"
+                f"{priority_line}status: {status}\nsubjects:\n  governs: Atom/Test\n  depends_on: []\n"
+                "relations: {}"
+            ),
+            "content": f"# Summary\n\nW01 created {role} {status}\n\n{sections}",
+        }
+
+    def _descriptor(self, atom_id: str) -> dict[str, Any]:
+        # Imported lazily so this corpus module remains usable by Docker's
+        # harness bootstrap without host implementation imports.
+        import sys
+        tools_root = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
+        if str(tools_root) not in sys.path:
+            sys.path.insert(0, str(tools_root))
+        from lifecycle_intents import carrier_descriptor
+        return carrier_descriptor(self.root, atom_id)
+
+    def _semantic_assessment_report(self, target: Mapping[str, Any], proposed: Mapping[str, str]) -> dict[str, str]:
+        """Write one bound Done Analysis Report for W02's semantic-revision path."""
+        source = self._scope_path("CORE_META_MODEL", "authority_path") / "04_requirement"
+        report = self._scope_path("PARENT", "authority_path") / "02_analysis/done/CA-A-400--update-assessment.md"
+        report.parent.mkdir(parents=True, exist_ok=True)
+        def pin(path: Path) -> dict[str, str]:
+            return {"path": path.relative_to(self.root).as_posix(), "digest": file_digest(path)}
+        evidence = {
+            "target": {"atom_id": target["atom_id"], "path": target["path"], "digest": target["digest"]},
+            "proposal": {"frontmatter_digest": hashlib.sha256(proposed["frontmatter"].encode()).hexdigest(),
+                         "content_digest": hashlib.sha256(proposed["content"].encode()).hexdigest()},
+            "authorityPins": {"r1432": pin(source / next(path.name for path in source.glob("CA-R-1432-*.md"))),
+                              "r1464": pin(source / next(path.name for path in source.glob("CA-R-1464-*.md")))},
+            "admittedChangeClass": "semantic_revision", "primaryClaimIdentityPreserved": True,
+            "declaredDelta": "Clarify fixture acceptance detail without changing its primary Claim.",
+            "lineageEvidencePins": [{"path": target["path"], "digest": target["digest"]}],
+        }
+        report.write_text(
+            "---\natom_id: CA-A-400\ncontent_role: Analysis\ntype: Analysis Report\nstatus: Done\nversion: 1\n"
+            "updated_at: 2026-10-06 00:00:00 +0000\nrelations: {}\n---\n# Summary\n\nW02 semantic assessment\n"
+            "\n## Results\n\n### Update assessment evidence\n\n```json\n"
+            + json.dumps(evidence, sort_keys=True, separators=(",", ":")) + "\n```\n", encoding="utf-8",
+        )
+        return pin(report)
+
+    def status_atom(self, role: str, status: str, *, number: int = 8000,
+                    draft: bool = False) -> Path:
+        """Write one disposable carrier whose model remains source-derived."""
+        try:
+            _, letter, directory, _source_id, statuses = next(row for row in STATUS_DOMAINS if row[0] == role)
+        except StopIteration as error:
+            raise GoldenCorpusError(f"unknown status-proof role: {role}") from error
+        if status not in statuses:
+            raise GoldenCorpusError(f"status {status!r} is not admitted for {role}")
+        # W04 exercises the ordinary move validator.  Its disposable inputs
+        # therefore have to be addressable beneath the declared PARENT scope,
+        # rather than under an unregistered fixture-only directory.
+        folder = self._scope_path("PARENT", "authority_path") / directory
+        if status in {"Draft", "draft"}:
+            folder /= "draft"
+        elif role == "Plan" and status == "Backlog":
+            folder /= "001_backlog"
+        elif status != "Active":
+            folder /= status.casefold()
+        folder.mkdir(parents=True, exist_ok=True)
+        revision_suffix = "@3" if status == "Archived" else ""
+        name = f"CA-{letter}--docker-status.md" if draft else f"CA-{letter}-{number}--docker-status{revision_suffix}.md"
+        identity = "" if draft else f"atom_id: CA-{letter}-{number}\n"
+        path = folder / name
+        type_by_role = {
+            "Requirement": None,
+            "Method": None,
+            "Evaluation": "Evaluation Approach",
+            "Delivery": None,
+            "Plan": "Plan",
+            "Concern": "Question",
+            "Operations": "Action",
+            "Analysis": "Analysis Report",
+        }
+        sections_by_role = {
+            "Requirement": ("Scope", "Claim", "Details"),
+            "Method": ("Scope", "Claim", "Details"),
+            "Evaluation": ("Scope", "Claim", "Details"),
+            "Delivery": ("Scope", "Claim", "Details"),
+            "Plan": ("Objective", "Details"),
+            "Concern": ("Concern", "Evidences", "Blast radius"),
+            "Operations": ("Operation", "Details"),
+            "Analysis": ("Question", "Scope", "Approach", "Results", "TLDR"),
+        }
+        atom_type = type_by_role[role]
+        type_line = "" if atom_type is None else f"type: {atom_type}\n"
+        sections = "".join(
+            f"## {heading}\n\nFixture {heading.casefold()} value.\n\n"
+            for heading in sections_by_role[role]
+        )
+        if role == "Plan":
+            sections += "### Definition of Done\n\nFixture completion condition.\n"
+        path.write_text(
+            f"---\n{identity}content_role: {role}\n{type_line}"
+            "current_scope_unit: PARENT\nclaim_target_scope_unit: PARENT\n"
+            "local_tier: Standard\nglobal_tier: 5\n"
+            "author: golden-operator\n"
+            f"status: {status}\nsubjects:\n  governs: Atom/Test\n  depends_on: []\n"
+            "version: 3\nupdated_at: '2026-10-06 00:00:00 +0000'\nrelations: {}\n---\n"
+            "# Summary\n\nDocker status proof carrier\n\n"
+            f"{sections}",
+            encoding="utf-8",
+        )
+        return path
+
+    def request_for_status(self, path: Path, status: str, *, request_id: str,
+                           mode: str = "preview", receipt: object | None = None,
+                           receipt_digest: object | None = None) -> dict[str, Any]:
+        """Build one ordinary W04 request with an exact disposable target."""
+        self._status_parameters = {"target": self._descriptor(path.relative_to(self.root).as_posix()), "status": status}
+        try:
+            return self.request(request_id=request_id, mode=mode, receipt=receipt, receipt_digest=receipt_digest)
+        finally:
+            self._status_parameters = None
+
+    def request_for_create(self, carrier: Mapping[str, Any], *, request_id: str,
+                           mode: str = "preview", receipt: object | None = None,
+                           receipt_digest: object | None = None) -> dict[str, Any]:
+        """Build one W01 request with a complete carrier in its requested admitted Status."""
+        self._create_parameters = {"carrier": copy.deepcopy(dict(carrier))}
+        try:
+            return self.request(request_id=request_id, mode=mode, receipt=receipt, receipt_digest=receipt_digest)
+        finally:
+            self._create_parameters = None
+
+    def native_parameters(self) -> dict[str, Any]:
+        """Return one source-valid native Action payload for selected routes."""
+        route = self.case.route
+        if route == "run_implementation_workflow":
+            return self.native_implementation_parameters()
+        if route == "revert_changes":
+            return self.native_revert_parameters()
+        if route in {"find_and_fetch_artifacts", "find_and_fetch_journal_events"}:
+            return self.native_query_parameters(route)
+        if route == "build_applicable_methodology":
+            import sys
+            compiler_root = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS" / "COMPILE_APPLICABLE_METHODOLOGY"
+            if str(compiler_root) not in sys.path:
+                sys.path.insert(0, str(compiler_root))
+            import compile_applicable_methodology
+            assessed = compile_applicable_methodology.run_request(self.native_compiler_parameters())
+            if assessed.get("outcome") != "assessed":
+                raise GoldenCorpusError(f"W13 source assessment was not accepted: {assessed}")
+            frontier = assessed["source_frontier_digest"]
+            if frontier != self._cached_compiler_frontier_digest:
+                self._cached_compiler_frontier_digest = frontier
+                self._cached_compiler_parameters = self.native_compiler_parameters(
+                    "apply", expected_source_frontier_digest=frontier,
+                    execution_project_root=self.execution_project_root,
+                )
+            if self._cached_compiler_parameters is None:
+                raise GoldenCorpusError("W13 assessment did not produce an apply carrier")
+            return self._cached_compiler_parameters
+        if route == "build_entities_graph":
+            return self.native_graph_parameters("entities")
+        if route == "build_terms_graph":
+            return self.native_graph_parameters("terms")
+        if route == "update_atom":
+            if self._semantic_update_parameters is None:
+                raise GoldenCorpusError("W02 semantic assessment carrier was not prepared")
+            return copy.deepcopy(self._semantic_update_parameters)
+        target = self._descriptor("CA-R-100")
+        if route == "create_atom":
+            if self._create_parameters is not None:
+                return copy.deepcopy(self._create_parameters)
+            return {"carrier": self._carrier("CA-R-102", "created", "Created summary")}
+        if route == "replace_atom":
+            return {"predecessor": target, "successors": [self._carrier("CA-R-103", "replacement", "Replacement summary")],
+                    "status_model": self._status_model()}
+        if route == "change_atom_status":
+            if self._status_parameters is not None:
+                return copy.deepcopy(self._status_parameters)
+            # W04's real Action resolves the current source-owned Requirement
+            # model itself.  CA-R-1309 admits Draft, Active, and Archived;
+            # fixture-only Reviewed/status_model claims must not bypass that
+            # admission boundary.
+            return {"target": target, "status": "Archived"}
+        raise GoldenCorpusError(f"native golden parameters are not separately bound for {route}")
+
+    def _copy_runtime_readiness_definition(self) -> None:
+        """Keep the existing worker's unrelated readiness fingerprint satisfiable.
+
+        The selected suite does not exercise Base Revise, but the already
+        deployed Docker worker fingerprints CA-O-104 before it advertises
+        readiness.  Materialize only the separately frozen current pin; the
+        historical carrier remains available in the frozen corpus, not active.
+        """
+        manifest = json.loads((_RMED_PROMPTS / "source_bindings.json").read_text(encoding="utf-8"))
+        rows = [row for row in manifest.get("sources", []) if row.get("atom_id") == "CA-O-104"]
+        if len(rows) != 1:
+            raise GoldenCorpusError("current Base Revise readiness pin is missing or duplicated")
+        current = rows[0]
+        if any(current.get(key) != value for key, value in _RUNTIME_READINESS_O104.items()):
+            raise GoldenCorpusError("current Base Revise readiness pin differs from its frozen fixture")
+        try:
+            payload = _RUNTIME_READINESS_O104_SNAPSHOT.read_bytes()
+        except OSError as error:
+            raise GoldenCorpusError("current Base Revise readiness fixture is unavailable") from error
+        if hashlib.sha256(payload).hexdigest() != _RUNTIME_READINESS_O104["sha256"]:
+            raise GoldenCorpusError("current Base Revise readiness fixture has a stale digest")
+        current_path = _safe_relative(current.get("path"), name="Base Revise readiness source")
+        try:
+            operations_index = current_path.parts.index("09_operations")
+        except ValueError as error:
+            raise GoldenCorpusError("current Base Revise readiness source has no operations directory") from error
+        target = self._scope_path("PROJECT_CONFIGURATION", "authority_path") / Path(
+            *current_path.parts[operations_index:]
+        )
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(payload)
+        if file_digest(target) != _RUNTIME_READINESS_O104["sha256"]:
+            raise GoldenCorpusError("fixture copy changed current Base Revise readiness source")
+
+    def _copy_reviewed_manifest(self) -> dict[str, Any]:
+        manifest = frozen_manifest()
+        if not isinstance(manifest, dict) or not isinstance(manifest.get("routes"), list):
+            raise GoldenCorpusError("selected workflow manifest does not contain a route list")
+        actual_routes = tuple(item.get("route") for item in manifest["routes"] if isinstance(item, dict))
+        expected_routes = MANIFEST_ROUTE_NAMES
+        if actual_routes != expected_routes:
+            raise GoldenCorpusError("selected workflow manifest is not the exact closed eleven-route portfolio")
+        freshness = manifest.get("source_freshness")
+        if not isinstance(freshness, dict):
+            raise GoldenCorpusError("selected workflow manifest omits source freshness")
+        try:
+            from selected_routes import _QUERY_SOURCE_ADMISSION_SPECS
+        except ImportError as error:
+            raise GoldenCorpusError("selected query-source admission specs are unavailable") from error
+
+        query_hints: dict[str, str] = {}
+
+        def collect_query_pins(value: object) -> None:
+            if isinstance(value, Mapping):
+                atom_id = value.get("atom_id")
+                source_path = value.get("source_path")
+                if isinstance(atom_id, str) and atom_id.startswith("CA-O-") and isinstance(source_path, str):
+                    query_hints[atom_id] = source_path
+                for child in value.values():
+                    collect_query_pins(child)
+            elif isinstance(value, list):
+                for child in value:
+                    collect_query_pins(child)
+
+        for specification in _QUERY_SOURCE_ADMISSION_SPECS:
+            collect_query_pins(specification)
+
+        def rewrite_query_pins(value: object) -> None:
+            if isinstance(value, dict):
+                atom_id = value.get("atom_id")
+                if isinstance(atom_id, str) and atom_id in query_hints and "source_path" in value:
+                    value["source_path"] = query_hints[atom_id]
+                for child in value.values():
+                    rewrite_query_pins(child)
+            elif isinstance(value, list):
+                for child in value:
+                    rewrite_query_pins(child)
+
+        rewrite_query_pins(manifest["routes"])
+        rewrite_query_pins(manifest.get("query_source_admissions"))
+        registry = _safe_relative(freshness.get("selected_source_registry_ref"), name="source registry")
+        self._copy_pinned(registry, freshness.get("selected_source_registry_digest"))
+        copied: set[Path] = {registry}
+        admissions = manifest.get("query_source_admissions")
+        if not isinstance(admissions, list) or len(admissions) != len(QUERY_SOURCE_ADMISSION_ROUTE_NAMES):
+            raise GoldenCorpusError("selected workflow manifest omits the two query-source admissions")
+        admission_routes = tuple(item.get("route") for item in admissions if isinstance(item, Mapping))
+        if admission_routes != QUERY_SOURCE_ADMISSION_ROUTE_NAMES:
+            raise GoldenCorpusError("selected workflow query-source admissions are incomplete or out of order")
+        routes_by_name = {item.get("route"): item for item in manifest["routes"] if isinstance(item, Mapping)}
+        for admission in admissions:
+            if not isinstance(admission, Mapping) or set(admission) != {
+                    "route", "acceptance_frontier", "workflow", "ordered_steps", "ordered_actions"}:
+                raise GoldenCorpusError("selected workflow query-source admission is malformed")
+            route = routes_by_name.get(admission["route"])
+            if not isinstance(route, Mapping) or route.get("mutation_capable") is not False:
+                raise GoldenCorpusError("selected workflow query-source admission is not read-only")
+            for field in ("workflow", "ordered_steps", "ordered_actions"):
+                if admission[field] != route.get(field):
+                    raise GoldenCorpusError("query-source admission does not match its selected route")
+            for pin in _admission_pin_paths(admission):
+                if not isinstance(pin, Mapping):
+                    raise GoldenCorpusError("selected workflow query-source pin is malformed")
+                relative = _safe_relative(pin.get("source_path"), name="query-source pin")
+                if relative not in copied:
+                    self._copy_pinned(relative, pin.get("digest"))
+                    copied.add(relative)
+        for route in manifest["routes"]:
+            if not isinstance(route, Mapping):
+                raise GoldenCorpusError("selected workflow route is malformed")
+            for pin in _pin_paths(route):
+                if not isinstance(pin, Mapping):
+                    raise GoldenCorpusError("selected workflow source pin is malformed")
+                relative = _safe_relative(pin.get("source_path"), name="source pin")
+                if relative not in copied:
+                    self._copy_pinned(relative, pin.get("digest"))
+                    copied.add(relative)
+        manifest["source_freshness"]["selected_binding_digest"] = digest(manifest["routes"])
+        manifest["canonical_manifest_sha256"] = digest(
+            {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"}
+        )
+        self.manifest_path.parent.mkdir(parents=True, exist_ok=True)
+        self.manifest_path.write_bytes(canonical_json(manifest) + b"\n")
+        return manifest
+
+
+    def _copy_pinned(self, relative: Path, expected_digest: object) -> None:
+        if not isinstance(expected_digest, str) or len(expected_digest) != 64:
+            raise GoldenCorpusError(f"{relative.as_posix()} has no SHA-256 pin")
+        try:
+            source_relative = relative.relative_to(_LEGACY_DECLARED_SOURCE_ROOT)
+        except ValueError:
+            source_relative = None
+        destination = None
+        if source_relative is not None:
+            try:
+                destination = self._declared_source_path(source_relative)
+            except GoldenCorpusError:
+                pass
+        if destination is None:
+            try:
+                source_relative = relative.relative_to(_LEGACY_DECLARED_SOURCE_ROOT.parent)
+                destination = self._declared_source_path(source_relative)
+            except (ValueError, GoldenCorpusError):
+                destination = None
+        if destination is not None:
+            try:
+                raw = frozen_source_bytes(relative, expected_digest)
+            except AssertionError as error:
+                candidates = [
+                    Path(path) for path in frozen_source_paths()
+                    if Path(path).name.startswith("-".join(relative.name.split("-", 3)[:3]) + "-")
+                ]
+                if len(candidates) != 1:
+                    raise GoldenCorpusError(f"source pin is unavailable or stale: {relative.as_posix()}") from error
+                try:
+                    raw = frozen_source_bytes(candidates[0], expected_digest)
+                except AssertionError as fallback_error:
+                    raise GoldenCorpusError(f"source pin is unavailable or stale: {relative.as_posix()}") from fallback_error
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(raw)
+            legacy_target = self.root / relative
+            if legacy_target != destination and legacy_target.exists():
+                legacy_target.unlink()
+            target = destination
+        else:
+            try:
+                target = write_frozen_source(self.root, relative, expected_digest)
+            except AssertionError as error:
+                raise GoldenCorpusError(f"source pin is unavailable or stale: {relative.as_posix()}") from error
+        if file_digest(target) != expected_digest:
+            raise GoldenCorpusError(f"fixture copy changed source pin: {relative.as_posix()}")
+
+    def _copy_frozen_to(self, relative: Path, destination: Path, expected_digest: object) -> None:
+        """Copy one reviewed corpus member beneath a declaration-derived path."""
+        if not isinstance(expected_digest, str) or len(expected_digest) != 64:
+            raise GoldenCorpusError(f"{relative.as_posix()} has no SHA-256 pin")
+        try:
+            raw = frozen_source_bytes(relative, expected_digest)
+        except AssertionError as error:
+            raise GoldenCorpusError(f"source pin is unavailable or stale: {relative.as_posix()}") from error
+        target = destination if destination.is_absolute() else self.root / destination
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(raw)
+        if file_digest(target) != expected_digest:
+            raise GoldenCorpusError(f"fixture copy changed source pin: {target.relative_to(self.root).as_posix()}")
+        legacy_target = self.root / relative
+        if legacy_target != target and legacy_target.exists():
+            legacy_target.unlink()
+
+    def snapshot(self) -> dict[str, str]:
+        """Hash only admitted mutable fixture files; mounts/code are not evidence."""
+        files = list((self.root / ".caprmedio_caprmedio").rglob("*")) + list((self.root / "fixture").rglob("*"))
+        return {
+            path.relative_to(self.root).as_posix(): file_digest(path)
+            for path in files
+            if path.is_file() and not {"_journal", "_projection"}.intersection(path.relative_to(self.root).parts)
+        }
+
+    def request(self, *, request_id: str, mode: str = "preview", receipt: object | None = None,
+                receipt_digest: object | None = None) -> dict[str, Any]:
+        if self.manifest is None:
+            raise GoldenCorpusError("prepare the golden Project before creating a request")
+        route = self.case.route
+        parameters = self.native_parameters() if self.case.case_id in {
+            "W01", "W02", "W03", "W04", "W09", "W10", "W11", "W12", "W13", "W14", "W15"
+        } else {
+            "fixture_schema": "selected-workflows-docker-golden/v1", "case_id": self.case.case_id,
+            "route": route, "authority_path": self.case.authority_path,
+            "expected_effect_path": self.case.expected_effect_path,
+        }
+        refs = ([".caprmedio_caprmedio/_projection/APPLICABLE_METHODOLOGY"] if self.case.case_id == "W13"
+                else [f".caprmedio_caprmedio/_projection/{'entities_graph.json' if route == 'build_entities_graph' else 'terms_graph.json'}"]
+                if self.case.case_id in {"W11", "W12"}
+                else [str(parameters.get("target", parameters.get("predecessor", parameters.get("carrier", {}))).get("path", self.case.authority_path))])
+        effects: list[dict[str, Any]] = [] if self.case.case_id in {"W14", "W15"} else [{"type": route, "target": refs[0]}]
+        request: dict[str, Any] = {
+            "operation_route": route,
+            "mode": mode,
+            "request_id": request_id,
+            "parameters": parameters,
+            "parameters_digest": digest(parameters),
+            "target_frontier": refs,
+            "target_frontier_digest": digest(refs),
+            "effects": effects,
+            "effects_digest": digest(effects),
+            "definition_manifest": {
+                "manifest_ref": MANIFEST_REF,
+                "manifest_digest": self.manifest["canonical_manifest_sha256"],
+            },
+            "source_freshness": dict(self.manifest["source_freshness"]),
+            "initiative": {
+                "initiative_id": f"golden-{self.case.case_id}",
+                "instruction_summary": f"Disposable golden {self.case.case_id}",
+                "initiative_ref": "fixture/initiative.json",
+            },
+        }
+        if mode == "execute":
+            request.update(
+                proposal_receipt=receipt,
+                proposal_receipt_digest=receipt_digest,
+                assigned_action_id=f"golden-{self.case.case_id}-action",
+                requested_runs=self._requested_runs(request_id),
+            )
+            request["operator_authorization"] = {
+                "authorization_ref": "fixture/operator-authorization.json",
+                "authorization_freshness": {"state": "current", "digest": "0" * 64},
+                "request_id": request_id,
+                "operation_route": route,
+                "proposal_receipt_digest": receipt_digest,
+                "parameters_digest": request["parameters_digest"],
+                "target_frontier_digest": request["target_frontier_digest"],
+                "effects_digest": request["effects_digest"],
+                "definition_manifest": request["definition_manifest"],
+                "source_freshness": request["source_freshness"],
+            }
+        return request
+
+    def _requested_runs(self, run_id: str) -> list[dict[str, Any]]:
+        """Use the shared interpreter to derive exact requested identities."""
+        if self.manifest is None:
+            raise GoldenCorpusError("prepare the golden Project before declaring requested Runs")
+        import sys
+        app = Path(__file__).resolve().parents[1]
+        if str(app) not in sys.path:
+            sys.path.insert(0, str(app))
+        from selected_execution import SelectedExecution
+        execution = {
+            "mode": "execute",
+            "operation_route": self.case.route,
+            "definition_manifest": {"manifest_ref": MANIFEST_REF,
+                                    "manifest_digest": self.manifest["canonical_manifest_sha256"]},
+            "source_freshness": self.manifest["source_freshness"],
+        }
+        graph = SelectedExecution(self.root)._validate_graph(execution)
+        limits = self.native_parameters().get("run_visit_limits") if isinstance(self.native_parameters(), Mapping) else None
+        return SelectedExecution.build_requested_runs(graph, run_id, limits)
+
+    def corrupt_one_bound_source(self) -> Path:
+        """Create a deliberate currentness conflict after all clean hashes are saved."""
+        if self.manifest is None:
+            raise GoldenCorpusError("prepare the golden Project before corrupting a source")
+        route = next(item for item in self.manifest["routes"] if item["route"] == self.case.route)
+        source = self.root / _safe_relative(route["workflow"]["source_path"], name="workflow source pin")
+        source.write_text(source.read_text(encoding="utf-8") + "\n<!-- stale-fixture -->\n", encoding="utf-8")
+        return source

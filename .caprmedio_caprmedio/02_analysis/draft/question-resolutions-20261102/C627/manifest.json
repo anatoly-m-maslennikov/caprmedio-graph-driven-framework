@@ -1,0 +1,133 @@
+{
+  "status": "Draft",
+  "scope": "C627 source-faithful rule preparation only; no Current source, schema, runtime, instance migration, journal, or projection change.",
+  "operator_decisions": [
+    "A Step RUNS exactly one Action, RUNS exactly one Workflow, or CONTAINS one or more Substeps.",
+    "RUNS is the canonical rename of RUN.",
+    "A Step owns selection and bindings. Binding values may come from a previous Step output, enclosing Workflow Run input, or fixed Step values.",
+    "Called Workflow inputs use the same three sources.",
+    "A Substep remains exactly one Action."
+  ],
+  "drafts": [
+    {
+      "path": "rule-drafts/CA-R-draft-CORE_META_MODEL-RULE--bind-step-parameters.md",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/rule-drafts/CA-R-draft-CORE_META_MODEL-RULE--bind-step-parameters.md",
+      "candidate_sha256": "dae102124eaee28ecb7c8fa9b5241064038f57b3e67f0522db22f42c4d1b53f8",
+      "atom_id": "CA-R-draft",
+      "identity": "fresh unallocated Requirement/Rule Draft",
+      "summary": "Bind Step parameters",
+      "reason": "The parameter-binding rule needs a new Summary; no existing ID is renamed or repurposed."
+    },
+    {
+      "path": "rule-drafts/CA-R-1570@25-draft-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/rule-drafts/CA-R-1570@25-draft-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "candidate_sha256": "0f3ff99c1b472d54643631f6a15264108adbc03ee163c53e6d119302f9422d5b",
+      "atom_id": "CA-R-1570@25-draft",
+      "successor_of": "CA-R-1570@24",
+      "summary_preserved": true,
+      "role_preserved": true
+    }
+  ],
+  "current_source_pins": [
+    {
+      "atom_id": "CA-R-1569",
+      "version": 25,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1569-CORE_META_MODEL-RULE--define-the-step-operations-atom-type.md",
+      "sha256": "ebd3131b69b2701e7ac509a62ad4f4325495d23a94b47129ab05dc9161c79202"
+    },
+    {
+      "atom_id": "CA-R-1570",
+      "version": 24,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md",
+      "sha256": "05862aa820d782b98ffed092d70fdc9fec81bfc8175658e94a5da61f31315b34"
+    },
+    {
+      "atom_id": "CA-R-1992",
+      "version": 15,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1992-CORE_META_MODEL-RULE--enable-containment-for-step-atoms.md",
+      "sha256": "54bb7b2b4f14cb61de21e08f0e284b6d5771498c6c1cc6ead233ba30b2564099"
+    },
+    {
+      "atom_id": "CA-R-2465",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "71c233e139abbbddc92d1e7f110f9a8e606c009e9924e2017262576e633dfc84"
+    },
+    {
+      "atom_id": "CA-R-2466",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "sha256": "15bf6837b850ad0b28bc1453018c0d9869874f9cf03cd0ebf67aa70b0205e084"
+    },
+    {
+      "atom_id": "CA-R-2470",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2470-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+      "sha256": "f745229e672dd0effaa6d9926f0a48aa7dd2d5a41a7144649863de2970a43d9a"
+    },
+    {
+      "atom_id": "CA-R-2478",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "339e23481cdadae59b549e2f26a05742ee66e96a9977f50b7b2ff33bea06530b"
+    },
+    {
+      "atom_id": "CA-R-2480",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2480-CORE_META_MODEL-DECLARATION--define-run.md",
+      "sha256": "5e3116b7e2b83202477c00aeaad18b202c06031e3d539ca12b10ce11b9480ba3"
+    }
+  ],
+  "retirement_coverage": {
+    "CA-R-1569@25": [
+      {
+        "essential_clause": "Step alternatives: one Action or one or more Substeps.",
+        "successor_coverage": "CA-R-2465 successor must express the approved Action-or-Workflow-or-Substeps alternatives; CA-R-2466 retains the Substep leaf Action constraint.",
+        "state": "pending planned declaration update"
+      },
+      {
+        "essential_clause": "Substep containment is authored directly and CONTAINS is derived.",
+        "successor_coverage": "CA-R-2466 plus CA-R-2478@4.",
+        "state": "covered"
+      },
+      {
+        "essential_clause": "Different Steps may use one Action with different parameters and input bindings without redefining the Action.",
+        "successor_coverage": "Fresh Bind Step parameters Draft.",
+        "state": "covered on adoption"
+      },
+      {
+        "essential_clause": "Linear/Conditional classification and result routing; actual-instance deferral.",
+        "successor_coverage": "rule-drafts/deferred-classification-and-routing-notes.md; deferred actual-Workflow review.",
+        "state": "preserved as deferred evidence, not adopted rule content"
+      }
+    ],
+    "CA-R-1992@15": [
+      {
+        "essential_clause": "Containment is a direct Substep-to-Step fact; CONTAINS is derived and not separately authored.",
+        "successor_coverage": "CA-R-2466, CA-R-2478@4, and the effective Relation-whitelist rule CA-R-2470@2.",
+        "state": "covered"
+      },
+      {
+        "essential_clause": "Step and Substep alternatives and exact Action cardinality.",
+        "successor_coverage": "CA-R-2465 successor and CA-R-2466.",
+        "state": "pending planned Step declaration update"
+      },
+      {
+        "essential_clause": "No storage layout, execution protocol, or actual Workflow-instance constraint.",
+        "successor_coverage": "C627 scope boundary; neither staged Rule introduces storage, execution protocol, or instance constraints.",
+        "state": "covered"
+      }
+    ]
+  },
+  "retirement_proposal": {
+    "CA-R-1569": "Retire only after the planned CA-R-2465 successor, CA-R-2466, CA-R-2478, and the fresh binding Rule are accepted; otherwise retirement loses the approved Workflow alternative or binding ownership.",
+    "CA-R-1992": "Retire only after the planned CA-R-2465 successor is accepted and its alternatives remain covered by CA-R-2466, CA-R-2470, and CA-R-2478."
+  },
+  "deferred": [
+    "Binding DSL or representation.",
+    "Binding-source precedence, defaults, or merge behavior.",
+    "Runtime implementation.",
+    "Actual Workflow, Step, Substep, and Action instance review or migration.",
+    "Linear/Conditional classification and result-routing adoption."
+  ]
+}

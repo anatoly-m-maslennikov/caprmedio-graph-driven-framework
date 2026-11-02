@@ -1,0 +1,18 @@
+{
+  "scope": "CA-E-669 source-pinned successor Draft only; no Current, Git, runtime, projection, parser, graph-builder, SDK, workflow, fixture, or instance-migration change.",
+  "candidate": {
+    "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/eval-drafts/CA-E-669@3-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+    "candidate_sha256": "089c488953a265c94d7447aa783f43529f067a9fb51a1dde254033a6802d71bd",
+    "atom_id": "CA-E-669@3-draft",
+    "version": 3,
+    "summary_preserved": true,
+    "role_preserved": true
+  },
+  "predecessor": {
+    "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+    "source_sha256": "a047be549b1147c80900459609e91b223b672c036405844b0a8f2387fdf7f64b",
+    "atom_id": "CA-E-669",
+    "version": 2
+  },
+  "delta": "The Step checklist now tests exclusive RUNS Action, RUNS Workflow, or contained Substeps modes; preserves Substep exactly-one-Action; assigns the same three named parameter sources to Action and Workflow modes; and keeps IS_RUN_BY unchanged as the derived inverse name."
+}

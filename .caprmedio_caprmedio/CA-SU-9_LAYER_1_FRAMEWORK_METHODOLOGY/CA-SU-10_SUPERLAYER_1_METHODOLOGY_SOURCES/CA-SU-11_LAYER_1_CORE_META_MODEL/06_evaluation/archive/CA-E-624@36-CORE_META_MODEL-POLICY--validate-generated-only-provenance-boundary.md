@@ -1,0 +1,32 @@
+---
+subjects:
+  active: Entity/Aspect/Engineering/Traceability
+  passive:
+  - Entity/Object/Continuant/History/Journal > Event Record
+  - CFEL > Relation
+  - Projection
+version: 36
+updated_at: 2026-11-02 00:18:22 +0400
+relations:
+  evaluation_for:
+  - CA-M-135
+  - CA-R-2535
+atom_id: CA-E-624@36
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+tier: 4
+role: Evaluation
+form: Eval Policy
+---
+## Summary
+
+Validate Generated-Only Provenance Boundary
+
+## Claim scope
+
+generated-only provenance validation.
+
+## Claim
+
+generated-only provenance validation **must not** pass **if** an update **only** **to** generated Projections contributes an Implementation Relation **or** a generated Projection cites itself as its semantic input. the same boundary applies with **or** **without** a version-control integration.

@@ -1,0 +1,58 @@
+{
+  "lanes": [
+    {
+      "deliverable": "Canonical A&A Subject/body source Drafts",
+      "owner": "terra_declaration_consistency",
+      "edit_scope": "source-drafts; source-manifest.json",
+      "dependencies": [],
+      "acceptance": "source pins, stableSummaryRole, Role/Form alignment",
+      "status": "done"
+    },
+    {
+      "deliverable": "Quoted selector parser and tests",
+      "owner": "role_parser_fix",
+      "edit_scope": "subject_notation.py; owned notation tests",
+      "dependencies": [],
+      "acceptance": "quoted & works; malformed/oldsyntax boundaries retained; tests pass",
+      "status": "done"
+    },
+    {
+      "deliverable": "Six-view projection rebuild packet",
+      "owner": "step_runs_consumers",
+      "edit_scope": "projection-preparation; projection-plan.json",
+      "dependencies": [
+        "source publication after stable folder paths"
+      ],
+      "acceptance": "six stagedsource-bound views, zero gaps, no projection version",
+      "status": "done"
+    },
+    {
+      "deliverable": "Independent actual published projection readback",
+      "owner": "step_count_notation",
+      "edit_scope": "verification/review*.json",
+      "dependencies": [
+        "six official projections published"
+      ],
+      "acceptance": "no correctness blocker, exactfinalpins",
+      "status": "done"
+    },
+    {
+      "deliverable": "Lifecycle source integration, tests, official publication and Git",
+      "owner": "root",
+      "edit_scope": "selected Currents/archives, sharedJournal/frontier, projections, index/commit/push",
+      "dependencies": [
+        "source review; projection preflight"
+      ],
+      "acceptance": "integrated checks, zero graph gaps, verified remoteSHA",
+      "status": "running"
+    }
+  ],
+  "constraints": [
+    "Terra/Luna; ponytailfull",
+    "Preserve all existing authorized work",
+    "Actualworkflowinstance migration/fullCFELruntime/deployment excluded",
+    "Root owns shared-state writes and Git"
+  ],
+  "integration_constraint": "All peer workers are paused or complete for the authorized dev snapshot. Root owns Git. Broader validation remains failed; peer fixes continue after publication.",
+  "final_inventory": "Read-only inventory complete; no concrete publication blocker. Refresh counts after peer freeze."
+}

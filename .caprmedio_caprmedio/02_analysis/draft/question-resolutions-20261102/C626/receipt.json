@@ -1,0 +1,41 @@
+{
+  "status": "APPLIED",
+  "accepted_at": "2026-11-02 17:02:39 +0400",
+  "path": ".caprmedio_caprmedio/01_concern/CA-C-626-QUESTION--resolve-the-scope-of-framework-root-locator-requirements.md",
+  "source_sha256": "fb250957c3a215e84135112ebade6ac4fdc68879e055e6d84e40911e7cc82a04",
+  "sha256": "f15bd95fcee00333e586c7deb117f7842a3afad8986e0c0635f2b2e76f084595",
+  "archive": ".caprmedio_caprmedio/01_concern/archive/CA-C-626@1-QUESTION--resolve-the-scope-of-framework-root-locator-requirements.md",
+  "archive_sha256": "e4657c4e8efd145693b5264fd010b61c444c2d12f3ea446881306559ecd4950b",
+  "version": 3,
+  "state": "Resolved",
+  "decision": "Locators optional in generic MODEL; required by applicable installations",
+  "schema_change": "None: existing declarations already optional",
+  "event": {
+    "event_id": "7f7df820-a292-4020-b5e7-b42cdcd9f25c",
+    "happened_at": "2026-11-02 17:02:39 +0400",
+    "inserted_at": "2026-11-02T17:02:39.096695+04:00",
+    "action": "update",
+    "object_input": {
+      "id": "CA-C-626",
+      "version": 1,
+      "updated_at": "2026-11-02 08:06:47 +0400"
+    },
+    "object_output": {
+      "id": "CA-C-626",
+      "version": 3,
+      "updated_at": "2026-11-02 17:02:39 +0400"
+    },
+    "relations": {
+      "HAS_EVENT_AUTHOR": "Actor//Codex"
+    }
+  },
+  "journal_receipts": [
+    {
+      "event_id": "7f7df820-a292-4020-b5e7-b42cdcd9f25c",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 152
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "source_path": ".caprmedio_caprmedio/01_concern/CA-C-620-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+  "source_sha256": "7a6245b00caa842e9ca917a0073abe3a83cf28b25583511502222dece82d0b75",
+  "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/drafts/CA-C-620@2-draft-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+  "candidate_sha256": "44ea57693a998ea4e04950e5b4c7e6fab682ee05fd496d1b558c548db1dbc3fd",
+  "publish_status": "Active",
+  "pending": "Canonical addresses for concrete Aspect instances; no framework-object identity decision is inferred."
+}

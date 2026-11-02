@@ -25,7 +25,7 @@ sha256 = "4373d8d674760f22ac7caa92825b0c6318f34a5137a29c771ea3f7e13b01b681"
 admission_receipt_sha256 = "b9db86c11ce9956b8476644dc0407ea8332d30cfdd3f6adb7188631e208d8628"
 visibility = "public"
 selection_default = false
-path = "102_FRAMEWORK_ENGINE"
+path = "LAYER_2_FRAMEWORK_ENGINE"
 
 [source.methodology-support]
 kind = "support"

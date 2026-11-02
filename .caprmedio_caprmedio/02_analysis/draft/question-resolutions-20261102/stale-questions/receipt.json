@@ -1,0 +1,85 @@
+{
+  "status": "APPLIED",
+  "scope": "Close questions already settled by adopted identity and CFEL rules; no new model or runtime rules",
+  "accepted_at": "2026-11-02 16:49:59 +0400",
+  "operations": [
+    {
+      "id": "CA-C-625",
+      "path": ".caprmedio_caprmedio/01_concern/CA-C-625-QUESTION--identify-applicable-methodology-members.md",
+      "source_sha256": "8d19a0786779c472dff886b06b4091a951f6861b4a845977c5a6ce2b71790ec5",
+      "sha256": "d82b771986967eeaab36582e39570205ac1898b6a674f12ca26fe7b9bb080a83",
+      "version": 3,
+      "status": "Resolved",
+      "archive": ".caprmedio_caprmedio/01_concern/archive/CA-C-625@1-QUESTION--identify-applicable-methodology-members.md",
+      "archive_sha256": "29005ab00236e3000519884b52879f2227693fd94444d129a88ffd17a6b9bd48",
+      "draft": ".caprmedio_caprmedio/01_concern/draft/question-resolutions-20261102/CA-C-625@2-draft-QUESTION--identify-applicable-methodology-members.md"
+    },
+    {
+      "id": "CA-C-629",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-629-CORE_META_MODEL-QUESTION--how-should-cfel-test-and-set-cardinalities.md",
+      "source_sha256": "117a30655443205fe7074876882c31aefcfd2211508451a7bc21b42a29b88e21",
+      "sha256": "7a493b5d242ba3252e7ac804a376ca3c5e4575deae5b218659d8d4edb386dcb0",
+      "version": 3,
+      "status": "Resolved",
+      "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/archive/CA-C-629@1-CORE_META_MODEL-QUESTION--how-should-cfel-test-and-set-cardinalities.md",
+      "archive_sha256": "28ac9cc5714637e00e9dad9eb627fa6c24a55b9d91f24ec7519dfb992e1a54eb",
+      "draft": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/draft/question-resolutions-20261102/CA-C-629@2-draft-CORE_META_MODEL-QUESTION--how-should-cfel-test-and-set-cardinalities.md"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "d0dc444c-5efd-424a-b736-52701aa33280",
+      "happened_at": "2026-11-02 16:49:59 +0400",
+      "inserted_at": "2026-11-02T16:49:59.782074+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-C-625",
+        "version": 1,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "object_output": {
+        "id": "CA-C-625",
+        "version": 3,
+        "updated_at": "2026-11-02 16:49:59 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "57c3021b-1bae-4225-a5fd-d3fb02db5799",
+      "happened_at": "2026-11-02 16:49:59 +0400",
+      "inserted_at": "2026-11-02T16:49:59.783213+04:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-C-629",
+        "version": 1,
+        "updated_at": "2026-11-02 08:06:47 +0400"
+      },
+      "object_output": {
+        "id": "CA-C-629",
+        "version": 3,
+        "updated_at": "2026-11-02 16:49:59 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    }
+  ],
+  "journal_receipts": [
+    {
+      "event_id": "d0dc444c-5efd-424a-b736-52701aa33280",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 150
+    },
+    {
+      "event_id": "57c3021b-1bae-4225-a5fd-d3fb02db5799",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "line": 151
+    }
+  ]
+}

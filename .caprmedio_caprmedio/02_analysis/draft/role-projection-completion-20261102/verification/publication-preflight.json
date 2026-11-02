@@ -1,0 +1,17 @@
+{
+  "status": "READY_FOR_MECHANICAL_DEV_SNAPSHOT",
+  "checked_at": "2026-11-02T17:19:18.351629+00:00",
+  "branch": "amm/dev",
+  "head_before": "e787f4d6de7f03ae076d1f85fb6d2e1d11a47f38",
+  "source_hashes_checked": 1128,
+  "projection_hashes_checked": 6,
+  "working_tree_status_counts": {
+    " M": 481,
+    " D": 59135,
+    "??": 61917
+  },
+  "unexpected_sensitive_or_cache_paths": [],
+  "concurrent_write_checkpoint": "OPEN: all workers completed or paused writes; root paused source/code/tracking writes after this checkpoint",
+  "validation": "Role/parser, lifecycle and six-view hash readbacks PASS. Initial broad suite FAILED: 519 modules, 4229 tests, 134 failed modules and launcher fingerprint check. Later peer fixes have not received a green combined run.",
+  "carrier_destination": "Evidence and user naming decisions only; storage question pending, no new Declaration Drafts or runtime fields."
+}

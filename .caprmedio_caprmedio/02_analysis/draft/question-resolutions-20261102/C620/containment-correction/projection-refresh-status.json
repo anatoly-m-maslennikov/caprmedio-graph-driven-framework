@@ -1,0 +1,308 @@
+{
+  "status": "PENDING_PARALLEL_ROLE_MIGRATION",
+  "current_source_count": 1134,
+  "relation_count": 41,
+  "coverage": {
+    "candidate_sources": 1134,
+    "bound_sources": 763,
+    "declared_entity_targets": 133,
+    "declared_component_targets": 43,
+    "declared_relation_targets": 41,
+    "shared_sources": 546,
+    "fenced_claim_blocks": 221,
+    "cfel_blocks": 194,
+    "recognized_clauses": 343,
+    "unsupported_clauses": 139,
+    "coverage_gaps": 12,
+    "outside_model_scope_sources": 359,
+    "duplicate_declarations": 0,
+    "missing_relation_semantics": 0,
+    "instance_kind_gaps": 0,
+    "inheritance_diagnostics": 0
+  },
+  "coverage_gaps": [
+    {
+      "source": {
+        "atom_id": "CA-D-389",
+        "version": 25,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-389-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md",
+        "sha256": "671e91927bab12399ae7a25660908c27c39deaee848c51ae075a154d67d46b76"
+      },
+      "subject": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis & Advisory/Type",
+      "target": "",
+      "kind": "unbound",
+      "blocks": [],
+      "cfel_blocks": [],
+      "clauses": [],
+      "prose": "an Analysis & Advisory Atom File Carrier **must** serialize the following Type components within the Atom filename grammar governed by CA-D-283 **and** CA-D-284:\n\n- Rationale: `RATIONALE`.\n- External Analysis Report: `EXTERNAL_ANALYSIS_REPORT`.\n\nthese mappings govern filename representation; they do **not** rename a Type, admit a new Type, **or** prescribe a YAML Type value.",
+      "claim_scope": "the serialization of Analysis & Advisory Type tokens in an Analysis & Advisory Atom File Carrier filename.",
+      "semantics": "",
+      "details": "",
+      "diagnostics": [],
+      "message": "unexpected reserved character or trailing expression"
+    },
+    {
+      "source": {
+        "atom_id": "CA-D-581",
+        "version": 15,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-581-PROJECT_CONFIGURATION-ENG_DECISION--serialize-fpf-analysis-report-type-token.md",
+        "sha256": "3ffbdfb958fba1cdff930b134e131c522acfc276c14a7cb9e4ec4681f010c8ae"
+      },
+      "subject": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis & Advisory/Type: FPF Analysis Report",
+      "target": "",
+      "kind": "unbound",
+      "blocks": [],
+      "cfel_blocks": [],
+      "clauses": [],
+      "prose": "a project-owned Analysis & Advisory Atom with `type: FPF Analysis Report` **must** serialize its Type filename component as `FPF_ANALYSIS_REPORT` within the filename grammar governed by CA-D-283 and CA-D-284.",
+      "claim_scope": "the filename Type component of a project-owned FPF Analysis Report Markdown Carrier.",
+      "semantics": "",
+      "details": "This mapping adds the representation of the Type admitted by CA-R-1888. It does not rename another Type, change its filename token or replace the common Analysis & Advisory body layout. Carrier placement follows the applicable Delivery mapping under CA-D-466 and the canonical Analysis & Advisory content-role directory under CA-D-324.",
+      "diagnostics": [],
+      "message": "unexpected reserved character or trailing expression"
+    },
+    {
+      "source": {
+        "atom_id": "CA-E-588",
+        "version": 18,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md",
+        "sha256": "cfd4663412da0704b943d607181661b2f4dfb13834c6c22b71e33986ca43d308"
+      },
+      "subject": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis & Advisory/Type: FPF Analysis Report",
+      "target": "",
+      "kind": "unbound",
+      "blocks": [],
+      "cfel_blocks": [],
+      "clauses": [],
+      "prose": "an FPF Analysis Report import **must** pass all of the following checks before the original Carrier is retired:\n\n- the exact Type and filename token are admitted, the carried Atom ID is unique, and the declared Role, owning Scope Unit, tier, Status and Version metadata match the selected authority;\n- exactly one Summary and the ordered Question, Scope, Approach, Results and TLDR sections occur outside the quoted source content, with nonempty values;\n- removing only the quotation wrapper recovers every original source byte, including Unicode, line endings, nested headings, code fences and terminal-newline state; its SHA-256 and byte length match the frozen source;\n- every selected source has exactly one destination, no existing destination is overwritten, stale inputs and destination collisions stop the batch, and a failed batch does not retire an unverified source;\n- rewritten current navigation/source links resolve to the intended new Carriers; historical Journals, archived Revisions, frozen receipts and the quoted report's own historical text remain unchanged.",
+      "claim_scope": "content-preserving migration of existing reports into FPF Analysis Report Carriers.",
+      "semantics": "",
+      "details": "These checks verify the import and Carrier structure, not the truth of external findings, FPF execution success, acceptance of recommendations or full framework/runtime conformance. Report unsupported validation coverage explicitly rather than treating an incomplete checker result as a pass.",
+      "diagnostics": [],
+      "message": "unexpected reserved character or trailing expression"
+    },
+    {
+      "source": {
+        "atom_id": "CA-M-345",
+        "version": 18,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md",
+        "sha256": "7d8d4577ce71f6d8e08d78f7012fb48113471aa529417049a5e44e0a75d67919"
+      },
+      "subject": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis & Advisory/Type: FPF Analysis Report",
+      "target": "",
+      "kind": "unbound",
+      "blocks": [],
+      "cfel_blocks": [],
+      "clauses": [],
+      "prose": "**to** author an FPF Analysis Report, use the common Analysis & Advisory structure under CA-D-479 and retain the report's bounded question, scope, approach, results, provenance and evidence limits without treating its recommendations as accepted specification.\n\n- carry `role: \"Analysis & Advisory\"` and `form: FPF Analysis Report`, the actual owning Scope Unit, applicable tier, Status and Version Properties. Summary describes the Question; TLDR summarizes the retained analytical record without replacing Results.\n- **when** importing an existing report, preserve its complete original UTF-8 text as quoted Markdown in Results. Quotation is a carrier wrapper, not an edit to the original text. Record its original path, SHA-256 and byte length in Approach so the original bytes can be recovered and checked.\n- identify the original inquiry from its explicit task or question where available; otherwise identify the bounded historical report without inventing a missing execution contract. Preserve all native findings, alternatives, citations, limitations and time-relative statements in the quoted record.\n- distinguish import metadata and its current Revision timestamp from the original report's provenance. Do not infer an original execution timestamp or completed FPF Run merely from a filename or physical file existence.\n- place the Carrier by the applicable Analysis & Advisory Delivery rules. Resolve real destination links to the new Carrier while retaining historical Journal, archive and frozen-evidence references unchanged.",
+      "claim_scope": "authoring and content-preserving import of FPF Analysis Report Atoms.",
+      "semantics": "",
+      "details": "Importing a report does not rerun FPF, adopt a candidate, change project policy or close an issue. Completion of the bounded imported reporting product is distinct from those outcomes.",
+      "diagnostics": [],
+      "message": "unexpected reserved character or trailing expression"
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1648",
+        "version": 32,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1648-CORE_META_MODEL-RULE--use-external-analysis-atoms-as-review-envelopes.md",
+        "sha256": "87aa540863c7fc53595cb3163a5d814a08848087a4706dd8c11fcff6f81f191c"
+      },
+      "subject": "Atom/(.Role := \"Analysis & Advisory\")",
+      "target": "",
+      "kind": "unbound",
+      "blocks": [],
+      "cfel_blocks": [],
+      "clauses": [],
+      "prose": "an external review **must** be imported as an External Analysis Report Atom whose governed envelope identifies its source, provenance, reviewed scope, original body, **and** native attachments **without** requiring a provider-specific finding schema. one internal Analysis derives from that Atom, records the project's finding-level interpretation **and** dispositions, **and** becomes the **only** Analysis source from which project-owned Concern, Plan, Requirement, Method, Evaluation, **or** Delivery Atoms are derived. **every** accepted disposition that changes project meaning **or** work is materialized **in** its owning CAPRMEDIO Content Role; rejected **or** non-actionable findings remain **only** **in** the internal Analysis.",
+      "claim_scope": "external reviews, their imported External Analysis Report Atoms, and the internal Analyses derived from them.",
+      "semantics": "",
+      "details": "",
+      "diagnostics": [],
+      "message": "expected a non-empty name"
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1664",
+        "version": 37,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+        "sha256": "611212ebd6fb43fb92cc9ee26a482a492805f11d34a580a899bcd7ea550fe2b5"
+      },
+      "subject": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis & Advisory/Type: Rationale",
+      "target": "",
+      "kind": "unbound",
+      "blocks": [],
+      "cfel_blocks": [],
+      "clauses": [],
+      "prose": "Rationale **must** be registered as an internal value of `Atom/Content Role: Analysis & Advisory/Type` that owns **`=1`** explanatory conclusion **without** establishing **or** modifying normative specification.",
+      "claim_scope": "`Atom/Content Role: Analysis & Advisory/Type` values.",
+      "semantics": "",
+      "details": "",
+      "diagnostics": [],
+      "message": "unexpected reserved character or trailing expression"
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1705",
+        "version": 30,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md",
+        "sha256": "464bfd121551707f69b91d141f04ad0c4b14d0a38c70ba9ff8ef319327402377"
+      },
+      "subject": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis & Advisory/Type: Rationale",
+      "target": "",
+      "kind": "unbound",
+      "blocks": [],
+      "cfel_blocks": [],
+      "clauses": [],
+      "prose": "a Rationale is an Analysis & Advisory Atom created **only** **after** **every** specification Atom it explains already exists. the Rationale stores the directed relation **to** its subjects; specification Atoms contain **none** of (embedded Rationale, persisted Rationale backlink).\n\nRationale is explanatory rather than normative. Changing an obligation, boundary, Method, Evaluation condition, Delivery rule, **or** acceptance meaning requires a new applicable specification Atom rather than a Rationale.",
+      "claim_scope": "Rationale Atoms and their pre-existing specification subjects.",
+      "semantics": "",
+      "details": "",
+      "diagnostics": [],
+      "message": "unexpected reserved character or trailing expression"
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1725",
+        "version": 27,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1725-CORE_META_MODEL--review-external-analysis-before-project-adoption.md",
+        "sha256": "05e9c3ea800a13e4d1eeb3515a5ae9d2dc3c6a3c91e818f1d627123a7f008637"
+      },
+      "subject": "Atom/(.Role := \"Analysis & Advisory\")",
+      "target": "",
+      "kind": "unbound",
+      "blocks": [],
+      "cfel_blocks": [],
+      "clauses": [],
+      "prose": "**every** admitted external Analysis is reviewed by one internal Analysis **before** it can produce project-owned Concern, Plan, Requirement, Method, Evaluation, **or** Delivery Atoms. the external Analysis remains authoritative **only** for what its external source reported; the internal Analysis owns the project's interpretation **and** dispositions, **and** **every** resulting Atom owns its independently accepted meaning.",
+      "claim_scope": "admitted external Analysis before Project adoption.",
+      "semantics": "",
+      "details": "",
+      "diagnostics": [],
+      "message": "expected a non-empty name"
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1875",
+        "version": 20,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+        "sha256": "e646c7bf50743262505397099fe69837b7e3d99675026583d3ecc53714963a74"
+      },
+      "subject": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis & Advisory.Status",
+      "target": "",
+      "kind": "unbound",
+      "blocks": [],
+      "cfel_blocks": [],
+      "clauses": [],
+      "prose": "the Core Analysis & Advisory Status model **must** inherit the allowed values of Atom.Status and add Done. That Content Role Status model applies to Analysis & Advisory Atoms with Type Analysis Report or Rationale. An admitted Extension or Project Configuration **may** add values under the applicable complete Content Role and Type path; it **must not** remove inherited values.",
+      "claim_scope": "the default Status value domain of Analysis & Advisory Atoms with Type Analysis Report or Rationale.",
+      "semantics": "",
+      "details": "this Status belongs to the Analysis & Advisory Atom itself. It does **not** define a Status transition, carrier placement, setting, or a Workflow, Step, or Action Run outcome, receipt, retry state, result, or completion state. CA-R-1727@30 defines the meanings of Draft and Done for Analysis and the meaning of its archival.",
+      "diagnostics": [],
+      "message": "unexpected reserved character or trailing expression"
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1888",
+        "version": 14,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1888-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+        "sha256": "b02073a45e057acba6efe552cab424259c582450ab31b21832699b22c90a6776"
+      },
+      "subject": "Entity/Object/Continuant/Governing Objects/Atom/Content Role: Analysis & Advisory/Type",
+      "target": "",
+      "kind": "unbound",
+      "blocks": [],
+      "cfel_blocks": [],
+      "clauses": [],
+      "prose": "the CAPRMEDIO Project Configuration **must** register FPF Analysis Report as an additional value of `Atom/Content Role: Analysis & Advisory/Type` under CA-R-1286. this registration does **not** change the Core contribution under CA-R-1232@28 **or** create another Type Property.",
+      "claim_scope": "the CAPRMEDIO Project Configuration contribution to `Atom/Content Role: Analysis & Advisory/Type`.",
+      "semantics": "",
+      "details": "CA-R-1889 defines the registered Type. CA-D-581 defines its filename token. The Type remains within Content Role Analysis & Advisory.",
+      "diagnostics": [],
+      "message": "unexpected reserved character or trailing expression"
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-1889",
+        "version": 18,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md",
+        "sha256": "fc67a1271740e5aa9890ed6c363017864428a4afe8648ef589041470942b9b38"
+      },
+      "subject": "Atom/(.Role := \"Analysis & Advisory\")/(.Form := FPF Analysis Report)",
+      "target": "",
+      "kind": "unbound",
+      "blocks": [],
+      "cfel_blocks": [],
+      "clauses": [],
+      "prose": "an FPF Analysis Report **means** a specialized Analysis Report whose bounded inquiry **or** interpretation product records an FPF analytical command, composition, **or** directly related analytical follow-up, retaining its findings **and** stated evidence limits as reporting content rather than adopting them as normative authority.",
+      "claim_scope": "the registered FPF Analysis Report Type under Content Role Analysis & Advisory.",
+      "semantics": "",
+      "details": "The common Analysis & Advisory body Properties remain Question, Scope, Approach, Results and TLDR under CA-D-479. The Analysis & Advisory lifecycle and applicable Status model remain governed by CA-R-1727@30 and CA-R-1875; this Type does not introduce another Status domain or transition rule. A Done report can retain unresolved questions and rejected candidates. Done does not mean that its proposals were adopted, its issues were closed, or a tested implementation succeeded.\n\nHistorical statements remain bound to their original report context. Missing invocation, source revision, author, or execution evidence remains missing; the conversion must not invent it.",
+      "diagnostics": [],
+      "message": "expected a non-empty name"
+    },
+    {
+      "source": {
+        "atom_id": "CA-R-2637",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2637-CORE_META_MODEL-DECLARATION--declare-analysis-and-advisory.md",
+        "sha256": "84beac7c0f9cff58e0d28e596df88c452e405c351ec19f7f6d97e7b0aa4c02a7"
+      },
+      "subject": "Atom/(.Role := \"Analysis & Advisory\")",
+      "target": "",
+      "kind": "unbound",
+      "blocks": [
+        {
+          "source": {
+            "atom_id": "CA-R-2637",
+            "version": 1,
+            "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2637-CORE_META_MODEL-DECLARATION--declare-analysis-and-advisory.md",
+            "sha256": "84beac7c0f9cff58e0d28e596df88c452e405c351ec19f7f6d97e7b0aa4c02a7"
+          },
+          "block": "Atom/(.Role: \"Analysis & Advisory\")\n",
+          "label": "CFEL",
+          "closed": true
+        }
+      ],
+      "cfel_blocks": [
+        {
+          "source": {
+            "atom_id": "CA-R-2637",
+            "version": 1,
+            "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2637-CORE_META_MODEL-DECLARATION--declare-analysis-and-advisory.md",
+            "sha256": "84beac7c0f9cff58e0d28e596df88c452e405c351ec19f7f6d97e7b0aa4c02a7"
+          },
+          "block": "Atom/(.Role: \"Analysis & Advisory\")\n"
+        }
+      ],
+      "clauses": [],
+      "prose": "",
+      "claim_scope": "",
+      "semantics": "Analysis & Advisory covers analysis reports, rationales and spec proposals. It establishes findings, explanations, comparisons, reasons or proposed changes.",
+      "details": "",
+      "diagnostics": [
+        {
+          "code": "cfel-expression-unsupported",
+          "message": "CFEL expression is outside the bounded projection extractor.",
+          "expression": "Atom/(.Role: \"Analysis & Advisory\")",
+          "source": {
+            "atom_id": "CA-R-2637",
+            "version": 1,
+            "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2637-CORE_META_MODEL-DECLARATION--declare-analysis-and-advisory.md",
+            "sha256": "84beac7c0f9cff58e0d28e596df88c452e405c351ec19f7f6d97e7b0aa4c02a7"
+          }
+        }
+      ],
+      "message": "expected a non-empty name"
+    }
+  ],
+  "conflicts": [],
+  "missing_relation_semantics": [],
+  "official_projections_written": false,
+  "source_frontier_sha256": "5f7258daa087843149baa8294d85cd3545b5fdb5627897e4920f1b4328b5c0a9",
+  "other_live_hash_changes_read_only": [],
+  "limits": [
+    "No official Projection overwritten while gaps remain",
+    "No runtime or native PROJECT STRUCTURE registration validation"
+  ]
+}

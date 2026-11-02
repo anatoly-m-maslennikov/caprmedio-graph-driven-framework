@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "counts": {
+    "archive": 3,
+    "publish": 3
+  },
+  "journal_rows": 3,
+  "unchanged_boundaries": [
+    "CA-R-2256",
+    "CA-R-2559",
+    "CA-R-2560"
+  ],
+  "errors": [],
+  "limits": [
+    "Receipt path and specified source-pin checks only; no runtime or projection validation."
+  ]
+}

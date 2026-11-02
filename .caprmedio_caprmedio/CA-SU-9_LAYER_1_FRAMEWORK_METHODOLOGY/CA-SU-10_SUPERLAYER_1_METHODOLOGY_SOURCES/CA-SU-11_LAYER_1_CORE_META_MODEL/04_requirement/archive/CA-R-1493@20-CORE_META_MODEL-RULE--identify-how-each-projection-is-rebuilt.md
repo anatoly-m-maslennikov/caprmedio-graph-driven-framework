@@ -1,0 +1,28 @@
+---
+subjects:
+  active: Projection
+  passive: []
+version: 20
+updated_at: 2026-11-02 00:18:22 +0400
+relations:
+  child_of:
+  - CA-R-2535
+atom_id: CA-R-1493@20
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Archived
+tier: 2
+role: Requirement
+form: Rule
+---
+## Summary
+
+Identify how each Projection is rebuilt
+
+## Claim scope
+
+Projection generators, generation procedures, and declared configurations.
+
+## Claim
+
+a Projection's governed generator **or** generation procedure **and** declared configuration **must** identify how **to** rebuild that Projection.

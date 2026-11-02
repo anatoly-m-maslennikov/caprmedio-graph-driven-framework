@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "reviewer": "terra_reviewer",
+  "input": "Latest Operator decision defers concrete Extensions model to future versions",
+  "decision": "Retire R2627; remove parent entry and max13\u219212; resolve C619 on Project.Settings",
+  "scope": "Current model only; legacy compatibility sources and runtime outside this change",
+  "graph_preview": "graph-preview.json"
+}

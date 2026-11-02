@@ -1,8 +1,8 @@
 ---
 subject_scopes:
 - applicability
-version: 19
-updated_at: 2026-11-02 00:18:22 +0400
+version: 22
+updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -11,8 +11,7 @@ status: Active
 current_scope_unit: caprmedio
 tier: 2
 subjects:
-  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
-  passive: []
+  active: Aspects <+ Product
 role: Requirement
 form: Boundary
 ---

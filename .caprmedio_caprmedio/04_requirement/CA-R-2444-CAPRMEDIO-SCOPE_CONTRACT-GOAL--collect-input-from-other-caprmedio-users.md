@@ -4,9 +4,9 @@ cce_form: obligation
 subjects:
   active: Scope Unit
   passive:
-  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
-version: 3
-updated_at: 2026-11-02 00:18:22 +0400
+  - Aspects <+ Product
+version: 5
+updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

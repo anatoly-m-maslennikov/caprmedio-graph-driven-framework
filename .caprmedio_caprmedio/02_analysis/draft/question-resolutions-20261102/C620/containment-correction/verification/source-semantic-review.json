@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "scope": "Semantic review of the two C620 containment-correction source Drafts and their manifest only. This review does not publish, stage, archive, or modify Current sources.",
+  "pinned_inputs": {
+    "manifest": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/manifest.json",
+      "sha256": "281ffacf11349563b9503c1d2cbcb1b628041b392e633b8ccc4bdea611e5b087"
+    },
+    "CA-R-2483_current": "744963d5a95632640cb570f836ff8e37a2221e55d93d3815415fa3e38e6b6859",
+    "CA-C-620_current": "779efcc0d53f931903c60c5950594f34e22f24017f0bbb62b9e516d9b86cd775",
+    "CA-R-2543_current": "b12321a25a1e21f4ac298f53d698cfba49ec206c763c6724a55d1b54d45bbc52",
+    "CA-R-2256_current": "ef77ae4eb28f011f35f24682b18c2acaf2a754312b5e99bf2464f287a7f52dd6"
+  },
+  "reviewed_drafts": {
+    "CA-R-2483@5-draft": "ee2ff71d2eda61df323d1775889af8edf28064c4d2a660701810b25998e221ad",
+    "CA-C-620@4-draft": "c60b3aeb76f4d0407ac7ad7af4dd13cf99339b5f3553f647ac6d27865fe1f4dd"
+  },
+  "checks": [
+    {
+      "name": "settled_containment_literal",
+      "status": "PASS",
+      "evidence": "CA-R-2483 has exactly one CFEL Claim fence containing Aspects <+ Product under PROJECT STRUCTURE//CAPRMEDIO; CA-C-620 resolves the same address in prose."
+    },
+    {
+      "name": "question_lifecycle",
+      "status": "PASS",
+      "evidence": "CA-C-620 remains a Draft candidate and the manifest specifies publish_status Resolved."
+    },
+    {
+      "name": "generic_model_and_framework_identity_boundaries",
+      "status": "PASS",
+      "evidence": "CA-R-2543 remains the generic MODEL Aspect Declaration; CA-R-2256 remains the named CAPRMEDIO Framework Continuant identity. Neither is altered or conflated with Product's containment address."
+    },
+    {
+      "name": "no_unsolicited_model_extension",
+      "status": "PASS",
+      "evidence": "Neither Draft introduces Aspect//Product, a new MODEL kind, a Relation signature, concrete instance registration, or unrelated normative constraints. CA-R-2483 changes only lifecycle metadata and one containment fence; CA-C-620 replaces its obsolete decision text with the settled resolution."
+    }
+  ],
+  "blockers": [],
+  "not_checked": [
+    "Consumer Draft publication",
+    "Current promotion, archive, Git, or Journal operations",
+    "Projection, runtime, parser, graph-builder, SDK, workflow, fixture, or evaluator behavior"
+  ]
+}

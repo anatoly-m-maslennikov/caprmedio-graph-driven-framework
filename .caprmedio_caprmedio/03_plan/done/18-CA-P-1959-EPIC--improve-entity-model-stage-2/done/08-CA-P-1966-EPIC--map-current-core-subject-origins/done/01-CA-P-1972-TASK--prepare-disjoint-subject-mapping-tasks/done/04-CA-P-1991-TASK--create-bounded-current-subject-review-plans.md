@@ -17,12 +17,11 @@ subjects:
   - Subject/Graph Node/Domain/Continuant/Projection
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 6
-updated_at: 2026-10-25 17:32:27 +0400
+version: 7
+updated_at: 2026-11-02 19:44:26 +0400
 relations:
   is_decomposition_of:
   - CA-P-1972
-  blocks: []
 tier: 3
 ---
 # Summary

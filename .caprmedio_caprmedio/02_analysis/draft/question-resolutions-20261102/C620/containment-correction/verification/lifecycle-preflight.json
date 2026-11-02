@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scope": "Source lifecycle and staged publication safety, not semantic graph/runtime validation",
+  "checks": [
+    "209 unique existing-ID publications and 209 archives; no new or retired IDs",
+    "418 selected source pins and all source/candidate operation hashes match",
+    "archive bodies and metadata preserved except atom_id and status",
+    "207 consumer successors preserve body and all metadata except subjects and lifecycle metadata",
+    "native cooperative identity lock covers version recheck, Current writes/removals and guarded rollback",
+    "Journal events use immutable accepted bytes captured under the lock"
+  ],
+  "limits": [
+    "Apply not executed. Cooperative lock protects participating writers.",
+    "Actual structural registrations, runtime and projections not verified."
+  ],
+  "apply_script_sha256": "ada7ebd26a6d23350f9ce73701b928aefa3a40017182c9d1727d679bf8bc111b"
+}

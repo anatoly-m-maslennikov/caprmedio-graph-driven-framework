@@ -1,0 +1,32 @@
+[
+  {
+    "atom_id": "CA-D-668",
+    "version": 2,
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-668-CORE_META_MODEL-ENG_DECISION--encode-project-authority-modes-in-framework-settings.md",
+    "sha256": "7447805cb751fdc62a9b38a77057248f1dee995e07350410a86e09b222055f49"
+  },
+  {
+    "atom_id": "CA-R-1430",
+    "version": 27,
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL--select-authority-modes-through-framework-instance-settings.md",
+    "sha256": "690388b6719ccc200c2852110b7563674699d27b1d173192991d8a56b5bdd095"
+  },
+  {
+    "atom_id": "CA-E-006",
+    "version": 40,
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md",
+    "sha256": "48bedc3fbbe4ccbbb07559fcb2c7a541b1d72f3ce13efaf36423a9c956956f29"
+  },
+  {
+    "atom_id": "CA-E-621",
+    "version": 37,
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-621-CORE_META_MODEL-EVAL_CASE--settings-artifact-usability.md",
+    "sha256": "0f0a6b7641041f2f936b4c48b2042845c3f9054b197159627f6824a032999060"
+  },
+  {
+    "atom_id": "CA-R-1750",
+    "version": 41,
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md",
+    "sha256": "1ff3baa487a261f448ffe9e3cbd29916d728a028960e8760fa7edb13581e079c"
+  }
+]

@@ -1,0 +1,107 @@
+{
+  "status": "FAIL",
+  "groups": [
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests",
+      "exit_code": 1,
+      "tests": 898,
+      "seconds": 59.826,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__201_TOOLS__tests.log"
+    },
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests",
+      "exit_code": 1,
+      "tests": 99,
+      "seconds": 11.384,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__201_TOOLS__ATOM_SEARCH__tests.log"
+    },
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/tests",
+      "exit_code": 1,
+      "tests": 145,
+      "seconds": 32.293,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__201_TOOLS__ATOM_UPDATE__tests.log"
+    },
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests",
+      "exit_code": 1,
+      "tests": 76,
+      "seconds": 1.726,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__201_TOOLS__COMPILE_APPLICABLE_METHODOLOGY__tests.log"
+    },
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests",
+      "exit_code": 1,
+      "tests": 23,
+      "seconds": 0.151,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__201_TOOLS__FIND_AND_FETCH_ARTIFACTS__tests.log"
+    },
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/tests",
+      "exit_code": 1,
+      "tests": 38,
+      "seconds": 0.353,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__201_TOOLS__FIND_AND_FETCH_JOURNAL_EVENTS__tests.log"
+    },
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests",
+      "exit_code": 1,
+      "tests": 341,
+      "seconds": 10.015,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__201_TOOLS__GENERATE_ENTITY_GRAPH__tests.log"
+    },
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_PROJECT_GRAPH_STATE/tests",
+      "exit_code": 1,
+      "tests": 33,
+      "seconds": 0.238,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__201_TOOLS__GENERATE_PROJECT_GRAPH_STATE__tests.log"
+    },
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/tests",
+      "exit_code": 1,
+      "tests": 31,
+      "seconds": 42.247,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__201_TOOLS__INSTALL_TOOLS__tests.log"
+    },
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/tests",
+      "exit_code": 1,
+      "tests": 8,
+      "seconds": 0.026,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__201_TOOLS__RELEASE_VERSION__tests.log"
+    },
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS/tests",
+      "exit_code": 1,
+      "tests": 579,
+      "seconds": 36.158,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__201_TOOLS__VALIDATE_ATOMS__tests.log"
+    },
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests",
+      "exit_code": 1,
+      "tests": 722,
+      "seconds": 107.789,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__203_APPS__WORKFLOW_ORCHESTRATOR__tests.log"
+    },
+    {
+      "group": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests",
+      "exit_code": 124,
+      "tests": null,
+      "seconds": null,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/102_FRAMEWORK_ENGINE__201_PROGRAMMATIC__204_MCP__tests.log"
+    },
+    {
+      "group": "PROJECT_TOOLS/tests",
+      "exit_code": 1,
+      "tests": 130,
+      "seconds": 6.047,
+      "log": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/verification/integration-tests/PROJECT_TOOLS__tests.log"
+    }
+  ],
+  "tests": 3123,
+  "limits": [
+    "Local unit/integration suites; no deployed runtime or release publication"
+  ]
+}

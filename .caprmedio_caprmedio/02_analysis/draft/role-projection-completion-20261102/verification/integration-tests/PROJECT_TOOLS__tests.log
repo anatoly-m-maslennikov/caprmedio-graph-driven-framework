@@ -1,0 +1,1419 @@
+Test scope: full; selected modules: all discovered modules
+Test image START: preparing current source
+Test image FINISH: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Test image START: preparing current source
+Test image FINISH: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Test image START: preparing current source
+Test module START: 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_selected_workflows_docker_e2e.py
+Test module START: 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_selected_query_mcp_e2e.py
+Test module START: PROJECT_TOOLS/tests/test_ordinary.py
+native progress
+======================================================================
+ERROR: test_all_stopped_predecessors_removed_before_launch_images_after_launch (test_local_release_cleanup.LocalReleaseCleanupTests.test_all_stopped_predecessors_removed_before_launch_images_after_launch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 50, in test_all_stopped_predecessors_removed_before_launch_images_after_launch
+    fixture, docker = self.fixture()
+                      ~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 19, in fixture
+    project_id = resolve_project(fixture.root).instance_id
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+ERROR: test_existing_current_image_container_is_reused_without_stop_or_removal (test_local_release_cleanup.LocalReleaseCleanupTests.test_existing_current_image_container_is_reused_without_stop_or_removal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 103, in test_existing_current_image_container_is_reused_without_stop_or_removal
+    fixture, docker = self.fixture()
+                      ~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 19, in fixture
+    project_id = resolve_project(fixture.root).instance_id
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+ERROR: test_failed_launcher_reports_exact_prior_running_container_removal (test_local_release_cleanup.LocalReleaseCleanupTests.test_failed_launcher_reports_exact_prior_running_container_removal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 195, in test_failed_launcher_reports_exact_prior_running_container_removal
+    fixture, docker = self.fixture()
+                      ~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 19, in fixture
+    project_id = resolve_project(fixture.root).instance_id
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+ERROR: test_failed_launcher_retains_predecessor_images (test_local_release_cleanup.LocalReleaseCleanupTests.test_failed_launcher_retains_predecessor_images)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 158, in test_failed_launcher_retains_predecessor_images
+    fixture, docker = self.fixture()
+                      ~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 19, in fixture
+    project_id = resolve_project(fixture.root).instance_id
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+ERROR: test_first_install_without_verified_launcher_skips_image_cleanup_and_is_pending (test_local_release_cleanup.LocalReleaseCleanupTests.test_first_install_without_verified_launcher_skips_image_cleanup_and_is_pending)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 83, in test_first_install_without_verified_launcher_skips_image_cleanup_and_is_pending
+    fixture, docker = self.fixture()
+                      ~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 19, in fixture
+    project_id = resolve_project(fixture.root).instance_id
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+ERROR: test_post_smoke_does_not_retry_failed_prior_running_container_removal (test_local_release_cleanup.LocalReleaseCleanupTests.test_post_smoke_does_not_retry_failed_prior_running_container_removal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 212, in test_post_smoke_does_not_retry_failed_prior_running_container_removal
+    fixture, docker = self.fixture()
+                      ~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 19, in fixture
+    project_id = resolve_project(fixture.root).instance_id
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+ERROR: test_prior_path_does_not_retry_pre_start_removal_failure (test_local_release_cleanup.LocalReleaseCleanupTests.test_prior_path_does_not_retry_pre_start_removal_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 175, in test_prior_path_does_not_retry_pre_start_removal_failure
+    fixture, docker = self.fixture()
+                      ~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 19, in fixture
+    project_id = resolve_project(fixture.root).instance_id
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+ERROR: test_same_fingerprint_different_prior_image_is_replaced_before_candidate_launch (test_local_release_cleanup.LocalReleaseCleanupTests.test_same_fingerprint_different_prior_image_is_replaced_before_candidate_launch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 128, in test_same_fingerprint_different_prior_image_is_replaced_before_candidate_launch
+    fixture, docker = self.fixture()
+                      ~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_cleanup.py", line 19, in fixture
+    project_id = resolve_project(fixture.root).instance_id
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+ERROR: test_clean_input_does_not_create_empty_commit (test_local_release_git_preflight.LocalReleaseGitPreflightTests.test_clean_input_does_not_create_empty_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_git_preflight.py", line 63, in test_clean_input_does_not_create_empty_commit
+    result, calls, _ = self.execute("clean")
+                       ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_git_preflight.py", line 43, in execute
+    result = run_local_release(fixture.root, run_id="first-commit", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_commit_status_and_residual_dirt_fail_before_tests_or_build (test_local_release_git_preflight.LocalReleaseGitPreflightTests.test_commit_status_and_residual_dirt_fail_before_tests_or_build) (mode='commit-failed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_git_preflight.py", line 70, in test_commit_status_and_residual_dirt_fail_before_tests_or_build
+    result, calls, fixture = self.execute(mode)
+                             ~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_git_preflight.py", line 43, in execute
+    result = run_local_release(fixture.root, run_id="first-commit", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_commit_status_and_residual_dirt_fail_before_tests_or_build (test_local_release_git_preflight.LocalReleaseGitPreflightTests.test_commit_status_and_residual_dirt_fail_before_tests_or_build) (mode='status-failed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_git_preflight.py", line 70, in test_commit_status_and_residual_dirt_fail_before_tests_or_build
+    result, calls, fixture = self.execute(mode)
+                             ~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_git_preflight.py", line 43, in execute
+    result = run_local_release(fixture.root, run_id="first-commit", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_commit_status_and_residual_dirt_fail_before_tests_or_build (test_local_release_git_preflight.LocalReleaseGitPreflightTests.test_commit_status_and_residual_dirt_fail_before_tests_or_build) (mode='residual-dirty')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_git_preflight.py", line 70, in test_commit_status_and_residual_dirt_fail_before_tests_or_build
+    result, calls, fixture = self.execute(mode)
+                             ~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_git_preflight.py", line 43, in execute
+    result = run_local_release(fixture.root, run_id="first-commit", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_dirty_input_committed_before_tests_and_build_provenance (test_local_release_git_preflight.LocalReleaseGitPreflightTests.test_dirty_input_committed_before_tests_and_build_provenance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_git_preflight.py", line 47, in test_dirty_input_committed_before_tests_and_build_provenance
+    result, calls, fixture = self.execute("dirty")
+                             ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_git_preflight.py", line 43, in execute
+    result = run_local_release(fixture.root, run_id="first-commit", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_pre_staged_environment_file_refuses_without_changing_index (test_local_release_git_preflight.LocalReleaseGitPreflightTests.test_pre_staged_environment_file_refuses_without_changing_index)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_git_preflight.py", line 81, in test_pre_staged_environment_file_refuses_without_changing_index
+    result, calls, fixture = self.execute("staged-env")
+                             ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_local_release_git_preflight.py", line 43, in execute
+    result = run_local_release(fixture.root, run_id="first-commit", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_build_head_observation_follows_initial_commit_in_owning_repository (test_release_image_provenance.ReleaseImageProvenanceTests.test_build_head_observation_follows_initial_commit_in_owning_repository)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_release_image_provenance.py", line 110, in test_build_head_observation_follows_initial_commit_in_owning_repository
+    result = run_local_release(fixture.root, run_id="post-commit-head", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_native_runner_passes_owning_provenance_only_to_candidate_build (test_release_image_provenance.ReleaseImageProvenanceTests.test_native_runner_passes_owning_provenance_only_to_candidate_build)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_release_image_provenance.py", line 64, in test_native_runner_passes_owning_provenance_only_to_candidate_build
+    result = run_local_release(fixture.root, run_id="provenance", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_unavailable_head_stops_before_candidate_build (test_release_image_provenance.ReleaseImageProvenanceTests.test_unavailable_head_stops_before_candidate_build)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_release_image_provenance.py", line 84, in test_unavailable_head_stops_before_candidate_build
+    result = run_local_release(fixture.root, run_id="no-head", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_active_delivery_does_not_require_atom_metadata_or_relations (test_simple_local_release.SimpleLocalReleaseTests.test_active_delivery_does_not_require_atom_metadata_or_relations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 208, in test_active_delivery_does_not_require_atom_metadata_or_relations
+    result = run_local_release(self.root, run_id="no-atom-gate", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_active_sources_replace_product_and_installed_copy_preserves_config (test_simple_local_release.SimpleLocalReleaseTests.test_active_sources_replace_product_and_installed_copy_preserves_config)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 177, in test_active_sources_replace_product_and_installed_copy_preserves_config
+    result = run_local_release(self.root, run_id="happy", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_checkpoints_commit_actual_temporary_git_changes_including_final (test_simple_local_release.SimpleLocalReleaseTests.test_checkpoints_commit_actual_temporary_git_changes_including_final)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 511, in test_checkpoints_commit_actual_temporary_git_changes_including_final
+    result = run_local_release(self.root, run_id="real-git", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_compiler_failure_stops_before_install_or_docker_and_reports (test_simple_local_release.SimpleLocalReleaseTests.test_compiler_failure_stops_before_install_or_docker_and_reports)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 370, in test_compiler_failure_stops_before_install_or_docker_and_reports
+    result = run_local_release(self.root, run_id="compile-failed", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_default_test_log_survives_later_failure_without_whole_output_capture (test_simple_local_release.SimpleLocalReleaseTests.test_default_test_log_survives_later_failure_without_whole_output_capture)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 461, in test_default_test_log_survives_later_failure_without_whole_output_capture
+    result = run_local_release(self.root, run_id="later-failed")
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_default_tests_log_is_retained_on_interrupt_with_actual_failed_step (test_simple_local_release.SimpleLocalReleaseTests.test_default_tests_log_is_retained_on_interrupt_with_actual_failed_step)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 437, in test_default_tests_log_is_retained_on_interrupt_with_actual_failed_step
+    result = run_local_release(self.root, run_id="interrupted")
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_empty_selected_core_refuses_before_tests_version_or_replacement (test_simple_local_release.SimpleLocalReleaseTests.test_empty_selected_core_refuses_before_tests_version_or_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 295, in test_empty_selected_core_refuses_before_tests_version_or_replacement
+    self._assert_input_refused("empty-core")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 272, in _assert_input_refused
+    result = run_local_release(self.root, run_id=run_id, runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_focused_modules_are_forwarded_and_reported (test_simple_local_release.SimpleLocalReleaseTests.test_focused_modules_are_forwarded_and_reported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 221, in test_focused_modules_are_forwarded_and_reported
+    result = run_local_release(
+        self.root,
+    ...<2 lines>...
+        test_modules=modules,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_focused_test_failure_blocks_downstream_release (test_simple_local_release.SimpleLocalReleaseTests.test_focused_test_failure_blocks_downstream_release)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 254, in test_focused_test_failure_blocks_downstream_release
+    result = run_local_release(
+        self.root,
+    ...<2 lines>...
+        test_modules=modules,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_four_component_local_version_increments_without_rollover (test_simple_local_release.SimpleLocalReleaseTests.test_four_component_local_version_increments_without_rollover)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 340, in test_four_component_local_version_increments_without_rollover
+    result = run_local_release(self.root, run_id="version", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_git_stages_everything_and_commits_before_steps_and_at_end (test_simple_local_release.SimpleLocalReleaseTests.test_git_stages_everything_and_commits_before_steps_and_at_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 480, in test_git_stages_everything_and_commits_before_steps_and_at_end
+    result = run_local_release(self.root, run_id="git-order", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_image_is_verified_before_replacement_and_installed_launch_cannot_build (test_simple_local_release.SimpleLocalReleaseTests.test_image_is_verified_before_replacement_and_installed_launch_cannot_build)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 638, in test_image_is_verified_before_replacement_and_installed_launch_cannot_build
+    result = run_local_release(self.root, run_id="image-order", runner=record)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_image_preparation_failure_preserves_previous_installation (test_simple_local_release.SimpleLocalReleaseTests.test_image_preparation_failure_preserves_previous_installation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 666, in test_image_preparation_failure_preserves_previous_installation
+    result = run_local_release(self.root, run_id="image-failed", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_installer_refreshes_bootstrap_without_touching_runtime_config_or_state (test_simple_local_release.SimpleLocalReleaseTests.test_installer_refreshes_bootstrap_without_touching_runtime_config_or_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 318, in test_installer_refreshes_bootstrap_without_touching_runtime_config_or_state
+    first = run_local_release(self.root, run_id="bootstrap-one", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_interrupt_before_tests_reports_actual_git_step_without_claiming_log (test_simple_local_release.SimpleLocalReleaseTests.test_interrupt_before_tests_reports_actual_git_step_without_claiming_log)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 471, in test_interrupt_before_tests_reports_actual_git_step_without_claiming_log
+    result = run_local_release(self.root, run_id="git-interrupted", runner=interrupted)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_invalid_version_refuses_before_tests_or_replacement (test_simple_local_release.SimpleLocalReleaseTests.test_invalid_version_refuses_before_tests_or_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 305, in test_invalid_version_refuses_before_tests_or_replacement
+    self._assert_input_refused("invalid-version")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 272, in _assert_input_refused
+    result = run_local_release(self.root, run_id=run_id, runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_launcher_image_reads_only_exact_selected_runtime_namespace (test_simple_local_release.SimpleLocalReleaseTests.test_launcher_image_reads_only_exact_selected_runtime_namespace)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 138, in test_launcher_image_reads_only_exact_selected_runtime_namespace
+    selection = resolve_project(self.root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+======================================================================
+ERROR: test_missing_source_path_refuses_before_tests_or_replacement (test_simple_local_release.SimpleLocalReleaseTests.test_missing_source_path_refuses_before_tests_or_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 291, in test_missing_source_path_refuses_before_tests_or_replacement
+    self._assert_input_refused("missing-source")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 272, in _assert_input_refused
+    result = run_local_release(self.root, run_id=run_id, runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_package_byte_or_mode_drift_refuses_before_installed_clear (test_simple_local_release.SimpleLocalReleaseTests.test_package_byte_or_mode_drift_refuses_before_installed_clear) (field='bytes')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 564, in test_package_byte_or_mode_drift_refuses_before_installed_clear
+    result = run_local_release(self.root, run_id="tampered-package", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_package_byte_or_mode_drift_refuses_before_installed_clear (test_simple_local_release.SimpleLocalReleaseTests.test_package_byte_or_mode_drift_refuses_before_installed_clear) (field='mode')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 564, in test_package_byte_or_mode_drift_refuses_before_installed_clear
+    result = run_local_release(self.root, run_id="tampered-package", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_package_inputs_fail_before_any_installed_replacement (test_simple_local_release.SimpleLocalReleaseTests.test_package_inputs_fail_before_any_installed_replacement) (relative='uv.lock')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 539, in test_package_inputs_fail_before_any_installed_replacement
+    result = run_local_release(self.root, run_id="missing-input", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_package_inputs_fail_before_any_installed_replacement (test_simple_local_release.SimpleLocalReleaseTests.test_package_inputs_fail_before_any_installed_replacement) (relative='102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca/SKILL.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 539, in test_package_inputs_fail_before_any_installed_replacement
+    result = run_local_release(self.root, run_id="missing-input", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_package_inputs_fail_before_any_installed_replacement (test_simple_local_release.SimpleLocalReleaseTests.test_package_inputs_fail_before_any_installed_replacement) (relative='102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 539, in test_package_inputs_fail_before_any_installed_replacement
+    result = run_local_release(self.root, run_id="missing-input", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_preserved_ds_store_directories_do_not_block_replacement (test_simple_local_release.SimpleLocalReleaseTests.test_preserved_ds_store_directories_do_not_block_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 358, in test_preserved_ds_store_directories_do_not_block_replacement
+    result = run_local_release(self.root, run_id="ds-store", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_source_symlink_refuses_before_tests_version_or_product_replacement (test_simple_local_release.SimpleLocalReleaseTests.test_source_symlink_refuses_before_tests_version_or_product_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 285, in test_source_symlink_refuses_before_tests_version_or_product_replacement
+    self._assert_input_refused("unsafe-source")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 272, in _assert_input_refused
+    result = run_local_release(self.root, run_id=run_id, runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_staging_is_run_private_and_verified_before_replacement (test_simple_local_release.SimpleLocalReleaseTests.test_staging_is_run_private_and_verified_before_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 606, in test_staging_is_run_private_and_verified_before_replacement
+    result = run_local_release(self.root, run_id="private", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_test_failure_leaves_both_methodology_destinations_untouched (test_simple_local_release.SimpleLocalReleaseTests.test_test_failure_leaves_both_methodology_destinations_untouched)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 402, in test_test_failure_leaves_both_methodology_destinations_untouched
+    result = run_local_release(self.root, run_id="tests-failed", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_unreadable_package_subtree_refuses_before_replacement (test_simple_local_release.SimpleLocalReleaseTests.test_unreadable_package_subtree_refuses_before_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 583, in test_unreadable_package_subtree_refuses_before_replacement
+    result = run_local_release(self.root, run_id="unreadable-package", runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_unsafe_compiler_path_refuses_before_tests_or_replacement (test_simple_local_release.SimpleLocalReleaseTests.test_unsafe_compiler_path_refuses_before_tests_or_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 313, in test_unsafe_compiler_path_refuses_before_tests_or_replacement
+    self._assert_input_refused("unsafe-compiler")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 272, in _assert_input_refused
+    result = run_local_release(self.root, run_id=run_id, runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+======================================================================
+ERROR: test_unsafe_product_descendant_refuses_before_any_clear (test_simple_local_release.SimpleLocalReleaseTests.test_unsafe_product_descendant_refuses_before_any_clear)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 425, in run_local_release
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 300, in test_unsafe_product_descendant_refuses_before_any_clear
+    self._assert_input_refused("unsafe-product")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/tests/test_simple_local_release.py", line 272, in _assert_input_refused
+    result = run_local_release(self.root, run_id=run_id, runner=runner)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/PROJECT_TOOLS/RELEASE_VERSION/local_release.py", line 427, in run_local_release
+    raise LocalReleaseError("local-release-project-selection-invalid") from error
+local_release.LocalReleaseError: local-release-project-selection-invalid
+
+----------------------------------------------------------------------
+Ran 130 tests in 6.047s
+
+FAILED (errors=47)

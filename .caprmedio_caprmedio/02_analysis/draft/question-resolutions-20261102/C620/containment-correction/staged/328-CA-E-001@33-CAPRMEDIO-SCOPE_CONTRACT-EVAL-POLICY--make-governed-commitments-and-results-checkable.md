@@ -1,0 +1,28 @@
+---
+cce_version: cce_1
+cce_form: obligation
+subjects:
+  active: Entity/Aspect/Engineering/Verification
+  passive:
+  - Project
+  - Atom.Content
+  - Atom/(.Role := Evaluation)
+version: 33
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-001@33
+status: Archived
+current_scope_unit: caprmedio
+tier: 0
+role: Evaluation
+form: Eval Policy
+---
+## Summary
+
+Make governed commitments and results checkable
+
+## Claim
+
+governed commitments **and** results **must** be checkable **when** used **to** govern work **or** evaluate a result.

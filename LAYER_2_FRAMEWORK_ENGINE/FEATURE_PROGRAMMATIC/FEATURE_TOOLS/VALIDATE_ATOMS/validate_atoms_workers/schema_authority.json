@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "description": "Reviewed supporting authority for structural schema checks. Exact source bytes are required; this is implementation provenance, not independent methodology authority.",
+  "sources": {
+    "CA-D-378": {
+      "version": 16,
+      "sha256": "d4e6f0569f81a54f434d060ea6e2a271dea51611a66a1afd0f6a10ca127c7562",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL--serialize-assigned-atom-identities.md"
+    },
+    "CA-D-288": {
+      "version": 21,
+      "sha256": "ee2d67a592d36a35d4c38ba7212091151eaaaef0f5687030665296ed6133efe3",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-288-CORE_META_MODEL-DELIVERY--serialize-draft-atom-filenames-with-an-empty-number.md"
+    },
+    "CA-D-289": {
+      "version": 13,
+      "sha256": "37825a9b828fe2015f2fa5eadf54f233091def0529cbf5c79060ec865403c8f0",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-289-CORE_META_MODEL--serialize-archive-revision-version-suffixes.md"
+    },
+    "CA-R-1933": {
+      "version": 2,
+      "sha256": "d4085b56f48e3964ca099793747097cf9ffa986d38b6971a22edcb50f589c4d8",
+      "source_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-1933-TOOL_WORKFLOWS-CORE-REQUIREMENT--edit-one-explicit-atom-section.md"
+    },
+    "CA-M-373": {
+      "version": 3,
+      "sha256": "5444a9c6399dec1c9c7023acee5581067183a2595a470c0f6ac70f8157c21285",
+      "source_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/05_method/CA-M-373-TOOL_WORKFLOWS-METHOD--apply-one-explicit-atom-section-edit.md"
+    },
+    "CA-D-623": {
+      "version": 2,
+      "sha256": "b97a8220c4639adceddc5bfa1d044ab556dca251247f18a1e36600f0fed3e8b0",
+      "source_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/07_delivery/CA-D-623-TOOL_WORKFLOWS-CORE-DELIVERY--deliver-logical-atom-modifications.md"
+    },
+    "CA-R-1700": {
+      "version": 21,
+      "sha256": "6df2206a5d6d534dead7d7d0a6994db1023345e515c40025a01004403cf25832",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1700-CORE_META_MODEL-CORE-REQUIREMENT--admit-atoms-only-where-a-role-has-an-atomic-unit.md"
+    },
+    "CA-R-925": {
+      "version": 21,
+      "sha256": "614d48d0fe96e31d48ca27f14dbcc4614e6b37273e6e0faf0a3a6d7bbbd243e9",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-925-CORE_META_MODEL-CORE-REQUIREMENT--define-goal-atom.md"
+    },
+    "CA-R-932": {
+      "version": 23,
+      "sha256": "8c5a6a91ffd4c5b233f849ad823c75991bfdcdc877fbebbab4674b62cd317565",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md"
+    },
+    "CA-R-1674": {
+      "version": 21,
+      "sha256": "d34fedfdc514c88ad8da61d0537dd7d158bb6ca99ad73c0fc41309f0240c14f4",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1674-CORE_META_MODEL--define-external-implementation-method-as-a-type-value-for-method-atoms.md"
+    },
+    "CA-R-1666": {
+      "version": 25,
+      "sha256": "7c693406f9f435d5aac909033d108c3384613487ee65c4ef940195fda337ccc0",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1666-PROJECT_CONFIGURATION-GENERAL-REQUIREMENT--register-action-policy-for-plan-atoms.md"
+    },
+    "CA-R-825": {
+      "version": 21,
+      "sha256": "47d00e7f85e60bcd28454a8a6549a37302754c7428f26e407d8bb1cb9c518046",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-825-CORE_META_MODEL-REQUIREMENT--define-boundary-as-a-type-value-for-requirement-atoms.md"
+    },
+    "CA-R-1673": {
+      "version": 24,
+      "sha256": "dde942820abe638dbfc1586fa11667299cdb583bd68768ab4e3d872000d4a88c",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1673-CORE_META_MODEL-REQUIREMENT--register-constraint-as-an-external-type-value-for-requirement-atoms.md"
+    },
+    "CA-R-1675": {
+      "version": 21,
+      "sha256": "cee0d0321a221f300d25586590a7607b4dd96668c1fd935c5566077c2fd2d832",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1675-CORE_META_MODEL--define-method-binding-as-a-type-value-for-method-atoms.md"
+    },
+    "CA-R-1667": {
+      "version": 22,
+      "sha256": "73b1a6f89dd1eb9f3a58bb3b95e53b8ce738ad7f0e76d877b163aca06c8bb961",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1667-CORE_META_MODEL-REQUIREMENT--define-implementation-method-as-a-type-value-for-method-atoms.md"
+    },
+    "CA-R-793": {
+      "version": 24,
+      "sha256": "64390748e2831226ce86ecff6aad4391bd5d5264c79dd715b9ed6f99a5996bfa",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-793-CORE_META_MODEL--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md"
+    },
+    "CA-R-1668": {
+      "version": 22,
+      "sha256": "355a65673d1c9c33b0a6a44f09a7eaae33ab08623e020c16b9318aaf14dd597f",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1668-PROJECT_CONFIGURATION-REQUIREMENT--define-implementation-decision-as-a-type-value-for-method-atoms.md"
+    },
+    "CA-R-1662": {
+      "version": 26,
+      "sha256": "0baa7e3d84c87db43509a6f9f3c5a2d3aa49a4b22e03e5dec1164f4a0763d91b",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1662-PROJECT_CONFIGURATION-REQUIREMENT--register-type-values-for-evaluation-atoms.md"
+    },
+    "CA-R-1665": {
+      "version": 21,
+      "sha256": "6281cf6e830f81f1dcc472a51903f4721e81aa69948a29a660c106db2c5e9f77",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1665-PROJECT_CONFIGURATION-REQUIREMENT--register-type-values-for-delivery-atoms.md"
+    },
+    "CA-R-1232": {
+      "version": 15,
+      "sha256": "ca3e08b4b4aa5218a7be24e78377afa612e5b2aa4606ea7dde20dd62271499f4",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1232-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-type-values-for-analysis-atoms.md"
+    },
+    "CA-R-1506": {
+      "version": 6,
+      "sha256": "2ba96cf1e6f643b445bec93f02e52cbd12c91ef715b2cf336956366f59a2babe",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1506-CORE_META_MODEL-CORE-REQUIREMENT--separate-check-mechanism-labels-from-evaluation-atom-types.md"
+    },
+    "CA-R-1286": {
+      "version": 12,
+      "sha256": "58941ff5c9b3e523deb2f8ff90ea22abf40a4c8362b55636d40ea0051583bd7b",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1286-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-type-domains-open.md"
+    },
+    "CA-R-1284": {
+      "version": 11,
+      "sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md"
+    },
+    "CA-R-2001": {
+      "version": 1,
+      "sha256": "ea36b75461efd0422b94f0cdc87f6d4baaba9c32a4ffbbb25a606c696fc9b6b2",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2001-CORE_META_MODEL-CORE--define-atom-content-role-requirement-type-graph-rule.md"
+    },
+    "CA-D-637": {
+      "version": 2,
+      "sha256": "24a09dfb191da10df2f5952dc381d50d32fa17c039a4783bc8a0feaa2de370b4",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md"
+    },
+    "CA-R-1996": {
+      "version": 2,
+      "sha256": "6fac11a4a473a8643da93980cad8de3db22bcf3c9888ec615602ae76bf0fe3a2",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1996-CORE_META_MODEL-CORE--define-entity-graph-rule-type.md"
+    },
+    "CA-R-1931": {
+      "version": 1,
+      "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md"
+    },
+    "CA-R-1321": {
+      "version": 16,
+      "sha256": "88b6c64ed411516a4e20a49e4356a3d900e3f47501705079dd251d970793f5f6",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md"
+    },
+    "CA-R-1324": {
+      "version": 13,
+      "sha256": "9fa9571ff5f6c6bc0d01c2b7724cd9ed197a4df82b3e66a53d3f0bb56781a866",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md"
+    },
+    "CA-M-228": {
+      "version": 18,
+      "sha256": "9ca9e4fc32d5ea9b3406184b81c8a5a3c82d01be0237302cfe4f342e098a95ee",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md"
+    },
+    "CA-E-383": {
+      "version": 19,
+      "sha256": "0eb072584f801e9f0774670b9fb47b776e427488e937e28e74254e21dace7490",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md"
+    }
+  }
+}

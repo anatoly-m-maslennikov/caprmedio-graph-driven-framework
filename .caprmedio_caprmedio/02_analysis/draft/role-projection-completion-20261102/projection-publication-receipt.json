@@ -1,0 +1,206 @@
+{
+  "status": "APPLIED",
+  "accepted_at": "2026-11-02 20:24:45 +0400",
+  "staging_manifest_sha256": "e3c6fd7a3914fbba45d641d25dcb30e9ffc3a68736a7efcb8496c08ba48f2a81",
+  "frontier_sha256": "086527d582e14ff20a07f8dd382a20d2d5a3da98127e33b5a9e1f4cf675d390b",
+  "sources": 1128,
+  "projections": [
+    {
+      "id": "CA-PROJ-014",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md",
+      "before_sha256": "a3f3e2af76ec7c0d17c5540b4dc7ea1c050905ae4bc22bf8cacd098eabd879e8",
+      "sha256": "93269751da5df59ce4562b7a3d27199092b423b1d2bfba43b16842a5421dd9ef",
+      "predecessor": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/projection-predecessors/CA-PROJ-014-a3f3e2af76ec7c0d17c5540b4dc7ea1c050905ae4bc22bf8cacd098eabd879e8.txt",
+      "source_count": 1128
+    },
+    {
+      "id": "CA-PROJ-015",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-015-CAPRMEDIO--Subject-Graph-Properties--Current-Methodology-and-Project-RMED.md",
+      "before_sha256": "c386d0deb4d9fe8e7adbb6e7eebc0430d6ed442eecdcd4d496e30ad666e4732c",
+      "sha256": "bbbac36ca8de4fe86715422798ed23931e04f3afe718e166450c5a246c1d53d5",
+      "predecessor": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/projection-predecessors/CA-PROJ-015-c386d0deb4d9fe8e7adbb6e7eebc0430d6ed442eecdcd4d496e30ad666e4732c.txt",
+      "source_count": 1128
+    },
+    {
+      "id": "CA-PROJ-016",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-016-CAPRMEDIO--Subject-Graph-Instances--Current-Methodology-and-Project-RMED.md",
+      "before_sha256": "4cb65bd8ddea2b1896986d9f1de71b1dfed6ccce4b229ee58466a58d3aad61ac",
+      "sha256": "b3447ed521ee021dd025cff022a43f319f77fe6a52652994665ed78f1754266f",
+      "predecessor": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/projection-predecessors/CA-PROJ-016-4cb65bd8ddea2b1896986d9f1de71b1dfed6ccce4b229ee58466a58d3aad61ac.txt",
+      "source_count": 1128
+    },
+    {
+      "id": "CA-PROJ-017",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-017-CAPRMEDIO--Model-Graph--Current-MODEL-Declarations.md",
+      "before_sha256": "b389f5aae86452222b8929736da41af25c523ada69c234b63c5b16391a62dcda",
+      "sha256": "3328b42f103b0dd48cfb408c0a029e375de665a0abeea6af9ddcdabf54fa3fba",
+      "predecessor": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/projection-predecessors/CA-PROJ-017-b389f5aae86452222b8929736da41af25c523ada69c234b63c5b16391a62dcda.txt",
+      "source_count": 172
+    },
+    {
+      "id": "CA-PROJ-018",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-018-CAPRMEDIO--Entities-Graph--Current-Subject-Narrowing-Tree.md",
+      "before_sha256": "4c2b7bc0ebfdcabd9947b5fd25127296a5ff699ed0d7d636ca172a283c189636",
+      "sha256": "d6109d5ee67ecdc44c08d8e3aad6f921c0978c4fb3cd129dea3433c1ca754867",
+      "predecessor": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/projection-predecessors/CA-PROJ-018-4c2b7bc0ebfdcabd9947b5fd25127296a5ff699ed0d7d636ca172a283c189636.txt",
+      "source_count": 219
+    },
+    {
+      "id": "CA-PROJ-019",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-019-CAPRMEDIO--MODEL-Formal-Contracts.md",
+      "before_sha256": "00771a8390216e22f42a72429b1f2cb986f7d40c23bfc7ad76249a3a4f1d029a",
+      "sha256": "eaecf180f6a7c5bd4a45db0c9953577a4d34b69a1071122c4c24203a38ae361b",
+      "predecessor": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/projection-predecessors/CA-PROJ-019-00771a8390216e22f42a72429b1f2cb986f7d40c23bfc7ad76249a3a4f1d029a.txt",
+      "source_count": 1128
+    }
+  ],
+  "events": [
+    {
+      "event_id": "c72cc3b1-36b2-4994-9b68-868a327467fb",
+      "happened_at": "2026-11-02 20:24:45 +0400",
+      "inserted_at": "2026-11-02T16:24:45.965224+00:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-PROJ-014",
+        "updated_at": "2026-11-02 15:00:34 +0400"
+      },
+      "object_output": {
+        "id": "CA-PROJ-014",
+        "updated_at": "2026-11-02 20:24:45 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "7ce22eb2-7d18-4b29-b864-9fa22729ffe1",
+      "happened_at": "2026-11-02 20:24:45 +0400",
+      "inserted_at": "2026-11-02T16:24:46.008827+00:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-PROJ-015",
+        "updated_at": "2026-11-02 15:00:34 +0400"
+      },
+      "object_output": {
+        "id": "CA-PROJ-015",
+        "updated_at": "2026-11-02 20:24:45 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "f14f7dc9-795b-445f-a1fb-1423844d27f5",
+      "happened_at": "2026-11-02 20:24:45 +0400",
+      "inserted_at": "2026-11-02T16:24:46.050642+00:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-PROJ-016",
+        "updated_at": "2026-11-02 15:00:34 +0400"
+      },
+      "object_output": {
+        "id": "CA-PROJ-016",
+        "updated_at": "2026-11-02 20:24:45 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "2a7d680b-5553-4a9b-8d2d-db5561ddee71",
+      "happened_at": "2026-11-02 20:24:45 +0400",
+      "inserted_at": "2026-11-02T16:24:46.059055+00:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-PROJ-017",
+        "updated_at": "2026-11-02 08:06:55 +0400"
+      },
+      "object_output": {
+        "id": "CA-PROJ-017",
+        "updated_at": "2026-11-02 20:24:45 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "f37a9871-08c7-4ddc-b194-bc133e31207d",
+      "happened_at": "2026-11-02 20:24:45 +0400",
+      "inserted_at": "2026-11-02T16:24:46.068332+00:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-PROJ-018",
+        "updated_at": "2026-11-02 08:12:36 +0400"
+      },
+      "object_output": {
+        "id": "CA-PROJ-018",
+        "updated_at": "2026-11-02 20:24:45 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    },
+    {
+      "event_id": "98c0edad-654a-4a5b-a539-d44b8903a422",
+      "happened_at": "2026-11-02 20:24:45 +0400",
+      "inserted_at": "2026-11-02T16:24:46.116396+00:00",
+      "action": "update",
+      "object_input": {
+        "id": "CA-PROJ-019",
+        "updated_at": "2026-11-02 15:00:34 +0400"
+      },
+      "object_output": {
+        "id": "CA-PROJ-019",
+        "updated_at": "2026-11-02 20:24:45 +0400"
+      },
+      "relations": {
+        "HAS_EVENT_AUTHOR": "Actor//Codex"
+      }
+    }
+  ],
+  "journal_receipts": [
+    {
+      "event_id": "c72cc3b1-36b2-4994-9b68-868a327467fb",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-4.ndjson",
+      "line": 392
+    },
+    {
+      "event_id": "7ce22eb2-7d18-4b29-b864-9fa22729ffe1",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-4.ndjson",
+      "line": 393
+    },
+    {
+      "event_id": "f14f7dc9-795b-445f-a1fb-1423844d27f5",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-4.ndjson",
+      "line": 394
+    },
+    {
+      "event_id": "2a7d680b-5553-4a9b-8d2d-db5561ddee71",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-4.ndjson",
+      "line": 395
+    },
+    {
+      "event_id": "f37a9871-08c7-4ddc-b194-bc133e31207d",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-4.ndjson",
+      "line": 396
+    },
+    {
+      "event_id": "98c0edad-654a-4a5b-a539-d44b8903a422",
+      "action_id": null,
+      "event_digest": null,
+      "carrier": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-4.ndjson",
+      "line": 397
+    }
+  ],
+  "journal_records": 6
+}

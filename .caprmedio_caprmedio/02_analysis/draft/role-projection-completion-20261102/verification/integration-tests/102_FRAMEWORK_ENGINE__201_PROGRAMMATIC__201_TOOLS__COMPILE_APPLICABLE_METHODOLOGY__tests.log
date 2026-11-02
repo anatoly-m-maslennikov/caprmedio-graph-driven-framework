@@ -1,0 +1,1662 @@
+======================================================================
+ERROR: test_changed_control_root_blocks_staging_at_original_places (test_compile_applicable_methodology.CompilerTest.test_changed_control_root_blocks_staging_at_original_places)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 229, in test_changed_control_root_blocks_staging_at_original_places
+    places = module.methodology_paths(self.temp)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+compile_applicable_methodology.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_changed_declaration_frontier_blocks_staging_at_original_places (test_compile_applicable_methodology.CompilerTest.test_changed_declaration_frontier_blocks_staging_at_original_places)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 216, in test_changed_declaration_frontier_blocks_staging_at_original_places
+    places = module.methodology_paths(self.temp)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+compile_applicable_methodology.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_declarations_drive_configured_projection_places (test_compile_applicable_methodology.CompilerTest.test_declarations_drive_configured_projection_places)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 205, in test_declarations_drive_configured_projection_places
+    places = module.methodology_paths(self.temp)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+compile_applicable_methodology.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_dry_run_reports_all_five_conflict_classes (test_compile_applicable_methodology.CompilerTest.test_dry_run_reports_all_five_conflict_classes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 383, in test_dry_run_reports_all_five_conflict_classes
+    {item["type"] for item in report["conflicts"]},
+                              ~~~~~~^^^^^^^^^^^^^
+KeyError: 'conflicts'
+
+======================================================================
+ERROR: test_duplicate_governed_term_definition_blocks_apply (test_compile_applicable_methodology.CompilerTest.test_duplicate_governed_term_definition_blocks_apply)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 293, in test_duplicate_governed_term_definition_blocks_apply
+    row for row in report["conflicts"] if row["type"] == "duplicate_governed_term_definition"
+                   ~~~~~~^^^^^^^^^^^^^
+KeyError: 'conflicts'
+
+======================================================================
+ERROR: test_duplicate_identity_blocks_apply_without_exact_approval (test_compile_applicable_methodology.CompilerTest.test_duplicate_identity_blocks_apply_without_exact_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 267, in test_duplicate_identity_blocks_apply_without_exact_approval
+    self.assertGreaterEqual(report["conflict_count"], 1)
+                            ~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'conflict_count'
+
+======================================================================
+ERROR: test_explicit_release_child_places_remain_independent_of_canonical_target (test_compile_applicable_methodology.CompilerTest.test_explicit_release_child_places_remain_independent_of_canonical_target)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 244, in test_explicit_release_child_places_remain_independent_of_canonical_target
+    canonical = module.methodology_paths(self.temp)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+compile_applicable_methodology.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_ignores_ds_store_in_source_snapshot_and_governed_bindings (test_compile_applicable_methodology.CompilerTest.test_ignores_ds_store_in_source_snapshot_and_governed_bindings)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 165, in test_ignores_ds_store_in_source_snapshot_and_governed_bindings
+    places = module.methodology_paths(self.temp)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+compile_applicable_methodology.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_output_collision_is_reported (test_compile_applicable_methodology.CompilerTest.test_output_collision_is_reported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 346, in test_output_collision_is_reported
+    self.assertIn("output_path_collision", {item["type"] for item in report["conflicts"]})
+                                                                     ~~~~~~^^^^^^^^^^^^^
+KeyError: 'conflicts'
+
+======================================================================
+ERROR: test_project_configuration_toml_index_cannot_resolve_one_conflict (test_compile_applicable_methodology.CompilerTest.test_project_configuration_toml_index_cannot_resolve_one_conflict)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 304, in test_project_configuration_toml_index_cannot_resolve_one_conflict
+    conflict = next(item for item in initial["conflicts"] if item["type"] == "duplicate_selected_atom_identity")
+                                     ~~~~~~~^^^^^^^^^^^^^
+KeyError: 'conflicts'
+
+======================================================================
+ERROR: test_stale_approval_does_not_replace_output (test_compile_applicable_methodology.CompilerTest.test_stale_approval_does_not_replace_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 327, in test_stale_approval_does_not_replace_output
+    conflict = initial["conflicts"][0]
+               ~~~~~~~^^^^^^^^^^^^^
+KeyError: 'conflicts'
+
+======================================================================
+ERROR: test_canonical_instance_addition_mutation_and_removal_change_source_snapshot (test_framework_settings_carrier.FrameworkSettingsCarrierTest.test_canonical_instance_addition_mutation_and_removal_change_source_snapshot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_framework_settings_carrier.py", line 72, in test_canonical_instance_addition_mutation_and_removal_change_source_snapshot
+    places = self.paths()
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_framework_settings_carrier.py", line 47, in paths
+    return compiler.methodology_paths(self.root)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+compile_applicable_methodology_settings.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_nondefault_control_root_uses_canonical_instance_and_merges_default (test_framework_settings_carrier.FrameworkSettingsCarrierTest.test_nondefault_control_root_uses_canonical_instance_and_merges_default)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_framework_settings_carrier.py", line 63, in test_nondefault_control_root_uses_canonical_instance_and_merges_default
+    settings, bindings = compiler.framework_settings(self.root, self.paths())
+                                                                ~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_framework_settings_carrier.py", line 47, in paths
+    return compiler.methodology_paths(self.root)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+compile_applicable_methodology_settings.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_complete_active_frontier_is_bound_and_source_change_rejects_before_effect (test_methodology_export.MethodologyExportTest.test_complete_active_frontier_is_bound_and_source_change_rejects_before_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 211, in test_complete_active_frontier_is_bound_and_source_change_rejects_before_effect
+    frozen = self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_configured_extension_revision_is_frozen_and_unselected_revision_is_excluded (test_methodology_export.MethodologyExportTest.test_configured_extension_revision_is_frozen_and_unselected_revision_is_excluded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 412, in test_configured_extension_revision_is_frozen_and_unselected_revision_is_excluded
+    self.freeze([{"atom_id": "CA-R-010", "version": 2}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_declared_control_frontier_contains_required_tool_bindings_without_using_methodology_source_layout (test_methodology_export.MethodologyExportTest.test_declared_control_frontier_contains_required_tool_bindings_without_using_methodology_source_layout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 396, in test_declared_control_frontier_contains_required_tool_bindings_without_using_methodology_source_layout
+    binding = exporter.reopen_project_export_binding(self.root, self.source)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 306, in reopen_project_export_binding
+    binding = _project_binding(project_root, _source_root(source_root))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_export_requires_a_physical_canonical_frozen_manifest (test_methodology_export.MethodologyExportTest.test_export_requires_a_physical_canonical_frozen_manifest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 202, in test_export_requires_a_physical_canonical_frozen_manifest
+    self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_exports_only_frozen_selected_active_atoms_and_explicit_support (test_methodology_export.MethodologyExportTest.test_exports_only_frozen_selected_active_atoms_and_explicit_support)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 178, in test_exports_only_frozen_selected_active_atoms_and_explicit_support
+    frozen = self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_fault_leaves_explicit_unsealed_state_and_rejected_partial_cannot_resume (test_methodology_export.MethodologyExportTest.test_fault_leaves_explicit_unsealed_state_and_rejected_partial_cannot_resume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 562, in test_fault_leaves_explicit_unsealed_state_and_rejected_partial_cannot_resume
+    self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_frozen_binding_frontier_discovers_two_active_deliveries_outside_methodology_and_projects_them (test_methodology_export.MethodologyExportTest.test_frozen_binding_frontier_discovers_two_active_deliveries_outside_methodology_and_projects_them)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 255, in test_frozen_binding_frontier_discovers_two_active_deliveries_outside_methodology_and_projects_them
+    frozen = self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_frozen_binding_frontier_refuses_an_added_active_control_binding_before_export (test_methodology_export.MethodologyExportTest.test_frozen_binding_frontier_refuses_an_added_active_control_binding_before_export)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 347, in test_frozen_binding_frontier_refuses_an_added_active_control_binding_before_export
+    self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_frozen_binding_frontier_refuses_framework_engine_inventory_drift_before_export (test_methodology_export.MethodologyExportTest.test_frozen_binding_frontier_refuses_framework_engine_inventory_drift_before_export)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 326, in test_frozen_binding_frontier_refuses_framework_engine_inventory_drift_before_export
+    self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_historical_sealed_v1_export_remains_readable (test_methodology_export.MethodologyExportTest.test_historical_sealed_v1_export_remains_readable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 500, in test_historical_sealed_v1_export_remains_readable
+    self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_legacy_frozen_manifest_cannot_create_a_fresh_candidate (test_methodology_export.MethodologyExportTest.test_legacy_frozen_manifest_cannot_create_a_fresh_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 479, in test_legacy_frozen_manifest_cannot_create_a_fresh_candidate
+    frozen = self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_mixed_framework_and_registered_project_tools_exports_only_framework_binding (test_methodology_export.MethodologyExportTest.test_mixed_framework_and_registered_project_tools_exports_only_framework_binding)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 294, in test_mixed_framework_and_registered_project_tools_exports_only_framework_binding
+    frozen = self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_project_binding_refuses_declaration_frontier_drift (test_methodology_export.MethodologyExportTest.test_project_binding_refuses_declaration_frontier_drift)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 454, in test_project_binding_refuses_declaration_frontier_drift
+    self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_project_binding_reopens_canonical_instance_and_refuses_wrong_root (test_methodology_export.MethodologyExportTest.test_project_binding_reopens_canonical_instance_and_refuses_wrong_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 431, in test_project_binding_reopens_canonical_instance_and_refuses_wrong_root
+    frozen = self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_same_run_refuses_different_sealed_manifest (test_methodology_export.MethodologyExportTest.test_same_run_refuses_different_sealed_manifest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 578, in test_same_run_refuses_different_sealed_manifest
+    first = self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_stale_catalog_and_unsafe_support_refuse_before_effect (test_methodology_export.MethodologyExportTest.test_stale_catalog_and_unsafe_support_refuse_before_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 530, in test_stale_catalog_and_unsafe_support_refuse_before_effect
+    self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_writer_lock_refuses_concurrent_writer_and_reader (test_methodology_export.MethodologyExportTest.test_writer_lock_refuses_concurrent_writer_and_reader)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 548, in test_writer_lock_refuses_concurrent_writer_and_reader
+    self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 149, in freeze
+    manifest = exporter.freeze_methodology_manifest(
+        source_root=self.source,
+    ...<3 lines>...
+        project_root=self.root,
+    )
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 652, in freeze_methodology_manifest
+    project_binding = _project_binding(project_root, root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_engine_persistent_byte_change_changes_inventory_digest (test_methodology_export_batches.MethodologyExportBatchTests.test_engine_persistent_byte_change_changes_inventory_digest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export_batches.py", line 144, in test_engine_persistent_byte_change_changes_inventory_digest
+    _fixture, _engine, member, binding = self.engine_fixture()
+                                         ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export_batches.py", line 109, in engine_fixture
+    binding = exporter.reopen_project_export_binding(fixture.root, fixture.source)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 306, in reopen_project_export_binding
+    binding = _project_binding(project_root, _source_root(source_root))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_engine_persistent_symlink_is_still_rejected (test_methodology_export_batches.MethodologyExportBatchTests.test_engine_persistent_symlink_is_still_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export_batches.py", line 137, in test_engine_persistent_symlink_is_still_rejected
+    _fixture, engine, member, binding = self.engine_fixture()
+                                        ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export_batches.py", line 109, in engine_fixture
+    binding = exporter.reopen_project_export_binding(fixture.root, fixture.source)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 306, in reopen_project_export_binding
+    binding = _project_binding(project_root, _source_root(source_root))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_engine_transient_cache_symlink_is_excluded_before_walk_or_payload_read (test_methodology_export_batches.MethodologyExportBatchTests.test_engine_transient_cache_symlink_is_excluded_before_walk_or_payload_read)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 81, in read_scope_unit_declarations
+    raise ScopeDeclarationError(
+        "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
+    )
+scope_declaration_parse.ScopeDeclarationError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 193, in methodology_paths
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 261, in _project_binding
+    places = compiler.methodology_paths(project)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", line 195, in methodology_paths
+    raise CompileError("scope-declarations-invalid", "Cannot resolve methodology places from Scope Unit Declarations") from error
+caprmedio_methodology_export_compiler.CompileError: Cannot resolve methodology places from Scope Unit Declarations
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export_batches.py", line 113, in test_engine_transient_cache_symlink_is_excluded_before_walk_or_payload_read
+    fixture, engine, _member, binding = self.engine_fixture()
+                                        ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export_batches.py", line 109, in engine_fixture
+    binding = exporter.reopen_project_export_binding(fixture.root, fixture.source)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 306, in reopen_project_export_binding
+    binding = _project_binding(project_root, _source_root(source_root))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py", line 263, in _project_binding
+    raise MethodologyExportError(error.code, error.message, **error.details) from error
+methodology_export.MethodologyExportError: Cannot resolve methodology places from Scope Unit Declarations
+
+======================================================================
+ERROR: test_cli_remains_a_json_compatibility_wrapper (test_selected_compilation.SelectedCompilationTest.test_cli_remains_a_json_compatibility_wrapper)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-a_q3w2as/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_configured_control_root_owns_the_canonical_journal (test_selected_compilation.SelectedCompilationTest.test_configured_control_root_owns_the_canonical_journal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-ltyq_x0c/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_every_settings_activated_extension_revision_is_retained (test_selected_compilation.SelectedCompilationTest.test_every_settings_activated_extension_revision_is_retained)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-fojh6g83/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_exact_canonical_journal_decision_is_required_then_source_change_forces_reassessment (test_selected_compilation.SelectedCompilationTest.test_exact_canonical_journal_decision_is_required_then_source_change_forces_reassessment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-kgfa_0v4/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_golden_active_core_extension_and_project_configuration_preserve_source_fidelity (test_selected_compilation.SelectedCompilationTest.test_golden_active_core_extension_and_project_configuration_preserve_source_fidelity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-9wqqov6k/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_inactive_or_unselected_extension_is_excluded_and_not_published (test_selected_compilation.SelectedCompilationTest.test_inactive_or_unselected_extension_is_excluded_and_not_published)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-ujcc4kl_/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_publication_failure_and_uncertainty_report_no_success_receipt (test_selected_compilation.SelectedCompilationTest.test_publication_failure_and_uncertainty_report_no_success_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-whxxbdr6/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_recovery_requires_canonical_failed_publication_evidence_and_preserves_shared_receipt_context (test_selected_compilation.SelectedCompilationTest.test_recovery_requires_canonical_failed_publication_evidence_and_preserves_shared_receipt_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-21h9yx2k/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_rejected_and_stale_canonical_decisions_preserve_prior_projection (test_selected_compilation.SelectedCompilationTest.test_rejected_and_stale_canonical_decisions_preserve_prior_projection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-8vdm62yw/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_source_change_after_output_replacement_requires_recovery_without_success_claim (test_selected_compilation.SelectedCompilationTest.test_source_change_after_output_replacement_requires_recovery_without_success_claim)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-nr2kyhz6/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_source_change_after_staging_preserves_prior_output_before_publication (test_selected_compilation.SelectedCompilationTest.test_source_change_after_staging_preserves_prior_output_before_publication)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-wzclw0nl/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_source_correction_handoff_requires_fresh_selection_and_assessment (test_selected_compilation.SelectedCompilationTest.test_source_correction_handoff_requires_fresh_selection_and_assessment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-qvspxhvv/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_strict_request_boundary_rejects_unauthorized_fields_without_effects (test_selected_compilation.SelectedCompilationTest.test_strict_request_boundary_rejects_unauthorized_fields_without_effects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-brequaxh/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+ERROR: test_toml_only_approval_is_not_a_decision_and_preserves_prior_output (test_selected_compilation.SelectedCompilationTest.test_toml_only_approval_is_not_a_decision_and_preserves_prior_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_selected_compilation.py", line 60, in setUp
+    (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/selected-compilation-tests/case-s55i4etl/.caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml'
+
+======================================================================
+FAIL: test_drafts_archives_cap_and_implementation_are_excluded (test_compile_applicable_methodology.CompilerTest.test_drafts_archives_cap_and_implementation_are_excluded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 411, in test_drafts_archives_cap_and_implementation_are_excluded
+    self.assertEqual(code, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_dry_run_apply_rerun_and_regeneration_are_deterministic (test_compile_applicable_methodology.CompilerTest.test_dry_run_apply_rerun_and_regeneration_are_deterministic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 136, in test_dry_run_apply_rerun_and_regeneration_are_deterministic
+    self.assertEqual((first_code, first), (0, second))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (2, {'authority': 'non_authoritative_dry_r[211 chars]v2'}) != (0, {'authority': 'non_authoritative_dry_r[211 chars]v2'})
+
+First differing element 0:
+2
+0
+
+- (2,
++ (0,
+   {'authority': 'non_authoritative_dry_run',
+    'can_apply': False,
+    'diagnostics': [{'code': 'scope-declarations-invalid',
+                     'message': 'Cannot resolve methodology places from Scope '
+                                'Unit Declarations'}],
+    'schema': 'caprmedio.compile_applicable_methodology.v2'})
+
+======================================================================
+FAIL: test_failed_multi_directory_swap_rolls_back (test_compile_applicable_methodology.CompilerTest.test_failed_multi_directory_swap_rolls_back)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 419, in test_failed_multi_directory_swap_rolls_back
+    self.assertEqual(code, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_ignores_ds_store_in_generated_output_but_rejects_real_extra (test_compile_applicable_methodology.CompilerTest.test_ignores_ds_store_in_generated_output_but_rejects_real_extra)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 179, in test_ignores_ds_store_in_generated_output_but_rejects_real_extra
+    self.assertEqual(0, apply_code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_source_unit_role_directories_do_not_count_as_source_layers (test_compile_applicable_methodology.CompilerTest.test_source_unit_role_directories_do_not_count_as_source_layers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py", line 200, in test_source_unit_role_directories_do_not_count_as_source_layers
+    self.assertEqual(code, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_symlinked_canonical_carrier_or_ancestor_is_refused (test_framework_settings_carrier.FrameworkSettingsCarrierTest.test_symlinked_canonical_carrier_or_ancestor_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_framework_settings_carrier.py", line 94, in test_symlinked_canonical_carrier_or_ancestor_is_refused
+    self.assertEqual("framework-settings-invalid", symlinked_file.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'framework-settings-invalid' != 'scope-declarations-invalid'
+- framework-settings-invalid
++ scope-declarations-invalid
+
+
+======================================================================
+FAIL: test_binding_frontier_requires_an_explicit_atom_id_in_control_metadata (test_methodology_export.MethodologyExportTest.test_binding_frontier_requires_an_explicit_atom_id_in_control_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 374, in test_binding_frontier_requires_an_explicit_atom_id_in_control_metadata
+    self.assertEqual("binding-source-identity-invalid", raised.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'binding-source-identity-invalid' != 'scope-declarations-invalid'
+- binding-source-identity-invalid
++ scope-declarations-invalid
+
+
+======================================================================
+FAIL: test_unavailable_configured_extension_revision_refuses_before_freeze_or_export (test_methodology_export.MethodologyExportTest.test_unavailable_configured_extension_revision_refuses_before_freeze_or_export)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 426, in test_unavailable_configured_extension_revision_refuses_before_freeze_or_export
+    self.assertEqual("activated-extension-revision-missing", raised.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'activated-extension-revision-missing' != 'scope-declarations-invalid'
+- activated-extension-revision-missing
++ scope-declarations-invalid
+
+
+======================================================================
+FAIL: test_unregistered_project_tools_entrypoint_remains_invalid_framework_binding (test_methodology_export.MethodologyExportTest.test_unregistered_project_tools_entrypoint_remains_invalid_framework_binding)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_methodology_export.py", line 310, in test_unregistered_project_tools_entrypoint_remains_invalid_framework_binding
+    self.assertEqual("binding-entrypoint-invalid", raised.exception.code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'binding-entrypoint-invalid' != 'scope-declarations-invalid'
+- binding-entrypoint-invalid
++ scope-declarations-invalid
+
+
+----------------------------------------------------------------------
+Ran 76 tests in 1.726s
+
+FAILED (failures=9, errors=47)

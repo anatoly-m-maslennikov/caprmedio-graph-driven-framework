@@ -1,17 +1,17 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-version: 26
-updated_at: 2026-11-02 00:18:22 +0400
+version: 28
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-R-1421
   - CA-M-005
   - CA-M-006
 subjects:
-  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  active: Aspects <+ Product
   passive:
-  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  - Aspects <+ Product
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-831

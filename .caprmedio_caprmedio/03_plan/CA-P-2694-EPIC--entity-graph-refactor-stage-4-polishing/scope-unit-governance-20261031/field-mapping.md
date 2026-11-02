@@ -1,24 +1,26 @@
 # Scope Unit Declaration source fields
 
-The 44 retained instance Drafts state existing facts in prose; the separate APPLICABLE_METHODOLOGY Scope Unit Draft is withdrawn after the Operator confirmed it is a special Projection. This map does not introduce new YAML keys, GFEL operators or Scope Unit properties.
+This map records the old source and its proposed formal representation. The Current TOML is unchanged; these are Drafts, not a live source cutover.
 
-| Existing source | Declaration treatment | Existing defining sources |
-| --- | --- | --- |
-| Settings project name | Root Scope Unit identity; no invented Project Structure row | R1484, R1738 |
-| scope_unit_name | Exact Name; the active Subject identifies this Scope Unit instance | R1484 |
-| scope_unit_type | Preserve Ordered or Unordered | R1484, D442 |
-| scope_unit_label | Preserve the existing Label | R1484, D442 |
-| parent | Immediate containing Scope Unit; PROJECT resolves to the named Project root | R2402, R1757 |
-| local_order | Preserve the nine retained explicit values; the tenth belongs to the withdrawn hosting Scope Unit; do not add values to Unordered units | R1484, D442 |
-| navigational_order_number | Omit from Scope Unit Drafts, following the latest Operator decision | Supersedes the relevant parts of R1484, D442 and D297 |
-| authority_path | Preserve the authority Carrier place; this is not logical Scope Unit.Path | D312, D442, D445, R2133 |
-| delivery_path | Preserve the Delivery/Implementation Carrier place | D312, R862, D442, D445 |
-| authority_mode | Preserve five retained explicit strict overrides; the sixth belongs to the withdrawn hosting Scope Unit; do not copy inherited defaults | R1430, R1402, R2404, D391, D442 |
+| Source | Proposed formal representation |
+| --- | --- |
+| Project Settings name | `Project//caprmedio.Name`; Project classification comes from its model |
+| No existing Scope Unit ID field | `Scope Unit//<name>.ID` for 43 non-root units; no ID for Project |
+| scope_unit_name | `Scope Unit//<name>.Name` |
+| scope_unit_label | `.Label`, preserving all 43 explicit labels |
+| scope_unit_type | Boolean `.order.ordered`: Ordered → true, Unordered → false |
+| local_order | `.order.number`; nine existing positive integers, exactly one for an Ordered unit; no value otherwise |
+| parent | Direct `IS_CONTAINED_BY`; root parents resolve to `Project//caprmedio` |
+| navigational_order_number | Omitted; Scope Units have no Navigation Number |
+| authority_path / delivery_path | Historical evidence only. Folder paths are derived, not copied into Declarations |
+| authority_mode | Retired by Operator decision; do not carry or formalize it |
 
-Scope Unit.Path describes logical ancestry. A Carrier path describes a storage place. Moving one does not silently redefine the other.
+The Project model supplies `Project//.order.ordered == false`, no `Project//.order.number`, and no `Project//.ID`. The individual root Declaration does not repeat these inherited constraints. A non-root Scope Unit has an ID that survives a move or rename; Project is not moved or renamed through Scope Unit operations.
 
-The source TOML has no Scope Unit ID registry. No IDs are inferred from the generated Scope Unit graph. Separate Goals and local Tier-0 Contracts are inventoried in [Goal coverage](goal-coverage.md), not copied into Declaration Claims.
+Authority Folder names include `<id>_` only for non-root units. Delivery Folder names use the same suffix without that ID. `<order>_` appears only when ordered is true. The Project Authority Folder remains `.caprmedio_<project name>`.
 
-The root Declaration uses the Project Settings name, `caprmedio`, and the existing external Operator ownership. Its final discovery/location remains part of adoption; central Draft staging is not that decision.
+Legacy owner data remains in the instance manifest for later correct external placement. Canonical Draft frontmatter contains no `current_scope_unit`, `claim_target_scope_unit` or Author. The root's external owner remains the Operator; no Operator Scope Unit is invented.
 
-Navigation Number remains only for Steps and Plan Atoms. Existing explicitly declared Carrier paths stay unchanged during preparation. No file or folder is renamed to implement a new convention here.
+The original Goal and Tier-0 census remains [source acquisition evidence](goal-coverage.md). It is not silently regenerated into new Goals or a second structure authority.
+
+Ordering property definitions: `Scope Unit.order.ordered: [bool]{:1}` and `Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0}`. All nine existing Ordered units satisfy the positive-integer constraint.

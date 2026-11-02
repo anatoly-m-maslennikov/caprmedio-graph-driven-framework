@@ -1,22 +1,21 @@
-# Scope Unit Declaration adoption preparation
+# Scope Unit Declaration adoption plan
 
-## Verified starting point
+## Prepared
 
-- One governing Project Structure TOML contains **44 non-root Scope Unit rows**: 10 Ordered and 34 Unordered. The root Project is implicit in Project Settings, so the observed inventory is **45 units**, including that root. The Operator then confirmed Applicable Methodology is a special Projection: retire its separate hosting Scope Unit at adoption. The retained Declaration set is **44 units** (43 non-root plus Project).
-- The Operator removed Navigation Number from Scope Units. Keep Local Order; retire the legacy `navigational_order_number` field and its Scope Unit rules during the actual migration. Navigation Number remains only for Steps and P Atoms.
-- Five explicit authority-mode overrides and nine Local Order values remain in the retained Declaration set. The withdrawn APPLICABLE_METHODOLOGY row accounts for the other override and Local Order value. Preserve delivered Projection content and its Carrier places; retiring a Scope Unit does not delete those artifacts.
-- The TOML does not carry authoritative Scope Unit IDs or the external Goal/Constraint and local Contract Atom bindings. Generated projection node IDs are not an ID registry.
-- The reviewed predicate uses Role Requirement, Form Scope Unit Declaration and the active Subject of the specific Scope Unit. No Atom.Status predicate is added.
+- 44 instance Drafts have CFEL Claims. Names, Labels, Parents, nine ordering numbers and the retained structural fields are preserved from the original source.
+- 43 non-root units have stable IDs. The Project root has none and inherits its ordering constraints from the Project model.
+- Frontmatter uses role, form and subjects.active; legacy owner fields and Author are absent. External placement ownership stays in the manifest.
+- Folder paths are derived. Authority names include the non-root Scope Unit ID; Delivery names omit it. Project Authority remains `.caprmedio_<project name>`.
+- Applicable Methodology remains a Projection, with its hosting Scope Unit planned for retirement.
 
-## Ordered work
+## Remaining work
 
-1. Finalize methodology and Carrier declarations. Keep the Operator expression verbatim; reuse the shared Role/Form/active-Subject model and its proposed Carrier keys. [Three successor Drafts](source-amendments.md) amend R1484, D442 and D297; they do not finish the disposition of other TOML-only sources such as D440/D441. Do not make accepted methodology depend on an old Engine validator accepting it.
-2. Review the [completed source field map](field-mapping.md) against the 44 TOML rows plus the root Project, recording the separate APPLICABLE_METHODOLOGY row as planned retirement. Local Order is retained; Scope Unit Navigation Number is omitted. Parentage, authority/delivery places and explicit authority modes are preserved without invented defaults. No authoritative ID registry was found in these source files; no IDs are inferred from a Projection.
-3. Review the [44 retained Declaration Drafts](instance-drafts.md), each bound by its active Subject. Their recorded facts pass source/hash checks. Existing separate Goals and local Tier-0 Contracts are inventoried in [Goal coverage](goal-coverage.md): 18 retained units have explicit Goal targets and 26 have none observed; six Goal targets remain unmapped. Do not invent missing Goal content. Local Tier-0 Contracts remain optional. The Project Declaration is externally Operator-owned; settle final discovery without silently making central staging its adopted place.
-4. Review the complete source replacement and Carrier normalization. Assign unique canonical IDs to new Drafts at promotion, retain history and preserve reference bindings. Existing CA-R-draft placeholders are not canonical IDs.
-5. Adopt the reviewed sources through an explicit publication step. Once the Declarations cover all governed facts, they become authority; any retained TOML is derived compatibility output. Do not independently maintain both.
-6. Hand reader/writer, parser and compatibility-generation implementation to the Engine work. Coordinate actual writer cutover before using old tools against new source formats. Rebuild projections only from the adopted authoritative sources.
+1. Review the instance Claims and shared model together against the latest Operator answers. Check fields, IDs, cardinalities, containment and inheritance. Do not claim parser/runtime acceptance from a readback.
+2. Retire project_structure.toml completely: governing Atoms, the live file, reader/writer implementations, public bindings that only edit that file, tests and documentation. Declaration Atoms are the sole structural source; no TOML fallback or compatibility output remains.
+3. Integrate the changed ordering model with old sources: R1758's Ordered/Unordered Type vocabulary and R2529's Local Order declaration are supersession candidates for ordered and order.number; review their actual consumers before retirement. D440/D441's TOML source conventions and the old native-folder exceptions also need disposition for the source cutover.
+4. Review canonical Definition ownership and avoid adopting a second Declaration of an existing model Entity. Apply the shared Project/ID successor Drafts with their related constraints together.
+5. Set final external placement, including the Operator-owned root Declaration. Resolve remaining Engine-side Goals in that separate work; do not synthesize them here.
+6. Assign canonical Atom IDs to new R Drafts, then promote the reviewed source set with history. Scope Unit IDs are already assigned; these are different identities.
+7. Cut over Engine consumers to Current Declaration Atoms, then move Authority and Delivery folders to their derived paths. Delete the live TOML; no fallback or compatibility output remains. Keep Scope Unit workflow definitions unchanged and remove their four TOML-specific executable implementations/bindings. Runtime release remains a separate operation.
 
-## Boundary
-
-The original 45-unit instance inventory is checked; 44 Declaration Drafts remain after withdrawing the separate APPLICABLE_METHODOLOGY Scope Unit. That withdrawal is recorded, not silently omitted. Adoption remains incomplete: no promotion, configuration deletion, code change, runtime release or projection rebuild has been performed by this packet. [Instance verification](instance-draft-verification.json), [source coverage](toml-coverage.json) and [corrected binding review](corrected-binding-review.json) record the evidence and remaining checks.
+[Draft index](instance-drafts.md) · [Source mapping](field-mapping.md). Publication and physical migration are tracked in adoption-execution.json.

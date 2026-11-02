@@ -1,0 +1,13 @@
+{
+  "status": "SOURCE_LIFECYCLE_PASS",
+  "updates": [
+    "CA-R-2532@6",
+    "CA-C-619@3 Resolved"
+  ],
+  "retired": "CA-R-2627@1",
+  "predecessors_preserved": 3,
+  "journal_records": 3,
+  "concrete_extension_model": "deferred to future versions",
+  "legacy_compatibility_and_runtime_unchanged": true,
+  "projections": "pending parallel source migration; see projection-refresh-status.json"
+}

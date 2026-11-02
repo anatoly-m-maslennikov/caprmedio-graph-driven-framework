@@ -1,0 +1,27 @@
+---
+atom_id: CA-C-620@6-draft
+current_scope_unit: caprmedio
+status: Draft
+subjects:
+  active: PROJECT STRUCTURE//CAPRMEDIO
+  passive:
+  - Aspect
+version: 6
+relations: {}
+tier: 3
+role: Concern
+form: Question
+updated_at: 2026-11-02 18:40:27 +0400
+---
+
+## Summary
+
+Resolve the model specialization of the CAPRMEDIO Framework product
+
+## Question
+
+Which structural addresses replace the legacy Aspect Subjects?
+
+## Resolution
+
+All concrete Aspect addresses use containment paths in PROJECT STRUCTURE. Product's canonical address is `Aspects <+ Product`.

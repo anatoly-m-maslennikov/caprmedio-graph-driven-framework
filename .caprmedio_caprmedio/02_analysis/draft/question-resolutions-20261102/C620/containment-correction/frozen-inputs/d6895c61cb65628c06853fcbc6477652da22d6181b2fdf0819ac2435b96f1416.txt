@@ -1,0 +1,27 @@
+---
+cce_version: cce_1
+cce_form: obligation
+subjects:
+  active: Scope Unit
+  passive:
+  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+version: 3
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-2444
+status: Active
+current_scope_unit: caprmedio
+tier: 0
+claim_target_scope_unit: FIELD
+role: Requirement
+form: Goal
+---
+## Summary
+
+Collect inputs from other CAPRMEDIO users
+
+## Claim
+
+FIELD **must** collect inputs from other CAPRMEDIO users, including feedback, questions, suggestions, **and** problem reports.

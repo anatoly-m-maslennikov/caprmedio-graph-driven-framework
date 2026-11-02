@@ -1,0 +1,94 @@
+{
+  "scope": "1134 selected Current RMED inputs from current-source-frontier.json, plus CA-C-620 and CA-R-2256. Legacy bundles/history, actual Operations instances, code/runtime, and unselected sources are excluded.",
+  "source_pins": {
+    "frontier": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/current-source-frontier.json",
+      "sha256": "64d4605113a81f34ac4bf2c1170bca6aed0a825ee6d951a02783c4179626957f",
+      "selected_operations": 1134
+    },
+    "c620": {
+      "path": ".caprmedio_caprmedio/01_concern/CA-C-620-QUESTION--resolve-the-model-specialization-of-the-caprmedio-framework-product.md",
+      "sha256": "7a6245b00caa842e9ca917a0073abe3a83cf28b25583511502222dece82d0b75",
+      "evidence_lines": [7, 19, 23, 27]
+    },
+    "r2256": {
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2256-DECLARATION--define-the-caprmedio-framework-product.md",
+      "sha256": "ef77ae4eb28f011f35f24682b18c2acaf2a754312b5e99bf2464f287a7f52dd6",
+      "frontier_version": 4,
+      "evidence_lines": [7, 21]
+    }
+  },
+  "unique_concrete_aspect_subjects": [
+    ["Entity/Aspect/Documentation Aspect",1,0,1],
+    ["Entity/Aspect/Engineering",5,4,9],
+    ["Entity/Aspect/Engineering/Architecture/Communication",1,2,3],
+    ["Entity/Aspect/Engineering/Architecture/Component Structure",3,4,7],
+    ["Entity/Aspect/Engineering/Authoring",5,0,5],
+    ["Entity/Aspect/Engineering/Authoring/Controlled English",7,33,34],
+    ["Entity/Aspect/Engineering/Authoring/Prompt Authoring",1,2,2],
+    ["Entity/Aspect/Engineering/Data Handling",1,0,1],
+    ["Entity/Aspect/Engineering/Data Handling/Data Transformation",6,1,6],
+    ["Entity/Aspect/Engineering/Data Handling/Data Validation",1,3,4],
+    ["Entity/Aspect/Engineering/Data Handling/Output Publication",0,2,2],
+    ["Entity/Aspect/Engineering/Data Handling/Parsing",0,3,3],
+    ["Entity/Aspect/Engineering/Data Handling/Serialization",0,4,4],
+    ["Entity/Aspect/Engineering/Data Handling/Source Selection",2,1,3],
+    ["Entity/Aspect/Engineering/Execution Control",1,0,1],
+    ["Entity/Aspect/Engineering/Execution Control/Decision Confidence",6,22,28],
+    ["Entity/Aspect/Engineering/Execution Control/Effect Authorization",12,8,20],
+    ["Entity/Aspect/Engineering/Execution Control/Failure Handling",1,1,2],
+    ["Entity/Aspect/Engineering/Observability",2,0,2],
+    ["Entity/Aspect/Engineering/Observability/Logging",5,6,9],
+    ["Entity/Aspect/Engineering/Observability/Monitoring",1,0,1],
+    ["Entity/Aspect/Engineering/Traceability",6,15,21],
+    ["Entity/Aspect/Engineering/Verification",6,5,11],
+    ["Entity/Aspect/Engineering/Verification/Coverage",1,0,1],
+    ["Entity/Aspect/Engineering/Verification/Dynamic Testing",0,1,1],
+    ["Entity/Aspect/Engineering/Verification/Static Analysis",1,0,1],
+    ["Entity/Aspect/Engineering/Verification/Test Design",2,3,3],
+    ["Entity/Aspect/Product: CAPRMEDIO Framework",25,23,47],
+    ["Entity/Aspect/Text Writing Style",1,0,1],
+    ["Entity/Aspect/UX/Discovery and Navigation",1,0,1],
+    ["Entity/Aspect/UX/Entry",2,4,5]
+  ],
+  "count_columns": ["subject", "active_occurrences", "passive_occurrences", "unique_source_atoms"],
+  "named_continuant_references": [
+    {
+      "subject": "Node/Continuant//CAPRMEDIO Framework",
+      "source_atom": "CA-R-2256@4",
+      "occurrence": "active",
+      "meaning": "Named persistent Framework product instance; not an Aspect Subject."
+    },
+    {
+      "source_atom": "CA-C-620@1",
+      "occurrence": "active",
+      "meaning": "The Current Question records a working choice to retain the named Continuant and explicitly says it is not an approval gate."
+    }
+  ],
+  "graph_projection_evidence": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md",
+      "lines": [1567, 1827],
+      "meaning": "Current projection separately displays Product Aspect consumers and the named Continuant."
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-017-CAPRMEDIO--Model-Graph--Current-MODEL-Declarations.md",
+      "lines": [305, 495, 669],
+      "meaning": "Current MODEL graph carries the named Continuant instance and CA-R-2256 constraint."
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-019-CAPRMEDIO--MODEL-Formal-Contracts.md",
+      "lines": [1242, 1248, 1253],
+      "meaning": "Formal-contract projection identifies the Continuant instance as the product produced by the Project."
+    }
+  ],
+  "decision_assessment": {
+    "result": "real_unresolved_distinction",
+    "why": "The latest rule places Product and concrete Aspects in actual PROJECT STRUCTURE and leaves MODEL with only Aspect, but it does not identify which concrete Project-structure Aspect, if any, replaces the 47-source legacy Product Aspect subject. CA-R-2256 and CA-C-620 separately retain the named Framework Continuant/product identity. Mapping every Product reference to Continuant would conflate an Aspect subject with the Framework object; mapping it to an unspecified Project-structure Aspect would invent a target.",
+    "safe_now": "Keep CA-R-2256's named Continuant identity distinct; inventory and later map the 47 legacy Product Aspect consumers only after a named actual PROJECT STRUCTURE Product Aspect (or an explicit decision that no such Aspect exists) is established.",
+    "examples": [
+      "CA-E-228 and CA-E-437 use the Product Aspect subject in the selected frontier; CA-R-2256 is the only selected named Continuant source.",
+      "Engineering/Traceability remains a separate concrete Aspect with 6 active, 15 passive occurrences across 21 source Atoms; it is not evidence that Product Aspect is safely a Continuant."
+    ]
+  }
+}

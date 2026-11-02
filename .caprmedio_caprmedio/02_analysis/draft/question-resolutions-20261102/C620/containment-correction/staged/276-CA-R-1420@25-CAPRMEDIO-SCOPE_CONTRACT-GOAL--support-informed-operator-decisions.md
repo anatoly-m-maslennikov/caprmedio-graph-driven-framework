@@ -1,0 +1,29 @@
+---
+cce_version: cce_1
+cce_form: obligation
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+subjects:
+  active: Entity/Object/Continuant/Actor/Operator
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  - Entity/Object/Continuant/Actor/AI Agent
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-1420@25
+status: Archived
+current_scope_unit: caprmedio
+tier: 0
+claim_target_scope_unit: FRAMEWORK_ENGINE
+role: Requirement
+form: Goal
+---
+## Summary
+
+Support informed Operator decisions
+
+## Claim
+
+the CAPRMEDIO Framework Instance **and** AI Agents **must** keep communication with the Operator necessary **and** sufficient for the Operator **to** make informed decisions.

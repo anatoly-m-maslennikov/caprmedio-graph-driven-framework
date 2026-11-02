@@ -1,13 +1,13 @@
 ---
 cce_version: cce_1
 cce_form: method
-version: 4
-updated_at: 2026-11-02 00:18:22 +0400
+version: 5
+updated_at: 2026-11-02 19:44:26 +0400
 relations:
   child_of:
   - CA-R-2452
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+  active: Scope Unit
   passive:
   - Project
 atom_id: CA-M-447

@@ -5,7 +5,7 @@ form: Map
 source:
   named_selection: Named Selection//Current Subject Narrowing Tree
   atoms:
-  - CA-R-1016@30
+  - CA-R-1016@31
   - CA-R-1017@30
   - CA-R-1018@37
   - CA-R-1019@29
@@ -15,11 +15,11 @@ source:
   - CA-R-1026@32
   - CA-R-1199@36
   - CA-R-1200@39
-  - CA-R-1318@31
+  - CA-R-1318@32
   - CA-R-1580@26
   - CA-R-1639@37
   - CA-R-1654@37
-  - CA-R-1660@35
+  - CA-R-1660@36
   - CA-R-1948@12
   - CA-R-1949@11
   - CA-R-1950@12
@@ -83,18 +83,17 @@ source:
   - CA-R-2457@3
   - CA-R-2462@2
   - CA-R-2463@2
-  - CA-R-2464@2
-  - CA-R-2465@2
-  - CA-R-2466@2
+  - CA-R-2464@4
+  - CA-R-2465@4
+  - CA-R-2466@4
   - CA-R-2467@2
   - CA-R-2473@4
   - CA-R-2475@4
   - CA-R-2476@4
   - CA-R-2477@4
   - CA-R-2478@4
-  - CA-R-2480@4
   - CA-R-2485@4
-  - CA-R-2487@6
+  - CA-R-2487@8
   - CA-R-2488@2
   - CA-R-2489@2
   - CA-R-2490@2
@@ -117,27 +116,25 @@ source:
   - CA-R-2507@2
   - CA-R-2508@2
   - CA-R-2509@2
-  - CA-R-2510@2
   - CA-R-2511@2
   - CA-R-2512@2
   - CA-R-2513@2
   - CA-R-2514@2
   - CA-R-2515@2
-  - CA-R-2516@4
+  - CA-R-2516@5
   - CA-R-2518@2
   - CA-R-2519@2
   - CA-R-2520@2
   - CA-R-2521@2
   - CA-R-2523@2
-  - CA-R-2524@2
+  - CA-R-2524@3
   - CA-R-2525@2
-  - CA-R-2526@2
+  - CA-R-2526@3
   - CA-R-2527@2
   - CA-R-2528@2
-  - CA-R-2529@2
   - CA-R-2530@2
   - CA-R-2531@2
-  - CA-R-2532@4
+  - CA-R-2532@8
   - CA-R-2533@2
   - CA-R-2534@2
   - CA-R-2535@2
@@ -148,7 +145,7 @@ source:
   - CA-R-2540@2
   - CA-R-2541@2
   - CA-R-2542@2
-  - CA-R-2543@2
+  - CA-R-2543@4
   - CA-R-2544@2
   - CA-R-2545@2
   - CA-R-2546@2
@@ -211,21 +208,23 @@ source:
   - CA-R-2620@1
   - CA-R-2621@1
   - CA-R-2622@1
-  - CA-R-2623@1
+  - CA-R-2623@3
   - CA-R-2624@1
   - CA-R-2625@1
   - CA-R-2626@1
-  - CA-R-2627@1
-  - CA-R-2628@1
   - CA-R-2629@1
   - CA-R-2630@1
   - CA-R-2631@1
-  - CA-R-2632@1
+  - CA-R-2632@2
   - CA-R-2633@1
   - CA-R-2634@1
   - CA-R-2635@1
+  - CA-R-2637@1
+  - CA-R-2638@2
+  - CA-R-2685@1
+  - CA-R-2686@1
   - CA-R-796@43
-updated_at: 2026-11-02 08:12:36 +0400
+updated_at: 2026-11-02 20:24:45 +0400
 ---
 
 ## Inherency tree
@@ -241,7 +240,7 @@ This is a derived Projection, not independent model authority.
 ### Primary entities
 
 ```text
-CFEL [CA-R-2487@6]
+CFEL [CA-R-2487@8]
 Cardinality [CA-R-2327@5]
 Carrier [CA-R-1958@15]
 	/ Database [CA-R-1955@11]
@@ -264,23 +263,23 @@ Format [CA-R-2248@4]
 	/ scalar [CA-R-2257@4]
 	/ string [CA-R-2253@5]
 Node [CA-R-2462@2]
-	/ Aspect [CA-R-2543@2]
+	/ Aspect [CA-R-2543@4]
 	/ Continuant [CA-R-2589@2]
 		/ Actor [CA-R-2542@2]
 		/ Atom [CA-R-2508@2]
-			/ (.Role:=Analysis) [CA-R-2510@2]
+			/ (.Role:="Analysis & Advisory") [CA-R-2637@1]
 			/ (.Role:=Concern) [CA-R-2509@2]
 			/ (.Role:=Delivery) [CA-R-2515@2]
 			/ (.Role:=Evaluation) [CA-R-2514@2]
 			/ (.Role:=Method) [CA-R-2513@2]
 			/ (.Role:=Operations) [CA-R-2463@2]
 				/ Action [CA-R-2467@2]
-				/ Step [CA-R-2465@2]
-				/ Substep [CA-R-2466@2]
-				/ Workflow [CA-R-2464@2]
+				/ Step [CA-R-2465@4]
+				/ Substep [CA-R-2466@4]
+				/ Workflow [CA-R-2464@4]
 			/ (.Role:=Plan) [CA-R-2511@2]
 			/ (.Role:=Requirement) [CA-R-2512@2]
-				/ (.Form:=Declaration) [CA-R-2516@4]
+				/ (.Form:=Declaration) [CA-R-2516@5]
 		/ Event Record [CA-R-2557@4]
 		/ Journal [CA-R-2536@2]
 		/ Named Selection [CA-R-2587@2]
@@ -288,13 +287,13 @@ Node [CA-R-2462@2]
 			/ Implementation [CA-R-2553@2]
 		/ Projection [CA-R-2535@2]
 		/ Scope Unit [CA-R-2523@2]
-			/ Project [CA-R-2524@2]
+			/ Project [CA-R-2524@3]
 	/ MODEL [CA-R-2559@2]
 	/ Occurrent [CA-R-2590@2]
 	/ PROJECT STRUCTURE [CA-R-2560@2]
 Operator [CA-R-2616@1]
 Relation [CA-R-2247@5]
-Term [CA-R-1318@31]
+Term [CA-R-1318@32]
 ```
 
 Source limitations:

@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-version: 28
-updated_at: 2026-11-02 08:06:47 +0400
+version: 30
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-E-001
@@ -15,9 +15,9 @@ subjects:
   - Project
   - Entity
   - Entity/Object/Continuant/Term//Artifact
-  - Entity/Aspect/Engineering/Traceability
+  - Aspects <+ Engineering <+ Traceability
   - Scope Unit
-  - Entity/Aspect/Engineering/Architecture/Component Structure
+  - Aspects <+ Engineering <+ Architecture <+ Component Structure
   - Atom/(.Role := Evaluation)
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

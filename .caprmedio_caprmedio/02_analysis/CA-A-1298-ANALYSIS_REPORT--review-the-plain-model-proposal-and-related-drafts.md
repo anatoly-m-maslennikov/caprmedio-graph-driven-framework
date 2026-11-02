@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1298
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
@@ -8,8 +8,8 @@ status: Done
 author: Anatoly Maslennikov
 subjects:
   governs: Model
-version: 1
-updated_at: 2026-10-29 03:57:45 +0400
+version: 2
+updated_at: 2026-11-02 15:49:28 +0400
 relations: {}
 tier: 3
 ---

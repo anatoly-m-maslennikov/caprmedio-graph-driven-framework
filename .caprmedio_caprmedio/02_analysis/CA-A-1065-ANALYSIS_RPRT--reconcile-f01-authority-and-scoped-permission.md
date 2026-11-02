@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1065
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -15,11 +15,19 @@ subjects:
   - Analysis
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
   - Methodology Sources
-version: 4
-updated_at: 2026-10-23 03:14:50 +0400
+version: 5
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1347]
-  relates_to: [CA-P-1130, CA-A-1063, CA-A-1120, CA-A-1127, CA-A-1128, CA-P-1371, CA-A-1086]
+  analysis_for:
+  - CA-P-1347
+  relates_to:
+  - CA-P-1130
+  - CA-A-1063
+  - CA-A-1120
+  - CA-A-1127
+  - CA-A-1128
+  - CA-P-1371
+  - CA-A-1086
 ---
 # Summary
 

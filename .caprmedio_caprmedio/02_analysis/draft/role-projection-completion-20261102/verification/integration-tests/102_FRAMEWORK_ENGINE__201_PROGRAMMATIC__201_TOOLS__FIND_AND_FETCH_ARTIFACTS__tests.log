@@ -1,0 +1,341 @@
+======================================================================
+ERROR: test_bound_selection_drift_and_changed_continuation_budgets_refuse (test_find_and_fetch_artifacts.ArtifactQueryGoldenTest.test_bound_selection_drift_and_changed_continuation_budgets_refuse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 361, in _load_budgets
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py", line 302, in test_bound_selection_drift_and_changed_continuation_budgets_refuse
+    first = query_artifacts(root, {"limit": 1})
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 613, in query_artifacts
+    budgets = _load_budgets(resolved_root, settings, request.get("settings"))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 389, in _load_budgets
+    raise ArtifactQueryError("unable to resolve query settings") from error
+find_and_fetch_artifacts.ArtifactQueryError: unable to resolve query settings
+
+======================================================================
+ERROR: test_continuation_rejects_changed_root_members_and_tamper (test_find_and_fetch_artifacts.ArtifactQueryGoldenTest.test_continuation_rejects_changed_root_members_and_tamper)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 361, in _load_budgets
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py", line 116, in test_continuation_rejects_changed_root_members_and_tamper
+    first = query_artifacts(root, {"limit": 1})
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 613, in query_artifacts
+    budgets = _load_budgets(resolved_root, settings, request.get("settings"))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 389, in _load_budgets
+    raise ArtifactQueryError("unable to resolve query settings") from error
+find_and_fetch_artifacts.ArtifactQueryError: unable to resolve query settings
+
+======================================================================
+ERROR: test_continuation_uses_exact_retained_members_without_enumeration (test_find_and_fetch_artifacts.ArtifactQueryGoldenTest.test_continuation_uses_exact_retained_members_without_enumeration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 361, in _load_budgets
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py", line 77, in test_continuation_uses_exact_retained_members_without_enumeration
+    first = query_artifacts(root, {"limit": 1})
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 613, in query_artifacts
+    budgets = _load_budgets(resolved_root, settings, request.get("settings"))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 389, in _load_budgets
+    raise ArtifactQueryError("unable to resolve query settings") from error
+find_and_fetch_artifacts.ArtifactQueryError: unable to resolve query settings
+
+======================================================================
+ERROR: test_cursor_is_bound_to_filter_selection_settings_and_bytes (test_find_and_fetch_artifacts.ArtifactQueryGoldenTest.test_cursor_is_bound_to_filter_selection_settings_and_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 361, in _load_budgets
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py", line 130, in test_cursor_is_bound_to_filter_selection_settings_and_bytes
+    first = query_artifacts(root, request)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 613, in query_artifacts
+    budgets = _load_budgets(resolved_root, settings, request.get("settings"))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 389, in _load_budgets
+    raise ArtifactQueryError("unable to resolve query settings") from error
+find_and_fetch_artifacts.ArtifactQueryError: unable to resolve query settings
+
+======================================================================
+ERROR: test_default_ids_selected_values_and_canonical_section_bodies (test_find_and_fetch_artifacts.ArtifactQueryGoldenTest.test_default_ids_selected_values_and_canonical_section_bodies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 361, in _load_budgets
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py", line 57, in test_default_ids_selected_values_and_canonical_section_bodies
+    result = query_artifacts(root, request)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 613, in query_artifacts
+    budgets = _load_budgets(resolved_root, settings, request.get("settings"))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 389, in _load_budgets
+    raise ArtifactQueryError("unable to resolve query settings") from error
+find_and_fetch_artifacts.ArtifactQueryError: unable to resolve query settings
+
+======================================================================
+ERROR: test_instance_creation_or_removal_during_resolution_refuses (test_find_and_fetch_artifacts.ArtifactQueryGoldenTest.test_instance_creation_or_removal_during_resolution_refuses) (present=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py", line 317, in test_instance_creation_or_removal_during_resolution_refuses
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+======================================================================
+ERROR: test_instance_creation_or_removal_during_resolution_refuses (test_find_and_fetch_artifacts.ArtifactQueryGoldenTest.test_instance_creation_or_removal_during_resolution_refuses) (present=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py", line 317, in test_instance_creation_or_removal_during_resolution_refuses
+    selection = resolve_project(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+======================================================================
+ERROR: test_projects_are_isolated_and_foreign_bound_root_is_refused (test_find_and_fetch_artifacts.ArtifactQueryGoldenTest.test_projects_are_isolated_and_foreign_bound_root_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 361, in _load_budgets
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py", line 247, in test_projects_are_isolated_and_foreign_bound_root_is_refused
+    self.assertEqual(1, query_artifacts(alpha, {})["returned_count"])
+                        ~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 613, in query_artifacts
+    budgets = _load_budgets(resolved_root, settings, request.get("settings"))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 389, in _load_budgets
+    raise ArtifactQueryError("unable to resolve query settings") from error
+find_and_fetch_artifacts.ArtifactQueryError: unable to resolve query settings
+
+======================================================================
+ERROR: test_same_spelling_frontmatter_and_section_selectors_do_not_collide (test_find_and_fetch_artifacts.ArtifactQueryGoldenTest.test_same_spelling_frontmatter_and_section_selectors_do_not_collide)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 361, in _load_budgets
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py", line 92, in test_same_spelling_frontmatter_and_section_selectors_do_not_collide
+    query_artifacts(root, {})["results"],
+    ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 613, in query_artifacts
+    budgets = _load_budgets(resolved_root, settings, request.get("settings"))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 389, in _load_budgets
+    raise ArtifactQueryError("unable to resolve query settings") from error
+find_and_fetch_artifacts.ArtifactQueryError: unable to resolve query settings
+
+======================================================================
+ERROR: test_selected_project_defaults_and_override_precedence (test_find_and_fetch_artifacts.ArtifactQueryGoldenTest.test_selected_project_defaults_and_override_precedence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 361, in _load_budgets
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py", line 227, in test_selected_project_defaults_and_override_precedence
+    self.assertEqual(defaults, artifact_query._load_budgets(root, None, None))
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 389, in _load_budgets
+    raise ArtifactQueryError("unable to resolve query settings") from error
+find_and_fetch_artifacts.ArtifactQueryError: unable to resolve query settings
+
+======================================================================
+ERROR: test_selector_escaping_section_namespace_and_leading_array_zero (test_find_and_fetch_artifacts.ArtifactQueryGoldenTest.test_selector_escaping_section_namespace_and_leading_array_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 294, in resolve_project
+    declarations = read_scope_unit_declarations(root, relative, reader=reader)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/scope_unit_declarations.py", line 92, in read_scope_unit_declarations
+    raise ScopeDeclarationError("no current Scope Unit Declarations found")
+scope_declaration_parse.ScopeDeclarationError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 361, in _load_budgets
+    selection = active_selection(root)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 350, in active_selection
+    return selection if selection is not None else resolve_project(root)
+                                                   ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_selection.py", line 320, in resolve_project
+    raise ProjectSelectionError(str(error)) from error
+project_selection.ProjectSelectionError: no current Scope Unit Declarations found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py", line 140, in test_selector_escaping_section_namespace_and_leading_array_zero
+    self.assertEqual(query_artifacts(root, {"select": ["section:/2:a~1b~0c"]})["results"][0]["section:/2:a~1b~0c"], "ok\n")
+                     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 613, in query_artifacts
+    budgets = _load_budgets(resolved_root, settings, request.get("settings"))
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", line 389, in _load_budgets
+    raise ArtifactQueryError("unable to resolve query settings") from error
+find_and_fetch_artifacts.ArtifactQueryError: unable to resolve query settings
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.151s
+
+FAILED (errors=11)

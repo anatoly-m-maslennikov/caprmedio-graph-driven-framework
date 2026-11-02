@@ -1,0 +1,48 @@
+{
+  "source_selection": "Current migrated Aspect Subjects",
+  "tree": {
+    "Aspects": {
+      "Documentation Aspect": {},
+      "Engineering": {
+        "Architecture": {
+          "Communication": {},
+          "Component Structure": {}
+        },
+        "Authoring": {
+          "Controlled English": {},
+          "Prompt Authoring": {}
+        },
+        "Data Handling": {
+          "Data Transformation": {},
+          "Data Validation": {},
+          "Output Publication": {},
+          "Parsing": {},
+          "Serialization": {},
+          "Source Selection": {}
+        },
+        "Execution Control": {
+          "Decision Confidence": {},
+          "Effect Authorization": {},
+          "Failure Handling": {}
+        },
+        "Observability": {
+          "Logging": {},
+          "Monitoring": {}
+        },
+        "Traceability": {},
+        "Verification": {
+          "Coverage": {},
+          "Dynamic Testing": {},
+          "Static Analysis": {},
+          "Test Design": {}
+        }
+      },
+      "Product": {},
+      "Text Writing Style": {},
+      "UX": {
+        "Discovery and Navigation": {},
+        "Entry": {}
+      }
+    }
+  }
+}

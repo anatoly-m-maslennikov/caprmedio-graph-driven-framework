@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-version: 24
-updated_at: 2026-11-02 00:18:22 +0400
+version: 26
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-E-001
@@ -10,13 +10,13 @@ relations:
   - CA-M-270
   - CA-M-262
 subjects:
-  active: Entity/Aspect/Engineering/Verification/Test Design
+  active: Aspects <+ Engineering <+ Verification <+ Test Design
   passive:
   - Atom/(.Role := Requirement)
   - Atom/(.Role := Method)
   - Atom/(.Role := Evaluation)
   - Atom/(.Role := Delivery)
-  - Entity/Aspect/Engineering/Verification/Test Design
+  - Aspects <+ Engineering <+ Verification <+ Test Design
   - Project
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6

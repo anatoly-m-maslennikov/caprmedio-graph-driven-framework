@@ -1,0 +1,24 @@
+{
+  "parser_unittest": {
+    "status": "PASS",
+    "tests": 11
+  },
+  "contract_graph_unittest": {
+    "status": "PASS",
+    "tests": 11
+  },
+  "parser_and_contract_F_lint": "PASS",
+  "full_graph_unittest": {
+    "status": "FAIL",
+    "tests": 357,
+    "failures": 7,
+    "errors": 2,
+    "scope": "Post-move Scope/path fixture failures shared with CA #8 owner"
+  },
+  "official_projection_hashes_and_journal": "PASS",
+  "current_selected_graph": {
+    "sources": 1128,
+    "coverage_gaps": 0,
+    "relations": 41
+  }
+}

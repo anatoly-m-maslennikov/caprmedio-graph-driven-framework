@@ -1,0 +1,27 @@
+---
+atom_id: CA-R-2158@11-draft
+current_scope_unit: caprmedio
+status: Draft
+tier: 4
+subjects:
+  active: Entity/Object/Continuant/Actor/AI Agent
+  passive:
+  - Entity/Object/Continuant/Actor/Operator
+  - Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+version: 11
+updated_at: 2026-11-02 00:18:22 +0400
+relations:
+  child_of:
+  - CA-R-2157
+cce_version: cce_1
+cce_form: permission
+role: Requirement
+form: Rule
+---
+## Summary
+
+AI Agents act within permission
+
+## Claim
+
+an AI Agent has no original authority, **must not** create **or** expand its own authority, **and** **may** perform **or** authorize a governed action **only** **when** a current Operator-established AI Agent Delegation **or** authorization rule identifies that AI Agent **and** permits the complete action, its target, **and** its decision boundary.

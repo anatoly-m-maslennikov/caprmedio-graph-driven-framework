@@ -2,12 +2,12 @@
 current_scope_unit: caprmedio
 status: Done
 author: Anatoly Maslennikov
-version: 4
-updated_at: 2026-10-29 21:51:04 +0400
+version: 5
+updated_at: 2026-11-02 15:49:28 +0400
 subjects:
   governs: Entity
 atom_id: CA-A-1306
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Spec Proposal
 tier: 3
 relations: {}

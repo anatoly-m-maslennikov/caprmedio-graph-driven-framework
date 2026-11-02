@@ -12,8 +12,8 @@ subjects:
   depends_on:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/Scope Unit
-version: 9
-updated_at: "2026-10-30 00:24:42 +0400"
+version: 10
+updated_at: 2026-11-02 20:36:56 +0400
 relations: {}
 tier: 3
 ---
@@ -371,3 +371,7 @@ P2702's separate deferred Goal review remain unchanged.
   archived or explicitly deferred; proposals are not counted as application.
 - The five migration stages and affected Subject views have checked evidence.
 - No code/runtime implementation is included or implied.
+
+## Deferred Workflow repair
+
+[CA-P-2708](CA-P-2637-EPIC--migrate-engine-rmed-atoms/backlog/CA-P-2708-TASK--align-implementation-workflow-with-current-steps.md) records the Operator-deferred alignment of implementation prompts/runtime with Current CA-O-016 Steps. This specific repair is separate from the Scope Unit cutover and does not authorize a general Engine code rewrite.

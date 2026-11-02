@@ -1,0 +1,16 @@
+{
+  "current_sources": [
+    {
+      "id": "CA-D-664",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "f5e5b15a0c058ad4345eefcbf07a0b34f5bd03fd5e53b823b427a7f068548bff",
+      "content": "---\natom_id: CA-D-664\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: Atom\nversion: 2\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\ntier: 3\nrole: Delivery\nform: Eng Decision\n---\n## Summary\n\nDeliver Atoms to Markdown files\n\n## Claim\n\nThe Carrier below is the Markdown file delivering this Atom.\n\nFrontmatter starts at the beginning of the file:\n\n1. An opening line containing `---`.\n2. YAML data.\n3. A closing line containing `---`.\n\nLocation is the directory path relative to the repository root.\n\n```CFEL\nAtom >> @Carrier//Markdown file;\nAtom.**!(.Content, .Content.**) >> @Carrier//Markdown file.frontmatter;\nAtom.Content.** >> @Carrier//Markdown file.markdown;\n@Carrier//Markdown file.filename{:1}: [string]{:1};\n@Carrier//Markdown file.location{:1}: [string]{:1};\n@Carrier//Markdown file.frontmatter.author{:0}\n```\n"
+    },
+    {
+      "id": "CA-D-267",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-ENG_DECISION--derive-address-facts-without-duplicated-frontmatter.md",
+      "sha256": "7a828f3474fa9b99a5139e41a9c489fdd1df61a641bc622d98097b030b093880",
+      "content": "---\nsubjects:\n  active: Carrier.Canonical Address\n  passive:\n  - Entity\n  - Carrier/File.YAML Frontmatter\nversion: 27\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\natom_id: CA-D-267\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 3\nrole: Delivery\nform: Decision\n---\n## Summary\n\nDerive Address Facts without Duplicated Frontmatter\n\n## Claim scope\n\nregistered canonical Carrier addresses that completely **and** unambiguously derive non-Atom Artifact Properties.\n\n## Claim\n\nthat address **must** be its sole Carrier encoding **and** embedded metadata **must not** duplicate it. Atom Properties instead follow CA-D-478 **and** CA-D-480.\n"
+    }
+  ]
+}

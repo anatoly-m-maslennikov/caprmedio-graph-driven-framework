@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "order_grouping": "order has no direct value; ordered and number are siblings",
+  "instance_drafts_checked": 44,
+  "model_drafts_checked": 12,
+  "ordered_positive_numbers_checked": 9,
+  "ungrouped_paths_remaining": 0,
+  "project": "inherits order.ordered=false, no order.number and no Scope Unit ID",
+  "null_semantics": "No null substitution: zero values remains []{:0}.",
+  "dependency_fix": "Both child definitions depend on Scope Unit.order; number also depends on its ordered sibling for its condition.",
+  "verification": "Hash and source-value assertions passed. Independent review verified grouping/data and identified the precise dependency adjustment, now applied.",
+  "not_checked": [
+    "Parser/runtime acceptance",
+    "Current adoption",
+    "Physical folder migration"
+  ]
+}

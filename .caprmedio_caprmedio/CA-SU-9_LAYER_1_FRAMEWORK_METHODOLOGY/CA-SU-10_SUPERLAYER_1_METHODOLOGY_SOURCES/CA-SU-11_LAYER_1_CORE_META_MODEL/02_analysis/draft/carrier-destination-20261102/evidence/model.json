@@ -1,0 +1,82 @@
+{
+  "status": "read-only source evidence; no Drafts created",
+  "canonical_requested_fields": {
+    "name": "Atom.Carrier Destination.File.Name",
+    "path": "Atom.Carrier Destination.File.Path",
+    "calculation": "both calculated"
+  },
+  "sources": [
+    {
+      "id": "CA-R-2508",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "85c8290a2b3e62d8abeb8638cfa888485dfa819d262d72244ee51ccda14a577f",
+      "evidence": "Atom Declaration has no immediate-property whitelist for Carrier Destination."
+    },
+    {
+      "id": "CA-R-2472",
+      "version": 8,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
+      "sha256": "5fd16835d0f6eefc728704754ea9721dd3043c14ee889c4417c537b368372b24",
+      "evidence": "Undeclared immediate dependent Properties are forbidden by default; nested fields therefore require declared Carrier Destination and File intermediates."
+    },
+    {
+      "id": "CA-R-1975",
+      "version": 12,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1975-CORE_META_MODEL-DEFINITION--define-file-carrier-filename.md",
+      "sha256": "c4d4e950ea8d0f2c241fb000c95adaa52a740abb356ffcea0af2761c09054d8d",
+      "reusable_semantics": "File.Filename is the file name within its containing directory, including extension; direct string value count is one."
+    },
+    {
+      "id": "CA-R-1976",
+      "version": 12,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1976-CORE_META_MODEL-DEFINITION--define-file-carrier-path.md",
+      "sha256": "117bd92c34417cb1e27b0d1c40e7b8afac3aa0ddae24a810d3876febf054c0b1",
+      "reusable_semantics": "File.Path is a locator distinct from Carrier ID and is string-valued; the user decision narrows it to a repository-relative containing directory."
+    },
+    {
+      "id": "CA-R-2456",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2456-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-file-carrier.md",
+      "sha256": "39c7f24479313c86511ad50827f803ac5b7aa458ced6c6145885db99b636fab0",
+      "evidence": "Markdown is a File Carrier specialization; it introduces no destination fields."
+    },
+    {
+      "id": "CA-R-2457",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2457-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-atom-carrier.md",
+      "sha256": "9f4448f56e9e17c3233f54246717aac25937f0c4c7d019f57997c15d9e3030d4",
+      "evidence": "A Markdown Atom Carrier represents an Atom but does not supply Atom destination Properties."
+    },
+    {
+      "id": "CA-R-2548",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2548-CORE_META_MODEL-RULE--deliver-objects-to-carriers.md",
+      "sha256": "9b067b412e1d7588640646d8a48d7364298dcbc1c4209f4ff7a5ef0799d2ba98",
+      "evidence": "Delivery to a Carrier exists, but no Atom-to-file-destination Property is defined."
+    }
+  ],
+  "equivalent_property_result": "No active Core Meta-Model declaration defines Carrier Destination, Destination.File, expected filename, or an Atom-qualified file path/name. File.Filename and File.Path supply compatible leaf meanings only; they do not constitute the requested Atom Properties.",
+  "smallest_draft_set": [
+    "Successor to CA-R-2508 adding Atom.Carrier Destination to Atom's immediate-property inventory.",
+    "Declaration of Atom.Carrier Destination with File as its declared immediate child.",
+    "Declaration of Atom.Carrier Destination.File with Name and Path as its declared immediate children.",
+    "Declaration of Atom.Carrier Destination.File.Name: calculated string, exactly one direct value when Carrier Destination.File occurs; full filename including extension.",
+    "Declaration of Atom.Carrier Destination.File.Path: calculated string, exactly one direct value when Carrier Destination.File occurs; repository-relative containing directory."
+  ],
+  "compact_claim_patterns": {
+    "atom_inventory_successor": "Add a named-child allowance for Carrier Destination to Atom's first authoritative immediate-property inventory; none exists in CA-R-2508 today, so do not manufacture a closed full-inventory list in this change.",
+    "container_structure": [
+      "Atom.Carrier Destination.*[in(File)]{:1}:[]{:0}",
+      "Atom.Carrier Destination.File.*[in(Name,Path)]{:2}:[]{:0}"
+    ],
+    "leaf_values": [
+      "Atom.Carrier Destination.File.Name{:1}: [string]{:1}",
+      "Atom.Carrier Destination.File.Path{:1}: [string]{:1}"
+    ],
+    "conditional_presence_option": "IF (Atom.Carrier Destination{:1}) THEN (Atom.Carrier Destination.File{:1}); IF (Atom.Carrier Destination.File{:1}) THEN (Atom.Carrier Destination.File.Name{:1} AND Atom.Carrier Destination.File.Path{:1})",
+    "mandatory_presence_option": "Atom.Carrier Destination{:1}:[]{:0}; Atom.Carrier Destination.File{:1}:[]{:0}; Atom.Carrier Destination.File.Name{:1}: [string]{:1}; Atom.Carrier Destination.File.Path{:1}: [string]{:1}",
+    "calculation_boundary": "Existing CFEL sources provide no destination-calculation expression. State calculated/derived in the two leaf declarations without inventing a filename or directory formula."
+  },
+  "unresolved_question": "The evidence and user decision fix leaf meanings and calculation, but do not state whether every Atom must have Carrier Destination/File or whether the container is optional and present only when an Atom has a file destination. This determines the occurrence cardinality of Atom.Carrier Destination and Atom.Carrier Destination.File; leaf value count can be one when their parent occurs."
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "counts": {
+    "archive": 209,
+    "publish": 209
+  },
+  "journal_rows": 209,
+  "errors": [],
+  "protected_sources": [
+    "CA-R-2543",
+    "CA-R-2256"
+  ],
+  "limits": [
+    "Receipt paths and specified source pins only; no runtime or projection validation."
+  ]
+}

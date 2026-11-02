@@ -1,0 +1,54 @@
+{
+  "lanes": [
+    {
+      "deliverable": "Workflow, Step, Substep, RUNS and inverse Declaration Drafts",
+      "owner": "step_runs_declarations",
+      "edit_scope": "model-drafts",
+      "dependencies": [],
+      "acceptance": "source pins and semantic gate",
+      "status": "done"
+    },
+    {
+      "deliverable": "Step bindings and Workflow graph Rule Drafts",
+      "owner": "step_binding_rules",
+      "edit_scope": "rule-drafts and manifest.json",
+      "dependencies": [],
+      "acceptance": "three approved sources; scoped Claims",
+      "status": "done"
+    },
+    {
+      "deliverable": "Count-test syntax and independent semantic gate",
+      "owner": "step_count_notation",
+      "edit_scope": "count-drafts and verification semantic reports",
+      "dependencies": [
+        "consumer corrections"
+      ],
+      "acceptance": "no conflicting generic nesting or lost checks",
+      "status": "done"
+    },
+    {
+      "deliverable": "E500, E658, D467 successor Drafts",
+      "owner": "step_runs_consumers",
+      "edit_scope": "consumer-drafts",
+      "dependencies": [],
+      "acceptance": "Step\u2192leaf Substep layout; pins; E658 body preserved",
+      "status": "done"
+    },
+    {
+      "deliverable": "Guarded source adoption, archives, Journal and readback",
+      "owner": "root",
+      "edit_scope": "selected Current/archive sources; receipts; shared Journal and frontier",
+      "dependencies": [
+        "all Draft semantic gates"
+      ],
+      "acceptance": "exact archive preservation, truth table, no new graph gaps, actual source readback",
+      "status": "done"
+    }
+  ],
+  "constraints": [
+    "Current/Git/index/Journal integration is root-owned",
+    "Unrelated Analysis & Advisory migration preserved",
+    "Official projection refresh waits for clean graph preflight",
+    "Actual Operations instances and runtime are deferred"
+  ]
+}

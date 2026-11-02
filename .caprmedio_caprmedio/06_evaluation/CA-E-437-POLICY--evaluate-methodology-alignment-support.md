@@ -1,15 +1,15 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-version: 25
-updated_at: 2026-11-02 00:18:22 +0400
+version: 27
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-E-001
   evaluation_for:
   - CA-R-1424
 subjects:
-  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  active: Aspects <+ Product
   passive:
   - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
   - Entity/Object/Continuant/Actor/Operator

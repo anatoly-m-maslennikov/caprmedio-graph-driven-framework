@@ -1,0 +1,43 @@
+{
+  "status": "APPLIED",
+  "new_declaration_id": "CA-R-2637",
+  "atoms_updated_or_replaced": 436,
+  "predecessors_archived": 436,
+  "journal_events": 436,
+  "promoted_at": "2026-11-02 15:49:28 +0400",
+  "a_role_headers_renamed": 335,
+  "letter": "A",
+  "forms_and_existing_summaries": "preserved, except the approved replacement Declaration Summary",
+  "ordinary_analysis_reports_and_history": "body unchanged",
+  "projections_rebuilt": false,
+  "runtime_changed": false,
+  "journals": [
+    {
+      "path": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "events": 294
+    },
+    {
+      "path": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-3.ndjson",
+      "events": 142
+    }
+  ],
+  "independent_readback": {
+    "result": "PASS",
+    "actual_target_hashes": 436,
+    "actual_archive_hashes": 436,
+    "journal_rows_verified": 436,
+    "same_id_summaries_preserved": 435,
+    "forms_preserved": 436,
+    "current_exact_analysis_role_values_remaining": 0,
+    "scope": "Promotion records and Current exact role values; no runtime/projection acceptance claim."
+  },
+  "runtime_compatibility": {
+    "status": "Needs separate Engine update",
+    "source": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/connector_atom_parse.py",
+    "lines": [
+      16,
+      35
+    ],
+    "finding": "The Query/Read parser still maps A to Analysis and checks that exact value. Analysis & Advisory requires its role mapping to be updated. No code was edited or runtime deployed."
+  }
+}

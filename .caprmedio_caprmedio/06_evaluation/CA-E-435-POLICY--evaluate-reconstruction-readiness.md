@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-version: 24
-updated_at: 2026-11-02 00:18:22 +0400
+version: 26
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-E-001
@@ -10,7 +10,7 @@ relations:
   - CA-M-261
   - CA-M-262
 subjects:
-  active: Entity/Aspect/Engineering/Verification/Static Analysis
+  active: Aspects <+ Engineering <+ Verification <+ Static Analysis
   passive:
   - Atom/(.Role := Requirement)
   - Atom/(.Role := Method)

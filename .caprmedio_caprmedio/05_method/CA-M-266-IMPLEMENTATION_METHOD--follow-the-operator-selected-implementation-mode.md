@@ -1,13 +1,13 @@
 ---
 cce_version: cce_1
 cce_form: method
-version: 23
-updated_at: 2026-11-02 00:18:22 +0400
+version: 25
+updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-M-261
 subjects:
-  active: Entity/Aspect/Engineering/Execution Control/Effect Authorization
+  active: Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   passive:
   - Entity/Object/Continuant/Actor/Operator
   - Atom/(.Role := Plan)

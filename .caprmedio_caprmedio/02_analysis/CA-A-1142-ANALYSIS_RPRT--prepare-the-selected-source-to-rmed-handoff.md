@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1142
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -8,14 +8,29 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 18:22:04 +0000"
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
 subjects:
-  governs: "Selected source-to-RMED handoff"
-  depends_on: [Operations, Implementation, Analysis, Journal, Projection]
+  governs: Selected source-to-RMED handoff
+  depends_on:
+  - Operations
+  - Implementation
+  - Analysis
+  - Journal
+  - Projection
 relations:
-  analysis_for: [CA-P-1479]
-  relates_to: [CA-P-1117, CA-P-1119, CA-P-1132, CA-P-1158, CA-P-1160, CA-A-1141, CA-C-426, CA-C-428, CA-C-429]
+  analysis_for:
+  - CA-P-1479
+  relates_to:
+  - CA-P-1117
+  - CA-P-1119
+  - CA-P-1132
+  - CA-P-1158
+  - CA-P-1160
+  - CA-A-1141
+  - CA-C-426
+  - CA-C-428
+  - CA-C-429
 ---
 # Summary
 

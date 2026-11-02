@@ -1,8 +1,8 @@
 ---
-version: 2
-updated_at: 2026-11-02 00:55:09 +0400
+version: 4
+updated_at: 2026-11-02 18:35:20 +0400
 subjects:
-  active: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  active: Aspects <+ Product
   passive:
   - Entity/Object/Continuant/Actor/Operator
   - Entity/Object/Continuant/Actor/AI Agent

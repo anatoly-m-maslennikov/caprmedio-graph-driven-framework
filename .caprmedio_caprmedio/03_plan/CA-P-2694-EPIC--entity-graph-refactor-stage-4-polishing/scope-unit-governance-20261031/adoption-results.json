@@ -1,0 +1,174 @@
+{
+  "status": "Applied",
+  "models": 27,
+  "retired": 17,
+  "replacements": {
+    "CA-A-1313": "CA-A-1313",
+    "CA-R-2516": "CA-R-2516",
+    "CA-M-291": "CA-M-461",
+    "CA-E-469": "CA-E-670",
+    "CA-R-2524": "CA-R-2524",
+    "CA-R-2526": "CA-R-2526",
+    "CA-R-1484": "CA-R-2688",
+    "CA-D-442": "CA-D-442",
+    "CA-R-1430": "CA-R-1430",
+    "CA-R-1750": "CA-R-1750",
+    "CA-R-2133": "CA-R-2689",
+    "CA-R-2632": "CA-R-2632",
+    "CA-R-862": "CA-R-2690",
+    "CA-E-006": "CA-E-006",
+    "CA-E-446": "CA-E-671",
+    "CA-E-470": "CA-E-672",
+    "CA-E-621": "CA-E-621",
+    "CA-D-391": "CA-D-668",
+    "CA-D-398": "CA-D-669",
+    "CA-D-443": "CA-D-670",
+    "CA-D-465": "CA-D-671",
+    "CA-D-440": "CA-D-666",
+    "CA-D-441": "CA-D-442",
+    "CA-D-445": "CA-D-667",
+    "CA-D-297": "CA-D-667",
+    "CA-D-298": "CA-D-667",
+    "CA-D-299": "CA-D-667",
+    "CA-R-1758": "CA-R-2685",
+    "CA-R-2529": "CA-R-2686",
+    "CA-R-2134": "CA-R-2686",
+    "CA-R-1759": "CA-R-2524",
+    "CA-R-1762": "CA-R-2685",
+    "CA-R-1485": "CA-D-667"
+  },
+  "removed": [
+    "CA-D-380",
+    "CA-D-444",
+    "CA-E-510",
+    "CA-O-078",
+    "CA-R-979"
+  ],
+  "additional_retirements": {
+    "count": 19,
+    "records": [
+      {
+        "atom_id": "CA-R-980",
+        "version": 30,
+        "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-980@30-CORE_META_MODEL-RULE--default-unordered-scope-unit-label-to-feature.md"
+      },
+      {
+        "atom_id": "CA-R-981",
+        "version": 28,
+        "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-981@28-CORE_META_MODEL-RULE--default-navigational-order-chronologically.md"
+      },
+      {
+        "atom_id": "CA-R-982",
+        "version": 32,
+        "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-982@32-CORE_META_MODEL-RULE--let-the-operator-override-scope-unit-label.md"
+      },
+      {
+        "atom_id": "CA-R-983",
+        "version": 29,
+        "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-983@29-CORE_META_MODEL-RULE--let-the-operator-override-navigational-order-number.md"
+      },
+      {
+        "atom_id": "CA-O-205",
+        "version": 13,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/archive/CA-O-205@13-TOOL_WORKFLOWS-WORKFLOW--update-project-structure.md"
+      },
+      {
+        "atom_id": "CA-O-209",
+        "version": 11,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/archive/CA-O-209@11-TOOL_WORKFLOWS-STEP--patch-project-structure-toml.md"
+      },
+      {
+        "atom_id": "CA-R-1829",
+        "version": 12,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/04_requirement/archive/CA-R-1829@12-TOOL_WORKFLOWS-RULE--dispatch-one-bounded-scope-unit-change.md"
+      },
+      {
+        "atom_id": "CA-R-1830",
+        "version": 10,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/04_requirement/archive/CA-R-1830@10-RULE--validate-declared-scope-unit-tree-before-cutover.md"
+      },
+      {
+        "atom_id": "CA-R-1831",
+        "version": 9,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/04_requirement/archive/CA-R-1831@9-RULE--apply-authorized-scope-unit-cutover-losslessly.md"
+      },
+      {
+        "atom_id": "CA-R-1832",
+        "version": 8,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/04_requirement/archive/CA-R-1832@8-RULE--report-structural-change-result-and-breakage.md"
+      },
+      {
+        "atom_id": "CA-D-533",
+        "version": 14,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/07_delivery/archive/CA-D-533@14-ENG_DECISION--bind-project-structure-tool-request-and-result.md"
+      },
+      {
+        "atom_id": "CA-D-534",
+        "version": 12,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/07_delivery/archive/CA-D-534@12-ENG_DECISION--bind-project-structure-authority-and-cutover-carriers.md"
+      },
+      {
+        "atom_id": "CA-D-535",
+        "version": 15,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/07_delivery/archive/CA-D-535@15-ENG_DECISION--bind-project-structure-functional-fixture-boundary.md"
+      },
+      {
+        "atom_id": "CA-E-549",
+        "version": 12,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/06_evaluation/archive/CA-E-549@12-EVAL_CASE--complete-authorized-scope-unit-create-rename-and-move.md"
+      },
+      {
+        "atom_id": "CA-E-550",
+        "version": 10,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/06_evaluation/archive/CA-E-550@10-EVAL_CASE--complete-authorized-scope-unit-remove-and-no-op.md"
+      },
+      {
+        "atom_id": "CA-E-551",
+        "version": 12,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/06_evaluation/archive/CA-E-551@12-EVAL_CASE--reject-stale-conflicting-and-unauthorized-scope-unit-changes.md"
+      },
+      {
+        "atom_id": "CA-E-552",
+        "version": 12,
+        "archive": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/06_evaluation/archive/CA-E-552@12-EVAL_CASE--report-partial-scope-unit-cutover-and-authorized-rollback.md"
+      },
+      {
+        "atom_id": "CA-D-374",
+        "version": 24,
+        "archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archive/CA-D-374@24-CORE_META_MODEL-ENG_DECISION--serialize-instance-authority-mode-selections.md"
+      },
+      {
+        "atom_id": "CA-R-029",
+        "version": 34,
+        "archive": ".caprmedio_caprmedio/04_requirement/archive/CA-R-029@34-RULE--govern-each-scope-by-authority-mode.md"
+      }
+    ],
+    "replacements": {
+      "CA-D-374": "CA-D-668",
+      "CA-R-029": "CA-R-1430"
+    }
+  },
+  "final_sources": {
+    "count": 3,
+    "records": [
+      {
+        "before_id": "CA-D-626",
+        "atom_id": "CA-D-626",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS/07_delivery/CA-D-626-CONNECTOR_TOOLS-ENG_DECISION--deliver-declared-scope-unit-query-data.md"
+      },
+      {
+        "before_id": "CA-D-627",
+        "atom_id": "CA-D-627",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS/07_delivery/CA-D-627-CONNECTOR_TOOLS-ENG_DECISION--deliver-complete-scope-unit-read-data.md"
+      },
+      {
+        "before_id": "CA-R-001",
+        "atom_id": "CA-R-2691",
+        "path": ".caprmedio_caprmedio/04_requirement/CA-R-2691-caprmedio-RULE--keep-nesting-and-sibling-order-distinct.md"
+      }
+    ]
+  },
+  "live_file_removed": true,
+  "scope_declarations": 44,
+  "source_path_migration": "Applied; see folder-migration.md"
+}

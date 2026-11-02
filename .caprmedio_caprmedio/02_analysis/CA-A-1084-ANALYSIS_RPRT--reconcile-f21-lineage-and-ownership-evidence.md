@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1084
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -15,11 +15,21 @@ subjects:
   - Atom/Claim
   - Atom/Revision
   - Evaluation
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1366]
-  relates_to: [CA-A-1063, CA-A-1019, CA-A-1023, CA-A-1028, CA-A-1060, CA-O-058, CA-O-005, CA-O-067, CA-C-367]
+  analysis_for:
+  - CA-P-1366
+  relates_to:
+  - CA-A-1063
+  - CA-A-1019
+  - CA-A-1023
+  - CA-A-1028
+  - CA-A-1060
+  - CA-O-058
+  - CA-O-005
+  - CA-O-067
+  - CA-C-367
 ---
 # Summary
 

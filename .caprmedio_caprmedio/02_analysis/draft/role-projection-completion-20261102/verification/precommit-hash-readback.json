@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-02T17:10:13.686389+00:00",
+  "source_count": 1128,
+  "official_projection_count": 6,
+  "drifted_files": [],
+  "local_remote_ahead_behind": "0\t0",
+  "publication_pending": "Awaiting stable shared edit checkpoint."
+}

@@ -1,0 +1,45 @@
+{
+  "scope": "Source-pinned successor Drafts for the three Current incoming consumers identified by retirement-consumers.json. No Current, Git, runtime, actual-instance, projection, parser, graph-builder, SDK, workflow, fixture, or binding-Rule authority change.",
+  "predecessor_pins": [
+    {
+      "atom_id": "CA-E-500",
+      "source_version": 26,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "source_sha256": "06eed04182fe75b38bef545858a2b6d97f9e4c0bb44e229d4e06f7e50563583a",
+      "candidate_path": "CA-E-500@27-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "candidate_sha256": "39952c680057b7aba974e45af71c4f5226c413fb3fa7ce09be6863d2bb0e3fae",
+      "candidate_version": 27,
+      "summary_preserved": true,
+      "role_preserved": true,
+      "relation_retarget": "evaluation_for CA-R-1569 -> CA-R-2465",
+      "bounded_delta": "Leaf Step evaluation recognizes exactly one Action or Workflow; containing Step has one or more leaf Substeps and no RUNS. The layout is one-level Workflow-to-Step-to-Substep, without nested-Step or Substep directories. The three named parameter sources occur only in the existing binding test. Existing Action-outside-tree ban, status, archive, and source-authority checks remain."
+    },
+    {
+      "atom_id": "CA-E-658",
+      "source_version": 12,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-658-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "source_sha256": "4c8c7fe11ec4830af88cd5f36c702c89e6f5304b964768c5b1e6f63d8c976afd",
+      "candidate_path": "CA-E-658@13-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+      "candidate_sha256": "f42fd594aaf4ebee1327b9081c6d7436fd3673969926f1b4c8565f177ff6966c",
+      "candidate_version": 13,
+      "summary_preserved": true,
+      "role_preserved": true,
+      "relation_retarget": "evaluation_for CA-R-1569 -> CA-R-2465 only",
+      "bounded_delta": "Main-content body is byte-identical to the predecessor; only successor Draft metadata changes, including the one relation retarget."
+    },
+    {
+      "atom_id": "CA-D-467",
+      "source_version": 26,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "source_sha256": "af72ac2b987162ac7f847bf9e3c45636aecd2c1a0a6445f7a44cc2f7b48a60d2",
+      "candidate_path": "CA-D-467@27-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "candidate_sha256": "ed8af6d185f865d836d7d8f67cf354a7b924a4f670c82a3c138919f8103ab60a",
+      "candidate_version": 27,
+      "summary_preserved": true,
+      "role_preserved": true,
+      "relation_retarget": "delivery_for CA-R-1569 -> CA-R-2465",
+      "bounded_delta": "Leaf Step carrier wording recognizes exactly one Action or Workflow; containing Step has one or more leaf Substeps and no RUNS. The layout is one-level Workflow-to-Step-to-Substep, without nested-Step or Substep directories. The Action-outside-tree ban, no-folder-derived-relations rule, status, and archive clauses remain. No called-Workflow placement ban was added."
+    }
+  ],
+  "unresolved_authority": "A root-owned later decision may add a fresh binding-Rule link. This packet creates no placeholder ID or unapproved authority link."
+}

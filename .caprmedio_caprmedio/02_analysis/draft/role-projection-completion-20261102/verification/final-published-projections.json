@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "scope": "Read-only post-publication readback of official projections CA-PROJ-014 through CA-PROJ-019 against the applied publication receipt and adopted 1,128-source Current frontier.",
+  "reviewed_files": {
+    "publication_receipt": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/projection-publication-receipt.json",
+      "sha256": "64ef2442c7e620d091f05333f9cfbc6c1f0209b943c6192cb27356ef7975c597"
+    },
+    "current_frontier": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/current-source-frontier.json",
+      "sha256": "086527d582e14ff20a07f8dd382a20d2d5a3da98127e33b5a9e1f4cf675d390b",
+      "operations": 1128,
+      "source_drift": false
+    },
+    "official_projections": {
+      "CA-PROJ-014": "93269751da5df59ce4562b7a3d27199092b423b1d2bfba43b16842a5421dd9ef",
+      "CA-PROJ-015": "bbbac36ca8de4fe86715422798ed23931e04f3afe718e166450c5a246c1d53d5",
+      "CA-PROJ-016": "b3447ed521ee021dd025cff022a43f319f77fe6a52652994665ed78f1754266f",
+      "CA-PROJ-017": "3328b42f103b0dd48cfb408c0a029e375de665a0abeea6af9ddcdabf54fa3fba",
+      "CA-PROJ-018": "d6109d5ee67ecdc44c08d8e3aad6f921c0978c4fb3cd129dea3433c1ca754867",
+      "CA-PROJ-019": "eaecf180f6a7c5bd4a45db0c9953577a4d34b69a1071122c4c24203a38ae361b"
+    }
+  },
+  "checks": [
+    {
+      "name": "receipt_and_publication_pins",
+      "status": "PASS",
+      "evidence": "The receipt is APPLIED. Its staging-manifest and frontier pins match; every official projection and archived predecessor matches the receipt SHA-256, with the recorded source count."
+    },
+    {
+      "name": "source_frontier_and_vectors",
+      "status": "PASS",
+      "evidence": "All 1,128 Current frontier paths exist after folder migration and match their source hashes. CA-PROJ-014/015/016/019 retain the exact full source vector; CA-PROJ-017/018 retain their exact staged subsets."
+    },
+    {
+      "name": "projection_semantics",
+      "status": "PASS",
+      "evidence": "All six official headers are Projection/Form Map with no version. CA-PROJ-014 retains direct Aspects <+ Product and nested containment facts. CA-PROJ-018's primary-node tree contains no native instance selector. CA-PROJ-019 retains 41 relations with Semantics and Direct/Derived metadata plus 233 fenced Claim blocks."
+    },
+    {
+      "name": "unsupported_cfel_boundary",
+      "status": "PASS_WITH_BOUNDARY",
+      "evidence": "CA-PROJ-019 retains 195 unsupported CFEL records as source evidence. Their retention is not runtime CFEL execution or full evaluator conformance."
+    }
+  ],
+  "blockers": [],
+  "not_checked": [
+    "Broad tests or CA #8 cutover runtime and fixture work",
+    "Runtime CFEL execution, full evaluator conformance, deployment, or release"
+  ]
+}

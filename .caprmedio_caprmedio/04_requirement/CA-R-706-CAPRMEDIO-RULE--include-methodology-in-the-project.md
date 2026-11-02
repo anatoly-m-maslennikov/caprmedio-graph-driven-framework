@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Structure
+  active: Scope Unit
   passive:
   - Project
   - Scope Unit
-version: 31
-updated_at: 2026-11-02 00:18:22 +0400
+version: 32
+updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d

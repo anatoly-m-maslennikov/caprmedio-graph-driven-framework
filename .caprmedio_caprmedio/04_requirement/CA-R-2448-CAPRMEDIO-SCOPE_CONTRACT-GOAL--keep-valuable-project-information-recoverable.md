@@ -5,10 +5,10 @@ subjects:
   active: Project
   passive:
   - Project
-  - 'Entity/Aspect/Product: CAPRMEDIO Framework'
+  - Aspects <+ Product
   - Entity/Object/Continuant/Package/Project Implementation
-version: 3
-updated_at: 2026-11-02 00:18:22 +0400
+version: 5
+updated_at: 2026-11-02 18:35:20 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}

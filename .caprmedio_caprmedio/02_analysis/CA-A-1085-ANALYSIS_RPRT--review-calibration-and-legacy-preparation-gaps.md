@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1085
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -16,11 +16,26 @@ subjects:
   - Implementation
   - Spec
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-version: 3
-updated_at: 2026-10-23 03:14:50 +0400
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1370]
-  relates_to: [CA-A-1077, CA-A-1079, CA-O-017, CA-O-018, CA-O-020, CA-O-104, CA-O-105, CA-O-106, CA-O-111, CA-O-118, CA-O-006, CA-O-007, CA-O-008, CA-O-019]
+  analysis_for:
+  - CA-P-1370
+  relates_to:
+  - CA-A-1077
+  - CA-A-1079
+  - CA-O-017
+  - CA-O-018
+  - CA-O-020
+  - CA-O-104
+  - CA-O-105
+  - CA-O-106
+  - CA-O-111
+  - CA-O-118
+  - CA-O-006
+  - CA-O-007
+  - CA-O-008
+  - CA-O-019
 ---
 # Summary
 

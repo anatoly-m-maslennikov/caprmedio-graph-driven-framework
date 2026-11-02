@@ -26,3 +26,13 @@ Latest correction: “.Role = Requirement & .Form = Scope Unit Declaration”. T
 Latest correction supersedes the earlier explicit Scope Unit Navigation Number: “we can drop navigational number for scope units”; “keep only for steps and P”. Scope Units retain Local Order. Navigation Number remains only for Steps and P Atoms. No Current configuration or filename changes are performed by this Draft update.
 
 Latest Applicable Methodology answer: “yes, it's a special projection”. Retain the special Projection, withdraw the separate hosting Scope Unit Declaration Draft and plan retirement of that Scope Unit at adoption. Do not invent a Scope Unit Goal or delete delivered Projection content.
+
+Latest folder decisions: “Delivery folder is derived it's $parent/<label>_<order>_<name>”; for Unordered units “Omit the order segment and separator”; “Authority Folder name = Delivery Folder”, “let's keep it simple”. Use one shared D naming Policy. No separately authored Authority/Delivery path values in per-unit Declarations.
+
+Latest formal decisions: non-root IDs are CA-SU-<number>. Authority Folder uses the ID prefix; Delivery Folder omits it. Ordered names include ordered.number; Unordered names omit that segment and separator. Project inherits ordered=false and no ordered.number from its model; its Authority Folder remains .caprmedio_<project name>. Project has no Scope Unit ID because it is not moved or renamed through Scope Unit operations. Earlier same-folder-name and root-ID proposals are superseded.
+
+Latest ordering property declarations: Scope Unit.ordered: [bool]{:1}; Scope Unit.ordered.number: IF ordered = true THEN [int, 1+]{:1} ELSE []{:0}. The condition uses ordered on that same unit. The numeric minimum and value cardinality are separate.
+
+Latest grouping decision: order is a no-direct-value group; ordered and number are its sibling Properties. Use Scope Unit.order.ordered and Scope Unit.order.number. The Project rules are Project//.order.ordered == false and Project//.order.number: []{:0}. Null is not substituted for zero values.
+
+Latest adoption instruction: remove authority_mode: strict overrides; do steps 1 and 3 (remove obsolete overrides and promote Declarations/shared model). Retire project_structure.toml entirely, including its governing Atoms, file and implementation consumers. Update the Epic first, then continue. This supersedes retained-TOML compatibility proposals.

@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-988
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 label: Report
 current_scope_unit: caprmedio
@@ -11,14 +11,14 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
 subjects:
-  governs: "Subsequent second-partition continuation session evidence packet"
+  governs: Subsequent second-partition continuation session evidence packet
   depends_on:
-    - "CA-P-1270"
-version: 1
-updated_at: "2026-10-04 12:10:07 +0400"
+  - CA-P-1270
+version: 2
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
   is_result_of:
-    - CA-P-1270
+  - CA-P-1270
 ---
 # Summary
 

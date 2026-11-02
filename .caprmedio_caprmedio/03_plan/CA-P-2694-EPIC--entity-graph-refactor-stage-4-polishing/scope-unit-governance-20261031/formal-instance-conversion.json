@@ -1,0 +1,19 @@
+{
+  "instance_drafts_with_cfel": 44,
+  "scope_unit_ids_assigned": 43,
+  "id_format": "CA-SU-<number>; stable ID independent of Label, order and Name",
+  "ordered_non_root": 9,
+  "unordered_non_root": 34,
+  "project_root": "Inherits Unordered, no order.number and no Scope Unit ID from Project model",
+  "legacy_owner_fields_removed": 44,
+  "external_owner_data": "retained in instance-drafts.json for later placement; not duplicated in canonical frontmatter",
+  "authority_mode_overrides_in_prose": 0,
+  "authority_mode_note": "The five obsolete overrides are removed by Operator decision.",
+  "folders_derived_not_authored": true,
+  "source_toml_sha256": "bc53259e9ecfac7a718fbccd0cd81c4ae9954640fb0e535f03c2acfba80547b4",
+  "parser_admission": "not claimed",
+  "promotion": false,
+  "generated_at": "2026-11-02 17:02:59 +0400",
+  "project_authority_folder": ".caprmedio_<project name>",
+  "non_root_ids": "Existing assigned CA-SU-2 through CA-SU-44 retained; no cosmetic renumbering"
+}

@@ -1,0 +1,22 @@
+---
+subjects:
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
+version: 25
+updated_at: 2026-11-02 19:46:47 +0400
+relations:
+  delivery_for:
+  - CA-R-1042
+  - CA-R-1093
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-D-411
+status: Active
+content_role: Delivery
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Eng Decision
+tier: 2
+---
+# Deliver CLOSE_ATOM intent Doer
+
+the canonical source carrier for `CLOSE_ATOM` is `LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/CLOSE_ATOM/close_atom.py`. It is installed **only** **in** the selected framework Tool release, delegates lifecycle effects **to** the canonical Atom lifecycle operation, **and** exposes mutation **only** through authorized project-local MCP delegation with a sealed Initiative action. Direct execution remains dry-run **only**.

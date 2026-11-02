@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1021
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 label: Report
 current_scope_unit: caprmedio
@@ -14,11 +14,11 @@ subjects:
   depends_on:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
-version: 5
-updated_at: 2026-10-23 03:14:50 +0400
+version: 6
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
   is_result_of:
-    - CA-P-1303
+  - CA-P-1303
 ---
 # Summary
 

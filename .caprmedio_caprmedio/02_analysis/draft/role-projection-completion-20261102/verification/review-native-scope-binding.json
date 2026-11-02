@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "scope": "Read-only review of the native Scope Unit Declaration instance-context binding in the moved formal-contract graph code. It covers bounded source provenance and focused compatibility only; it is not a rendered-graph, Current publication, or full-runtime conformance result.",
+  "reviewed_files": {
+    "contract_graph": {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/contract_graph.py",
+      "sha256": "ac75480650f428e293dd7a05ee755f8a419a1691c9ddedfc6f5b6278508240ff"
+    },
+    "focused_tests": {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_contract_graph.py",
+      "sha256": "aa35333ddd58bc249aaa6d93e158d58ccbc8fab801cf504f3708bd6929e9f3f7"
+    }
+  },
+  "checks": [
+    {
+      "name": "native_provenance_binding",
+      "status": "PASS",
+      "evidence": "The former hard-coded instance-selector allowlist is replaced with exact parsed Scope Unit//Name or Project//Name evidence from Requirement/Form Scope Unit Declaration carriers. The binding records the selected declaration source and binds only to an already-declared generic Scope Unit or Project target."
+    },
+    {
+      "name": "bounded_non_scope_compatibility",
+      "status": "PASS",
+      "evidence": "The compatibility restoration is limited to the three pre-existing non-Scope contexts: Projection//PROJECT_SCOPE_UNIT_GRAPH, NamedSelection//ExtensionSources, and PROJECTSTRUCTURE//CAPRMEDIO. It retains their existing binding name and adds bounded_named_contract_context provenance; no Scope Unit or Project hard-coded selector is restored."
+    },
+    {
+      "name": "no_instance_model_ownership_or_tree_narrowing",
+      "status": "PASS",
+      "evidence": "The binding attaches shared RMED evidence to the generic primary-node target only. Instance selectors are not catalog declarations and Scope Unit Declaration carriers are excluded from narrowing-tree declaration inputs."
+    },
+    {
+      "name": "negative_proof_cases",
+      "status": "PASS",
+      "evidence": "Direct focused checks confirm a duplicate Scope Unit Declaration proof leaves the duplicate proof records and consumer unbound; a Scope Unit Declaration for Actor remains unbound even when generic Actor is declared; and a missing generic Scope Unit target cannot bind."
+    },
+    {
+      "name": "current_api_status_boundary",
+      "status": "PASS",
+      "evidence": "The existing read_current_carriers API excludes Draft and Archived Atom carriers before compose_contract_graph receives candidates. The reviewed binding adds no separate lifecycle filter or wider validator."
+    },
+    {
+      "name": "focused_regression_suite",
+      "status": "PASS",
+      "command": ".venv/bin/python -m unittest LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_contract_graph.py",
+      "evidence": "11 tests passed, including the source-proven Scope Unit/Project positive binding and existing contract-graph callers."
+    }
+  ],
+  "blockers": [],
+  "not_checked": [
+    "Root-owned rendering of the actual selected 1,128-source graph",
+    "Repository-wide lint or tests",
+    "Current source publication, projection acceptance, full evaluator behavior, runtime instances, or deployment"
+  ]
+}

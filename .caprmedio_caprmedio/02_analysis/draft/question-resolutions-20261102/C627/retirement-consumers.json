@@ -1,0 +1,83 @@
+{
+  "scope": "Current RMED incoming consumers of CA-R-1569, CA-R-1992, and CA-R-2480 only. Archives, Drafts, installed bundles, actual Operations instances, code, runtime, and fixtures are excluded. Projection source pins are listed solely as required graph/API regeneration mappings.",
+  "retirement_candidates": {
+    "CA-R-1569": {
+      "current_version": 25,
+      "source_sha256": "ebd3131b69b2701e7ac509a62ad4f4325495d23a94b47129ab05dc9161c79202",
+      "incoming_current_rmed_consumers": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+          "line": 14,
+          "reference_kind": "relations.evaluation_for",
+          "source_sha256": "06eed04182fe75b38bef545858a2b6d97f9e4c0bb44e229d4e06f7e50563583a",
+          "required_gate": "Retarget or freeze deliberately: the evaluation covers both CA-R-1569 and CA-R-1570; confirm whether its Step-structure obligation is fully supplied by CA-R-2465 or also requires the fresh binding Rule."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-658-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+          "line": 24,
+          "reference_kind": "relations.evaluation_for",
+          "source_sha256": "4c8c7fe11ec4830af88cd5f36c702c89e6f5304b964768c5b1e6f63d8c976afd",
+          "required_gate": "Semantic retarget review required. Likely replacement is the Step Declaration (CA-R-2465 successor), but do not substitute the ID without confirming this evaluation's former type-classification coverage."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+          "line": 14,
+          "reference_kind": "relations.delivery_for",
+          "source_sha256": "af72ac2b987162ac7f847bf9e3c45636aecd2c1a0a6445f7a44cc2f7b48a60d2",
+          "required_gate": "Ambiguous scope: preserve/version-freeze until a review establishes whether delivery is for Step declaration structure (CA-R-2465 successor), binding ownership (fresh Rule), or both."
+        }
+      ]
+    },
+    "CA-R-1992": {
+      "current_version": 15,
+      "source_sha256": "54bb7b2b4f14cb61de21e08f0e284b6d5771498c6c1cc6ead233ba30b2564099",
+      "incoming_current_rmed_consumers": [],
+      "result": "None found outside the retiring source itself in the bounded Current RMED source search."
+    },
+    "CA-R-2480": {
+      "current_version": 4,
+      "source_sha256": "5e3116b7e2b83202477c00aeaad18b202c06031e3d539ca12b10ce11b9480ba3",
+      "incoming_current_rmed_consumers": [],
+      "result": "None found outside the retiring source itself in the bounded Current RMED source search."
+    }
+  },
+  "required_graph_api_source_pin_mappings": [
+    {
+      "projection": "CA-PROJ-014",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md",
+      "sha256": "a3f3e2af76ec7c0d17c5540b4dc7ea1c050905ae4bc22bf8cacd098eabd879e8",
+      "pins": ["611: CA-R-1569@25", "813: CA-R-1992@15", "909: CA-R-2480@4"]
+    },
+    {
+      "projection": "CA-PROJ-015",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-015-CAPRMEDIO--Subject-Graph-Properties--Current-Methodology-and-Project-RMED.md",
+      "sha256": "c386d0deb4d9fe8e7adbb6e7eebc0430d6ed442eecdcd4d496e30ad666e4732c",
+      "pins": ["611: CA-R-1569@25", "813: CA-R-1992@15", "909: CA-R-2480@4"]
+    },
+    {
+      "projection": "CA-PROJ-016",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-016-CAPRMEDIO--Subject-Graph-Instances--Current-Methodology-and-Project-RMED.md",
+      "sha256": "4cb65bd8ddea2b1896986d9f1de71b1dfed6ccce4b229ee58466a58d3aad61ac",
+      "pins": ["611: CA-R-1569@25", "813: CA-R-1992@15", "909: CA-R-2480@4"]
+    },
+    {
+      "projection": "CA-PROJ-017",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-017-CAPRMEDIO--Model-Graph--Current-MODEL-Declarations.md",
+      "sha256": "b389f5aae86452222b8929736da41af25c523ada69c234b63c5b16391a62dcda",
+      "pins": ["50: CA-R-2480@4"]
+    },
+    {
+      "projection": "CA-PROJ-018",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-018-CAPRMEDIO--Entities-Graph--Current-Subject-Narrowing-Tree.md",
+      "sha256": "4c2b7bc0ebfdcabd9947b5fd25127296a5ff699ed0d7d636ca172a283c189636",
+      "pins": ["95: CA-R-2480@4"]
+    },
+    {
+      "projection": "CA-PROJ-019",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-019-CAPRMEDIO--MODEL-Formal-Contracts.md",
+      "sha256": "00771a8390216e22f42a72429b1f2cb986f7d40c23bfc7ad76249a3a4f1d029a",
+      "pins": ["611: CA-R-1569@25", "813: CA-R-1992@15", "909: CA-R-2480@4", "2551: exact CA-R-1569 binding", "2565: exact CA-R-1992 binding", "10507: CA-R-2480 declaration source"]
+    }
+  ],
+  "retirement_gate": "Do not blanket-retarget CA-R-1569 to CA-R-2465 or to the fresh binding Rule. Retarget only the verified semantic obligation; otherwise freeze the current source version until disposition is decided. Regenerate source-pinned projections only after accepted Current source changes."
+}

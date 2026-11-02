@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "counts": {
+    "archive": 10,
+    "publish": 10
+  },
+  "journal_rows_checked": 10,
+  "relocations": [],
+  "errors": [],
+  "limits": [
+    "Receipt path and explicit folder-mapping checks only; no runtime, graph or projection validation."
+  ]
+}

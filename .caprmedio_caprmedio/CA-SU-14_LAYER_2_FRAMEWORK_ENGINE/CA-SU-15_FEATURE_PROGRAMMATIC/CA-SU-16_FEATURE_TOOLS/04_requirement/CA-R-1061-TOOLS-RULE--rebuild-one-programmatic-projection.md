@@ -1,0 +1,19 @@
+---
+subjects:
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+version: 20
+updated_at: 2026-11-02 19:44:26 +0400
+atom_id: CA-R-1061
+status: Active
+content_role: Requirement
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
+type: Rule
+tier: 1
+---
+# Rebuild one programmatic Projection
+
+the framework **must** provide one deterministic Tool that rebuilds one registered programmatic Projection from its declared sources, writes `updated_at` **and** `source_frontier`, replaces the output atomically, **and** records the rebuild through the Work Journal Tool.

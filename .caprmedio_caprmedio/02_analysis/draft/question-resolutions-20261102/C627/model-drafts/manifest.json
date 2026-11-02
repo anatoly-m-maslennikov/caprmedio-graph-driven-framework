@@ -1,0 +1,53 @@
+{
+  "scope": "C627 proposed MODEL declarations only; Current sources, projections, runtime, tests, and parameter-schema binding rules are unchanged.",
+  "candidates": [
+    {
+      "source_id": "CA-R-2464",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "source_sha256": "1c58b24fd9c6113d568b84e56003e0832bec26a1cbba209c2e9f2f783783740e",
+      "candidate_id": "CA-R-2464@3-draft",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2464@3-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "candidate_sha256": "d215ec2d7f2d372b2529376a40e14252f2f009d5c6fd9dbb58ca202c67b1b2e6"
+    },
+    {
+      "source_id": "CA-R-2465",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "source_sha256": "71c233e139abbbddc92d1e7f110f9a8e606c009e9924e2017262576e633dfc84",
+      "candidate_id": "CA-R-2465@3-draft",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2465@3-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "candidate_sha256": "0080349925911cd126a8383e42a67b882e93ed6bd06c27cdf96eda4f37999598"
+    },
+    {
+      "source_id": "CA-R-2466",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "source_sha256": "15bf6837b850ad0b28bc1453018c0d9869874f9cf03cd0ebf67aa70b0205e084",
+      "candidate_id": "CA-R-2466@3-draft",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2466@3-draft-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "candidate_sha256": "a10b8bff162ce14f757c6c235b66715b02b2a50a85d9ae4f886bebc7e1a33f90"
+    },
+    {
+      "source_id": "CA-R-2480",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2480-CORE_META_MODEL-DECLARATION--define-run.md",
+      "source_sha256": "5e3116b7e2b83202477c00aeaad18b202c06031e3d539ca12b10ce11b9480ba3",
+      "candidate_id": "CA-R-draft",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-draft-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "candidate_sha256": "29998d146f7cfb195cc966d48a9f2b4c8a62ac3f4685d56491b540189de25dea",
+      "replacement_identity": "fresh unallocated R-Draft"
+    },
+    {
+      "source_id": "CA-R-2623",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "source_sha256": "24c1f6355857123485029c7657c7edeeed832fe244e9000b5966d4febfb4601a",
+      "candidate_id": "CA-R-2623@2-draft",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C627/model-drafts/CA-R-2623@2-draft-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "candidate_sha256": "ecf705bb812e070cd84ad4ff9f16dcac8c4e89fef5a2c15ea54196ed7735de8c"
+    }
+  ],
+  "retirements": [
+    {
+      "source_id": "CA-R-2480",
+      "after_candidate": "CA-R-draft",
+      "reason": "RUNS is a new canonical relation identity; CA-R-2480 remains Define RUN and is retired after replacement adoption."
+    }
+  ]
+}

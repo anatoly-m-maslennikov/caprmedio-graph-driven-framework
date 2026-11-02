@@ -1,6 +1,6 @@
 ---
 atom_id: CA-A-1076
-content_role: Analysis
+content_role: Analysis & Advisory
 type: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
@@ -15,11 +15,20 @@ subjects:
   - Methodology Sources
   - Subject/Domain/Node/Continuant/Project
   - Journal
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
 relations:
-  analysis_for: [CA-P-1358]
-  relates_to: [CA-P-1130, CA-P-1375, CA-A-1063, CA-A-1125, CA-A-1138, CA-A-1139, CA-A-1060, CA-A-1061]
+  analysis_for:
+  - CA-P-1358
+  relates_to:
+  - CA-P-1130
+  - CA-P-1375
+  - CA-A-1063
+  - CA-A-1125
+  - CA-A-1138
+  - CA-A-1139
+  - CA-A-1060
+  - CA-A-1061
 ---
 # Summary
 
