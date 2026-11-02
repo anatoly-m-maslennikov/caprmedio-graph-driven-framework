@@ -66,7 +66,7 @@
   "code_stable_for_checks": true,
   "full_suite_owner": "Scope Unit cutover chat (this root)",
   "full_suite_running": true,
-  "full_suite_log": ".caprmedio_tmp/declaration-source-cutover/final-full-suite.log",
+  "full_suite_log": ".caprmedio_tmp/local-20261103-tools-cleanup-4.log",
   "parallel_check_scope": "Projection-focused checks only; avoid a second full-suite/Docker run",
   "deferred_runtime_repair": {
     "task_id": "CA-P-2708",
@@ -113,6 +113,6 @@
   },
   "final_verification": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/verification/final-cutover-verification.json",
   "previous_git_owner": "CA #5: Main 2; this chat does not stage/commit/push",
-  "local_release_run_id": "local-20261103-tools-cleanup-3",
-  "local_release_status": "Full retry after test-only native result fixture corrections; 4000-test previous run had only one stale fixture failure; 39 related checks now pass"
+  "local_release_run_id": "local-20261103-tools-cleanup-4",
+  "local_release_status": "Starting full release after canonical source/digest and inactive-location discovery fixes; 46 focused checks passed; live canonical compile1153 candidates,0conflicts"
 }

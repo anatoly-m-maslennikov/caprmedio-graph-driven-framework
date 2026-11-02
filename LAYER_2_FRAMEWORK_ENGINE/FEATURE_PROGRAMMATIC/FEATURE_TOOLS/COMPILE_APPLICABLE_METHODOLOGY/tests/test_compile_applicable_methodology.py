@@ -409,12 +409,11 @@ class CompilerTest(unittest.TestCase):
             "CA-O-001-OPERATIONS--active.md",
             carrier("CA-O-001"),
         )
-        drafts = self.layers["CORE_META_MODEL"] / "04_requirement/drafts"
-        archive = self.layers["CORE_META_MODEL"] / "04_requirement/archive"
-        drafts.mkdir(parents=True)
-        archive.mkdir(parents=True)
-        (drafts / "CA-R--draft.md").write_bytes(carrier("CA-R-DRAFT"))
-        (archive / "CA-R-001--old@1.md").write_bytes(carrier("CA-R-OLD"))
+        original = active.read_bytes()
+        for index, directory in enumerate(("draft", "drafts", "archive", "archived", "Draft", "Archived")):
+            historical = active.parent / f"copy-{index}" / directory / active.name
+            historical.parent.mkdir(parents=True)
+            historical.write_bytes(original)
         (self.layers["CORE_META_MODEL"] / "01_concern").mkdir()
         (self.layers["CORE_META_MODEL"] / "01_concern/CA-C-001.md").write_bytes(carrier("CA-C-001"))
         (self.layers["CORE_META_MODEL"] / "08_implementation").mkdir()
@@ -422,7 +421,9 @@ class CompilerTest(unittest.TestCase):
         code, report = self.invoke()
         self.assertEqual(code, 0)
         self.assertEqual(report["eligible_candidate_count"], 1)
+        self.assertEqual(report["conflict_count"], 0)
         self.assertEqual(report["output_plan"][0]["source_carrier_path"], active.relative_to(self.temp).as_posix())
+        self.assertEqual(original, active.read_bytes())
 
     def test_failed_multi_directory_swap_rolls_back(self) -> None:
         self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001--one.md", carrier("CA-R-001"))

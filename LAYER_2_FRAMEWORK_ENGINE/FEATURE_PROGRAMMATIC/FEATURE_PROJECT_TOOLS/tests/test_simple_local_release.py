@@ -129,10 +129,36 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         module = ModuleType("COMPILE_APPLICABLE_METHODOLOGY.compile_applicable_methodology")
         module.CompileError = RuntimeError
         module.MethodologyPaths = SimpleNamespace
-        module.compile_report = lambda root, paths: ({"can_apply": not fail}, (), {})
+        self.canonical_methodology_paths = SimpleNamespace(
+            source=Path("relocated/methodology-sources"),
+            output=Path("declared/applicable-methodology"),
+            declaration_digest="canonical-declaration-digest",
+            control_root=Path(".caprmedio_caprmedio"),
+        )
+        module.methodology_paths = Mock(return_value=self.canonical_methodology_paths)
+        self.compile_report_paths = []
+
+        def compile_report(root, paths):
+            self.compile_report_paths.append(paths)
+            return {"can_apply": not fail}, (), {}
+
+        module.compile_report = compile_report
         module.stage_outputs = lambda *args: None
         module.replace_outputs_atomically = lambda root, staging, paths: self._compile(root)
         return patch.dict(sys.modules, {module.__name__: module})
+
+    def test_compile_product_preserves_canonical_methodology_inputs(self):
+        runner, _ = self._runner()
+        with self._compiler():
+            result = run_local_release(self.root, run_id="canonical-methodology-inputs", runner=runner)
+
+        self.assertEqual("completed", result["outcome"])
+        self.assertEqual(1, len(self.compile_report_paths))
+        places = self.compile_report_paths[0]
+        self.assertEqual(self.canonical_methodology_paths.source, places.source)
+        self.assertEqual(self.canonical_methodology_paths.declaration_digest, places.declaration_digest)
+        self.assertEqual(self.canonical_methodology_paths.control_root, places.control_root)
+        self.assertEqual(Path("LAYER_1_FRAMEWORK_METHODOLOGY/applicable_methodology"), places.output)
 
     def test_launcher_image_reads_only_exact_selected_runtime_namespace(self):
         selection = resolve_project(self.root)

@@ -518,7 +518,7 @@ def run_local_release(
                     sys.path.insert(0, str(tools_root))
                 try:
                     from COMPILE_APPLICABLE_METHODOLOGY.compile_applicable_methodology import (
-                        CompileError, MethodologyPaths, compile_report, replace_outputs_atomically, stage_outputs,
+                        CompileError, MethodologyPaths, compile_report, methodology_paths, replace_outputs_atomically, stage_outputs,
                     )
                 except ImportError as error:
                     raise LocalReleaseError("local-release-compiler-unavailable") from error
@@ -570,10 +570,12 @@ def run_local_release(
             elif phase == "compile product":
                 failed_step = "compile_product"
                 try:
+                    canonical = methodology_paths(root)
                     places = MethodologyPaths(
-                        source=Path("LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES"),
+                        source=canonical.source,
                         output=Path("LAYER_1_FRAMEWORK_METHODOLOGY/applicable_methodology"),
-                        control_root=Path(".caprmedio_caprmedio"),
+                        declaration_digest=canonical.declaration_digest,
+                        control_root=canonical.control_root,
                     )
                     report, candidates, snapshot = compile_report(root, places)
                     if report.get("can_apply") is not True:

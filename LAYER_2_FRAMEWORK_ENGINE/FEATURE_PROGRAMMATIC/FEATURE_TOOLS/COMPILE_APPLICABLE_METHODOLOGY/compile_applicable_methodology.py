@@ -712,7 +712,7 @@ def discover_candidates(root: Path, places: MethodologyPaths | None = None) -> t
         for path in sorted(role_root.rglob("*.md")):
             relative_within_role = path.relative_to(role_root)
             relative = repo_relative(root, path)
-            if {"archive", "drafts", "done", "canceled"}.intersection(relative_within_role.parts):
+            if {"archive", "archived", "draft", "drafts", "done", "canceled"}.intersection(part.casefold() for part in relative_within_role.parts):
                 exclude(path, "inactive-location")
                 continue
             if not path.is_file() or path.is_symlink():
