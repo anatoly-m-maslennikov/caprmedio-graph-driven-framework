@@ -22,9 +22,13 @@ Declare Substep
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Operations)/Substep;
-Substep//{:1}((IS_CONTAINED_BY)) Step//;
-Substep//{:1}((RUNS)) Action//
+
+# instances
+Substep//$substep{:1}((IS_CONTAINED_BY)) Step//$step;
+
+Substep//$substep_2{:1}((RUNS)) Action//$action
 ```
 
 ## Semantics

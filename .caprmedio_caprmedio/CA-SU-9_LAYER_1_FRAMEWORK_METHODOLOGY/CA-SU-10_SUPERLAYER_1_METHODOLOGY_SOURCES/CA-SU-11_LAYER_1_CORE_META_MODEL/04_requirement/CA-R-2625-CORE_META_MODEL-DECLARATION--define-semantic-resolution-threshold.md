@@ -22,7 +22,9 @@ Define Semantic Resolution Threshold
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.Confidence.Semantic Resolution Threshold{:0..1}: [int]{:1};
+
 Project.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}
 ```
 

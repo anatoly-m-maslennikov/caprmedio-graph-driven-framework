@@ -1,0 +1,7 @@
+{
+  "source_id": "CA-R-2464",
+  "snapshot_sha256": "e968d46165dc8b96916359e2820f59a12f3f3aa978824bbcc96baa09cc952209",
+  "concurrent_sha256": "70222545ca403b3b704862bb8cbd4972a664021368100fa1f90e9634240112be",
+  "disposition": "Own unpushed commit restored to verified v4 payload in Git index only. Concurrent v5 working file preserved and left unstaged for its owner.",
+  "verified_commit": "f5d7963af3541e3b12910664f9f39f8d75ad37da"
+}

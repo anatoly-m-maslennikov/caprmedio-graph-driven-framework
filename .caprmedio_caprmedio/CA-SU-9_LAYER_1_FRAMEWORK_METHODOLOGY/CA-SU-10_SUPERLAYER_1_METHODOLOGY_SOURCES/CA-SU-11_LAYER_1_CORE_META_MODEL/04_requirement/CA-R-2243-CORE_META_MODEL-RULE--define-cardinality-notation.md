@@ -24,9 +24,13 @@ Define Cardinality Notation
 ### Formal Claim
 
 ```CFEL
+# model
 p{:occurrence}: [value format]{:value count};
+
 p.*[immediate name format]{:immediate name count};
+
 p.**[recursive name format]{:recursive name count};
+
 p.*[name format]{:name count}: [value format]{:value count}
 ```
 

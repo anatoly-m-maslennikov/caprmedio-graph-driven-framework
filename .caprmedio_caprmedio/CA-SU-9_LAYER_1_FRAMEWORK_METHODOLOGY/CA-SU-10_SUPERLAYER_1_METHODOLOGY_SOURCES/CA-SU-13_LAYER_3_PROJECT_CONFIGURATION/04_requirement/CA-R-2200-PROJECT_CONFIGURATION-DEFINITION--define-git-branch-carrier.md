@@ -21,6 +21,7 @@ Define Git Branch Carrier
 ### Formal Claim
 
 ```CFEL
+# model
 Carrier/Git Branch
 ```
 

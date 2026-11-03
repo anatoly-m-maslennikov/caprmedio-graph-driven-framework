@@ -21,6 +21,7 @@ Define Git Commit Carrier
 ### Formal Claim
 
 ```CFEL
+# model
 Carrier/Git Commit
 ```
 

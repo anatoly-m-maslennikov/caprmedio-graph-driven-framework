@@ -22,6 +22,7 @@ Declare CFEL Relation endpoint signature
 ### Formal Claim
 
 ```CFEL
+# model
 Operator//RelationEndpointSignature == "$host ((RELATION)) $target"
 ```
 

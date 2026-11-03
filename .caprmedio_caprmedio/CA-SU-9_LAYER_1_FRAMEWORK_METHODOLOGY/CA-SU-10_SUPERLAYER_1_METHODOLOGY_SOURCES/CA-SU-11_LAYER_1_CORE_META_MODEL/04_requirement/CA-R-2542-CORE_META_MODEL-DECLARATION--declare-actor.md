@@ -21,7 +21,9 @@ Declare Actor
 ### Formal Claim
 
 ```CFEL
+# model
 Actor;
+
 Actor ((NARROWER_THAN)) Continuant
 ```
 

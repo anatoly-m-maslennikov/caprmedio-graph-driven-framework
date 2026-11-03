@@ -21,7 +21,9 @@ Declare Actor.Name
 ### Formal Claim
 
 ```CFEL
+# model
 Actor.Name{:0..1}: [string]{:1};
+
 Actor.Name.*[]{:0}
 ```
 

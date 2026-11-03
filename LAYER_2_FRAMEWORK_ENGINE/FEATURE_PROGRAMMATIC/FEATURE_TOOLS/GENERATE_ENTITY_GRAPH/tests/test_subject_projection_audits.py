@@ -8,7 +8,8 @@ import unittest
 TOOL = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(TOOL.parent), str(TOOL)]
 
-from subject_projection_audits import build_subject_audits, render_subject_audit  # noqa: E402
+from subject_projection_audits import build_subject_audits, render_subject_audit, select_model_subjects  # noqa: E402
+from subject_projection_data import build_subject_projection_data  # noqa: E402
 
 
 def carrier(atom_id, active, passive=(), *, role="Requirement", form="Declaration"):
@@ -18,6 +19,36 @@ def carrier(atom_id, active, passive=(), *, role="Requirement", form="Declaratio
 
 
 class SubjectProjectionAuditTests(unittest.TestCase):
+    def test_model_scope_excludes_structure_and_concrete_instances_but_keeps_descriptors(self):
+        sources = [
+            carrier("CA-R-1", "CAPRMEDIO_MODEL <+ Node", [
+                "CAPRMEDIO_STRUCTURE <+ Project", "CAPRMEDIO_MODEL <+ Node//Example",
+                "CAPRMEDIO_MODEL <+ Node//Example.Name", "CAPRMEDIO_MODEL <+ CFEL <+ Relation//RUN",
+                "CAPRMEDIO_MODEL <+ CFEL <+ Operator//Alias", "CAPRMEDIO_MODEL <+ CFEL <+ Format//markdown",
+                "CAPRMEDIO_MODEL <+ Term//Word", "Legacy Node",
+            ]),
+            carrier("CA-R-2", "CAPRMEDIO_STRUCTURE <+ Project", ["CAPRMEDIO_MODEL <+ Node"]),
+            carrier("CA-R-3", "CAPRMEDIO_STRUCTURE <+ Project", [{"legacy": "not a Subject"}]),
+        ]
+        selected, diagnostics = select_model_subjects(sources)
+        self.assertEqual(3, len(selected))
+        self.assertEqual(["Legacy Node", "{'legacy': 'not a Subject'}"], [row["raw_value"] for row in diagnostics])
+        passive = selected[0]["subjects"]["passive"]
+        self.assertEqual(4, len(passive))
+        self.assertTrue(any("Relation//RUN" in row for row in passive))
+        self.assertTrue(any("Operator//Alias" in row for row in passive))
+        self.assertTrue(any("Format//markdown" in row for row in passive))
+        self.assertTrue(any("Term//Word" in row for row in passive))
+        self.assertNotIn("active", selected[1]["subjects"])
+        data = build_subject_projection_data([selected[0]])
+        audits = build_subject_audits(selected, data, scope_diagnostics=diagnostics)
+        identities = {row["identity"] for row in audits["entity_definition_summary"]["entities"]}
+        self.assertNotIn("Project", identities)
+        self.assertFalse(any("Example" in identity for identity in identities))
+        self.assertTrue({"RUN", "Operator//Alias", "Format//markdown", "Term//Word"} <= identities)
+        self.assertIn("Legacy Node", [row["subject"] for row in audits["subjects_without_declaration_coverage"]["unresolved"]])
+        self.assertEqual("CAPRMEDIO_STRUCTURE <+ Project", sources[1]["subjects"]["active"])
+
     def test_passive_set_difference_does_not_confuse_owner_active_subjects(self):
         audits = build_subject_audits([
             carrier("CA-R-1", "OwnerA", ["Shared", "Passive Only"]),

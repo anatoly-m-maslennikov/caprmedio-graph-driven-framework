@@ -21,7 +21,9 @@ Declare Projection
 ### Formal Claim
 
 ```CFEL
+# model
 Projection {:0}((IS_PROPERTY_OF));
+
 Projection ((NARROWER_THAN)) Continuant
 ```
 

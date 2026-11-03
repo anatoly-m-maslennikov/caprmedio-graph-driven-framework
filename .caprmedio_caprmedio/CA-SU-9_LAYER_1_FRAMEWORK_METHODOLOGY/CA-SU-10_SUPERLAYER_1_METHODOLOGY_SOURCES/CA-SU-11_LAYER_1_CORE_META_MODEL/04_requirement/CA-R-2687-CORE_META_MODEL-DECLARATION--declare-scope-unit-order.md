@@ -21,7 +21,9 @@ Declare Scope Unit.order
 ### Formal Claim
 
 ```CFEL
+# model
 Scope Unit.order: []{:0};
+
 Scope Unit.order.*[in (ordered, number)]{:1..2}
 ```
 

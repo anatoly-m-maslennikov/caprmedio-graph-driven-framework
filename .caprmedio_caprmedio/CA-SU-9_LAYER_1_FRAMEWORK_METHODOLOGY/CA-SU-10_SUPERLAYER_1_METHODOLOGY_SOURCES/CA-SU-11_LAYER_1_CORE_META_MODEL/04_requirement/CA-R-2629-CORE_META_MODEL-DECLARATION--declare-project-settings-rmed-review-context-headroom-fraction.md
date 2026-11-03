@@ -22,7 +22,9 @@ Declare Project.Settings.RMED Review.Context Headroom Fraction
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.RMED Review.Context Headroom Fraction{:0..1}: [float]{:1};
+
 Project.Settings.RMED Review.Context Headroom Fraction.*[]{:0}
 ```
 

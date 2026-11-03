@@ -28,10 +28,12 @@ Define EXECUTES Relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//EXECUTES ((HAS_INVERSE)) Relation//IS_EXECUTED_BY;
 
 Relation//EXECUTES ((HAS_CLASSIFICATION)) Derivation == Direct;
 
+# instances
 $runtime ((EXECUTES)) $workflow_run
 ```
 

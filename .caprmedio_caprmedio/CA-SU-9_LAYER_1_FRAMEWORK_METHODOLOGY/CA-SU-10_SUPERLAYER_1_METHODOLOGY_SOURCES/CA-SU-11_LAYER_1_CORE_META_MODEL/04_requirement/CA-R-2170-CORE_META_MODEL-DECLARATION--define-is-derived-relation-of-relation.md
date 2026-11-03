@@ -27,7 +27,9 @@ Define is derived relation of relation
 ### Formal Claim
 
 ```CFEL
-Relation// ((IS_DERIVED_RELATION_OF)) Relation//;
+# model
+Relation//$relation ((IS_DERIVED_RELATION_OF)) Relation//$relation_2;
+
 Relation//IS_DERIVED_RELATION_OF ((HAS_CLASSIFICATION)) Derivation == Direct
 ```
 

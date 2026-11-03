@@ -23,6 +23,7 @@ Define int Value Format
 ### Formal Claim
 
 ```CFEL
+# model
 CFEL <+ Format/int
 ```
 

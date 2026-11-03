@@ -22,8 +22,11 @@ Declare Action
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Operations)/Action;
-Action//{:0+}((IS_RUN_BY)) (in (Step, Substep))//
+
+# instances
+Action//$action{:0+}((IS_RUN_BY)) (in (Step, Substep))//$selected
 ```
 
 ## Semantics

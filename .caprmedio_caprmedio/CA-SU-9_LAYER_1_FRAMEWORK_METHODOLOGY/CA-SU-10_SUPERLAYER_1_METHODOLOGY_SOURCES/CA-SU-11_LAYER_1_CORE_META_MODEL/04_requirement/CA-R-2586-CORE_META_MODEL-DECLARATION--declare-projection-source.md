@@ -21,7 +21,9 @@ Declare Projection.Source
 ### Formal Claim
 
 ```CFEL
+# model
 Projection.Source{:1}: []{:0};
+
 Projection.Source.*[in (Named Selection, Atoms)]{:1..2}
 ```
 

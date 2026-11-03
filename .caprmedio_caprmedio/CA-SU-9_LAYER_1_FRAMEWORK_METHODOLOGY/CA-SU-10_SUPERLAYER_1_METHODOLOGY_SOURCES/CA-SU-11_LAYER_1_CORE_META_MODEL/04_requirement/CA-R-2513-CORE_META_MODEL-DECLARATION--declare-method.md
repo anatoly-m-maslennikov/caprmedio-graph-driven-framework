@@ -21,6 +21,7 @@ Declare Atom/(.Role := Method)
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Method)
 ```
 

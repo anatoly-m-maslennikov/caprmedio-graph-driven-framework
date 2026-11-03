@@ -21,7 +21,9 @@ Declare Aspect
 ### Formal Claim
 
 ```CFEL
+# model
 Aspect;
+
 Aspect ((NARROWER_THAN)) Node
 ```
 

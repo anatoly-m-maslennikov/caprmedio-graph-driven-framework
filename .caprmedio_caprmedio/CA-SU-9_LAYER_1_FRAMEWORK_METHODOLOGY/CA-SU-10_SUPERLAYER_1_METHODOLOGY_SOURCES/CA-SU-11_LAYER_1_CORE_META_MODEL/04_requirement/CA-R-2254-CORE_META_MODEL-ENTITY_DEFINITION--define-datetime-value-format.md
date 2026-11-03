@@ -23,6 +23,7 @@ Define datetime Value Format
 ### Formal Claim
 
 ```CFEL
+# model
 CFEL <+ Format/datetime
 ```
 

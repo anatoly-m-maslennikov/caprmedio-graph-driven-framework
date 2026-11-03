@@ -27,9 +27,11 @@ Register concern_about relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//concern_about ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-Atom/(.Header.Role: Concern)// ((concern_about)) $governed
+# instances
+Atom/(.Header.Role: Concern)//$atom ((concern_about)) $governed
 ```
 
 ### Prose Claim

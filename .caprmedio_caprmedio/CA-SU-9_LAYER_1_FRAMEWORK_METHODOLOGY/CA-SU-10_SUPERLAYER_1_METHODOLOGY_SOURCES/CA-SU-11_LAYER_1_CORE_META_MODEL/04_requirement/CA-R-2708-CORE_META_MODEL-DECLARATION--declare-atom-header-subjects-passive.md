@@ -29,7 +29,13 @@ Passive Subjects identify direct contextual dependencies.
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Subjects.Passive{:0..1}: [string]{:0+};
+
 Atom.Header.Subjects.Passive.*[]{:0};
-COUNT(Atom.Header.Subjects.Passive: $) = COUNT(DISTINCT Atom.Header.Subjects.Passive: $)
+
+# instances
+Atom//$atom;
+
+COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```

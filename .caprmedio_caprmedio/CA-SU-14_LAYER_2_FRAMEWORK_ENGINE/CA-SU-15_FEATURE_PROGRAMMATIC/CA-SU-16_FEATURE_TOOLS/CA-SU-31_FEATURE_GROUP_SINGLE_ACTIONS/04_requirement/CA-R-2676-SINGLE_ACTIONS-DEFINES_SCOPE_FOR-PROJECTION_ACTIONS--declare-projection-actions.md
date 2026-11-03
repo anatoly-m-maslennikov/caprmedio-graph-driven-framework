@@ -19,10 +19,15 @@ Declare PROJECTION_ACTIONS
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//PROJECTION_ACTIONS.ID == "CA-SU-37";
+
 Scope Unit//PROJECTION_ACTIONS.Name == "PROJECTION_ACTIONS";
+
 Scope Unit//PROJECTION_ACTIONS.Label == "FEATURE_GROUP";
+
 Scope Unit//PROJECTION_ACTIONS.order.ordered == false;
+
 Scope Unit//PROJECTION_ACTIONS ((IS_CONTAINED_BY)) Scope Unit//SINGLE_ACTIONS
 ```
 

@@ -25,6 +25,9 @@ Declare Atom.Header.Relations
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Relations{:1}: []{:0};
-Atom.Header.Relations.*[Relation//]{:0+}
+
+# instances
+Atom.Header.Relations.*[Relation//$relation]{:0+}
 ```

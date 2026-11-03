@@ -23,7 +23,9 @@ Define Project.Framework Settings.Code-Root Locators
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.Code-Root Locators{:0..1}: [string]{:1+};
+
 Project.Settings.Code-Root Locators.*[]{:0}
 ```
 

@@ -27,9 +27,11 @@ Register delivery_for relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//delivery_for ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-Atom/(.Header.Role: Delivery)// ((delivery_for)) Atom//
+# instances
+Atom/(.Header.Role: Delivery)//$atom ((delivery_for)) Atom//$atom_2
 ```
 
 ### Prose Claim

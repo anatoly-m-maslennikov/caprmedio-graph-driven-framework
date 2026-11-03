@@ -23,6 +23,7 @@ Define string Value Format
 ### Formal Claim
 
 ```CFEL
+# model
 CFEL <+ Format/string
 ```
 

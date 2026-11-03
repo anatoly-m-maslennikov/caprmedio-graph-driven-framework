@@ -21,6 +21,7 @@ Define Relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation
 ```
 

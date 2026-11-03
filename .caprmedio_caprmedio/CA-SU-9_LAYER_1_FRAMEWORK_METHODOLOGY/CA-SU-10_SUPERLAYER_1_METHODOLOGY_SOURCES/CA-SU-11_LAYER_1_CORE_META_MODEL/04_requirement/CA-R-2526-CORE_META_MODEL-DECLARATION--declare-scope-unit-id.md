@@ -19,9 +19,13 @@ Declare Scope Unit ID
 ### Formal Claim
 
 ```CFEL
+# model
 Scope Unit.ID{:0..1}: [string]{:1};
+
 Scope Unit.ID.*[]{:0};
-IF (Scope Unit//$unit not in (Scope Unit/Project//))
+
+# instances
+IF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit))
 THEN ($unit.ID{:1})
 ```
 

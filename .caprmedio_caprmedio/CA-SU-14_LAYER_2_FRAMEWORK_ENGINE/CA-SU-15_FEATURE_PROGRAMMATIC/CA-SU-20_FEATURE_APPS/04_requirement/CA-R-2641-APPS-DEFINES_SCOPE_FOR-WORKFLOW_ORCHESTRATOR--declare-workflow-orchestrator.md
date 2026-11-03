@@ -19,10 +19,15 @@ Declare WORKFLOW_ORCHESTRATOR
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//WORKFLOW_ORCHESTRATOR.ID == "CA-SU-2";
+
 Scope Unit//WORKFLOW_ORCHESTRATOR.Name == "WORKFLOW_ORCHESTRATOR";
+
 Scope Unit//WORKFLOW_ORCHESTRATOR.Label == "APP";
+
 Scope Unit//WORKFLOW_ORCHESTRATOR.order.ordered == false;
+
 Scope Unit//WORKFLOW_ORCHESTRATOR ((IS_CONTAINED_BY)) Scope Unit//APPS
 ```
 

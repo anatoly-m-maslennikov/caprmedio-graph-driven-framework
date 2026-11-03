@@ -21,7 +21,9 @@ Define Relation Name
 ### Formal Claim
 
 ```CFEL
+# model
 Relation.Name{:1}: [string]{:1};
+
 Relation.Name.*[]{:0}
 ```
 

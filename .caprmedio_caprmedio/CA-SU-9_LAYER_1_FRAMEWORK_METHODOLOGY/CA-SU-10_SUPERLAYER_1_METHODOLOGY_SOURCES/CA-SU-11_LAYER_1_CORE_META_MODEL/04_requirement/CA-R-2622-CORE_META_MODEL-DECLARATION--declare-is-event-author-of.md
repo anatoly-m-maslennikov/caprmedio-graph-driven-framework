@@ -24,5 +24,6 @@ Declare IS_EVENT_AUTHOR_OF
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//IS_EVENT_AUTHOR_OF <((HAS_INVERSE)) Relation//HAS_EVENT_AUTHOR
 ```

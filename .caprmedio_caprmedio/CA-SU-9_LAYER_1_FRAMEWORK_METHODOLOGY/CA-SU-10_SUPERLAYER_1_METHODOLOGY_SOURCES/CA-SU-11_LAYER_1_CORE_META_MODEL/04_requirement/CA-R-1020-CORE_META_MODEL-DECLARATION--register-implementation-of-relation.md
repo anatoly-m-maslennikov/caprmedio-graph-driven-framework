@@ -27,7 +27,10 @@ Register implementation_of relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//implementation_of ((HAS_CLASSIFICATION)) Derivation == Direct;
+
+# instances
 Carrier//$implementation_carrier ((implementation_of)) Atom//$specification_atom
 ```
 

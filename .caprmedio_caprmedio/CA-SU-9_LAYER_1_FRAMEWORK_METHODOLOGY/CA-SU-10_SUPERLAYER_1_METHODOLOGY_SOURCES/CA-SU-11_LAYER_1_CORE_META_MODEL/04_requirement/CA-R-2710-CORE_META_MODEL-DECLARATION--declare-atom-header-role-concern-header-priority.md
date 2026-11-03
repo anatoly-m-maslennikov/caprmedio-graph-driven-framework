@@ -25,9 +25,14 @@ Declare Atom/(.Header.Role := Concern).Header.Priority
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Concern).Header.Priority{:1}: [string]{:1};
+
 Atom/(.Header.Role: Concern).Header.Priority.*[]{:0};
+
 Atom/(.Header.Role: Concern).Header.Priority: High;
+
 Atom/(.Header.Role: Concern).Header.Priority: Medium;
+
 Atom/(.Header.Role: Concern).Header.Priority: Low
 ```

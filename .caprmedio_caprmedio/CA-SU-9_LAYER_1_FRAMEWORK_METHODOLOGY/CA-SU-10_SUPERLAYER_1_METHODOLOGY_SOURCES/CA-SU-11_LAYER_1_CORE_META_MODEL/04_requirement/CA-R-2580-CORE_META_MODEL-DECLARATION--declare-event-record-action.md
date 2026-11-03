@@ -21,10 +21,15 @@ Declare Event Record.action
 ### Formal Claim
 
 ```CFEL
+# model
 Event Record.action{:1}: [string]{:1};
+
 Event Record.action.*[]{:0};
+
 Event Record.action: create;
+
 Event Record.action: update;
+
 Event Record.action: archive
 ```
 

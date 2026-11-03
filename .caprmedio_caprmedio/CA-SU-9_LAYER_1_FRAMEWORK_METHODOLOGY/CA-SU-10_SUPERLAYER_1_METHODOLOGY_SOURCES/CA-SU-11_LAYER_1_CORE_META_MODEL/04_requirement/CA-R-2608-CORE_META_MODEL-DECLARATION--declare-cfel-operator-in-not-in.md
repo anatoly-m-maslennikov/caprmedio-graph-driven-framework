@@ -22,6 +22,7 @@ Declare CFEL operator in / not in
 ### Formal Claim
 
 ```CFEL
+# model
 Operator//Membership == "in / not in"
 ```
 

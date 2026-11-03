@@ -1,0 +1,23 @@
+{
+  "graph_suite": {
+    "tests": 412,
+    "result": "PASS"
+  },
+  "adoption_guards": {
+    "tests": 5,
+    "result": "PASS"
+  },
+  "migration": {
+    "tests": 16,
+    "result": "PASS"
+  },
+  "scope_current_declarations": {
+    "sources": 44,
+    "result": "PASS"
+  },
+  "projection_focused": {
+    "tests": 29,
+    "result": "PASS"
+  },
+  "release": "not run; P2707 retains its scope"
+}

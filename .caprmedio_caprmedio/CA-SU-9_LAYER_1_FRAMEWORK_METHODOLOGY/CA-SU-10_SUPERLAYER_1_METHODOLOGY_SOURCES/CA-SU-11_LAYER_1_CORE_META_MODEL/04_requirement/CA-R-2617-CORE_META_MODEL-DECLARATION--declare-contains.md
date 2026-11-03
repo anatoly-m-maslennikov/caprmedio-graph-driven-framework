@@ -24,6 +24,8 @@ Declare CONTAINS
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//CONTAINS <((HAS_INVERSE)) Relation//IS_CONTAINED_BY;
+
 alias(Relation//CONTAINS) == "<+"
 ```

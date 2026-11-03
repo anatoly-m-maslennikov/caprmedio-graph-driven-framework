@@ -25,6 +25,8 @@ Declare Atom.Header.Role
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Role{:1}: [string]{:1};
+
 Atom.Header.Role.*[]{:0}
 ```

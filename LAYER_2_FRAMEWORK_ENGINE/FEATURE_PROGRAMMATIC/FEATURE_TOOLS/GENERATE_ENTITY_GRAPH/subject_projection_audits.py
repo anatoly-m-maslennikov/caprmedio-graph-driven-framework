@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import defaultdict
 from collections.abc import Mapping
 from dataclasses import replace
+import re
 from typing import Any
 
 import subject_notation as notation
@@ -17,6 +18,89 @@ from subject_projection_data import build_subject_projection_data
 Record = dict[str, Any]
 _ACTIVE = ("active", "governs")
 _PASSIVE = ("passive", "depends_on")
+_MODEL_DESCRIPTORS = {"Relation", "Operator", "Format", "Term"}
+
+
+def _scope_subject(value: str) -> str:
+    """Classify explicit MODEL Subjects without treating concrete instances as kinds."""
+    try:
+        expression = notation.parse_subject_expression(value, subject_profile="approved").expression
+    except notation.SubjectNotationError:
+        if re.match(r"^\s*(?:CAPRMEDIO_STRUCTURE|CAPRMEDIO\s*<\+\s*STRUCTURE)\s*<\+", value):
+            return "structure"
+        return "model" if re.match(r"^\s*(?:CAPRMEDIO_MODEL|CAPRMEDIO\s*<\+\s*MODEL)\s*<\+", value) else "unresolved"
+
+    def root(expr: notation.Path | notation.RelationChain) -> str | None:
+        if isinstance(expr, notation.RelationChain):
+            first = expr.endpoints[0]
+            if isinstance(first.head, notation.Name) and first.head.value in {"CAPRMEDIO_MODEL", "CAPRMEDIO_STRUCTURE"}:
+                return first.head.value if notation.namespace_local_expression(expr) is not None else None
+            if (isinstance(first.head, notation.Name) and first.head.value == "CAPRMEDIO"
+                    and len(expr.endpoints) > 1 and isinstance(expr.endpoints[1].head, notation.Name)
+                    and notation.namespace_local_expression(expr) is not None):
+                return "CAPRMEDIO_" + expr.endpoints[1].head.value
+            return None
+        return root(expr.head) if isinstance(expr.head, (notation.Path, notation.RelationChain)) else None
+
+    namespace = root(expression)
+    if namespace == "CAPRMEDIO_STRUCTURE":
+        return "structure"
+    if namespace != "CAPRMEDIO_MODEL":
+        if isinstance(expression, notation.Path) and isinstance(expression.head, notation.Name) and expression.head.value == "CAPRMEDIO_MODEL" and not expression.steps:
+            return "model"
+        return "unresolved"
+
+    def has_concrete_instance(expr: notation.Path | notation.RelationChain) -> bool:
+        if isinstance(expr, notation.RelationChain):
+            return any(has_concrete_instance(endpoint) for endpoint in expr.endpoints)
+        if isinstance(expr.head, (notation.Path, notation.RelationChain)) and has_concrete_instance(expr.head):
+            return True
+        prior = expr.head.value if isinstance(expr.head, notation.Name) else None
+        for step in expr.steps:
+            if step.operator == "//" and prior not in _MODEL_DESCRIPTORS:
+                return True
+            if isinstance(step.operand, (notation.Path, notation.RelationChain)) and has_concrete_instance(step.operand):
+                return True
+            if isinstance(step.operand, notation.Name):
+                prior = step.operand.value
+        return False
+
+    return "instance" if has_concrete_instance(expression) else "model"
+
+
+def select_model_subjects(carriers: list[Record]) -> tuple[list[Record], list[Record]]:
+    """Filter one projection's Subject occurrences while retaining source records."""
+    selected, unresolved = [], []
+    for carrier in carriers:
+        subjects = _authored_subjects(carrier)
+        if subjects is None:
+            selected.append(carrier)
+            continue
+        kept = {}
+        for role, keys in (("active", _ACTIVE), ("passive", _PASSIVE)):
+            for key in keys:
+                if key not in subjects:
+                    continue
+                original = subjects[key]
+                values = original if isinstance(original, list) else [original]
+                values_kept = []
+                for value in values:
+                    scope = _scope_subject(value) if isinstance(value, str) and value.strip() else "unresolved"
+                    if scope == "model":
+                        values_kept.append(value)
+                    elif scope == "unresolved":
+                        source = _source(carrier)
+                        unresolved.append({"source": source, "pin": _pin(source), "role": role, "source_key": key,
+                                           "raw_value": value if isinstance(value, str) else str(value),
+                                           "message": "Subject lacks an explicit parseable MODEL namespace; review required."})
+                if values_kept:
+                    kept[key] = values_kept if isinstance(original, list) else values_kept[0]
+        copy = dict(carrier)
+        copy["subjects"] = kept
+        if isinstance(carrier.get("metadata"), Mapping):
+            copy["metadata"] = {**carrier["metadata"], "subjects": kept}
+        selected.append(copy)
+    return selected, unresolved
 
 
 def _source(carrier: Mapping[str, Any]) -> Record:
@@ -295,7 +379,7 @@ def _entity_summary(carriers: list[Record], occurrences: list[Record], data: Map
                 row["missing_definition"] or row["missing_active"] for row in entities)}}
 
 
-def build_subject_audits(carriers: list[Record], data: Record | None = None) -> Record:
+def build_subject_audits(carriers: list[Record], data: Record | None = None, *, scope_diagnostics: list[Record] | None = None) -> Record:
     """Build both selected-frontier Subject audits without admitting new Nodes."""
 
     data = build_subject_projection_data(carriers) if data is None else data
@@ -323,6 +407,13 @@ def build_subject_audits(carriers: list[Record], data: Record | None = None) -> 
     for raw, rows in sorted(unresolved_rows.items()):
         unresolved.append({"subject": rows[0]["raw_value"], "status": "unresolved",
                            "message": f"Unsupported Subject: {rows[0]['parse_error']}", **_provenance(rows)})
+    scope_groups: dict[str, list[Record]] = defaultdict(list)
+    for diagnostic in scope_diagnostics or []:
+        scope_groups[str(diagnostic["raw_value"])].append(diagnostic)
+    for value, rows in sorted(scope_groups.items()):
+        unresolved.append({"subject": value, "status": "unresolved", "message": rows[0]["message"],
+                           **_provenance(rows)})
+    diagnostics.extend(scope_diagnostics or [])
     for subject in sorted({row["subject"] for row in occurrences if row["subject"] is not None}):
         result = _coverage(subject, data, definitions)
         row = {"subject": subject, **result, **_provenance([row for row in occurrences if row["subject"] == subject])}
@@ -332,8 +423,8 @@ def build_subject_audits(carriers: list[Record], data: Record | None = None) -> 
                                   "diagnostics": diagnostics,
                                   "coverage": {"subject_occurrences": len(occurrences),
                                                "parsed_subjects": len({row["subject"] for row in occurrences if row["subject"] is not None}),
-                                               "unresolved_subjects": len(unresolved_rows),
-                                               "unresolved_occurrences": sum(row["subject"] is None for row in occurrences),
+                                               "unresolved_subjects": len(unresolved_rows) + len(scope_groups),
+                                               "unresolved_occurrences": sum(row["subject"] is None for row in occurrences) + len(scope_diagnostics or []),
                                                "active_subjects": len(active), "passive_only_subjects": len(passive_rows)}},
         "subjects_without_declaration_coverage": {
             "kind": "subjects_without_declaration_coverage",

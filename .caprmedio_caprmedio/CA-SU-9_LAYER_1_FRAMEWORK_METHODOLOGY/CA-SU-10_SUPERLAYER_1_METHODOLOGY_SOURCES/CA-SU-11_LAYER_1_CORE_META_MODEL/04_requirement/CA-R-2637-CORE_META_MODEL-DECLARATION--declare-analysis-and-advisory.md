@@ -21,6 +21,7 @@ Declare Analysis & Advisory
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: "Analysis & Advisory")
 ```
 

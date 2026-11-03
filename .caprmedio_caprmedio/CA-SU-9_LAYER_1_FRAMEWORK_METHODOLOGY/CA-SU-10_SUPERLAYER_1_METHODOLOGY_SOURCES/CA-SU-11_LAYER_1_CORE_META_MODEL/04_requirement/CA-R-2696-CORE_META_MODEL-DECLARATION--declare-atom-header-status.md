@@ -25,9 +25,14 @@ Declare Atom.Header.Status
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Status{:1}: [string]{:1};
+
 Atom.Header.Status.*[]{:0};
+
 Atom.Header.Status: Draft;
+
 Atom.Header.Status: Active;
+
 Atom.Header.Status: Archived
 ```

@@ -21,9 +21,13 @@ Declare Event Record
 ### Formal Claim
 
 ```CFEL
+# model
 Event Record {:0}((IS_PROPERTY_OF));
+
 Event Record ((NARROWER_THAN)) Continuant;
-Event Record// {:1}((IS_CONTAINED_BY)) Journal//
+
+# instances
+Event Record//$event_record {:1}((IS_CONTAINED_BY)) Journal//$journal
 ```
 
 ### Prose Claim

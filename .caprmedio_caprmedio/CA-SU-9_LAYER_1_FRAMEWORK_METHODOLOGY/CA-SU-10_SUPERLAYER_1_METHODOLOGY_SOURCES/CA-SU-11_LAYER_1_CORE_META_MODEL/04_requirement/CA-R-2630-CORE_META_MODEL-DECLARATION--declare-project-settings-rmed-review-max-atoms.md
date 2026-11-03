@@ -22,7 +22,9 @@ Declare Project.Settings.RMED Review.Max Atoms
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.RMED Review.Max Atoms{:0..1}: [int]{:1};
+
 Project.Settings.RMED Review.Max Atoms.*[]{:0}
 ```
 

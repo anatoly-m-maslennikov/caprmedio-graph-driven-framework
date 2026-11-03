@@ -25,8 +25,14 @@ Declare Atom.Header.Subjects.Active
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+
 Atom.Header.Subjects.Active.*[]{:0};
-IF (Atom.Header.Status >| Status Group = Current)
-THEN (Atom.Header.Subjects.Active{==1})
+
+# instances
+Atom//$atom;
+
+IF ($atom.Header.Status >| Status Group = Current)
+THEN ($atom.Header.Subjects.Active{==1})
 ```

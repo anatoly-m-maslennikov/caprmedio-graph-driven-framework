@@ -24,5 +24,6 @@ Declare IS_RUN_BY
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//IS_RUN_BY <((HAS_INVERSE)) Relation//RUNS
 ```

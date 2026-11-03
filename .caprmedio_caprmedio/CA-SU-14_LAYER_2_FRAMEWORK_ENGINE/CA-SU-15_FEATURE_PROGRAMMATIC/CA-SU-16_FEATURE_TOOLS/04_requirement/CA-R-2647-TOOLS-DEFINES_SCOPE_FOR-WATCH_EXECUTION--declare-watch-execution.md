@@ -19,10 +19,15 @@ Declare WATCH_EXECUTION
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//WATCH_EXECUTION.ID == "CA-SU-8";
+
 Scope Unit//WATCH_EXECUTION.Name == "WATCH_EXECUTION";
+
 Scope Unit//WATCH_EXECUTION.Label == "TOOL";
+
 Scope Unit//WATCH_EXECUTION.order.ordered == false;
+
 Scope Unit//WATCH_EXECUTION ((IS_CONTAINED_BY)) Scope Unit//TOOLS
 ```
 

@@ -25,6 +25,8 @@ Declare Atom.Header.Form
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Form{:1}: [string]{:1};
+
 Atom.Header.Form.*[]{:0}
 ```

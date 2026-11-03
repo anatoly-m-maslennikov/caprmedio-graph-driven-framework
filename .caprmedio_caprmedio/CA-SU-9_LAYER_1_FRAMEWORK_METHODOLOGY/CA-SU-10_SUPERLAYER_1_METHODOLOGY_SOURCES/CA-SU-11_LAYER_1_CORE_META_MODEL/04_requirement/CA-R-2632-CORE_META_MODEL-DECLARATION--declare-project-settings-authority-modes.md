@@ -19,6 +19,8 @@ Declare Project.Settings.Authority Modes
 When authored, Project Authority Mode and Default Scope Unit Authority Mode are both required. Each value is `strict` or `casual`.
 
 ```CFEL
+# model
 Project.Settings.Authority Modes{:0..1}: []{:0};
+
 Project.Settings.Authority Modes.*[in (Default Scope Unit Authority Mode, Project Authority Mode)]{:2}
 ```

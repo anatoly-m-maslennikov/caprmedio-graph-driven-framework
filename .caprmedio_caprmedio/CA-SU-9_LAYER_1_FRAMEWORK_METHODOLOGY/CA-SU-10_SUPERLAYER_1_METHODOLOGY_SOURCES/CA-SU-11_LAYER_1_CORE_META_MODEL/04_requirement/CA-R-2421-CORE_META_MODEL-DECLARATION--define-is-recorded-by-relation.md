@@ -25,5 +25,6 @@ Define IS_RECORDED_BY Relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//IS_RECORDED_BY <((HAS_INVERSE)) Relation//RECORDS
 ```

@@ -25,8 +25,11 @@ Declare HAS_ACTIVE_SUBJECT
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//HAS_ACTIVE_SUBJECT ((HAS_CLASSIFICATION)) Derivation == Direct;
-Atom// ((HAS_ACTIVE_SUBJECT)) $active_subject
+
+# instances
+Atom//$atom ((HAS_ACTIVE_SUBJECT)) $active_subject
 ```
 
 ### Prose Claim

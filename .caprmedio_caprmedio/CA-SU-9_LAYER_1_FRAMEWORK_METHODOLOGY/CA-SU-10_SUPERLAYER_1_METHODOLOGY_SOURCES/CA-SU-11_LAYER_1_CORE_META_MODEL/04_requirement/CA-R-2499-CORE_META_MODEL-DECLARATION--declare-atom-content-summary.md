@@ -25,10 +25,14 @@ Declare Atom.Content.Summary
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Content.Summary{:1}: [markdown]{:1};
+
 Atom.Content.Summary.*[]{:0};
+
+# instances
 DETERMINES(
-  Atom//,
+  Atom//$atom,
   (.ID),
   (.Content.Summary),
   (Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived)

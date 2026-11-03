@@ -21,7 +21,9 @@ Declare Event Record.object_input
 ### Formal Claim
 
 ```CFEL
+# model
 Event Record.object_input{:0..1}: []{:0};
+
 Event Record.object_input.*[in(id,version,updated_at)]{:2..3}
 ```
 

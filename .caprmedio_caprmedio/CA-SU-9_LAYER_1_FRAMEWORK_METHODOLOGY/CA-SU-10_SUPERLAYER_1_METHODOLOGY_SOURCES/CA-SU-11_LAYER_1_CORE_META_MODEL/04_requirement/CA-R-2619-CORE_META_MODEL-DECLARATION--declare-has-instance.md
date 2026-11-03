@@ -24,5 +24,6 @@ Declare HAS_INSTANCE
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//HAS_INSTANCE <((HAS_INVERSE)) Relation//INSTANCE_OF
 ```

@@ -21,9 +21,14 @@ Declare Atom/(.Role := Plan)
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Plan);
-IF ((Atom/(.Header.Role: Plan).Header.Status = Active) AND (Atom/(.Header.Role: Plan).Header.Work Sequence Number{=1}))
-THEN (Atom/(.Header.Role: Plan).Header.Relations.IS_CONTAINED_BY{==1})
+
+# instances
+Atom/(.Header.Role: Plan)//$atom;
+
+IF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))
+THEN ($atom.Header.Relations.IS_CONTAINED_BY{==1})
 ```
 
 ## Semantics

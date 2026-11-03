@@ -21,7 +21,9 @@ Declare Named Selection
 ### Formal Claim
 
 ```CFEL
+# model
 Named Selection {:0}((IS_PROPERTY_OF));
+
 Named Selection ((NARROWER_THAN)) Continuant
 ```
 

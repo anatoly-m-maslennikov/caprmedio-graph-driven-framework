@@ -25,11 +25,15 @@ Define INSTANCE_OF
 ### Formal Claim
 
 ```CFEL
-$instance ((INSTANCE_OF)) $kind;
+# model
 Relation//INSTANCE_OF ((HAS_INVERSE)) Relation//HAS_INSTANCE;
 
 alias(Relation//INSTANCE_OF) == "//";
-Relation//INSTANCE_OF ((HAS_CLASSIFICATION)) Derivation == Direct
+
+Relation//INSTANCE_OF ((HAS_CLASSIFICATION)) Derivation == Direct;
+
+# instances
+$instance ((INSTANCE_OF)) $kind;
 ```
 
 ### Prose Claim

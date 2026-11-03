@@ -29,10 +29,12 @@ Register depends_on and required_by relation pair
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//depends_on ((HAS_INVERSE)) Relation//required_by;
 
 Relation//depends_on ((HAS_CLASSIFICATION)) Derivation == Direct;
 
+# instances
 $dependent ((depends_on)) $prerequisite
 ```
 

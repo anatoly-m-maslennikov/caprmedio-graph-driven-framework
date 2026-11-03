@@ -25,5 +25,6 @@ Define IS_CARRIED_BY Relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//IS_CARRIED_BY <((HAS_INVERSE)) Relation//CARRIES
 ```

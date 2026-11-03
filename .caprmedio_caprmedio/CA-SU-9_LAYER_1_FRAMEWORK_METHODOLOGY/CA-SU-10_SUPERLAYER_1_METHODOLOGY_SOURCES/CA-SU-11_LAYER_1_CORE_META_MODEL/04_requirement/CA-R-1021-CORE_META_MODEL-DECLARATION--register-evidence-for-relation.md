@@ -27,7 +27,10 @@ Register evidence_for relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//evidence_for ((HAS_CLASSIFICATION)) Derivation == Direct;
+
+# instances
 Carrier//$evidence_carrier ((evidence_for)) Carrier//$supported_carrier
 ```
 

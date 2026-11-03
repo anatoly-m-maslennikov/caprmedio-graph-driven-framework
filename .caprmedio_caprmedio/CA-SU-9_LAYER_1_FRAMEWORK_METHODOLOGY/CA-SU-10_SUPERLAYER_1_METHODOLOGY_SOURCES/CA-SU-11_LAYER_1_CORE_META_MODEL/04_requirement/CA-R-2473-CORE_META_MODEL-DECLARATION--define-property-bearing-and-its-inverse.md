@@ -25,10 +25,13 @@ Define Property bearing and its inverse
 ### Formal Claim
 
 ```CFEL
+# model
 $property ((IS_PROPERTY_OF)) $bearer;
+
 Relation//IS_PROPERTY_OF ((HAS_INVERSE)) Relation//HAS_PROPERTY;
 
 alias(Relation//IS_PROPERTY_OF) == ".";
+
 Relation//IS_PROPERTY_OF ((HAS_CLASSIFICATION)) Derivation == Direct
 ```
 

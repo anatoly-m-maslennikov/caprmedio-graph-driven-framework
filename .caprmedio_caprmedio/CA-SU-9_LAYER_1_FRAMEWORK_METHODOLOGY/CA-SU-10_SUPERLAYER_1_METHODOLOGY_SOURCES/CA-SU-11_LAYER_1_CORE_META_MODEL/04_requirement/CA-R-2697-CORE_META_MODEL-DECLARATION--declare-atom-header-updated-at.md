@@ -25,7 +25,11 @@ Declare Atom.Header.Updated At
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Updated At{:1}: [datetime]{:1};
+
 Atom.Header.Updated At.*[]{:0};
-Atom//$atom.Header.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=1}, .object_output.id = $atom.Header.ID, .object_output.version = $atom.Header.Version, (.action = create OR .action = update)).happened_at)
+
+# instances
+Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{=1}, .object_output.version{=1}, .object_output.id = $atom.Header.ID, .object_output.version = $atom.Header.Version, (.action = create OR .action = update)).happened_at)
 ```

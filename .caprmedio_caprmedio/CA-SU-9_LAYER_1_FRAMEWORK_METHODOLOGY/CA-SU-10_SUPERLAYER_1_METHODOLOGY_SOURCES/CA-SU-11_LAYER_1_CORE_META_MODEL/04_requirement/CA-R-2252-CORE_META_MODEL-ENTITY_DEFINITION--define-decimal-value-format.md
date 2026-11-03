@@ -23,6 +23,7 @@ Define decimal Value Format
 ### Formal Claim
 
 ```CFEL
+# model
 CFEL <+ Format/decimal
 ```
 

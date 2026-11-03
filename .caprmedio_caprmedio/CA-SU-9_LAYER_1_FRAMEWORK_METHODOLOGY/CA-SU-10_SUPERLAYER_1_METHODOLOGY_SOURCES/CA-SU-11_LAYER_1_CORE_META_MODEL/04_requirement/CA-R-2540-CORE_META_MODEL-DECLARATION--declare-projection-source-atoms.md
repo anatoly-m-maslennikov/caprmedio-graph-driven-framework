@@ -21,7 +21,9 @@ Declare Projection.Source.Atoms
 ### Formal Claim
 
 ```CFEL
+# model
 Projection.Source.Atoms{:0..1}: [string]{:0+};
+
 Projection.Source.Atoms.*[]{:0}
 ```
 

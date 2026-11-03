@@ -21,7 +21,10 @@ Declare Event Record.Relations.HAS_EVENT_AUTHOR
 ### Formal Claim
 
 ```CFEL
-Event Record.Relations.HAS_EVENT_AUTHOR{:1}: [Actor//]{:1};
-Event Record.Relations.HAS_EVENT_AUTHOR.*[]{:0}
+# model
+Event Record.Relations.HAS_EVENT_AUTHOR.*[]{:0};
+
+# instances
+Event Record.Relations.HAS_EVENT_AUTHOR{:1}: [Actor//$actor]{:1};
 ```
 

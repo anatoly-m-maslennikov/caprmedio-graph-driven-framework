@@ -1,0 +1,791 @@
+{
+  "audit": "MODEL allowed-value list / per-value Declaration comparison",
+  "frontier": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/integration/final-source-frontier.json",
+    "sha256": "0bcb605b51c4267f64752b8d1bd8edda3c9f9444304b77b028d4b0c1c94577fe",
+    "status": "FINAL_FRONTIER_WITH_INDIVIDUAL_ROLE_ADMISSION",
+    "operation_count": 1148,
+    "all_source_hashes_match": true,
+    "mismatches": []
+  },
+  "scan": {
+    "explicit_enumeration_line_hits": 56,
+    "candidate_records": 31,
+    "scope": "Model authorities only; not runtime Atom instances. Compared current bytes against all frontier pins before classification."
+  },
+  "result": {
+    "remaining_high_confidence_duplicate_lists": 0,
+    "resolved_duplicate": {
+      "source_id": "CA-R-1283",
+      "version": 33,
+      "detail": "list removed; now delegates to applicable individual Role Declarations"
+    },
+    "preserve_pending_or_independent_count": 30,
+    "no_other_list_warrants_rewrite": true
+  },
+  "individual_role_declarations": [
+    {
+      "id": "CA-R-2509",
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2509-CORE_META_MODEL-DECLARATION--declare-concern.md",
+      "version": 2,
+      "sha256": "b98d53772ebdb55f9537858c9a8da44d77692826478081187438ffe53e1b7a6c"
+    },
+    {
+      "id": "CA-R-2637",
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := \"Analysis & Advisory\")",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2637-CORE_META_MODEL-DECLARATION--declare-analysis-and-advisory.md",
+      "version": 1,
+      "sha256": "daaca9e21b201d5207100582c58c0198229a7bf040d0c88bffcd56e547dd05cd"
+    },
+    {
+      "id": "CA-R-2511",
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "version": 2,
+      "sha256": "56beaca2cd77dcabee69710baba0abd429bc8e25801aea7c9abc4d0e56aec1ed"
+    },
+    {
+      "id": "CA-R-2512",
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2512-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "version": 2,
+      "sha256": "20bbc3ea22e51546ceb5a3c1083b98b8b6fd6840cad4c488b35344a876193dd0"
+    },
+    {
+      "id": "CA-R-2513",
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2513-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "version": 2,
+      "sha256": "227b9bffb12923ffdd7d158e8c3f90604257c3f2dee3226d71f175004a483d78"
+    },
+    {
+      "id": "CA-R-2514",
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2514-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "version": 2,
+      "sha256": "07eee575639ab29d0ea647fbdf9a034897b4183dfd5724353898a16436a54089"
+    },
+    {
+      "id": "CA-R-2515",
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2515-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "version": 2,
+      "sha256": "20d6125efa919b669f8230f905d394ee3bf79233d4c14ea18eb9f216f8cf6867"
+    },
+    {
+      "id": "CA-R-2463",
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "version": 2,
+      "sha256": "165d90b12c799b31498419365be86415689b98e3cc5b8572ac323c8cbbe99d40"
+    }
+  ],
+  "candidates": [
+    {
+      "source_id": "CA-R-1283",
+      "line": null,
+      "values": [
+        "Concern",
+        "Analysis & Advisory",
+        "Plan",
+        "Requirement",
+        "Method",
+        "Evaluation",
+        "Delivery",
+        "Operations"
+      ],
+      "coverage_ids": [
+        "CA-R-2509",
+        "CA-R-2637",
+        "CA-R-2511",
+        "CA-R-2512",
+        "CA-R-2513",
+        "CA-R-2514",
+        "CA-R-2515",
+        "CA-R-2463"
+      ],
+      "coverage": "8/8 exact applicable Role Declarations",
+      "classification": "resolved_duplicate_removed",
+      "note": "Current version 33 now says Atom Header Role values are admitted by their applicable Role Declaration; no enumeration remains.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-RULE--register-content-role-values.md",
+      "source_version": 33,
+      "source_sha256": "8018a42f5cc2edfedca724a7955fd89d09cf246c2a5623d1ee833b71884f2534",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Role"
+    },
+    {
+      "source_id": "CA-R-2156",
+      "line": 31,
+      "values": [
+        "Operator",
+        "AI Agent"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/2 exact Actor Type value Declarations found",
+      "classification": "preserve_pending",
+      "note": "Actor classification requirement; not backed by per-value Declarations.",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-2156-RULE--distinguish-human-operators-from-ai-agents.md",
+      "source_version": 10,
+      "source_sha256": "1ddb4aef6f3abb3d529c0f7d116d653d1447f809e8273a0ccc83591a6190f815",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Actor",
+      "excerpt": "**every** Actor that performs **or** authorizes a governed action **must** have **`=1`** Type **in** (Operator, AI Agent)."
+    },
+    {
+      "source_id": "CA-R-1276",
+      "line": 31,
+      "values": [
+        "GOVERNS",
+        "DEPENDS_ON"
+      ],
+      "coverage_ids": [
+        "CA-R-1199",
+        "CA-R-1200"
+      ],
+      "coverage": "2/2 graph Relation Declarations, but not value Declarations for Atom.Header.Subjects.Relation Kind",
+      "classification": "preserve_independent_whitelist",
+      "note": "Use-specific relation-kind whitelist; separate graph Relation declarations do not independently admit Property values.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1276-CORE_META_MODEL-RULE--type-every-direct-subject-reference.md",
+      "source_version": 25,
+      "source_sha256": "b91dcfa7bca9f994f62dcdb39a34120a79b872adecd156532ac30ee7ec4d176c",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Subjects",
+      "excerpt": "**every** direct reference **in** an Atom's Subjects Property **must** use **`=1`** Relation Kind **in** (GOVERNS, DEPENDS_ON). the relation entry supplies this kind **without** an additional kind Property on a Subject object."
+    },
+    {
+      "source_id": "CA-R-924",
+      "line": 32,
+      "values": [
+        "Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)",
+        "Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)",
+        "Atom/(.Header.Role := Plan)/(.Header.Form := Plan)"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/3 exact qualified Form-value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Qualified type-selection whitelist, not a simple Property allowed-value declaration.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-RULE--register-core-relational-atom-classifications.md",
+      "source_version": 37,
+      "source_sha256": "619c712e6624da6971daa939dfc052332fc7f6d5b754fe43d4996021e780f79e",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Form",
+      "excerpt": "the Core contribution **to** allowed qualified Types of Relational Atom **must** be (`Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)`, `Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)`, `Atom/(.Header.Role := Plan)/(.Header.Form := Plan)`); a Plan is relational **only** **when** its actual Claim target differs under the Relational Atom definition, **not** merely because it has decomposition, blocking, **or** a particular Label."
+    },
+    {
+      "source_id": "CA-R-1947",
+      "line": 29,
+      "values": [
+        "Draft",
+        "Active",
+        "Archived"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/3 exact Status-value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Base Status domain; per-role Rules inherit/add values, not individual Status Declarations.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL--define-atom-status-allowed-values.md",
+      "source_version": 13,
+      "source_sha256": "d40a876b0bcd4b3045e05c2580f2132e742d1f583a9a1accfe60128abee3791c",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Status",
+      "excerpt": "Atom.Header.Status **must** admit (Draft, Active, Archived). Narrower Atom kinds inherit these values and **may** add allowed values under their applicable Content Role or Type. An inherited value does **not** require a separate declaration for every narrower kind."
+    },
+    {
+      "source_id": "CA-R-1309",
+      "line": 29,
+      "values": [
+        "Draft",
+        "Active",
+        "Archived"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/3 exact Requirement Status-value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Role-specific Status rule; no per-value Declaration coverage.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1309-CORE_META_MODEL-RULE--register-core-requirement-status-values.md",
+      "source_version": 28,
+      "source_sha256": "ff2d6bcf40c40005fef9f30ed9a004bfb983807e5839c652373506ee6c489e69",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement).Header.Status",
+      "excerpt": "the Core allowed values of Requirement Status **must** be exactly (Draft, Active, Archived)."
+    },
+    {
+      "source_id": "CA-R-1397",
+      "line": 29,
+      "values": [
+        "Draft",
+        "Active",
+        "Archived"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/3 exact Method Status-value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Role-specific Status rule; no per-value Declaration coverage.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1397-CORE_META_MODEL--register-core-method-status-values.md",
+      "source_version": 24,
+      "source_sha256": "3df1dfef2c38bf9a7241053d77d66c44a9f344b8c72ff6de8944dcade947d2d3",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method).Header.Status",
+      "excerpt": "the Core allowed values of Method Status **must** be exactly (Draft, Active, Archived)."
+    },
+    {
+      "source_id": "CA-R-1398",
+      "line": 29,
+      "values": [
+        "Draft",
+        "Active",
+        "Archived"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/3 exact Evaluation Status-value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Role-specific Status rule; no per-value Declaration coverage.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1398-CORE_META_MODEL--register-core-evaluation-status-values.md",
+      "source_version": 24,
+      "source_sha256": "485e7d516f83ad84e487db10cf7c83981ee8110b2b18fd07c5eb6eedfda001ec",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Header.Status",
+      "excerpt": "the Core allowed values of Evaluation Status **must** be exactly (Draft, Active, Archived)."
+    },
+    {
+      "source_id": "CA-R-1399",
+      "line": 29,
+      "values": [
+        "Draft",
+        "Active",
+        "Archived"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/3 exact Delivery Status-value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Role-specific Status rule; no per-value Declaration coverage.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL--register-core-delivery-status-values.md",
+      "source_version": 24,
+      "source_sha256": "60279a9958fc5a7445f640dfe67f9d661998c3eb6fd2661f565eadaa224fce1e",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery).Header.Status",
+      "excerpt": "the Core allowed values of Delivery Status **must** be exactly (Draft, Active, Archived)."
+    },
+    {
+      "source_id": "CA-R-1874",
+      "line": 33,
+      "values": [
+        "Draft",
+        "Active",
+        "Archived"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/3 exact Operations Status-value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Role Status base domain; separate type-scoping caveat follows in the source.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1874-CORE_META_MODEL-RULE--register-core-operations-status-values.md",
+      "source_version": 19,
+      "source_sha256": "1a81d9cc67c11398c427854e1a0a82823cec2371074b048ff508e3a0af99e394",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Header.Status",
+      "excerpt": "the Core allowed values of Operations Status **must** be exactly (Draft, Active, Archived); that one Content Role Status model applies to Operations Atoms with Type Workflow, Step, or Action unless an admitted Extension or Project Configuration establishes a more-specific Status domain under that exact Content Role and Type path."
+    },
+    {
+      "source_id": "CA-R-1539",
+      "line": 30,
+      "values": [
+        "Backlog",
+        "Done",
+        "Canceled"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/3 exact Plan Status-value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Explicit inherited base plus additive Plan values.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-RULE--register-core-plan-status-values.md",
+      "source_version": 22,
+      "source_sha256": "2ee64909c4c16e0e518d9325e33eb98e290d94265d668e76d981265377fbd6b1",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status",
+      "excerpt": "the Core Plan Status model **must** inherit the allowed values of Atom.Header.Status and add (Backlog, Done, Canceled). Planned **must not** be a distinct Plan Status."
+    },
+    {
+      "source_id": "CA-R-1608",
+      "line": 30,
+      "values": [
+        "Resolved",
+        "Canceled"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/2 exact Concern Status-value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Explicit inherited base plus additive Concern values.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-RULE--register-core-concern-status-values.md",
+      "source_version": 21,
+      "source_sha256": "636a857fcc3f05add74c75db36b0c29d70410a6731b5ab95345c5a54018f4548",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Header.Status",
+      "excerpt": "the Core Concern Status model **must** inherit the allowed values of Atom.Header.Status and add (Resolved, Canceled)."
+    },
+    {
+      "source_id": "CA-R-1875",
+      "line": null,
+      "values": [
+        "Done"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/1 exact Analysis & Advisory Status-value Declaration located",
+      "classification": "preserve_pending",
+      "note": "Additive Status value; not covered by per-value Declaration.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "source_version": 22,
+      "source_sha256": "610421330e00d3c9f5d157296e4458c040af74f6c9ddeb151485188be6d59de2",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := \"Analysis & Advisory\").Header.Status"
+    },
+    {
+      "source_id": "CA-R-1405",
+      "line": 34,
+      "values": [
+        "Atom",
+        "Journal",
+        "Projection",
+        "Project Settings",
+        "Framework Instance Settings",
+        "Default Settings"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/6 exact Artifact Type value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Artifact Type domain; no per-value Declarations.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-RULE--register-core-artifact-type-values.md",
+      "source_version": 29,
+      "source_sha256": "5b8cfeb2ee057efd2d448c27d1bb4910148c934bd5471607f7c0d2d2e4b4baa3",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Entity",
+      "excerpt": "the Core allowed values of Artifact Type **must** be (Atom, Journal, Projection, Project Settings, Framework Instance Settings, Default Settings)."
+    },
+    {
+      "source_id": "CA-R-1565",
+      "line": 32,
+      "values": [
+        "Action",
+        "Workflow",
+        "Step"
+      ],
+      "coverage_ids": [
+        "CA-R-2467",
+        "CA-R-2464",
+        "CA-R-2465"
+      ],
+      "coverage": "3/3 corresponding Operations type Declarations; clause says must include, not exactly",
+      "classification": "preserve_independent_minimum",
+      "note": "Required minimum set; cannot replace with declarations as though an exhaustive allowed-value list.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1565-CORE_META_MODEL-RULE--admit-the-operations-atom-types.md",
+      "source_version": 21,
+      "source_sha256": "94f3844bd8305bcafb46b2dee619b5ee4e69c76f641814a5985dcf0f27b22214",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Header.Form",
+      "excerpt": "the admitted internal values of `Atom/(.Header.Role := Operations).Header.Form` **must** include (Action, Workflow, Step)."
+    },
+    {
+      "source_id": "CA-R-1628",
+      "line": 31,
+      "values": [
+        "silent",
+        "verbose"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/2 exact reporting-mode value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Configuration setting domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1628-CORE_META_MODEL-RULE--allow-silent-and-verbose-reporting-modes.md",
+      "source_version": 41,
+      "source_sha256": "5644c380d8642f11095d073f83971dd89aadf70856d362ad20f8c713ce00ce0e",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode",
+      "excerpt": "the framework-instance interaction reporting setting **must** have **`=1`** value **in** (`silent`, `verbose`)."
+    },
+    {
+      "source_id": "CA-R-1630",
+      "line": 30,
+      "values": [
+        "medium",
+        "high"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/2 exact strictness-value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Setting domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-RULE--gate-atomic-admission-and-promotion.md",
+      "source_version": 41,
+      "source_sha256": "b04b475be16eac265df9ecc4af54bf1ecf6024e8cb4dd5b0367833aaba148ac7",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom",
+      "excerpt": "the effective atomic admission strictness setting **must** be **in** (`medium`, `high`)."
+    },
+    {
+      "source_id": "CA-R-1632",
+      "line": null,
+      "values": [
+        "compatible",
+        "update_required",
+        "replacement_required",
+        "uncertain"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/4 exact disposition-value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Impact disposition domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-RULE--classify-lineage-impact-with-four-dispositions.md",
+      "source_version": 35,
+      "source_sha256": "ae00483b62a87ab968c0bca1b4642eb80166e1365a27f2778500f89084451c8f",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation"
+    },
+    {
+      "source_id": "CA-R-1643",
+      "line": 30,
+      "values": [
+        "Started",
+        "Progressed",
+        "Completed",
+        "Failed",
+        "Interrupted",
+        "Abandoned",
+        "Recovered"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/7 exact observation-category Declarations located",
+      "classification": "preserve_pending",
+      "note": "Legacy Work Journal observation category domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-RULE--register-type-values-for-work-journal-events.md",
+      "source_version": 41,
+      "source_sha256": "77eb76f156c671e13eef5b7417582e4aee7ec8eed4cee1d2af6125440dbc114b",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Carrier/File",
+      "excerpt": "the Main Content of a serialized Journal Carrier **must** preserve a supplied legacy Work Journal execution-observation category label as one of (Started, Progressed, Completed, Failed, Interrupted, Abandoned, Recovered)."
+    },
+    {
+      "source_id": "CA-R-1430",
+      "line": 24,
+      "values": [
+        "strict",
+        "casual"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/2 exact Authority Mode value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Default Authority Mode setting domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL--select-authority-modes-through-framework-instance-settings.md",
+      "source_version": 27,
+      "source_sha256": "690388b6719ccc200c2852110b7563674699d27b1d173192991d8a56b5bdd095",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": null,
+      "excerpt": "Framework Instance Settings select the Project Authority Mode and Default Scope Unit Authority Mode. Permitted values are `strict` and `casual`. Neither changes the authority of active Atoms."
+    },
+    {
+      "source_id": "CA-R-2633",
+      "line": 34,
+      "values": [
+        "strict",
+        "casual"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/2 exact Project Settings Authority Mode value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Property-specific setting domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2633-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes-default-scope-unit-authority-mode.md",
+      "source_version": 1,
+      "source_sha256": "b0f3445d75349f7ad1eb6d484869183c9024fe69d8b88908eef5987fdee88055",
+      "source_role": "Requirement",
+      "source_form": "Declaration",
+      "source_subject": "CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes.Default Scope Unit Authority Mode",
+      "excerpt": "The permitted values are `strict` and `casual`. The effective selection follows the applicable authority-mode resolution."
+    },
+    {
+      "source_id": "CA-R-2634",
+      "line": 34,
+      "values": [
+        "strict",
+        "casual"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/2 exact Project Settings Authority Mode value Declarations located",
+      "classification": "preserve_pending",
+      "note": "Property-specific setting domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2634-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes-project-authority-mode.md",
+      "source_version": 1,
+      "source_sha256": "7d9273331597136b66fa4c4476f20bda0fdd0fb1b1e6d5af139f5b28663a0e68",
+      "source_role": "Requirement",
+      "source_form": "Declaration",
+      "source_subject": "CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes.Project Authority Mode",
+      "excerpt": "The permitted values are `strict` and `casual`. The effective selection follows the applicable authority-mode resolution."
+    },
+    {
+      "source_id": "CA-R-2248",
+      "line": 48,
+      "values": [
+        "bool",
+        "datetime",
+        "decimal",
+        "float",
+        "int",
+        "string"
+      ],
+      "coverage_ids": [
+        "CA-R-2249",
+        "CA-R-2250",
+        "CA-R-2251",
+        "CA-R-2252",
+        "CA-R-2253",
+        "CA-R-2254"
+      ],
+      "coverage": "6/6 Format subtype Declarations, but no exact Data Type value Declarations; wording says provisional vocabulary",
+      "classification": "preserve_independent_format_vocabulary",
+      "note": "Format/type vocabulary, explicitly provisional rather than an exhaustive allowed-value contract.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "source_version": 5,
+      "source_sha256": "e10f65588d725a5463ba1f257aa2d5e5a6eb97fd9c848e1e7184952efd9d193e",
+      "source_role": "Requirement",
+      "source_form": "Declaration",
+      "source_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format",
+      "excerpt": "vocabulary—bool, datetime, decimal, float, int and string—is provisional. A"
+    },
+    {
+      "source_id": "CA-R-2249",
+      "line": 33,
+      "values": [
+        "true",
+        "false"
+      ],
+      "coverage_ids": [],
+      "coverage": "0/2 literal-value Declarations located",
+      "classification": "preserve_format_semantics",
+      "note": "Boolean value-format semantics, not a declaration-domain list.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2249-CORE_META_MODEL-ENTITY_DEFINITION--define-bool-value-format.md",
+      "source_version": 6,
+      "source_sha256": "33e794ab91eb7360c879421930581fc5b5e5ce04ed0287d8b77eef704e3db5fd",
+      "source_role": "Requirement",
+      "source_form": "Declaration",
+      "source_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format/bool",
+      "excerpt": "The bool Value Format admits the Boolean values true and false. It does not set a"
+    },
+    {
+      "source_id": "CA-R-1548",
+      "line": 35,
+      "values": [
+        "Requirement",
+        "Method",
+        "Evaluation",
+        "Delivery"
+      ],
+      "coverage_ids": [
+        "CA-R-2512",
+        "CA-R-2513",
+        "CA-R-2514",
+        "CA-R-2515"
+      ],
+      "coverage": "4/4 Role Declarations",
+      "classification": "preserve_contextual_subset",
+      "note": "Named Specification Content Roles subset, not the full Role domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-DEFINITION--define-specification-content-roles.md",
+      "source_version": 24,
+      "source_sha256": "227a12eec11ddb7c99963f41049accdb377d6863008feb22cc346e4a4b4aad2f",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection",
+      "excerpt": "Specification Content Roles (Spec, RMED) **means** the set (Requirement, Method, Evaluation, Delivery) that specifies governed content **and** Entities, including CAPO **and** I."
+    },
+    {
+      "source_id": "CA-R-1676",
+      "line": 29,
+      "values": [
+        "Requirement",
+        "Method",
+        "Evaluation",
+        "Delivery"
+      ],
+      "coverage_ids": [
+        "CA-R-2512",
+        "CA-R-2513",
+        "CA-R-2514",
+        "CA-R-2515"
+      ],
+      "coverage": "4/4 Role Declarations",
+      "classification": "preserve_contextual_subset",
+      "note": "RMED-to-RMED applicability boundary, not the full Role domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-RULE--keep-rmed-to-rmed-relations-within-active-authority.md",
+      "source_version": 37,
+      "source_sha256": "e94719418f2f60435d581a981f818580e24aa0947d1eb6f57fb16d65d732d4ea",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "excerpt": "**if** a direct relation is authored by a Current Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery) **and** targets an Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery), **then** the target Atom **must** be Current."
+    },
+    {
+      "source_id": "CA-R-1315",
+      "line": 30,
+      "values": [
+        "Requirement",
+        "Method",
+        "Evaluation",
+        "Delivery",
+        "Operations"
+      ],
+      "coverage_ids": [
+        "CA-R-2512",
+        "CA-R-2513",
+        "CA-R-2514",
+        "CA-R-2515",
+        "CA-R-2463"
+      ],
+      "coverage": "5/5 Role Declarations",
+      "classification": "preserve_contextual_subset",
+      "note": "Applicable Methodology membership filter, not the full Role domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1315-PROJECT_CONFIGURATION-RULE--select-only-current-active-rmedo-atom-revisions.md",
+      "source_version": 31,
+      "source_sha256": "e3f8598b97d76b9f75f4971b333a9157bcd39dcbb142408a1be14b28dc9f8585",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources",
+      "excerpt": "the Applicable Methodology membership **must** contain **only** current Atom Revisions whose type-qualified Status **`=`** Active **and** whose Content Role is **in** (Requirement, Method, Evaluation, Delivery, Operations)."
+    },
+    {
+      "source_id": "CA-R-1707",
+      "line": null,
+      "values": [
+        "Requirement",
+        "Method",
+        "Evaluation",
+        "Delivery"
+      ],
+      "coverage_ids": [
+        "CA-R-2512",
+        "CA-R-2513",
+        "CA-R-2514",
+        "CA-R-2515"
+      ],
+      "coverage": "4/4 Role Declarations",
+      "classification": "preserve_contextual_subset",
+      "note": "Obligation subset, not the full Role domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1707-CORE_META_MODEL-RULE--make-requirement-the-only-universally-mandatory-atom.md",
+      "source_version": 32,
+      "source_sha256": "1d72b052ae7a969c7a41f0cced7ede4fe11b7a98faf8033ebe9b49f1b17839fb",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)"
+    },
+    {
+      "source_id": "CA-R-1702",
+      "line": 38,
+      "values": [
+        "Concern",
+        "Analysis & Advisory",
+        "Plan",
+        "Requirement",
+        "Method",
+        "Evaluation",
+        "Delivery",
+        "Implementation",
+        "Operations"
+      ],
+      "coverage_ids": [
+        "CA-R-2509",
+        "CA-R-2637",
+        "CA-R-2511",
+        "CA-R-2512",
+        "CA-R-2513",
+        "CA-R-2514",
+        "CA-R-2515",
+        "CA-R-2463"
+      ],
+      "coverage": "8/9 strings match Role Declarations; Implementation is not a Role",
+      "classification": "preserve_process_sequence",
+      "note": "Process-stage sequence, not an allowed-Role list.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "source_version": 49,
+      "source_sha256": "810344ec1e2629ff0d78d678979394f818ccf0529c8bee49c63bba0354a204a1",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Role",
+      "excerpt": "**every** transition through Concern, Analysis & Advisory, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Operations produces **or** updates the meaning owned by the receiving Content Role **without** converting the source meaning into that role **or** implying completion of a later role."
+    },
+    {
+      "source_id": "CA-R-1648",
+      "line": null,
+      "values": [
+        "Concern",
+        "Plan",
+        "Requirement",
+        "Method",
+        "Evaluation",
+        "Delivery"
+      ],
+      "coverage_ids": [
+        "CA-R-2509",
+        "CA-R-2511",
+        "CA-R-2512",
+        "CA-R-2513",
+        "CA-R-2514",
+        "CA-R-2515"
+      ],
+      "coverage": "6/6 Role Declarations",
+      "classification": "preserve_process_sequence",
+      "note": "Project derivation workflow, not the full Role domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1648-CORE_META_MODEL-RULE--use-external-analysis-atoms-as-review-envelopes.md",
+      "source_version": 33,
+      "source_sha256": "7b469044a63f4e0c2b217282961f504c8342c64833f6d3d9660fc93a3f03242d",
+      "source_role": "Requirement",
+      "source_form": "Rule",
+      "source_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := \"Analysis & Advisory\")"
+    },
+    {
+      "source_id": "CA-M-455",
+      "line": 32,
+      "values": [
+        "Concern",
+        "Analysis & Advisory",
+        "Plan",
+        "Operations"
+      ],
+      "coverage_ids": [
+        "CA-R-2509",
+        "CA-R-2637",
+        "CA-R-2511",
+        "CA-R-2463"
+      ],
+      "coverage": "4/4 Role Declarations",
+      "classification": "preserve_named_subset",
+      "note": "Named Term Change Content Roles subset, not the full Role domain.",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-455-CORE_META_MODEL-TERM_DEFINITION--define-change-content-roles.md",
+      "source_version": 4,
+      "source_sha256": "c5407e4225dc48cfc01e741d906404ba26245afd1ef6f89174274efcbe731f4c",
+      "source_role": "Method",
+      "source_form": "Term Definition",
+      "source_subject": "CAPRMEDIO_MODEL <+ Term//Change Content Roles",
+      "excerpt": "Change Content Roles (CAPO) **means** the set (Concern, Analysis & Advisory, Plan, Operations) used **to** identify, investigate, organize, **and** perform governed Project work, including changes **to** specification **and** Implementation. This Claim explicitly introduces the lexical Term instance named Change Content Roles at `Term//Change Content Roles`."
+    }
+  ],
+  "exclusions": [
+    "Nested Property name sets and structural tuple fields are field-name contracts, not value-domain lists.",
+    "Generic Claim Value Set notation examples do not define any particular Property domain.",
+    "Status Group exclusions filter an already admitted domain and are not complete allowed-value lists."
+  ]
+}

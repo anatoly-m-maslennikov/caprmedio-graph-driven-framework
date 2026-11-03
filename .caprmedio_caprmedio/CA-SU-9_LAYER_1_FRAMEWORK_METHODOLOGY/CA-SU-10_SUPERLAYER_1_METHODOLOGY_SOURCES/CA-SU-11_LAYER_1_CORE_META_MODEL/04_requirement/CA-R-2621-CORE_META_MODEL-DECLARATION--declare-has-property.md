@@ -24,5 +24,6 @@ Declare HAS_PROPERTY
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//HAS_PROPERTY <((HAS_INVERSE)) Relation//IS_PROPERTY_OF
 ```

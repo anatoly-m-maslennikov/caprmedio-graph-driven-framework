@@ -21,6 +21,7 @@ Declare Atom/(.Role := Concern)
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Concern)
 ```
 

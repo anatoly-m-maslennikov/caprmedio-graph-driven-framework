@@ -25,8 +25,14 @@ Declare Atom.Header.ID
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.ID{:1}: [string]{:1};
+
 Atom.Header.ID.*[]{:0};
-IF ((Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived))
-THEN (IMMUTABLE(Atom.Header.ID))
+
+# instances
+Atom//$atom;
+
+IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
+THEN (IMMUTABLE($atom.Header.ID))
 ```

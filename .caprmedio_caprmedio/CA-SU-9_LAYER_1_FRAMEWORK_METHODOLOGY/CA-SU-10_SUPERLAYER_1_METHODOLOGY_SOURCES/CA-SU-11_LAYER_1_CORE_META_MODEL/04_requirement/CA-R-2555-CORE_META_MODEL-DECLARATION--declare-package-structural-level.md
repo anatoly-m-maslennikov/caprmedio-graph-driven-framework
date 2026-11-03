@@ -22,10 +22,16 @@ Declare Package.structural_level
 ### Formal Claim
 
 ```CFEL
+# model
 Package.structural_level{:1}: [int]{:1};
+
 Package.structural_level.*[]{:0};
+
 Package.structural_level >= 0;
+
+# instances
 Package/Implementation//$implementation.structural_level = 0;
+
 IF (Package//$contained ((IS_CONTAINED_BY)) Package//$container)
 THEN ($contained.structural_level = $container.structural_level + 1)
 ```

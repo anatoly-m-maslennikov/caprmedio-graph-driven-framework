@@ -21,7 +21,9 @@ Declare Project.Settings
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings{:1}: []{:0};
+
 Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Implementation Retry Limit, RMED Review)]{:3..11}
 ```
 

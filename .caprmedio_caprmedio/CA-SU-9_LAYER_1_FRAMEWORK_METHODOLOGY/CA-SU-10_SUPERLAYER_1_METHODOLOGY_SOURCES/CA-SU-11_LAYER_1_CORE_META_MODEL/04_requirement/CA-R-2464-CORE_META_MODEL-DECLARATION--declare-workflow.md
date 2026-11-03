@@ -22,9 +22,13 @@ Declare Workflow
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Operations)/Workflow;
-Workflow//{:1+}((CONTAINS)) Step//;
-Workflow//{:0+}((IS_RUN_BY)) Step//
+
+# instances
+Workflow//$workflow{:1+}((CONTAINS)) Step//$step;
+
+Workflow//$workflow_2{:0+}((IS_RUN_BY)) Step//$step_2
 ```
 
 ## Semantics

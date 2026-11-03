@@ -22,11 +22,19 @@ Declare Step
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Operations)/Step;
-Step//{:1}((IS_CONTAINED_BY)) Workflow//;
-IF Step// {=0}((RUNS)) THEN Step// {:1+}((CONTAINS)) Substep//;
-IF Step// {>0}((RUNS)) THEN Step// {:0}((CONTAINS));
-IF Step// {=0}((CONTAINS)) THEN Step// {:1}((RUNS)) (in (Action, Workflow))//
+
+# instances
+Step//$step;
+
+$step{:1}((IS_CONTAINED_BY)) Workflow//$workflow;
+
+IF $step {=0}((RUNS)) THEN $step {:1+}((CONTAINS)) Substep//$substep;
+
+IF $step {>0}((RUNS)) THEN $step {:0}((CONTAINS));
+
+IF $step {=0}((CONTAINS)) THEN $step {:1}((RUNS)) (in (Action, Workflow))//$selected
 ```
 
 ## Semantics

@@ -13,7 +13,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[4]
 PACKET = Path(__file__).resolve().parent
-FRONTIER = ROOT / ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/current-source-frontier.json"
+FRONTIER = ROOT / ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/integration/final-source-frontier.json"
 OUTPUT = ROOT / ".caprmedio_caprmedio/_projection"
 TOOLS = ROOT / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS"
 sys.path[:0] = [str(TOOLS / "GENERATE_ENTITY_GRAPH"), str(TOOLS)]
@@ -22,7 +22,7 @@ from artifact_metadata import current_timestamp  # noqa: E402
 from atom_operations import atom_identity_lock  # noqa: E402
 from current_entity_sources import _read_atom  # noqa: E402
 from generate_entity_graph import atomic_write  # noqa: E402
-from subject_projection_audits import build_subject_audits, render_subject_audit  # noqa: E402
+from subject_projection_audits import build_subject_audits, render_subject_audit, select_model_subjects  # noqa: E402
 from subject_projection_data import build_subject_projection_data  # noqa: E402
 from subject_projection_views import render_primary_projection  # noqa: E402
 
@@ -129,9 +129,11 @@ def main() -> None:
     frontier_raw = FRONTIER.read_bytes()
     frontier = json.loads(frontier_raw)
     carriers = read_sources(frontier)
-    data = build_subject_projection_data(carriers)
+    scoped, scope_diagnostics = select_model_subjects(carriers)
+    model_carriers = [c for c in scoped if any(key in c.get("subjects", {}) for key in ("active", "governs"))]
+    data = build_subject_projection_data(model_carriers)
     check_declaration_authority(carriers, data)
-    audits = build_subject_audits(carriers, data)
+    audits = build_subject_audits(scoped, data, scope_diagnostics=scope_diagnostics)
     pins = sorted(f"{c['source']['atom_id']}@{c['source']['version']}" for c in carriers)
     now = current_timestamp(ROOT)
     old = {p.name: digest(p.read_bytes()) for p in OUTPUT.glob("CA-PROJ-01[4-9]-*.md")}
@@ -140,7 +142,8 @@ def main() -> None:
     documents = []
     scope = (
         f"Selected sources: {len(carriers)} Current Methodology and direct Project RMED Atoms. "
-        "Coverage and absence are evaluated within this selection.\n\n"
+        "Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. "
+        "Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.\n\n"
         "Cardinalities, formats and Formal Claims come only from Current Requirement / Declaration Atoms. "
         "Unsupported CFEL remains visible with diagnostics.\n\n"
     )

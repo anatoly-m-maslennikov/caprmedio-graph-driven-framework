@@ -25,5 +25,6 @@ Define IS_EXECUTED_BY Relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//IS_EXECUTED_BY <((HAS_INVERSE)) Relation//EXECUTES
 ```

@@ -22,9 +22,13 @@ Declare Implementation
 ### Formal Claim
 
 ```CFEL
+# model
 Package/Implementation;
-Package/Implementation//{:1};
-Package/Implementation// {:0}((IS_CONTAINED_BY)) Package//
+
+# instances
+Package/Implementation//$package{:1};
+
+Package/Implementation//$package_2 {:0}((IS_CONTAINED_BY)) Package//$package_3
 ```
 
 ## Semantics

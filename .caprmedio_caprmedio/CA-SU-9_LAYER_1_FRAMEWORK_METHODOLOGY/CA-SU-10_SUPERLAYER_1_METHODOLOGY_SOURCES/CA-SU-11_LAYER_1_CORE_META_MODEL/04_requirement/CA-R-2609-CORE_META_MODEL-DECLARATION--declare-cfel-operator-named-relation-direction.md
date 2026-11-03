@@ -25,6 +25,7 @@ Declare CFEL operator named Relation direction
 ### Formal Claim
 
 ```CFEL
+# model
 Operator//NamedRelationDirection == "((RELATION)) / <((RELATION))"
 ```
 

@@ -19,10 +19,15 @@ Declare APPS
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//APPS.ID == "CA-SU-20";
+
 Scope Unit//APPS.Name == "APPS";
+
 Scope Unit//APPS.Label == "FEATURE";
+
 Scope Unit//APPS.order.ordered == false;
+
 Scope Unit//APPS ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC
 ```
 

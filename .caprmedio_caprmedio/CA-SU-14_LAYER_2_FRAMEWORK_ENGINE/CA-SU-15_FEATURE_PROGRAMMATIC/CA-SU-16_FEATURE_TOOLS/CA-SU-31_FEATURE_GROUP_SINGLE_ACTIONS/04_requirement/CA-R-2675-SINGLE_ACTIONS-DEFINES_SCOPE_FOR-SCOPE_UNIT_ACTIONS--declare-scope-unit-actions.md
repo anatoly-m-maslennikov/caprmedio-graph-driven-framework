@@ -19,10 +19,15 @@ Declare SCOPE_UNIT_ACTIONS
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//SCOPE_UNIT_ACTIONS.ID == "CA-SU-36";
+
 Scope Unit//SCOPE_UNIT_ACTIONS.Name == "SCOPE_UNIT_ACTIONS";
+
 Scope Unit//SCOPE_UNIT_ACTIONS.Label == "FEATURE_GROUP";
+
 Scope Unit//SCOPE_UNIT_ACTIONS.order.ordered == false;
+
 Scope Unit//SCOPE_UNIT_ACTIONS ((IS_CONTAINED_BY)) Scope Unit//SINGLE_ACTIONS
 ```
 

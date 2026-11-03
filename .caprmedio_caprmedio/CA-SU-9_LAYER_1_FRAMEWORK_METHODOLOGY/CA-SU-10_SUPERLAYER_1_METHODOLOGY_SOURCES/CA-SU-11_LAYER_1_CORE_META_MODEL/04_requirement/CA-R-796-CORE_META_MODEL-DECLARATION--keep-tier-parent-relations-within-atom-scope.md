@@ -32,9 +32,11 @@ Keep tier-parent relations within Atom Scope
 ### Formal Claim
 
 ```CFEL
-Atom// ((child_of)) Atom//;
+# model
+Relation//child_of ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-Relation//child_of ((HAS_CLASSIFICATION)) Derivation == Direct
+# instances
+Atom//$atom ((child_of)) Atom//$atom_2;
 ```
 
 ### Prose Claim

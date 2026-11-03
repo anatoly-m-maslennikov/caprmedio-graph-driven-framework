@@ -25,10 +25,15 @@ Declare Atom
 ### Formal Claim
 
 ```CFEL
+# model
 Atom;
-UNIQUE(Atom//, (.Header.ID, .Header.Version));
+
 Atom.*[string,in(Header,Content)]{:2};
-Atom ((NARROWER_THAN)) Continuant
+
+Atom ((NARROWER_THAN)) Continuant;
+
+# instances
+UNIQUE(Atom//$atom, (.Header.ID, .Header.Version));
 ```
 
 ## Semantics

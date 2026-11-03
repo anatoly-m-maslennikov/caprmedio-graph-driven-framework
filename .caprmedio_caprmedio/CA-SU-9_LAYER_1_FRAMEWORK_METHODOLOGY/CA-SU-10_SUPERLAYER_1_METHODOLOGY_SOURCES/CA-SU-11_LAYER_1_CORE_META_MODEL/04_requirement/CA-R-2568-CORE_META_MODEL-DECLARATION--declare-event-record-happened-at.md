@@ -21,7 +21,9 @@ Declare Event Record.happened_at
 ### Formal Claim
 
 ```CFEL
+# model
 Event Record.happened_at{:1}: [datetime]{:1};
+
 Event Record.happened_at.*[]{:0}
 ```
 

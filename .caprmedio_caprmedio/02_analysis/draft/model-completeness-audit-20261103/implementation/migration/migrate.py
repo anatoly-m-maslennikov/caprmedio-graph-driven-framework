@@ -17,6 +17,7 @@ Ambiguous = guards.Ambiguous
 FENCE = re.compile(r'(?im)^([ \t]*)(`{3,}|~{3,})[ \t]*CFEL[ \t]*\r?\n')
 KINDS = r'(?:Atom(?:/\([^()\n]*\))*|Scope Unit(?:/Project)?|Package(?:/Implementation)?|Event Record|Carrier(?:/Markdown_file)?|Projection|Workflow|Substep|Journal|Relation|Actor|Plan|Step|Action|Node|Project)'
 BARE = re.compile(r'(?<![\w/$])(' + KINDS + r')//(?![\w$])')
+NAMED = re.compile(r'(?<![\w/$])(' + KINDS + r')//[A-Za-z_][\w-]*')
 TYPED = re.compile(r'//\$[A-Za-z_]\w*')
 LITERAL = re.compile(r'"(?:\\.|[^"\\\r\n])*"|\'(?:\\.|[^\'\\\r\n])*\'')
 
@@ -109,7 +110,8 @@ def group_block(text):
             visible = '\n\n'.join(prefixes + [visible])
         # A named Relation/Operator address describes the model, regardless of //.
         model_relation = model_membership or bool(re.match(r'\s*(?:Relation|Operator)//', visible)) or bool(re.match(r'\s*\$(?:property|classified|part)\b', visible) and re.search(r'\(\((?:IS_PROPERTY_OF|HAS_CLASSIFICATION|IS_CONTAINED_BY)\)\)', visible))
-        instance = bool(anonymous or TYPED.search(visible) or data_atom or had_union) and not model_relation
+        named_instance = any(match.group(1).split('/')[0] != 'Relation' for match in NAMED.finditer(visible))
+        instance = named_instance or (bool(anonymous or TYPED.search(visible) or data_atom or had_union) and not model_relation)
         if re.match(r'\s*\$[A-Za-z_]\w*\s+\(\(NARROWER_THAN\)\)', visible):
             model_relation = True
         if not instance and re.search(r'\$[A-Za-z_]\w*', visible):

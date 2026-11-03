@@ -1,5 +1,5 @@
 {
-  "status": "operator_decisions_recorded; governing sources not applied",
+  "status": "APPLIED_AND_SNAPSHOT_VERIFIED",
   "decisions": [
     {
       "id": "carrier-boundary-01",
@@ -44,7 +44,7 @@
         ]
       },
       "not_yet_decided": [],
-      "source_application": "not applied; analysis decision record only",
+      "source_application": "applied and snapshot verified",
       "superseded_wording": [
         "Object = Node instance only",
         "Object >> Artifact"
@@ -59,7 +59,7 @@
         "qualification": "Declarations replace the former Entity Definition qualification",
         "preserve": "qualified derived view; no unconditional inverse inferred"
       },
-      "source_application": "not applied; decision record only"
+      "source_application": "applied and snapshot verified"
     },
     {
       "id": "instance-notation-03",
@@ -99,7 +99,7 @@
         "teach all affected CFEL readers to ignore comment lines safely",
         "migrate grouping and anonymous binders without changing existing matching/identity/count meanings"
       ],
-      "source_application": "not applied; decision record only",
+      "source_application": "applied and snapshot verified",
       "epic_tracking": {
         "id": "CA-P-2694",
         "version": 50,
@@ -125,7 +125,7 @@
         "scope": "answer concerns the seven Carrier kinds asked about; does not decide other detailed Carrier Properties",
         "delivery_scope": "Current Object delivery bindings target files and folders; other Carrier kinds remain modeled."
       },
-      "source_application": "pending",
+      "source_application": "applied and snapshot verified",
       "latest_operator_words": [
         "we have only file carrier now",
         "in model we should other Carriers, but in the model for objects we have >> only to files and folders"
@@ -141,7 +141,7 @@
         "body_scope": "same matching binding is used through the parenthesized conclusion",
         "FOR": "not a required language primitive; no FOR syntax/implementation added"
       },
-      "source_application": "pending"
+      "source_application": "applied and snapshot verified"
     },
     {
       "id": "carrier-format-06",
@@ -156,7 +156,7 @@
         "preserve": "Object Property formats such as [string] and [markdown]",
         "file_specific_format": "no inherited Carrier/File.Format Property remains; remove or rebind its old rule to representation templates"
       },
-      "source_application": "pending"
+      "source_application": "applied and snapshot verified"
     },
     {
       "id": "carrier-details-07",
@@ -171,7 +171,19 @@
         ],
         "keep": "Adapters and Delivery rules retain behavior; file/folder interfaces and Atom destination Properties remain"
       },
-      "source_application": "pending"
+      "source_application": "applied and snapshot verified"
+    },
+    {
+      "id": "carrier-whole-object-08",
+      "operator_words": "carrier is a carrier; if we need something we read it whole as object, then work with object",
+      "application": "Retired all internal Carrier Property sources and their region Rule; retained Carrier kinds and Delivery/adapter mappings.",
+      "source_application": "applied and snapshot verified"
+    },
+    {
+      "id": "individual-role-values-09",
+      "operator_words": "for Atom/.Role we should not give list of allowed values; we have a declaration for each allowed value separately; check all the cases",
+      "application": "R2702 already has no enumeration. Removed the one redundant Rule list in R1283@33; eight individual Role Declarations remain authority. Other lists reviewed for distinct semantics.",
+      "source_application": "applied and snapshot verified"
     }
   ],
   "open_questions": []

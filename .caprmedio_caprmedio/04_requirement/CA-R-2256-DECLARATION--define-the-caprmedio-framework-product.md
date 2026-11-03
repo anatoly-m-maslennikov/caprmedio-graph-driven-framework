@@ -20,6 +20,7 @@ Define the CAPRMEDIO Framework product
 ### Formal Claim
 
 ```CFEL
+# model
 Node/Continuant//CAPRMEDIO Framework{:1}
 ```
 

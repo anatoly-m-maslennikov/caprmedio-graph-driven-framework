@@ -19,10 +19,15 @@ Declare PROMPTS
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//PROMPTS.ID == "CA-SU-24";
+
 Scope Unit//PROMPTS.Name == "PROMPTS";
+
 Scope Unit//PROMPTS.Label == "FEATURE";
+
 Scope Unit//PROMPTS.order.ordered == false;
+
 Scope Unit//PROMPTS ((IS_CONTAINED_BY)) Scope Unit//AGENTIC
 ```
 

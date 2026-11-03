@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "sources": 1148,
+  "projection_count": 7,
+  "all_source_hashes_match": true,
+  "all_output_hashes_match": true,
+  "publication_manifest_sha256": "81a91c9c8ff6aff7a5563ed2561a8a4af13f50ee7ab30ee3c8785abccab892d7",
+  "notes": "Concurrent Workflow v5 is a pinned input, not an adopted source revision in this commit."
+}

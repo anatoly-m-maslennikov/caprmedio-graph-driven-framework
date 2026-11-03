@@ -29,9 +29,11 @@ Register feature realization relation kind
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//feature_realization ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-Scope Unit// ((feature_realization)) $realization_target
+# instances
+Scope Unit//$scope_unit ((feature_realization)) $realization_target
 ```
 
 ### Prose Claim

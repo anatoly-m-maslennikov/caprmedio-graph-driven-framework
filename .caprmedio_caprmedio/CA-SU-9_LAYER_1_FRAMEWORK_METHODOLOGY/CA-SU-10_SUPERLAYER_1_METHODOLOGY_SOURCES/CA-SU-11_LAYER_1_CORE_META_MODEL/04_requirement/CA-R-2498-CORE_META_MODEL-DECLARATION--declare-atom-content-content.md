@@ -25,8 +25,11 @@ Declare Atom.Content
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Content{:1}: []{:0};
+
 Atom.Content.*[string]{:0+};
+
 Atom.Content.**[string]{:0+}: [markdown]{:0..1}
 ```
 

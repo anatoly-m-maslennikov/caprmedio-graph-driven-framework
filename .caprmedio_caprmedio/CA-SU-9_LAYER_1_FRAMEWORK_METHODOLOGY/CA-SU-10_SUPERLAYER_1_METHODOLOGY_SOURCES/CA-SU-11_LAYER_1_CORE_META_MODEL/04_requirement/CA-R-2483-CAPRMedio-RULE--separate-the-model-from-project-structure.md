@@ -21,6 +21,7 @@ Separate the CAPRMEDIO model from Project structure
 ### Formal Claim
 
 ```CFEL
+# model
 Aspects <+ Product
 ```
 

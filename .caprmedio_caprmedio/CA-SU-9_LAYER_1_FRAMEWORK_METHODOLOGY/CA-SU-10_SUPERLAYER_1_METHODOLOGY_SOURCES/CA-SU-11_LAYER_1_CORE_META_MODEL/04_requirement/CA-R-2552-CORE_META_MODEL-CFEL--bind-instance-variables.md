@@ -42,6 +42,7 @@ In the MODEL group, `IF $x in (selection) THEN (conclusion)` binds an unbound `$
 ## Details
 
 ```CFEL
+# instances
 Kind//$x
 ```
 

@@ -25,6 +25,8 @@ Declare Atom.Header.Carrier Destination
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Carrier Destination{:1}: []{:0};
+
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```

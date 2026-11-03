@@ -1,0 +1,388 @@
+{
+  "status": "passed",
+  "scope_count": 44,
+  "scope_source_pins": [
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
+      "sha256": "ad582d8be71a657d0ba86efc5cb87b6832ef0d83221f8a605d7a6710d93bdde5",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",
+      "sha256": "d745f0f23caf84e76c2c734655fabf235304884d6dc1f66d1cdfcc54f84e6c5b",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md",
+      "sha256": "227ea7a3cd55aa99f834215bf5b23ace30aeb0654797dbd032be2139ab1ad718",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md",
+      "sha256": "0f57ca27303f7d9982a970c5a1263ac7c9a8230b2f7cc19d80262b2c62d4927c",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md",
+      "sha256": "3cf71b17ec32a4b86c7e4bd84158c986411d33fd459526669189c07b33e46fbe",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md",
+      "sha256": "ee5aed23b50275708072e5a9fe955831e10d6acc41f1a5582b27ef27551314e7",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md",
+      "sha256": "9941a487b7d9c58f320069d129c4faab4b4ffe458f7e497ac278d62b42286551",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+      "sha256": "c9d1e6342e3084b08469d15648772f648494616400ebd82c0831bd61dcc13884",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/04_requirement/CA-R-2654-FRAMEWORK_ENGINE-DEFINES_SCOPE_FOR-PROGRAMMATIC--declare-programmatic.md",
+      "sha256": "c17dabce3e9ca9b94a2d5f97478f379a8088739fcb022334eb86ff18159c6764",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/04_requirement/CA-R-2661-FRAMEWORK_ENGINE-DEFINES_SCOPE_FOR-AGENTIC--declare-agentic.md",
+      "sha256": "d72ed59e32ffc99bdbd592c93961d9aed2f409ba90df2419487f402ab62203f9",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/CA-R-2655-PROGRAMMATIC-DEFINES_SCOPE_FOR-TOOLS--declare-tools.md",
+      "sha256": "29d26e5b24065171e8332fbae30a003534eec0e165f9c666dbb45b2cb5197155",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/CA-R-2656-PROGRAMMATIC-DEFINES_SCOPE_FOR-CONNECTOR_TOOLS--declare-connector-tools.md",
+      "sha256": "80ade8dc49b940bce067e2160e57920757a443dc060375587e9a6ba395e83e57",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/CA-R-2657-PROGRAMMATIC-DEFINES_SCOPE_FOR-TOOL_WORKFLOWS--declare-tool-workflows.md",
+      "sha256": "be477c1426ec6d48539baaf99dfd1220183aa133c990ff6a2677b1dd705b6fe7",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/CA-R-2658-PROGRAMMATIC-DEFINES_SCOPE_FOR-PROJECT_TOOLS--declare-project-tools.md",
+      "sha256": "a8cd622e823ac9bce32cb4336cd4902eb16ed997d751b9e0c60e7b23651d0a57",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/CA-R-2659-PROGRAMMATIC-DEFINES_SCOPE_FOR-APPS--declare-apps.md",
+      "sha256": "29566eea86ce78af72c42fbd092855e5ca26f9a84ca63181498aa5a8ee35195a",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/CA-R-2660-PROGRAMMATIC-DEFINES_SCOPE_FOR-MCP--declare-mcp.md",
+      "sha256": "a6e1f8fd36b498efea5b535b59d26db1aa1933933a576e63cc6b05e837e80cc8",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement/CA-R-2642-TOOLS-DEFINES_SCOPE_FOR-DISCOVER_TOOLS--declare-discover-tools.md",
+      "sha256": "72b9f7636adca3495d063cd0b7ca94eb46298ef77a8dc30282d734c991378804",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement/CA-R-2643-TOOLS-DEFINES_SCOPE_FOR-DISCOVER_OPERATIONS--declare-discover-operations.md",
+      "sha256": "82371bf995a2d4afd8c0532c3aca9ecafe842bc407548cf95a555e2600f80c63",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement/CA-R-2644-TOOLS-DEFINES_SCOPE_FOR-GET_EXECUTION_CONTEXT--declare-get-execution-context.md",
+      "sha256": "058261f4720c7492e9fcb471969006ca6588d9d5d2f9dc558e2574e74c89ef7c",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement/CA-R-2645-TOOLS-DEFINES_SCOPE_FOR-GET_EXECUTION_STATUS--declare-get-execution-status.md",
+      "sha256": "b5cb8331fb2e790320839605df7de460ca19e52289164f20b534f49fa0809b43",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement/CA-R-2646-TOOLS-DEFINES_SCOPE_FOR-RESUME_EXECUTION_CONTEXT--declare-resume-execution-context.md",
+      "sha256": "2184faa210717df28491854804b2b767ab17763a3dfe42f9fdf6c4488c822516",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement/CA-R-2647-TOOLS-DEFINES_SCOPE_FOR-WATCH_EXECUTION--declare-watch-execution.md",
+      "sha256": "d87987b74d22f307d5a5fe67bb8acac1ae43edf6f347991011d20eccec8ef16e",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement/CA-R-2669-TOOLS-DEFINES_SCOPE_FOR-ADAPTERS--declare-adapters.md",
+      "sha256": "2af29e5f7ceb9d94395d0b4c540579cc1ad733a937fb550a23efefcff1db64eb",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement/CA-R-2670-TOOLS-DEFINES_SCOPE_FOR-SINGLE_ACTIONS--declare-single-actions.md",
+      "sha256": "a71dfb5168563a3f29dca6ab6b7f2a2142b9367e46e091b9ce15c434adab3a26",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement/CA-R-2671-TOOLS-DEFINES_SCOPE_FOR-SCHEDULERS--declare-schedulers.md",
+      "sha256": "8d0299fccb437f524df869b4ed317d1304cb3a6717e2509d2212071e902d7ad1",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement/CA-R-2672-TOOLS-DEFINES_SCOPE_FOR-WORKFLOWS--declare-workflows.md",
+      "sha256": "06f022dc4e6e82be01c327b83c3a7bebf77ecb69d8aa8eadcdde4110dee01450",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement/CA-R-2673-TOOLS-DEFINES_SCOPE_FOR-ACTION_ENGINE--declare-action-engine.md",
+      "sha256": "fea45f0a3318273ef787746b3dac35e5dd9c0f7c07132b9e26d302f440a2b699",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/04_requirement/CA-R-2674-SINGLE_ACTIONS-DEFINES_SCOPE_FOR-ATOM_ACTIONS--declare-atom-actions.md",
+      "sha256": "f57fa32cf399a0496ae6064a393e442282d5816103b1a059e3713699688656c3",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/04_requirement/CA-R-2675-SINGLE_ACTIONS-DEFINES_SCOPE_FOR-SCOPE_UNIT_ACTIONS--declare-scope-unit-actions.md",
+      "sha256": "018dde95ee604d2c690456a509b5eb6ad385c9ea9afa19a0eabfde5f3deb67c3",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/04_requirement/CA-R-2676-SINGLE_ACTIONS-DEFINES_SCOPE_FOR-PROJECTION_ACTIONS--declare-projection-actions.md",
+      "sha256": "4f4ebcbdae1d5969c36d1f838b1cdf2bd6c9d60dc60655ae47d7fef9c8ad1adb",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/04_requirement/CA-R-2677-SINGLE_ACTIONS-DEFINES_SCOPE_FOR-JOURNAL_ACTIONS--declare-journal-actions.md",
+      "sha256": "280230fd8a5de2275feb4f62f188e8c106e7c189abaeef1a68d8e9ad872f3c35",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/04_requirement/CA-R-2678-SINGLE_ACTIONS-DEFINES_SCOPE_FOR-PROJECT_ACTIONS--declare-project-actions.md",
+      "sha256": "c5bd54d4e0ad9c542941788646064c2b500b035b5b5c415ed56e4fc45d84f7bc",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/04_requirement/CA-R-2679-SINGLE_ACTIONS-DEFINES_SCOPE_FOR-QUEUE_ACTIONS--declare-queue-actions.md",
+      "sha256": "9a5100da796a1673e9571f3dbad06f00cf99098842df7fa06a65bbe25551e9be",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-32_FEATURE_GROUP_SCHEDULERS/04_requirement/CA-R-2680-SCHEDULERS-DEFINES_SCOPE_FOR-BATCH_SCHEDULER--declare-batch-scheduler.md",
+      "sha256": "a4cb086a3ef22fd5f58910a4f309c18e121073b0dca8243bf7852c4bfbbfb883",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-32_FEATURE_GROUP_SCHEDULERS/04_requirement/CA-R-2681-SCHEDULERS-DEFINES_SCOPE_FOR-WORKFLOW_SCHEDULER--declare-workflow-scheduler.md",
+      "sha256": "2f810a1589b9a82ee3277bb2e18e17f4da18163e62ab69b7e561d201ab220038",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/04_requirement/CA-R-2641-APPS-DEFINES_SCOPE_FOR-WORKFLOW_ORCHESTRATOR--declare-workflow-orchestrator.md",
+      "sha256": "a013c9031591a6bdea78670f0124338c9403d956f8c3392aac8b53ed495d8b71",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/04_requirement/CA-R-2683-APPS-DEFINES_SCOPE_FOR-GRAPH_UI--declare-graph-ui.md",
+      "sha256": "22daff0397ce3ee8bea686b519eaef4a1bbc06f204960c596f045e61bc0528c4",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/04_requirement/CA-R-2730-APPS-DEFINES_SCOPE_FOR-WORKBENCH--declare-workbench.md",
+      "sha256": "a7bb9c4168e399f57c19a2c6ce841e2b581137b69b9f119a59558323250374e3",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/04_requirement/CA-R-2662-AGENTIC-DEFINES_SCOPE_FOR-SKILLS--declare-skills.md",
+      "sha256": "07526ee8bab21bb47cf6b4f9b2d2a02d993a34181fb807e71ef32ec86a42c61c",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/04_requirement/CA-R-2663-AGENTIC-DEFINES_SCOPE_FOR-PROMPTS--declare-prompts.md",
+      "sha256": "20477ca249a469ba9e81ba3febf57262e58fd7d43636d4bba69eda84ba02f93c",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement/CA-R-2649-FRAMEWORK_METHODOLOGY-DEFINES_SCOPE_FOR-METHODOLOGY_SOURCES--declare-methodology-sources.md",
+      "sha256": "46b347d4c049eb2ea2fc10292cc4e6f484daacd472a62800839b1fa6fe5cfe01",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md",
+      "sha256": "68745238c9590ae459cdc0da5c229c55e27749012b40bf30bd39c90d944c01af",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md",
+      "sha256": "2fe70d80e3b4c0651813b1d49a3cad46c817d0c8ff272b198b641386a085b83f",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md",
+      "sha256": "25ab49c1b2a8236ed535946d05cc88847a549481b82813cfac381af46b7bd259",
+      "model_marker": true,
+      "instances_marker": false,
+      "variable_binding": false
+    }
+  ],
+  "marker_counts": {
+    "model": 44,
+    "instances": 0,
+    "variable_bindings": 0
+  },
+  "domains": {
+    "Requirement": {
+      "requested_status": "Active",
+      "statuses": [
+        "Draft",
+        "Active",
+        "Archived"
+      ],
+      "model_sources": [
+        {
+          "atom_id": "CA-R-1309",
+          "revision": 28,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1309-CORE_META_MODEL-RULE--register-core-requirement-status-values.md",
+          "sha256": "ff2d6bcf40c40005fef9f30ed9a004bfb983807e5839c652373506ee6c489e69"
+        }
+      ]
+    },
+    "Plan": {
+      "requested_status": "Done",
+      "statuses": [
+        "Draft",
+        "Active",
+        "Archived",
+        "Backlog",
+        "Done",
+        "Canceled"
+      ],
+      "model_sources": [
+        {
+          "atom_id": "CA-R-1947",
+          "revision": 13,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL--define-atom-status-allowed-values.md",
+          "sha256": "d40a876b0bcd4b3045e05c2580f2132e742d1f583a9a1accfe60128abee3791c"
+        },
+        {
+          "atom_id": "CA-R-1539",
+          "revision": 22,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-RULE--register-core-plan-status-values.md",
+          "sha256": "2ee64909c4c16e0e518d9325e33eb98e290d94265d668e76d981265377fbd6b1"
+        }
+      ]
+    },
+    "Analysis & Advisory": {
+      "requested_status": "Done",
+      "statuses": [
+        "Draft",
+        "Active",
+        "Archived",
+        "Done"
+      ],
+      "model_sources": [
+        {
+          "atom_id": "CA-R-1947",
+          "revision": 13,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL--define-atom-status-allowed-values.md",
+          "sha256": "d40a876b0bcd4b3045e05c2580f2132e742d1f583a9a1accfe60128abee3791c"
+        },
+        {
+          "atom_id": "CA-R-1875",
+          "revision": 22,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+          "sha256": "610421330e00d3c9f5d157296e4458c040af74f6c9ddeb151485188be6d59de2"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Live reader check only; not a projection rebuild, full validation, runtime activation, or release."
+  ]
+}

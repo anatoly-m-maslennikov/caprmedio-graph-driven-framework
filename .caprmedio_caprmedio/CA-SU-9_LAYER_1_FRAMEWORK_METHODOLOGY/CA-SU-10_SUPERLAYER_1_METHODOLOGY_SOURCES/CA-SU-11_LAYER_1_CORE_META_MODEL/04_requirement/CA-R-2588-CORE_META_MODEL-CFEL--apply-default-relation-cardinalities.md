@@ -25,13 +25,15 @@ Apply default Relation cardinalities
 ### Formal Claim
 
 ```CFEL
+# model
 (Node, Node.**) {:0}((*));
 
+# instances
+Node//$node;
 
-(Node//, (Node//).**) {:0}((*));
+($node, $node.**) {:0}((*));
 
-
-Journal// {:0+}((CONTAINS)) Event Record//
+Journal//$journal {:0+}((CONTAINS)) Event Record//$event_record
 ```
 
 ### Prose Claim

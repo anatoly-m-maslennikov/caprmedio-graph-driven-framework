@@ -25,9 +25,13 @@ Declare Atom.Content.Claim
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
+
 Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
+
 Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
+
 Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
 ```
 

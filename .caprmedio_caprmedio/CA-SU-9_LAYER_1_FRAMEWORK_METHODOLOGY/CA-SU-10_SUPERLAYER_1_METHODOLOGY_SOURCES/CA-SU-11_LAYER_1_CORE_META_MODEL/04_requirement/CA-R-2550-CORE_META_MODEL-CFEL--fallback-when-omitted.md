@@ -21,6 +21,7 @@ Resolve a fallback when an optional Property is omitted
 ### Formal Claim
 
 ```CFEL
+# model
 p ?= expression
 ```
 
@@ -44,5 +45,6 @@ p ?= expression
 ## Details
 
 ```CFEL
+# model
 Atom.Header.Label ?= Atom.Header.Form
 ```

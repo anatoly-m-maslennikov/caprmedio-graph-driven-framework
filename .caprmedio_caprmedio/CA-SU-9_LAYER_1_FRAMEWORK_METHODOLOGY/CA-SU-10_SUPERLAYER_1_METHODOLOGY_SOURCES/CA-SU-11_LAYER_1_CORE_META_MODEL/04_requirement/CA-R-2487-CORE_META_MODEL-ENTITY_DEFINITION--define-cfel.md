@@ -21,9 +21,13 @@ Define CFEL
 ### Formal Claim
 
 ```CFEL
+# model
 p{:occurrence}: [value format]{:value count};
+
 p.*[name format]{:immediate name count};
+
 p.**[name format]{:recursive name count};
+
 p.*[name format]{:immediate name count}: [value format]{:value count}
 ```
 

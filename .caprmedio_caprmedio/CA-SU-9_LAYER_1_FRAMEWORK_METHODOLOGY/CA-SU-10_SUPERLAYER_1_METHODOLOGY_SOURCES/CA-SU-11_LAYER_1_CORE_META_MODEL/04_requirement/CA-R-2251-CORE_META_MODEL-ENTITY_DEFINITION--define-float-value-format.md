@@ -23,6 +23,7 @@ Define float Value Format
 ### Formal Claim
 
 ```CFEL
+# model
 CFEL <+ Format/float
 ```
 

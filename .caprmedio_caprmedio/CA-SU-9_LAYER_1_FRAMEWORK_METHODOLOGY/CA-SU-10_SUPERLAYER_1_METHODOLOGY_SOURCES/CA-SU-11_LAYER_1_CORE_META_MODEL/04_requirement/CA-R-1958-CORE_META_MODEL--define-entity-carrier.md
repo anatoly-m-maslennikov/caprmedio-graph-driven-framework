@@ -23,6 +23,7 @@ Define Entity/Carrier
 ### Formal Claim
 
 ```CFEL
+# model
 Carrier
 ```
 

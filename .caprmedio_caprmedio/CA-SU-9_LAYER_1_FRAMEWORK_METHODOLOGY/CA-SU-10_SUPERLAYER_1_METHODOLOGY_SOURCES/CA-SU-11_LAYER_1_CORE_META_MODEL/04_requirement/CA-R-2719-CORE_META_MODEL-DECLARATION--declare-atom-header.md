@@ -29,7 +29,9 @@ Atom.Header groups the Atom Properties carried in YAML frontmatter, including fo
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header{:1}: []{:0};
+
 Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}
 ```
 

@@ -21,7 +21,9 @@ Define Format Data Type
 ### Formal Claim
 
 ```CFEL
+# model
 Format.Data Type{:1}: [string]{:1};
+
 Format.Data Type.*[]{:0}
 ```
 

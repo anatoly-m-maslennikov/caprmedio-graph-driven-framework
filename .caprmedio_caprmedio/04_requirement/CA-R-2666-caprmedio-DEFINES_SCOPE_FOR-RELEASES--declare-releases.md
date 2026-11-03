@@ -19,11 +19,17 @@ Declare RELEASES
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//RELEASES.ID == "CA-SU-27";
+
 Scope Unit//RELEASES.Name == "RELEASES";
+
 Scope Unit//RELEASES.Label == "LAYER";
+
 Scope Unit//RELEASES.order.ordered == true;
+
 Scope Unit//RELEASES.order.number == 5;
+
 Scope Unit//RELEASES ((IS_CONTAINED_BY)) Project//caprmedio
 ```
 

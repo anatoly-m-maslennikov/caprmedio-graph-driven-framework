@@ -20,6 +20,7 @@ Declare caprmedio
 ### Formal Claim
 
 ```CFEL
+# instances
 Project//caprmedio.Name == "caprmedio"
 ```
 

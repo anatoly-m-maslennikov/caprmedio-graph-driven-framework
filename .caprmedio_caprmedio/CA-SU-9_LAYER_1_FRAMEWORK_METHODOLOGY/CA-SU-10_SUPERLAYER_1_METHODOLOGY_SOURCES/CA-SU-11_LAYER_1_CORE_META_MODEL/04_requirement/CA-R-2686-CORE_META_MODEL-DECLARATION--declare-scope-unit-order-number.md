@@ -23,7 +23,9 @@ Declare Scope Unit.order.number
 ### Formal Claim
 
 ```CFEL
+# model
 Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0};
+
 Scope Unit.order.number.*[]{:0}
 ```
 

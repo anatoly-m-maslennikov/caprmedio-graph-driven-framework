@@ -25,8 +25,11 @@ Define HAS_INVERSE
 ### Formal Claim
 
 ```CFEL
-Relation// ((HAS_INVERSE)) Relation//;
+# model
+Relation//$relation ((HAS_INVERSE)) Relation//$relation_2;
+
 alias(Relation//HAS_INVERSE) == "<-->";
+
 Relation//HAS_INVERSE ((HAS_CLASSIFICATION)) Derivation == Direct
 ```
 

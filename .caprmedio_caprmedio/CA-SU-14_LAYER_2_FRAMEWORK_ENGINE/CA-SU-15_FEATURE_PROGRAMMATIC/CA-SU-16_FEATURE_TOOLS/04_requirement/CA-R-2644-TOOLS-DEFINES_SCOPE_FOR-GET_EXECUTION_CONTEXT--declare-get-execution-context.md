@@ -19,10 +19,15 @@ Declare GET_EXECUTION_CONTEXT
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//GET_EXECUTION_CONTEXT.ID == "CA-SU-5";
+
 Scope Unit//GET_EXECUTION_CONTEXT.Name == "GET_EXECUTION_CONTEXT";
+
 Scope Unit//GET_EXECUTION_CONTEXT.Label == "TOOL";
+
 Scope Unit//GET_EXECUTION_CONTEXT.order.ordered == false;
+
 Scope Unit//GET_EXECUTION_CONTEXT ((IS_CONTAINED_BY)) Scope Unit//TOOLS
 ```
 

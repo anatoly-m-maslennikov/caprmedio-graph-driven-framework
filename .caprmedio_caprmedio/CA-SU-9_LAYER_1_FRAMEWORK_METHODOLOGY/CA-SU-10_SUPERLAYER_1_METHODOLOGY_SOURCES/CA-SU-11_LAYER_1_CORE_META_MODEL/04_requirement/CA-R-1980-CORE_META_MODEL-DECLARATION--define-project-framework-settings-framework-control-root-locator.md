@@ -23,7 +23,9 @@ Define Project.Framework Settings.Framework Control-Root Locator
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.Framework Control-Root Locator{:0..1}: [string]{:1};
+
 Project.Settings.Framework Control-Root Locator.*[]{:0}
 ```
 

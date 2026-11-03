@@ -27,8 +27,10 @@ Register structural parent relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//structural_parent ((HAS_CLASSIFICATION)) Derivation == Direct;
 
+# instances
 $child ((structural_parent)) $parent
 ```
 

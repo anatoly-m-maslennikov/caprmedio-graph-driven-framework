@@ -19,10 +19,15 @@ Declare BATCH_SCHEDULER
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//BATCH_SCHEDULER.ID == "CA-SU-41";
+
 Scope Unit//BATCH_SCHEDULER.Name == "BATCH_SCHEDULER";
+
 Scope Unit//BATCH_SCHEDULER.Label == "FEATURE_GROUP";
+
 Scope Unit//BATCH_SCHEDULER.order.ordered == false;
+
 Scope Unit//BATCH_SCHEDULER ((IS_CONTAINED_BY)) Scope Unit//SCHEDULERS
 ```
 

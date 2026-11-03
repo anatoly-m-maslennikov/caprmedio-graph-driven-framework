@@ -25,9 +25,13 @@ Define composition and its inverse
 ### Formal Claim
 
 ```CFEL
+# model
 $part ((IS_CONTAINED_BY)) $container;
+
 Relation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;
+
 alias(Relation//IS_CONTAINED_BY) == "+>";
+
 Relation//IS_CONTAINED_BY ((HAS_CLASSIFICATION)) Derivation == Direct
 ```
 

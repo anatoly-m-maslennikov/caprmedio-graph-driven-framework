@@ -25,7 +25,9 @@ Declare Atom.Content.Details
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
+
 Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
 ```
 

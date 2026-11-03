@@ -1,0 +1,30 @@
+{
+  "status": "PREPARED_NOT_ADOPTED",
+  "reason": "latest Operator decision: individual Role Declarations own allowed values",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1283-CORE_META_MODEL-RULE--register-content-role-values@32.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Role\nversion: 32\nupdated_at: 2026-11-02 19:44:26 +0400\nrelations: {}\natom_id: CA-R-1283\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 1\nrole: Requirement\nform: Rule\n---\n## Summary\n\nRegister Content Role Values\n\n## Claim\n\n### Prose Claim\n\n\nallowed Atom Content Role values.\n\n\nthe allowed Content Role values **must** be exactly (Concern, \"Analysis & Advisory\", Plan, Requirement, Method, Evaluation, Delivery, Operations).\n",
+      "after_sha256": "75b19b29681eb3dee0709f8818659d8b6e6bfedb610e1386e639736b7349ace7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-RULE--register-content-role-values.md",
+      "before": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Role\nversion: 32\nupdated_at: 2026-11-02 19:44:26 +0400\nrelations: {}\natom_id: CA-R-1283\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 1\nrole: Requirement\nform: Rule\n---\n## Summary\n\nRegister Content Role Values\n\n## Claim\n\n### Prose Claim\n\n\nallowed Atom Content Role values.\n\n\nthe allowed Content Role values **must** be exactly (Concern, \"Analysis & Advisory\", Plan, Requirement, Method, Evaluation, Delivery, Operations).\n",
+      "before_sha256": "75b19b29681eb3dee0709f8818659d8b6e6bfedb610e1386e639736b7349ace7",
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Role\nversion: 33\nupdated_at: 2026-11-04 00:28:15 +0400\nrelations: {}\natom_id: CA-R-1283\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 1\nrole: Requirement\nform: Rule\n---\n## Summary\n\nRegister Content Role Values\n\n## Claim\n\n### Prose Claim\n\nAtom.Header.Role values are admitted by their applicable Role Declarations.\n",
+      "after_sha256": "8018a42f5cc2edfedca724a7955fd89d09cf246c2a5623d1ee833b71884f2534"
+    }
+  ],
+  "outputs": [
+    {
+      "source_id": "CA-R-1283",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-RULE--register-content-role-values.md",
+      "version": 33,
+      "sha256": "8018a42f5cc2edfedca724a7955fd89d09cf246c2a5623d1ee833b71884f2534"
+    }
+  ]
+}

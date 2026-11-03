@@ -27,9 +27,11 @@ Register rationale_for relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//rationale_for ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-Atom/(.Header.Role: "Analysis & Advisory")/(.Header.Form: Rationale)// ((rationale_for)) Atom//
+# instances
+Atom/(.Header.Role: "Analysis & Advisory")/(.Header.Form: Rationale)//$atom ((rationale_for)) Atom//$atom_2
 ```
 
 ### Prose Claim

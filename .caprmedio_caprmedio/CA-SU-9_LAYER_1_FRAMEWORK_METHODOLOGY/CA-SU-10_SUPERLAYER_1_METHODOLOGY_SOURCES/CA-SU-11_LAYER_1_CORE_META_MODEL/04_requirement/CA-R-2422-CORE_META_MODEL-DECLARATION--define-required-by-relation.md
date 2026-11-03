@@ -25,5 +25,6 @@ Define required_by Relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//required_by <((HAS_INVERSE)) Relation//depends_on
 ```

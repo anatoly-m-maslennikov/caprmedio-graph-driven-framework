@@ -23,10 +23,15 @@ Encode Node Declarations in YAML
 ### Formal Claim
 
 ```CFEL
+# instances
 Atom.Header.Role >> Carrier//Markdown file.frontmatter.role;
+
 Atom.Header.Form >> Carrier//Markdown file.frontmatter.form;
+
 Atom.Header.Subjects.Active >> Carrier//Markdown file.frontmatter.subjects.active;
+
 Atom.Header.Subjects.Passive >> Carrier//Markdown file.frontmatter.subjects.passive;
+
 Atom.Header.Relations >> Carrier//Markdown file.frontmatter.relations
 ```
 

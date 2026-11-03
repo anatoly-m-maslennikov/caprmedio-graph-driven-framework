@@ -21,9 +21,13 @@ Declare Atom/(.Role := Operations)/Action.Execution Kind
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Operations)/Action.Execution Kind{:1}: [string]{:1};
+
 Atom/(.Header.Role: Operations)/Action.Execution Kind.*[]{:0};
+
 Atom/(.Header.Role: Operations)/Action.Execution Kind: Programmatic;
+
 Atom/(.Header.Role: Operations)/Action.Execution Kind: Agentic
 ```
 

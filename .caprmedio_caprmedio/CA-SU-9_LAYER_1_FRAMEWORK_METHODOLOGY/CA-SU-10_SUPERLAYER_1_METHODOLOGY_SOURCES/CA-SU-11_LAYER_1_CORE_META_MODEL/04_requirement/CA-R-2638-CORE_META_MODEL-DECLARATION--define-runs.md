@@ -25,10 +25,15 @@ Define RUNS
 ### Formal Claim
 
 ```CFEL
-Step// ((RUNS)) (in (Action, Workflow))//;
-Substep// ((RUNS)) Action//;
+# model
 Relation//RUNS ((HAS_INVERSE)) Relation//IS_RUN_BY;
-Relation//RUNS ((HAS_CLASSIFICATION)) Derivation == Direct
+
+Relation//RUNS ((HAS_CLASSIFICATION)) Derivation == Direct;
+
+# instances
+Step//$step ((RUNS)) (in (Action, Workflow))//$selected;
+
+Substep//$substep ((RUNS)) Action//$action;
 ```
 
 ### Prose Claim

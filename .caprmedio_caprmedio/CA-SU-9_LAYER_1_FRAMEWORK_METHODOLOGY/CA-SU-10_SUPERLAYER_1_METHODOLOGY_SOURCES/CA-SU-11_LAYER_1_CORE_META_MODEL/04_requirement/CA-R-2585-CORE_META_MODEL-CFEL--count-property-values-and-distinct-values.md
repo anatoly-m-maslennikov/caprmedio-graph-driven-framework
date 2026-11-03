@@ -31,5 +31,8 @@ Count direct Property values and distinct values
 ## Details
 
 ```CFEL
-COUNT(Atom.Header.Subjects.Passive: $) = COUNT(DISTINCT Atom.Header.Subjects.Passive: $)
+# instances
+Atom//$atom;
+
+COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```

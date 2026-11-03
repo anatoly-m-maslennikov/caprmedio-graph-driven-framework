@@ -27,8 +27,10 @@ Register derived_from relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//DERIVED_FROM ((HAS_CLASSIFICATION)) Derivation == Direct;
 
+# instances
 $derived_content_version ((DERIVED_FROM)) $source_content_version
 ```
 

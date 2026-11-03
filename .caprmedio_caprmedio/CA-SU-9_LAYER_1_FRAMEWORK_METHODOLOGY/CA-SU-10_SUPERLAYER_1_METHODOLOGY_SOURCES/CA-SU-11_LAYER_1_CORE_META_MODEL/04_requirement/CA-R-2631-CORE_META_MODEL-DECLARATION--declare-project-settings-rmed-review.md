@@ -22,7 +22,9 @@ Declare Project.Settings.RMED Review
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.RMED Review{:0..1}: []{:0};
+
 Project.Settings.RMED Review.*[in (Context Headroom Fraction, Max Atoms)]{:0..2}
 ```
 

@@ -21,6 +21,7 @@ Deliver Projections to Markdown files
 ### Formal Claim
 
 ```CFEL
-Projection// >> Carrier/Markdown_file//
+# instances
+Projection//$projection >> Carrier/Markdown_file//$carrier
 ```
 

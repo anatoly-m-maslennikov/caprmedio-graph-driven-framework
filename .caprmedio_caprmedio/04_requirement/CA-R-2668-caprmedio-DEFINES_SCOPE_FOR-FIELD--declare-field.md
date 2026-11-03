@@ -19,10 +19,15 @@ Declare FIELD
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//FIELD.ID == "CA-SU-29";
+
 Scope Unit//FIELD.Name == "FIELD";
+
 Scope Unit//FIELD.Label == "FEATURE";
+
 Scope Unit//FIELD.order.ordered == false;
+
 Scope Unit//FIELD ((IS_CONTAINED_BY)) Project//caprmedio
 ```
 

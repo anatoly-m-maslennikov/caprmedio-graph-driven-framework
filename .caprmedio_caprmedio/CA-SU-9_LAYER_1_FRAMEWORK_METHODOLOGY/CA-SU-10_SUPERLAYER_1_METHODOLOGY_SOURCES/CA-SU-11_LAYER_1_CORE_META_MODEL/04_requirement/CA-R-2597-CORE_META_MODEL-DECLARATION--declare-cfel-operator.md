@@ -22,6 +22,7 @@ Declare CFEL operator ;
 ### Formal Claim
 
 ```CFEL
+# model
 Operator//ExpressionSeparator == ";"
 ```
 

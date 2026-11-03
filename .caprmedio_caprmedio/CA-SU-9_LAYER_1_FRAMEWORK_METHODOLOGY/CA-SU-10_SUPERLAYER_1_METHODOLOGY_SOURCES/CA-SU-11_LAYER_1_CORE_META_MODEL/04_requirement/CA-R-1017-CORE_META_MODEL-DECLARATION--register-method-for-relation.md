@@ -27,9 +27,11 @@ Register method_for relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//method_for ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-Atom/(.Header.Role: Method)// ((method_for)) Atom/(.Header.Role: Requirement)//
+# instances
+Atom/(.Header.Role: Method)//$atom ((method_for)) Atom/(.Header.Role: Requirement)//$atom_2
 ```
 
 ### Prose Claim

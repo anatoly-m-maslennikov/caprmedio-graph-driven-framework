@@ -22,8 +22,11 @@ Declare PROJECT STRUCTURE
 ### Formal Claim
 
 ```CFEL
+# model
 PROJECT STRUCTURE {:0}((IS_PROPERTY_OF));
+
 PROJECT STRUCTURE >| (Container == yes);
+
 PROJECT STRUCTURE ((NARROWER_THAN)) Node
 ```
 

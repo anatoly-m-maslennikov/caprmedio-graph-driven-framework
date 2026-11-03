@@ -28,11 +28,13 @@ Define IS_EXECUTION_OF Relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//IS_EXECUTION_OF ((HAS_INVERSE)) Relation//HAS_EXECUTION;
 
 Relation//IS_EXECUTION_OF ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-$workflow_run ((IS_EXECUTION_OF)) Workflow//
+# instances
+$workflow_run ((IS_EXECUTION_OF)) Workflow//$workflow
 ```
 
 ### Prose Claim

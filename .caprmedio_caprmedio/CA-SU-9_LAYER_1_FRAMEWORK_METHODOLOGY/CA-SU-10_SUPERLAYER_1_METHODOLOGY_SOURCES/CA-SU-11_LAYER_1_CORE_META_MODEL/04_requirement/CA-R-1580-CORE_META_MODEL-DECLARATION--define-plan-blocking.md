@@ -31,9 +31,11 @@ Define Plan blocking
 ### Formal Claim
 
 ```CFEL
-Plan// ((BLOCKS)) Plan//;
+# model
+Relation//BLOCKS ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-Relation//BLOCKS ((HAS_CLASSIFICATION)) Derivation == Direct
+# instances
+Plan//$plan ((BLOCKS)) Plan//$plan_2;
 ```
 
 ### Prose Claim

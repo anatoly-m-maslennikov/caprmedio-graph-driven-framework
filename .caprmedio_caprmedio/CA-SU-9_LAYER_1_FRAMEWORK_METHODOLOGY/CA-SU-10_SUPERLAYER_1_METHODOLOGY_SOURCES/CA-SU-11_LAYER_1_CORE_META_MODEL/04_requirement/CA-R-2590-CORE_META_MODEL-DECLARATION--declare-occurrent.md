@@ -22,6 +22,7 @@ Declare Occurrent
 ### Formal Claim
 
 ```CFEL
+# model
 Node/Occurrent
 ```
 

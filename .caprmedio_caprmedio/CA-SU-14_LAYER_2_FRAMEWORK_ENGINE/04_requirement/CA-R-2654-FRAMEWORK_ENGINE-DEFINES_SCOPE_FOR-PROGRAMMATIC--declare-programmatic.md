@@ -19,10 +19,15 @@ Declare PROGRAMMATIC
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//PROGRAMMATIC.ID == "CA-SU-15";
+
 Scope Unit//PROGRAMMATIC.Name == "PROGRAMMATIC";
+
 Scope Unit//PROGRAMMATIC.Label == "FEATURE";
+
 Scope Unit//PROGRAMMATIC.order.ordered == false;
+
 Scope Unit//PROGRAMMATIC ((IS_CONTAINED_BY)) Scope Unit//FRAMEWORK_ENGINE
 ```
 

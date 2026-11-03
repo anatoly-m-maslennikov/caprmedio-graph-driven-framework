@@ -21,7 +21,9 @@ Classify permission to have parts as Container
 ### Formal Claim
 
 ```CFEL
+# model
 Node >| Container: yes;
+
 Node >| Container: no
 ```
 

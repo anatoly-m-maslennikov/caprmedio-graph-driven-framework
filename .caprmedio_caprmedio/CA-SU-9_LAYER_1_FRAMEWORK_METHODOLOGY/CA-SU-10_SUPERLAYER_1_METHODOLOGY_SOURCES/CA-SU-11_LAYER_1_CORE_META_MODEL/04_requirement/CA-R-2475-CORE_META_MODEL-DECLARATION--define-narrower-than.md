@@ -25,10 +25,13 @@ Define NARROWER_THAN
 ### Formal Claim
 
 ```CFEL
+# model
 $narrower ((NARROWER_THAN)) $broader;
+
 Relation//NARROWER_THAN ((HAS_INVERSE)) Relation//HAS_NARROWER;
 
 alias(Relation//NARROWER_THAN) == "/";
+
 Relation//NARROWER_THAN ((HAS_CLASSIFICATION)) Derivation == Direct
 ```
 

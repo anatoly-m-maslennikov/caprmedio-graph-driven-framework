@@ -22,7 +22,9 @@ Declare Scope Unit Project Boundary Position
 ### Formal Claim
 
 ```CFEL
+# model
 Scope Unit.Project Boundary Position{:1}: [string]{:1};
+
 Scope Unit.Project Boundary Position.*[]{:0}
 ```
 

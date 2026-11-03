@@ -1,0 +1,148 @@
+{
+  "result": "PASS",
+  "verification_kind": "independent composed-preservation check",
+  "checked_at": "2026-11-04",
+  "checkpoint": "4db746cdd",
+  "inputs": {
+    "semantic_plan": {
+      "path": "integration/adoption-plan.json",
+      "sha256": "521eed470865d23c1d968b7e0d3ff73bf6cdd113dea169d400e3393e0ece5f8d",
+      "outputs": 108,
+      "operations": 217,
+      "revisions": 89,
+      "retirements": 19
+    },
+    "mechanical_plan": {
+      "path": "integration/mechanical-plan.json",
+      "sha256": "3160db9e3c5975904f59b71281893bf07bad9483b17239fb77d1cf348739303a",
+      "records": 1148,
+      "changed": 263,
+      "held": 0
+    },
+    "group_correction_plan": {
+      "path": "migration/group-correction-plan.json",
+      "sha256": "88077a2a5825671150c46dbb1885cf36f69c8ed77bded1fcbf01ad8939b663f9",
+      "records": 1148,
+      "changed": 45,
+      "held": 0
+    },
+    "final_frontier": {
+      "path": "integration/final-source-frontier.json",
+      "sha256": "0bcb605b51c4267f64752b8d1bd8edda3c9f9444304b77b028d4b0c1c94577fe",
+      "records": 1148
+    }
+  },
+  "passed": {
+    "semantic_plan_payload_hashes": true,
+    "exact_predecessor_archives": {
+      "expected": 108,
+      "matched": 108,
+      "method": "Each archive equals its semantic plan before payload byte-for-byte."
+    },
+    "semantic_composition": {
+      "revision_outputs": 89,
+      "semantic_to_mechanical_matches": 89,
+      "mechanical_to_group_correction_matches": 89,
+      "live_composed_outputs_match": 89,
+      "semantic_removals_absent": 20
+    },
+    "frontier_and_idempotence": {
+      "post_adoption_pins_match_mechanical_before": 1148,
+      "final_live_after_hashes_match": 1148,
+      "pre_addendum_final_frontier_hashes_match": 1148,
+      "group_correction_transform_idempotent": 1148
+    },
+    "identity_and_carrier_preservation": {
+      "mechanical_header_preserved": 89,
+      "mechanical_summary_preserved": 89,
+      "retained_id_and_summary_preserved": 88,
+      "approved_fresh_identity": "CA-R-2279 -> CA-R-2732"
+    },
+    "frozen_references_and_literals": {
+      "predecessor_archives_preserve_all_bytes": true,
+      "semantic_to_mechanical_frozen_at_n_preserved": "89 of 89 semantic revision outputs",
+      "first_mechanical_frozen_at_n_preserved_against_checkpoint": "1143 comparable records",
+      "group_correction_frozen_at_n_preserved": "1148 of 1148 records",
+      "first_mechanical_cfel_quoted_literals_preserved_against_checkpoint": "1143 comparable records",
+      "semantic_to_mechanical_cfel_quoted_literals_preserved": "89 of 89 semantic revision outputs",
+      "group_correction_cfel_quoted_literals_preserved": "1148 of 1148 records"
+    }
+  },
+  "approved_semantic_provenance_removals": [
+    {
+      "atom_id": "CA-R-2327",
+      "removed_frozen_references": ["CA-R-1248@23", "CA-R-2244@1"],
+      "kind": "Source meaning provenance"
+    },
+    {
+      "atom_id": "CA-R-1318",
+      "removed_frozen_references": ["CA-R-1318@29"],
+      "kind": "Operator-confirmation staging provenance"
+    },
+    {
+      "atom_id": "CA-M-454",
+      "removed_frozen_references": ["CA-R-1318@30", "CA-R-1319@26", "CA-R-1248@24"],
+      "kind": "Related Draft links"
+    },
+    {
+      "atom_id": "CA-R-2456",
+      "removed_frozen_references": ["CA-R-1957@10", "CA-R-2346@1", "CA-R-2269@2", "CA-D-262@26"],
+      "kind": "Source and SHA provenance Details"
+    },
+    {
+      "atom_id": "CA-R-2457",
+      "removed_frozen_references": ["CA-R-1957@10", "CA-R-2269@2", "CA-D-356@21", "CA-D-478@29"],
+      "kind": "Source and SHA provenance Details"
+    }
+  ],
+  "allowed_value_addendum": {
+    "plan": "allowed-values/application/adoption-plan.json",
+    "plan_sha256": "0dd9052b563e7ef1ee7832a20e335dccee82f575d2700a0777d0aadeeed78580",
+    "reason": "CA-R-1283@32 -> @33 removes a duplicate eight-Role list and admits Roles through their individual Declarations.",
+    "operations": 2,
+    "plan_payload_hashes": true,
+    "current_after_hash_matches": true,
+    "exact_predecessor_archive": true,
+    "atom_id_preserved": true,
+    "summary_preserved": true,
+    "status_preserved": true,
+    "only_header_changes": ["version", "updated_at"],
+    "frozen_at_n_preserved": true,
+    "cfel_quoted_literals": "none in the addendum source",
+    "final_frontier_scope_unchanged": true,
+    "final_frontier_changed_records": [
+      "CA-R-1283-CORE_META_MODEL-RULE--register-content-role-values.md"
+    ],
+    "final_frontier_hashes_match_live": 1148
+  },
+  "checkpoint_corroboration_limits": {
+    "checkpoint_comparable_mechanical_preimages": 1143,
+    "selected_snapshot_only": true,
+    "excluded_from_checkpoint_byte_comparison": [
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/04_requirement/CA-R-2730-APPS-DEFINES_SCOPE_FOR-WORKBENCH--declare-workbench.md",
+        "reason": "Untracked at checkpoint; pinned by the post-adoption frontier."
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1525-CORE_META_MODEL-RULE--bind-workflow-runs-to-exact-definition-revisions.md",
+        "reason": "Concurrent selected-snapshot bytes differ from checkpoint; pinned by the post-adoption frontier."
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-RULE--journal-projection-rebuild-events.md",
+        "reason": "Concurrent selected-snapshot bytes differ from checkpoint; pinned by the post-adoption frontier."
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL--record-every-projection-rebuild-in-a-journal.md",
+        "reason": "Concurrent selected-snapshot bytes differ from checkpoint; pinned by the post-adoption frontier."
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+        "reason": "Concurrent selected-snapshot bytes differ from checkpoint; pinned by the post-adoption frontier."
+      }
+    ]
+  },
+  "limits": [
+    "This verifies the selected semantic and mechanical migration snapshot only.",
+    "It does not establish workflow admission, journal append, projection rebuild semantics, or whole-repository correctness."
+  ]
+}

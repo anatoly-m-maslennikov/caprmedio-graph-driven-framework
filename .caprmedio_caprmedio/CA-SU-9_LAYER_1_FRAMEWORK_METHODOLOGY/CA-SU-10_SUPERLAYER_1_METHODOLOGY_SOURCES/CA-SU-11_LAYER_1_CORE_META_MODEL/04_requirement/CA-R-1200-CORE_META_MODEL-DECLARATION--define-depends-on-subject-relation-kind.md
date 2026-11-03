@@ -34,9 +34,11 @@ Define DEPENDS_ON Subject Relation Kind
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//DEPENDS_ON ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-Atom// ((DEPENDS_ON)) $referenced_subject
+# instances
+Atom//$atom ((DEPENDS_ON)) $referenced_subject
 ```
 
 ### Prose Claim

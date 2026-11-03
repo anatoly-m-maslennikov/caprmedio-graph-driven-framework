@@ -21,7 +21,9 @@ Declare Event Record.inserted_at
 ### Formal Claim
 
 ```CFEL
+# model
 Event Record.inserted_at{:1}: [datetime]{:1};
+
 Event Record.inserted_at.*[]{:0}
 ```
 

@@ -22,6 +22,7 @@ Declare Operations
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Operations)
 ```
 

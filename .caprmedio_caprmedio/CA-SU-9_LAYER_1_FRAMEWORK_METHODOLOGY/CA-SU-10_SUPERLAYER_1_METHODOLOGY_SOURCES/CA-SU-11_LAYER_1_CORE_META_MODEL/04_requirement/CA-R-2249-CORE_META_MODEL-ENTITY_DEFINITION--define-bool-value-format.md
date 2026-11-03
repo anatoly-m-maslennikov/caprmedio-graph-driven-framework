@@ -23,6 +23,7 @@ Define bool Value Format
 ### Formal Claim
 
 ```CFEL
+# model
 CFEL <+ Format/bool
 ```
 

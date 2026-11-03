@@ -31,6 +31,7 @@ Define Term
 ### Formal Claim
 
 ```CFEL
+# model
 Term.*[in (Name)]{:1}
 ```
 

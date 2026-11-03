@@ -24,5 +24,6 @@ Declare HAS_NARROWER
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//HAS_NARROWER <((HAS_INVERSE)) Relation//NARROWER_THAN
 ```

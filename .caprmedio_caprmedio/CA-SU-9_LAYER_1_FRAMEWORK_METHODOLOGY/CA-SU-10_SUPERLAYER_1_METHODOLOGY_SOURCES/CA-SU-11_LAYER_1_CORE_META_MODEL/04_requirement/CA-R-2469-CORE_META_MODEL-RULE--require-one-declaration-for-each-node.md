@@ -22,7 +22,8 @@ Require one Declaration for each Node
 ### Formal Claim
 
 ```CFEL
-Atom/(.Header.Role: Requirement)/(.Header.Form: Declaration)// ((HAS_ACTIVE_SUBJECT)){:1} (Node, Node/**, .**)
+# instances
+Atom/(.Header.Role: Requirement)/(.Header.Form: Declaration)//$atom ((HAS_ACTIVE_SUBJECT)){:1} (Node, Node/**, .**)
 ```
 
 ### Prose Claim

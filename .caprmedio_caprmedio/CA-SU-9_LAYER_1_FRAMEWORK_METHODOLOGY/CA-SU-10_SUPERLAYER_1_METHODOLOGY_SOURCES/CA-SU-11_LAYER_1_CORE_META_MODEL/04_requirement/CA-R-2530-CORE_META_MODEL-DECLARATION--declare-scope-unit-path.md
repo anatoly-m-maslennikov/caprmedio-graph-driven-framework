@@ -22,7 +22,9 @@ Declare Scope Unit Path
 ### Formal Claim
 
 ```CFEL
+# model
 Scope Unit.Path{:1}: [string]{:1+};
+
 Scope Unit.Path.*[]{:0}
 ```
 

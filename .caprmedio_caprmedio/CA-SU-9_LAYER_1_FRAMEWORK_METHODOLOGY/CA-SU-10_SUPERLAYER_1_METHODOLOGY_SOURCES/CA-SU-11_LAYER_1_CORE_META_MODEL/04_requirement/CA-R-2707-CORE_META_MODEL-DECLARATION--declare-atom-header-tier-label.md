@@ -25,11 +25,29 @@ Declare Atom.Header.Tier.Label
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Tier.Label{:0..1}: [string]{:1};
+
 Atom.Header.Tier.Label.*[]{:0};
-IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 0)) THEN (Atom.Header.Tier.Label == Scope Contract);
-IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 1)) THEN (Atom.Header.Tier.Label == Core);
-IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 2)) THEN (Atom.Header.Tier.Label == General);
-IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 3)) THEN (Atom.Header.Tier.Label == Standard);
-IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 4)) THEN (Atom.Header.Tier.Label == Detail)
+
+# instances
+Atom//$atom;
+
+IF (($atom.Header.Tier.Label{=1}) AND ($atom.Header.Tier = 0)) THEN ($atom.Header.Tier.Label == Scope Contract);
+
+Atom//$atom_2;
+
+IF (($atom_2.Header.Tier.Label{=1}) AND ($atom_2.Header.Tier = 1)) THEN ($atom_2.Header.Tier.Label == Core);
+
+Atom//$atom_3;
+
+IF (($atom_3.Header.Tier.Label{=1}) AND ($atom_3.Header.Tier = 2)) THEN ($atom_3.Header.Tier.Label == General);
+
+Atom//$atom_4;
+
+IF (($atom_4.Header.Tier.Label{=1}) AND ($atom_4.Header.Tier = 3)) THEN ($atom_4.Header.Tier.Label == Standard);
+
+Atom//$atom_5;
+
+IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5.Header.Tier.Label == Detail)
 ```

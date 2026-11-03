@@ -22,7 +22,9 @@ Declare Project.Settings.Authority Modes.Project Authority Mode
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.Authority Modes.Project Authority Mode{:1}: [string]{:1};
+
 Project.Settings.Authority Modes.Project Authority Mode.*[]{:0}
 ```
 

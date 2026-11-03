@@ -22,8 +22,11 @@ Declare MODEL
 ### Formal Claim
 
 ```CFEL
+# model
 MODEL {:0}((IS_PROPERTY_OF));
+
 MODEL >| (Container == yes);
+
 MODEL ((NARROWER_THAN)) Node
 ```
 

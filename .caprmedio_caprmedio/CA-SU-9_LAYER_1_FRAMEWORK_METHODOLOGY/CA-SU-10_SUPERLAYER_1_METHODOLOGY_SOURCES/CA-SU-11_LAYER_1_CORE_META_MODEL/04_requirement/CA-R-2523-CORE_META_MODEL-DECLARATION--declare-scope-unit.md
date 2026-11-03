@@ -22,12 +22,18 @@ Declare Scope Unit
 ### Formal Claim
 
 ```CFEL
+# model
 Scope Unit >| (Container == yes);
-Scope Unit//{:0..1}((IS_CONTAINED_BY)) Scope Unit//;
-Scope Unit//{:0+}((CONTAINS)) Scope Unit//;
-IF (Scope Unit//$unit not in (Scope Unit/Project//))
-THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//);
-Scope Unit ((NARROWER_THAN)) Continuant
+
+Scope Unit ((NARROWER_THAN)) Continuant;
+
+# instances
+Scope Unit//$scope_unit{:0..1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;
+
+Scope Unit//$scope_unit_3{:0+}((CONTAINS)) Scope Unit//$scope_unit_4;
+
+IF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit_5))
+THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6);
 ```
 
 ## Semantics

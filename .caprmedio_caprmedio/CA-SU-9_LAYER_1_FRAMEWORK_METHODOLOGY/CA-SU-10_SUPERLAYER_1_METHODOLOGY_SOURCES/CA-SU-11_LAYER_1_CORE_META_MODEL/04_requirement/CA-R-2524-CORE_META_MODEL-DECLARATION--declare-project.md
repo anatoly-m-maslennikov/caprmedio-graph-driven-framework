@@ -20,14 +20,23 @@ Declare Project
 ### Formal Claim
 
 ```CFEL
+# model
 Scope Unit/Project;
-Scope Unit/Project//{:1};
+
 Project >| (Container == yes);
-Project// {:0}((IS_CONTAINED_BY)) Scope Unit//;
+
 Project ((NARROWER_THAN)) Scope Unit;
-Project//.order.ordered == false;
-Project//.order.number: []{:0};
-Project//.ID: []{:0}
+
+# instances
+Scope Unit/Project//$scope_unit{:1};
+
+Project//$project {:0}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;
+
+Project//$project_2.order.ordered == false;
+
+Project//$project_3.order.number: []{:0};
+
+Project//$project_4.ID: []{:0}
 ```
 
 ### Prose Claim

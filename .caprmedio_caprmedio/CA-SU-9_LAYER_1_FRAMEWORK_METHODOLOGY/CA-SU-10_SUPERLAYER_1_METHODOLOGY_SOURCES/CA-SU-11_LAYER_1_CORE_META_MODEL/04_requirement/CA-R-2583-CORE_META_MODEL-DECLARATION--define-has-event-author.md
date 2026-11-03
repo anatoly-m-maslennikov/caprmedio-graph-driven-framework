@@ -25,10 +25,13 @@ Define HAS_EVENT_AUTHOR
 ### Formal Claim
 
 ```CFEL
-Event Record// ((HAS_EVENT_AUTHOR)) Actor//;
+# model
 Relation//HAS_EVENT_AUTHOR ((HAS_INVERSE)) Relation//IS_EVENT_AUTHOR_OF;
 
-Relation//HAS_EVENT_AUTHOR ((HAS_CLASSIFICATION)) Derivation == Direct
+Relation//HAS_EVENT_AUTHOR ((HAS_CLASSIFICATION)) Derivation == Direct;
+
+# instances
+Event Record//$event_record ((HAS_EVENT_AUTHOR)) Actor//$actor;
 ```
 
 ### Prose Claim

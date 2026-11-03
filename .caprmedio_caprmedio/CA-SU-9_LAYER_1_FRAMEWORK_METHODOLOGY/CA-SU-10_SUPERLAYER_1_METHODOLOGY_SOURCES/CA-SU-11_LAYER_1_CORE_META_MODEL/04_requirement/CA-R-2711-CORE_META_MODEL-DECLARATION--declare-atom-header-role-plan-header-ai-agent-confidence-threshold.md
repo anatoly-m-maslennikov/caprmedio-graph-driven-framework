@@ -25,8 +25,12 @@ Declare Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold{:0..1}: [int]{:1};
+
 Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{:0};
+
+# instances
 Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold
   ?= LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)
   ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold

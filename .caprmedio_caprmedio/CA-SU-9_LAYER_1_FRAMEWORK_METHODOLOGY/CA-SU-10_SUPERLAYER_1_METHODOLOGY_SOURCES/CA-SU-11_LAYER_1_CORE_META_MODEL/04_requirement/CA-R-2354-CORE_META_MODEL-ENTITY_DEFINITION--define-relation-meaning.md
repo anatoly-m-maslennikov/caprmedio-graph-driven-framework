@@ -21,7 +21,9 @@ Define Relation Meaning
 ### Formal Claim
 
 ```CFEL
+# model
 Relation.Meaning{:1}: [string]{:1};
+
 Relation.Meaning.*[]{:0}
 ```
 

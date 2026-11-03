@@ -22,7 +22,9 @@ Declare Project.Settings.Implementation Retry Limit
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.Implementation Retry Limit{:0..1}: [int]{:1};
+
 Project.Settings.Implementation Retry Limit.*[]{:0}
 ```
 

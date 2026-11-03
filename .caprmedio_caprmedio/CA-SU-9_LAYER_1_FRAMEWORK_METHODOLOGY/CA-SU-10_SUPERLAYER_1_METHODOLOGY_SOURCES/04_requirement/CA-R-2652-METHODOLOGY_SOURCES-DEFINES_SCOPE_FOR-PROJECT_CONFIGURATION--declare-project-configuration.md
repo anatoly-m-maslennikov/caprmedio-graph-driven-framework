@@ -19,11 +19,17 @@ Declare PROJECT_CONFIGURATION
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//PROJECT_CONFIGURATION.ID == "CA-SU-13";
+
 Scope Unit//PROJECT_CONFIGURATION.Name == "PROJECT_CONFIGURATION";
+
 Scope Unit//PROJECT_CONFIGURATION.Label == "LAYER";
+
 Scope Unit//PROJECT_CONFIGURATION.order.ordered == true;
+
 Scope Unit//PROJECT_CONFIGURATION.order.number == 3;
+
 Scope Unit//PROJECT_CONFIGURATION ((IS_CONTAINED_BY)) Scope Unit//METHODOLOGY_SOURCES
 ```
 

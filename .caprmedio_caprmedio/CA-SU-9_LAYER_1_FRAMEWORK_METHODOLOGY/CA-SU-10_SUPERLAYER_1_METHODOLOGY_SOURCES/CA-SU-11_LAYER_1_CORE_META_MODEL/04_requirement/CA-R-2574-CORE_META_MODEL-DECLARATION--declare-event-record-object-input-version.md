@@ -21,7 +21,9 @@ Declare Event Record.object_input.version
 ### Formal Claim
 
 ```CFEL
+# model
 Event Record.object_input.version{:0..1}: [int]{:1};
+
 Event Record.object_input.version.*[]{:0}
 ```
 

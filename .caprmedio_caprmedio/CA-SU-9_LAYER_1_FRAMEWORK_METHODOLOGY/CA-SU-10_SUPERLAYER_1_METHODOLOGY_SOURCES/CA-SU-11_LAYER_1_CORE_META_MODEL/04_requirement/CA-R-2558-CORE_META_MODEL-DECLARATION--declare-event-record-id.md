@@ -21,8 +21,12 @@ Declare Event Record.ID
 ### Formal Claim
 
 ```CFEL
+# model
 Event Record.ID{:1}: [string]{:1};
+
 Event Record.ID.*[]{:0};
-UNIQUE(Event Record//, (.ID))
+
+# instances
+UNIQUE(Event Record//$event_record, (.ID))
 ```
 

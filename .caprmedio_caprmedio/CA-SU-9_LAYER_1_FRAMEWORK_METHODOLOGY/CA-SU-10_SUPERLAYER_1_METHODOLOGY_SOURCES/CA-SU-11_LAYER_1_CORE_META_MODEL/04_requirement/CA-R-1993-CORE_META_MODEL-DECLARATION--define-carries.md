@@ -31,11 +31,13 @@ Define CARRIES
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//CARRIES ((HAS_INVERSE)) Relation//IS_CARRIED_BY;
 
 Relation//CARRIES ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-Carrier// ((CARRIES)) $represented_entity
+# instances
+Carrier//$carrier ((CARRIES)) $represented_entity
 ```
 
 ### Prose Claim

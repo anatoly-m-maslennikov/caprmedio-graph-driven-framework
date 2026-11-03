@@ -21,7 +21,10 @@ Declare Event Record.Relations
 ### Formal Claim
 
 ```CFEL
+# model
 Event Record.Relations{:1}: []{:0};
-Event Record.Relations.*[Relation//]{:0+}
+
+# instances
+Event Record.Relations.*[Relation//$relation]{:0+}
 ```
 

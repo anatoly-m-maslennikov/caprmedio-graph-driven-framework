@@ -32,9 +32,11 @@ Define GOVERNS Subject Relation Kind
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//GOVERNS ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-Atom// ((GOVERNS)) $governed_subject
+# instances
+Atom//$atom ((GOVERNS)) $governed_subject
 ```
 
 ### Prose Claim

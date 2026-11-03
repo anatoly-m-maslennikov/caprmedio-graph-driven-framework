@@ -20,6 +20,7 @@ Define Extension Sources Selection
 ### Formal Claim
 
 ```CFEL
+# model
 Named Selection//Extension Sources
 ```
 

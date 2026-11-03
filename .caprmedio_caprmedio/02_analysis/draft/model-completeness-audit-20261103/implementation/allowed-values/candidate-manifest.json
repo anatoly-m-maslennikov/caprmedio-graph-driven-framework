@@ -1,0 +1,44 @@
+{
+  "role_declaration": {
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2702-CORE_META_MODEL-DECLARATION--declare-atom-header-role.md",
+    "source_sha256": "761c8aa0a967e458a2b4299aa8c426e22895ea3864d61515c4bd9fe12be4c068",
+    "disposition": "no-op: no allowed-value list exists in Current Claim",
+    "preserved": [
+      "one string value",
+      "zero nested child Properties",
+      "Summary"
+    ],
+    "individual_role_declarations": [
+      "CA-R-2463",
+      "CA-R-2509",
+      "CA-R-2511",
+      "CA-R-2512",
+      "CA-R-2513",
+      "CA-R-2514",
+      "CA-R-2515",
+      "CA-R-2637"
+    ]
+  },
+  "candidates": [
+    {
+      "id": "CA-R-1283",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-RULE--register-content-role-values.md",
+      "source_sha256": "75b19b29681eb3dee0709f8818659d8b6e6bfedb610e1386e639736b7349ace7",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/allowed-values/previews/CA-R-1283.txt",
+      "candidate_sha256": "2bf032c56612d73efc5cdbdc00c14c5da047d0dd0b1f85e9d09eeb1579b24564",
+      "summary": "Register Content Role Values",
+      "change": "Replace duplicative Role value enumeration with admission through applicable Role Declaration",
+      "evidence_declarations": [
+        "CA-R-2463",
+        "CA-R-2509",
+        "CA-R-2511",
+        "CA-R-2512",
+        "CA-R-2513",
+        "CA-R-2514",
+        "CA-R-2515",
+        "CA-R-2637"
+      ]
+    }
+  ],
+  "scope": "Only redundant value-domain lists backed by individual Declarations; excludes fixed tuple-field and nested-property name sets."
+}

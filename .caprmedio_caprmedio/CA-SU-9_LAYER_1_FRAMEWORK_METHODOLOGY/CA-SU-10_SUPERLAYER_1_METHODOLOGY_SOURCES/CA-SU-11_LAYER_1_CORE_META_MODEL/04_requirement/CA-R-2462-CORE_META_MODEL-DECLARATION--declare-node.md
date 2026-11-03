@@ -22,23 +22,43 @@ Declare Node
 ### Formal Claim
 
 ```CFEL
+# model
 (Node, Node.**) {:0}((*));
-(Node//, (Node//).**) {:0}((*));
+
 Node {:0}((IS_PROPERTY_OF));
+
 (Node, Node.**) {:0..1}((IS_PROPERTY_OF));
+
 Node {:0+}((NARROWER_THAN)) Node;
+
 Node {:0+}((HAS_NARROWER)) Node;
+
 (Node, Node.**) {:0+}((HAS_PROPERTY)) Node.**;
-Node// {:0+}((INSTANCE_OF)) Node;
-Node {:0+}((HAS_INSTANCE)) Node//;
-(Node//).** {:1}((IS_PROPERTY_OF)) (Node//, (Node//).**);
-(Node//, (Node//).**) {:0+}((HAS_PROPERTY)) (Node//).**;
-IF ((Node, Node.**) {=0}((IS_PROPERTY_OF)))
-THEN ((Node, Node.**) >| (Independence == Primary Node));
-IF ((Node, Node.**) {=1}((IS_PROPERTY_OF)))
-THEN ((Node, Node.**) >| (Independence == Property))
-AND ((Node, Node.**) {==0}((HAS_NARROWER)))
-AND ((Node, Node.**) {==0}((HAS_INSTANCE)))
+
+IF $model_node in (Node, Node.**) THEN (
+IF ($model_node {=0}((IS_PROPERTY_OF)))
+THEN ($model_node >| (Independence == Primary Node));
+);
+
+IF $model_node_2 in (Node, Node.**) THEN (
+IF ($model_node_2 {=1}((IS_PROPERTY_OF)))
+THEN ($model_node_2 >| (Independence == Property))
+AND ($model_node_2 {==0}((HAS_NARROWER)))
+AND ($model_node_2 {==0}((HAS_INSTANCE)));
+);
+
+# instances
+Node//$node;
+
+($node, $node.**) {:0}((*));
+
+$node {:0+}((INSTANCE_OF)) Node;
+
+Node {:0+}((HAS_INSTANCE)) $node;
+
+$node.** {:1}((IS_PROPERTY_OF)) ($node, $node.**);
+
+($node, $node.**) {:0+}((HAS_PROPERTY)) $node.**;
 ```
 
 ## Semantics

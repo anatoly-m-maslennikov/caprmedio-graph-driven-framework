@@ -121,6 +121,18 @@ class MigrationTests(unittest.TestCase):
         self.assertNotIn(b'# instances', result)
         self.assertEqual(migrate.transform(result, {}), result)
 
+    def test_named_structure_instances_and_model_descriptors(self):
+        source = self.carrier('Scope Unit//WORKBENCH.ID == WORKBENCH;\nScope Unit/Project//CAPRMEDIO.ID: []{:0};\nRelation//R ((HAS_CLASSIFICATION)) Derivation == Direct;\nFormat//markdown ((NARROWER_THAN)) Format;\nOperator//Delivery == \"escaped template Scope Unit//OTHER\";')
+        result = migrate.transform(source, {})
+        model, instances = result.split(b'# instances', 1)
+        self.assertIn(b'Relation//R', model)
+        self.assertIn(b'Format//markdown', model)
+        self.assertIn(b'Operator//Delivery', model)
+        self.assertNotIn(b'Scope Unit//WORKBENCH', model)
+        self.assertIn(b'Scope Unit//WORKBENCH.ID == WORKBENCH;', instances)
+        self.assertIn(b'Scope Unit/Project//CAPRMEDIO.ID: []{:0};', instances)
+        self.assertEqual(migrate.transform(result, {}), result)
+
     def test_apply_gate_preflight_idempotence_and_rollback(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

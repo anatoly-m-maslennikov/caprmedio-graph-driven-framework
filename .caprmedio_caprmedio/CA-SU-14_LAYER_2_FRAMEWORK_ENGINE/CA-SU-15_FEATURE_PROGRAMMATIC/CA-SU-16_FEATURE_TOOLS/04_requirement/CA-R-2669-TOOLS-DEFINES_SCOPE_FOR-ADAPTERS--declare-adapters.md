@@ -19,10 +19,15 @@ Declare ADAPTERS
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//ADAPTERS.ID == "CA-SU-30";
+
 Scope Unit//ADAPTERS.Name == "ADAPTERS";
+
 Scope Unit//ADAPTERS.Label == "FEATURE_GROUP";
+
 Scope Unit//ADAPTERS.order.ordered == false;
+
 Scope Unit//ADAPTERS ((IS_CONTAINED_BY)) Scope Unit//TOOLS
 ```
 

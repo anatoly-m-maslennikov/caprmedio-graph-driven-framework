@@ -19,11 +19,17 @@ Declare METHODOLOGY_SOURCES
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//METHODOLOGY_SOURCES.ID == "CA-SU-10";
+
 Scope Unit//METHODOLOGY_SOURCES.Name == "METHODOLOGY_SOURCES";
+
 Scope Unit//METHODOLOGY_SOURCES.Label == "SUPERLAYER";
+
 Scope Unit//METHODOLOGY_SOURCES.order.ordered == true;
+
 Scope Unit//METHODOLOGY_SOURCES.order.number == 1;
+
 Scope Unit//METHODOLOGY_SOURCES ((IS_CONTAINED_BY)) Scope Unit//FRAMEWORK_METHODOLOGY
 ```
 

@@ -22,7 +22,9 @@ Define Necessary Information Threshold
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.Confidence.Necessary Information Threshold{:0..1}: [int]{:1};
+
 Project.Settings.Confidence.Necessary Information Threshold.*[]{:0}
 ```
 

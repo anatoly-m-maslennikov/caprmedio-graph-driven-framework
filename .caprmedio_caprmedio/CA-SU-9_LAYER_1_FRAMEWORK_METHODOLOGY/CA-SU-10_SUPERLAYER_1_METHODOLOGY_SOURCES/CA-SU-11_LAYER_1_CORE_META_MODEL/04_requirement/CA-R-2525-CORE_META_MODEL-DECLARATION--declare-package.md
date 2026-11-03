@@ -22,12 +22,18 @@ Declare Package
 ### Formal Claim
 
 ```CFEL
+# model
 Package >| (Container == yes);
-Package//{:0..1}((IS_CONTAINED_BY)) Package//;
-Package//{:0+}((CONTAINS)) Package//;
-IF (Package//$package not in (Package/Implementation//))
-THEN ($package {==1}((IS_CONTAINED_BY)) Package//);
-Package ((NARROWER_THAN)) Continuant
+
+Package ((NARROWER_THAN)) Continuant;
+
+# instances
+Package//$package_2{:0..1}((IS_CONTAINED_BY)) Package//$package_3;
+
+Package//$package_4{:0+}((CONTAINS)) Package//$package_5;
+
+IF (Package//$package not in (Package/Implementation//$package_6))
+THEN ($package {==1}((IS_CONTAINED_BY)) Package//$package_7);
 ```
 
 ## Semantics

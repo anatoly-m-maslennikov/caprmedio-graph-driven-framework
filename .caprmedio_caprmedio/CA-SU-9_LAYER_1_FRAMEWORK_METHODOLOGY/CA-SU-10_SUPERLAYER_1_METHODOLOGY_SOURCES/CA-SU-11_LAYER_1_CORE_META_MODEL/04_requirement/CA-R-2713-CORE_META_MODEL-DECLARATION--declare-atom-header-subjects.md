@@ -25,6 +25,8 @@ Declare Atom.Header.Subjects
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Subjects{:1}: []{:0};
+
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```

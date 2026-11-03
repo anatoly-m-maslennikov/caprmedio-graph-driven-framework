@@ -22,6 +22,7 @@ Declare Continuant
 ### Formal Claim
 
 ```CFEL
+# model
 Node/Continuant
 ```
 

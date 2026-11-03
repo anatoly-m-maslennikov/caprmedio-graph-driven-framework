@@ -19,10 +19,15 @@ Declare PROJECT_TOOLS
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//PROJECT_TOOLS.ID == "CA-SU-19";
+
 Scope Unit//PROJECT_TOOLS.Name == "PROJECT_TOOLS";
+
 Scope Unit//PROJECT_TOOLS.Label == "FEATURE";
+
 Scope Unit//PROJECT_TOOLS.order.ordered == false;
+
 Scope Unit//PROJECT_TOOLS ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC
 ```
 

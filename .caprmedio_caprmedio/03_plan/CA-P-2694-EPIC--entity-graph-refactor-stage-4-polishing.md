@@ -5,8 +5,8 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
 tier: 3
-version: 51
-updated_at: 2026-11-03 23:28:12 +0400
+version: 52
+updated_at: 2026-11-04 00:31:42 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations: {}
@@ -59,11 +59,11 @@ The [follow-up plan and pending choices](CA-P-2694-EPIC--entity-graph-refactor-s
 - Preserve explicit named references, inherited constraints, population cardinalities and endpoint-count meanings during migration.
 - Update the CFEL rules and authoring guidance, affected readers/checkers/renderers, fixtures and projections. Verify comment handling and model/instance bindings before adoption.
 
-The governing follow-up is adopted in 89 Current revisions, with 19 retired sources and 108 exact predecessor archives. The notation migration and projection rebuild are next. The earlier completed migration remains completed history. The [decision record](../02_analysis/draft/model-completeness-audit-20261103/decisions.md) holds the latest Operator wording.
+The governing follow-up is adopted in 89 Current revisions, with 19 retired sources and 108 exact predecessor archives. The notation migration and seven MODEL-only projection rebuilds are verified. The earlier completed migration remains completed history. The [decision record](../02_analysis/draft/model-completeness-audit-20261103/decisions.md) holds the latest Operator wording.
 
 ## Current tasks
 
-- CFEL grouping and `$x` notation — governing rules and readers applied; mechanical migration and projections pending.
+- CFEL grouping and `$x` notation — applied and verified; 1,148 selected sources, 263 changed, zero held; seven MODEL-only projections rebuilt.
 - [CA-P-2709](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/13-CA-P-2709-TASK--simplify-model-and-structure-subject-roots.md) — Done; Subject-root migration independently verified.
 - [CA-P-2704](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/09-CA-P-2704-TASK--remove-obsolete-scope-authority-mode-overrides.md) — Done.
 - [CA-P-2705](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/10-CA-P-2705-TASK--adopt-formal-scope-unit-declarations.md) — Done.
@@ -84,7 +84,7 @@ The Scope Unit cutover is complete through P2706; P2709 is Done. The Header/Clai
 
 [Migration report and remaining queue](../02_analysis/draft/model-header-content-migration-20261103/report.md).
 
-The CFEL grouping and variable rules are adopted. The mechanical notation migration and projections remain pending. The Epic remains Active for this follow-up and P2707.
+The CFEL grouping and variable rules are adopted. The mechanical notation migration and seven MODEL-only projections are verified. The Epic remains Active for this follow-up and P2707.
 
 ## Carrier boundary
 
@@ -95,3 +95,14 @@ The CFEL grouping and variable rules are adopted. The mechanical notation migrat
 - Retire the internal Carrier Property sources, their internal-region Rule, and Git Index.
 
 The reviewed packet applies 89 revisions and 19 retirements. The declaring Relation is IS_DECLARED_BY, registered by CA-R-2732; its qualified derivation remains intact. The selected frontier contains 1,148 Current sources after retirement.
+
+## Latest verification
+
+- CFEL migration: 1,148 Current sources, 263 changed, zero held; 45 marker corrections retain business expressions.
+- All 44 Scope Declarations use instance markers and remain readable.
+- Seven MODEL-only projections are rebuilt from the final source pins.
+- Role values are admitted through their individual Declarations. The duplicate list in R1283 is removed; the wider allowed-value audit found no other equivalent duplication.
+- Independent preservation checks pass. All 412 graph tests pass; guard and migration checks pass.
+- The projection audit retains 74 uncovered Subject expressions and 51 unresolved expressions for review. P2707 keeps its existing Engine verification scope.
+
+[Continuation report](../02_analysis/draft/model-completeness-audit-20261103/implementation/report.md). The Epic remains Active; this does not claim a release or complete semantic evaluation.

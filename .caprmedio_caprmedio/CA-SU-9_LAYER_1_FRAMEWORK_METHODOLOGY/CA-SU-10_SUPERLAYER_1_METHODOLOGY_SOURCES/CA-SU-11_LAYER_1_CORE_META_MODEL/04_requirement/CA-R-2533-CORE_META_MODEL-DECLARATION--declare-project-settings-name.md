@@ -22,7 +22,9 @@ Declare Project Settings Name
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.Name{:1}: [string]{:1};
+
 Project.Settings.Name.*[]{:0}
 ```
 

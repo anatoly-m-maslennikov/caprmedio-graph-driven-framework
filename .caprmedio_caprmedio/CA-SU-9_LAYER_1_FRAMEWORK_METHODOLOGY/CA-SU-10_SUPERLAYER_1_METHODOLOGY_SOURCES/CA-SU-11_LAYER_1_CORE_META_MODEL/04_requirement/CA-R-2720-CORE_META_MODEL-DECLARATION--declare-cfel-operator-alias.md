@@ -25,6 +25,7 @@ Declare CFEL operator alias
 ### Formal Claim
 
 ```CFEL
+# model
 Operator//Alias == "alias(Relation//RELATION_NAME) == \"notation token\""
 ```
 

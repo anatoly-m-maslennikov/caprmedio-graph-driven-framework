@@ -1,0 +1,9 @@
+{
+  "status": "APPLIED_VERIFIED",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "plan_sha256": "0dd9052b563e7ef1ee7832a20e335dccee82f575d2700a0777d0aadeeed78580",
+  "output_count": 1,
+  "operation_count": 2,
+  "receipt_recovery": "Source and exact predecessor archive were verified after initial receipt formatting failed; no effects replayed."
+}

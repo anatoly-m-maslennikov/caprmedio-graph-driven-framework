@@ -21,6 +21,7 @@ Declare Atom/(.Role := Delivery)
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Delivery)
 ```
 

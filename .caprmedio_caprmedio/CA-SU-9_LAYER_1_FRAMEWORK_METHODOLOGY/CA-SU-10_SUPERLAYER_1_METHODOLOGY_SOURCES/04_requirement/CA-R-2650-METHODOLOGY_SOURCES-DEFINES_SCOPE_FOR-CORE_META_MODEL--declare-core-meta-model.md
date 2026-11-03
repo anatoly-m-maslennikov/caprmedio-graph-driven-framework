@@ -19,11 +19,17 @@ Declare CORE_META_MODEL
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//CORE_META_MODEL.ID == "CA-SU-11";
+
 Scope Unit//CORE_META_MODEL.Name == "CORE_META_MODEL";
+
 Scope Unit//CORE_META_MODEL.Label == "LAYER";
+
 Scope Unit//CORE_META_MODEL.order.ordered == true;
+
 Scope Unit//CORE_META_MODEL.order.number == 1;
+
 Scope Unit//CORE_META_MODEL ((IS_CONTAINED_BY)) Scope Unit//METHODOLOGY_SOURCES
 ```
 

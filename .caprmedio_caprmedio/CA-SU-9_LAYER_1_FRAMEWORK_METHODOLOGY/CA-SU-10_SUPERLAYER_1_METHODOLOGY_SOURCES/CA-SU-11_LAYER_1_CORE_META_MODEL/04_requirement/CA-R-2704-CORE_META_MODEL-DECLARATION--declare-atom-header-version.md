@@ -25,7 +25,10 @@ Declare Atom.Header.Version
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Version{:1}: [int]{:1};
+
 Atom.Header.Version.*[]{:0};
+
 Atom.Header.Version >= 1
 ```

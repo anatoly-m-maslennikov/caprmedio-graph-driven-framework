@@ -19,11 +19,17 @@ Declare CORE_EXTENSIONS
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//CORE_EXTENSIONS.ID == "CA-SU-26";
+
 Scope Unit//CORE_EXTENSIONS.Name == "CORE_EXTENSIONS";
+
 Scope Unit//CORE_EXTENSIONS.Label == "LAYER";
+
 Scope Unit//CORE_EXTENSIONS.order.ordered == true;
+
 Scope Unit//CORE_EXTENSIONS.order.number == 4;
+
 Scope Unit//CORE_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio
 ```
 

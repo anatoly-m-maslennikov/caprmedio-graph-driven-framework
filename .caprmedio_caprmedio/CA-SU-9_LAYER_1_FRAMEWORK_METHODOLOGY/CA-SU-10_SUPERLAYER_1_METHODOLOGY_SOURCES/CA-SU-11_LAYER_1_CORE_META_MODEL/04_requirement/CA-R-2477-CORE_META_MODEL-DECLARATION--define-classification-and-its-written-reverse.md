@@ -25,6 +25,7 @@ Define classification and its written reverse
 ### Formal Claim
 
 ```CFEL
+# model
 $classified ((HAS_CLASSIFICATION)) $axis;
 
 alias(Relation//HAS_CLASSIFICATION) == ">|";

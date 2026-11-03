@@ -21,6 +21,7 @@ Define Cardinality
 ### Formal Claim
 
 ```CFEL
+# model
 CFEL <+ Cardinality
 ```
 

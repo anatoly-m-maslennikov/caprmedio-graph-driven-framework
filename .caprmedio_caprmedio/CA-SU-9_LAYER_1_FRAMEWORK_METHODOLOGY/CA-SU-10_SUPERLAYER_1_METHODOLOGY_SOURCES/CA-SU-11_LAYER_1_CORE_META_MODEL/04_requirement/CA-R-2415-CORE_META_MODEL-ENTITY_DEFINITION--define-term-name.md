@@ -21,7 +21,9 @@ Define Term Name
 ### Formal Claim
 
 ```CFEL
+# model
 Term.Name{:1}: [string]{:1};
+
 Term.Name.*[]{:0}
 ```
 

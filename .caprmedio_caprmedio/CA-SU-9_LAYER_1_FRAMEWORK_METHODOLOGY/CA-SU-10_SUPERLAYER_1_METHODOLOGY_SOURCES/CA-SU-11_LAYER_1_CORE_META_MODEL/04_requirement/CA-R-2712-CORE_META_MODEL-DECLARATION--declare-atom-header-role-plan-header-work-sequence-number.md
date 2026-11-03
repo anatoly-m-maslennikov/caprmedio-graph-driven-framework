@@ -25,17 +25,25 @@ Declare Atom/(.Header.Role := Plan).Header.Work Sequence Number
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role: Plan).Header.Work Sequence Number{:0..1}: [int]{:1};
+
 Atom/(.Header.Role: Plan).Header.Work Sequence Number.*[]{:0};
-IF (Atom/(.Header.Role: Plan).Header.Work Sequence Number{=1})
-THEN (Atom/(.Header.Role: Plan).Header.Work Sequence Number > 0);
+
+# instances
+Atom/(.Header.Role: Plan)//$atom;
+
+IF ($atom.Header.Work Sequence Number{=1})
+THEN ($atom.Header.Work Sequence Number > 0);
+
 UNIQUE(
-  Atom/(.Header.Role: Plan)//,
+  Atom/(.Header.Role: Plan)//$atom_2,
   (.Header.Relations.IS_CONTAINED_BY.atom, .Header.Work Sequence Number),
   (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.atom{=1})
 );
+
 UNIQUE(
-  Atom/(.Header.Role: Plan)//,
+  Atom/(.Header.Role: Plan)//$atom_3,
   (.Header.Relations.IS_CONTAINED_BY.scope_unit, .Header.Work Sequence Number),
   (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.scope_unit{=1})
 )

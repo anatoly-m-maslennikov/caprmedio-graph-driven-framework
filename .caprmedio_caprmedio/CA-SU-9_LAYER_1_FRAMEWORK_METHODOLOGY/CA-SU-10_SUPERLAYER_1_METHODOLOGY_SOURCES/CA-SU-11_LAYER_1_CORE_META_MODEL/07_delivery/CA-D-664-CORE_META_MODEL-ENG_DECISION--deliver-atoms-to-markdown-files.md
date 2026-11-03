@@ -21,10 +21,15 @@ Deliver Atoms to Markdown files
 ### Formal Claim
 
 ```CFEL
+# instances
 Atom//$atom >> Carrier//$carrier;
+
 $atom.Header.** >> $carrier.frontmatter;
+
 $atom.Content.** >> $carrier.markdown;
+
 $carrier.filename == $atom.Header.Carrier Destination.File.Name;
+
 $carrier.location == $atom.Header.Carrier Destination.File.Path
 ```
 

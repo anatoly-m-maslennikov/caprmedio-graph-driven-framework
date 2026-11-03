@@ -21,7 +21,9 @@ Declare Event Record.object_output.updated_at
 ### Formal Claim
 
 ```CFEL
+# model
 Event Record.object_output.updated_at{:1}: [datetime]{:1};
+
 Event Record.object_output.updated_at.*[]{:0}
 ```
 

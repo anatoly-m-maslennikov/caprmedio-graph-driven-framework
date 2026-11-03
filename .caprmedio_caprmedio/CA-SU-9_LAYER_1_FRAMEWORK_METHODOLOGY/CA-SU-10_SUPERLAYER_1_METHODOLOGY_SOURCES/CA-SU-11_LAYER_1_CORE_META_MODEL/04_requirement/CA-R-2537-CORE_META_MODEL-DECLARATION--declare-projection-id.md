@@ -21,9 +21,14 @@ Declare Projection.ID
 ### Formal Claim
 
 ```CFEL
+# model
 Projection.ID{:1}: [string]{:1};
+
 Projection.ID.*[]{:0};
-DETERMINES(Projection//, (.Form, .Source.Named Selection), (.ID));
-DETERMINES(Projection//, (.ID), (.Form, .Source.Named Selection))
+
+# instances
+DETERMINES(Projection//$projection, (.Form, .Source.Named Selection), (.ID));
+
+DETERMINES(Projection//$projection_2, (.ID), (.Form, .Source.Named Selection))
 ```
 

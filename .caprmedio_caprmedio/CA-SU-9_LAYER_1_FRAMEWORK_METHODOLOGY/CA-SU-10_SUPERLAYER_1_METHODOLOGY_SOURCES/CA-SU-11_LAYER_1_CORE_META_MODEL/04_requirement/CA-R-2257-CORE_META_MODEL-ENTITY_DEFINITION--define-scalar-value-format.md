@@ -21,6 +21,7 @@ Define scalar Value Format
 ### Formal Claim
 
 ```CFEL
+# model
 CFEL <+ Format/scalar
 ```
 

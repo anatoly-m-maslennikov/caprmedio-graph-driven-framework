@@ -23,7 +23,9 @@ Define Project.Framework Settings.Interaction
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.Interaction{:0..1}: []{:0};
+
 Project.Settings.Interaction.*[in (Reporting Mode)]{:1}
 ```
 

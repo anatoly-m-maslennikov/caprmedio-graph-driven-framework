@@ -40,8 +40,14 @@ Compare and add numeric values in CFEL
 ## Details
 
 ```CFEL
+# model
 Atom.Header.Version >= 1;
-IF (Atom/(.Header.Role: Plan).Header.Work Sequence Number{=1})
-THEN (Atom/(.Header.Role: Plan).Header.Work Sequence Number > 0);
-Atom.Header.Tier >= -1
+
+Atom.Header.Tier >= -1;
+
+# instances
+Atom/(.Header.Role: Plan)//$atom;
+
+IF ($atom.Header.Work Sequence Number{=1})
+THEN ($atom.Header.Work Sequence Number > 0);
 ```

@@ -19,10 +19,15 @@ Declare RESUME_EXECUTION_CONTEXT
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//RESUME_EXECUTION_CONTEXT.ID == "CA-SU-7";
+
 Scope Unit//RESUME_EXECUTION_CONTEXT.Name == "RESUME_EXECUTION_CONTEXT";
+
 Scope Unit//RESUME_EXECUTION_CONTEXT.Label == "TOOL";
+
 Scope Unit//RESUME_EXECUTION_CONTEXT.order.ordered == false;
+
 Scope Unit//RESUME_EXECUTION_CONTEXT ((IS_CONTAINED_BY)) Scope Unit//TOOLS
 ```
 

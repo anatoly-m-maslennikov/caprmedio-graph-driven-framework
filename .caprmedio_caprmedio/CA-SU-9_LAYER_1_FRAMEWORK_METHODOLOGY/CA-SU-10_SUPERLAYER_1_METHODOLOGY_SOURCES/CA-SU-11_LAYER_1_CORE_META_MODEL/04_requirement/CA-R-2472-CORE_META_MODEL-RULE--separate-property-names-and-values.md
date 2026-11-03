@@ -53,6 +53,7 @@ remain unique within that bearer.
 ## Details
 
 ```CFEL
+# model
 Atom.Content.**[string]{:0+}: [markdown]{:1}
 ```
 

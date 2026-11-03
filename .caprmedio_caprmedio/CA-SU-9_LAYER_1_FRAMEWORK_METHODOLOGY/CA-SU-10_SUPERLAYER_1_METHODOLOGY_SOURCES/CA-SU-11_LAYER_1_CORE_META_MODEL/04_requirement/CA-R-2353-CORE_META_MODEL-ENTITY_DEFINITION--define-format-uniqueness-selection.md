@@ -21,7 +21,9 @@ Define Format Uniqueness Selection
 ### Formal Claim
 
 ```CFEL
+# model
 Format.Uniqueness Selection{:0..1}: [string]{:1};
+
 Format.Uniqueness Selection.*[]{:0}
 ```
 

@@ -29,7 +29,10 @@ Goals whose active Subject resolves to the Project use Tier -1. Ordinary Scope U
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Tier{:1}: [int]{:1};
+
 Atom.Header.Tier.*[in(Label)]{:0..1};
+
 Atom.Header.Tier >= -1
 ```

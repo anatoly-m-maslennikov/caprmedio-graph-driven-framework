@@ -1,0 +1,11 @@
+{
+  "external_changes": [
+    {
+      "id": "CA-R-2464",
+      "before_sha256": "e968d46165dc8b96916359e2820f59a12f3f3aa978824bbcc96baa09cc952209",
+      "after_sha256": "70222545ca403b3b704862bb8cbd4972a664021368100fa1f90e9634240112be",
+      "new_version": 5
+    }
+  ],
+  "policy": "Migration proof retains its immutable original frontier. Publication snapshot includes the newer concurrent Workflow input, without adopting that source into our commit."
+}

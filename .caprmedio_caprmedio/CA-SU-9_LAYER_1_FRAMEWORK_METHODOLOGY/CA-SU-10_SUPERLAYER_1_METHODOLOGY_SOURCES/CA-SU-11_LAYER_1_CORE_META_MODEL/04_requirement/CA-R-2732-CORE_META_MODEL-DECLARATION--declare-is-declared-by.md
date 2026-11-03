@@ -25,9 +25,13 @@ Declare IS_DECLARED_BY
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//IS_DECLARED_BY ((HAS_CLASSIFICATION)) Derivation == Derived;
+
 Relation//IS_DECLARED_BY ((IS_DERIVED_RELATION_OF)) Relation//GOVERNS;
-$declared_subject ((IS_DECLARED_BY)) Atom/(.Header.Role: Requirement)/(.Header.Form: Declaration)//
+
+# instances
+$declared_subject ((IS_DECLARED_BY)) Atom/(.Header.Role: Requirement)/(.Header.Form: Declaration)//$atom
 ```
 
 ### Prose Claim

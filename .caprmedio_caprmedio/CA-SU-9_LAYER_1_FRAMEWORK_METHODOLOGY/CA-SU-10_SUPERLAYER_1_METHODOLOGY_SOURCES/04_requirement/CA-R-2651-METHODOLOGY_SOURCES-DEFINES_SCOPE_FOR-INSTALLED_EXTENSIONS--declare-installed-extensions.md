@@ -19,11 +19,17 @@ Declare INSTALLED_EXTENSIONS
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//INSTALLED_EXTENSIONS.ID == "CA-SU-12";
+
 Scope Unit//INSTALLED_EXTENSIONS.Name == "INSTALLED_EXTENSIONS";
+
 Scope Unit//INSTALLED_EXTENSIONS.Label == "LAYER";
+
 Scope Unit//INSTALLED_EXTENSIONS.order.ordered == true;
+
 Scope Unit//INSTALLED_EXTENSIONS.order.number == 2;
+
 Scope Unit//INSTALLED_EXTENSIONS ((IS_CONTAINED_BY)) Scope Unit//METHODOLOGY_SOURCES
 ```
 

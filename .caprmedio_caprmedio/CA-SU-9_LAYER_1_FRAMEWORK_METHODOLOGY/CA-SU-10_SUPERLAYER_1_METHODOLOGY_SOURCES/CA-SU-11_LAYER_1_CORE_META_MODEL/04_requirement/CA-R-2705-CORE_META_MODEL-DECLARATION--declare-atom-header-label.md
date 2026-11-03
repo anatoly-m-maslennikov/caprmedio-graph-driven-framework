@@ -25,7 +25,10 @@ Declare Atom.Header.Label
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Label{:0..1}: [string]{:1};
+
 Atom.Header.Label.*[]{:0};
+
 Atom.Header.Label ?= Atom.Header.Form
 ```

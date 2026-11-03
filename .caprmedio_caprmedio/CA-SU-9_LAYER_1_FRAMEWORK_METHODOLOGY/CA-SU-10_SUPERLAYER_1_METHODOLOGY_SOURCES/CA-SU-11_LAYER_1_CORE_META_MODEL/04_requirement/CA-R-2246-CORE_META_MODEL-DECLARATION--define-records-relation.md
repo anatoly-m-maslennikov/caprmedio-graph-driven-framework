@@ -28,11 +28,13 @@ Define RECORDS Relation
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//RECORDS ((HAS_INVERSE)) Relation//IS_RECORDED_BY;
 
 Relation//RECORDS ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-Event Record// ((RECORDS)) $occurrence
+# instances
+Event Record//$event_record ((RECORDS)) $occurrence
 ```
 
 ### Prose Claim

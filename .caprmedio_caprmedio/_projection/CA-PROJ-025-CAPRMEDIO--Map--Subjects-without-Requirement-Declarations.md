@@ -6,27 +6,27 @@ source:
   named_selection: Named Selection//Current Subjects without Requirement Declarations
   atoms:
   - CA-D-253@30
-  - CA-D-262@27
+  - CA-D-262@28
   - CA-D-264@29
   - CA-D-266@29
-  - CA-D-267@27
+  - CA-D-267@28
   - CA-D-268@30
   - CA-D-269@28
   - CA-D-270@27
-  - CA-D-277@24
-  - CA-D-279@25
-  - CA-D-280@27
+  - CA-D-277@25
+  - CA-D-279@26
+  - CA-D-280@28
   - CA-D-282@26
-  - CA-D-283@32
-  - CA-D-284@25
-  - CA-D-287@28
-  - CA-D-289@24
-  - CA-D-290@26
+  - CA-D-283@33
+  - CA-D-284@26
+  - CA-D-287@29
+  - CA-D-289@25
+  - CA-D-290@27
   - CA-D-291@31
   - CA-D-292@35
-  - CA-D-296@29
-  - CA-D-301@29
-  - CA-D-302@28
+  - CA-D-296@30
+  - CA-D-301@30
+  - CA-D-302@29
   - CA-D-303@28
   - CA-D-304@30
   - CA-D-305@32
@@ -49,29 +49,29 @@ source:
   - CA-D-327@23
   - CA-D-328@23
   - CA-D-329@27
-  - CA-D-330@27
+  - CA-D-330@28
   - CA-D-331@24
   - CA-D-333@35
-  - CA-D-336@30
+  - CA-D-336@31
   - CA-D-337@21
-  - CA-D-338@29
+  - CA-D-338@30
   - CA-D-339@29
-  - CA-D-340@33
+  - CA-D-340@34
   - CA-D-341@29
-  - CA-D-342@28
+  - CA-D-342@29
   - CA-D-344@23
   - CA-D-346@36
   - CA-D-347@29
-  - CA-D-352@25
+  - CA-D-352@26
   - CA-D-356@23
-  - CA-D-357@21
+  - CA-D-357@22
   - CA-D-358@26
-  - CA-D-359@28
+  - CA-D-359@29
   - CA-D-360@27
   - CA-D-361@32
   - CA-D-362@26
-  - CA-D-363@28
-  - CA-D-364@29
+  - CA-D-363@29
+  - CA-D-364@30
   - CA-D-365@26
   - CA-D-366@30
   - CA-D-368@29
@@ -83,12 +83,12 @@ source:
   - CA-D-375@30
   - CA-D-376@28
   - CA-D-377@26
-  - CA-D-378@28
+  - CA-D-378@29
   - CA-D-381@23
   - CA-D-383@31
   - CA-D-386@23
   - CA-D-387@27
-  - CA-D-388@23
+  - CA-D-388@24
   - CA-D-389@27
   - CA-D-390@27
   - CA-D-392@27
@@ -107,7 +107,7 @@ source:
   - CA-D-408@24
   - CA-D-416@29
   - CA-D-434@25
-  - CA-D-435@25
+  - CA-D-435@26
   - CA-D-442@26
   - CA-D-446@28
   - CA-D-447@30
@@ -122,22 +122,22 @@ source:
   - CA-D-464@25
   - CA-D-466@22
   - CA-D-467@28
-  - CA-D-469@24
+  - CA-D-469@25
   - CA-D-470@29
   - CA-D-471@24
   - CA-D-472@29
   - CA-D-473@25
   - CA-D-475@24
-  - CA-D-478@31
-  - CA-D-479@29
+  - CA-D-478@32
+  - CA-D-479@30
   - CA-D-480@23
-  - CA-D-483@23
+  - CA-D-483@24
   - CA-D-485@26
   - CA-D-494@17
   - CA-D-495@27
   - CA-D-496@24
   - CA-D-497@18
-  - CA-D-498@13
+  - CA-D-498@14
   - CA-D-499@13
   - CA-D-500@15
   - CA-D-501@15
@@ -146,33 +146,38 @@ source:
   - CA-D-504@14
   - CA-D-505@18
   - CA-D-506@18
-  - CA-D-507@16
+  - CA-D-507@17
   - CA-D-508@19
   - CA-D-549@19
   - CA-D-550@20
   - CA-D-559@19
-  - CA-D-565@20
+  - CA-D-565@21
   - CA-D-568@19
   - CA-D-570@24
-  - CA-D-581@17
+  - CA-D-581@18
   - CA-D-634@23
   - CA-D-635@16
   - CA-D-636@16
-  - CA-D-650@12
+  - CA-D-650@14
   - CA-D-651@13
   - CA-D-652@13
   - CA-D-653@16
   - CA-D-654@3
   - CA-D-655@3
-  - CA-D-657@2
+  - CA-D-657@3
   - CA-D-658@4
   - CA-D-662@4
   - CA-D-663@2
-  - CA-D-664@5
+  - CA-D-664@6
   - CA-D-665@2
   - CA-D-666@1
-  - CA-D-667@1
+  - CA-D-667@2
+  - CA-D-668@2
+  - CA-D-669@1
+  - CA-D-670@1
+  - CA-D-671@1
   - CA-E-001@35
+  - CA-E-006@40
   - CA-E-206@26
   - CA-E-207@36
   - CA-E-208@26
@@ -187,7 +192,7 @@ source:
   - CA-E-249@36
   - CA-E-379@46
   - CA-E-382@49
-  - CA-E-383@45
+  - CA-E-383@46
   - CA-E-384@42
   - CA-E-387@27
   - CA-E-402@33
@@ -208,7 +213,7 @@ source:
   - CA-E-443@34
   - CA-E-444@34
   - CA-E-445@28
-  - CA-E-448@32
+  - CA-E-448@33
   - CA-E-449@44
   - CA-E-450@27
   - CA-E-457@34
@@ -219,7 +224,7 @@ source:
   - CA-E-462@33
   - CA-E-463@23
   - CA-E-464@24
-  - CA-E-465@26
+  - CA-E-465@27
   - CA-E-466@28
   - CA-E-471@28
   - CA-E-472@30
@@ -236,7 +241,7 @@ source:
   - CA-E-491@25
   - CA-E-494@20
   - CA-E-495@19
-  - CA-E-496@22
+  - CA-E-496@23
   - CA-E-497@20
   - CA-E-500@28
   - CA-E-501@30
@@ -245,7 +250,7 @@ source:
   - CA-E-505@22
   - CA-E-506@28
   - CA-E-511@23
-  - CA-E-512@27
+  - CA-E-512@28
   - CA-E-513@23
   - CA-E-520@32
   - CA-E-521@22
@@ -253,6 +258,7 @@ source:
   - CA-E-523@18
   - CA-E-588@20
   - CA-E-620@34
+  - CA-E-621@37
   - CA-E-622@53
   - CA-E-623@30
   - CA-E-624@38
@@ -268,6 +274,8 @@ source:
   - CA-E-668@2
   - CA-E-669@4
   - CA-E-670@1
+  - CA-E-671@1
+  - CA-E-672@1
   - CA-M-005@28
   - CA-M-006@31
   - CA-M-091@27
@@ -294,8 +302,8 @@ source:
   - CA-M-138@29
   - CA-M-139@28
   - CA-M-225@33
-  - CA-M-228@36
-  - CA-M-229@33
+  - CA-M-228@37
+  - CA-M-229@34
   - CA-M-230@25
   - CA-M-231@34
   - CA-M-232@34
@@ -318,7 +326,7 @@ source:
   - CA-M-271@29
   - CA-M-273@38
   - CA-M-275@21
-  - CA-M-276@31
+  - CA-M-276@32
   - CA-M-277@33
   - CA-M-278@30
   - CA-M-279@24
@@ -360,11 +368,11 @@ source:
   - CA-M-451@4
   - CA-M-452@3
   - CA-M-453@3
-  - CA-M-454@4
+  - CA-M-454@5
   - CA-M-455@4
   - CA-M-456@2
   - CA-M-457@2
-  - CA-M-458@2
+  - CA-M-458@3
   - CA-M-459@2
   - CA-M-460@2
   - CA-M-461@1
@@ -387,8 +395,8 @@ source:
   - CA-R-1017@31
   - CA-R-1018@38
   - CA-R-1019@30
-  - CA-R-1020@30
-  - CA-R-1021@30
+  - CA-R-1020@31
+  - CA-R-1021@31
   - CA-R-1022@32
   - CA-R-1023@27
   - CA-R-1024@28
@@ -458,7 +466,7 @@ source:
   - CA-R-1278@23
   - CA-R-1279@32
   - CA-R-1280@34
-  - CA-R-1283@32
+  - CA-R-1283@33
   - CA-R-1284@27
   - CA-R-1285@25
   - CA-R-1286@25
@@ -474,7 +482,7 @@ source:
   - CA-R-1315@31
   - CA-R-1316@32
   - CA-R-1317@31
-  - CA-R-1318@32
+  - CA-R-1318@33
   - CA-R-1319@28
   - CA-R-1320@26
   - CA-R-1321@35
@@ -520,6 +528,7 @@ source:
   - CA-R-1426@25
   - CA-R-1428@32
   - CA-R-1429@28
+  - CA-R-1430@27
   - CA-R-1432@27
   - CA-R-1437@32
   - CA-R-1439@23
@@ -564,7 +573,7 @@ source:
   - CA-R-151@32
   - CA-R-1520@22
   - CA-R-1521@32
-  - CA-R-1525@24
+  - CA-R-1525@25
   - CA-R-1528@22
   - CA-R-1534@22
   - CA-R-1539@22
@@ -626,13 +635,13 @@ source:
   - CA-R-1640@32
   - CA-R-1641@33
   - CA-R-1642@33
-  - CA-R-1643@40
+  - CA-R-1643@41
   - CA-R-1644@37
   - CA-R-1645@39
   - CA-R-1646@41
   - CA-R-1647@33
   - CA-R-1648@33
-  - CA-R-1649@33
+  - CA-R-1649@34
   - CA-R-1650@34
   - CA-R-1651@33
   - CA-R-1652@41
@@ -702,7 +711,7 @@ source:
   - CA-R-1724@36
   - CA-R-1725@28
   - CA-R-1726@30
-  - CA-R-1728@28
+  - CA-R-1728@29
   - CA-R-1729@27
   - CA-R-1730@40
   - CA-R-1732@25
@@ -717,6 +726,7 @@ source:
   - CA-R-1747@29
   - CA-R-1748@37
   - CA-R-1749@27
+  - CA-R-1750@41
   - CA-R-1752@32
   - CA-R-1753@31
   - CA-R-1754@32
@@ -741,7 +751,7 @@ source:
   - CA-R-1785@14
   - CA-R-1786@14
   - CA-R-1787@14
-  - CA-R-1788@18
+  - CA-R-1788@20
   - CA-R-1789@21
   - CA-R-1790@19
   - CA-R-1791@18
@@ -760,25 +770,15 @@ source:
   - CA-R-1931@18
   - CA-R-1943@15
   - CA-R-1947@13
-  - CA-R-1948@12
-  - CA-R-1949@11
-  - CA-R-1950@12
-  - CA-R-1951@12
-  - CA-R-1952@12
-  - CA-R-1953@13
-  - CA-R-1954@12
-  - CA-R-1955@11
-  - CA-R-1956@11
-  - CA-R-1957@11
-  - CA-R-1958@15
-  - CA-R-1974@12
-  - CA-R-1975@12
-  - CA-R-1976@12
+  - CA-R-1955@12
+  - CA-R-1956@12
+  - CA-R-1957@12
+  - CA-R-1958@16
   - CA-R-1977@15
   - CA-R-1978@15
   - CA-R-1979@15
   - CA-R-1980@15
-  - CA-R-1981@16
+  - CA-R-1981@17
   - CA-R-1982@15
   - CA-R-1983@15
   - CA-R-1990@12
@@ -800,48 +800,38 @@ source:
   - CA-R-2170@10
   - CA-R-2173@9
   - CA-R-2174@6
-  - CA-R-2198@5
-  - CA-R-2199@5
-  - CA-R-2200@5
-  - CA-R-2201@5
-  - CA-R-2202@5
-  - CA-R-2203@6
+  - CA-R-2198@6
+  - CA-R-2199@6
+  - CA-R-2200@6
+  - CA-R-2201@6
+  - CA-R-2203@7
   - CA-R-2225@4
   - CA-R-2243@11
   - CA-R-2245@8
   - CA-R-2246@8
-  - CA-R-2247@6
-  - CA-R-2248@4
-  - CA-R-2249@5
-  - CA-R-2250@5
-  - CA-R-2251@5
-  - CA-R-2252@5
-  - CA-R-2253@5
-  - CA-R-2254@5
+  - CA-R-2247@7
+  - CA-R-2248@5
+  - CA-R-2249@6
+  - CA-R-2250@6
+  - CA-R-2251@6
+  - CA-R-2252@6
+  - CA-R-2253@6
+  - CA-R-2254@6
   - CA-R-2255@9
   - CA-R-2256@4
-  - CA-R-2257@4
-  - CA-R-2269@3
+  - CA-R-2257@5
   - CA-R-2271@3
   - CA-R-2272@5
   - CA-R-2275@2
   - CA-R-2276@6
   - CA-R-2277@4
-  - CA-R-2278@2
-  - CA-R-2279@5
-  - CA-R-2327@5
-  - CA-R-2345@2
-  - CA-R-2346@2
-  - CA-R-2347@2
-  - CA-R-2348@2
-  - CA-R-2349@2
-  - CA-R-2350@4
-  - CA-R-2351@2
-  - CA-R-2352@4
-  - CA-R-2353@4
-  - CA-R-2354@4
-  - CA-R-2355@4
-  - CA-R-2415@3
+  - CA-R-2278@3
+  - CA-R-2327@6
+  - CA-R-2352@5
+  - CA-R-2353@5
+  - CA-R-2354@5
+  - CA-R-2355@5
+  - CA-R-2415@4
   - CA-R-2417@5
   - CA-R-2418@5
   - CA-R-2420@5
@@ -857,11 +847,11 @@ source:
   - CA-R-2448@5
   - CA-R-2450@4
   - CA-R-2452@4
-  - CA-R-2456@3
-  - CA-R-2457@3
+  - CA-R-2456@4
+  - CA-R-2457@4
   - CA-R-2462@2
   - CA-R-2463@2
-  - CA-R-2464@4
+  - CA-R-2464@5
   - CA-R-2465@4
   - CA-R-2466@4
   - CA-R-2467@2
@@ -881,8 +871,8 @@ source:
   - CA-R-2483@6
   - CA-R-2484@2
   - CA-R-2485@5
-  - CA-R-2486@5
-  - CA-R-2487@9
+  - CA-R-2486@6
+  - CA-R-2487@10
   - CA-R-2498@4
   - CA-R-2499@4
   - CA-R-2500@4
@@ -918,12 +908,12 @@ source:
   - CA-R-2542@2
   - CA-R-2543@4
   - CA-R-2544@2
-  - CA-R-2547@2
+  - CA-R-2547@3
   - CA-R-2548@2
   - CA-R-2549@2
   - CA-R-2550@2
   - CA-R-2551@2
-  - CA-R-2552@2
+  - CA-R-2552@3
   - CA-R-2553@2
   - CA-R-2554@2
   - CA-R-2555@2
@@ -959,7 +949,7 @@ source:
   - CA-R-2585@2
   - CA-R-2586@2
   - CA-R-2587@2
-  - CA-R-2588@3
+  - CA-R-2588@4
   - CA-R-2589@2
   - CA-R-2590@2
   - CA-R-2591@1
@@ -988,7 +978,7 @@ source:
   - CA-R-2615@1
   - CA-R-2616@1
   - CA-R-2617@2
-  - CA-R-2618@2
+  - CA-R-2618@3
   - CA-R-2619@2
   - CA-R-2620@2
   - CA-R-2621@2
@@ -1000,6 +990,7 @@ source:
   - CA-R-2629@1
   - CA-R-2630@1
   - CA-R-2631@1
+  - CA-R-2632@2
   - CA-R-2633@1
   - CA-R-2634@1
   - CA-R-2635@1
@@ -1049,13 +1040,14 @@ source:
   - CA-R-2679@1
   - CA-R-2680@1
   - CA-R-2681@1
-  - CA-R-2682@1
   - CA-R-2683@1
   - CA-R-2684@1
   - CA-R-2685@1
   - CA-R-2686@1
   - CA-R-2687@1
   - CA-R-2688@1
+  - CA-R-2689@1
+  - CA-R-2690@1
   - CA-R-2691@1
   - CA-R-2696@1
   - CA-R-2697@1
@@ -1078,12 +1070,14 @@ source:
   - CA-R-2714@1
   - CA-R-2715@1
   - CA-R-2716@1
-  - CA-R-2717@1
-  - CA-R-2718@1
+  - CA-R-2717@2
+  - CA-R-2718@2
   - CA-R-2719@1
   - CA-R-2720@1
   - CA-R-2721@1
   - CA-R-2722@1
+  - CA-R-2730@1
+  - CA-R-2732@1
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1159,12 +1153,12 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-03 20:25:46 +0400
+updated_at: 2026-11-04 00:38:44 +0400
 ---
 
 # Subjects Without Effective Requirement Declaration Coverage
 
-Selected sources: 1154 Current Methodology and direct Project RMED Atoms. Coverage and absence are evaluated within this selection.
+Selected sources: 1148 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
 
 Cardinalities, formats and Formal Claims come only from Current Requirement / Declaration Atoms. Unsupported CFEL remains visible with diagnostics.
 
@@ -1173,21 +1167,13 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Atom.Enabled Relations.Contains` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1990@12, CA-R-1991@13; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom.Governance Origin` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1645@39, CA-R-1690@33; keys: active
 - `CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Governs` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-403@36, CA-R-1014@40; keys: passive
-- `CAPRMEDIO_MODEL <+ Atom.Local Scope Unit` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-283@32, CA-D-291@31, CA-D-304@30, CA-E-246@47, CA-E-403@36, CA-E-448@32, CA-E-511@23, CA-E-654@12, CA-M-276@31, CA-M-438@17, CA-M-445@4, CA-R-1014@40, CA-R-1294@33, CA-R-1358@35, CA-R-1669@28, CA-R-2424@2, CA-R-796@44, CA-R-886@39, CA-R-916@37, CA-R-920@33, CA-R-927@41, CA-R-935@37, CA-R-944@39, CA-R-945@38, CA-R-947@40, CA-R-992@36; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Atom.Local Scope Unit` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-283@33, CA-D-291@31, CA-D-304@30, CA-E-246@47, CA-E-403@36, CA-E-448@33, CA-E-511@23, CA-E-654@12, CA-M-276@32, CA-M-438@17, CA-M-445@4, CA-R-1014@40, CA-R-1294@33, CA-R-1358@35, CA-R-1669@28, CA-R-2424@2, CA-R-796@44, CA-R-886@39, CA-R-916@37, CA-R-920@33, CA-R-927@41, CA-R-935@37, CA-R-944@39, CA-R-945@38, CA-R-947@40, CA-R-992@36; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Atom.Target Scope Unit` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-246@47, CA-E-384@42, CA-E-461@28, CA-E-520@32, CA-M-273@38, CA-M-443@4, CA-R-1271@29, CA-R-1294@33, CA-R-1448@25, CA-R-1596@22, CA-R-1597@20, CA-R-1732@25, CA-R-718@44, CA-R-796@44, CA-R-916@37, CA-R-922@38, CA-R-923@39, CA-R-927@41, CA-R-935@37, CA-R-944@39, CA-R-945@38, CA-R-947@40, CA-R-992@36; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Plan).Implementation Retry Limit` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1489@25; keys: active
-- `CAPRMEDIO_MODEL <+ CFEL <+ Format.Data Type` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-2352@4; keys: active
-- `CAPRMEDIO_MODEL <+ CFEL <+ Format.Uniqueness Selection` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-2353@4; keys: active
-- `CAPRMEDIO_MODEL <+ CFEL <+ Format//markdown` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-2547@2; keys: active
-- `CAPRMEDIO_MODEL <+ CFEL <+ Relation.Meaning` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-2354@4; keys: active
-- `CAPRMEDIO_MODEL <+ CFEL <+ Relation.Name` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-2355@4; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/File.Format:Markdown` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-330@27; keys: passive
-- `CAPRMEDIO_MODEL <+ Carrier/File.Format:TOML` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-330@27; keys: passive
-- `CAPRMEDIO_MODEL <+ Carrier/File.Format:YAML` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-330@27; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-267@27, CA-D-269@28, CA-D-451@21, CA-D-464@25, CA-D-466@22, CA-D-505@18, CA-D-506@18, CA-D-507@16, CA-D-634@23, CA-D-636@16, CA-E-246@47, CA-E-249@36, CA-E-382@49, CA-E-383@45, CA-E-387@27, CA-E-402@33, CA-E-436@30, CA-E-444@34, CA-E-449@44, CA-E-466@28, CA-E-472@30, CA-E-490@24, CA-E-505@22, CA-E-520@32, CA-E-521@22, CA-E-622@53, CA-E-657@8, CA-M-105@27, CA-M-114@43, CA-M-120@43, CA-M-125@47, CA-M-232@34, CA-M-237@33, CA-M-385@25, CA-M-451@4, CA-M-452@3, CA-M-454@4, CA-M-455@4, CA-R-035@36, CA-R-1194@32, CA-R-1199@37, CA-R-1200@40, CA-R-1203@32, CA-R-1245@28, CA-R-1246@34, CA-R-1247@24, CA-R-1250@26, CA-R-1259@24, CA-R-1261@24, CA-R-1262@24, CA-R-1275@32, CA-R-1279@32, CA-R-1280@34, CA-R-1284@27, CA-R-1285@25, CA-R-1286@25, CA-R-1308@27, CA-R-1318@32, CA-R-1321@35, CA-R-1324@27, CA-R-1325@24, CA-R-1348@25, CA-R-1349@21, CA-R-1350@20, CA-R-1351@23, CA-R-1360@28, CA-R-1405@29, CA-R-1406@26, CA-R-1407@28, CA-R-1408@25, CA-R-1409@30, CA-R-1410@22, CA-R-1437@32, CA-R-1455@27, CA-R-1456@39, CA-R-1470@27, CA-R-1471@27, CA-R-1472@28, CA-R-1498@17, CA-R-1500@21, CA-R-1501@21, CA-R-1502@25, CA-R-151@32, CA-R-1521@32, CA-R-1597@20, CA-R-1609@22, CA-R-1616@25, CA-R-1655@45, CA-R-1682@41, CA-R-1683@45, CA-R-1701@34, CA-R-1708@39, CA-R-1719@33, CA-R-1765@35, CA-R-1776@40, CA-R-1931@18, CA-R-1993@20, CA-R-1994@15, CA-R-2004@14, CA-R-2225@4, CA-R-2276@6, CA-R-2278@2, CA-R-806@42, CA-R-999@26; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-230@27, CA-E-440@36, CA-E-652@22, CA-M-271@29, CA-M-276@31, CA-R-035@36, CA-R-1058@39, CA-R-1178@28, CA-R-1420@27, CA-R-1552@22, CA-R-1554@23, CA-R-1555@23, CA-R-1556@26, CA-R-1557@21, CA-R-1558@23, CA-R-1559@26, CA-R-1561@28, CA-R-1585@23, CA-R-1589@24, CA-R-1591@28, CA-R-2156@10, CA-R-2158@12, CA-R-2425@4, CA-R-2452@4, CA-R-846@31, CA-R-852@32; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Entity` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-267@28, CA-D-269@28, CA-D-451@21, CA-D-464@25, CA-D-466@22, CA-D-505@18, CA-D-506@18, CA-D-507@17, CA-D-634@23, CA-D-636@16, CA-E-246@47, CA-E-249@36, CA-E-382@49, CA-E-383@46, CA-E-387@27, CA-E-402@33, CA-E-436@30, CA-E-444@34, CA-E-449@44, CA-E-466@28, CA-E-472@30, CA-E-490@24, CA-E-505@22, CA-E-520@32, CA-E-521@22, CA-E-622@53, CA-E-657@8, CA-M-105@27, CA-M-114@43, CA-M-120@43, CA-M-125@47, CA-M-232@34, CA-M-237@33, CA-M-385@25, CA-M-451@4, CA-M-452@3, CA-M-454@5, CA-M-455@4, CA-R-035@36, CA-R-1194@32, CA-R-1199@37, CA-R-1200@40, CA-R-1203@32, CA-R-1245@28, CA-R-1246@34, CA-R-1247@24, CA-R-1250@26, CA-R-1259@24, CA-R-1261@24, CA-R-1262@24, CA-R-1275@32, CA-R-1279@32, CA-R-1280@34, CA-R-1284@27, CA-R-1285@25, CA-R-1286@25, CA-R-1308@27, CA-R-1318@33, CA-R-1321@35, CA-R-1324@27, CA-R-1325@24, CA-R-1348@25, CA-R-1349@21, CA-R-1350@20, CA-R-1351@23, CA-R-1360@28, CA-R-1405@29, CA-R-1406@26, CA-R-1407@28, CA-R-1408@25, CA-R-1409@30, CA-R-1410@22, CA-R-1437@32, CA-R-1455@27, CA-R-1456@39, CA-R-1470@27, CA-R-1471@27, CA-R-1472@28, CA-R-1498@17, CA-R-1500@21, CA-R-1501@21, CA-R-1502@25, CA-R-151@32, CA-R-1521@32, CA-R-1597@20, CA-R-1609@22, CA-R-1616@25, CA-R-1655@45, CA-R-1682@41, CA-R-1683@45, CA-R-1701@34, CA-R-1708@39, CA-R-1719@33, CA-R-1765@35, CA-R-1776@40, CA-R-1931@18, CA-R-1993@20, CA-R-1994@15, CA-R-2004@14, CA-R-2225@4, CA-R-2276@6, CA-R-2278@3, CA-R-806@42, CA-R-999@26; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-230@27, CA-E-440@36, CA-E-652@22, CA-M-271@29, CA-M-276@32, CA-R-035@36, CA-R-1058@39, CA-R-1178@28, CA-R-1420@27, CA-R-1552@22, CA-R-1554@23, CA-R-1555@23, CA-R-1556@26, CA-R-1557@21, CA-R-1558@23, CA-R-1559@26, CA-R-1561@28, CA-R-1585@23, CA-R-1589@24, CA-R-1591@28, CA-R-2156@10, CA-R-2158@12, CA-R-2425@4, CA-R-2452@4, CA-R-846@31, CA-R-852@32; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-230@27, CA-R-1552@22, CA-R-1557@21, CA-R-1558@23, CA-R-846@31, CA-R-852@32; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-292@35, CA-D-375@30, CA-D-376@28, CA-D-383@31, CA-D-494@17, CA-D-497@18, CA-D-657@2, CA-D-658@4, CA-E-207@36, CA-E-208@26, CA-E-209@25, CA-E-228@28, CA-E-229@28, CA-E-230@27, CA-E-241@47, CA-E-249@36, CA-E-379@46, CA-E-383@45, CA-E-437@27, CA-E-438@29, CA-E-440@36, CA-E-441@35, CA-E-443@34, CA-E-448@32, CA-E-471@28, CA-E-473@26, CA-E-474@27, CA-E-489@23, CA-E-491@25, CA-E-494@20, CA-E-495@19, CA-E-497@20, CA-E-505@22, CA-E-520@32, CA-E-522@19, CA-E-523@18, CA-E-652@22, CA-E-666@4, CA-E-667@3, CA-E-668@2, CA-M-093@23, CA-M-094@25, CA-M-095@26, CA-M-096@24, CA-M-097@27, CA-M-098@26, CA-M-099@26, CA-M-100@27, CA-M-105@27, CA-M-139@28, CA-M-263@23, CA-M-266@25, CA-M-271@29, CA-M-276@31, CA-M-279@24, CA-M-295@32, CA-M-296@21, CA-M-297@21, CA-M-304@26, CA-R-004@37, CA-R-028@27, CA-R-1014@40, CA-R-1056@30, CA-R-1057@34, CA-R-1058@39, CA-R-1179@30, CA-R-1181@30, CA-R-1222@25, CA-R-1317@31, CA-R-1356@26, CA-R-1420@27, CA-R-1423@27, CA-R-1424@28, CA-R-1426@25, CA-R-1428@32, CA-R-1440@24, CA-R-1441@26, CA-R-1487@21, CA-R-1489@25, CA-R-1519@25, CA-R-1520@22, CA-R-1525@24, CA-R-1552@22, CA-R-1555@23, CA-R-1556@26, CA-R-1557@21, CA-R-1558@23, CA-R-1559@26, CA-R-1560@19, CA-R-1561@28, CA-R-1587@26, CA-R-1589@24, CA-R-1591@28, CA-R-1629@39, CA-R-1651@33, CA-R-1652@41, CA-R-1730@40, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18, CA-R-1799@20, CA-R-2132@12, CA-R-2156@10, CA-R-2157@10, CA-R-2158@12, CA-R-2425@4, CA-R-2452@4, CA-R-380@44, CA-R-815@35, CA-R-818@28, CA-R-819@38, CA-R-827@32, CA-R-846@31, CA-R-852@32, CA-R-927@41; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-292@35, CA-D-375@30, CA-D-376@28, CA-D-383@31, CA-D-494@17, CA-D-497@18, CA-D-657@3, CA-D-658@4, CA-E-207@36, CA-E-208@26, CA-E-209@25, CA-E-228@28, CA-E-229@28, CA-E-230@27, CA-E-241@47, CA-E-249@36, CA-E-379@46, CA-E-383@46, CA-E-437@27, CA-E-438@29, CA-E-440@36, CA-E-441@35, CA-E-443@34, CA-E-448@33, CA-E-471@28, CA-E-473@26, CA-E-474@27, CA-E-489@23, CA-E-491@25, CA-E-494@20, CA-E-495@19, CA-E-497@20, CA-E-505@22, CA-E-520@32, CA-E-522@19, CA-E-523@18, CA-E-652@22, CA-E-666@4, CA-E-667@3, CA-E-668@2, CA-M-093@23, CA-M-094@25, CA-M-095@26, CA-M-096@24, CA-M-097@27, CA-M-098@26, CA-M-099@26, CA-M-100@27, CA-M-105@27, CA-M-139@28, CA-M-263@23, CA-M-266@25, CA-M-271@29, CA-M-276@32, CA-M-279@24, CA-M-295@32, CA-M-296@21, CA-M-297@21, CA-M-304@26, CA-R-004@37, CA-R-028@27, CA-R-1014@40, CA-R-1056@30, CA-R-1057@34, CA-R-1058@39, CA-R-1179@30, CA-R-1181@30, CA-R-1222@25, CA-R-1317@31, CA-R-1356@26, CA-R-1420@27, CA-R-1423@27, CA-R-1424@28, CA-R-1426@25, CA-R-1428@32, CA-R-1440@24, CA-R-1441@26, CA-R-1487@21, CA-R-1489@25, CA-R-1519@25, CA-R-1520@22, CA-R-1525@25, CA-R-1552@22, CA-R-1555@23, CA-R-1556@26, CA-R-1557@21, CA-R-1558@23, CA-R-1559@26, CA-R-1560@19, CA-R-1561@28, CA-R-1587@26, CA-R-1589@24, CA-R-1591@28, CA-R-1629@39, CA-R-1651@33, CA-R-1652@41, CA-R-1730@40, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18, CA-R-1799@20, CA-R-2132@12, CA-R-2156@10, CA-R-2157@10, CA-R-2158@12, CA-R-2425@4, CA-R-2452@4, CA-R-380@44, CA-R-815@35, CA-R-818@28, CA-R-819@38, CA-R-827@32, CA-R-846@31, CA-R-852@32, CA-R-927@41; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-361@32, CA-D-407@25, CA-D-408@24, CA-D-447@30, CA-D-497@18, CA-E-450@27, CA-E-458@35, CA-E-473@26, CA-M-279@24, CA-M-295@32, CA-R-1226@25, CA-R-1405@29, CA-R-1421@23, CA-R-1429@28, CA-R-1441@26, CA-R-1630@41, CA-R-1640@32, CA-R-1641@33, CA-R-1724@36, CA-R-832@35; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-329@27, CA-D-341@29, CA-D-360@27, CA-D-365@26, CA-D-377@26, CA-D-636@16, CA-R-1051@35, CA-R-1683@45, CA-R-1698@32; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1181@30; keys: active
@@ -1208,7 +1194,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-635@16, CA-D-653@16, CA-E-207@36, CA-E-437@27, CA-E-460@34, CA-E-481@22, CA-E-654@12, CA-E-658@14, CA-M-121@28, CA-M-273@38, CA-M-438@17, CA-R-1271@29, CA-R-1447@25, CA-R-1548@24, CA-R-1550@28, CA-R-1554@23, CA-R-1556@26, CA-R-1568@26, CA-R-1610@25, CA-R-1621@19, CA-R-1682@41, CA-R-1683@45, CA-R-1775@33, CA-R-1943@15, CA-R-2225@4, CA-R-833@29, CA-R-942@32, CA-R-999@26; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1661@32, CA-R-1730@40, CA-R-1756@36, CA-R-1771@30, CA-R-926@39; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-654@12, CA-M-438@17, CA-R-1658@32, CA-R-1661@32, CA-R-1730@40, CA-R-926@39; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-333@35, CA-D-358@26, CA-D-359@28, CA-D-360@27, CA-D-361@32, CA-D-366@30, CA-D-368@29, CA-D-369@28, CA-D-370@26, CA-D-371@24, CA-D-372@27, CA-D-373@25, CA-D-377@26, CA-D-383@31, CA-D-387@27, CA-D-390@27, CA-D-408@24, CA-D-447@30, CA-D-497@18, CA-E-241@47, CA-E-379@46, CA-E-443@34, CA-E-450@27, CA-E-458@35, CA-E-459@39, CA-E-473@26, CA-M-271@29, CA-M-279@24, CA-M-295@32, CA-R-1052@41, CA-R-1207@31, CA-R-1228@35, CA-R-1375@33, CA-R-1404@26, CA-R-1421@23, CA-R-1428@32, CA-R-1429@28, CA-R-1441@26, CA-R-1489@25, CA-R-1587@26, CA-R-1628@41, CA-R-1629@39, CA-R-1630@41, CA-R-1631@34, CA-R-1652@41, CA-R-1724@36, CA-R-1740@41, CA-R-2271@3, CA-R-380@44, CA-R-622@34, CA-R-626@43, CA-R-832@35; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-333@35, CA-D-358@26, CA-D-359@29, CA-D-360@27, CA-D-361@32, CA-D-366@30, CA-D-368@29, CA-D-369@28, CA-D-370@26, CA-D-371@24, CA-D-372@27, CA-D-373@25, CA-D-377@26, CA-D-383@31, CA-D-387@27, CA-D-390@27, CA-D-408@24, CA-D-447@30, CA-D-497@18, CA-E-241@47, CA-E-379@46, CA-E-443@34, CA-E-450@27, CA-E-458@35, CA-E-459@39, CA-E-473@26, CA-M-271@29, CA-M-279@24, CA-M-295@32, CA-R-1052@41, CA-R-1207@31, CA-R-1228@35, CA-R-1375@33, CA-R-1404@26, CA-R-1421@23, CA-R-1428@32, CA-R-1429@28, CA-R-1441@26, CA-R-1489@25, CA-R-1587@26, CA-R-1628@41, CA-R-1629@39, CA-R-1630@41, CA-R-1631@34, CA-R-1652@41, CA-R-1724@36, CA-R-1740@41, CA-R-2271@3, CA-R-380@44, CA-R-622@34, CA-R-626@43, CA-R-832@35; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Artifact Timestamp Timezone` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-390@27; keys: active
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1655@45; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Code-Root Locators` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-371@24; keys: active
@@ -1231,84 +1217,37 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//ID` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-2275@2; keys: active
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Property` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-M-105@27, CA-R-1251@24; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-439@29, CA-M-304@26, CA-R-1528@22, CA-R-853@28; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-486@23, CA-E-494@20, CA-E-495@19, CA-E-497@20, CA-R-1519@25, CA-R-1525@24, CA-R-1528@22, CA-R-1720@38, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-486@23, CA-E-494@20, CA-E-495@19, CA-E-497@20, CA-R-1519@25, CA-R-1525@25, CA-R-1528@22, CA-R-1720@38, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-495@19, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Invocation Context` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-497@20, CA-R-1789@21; keys: active
-- `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-496@24, CA-D-497@18, CA-E-486@23, CA-E-489@23, CA-E-491@25, CA-E-494@20, CA-E-497@20, CA-M-303@26, CA-R-1519@25, CA-R-1520@22, CA-R-1525@24, CA-R-1528@22, CA-R-1720@38, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18, CA-R-2245@8, CA-R-2246@8, CA-R-2255@9; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-496@24, CA-D-497@18, CA-E-486@23, CA-E-489@23, CA-E-491@25, CA-E-494@20, CA-E-497@20, CA-M-303@26, CA-R-1519@25, CA-R-1520@22, CA-R-1525@25, CA-R-1528@22, CA-R-1720@38, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18, CA-R-2245@8, CA-R-2246@8, CA-R-2255@9; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-441@35, CA-E-473@26, CA-E-652@22, CA-M-295@32; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-2255@9; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime/Session` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1650@34; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Property` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-246@47, CA-E-449@44, CA-M-125@47, CA-M-451@4, CA-M-453@3, CA-R-1247@24, CA-R-1259@24, CA-R-1284@27, CA-R-1318@32, CA-R-1931@18, CA-R-2003@16; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Entity/Property` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-246@47, CA-E-449@44, CA-M-125@47, CA-M-451@4, CA-M-453@3, CA-R-1247@24, CA-R-1259@24, CA-R-1284@27, CA-R-1318@33, CA-R-1931@18, CA-R-2003@16; keys: active, passive
 - `CAPRMEDIO_MODEL <+ History` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1644@37; keys: passive
 - `CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology.Member)` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-306@30; keys: passive
-- `CAPRMEDIO_MODEL <+ Step Run` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-496@22; keys: passive
-- `CAPRMEDIO_MODEL <+ Term//Artifact` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-309@27, CA-D-464@25, CA-E-404@27, CA-E-444@34, CA-E-449@44, CA-E-522@19, CA-M-239@25, CA-M-454@4, CA-R-1026@33, CA-R-1220@26, CA-R-1405@29, CA-R-1409@30, CA-R-1410@22, CA-R-1441@26, CA-R-1455@27, CA-R-1499@21, CA-R-1500@21, CA-R-1501@21, CA-R-1521@32, CA-R-1558@23, CA-R-1568@26, CA-R-1609@22, CA-R-1639@38, CA-R-1646@41, CA-R-1655@45, CA-R-1703@40, CA-R-1708@39, CA-R-1720@38, CA-R-1765@35; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Step Run` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-496@23; keys: passive
+- `CAPRMEDIO_MODEL <+ Term//Artifact` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-309@27, CA-D-464@25, CA-E-404@27, CA-E-444@34, CA-E-449@44, CA-E-522@19, CA-M-239@25, CA-M-454@5, CA-R-1026@33, CA-R-1220@26, CA-R-1405@29, CA-R-1409@30, CA-R-1410@22, CA-R-1441@26, CA-R-1455@27, CA-R-1499@21, CA-R-1500@21, CA-R-1501@21, CA-R-1521@32, CA-R-1558@23, CA-R-1568@26, CA-R-1609@22, CA-R-1639@38, CA-R-1646@41, CA-R-1655@45, CA-R-1703@40, CA-R-1708@39, CA-R-1720@38, CA-R-1765@35; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Term//Change Content Roles` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-M-455@4; keys: active
-- `CAPRMEDIO_MODEL <+ Term//Empty` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-M-449@3, CA-R-1318@32, CA-R-1319@28; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Term//Entity` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-444@34, CA-M-451@4, CA-R-1318@32; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Term//ID` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-659@3, CA-M-450@4, CA-R-1318@32, CA-R-1319@28; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Term//Property` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-479@29, CA-D-485@26, CA-D-505@18, CA-D-506@18, CA-E-246@47, CA-E-383@45, CA-E-402@33, CA-E-403@36, CA-E-443@34, CA-E-449@44, CA-E-505@22, CA-E-520@32, CA-M-125@47, CA-M-237@33, CA-M-271@29, CA-M-453@3, CA-R-1245@28, CA-R-1247@24, CA-R-1318@32, CA-R-1321@35, CA-R-1346@28, CA-R-1358@35, CA-R-1359@30, CA-R-1428@32, CA-R-1489@25, CA-R-1502@25, CA-R-1931@18, CA-R-2003@16; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Term//Term` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-M-125@47, CA-M-452@3, CA-R-1318@32; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Term//Empty` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-M-449@3, CA-R-1318@33, CA-R-1319@28; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Term//Entity` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-444@34, CA-M-451@4, CA-R-1318@33; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Term//ID` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-659@3, CA-M-450@4, CA-R-1318@33, CA-R-1319@28; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Term//Object` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-M-458@3; keys: active
+- `CAPRMEDIO_MODEL <+ Term//Property` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-479@30, CA-D-485@26, CA-D-505@18, CA-D-506@18, CA-E-246@47, CA-E-383@46, CA-E-402@33, CA-E-403@36, CA-E-443@34, CA-E-449@44, CA-E-505@22, CA-E-520@32, CA-M-125@47, CA-M-237@33, CA-M-271@29, CA-M-453@3, CA-R-1245@28, CA-R-1247@24, CA-R-1318@33, CA-R-1321@35, CA-R-1346@28, CA-R-1358@35, CA-R-1359@30, CA-R-1428@32, CA-R-1489@25, CA-R-1502@25, CA-R-1931@18, CA-R-2003@16; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Term//Term` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-M-125@47, CA-M-452@3, CA-R-1318@33; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Term//Type` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1284@27, CA-R-1348@25; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Workflow Run` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-496@22; keys: passive
-- `CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-379@46, CA-R-1207@31, CA-R-1226@25, CA-R-1228@35, CA-R-1286@25, CA-R-1313@27, CA-R-1375@33, CA-R-1515@25, CA-R-1724@36, CA-R-1748@37, CA-R-1874@19, CA-R-1875@22; keys: passive
-- `CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-253@30, CA-E-379@46, CA-E-487@28, CA-E-488@25, CA-R-1176@26, CA-R-1228@35, CA-R-1315@31, CA-R-1517@18, CA-R-1518@25, CA-R-1800@19; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-207@36, CA-M-297@21; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-207@36, CA-M-297@21, CA-R-1487@21, CA-R-815@35; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Property Occurrences` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-2003@16; keys: passive
-- `CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-654@12, CA-M-438@17, CA-R-2149@14, CA-R-808@34; keys: passive
+- `CAPRMEDIO_MODEL <+ Workflow Run` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-496@23; keys: passive
 
 ## Informational outside required scope
 
-- `CAPRMEDIO_MODEL <+ CFEL` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-M-228@36, CA-M-457@2, CA-R-1194@32, CA-R-1247@24, CA-R-1284@27, CA-R-1321@35, CA-R-1931@18, CA-R-2243@11, CA-R-2471@6, CA-R-2472@8, CA-R-2487@9, CA-R-2548@2, CA-R-2549@2, CA-R-2550@2, CA-R-2551@2, CA-R-2552@2, CA-R-2561@2, CA-R-2562@2, CA-R-2563@2, CA-R-2566@2, CA-R-2585@2, CA-R-2588@3; keys: active, passive
-- `CAPRMEDIO_MODEL <+ CFEL <+ Cardinality` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2243@11, CA-R-2327@5; keys: active
-- `CAPRMEDIO_MODEL <+ CFEL <+ Format` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2248@4, CA-R-2249@5, CA-R-2250@5, CA-R-2251@5, CA-R-2252@5, CA-R-2253@5, CA-R-2254@5; keys: active, passive
-- `CAPRMEDIO_MODEL <+ CFEL <+ Format/bool` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2249@5, CA-R-2685@1; keys: active, passive
-- `CAPRMEDIO_MODEL <+ CFEL <+ Format/datetime` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2254@5; keys: active
-- `CAPRMEDIO_MODEL <+ CFEL <+ Format/decimal` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2252@5; keys: active
-- `CAPRMEDIO_MODEL <+ CFEL <+ Format/float` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2251@5; keys: active
-- `CAPRMEDIO_MODEL <+ CFEL <+ Format/int` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2250@5, CA-R-2686@1; keys: active, passive
-- `CAPRMEDIO_MODEL <+ CFEL <+ Format/scalar` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2257@4; keys: active
-- `CAPRMEDIO_MODEL <+ CFEL <+ Format/string` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2253@5; keys: active
-- `CAPRMEDIO_MODEL <+ CFEL <+ Relation` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-266@29, CA-D-268@30, CA-D-471@24, CA-D-505@18, CA-D-634@23, CA-E-246@47, CA-E-382@49, CA-E-404@27, CA-E-436@30, CA-E-444@34, CA-E-449@44, CA-E-620@34, CA-E-622@53, CA-M-120@43, CA-M-228@36, CA-M-239@25, CA-M-313@26, CA-M-385@25, CA-R-1023@27, CA-R-1024@28, CA-R-1025@28, CA-R-1026@33, CA-R-1027@28, CA-R-1029@27, CA-R-1030@27, CA-R-1032@28, CA-R-1038@28, CA-R-1039@28, CA-R-1040@31, CA-R-117@31, CA-R-118@35, CA-R-1194@32, CA-R-121@31, CA-R-1246@34, CA-R-1275@32, CA-R-1351@23, CA-R-1409@30, CA-R-1410@22, CA-R-1437@32, CA-R-1454@32, CA-R-1455@27, CA-R-1456@39, CA-R-1472@28, CA-R-1563@27, CA-R-1620@21, CA-R-1632@35, CA-R-1657@33, CA-R-1659@31, CA-R-1676@37, CA-R-1697@36, CA-R-1699@37, CA-R-1702@49, CA-R-1735@28, CA-R-2247@6, CA-R-806@42, CA-R-807@34, CA-R-808@34, CA-R-879@32, CA-R-881@35, CA-R-915@33, CA-R-916@37, CA-R-934@31, CA-R-935@37, CA-R-945@38, CA-R-976@31; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-304@30, CA-D-309@27, CA-D-311@27, CA-D-312@28, CA-D-320@24, CA-D-324@29, CA-D-333@35, CA-D-338@29, CA-D-340@33, CA-D-341@29, CA-D-346@36, CA-D-347@29, CA-D-368@29, CA-D-377@26, CA-D-381@23, CA-D-388@23, CA-D-389@27, CA-D-390@27, CA-D-393@23, CA-D-394@23, CA-D-395@24, CA-D-396@23, CA-D-399@25, CA-D-400@25, CA-D-401@24, CA-D-402@27, CA-D-404@28, CA-D-405@21, CA-D-408@24, CA-D-434@25, CA-D-435@25, CA-D-442@26, CA-D-447@30, CA-D-451@21, CA-D-453@20, CA-D-454@20, CA-D-457@26, CA-D-463@26, CA-D-466@22, CA-D-467@28, CA-D-469@24, CA-D-499@13, CA-D-500@15, CA-D-501@15, CA-D-502@13, CA-D-503@13, CA-D-504@14, CA-D-505@18, CA-D-506@18, CA-D-549@19, CA-D-550@20, CA-D-559@19, CA-D-581@17, CA-D-636@16, CA-D-651@13, CA-D-653@16, CA-D-654@3, CA-D-666@1, CA-E-230@27, CA-E-443@34, CA-E-449@44, CA-E-450@27, CA-E-460@34, CA-E-462@33, CA-E-465@26, CA-E-471@28, CA-E-476@23, CA-E-490@24, CA-E-496@22, CA-E-502@29, CA-E-513@23, CA-E-521@22, CA-E-522@19, CA-E-523@18, CA-E-588@20, CA-E-658@14, CA-E-661@4, CA-M-273@38, CA-M-313@26, CA-M-445@4, CA-M-454@4, CA-R-1213@40, CA-R-1409@30, CA-R-1432@27, CA-R-1447@25, CA-R-1456@39, CA-R-1460@22, CA-R-1470@27, CA-R-1491@29, CA-R-1521@32, CA-R-1548@24, CA-R-1556@26, CA-R-1593@25, CA-R-1633@43, CA-R-1642@33, CA-R-1643@40, CA-R-1644@37, CA-R-1646@41, CA-R-1720@38, CA-R-1779@17, CA-R-1788@18, CA-R-1873@20, CA-R-1958@15, CA-R-1993@20, CA-R-644@25; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier.Canonical Address` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-267@27, CA-D-296@29, CA-D-336@30, CA-D-483@23, CA-D-565@20, CA-E-448@32, CA-M-276@31, CA-R-1788@18, CA-R-1949@11; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier.Canonical Address.Segment` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-289@24, CA-D-290@26, CA-D-301@29, CA-D-352@25, CA-R-1948@12; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier.Format` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-388@23, CA-D-507@16, CA-R-1950@12; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier.ID` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-1951@12, CA-R-1981@16; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/Database` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-1955@11; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/Directory` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-264@29, CA-D-266@29, CA-D-296@29, CA-D-318@25, CA-D-321@22, CA-D-322@21, CA-D-323@20, CA-D-324@29, CA-D-325@25, CA-D-327@23, CA-D-331@24, CA-D-352@25, CA-D-370@26, CA-D-451@21, CA-D-452@19, CA-D-460@25, CA-D-464@25, CA-D-467@28, CA-D-475@24, CA-D-550@20, CA-E-500@28, CA-E-502@29, CA-M-273@38, CA-R-1956@11; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier/Directory.Name` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-667@1, CA-R-1952@12; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/Directory.Numeric Prefix` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-1953@13; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/Directory.Path` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-1954@12; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/Docker Image` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2198@5; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/File` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-305@32, CA-D-326@27, CA-D-328@23, CA-D-330@27, CA-D-337@21, CA-D-339@29, CA-D-346@36, CA-D-356@23, CA-D-359@28, CA-D-363@28, CA-D-407@25, CA-D-416@29, CA-D-452@19, CA-D-460@25, CA-D-463@26, CA-D-470@29, CA-D-472@29, CA-D-473@25, CA-D-478@31, CA-D-479@29, CA-D-480@23, CA-D-495@27, CA-D-496@24, CA-E-407@30, CA-E-457@34, CA-E-502@29, CA-E-506@28, CA-M-241@28, CA-M-295@32, CA-M-306@32, CA-R-1598@25, CA-R-1957@11, CA-R-2269@3, CA-R-2456@3, CA-R-621@17; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier/File.Extension` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-507@16, CA-R-1974@12; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier/File.Filename` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-283@32, CA-D-284@25, CA-D-287@28, CA-D-342@28, CA-D-363@28, CA-D-364@29, CA-D-469@24, CA-D-498@13, CA-D-581@17, CA-D-650@12, CA-R-1975@12; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier/File.Filename.Scope Unit Token` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-302@28, CA-R-2345@2; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/File.Format` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-262@27, CA-D-359@28, CA-D-363@28, CA-R-2346@2, CA-R-2456@3; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier/File.Main Content` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-277@24, CA-D-338@29, CA-D-340@33, CA-D-357@21, CA-D-435@25, CA-D-478@31, CA-D-479@29, CA-E-465@26, CA-E-496@22, CA-R-1643@40, CA-R-2347@2, CA-R-2457@3; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier/File.Main Content.CCE Operator` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-280@27, CA-E-512@27, CA-M-229@33, CA-R-2348@2; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier/File.Main Content.Paragraph` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-279@25, CA-R-2349@2; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/File.Path` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-1976@12; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/File.YAML Frontmatter` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-267@27, CA-D-357@21, CA-D-478@31, CA-D-657@2, CA-R-2350@4, CA-R-2457@3; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier/File.YAML Frontmatter.Scalar` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-277@24, CA-R-2351@2; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/File/Markdown` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-663@2, CA-R-2456@3, CA-R-2457@3; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Carrier/File/Markdown/Markdown Atom Carrier` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2457@3; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/Git Branch` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2200@5; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/Git Commit` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2199@5; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/Git Index` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2202@5; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/Git Repository` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2203@6; keys: active
-- `CAPRMEDIO_MODEL <+ Carrier/Pull Request` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-2201@5; keys: active
-- `CAPRMEDIO_MODEL <+ Term` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-D-655@3, CA-E-246@47, CA-E-382@49, CA-E-383@45, CA-E-444@34, CA-E-449@44, CA-E-472@30, CA-E-512@27, CA-E-659@3, CA-M-114@43, CA-M-125@47, CA-M-229@33, CA-M-294@27, CA-M-313@26, CA-M-439@3, CA-M-444@5, CA-M-449@3, CA-M-450@4, CA-M-451@4, CA-M-452@3, CA-M-453@3, CA-M-454@4, CA-M-455@4, CA-R-1194@32, CA-R-1244@33, CA-R-1275@32, CA-R-1279@32, CA-R-1318@32, CA-R-1319@28, CA-R-1320@26, CA-R-1321@35, CA-R-1325@24, CA-R-1346@28, CA-R-1347@29, CA-R-1348@25, CA-R-1454@32, CA-R-1455@27, CA-R-1456@39, CA-R-2276@6; keys: active, passive
-- `CAPRMEDIO_MODEL <+ Term.Name` — no Requirement Declaration; existing Entity Definition; outside R2469 required scope; pins: CA-R-1318@32, CA-R-1324@27, CA-R-2415@3; keys: active, passive
 
 ## Unresolved coverage needing review
 
 - `CAPRMEDIO_MODEL <+ (Node, Node/**, .**)` — Unsupported Subject: unterminated logical group; pins: CA-R-2469@4, CA-R-2470@2; keys: active
-- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-D-457@26, CA-E-474@27, CA-E-486@23, CA-E-488@25, CA-E-489@23, CA-E-491@25, CA-E-494@20, CA-E-495@19, CA-E-497@20, CA-E-513@23, CA-E-652@22, CA-E-658@14, CA-E-661@4, CA-M-303@26, CA-M-304@26, CA-M-305@22, CA-M-314@24, CA-R-1312@28, CA-R-1518@25, CA-R-1519@25, CA-R-1520@22, CA-R-1525@24, CA-R-1528@22, CA-R-1554@23, CA-R-1563@27, CA-R-1565@21, CA-R-1702@49, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18, CA-R-1800@19, CA-R-1991@13; keys: passive
+- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-D-457@26, CA-E-474@27, CA-E-486@23, CA-E-488@25, CA-E-489@23, CA-E-491@25, CA-E-494@20, CA-E-495@19, CA-E-497@20, CA-E-513@23, CA-E-652@22, CA-E-658@14, CA-E-661@4, CA-M-303@26, CA-M-304@26, CA-M-305@22, CA-M-314@24, CA-R-1312@28, CA-R-1518@25, CA-R-1519@25, CA-R-1520@22, CA-R-1525@25, CA-R-1528@22, CA-R-1554@23, CA-R-1563@27, CA-R-1565@21, CA-R-1702@49, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18, CA-R-1800@19, CA-R-1991@13; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow) {:1+}<+ Atom/(.Header.Role: Operations)/(.Header.Form: Step)` — Unsupported Subject: cardinality must be {n}, {n+}, or {n..m}; pins: CA-M-444@5; keys: passive
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-D-264@29, CA-D-269@28, CA-D-304@30, CA-E-466@28, CA-E-481@22, CA-E-506@28, CA-E-624@38, CA-E-666@4, CA-M-306@32, CA-R-035@36, CA-R-1016@32, CA-R-1017@31, CA-R-1019@30, CA-R-1020@30, CA-R-1021@30, CA-R-1022@32, CA-R-1033@28, CA-R-1034@26, CA-R-1035@26, CA-R-1036@26, CA-R-1037@26, CA-R-1199@37, CA-R-1200@40, CA-R-1276@25, CA-R-1408@25, CA-R-1471@27, CA-R-1578@25, CA-R-1593@25, CA-R-1598@25, CA-R-1616@25, CA-R-1654@38, CA-R-1993@20, CA-R-2170@10, CA-R-960@28, CA-R-992@36; keys: passive
+- `CAPRMEDIO_MODEL <+ CFEL > Relation` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-D-264@29, CA-D-269@28, CA-D-304@30, CA-E-466@28, CA-E-481@22, CA-E-506@28, CA-E-624@38, CA-E-666@4, CA-M-306@32, CA-R-035@36, CA-R-1016@32, CA-R-1017@31, CA-R-1019@30, CA-R-1020@31, CA-R-1021@31, CA-R-1022@32, CA-R-1033@28, CA-R-1034@26, CA-R-1035@26, CA-R-1036@26, CA-R-1037@26, CA-R-1199@37, CA-R-1200@40, CA-R-1276@25, CA-R-1408@25, CA-R-1471@27, CA-R-1578@25, CA-R-1593@25, CA-R-1598@25, CA-R-1616@25, CA-R-1654@38, CA-R-1993@20, CA-R-2170@10, CA-R-960@28, CA-R-992@36; keys: passive
 - `CAPRMEDIO_MODEL <+ CFEL > Relation//CARRIES` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-D-636@16, CA-D-654@3; keys: passive
 - `CAPRMEDIO_MODEL <+ CFEL > Relation//CONTAINS` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-R-1498@17; keys: passive
 - `CAPRMEDIO_MODEL <+ CFEL > Relation//DEPENDS_ON` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-D-269@28, CA-R-1202@30, CA-R-1276@25, CA-R-1278@23, CA-R-1580@27; keys: passive
@@ -1316,8 +1255,29 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ CFEL > Relation//GOVERNS` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-D-269@28, CA-R-1202@30, CA-R-1203@32, CA-R-1276@25, CA-R-2100@8; keys: passive
 - `CAPRMEDIO_MODEL <+ CFEL > Relation//NARROWER_THAN` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-D-416@29; keys: passive
 - `CAPRMEDIO_MODEL <+ CFEL > Relation//evaluation_for` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-M-264@29, CA-M-265@26, CA-R-1518@25; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-D-308@26, CA-D-339@29, CA-D-360@27, CA-D-365@26, CA-D-654@3, CA-E-379@46, CA-E-474@27, CA-E-476@23, CA-E-486@23, CA-E-523@18, CA-E-624@38, CA-E-666@4, CA-R-047@37, CA-R-1317@31, CA-R-1463@26, CA-R-1491@29, CA-R-1497@24, CA-R-1505@27, CA-R-1528@22, CA-R-1649@33, CA-R-1682@41, CA-R-1683@45, CA-R-1692@38, CA-R-1702@49, CA-R-2246@8; keys: passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-D-308@26, CA-D-339@29, CA-D-360@27, CA-D-365@26, CA-D-654@3, CA-E-379@46, CA-E-474@27, CA-E-476@23, CA-E-486@23, CA-E-523@18, CA-E-624@38, CA-E-666@4, CA-R-047@37, CA-R-1317@31, CA-R-1463@26, CA-R-1491@29, CA-R-1497@24, CA-R-1505@27, CA-R-1528@22, CA-R-1649@34, CA-R-1682@41, CA-R-1683@45, CA-R-1692@38, CA-R-1702@49, CA-R-2246@8; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package > Prompt` — Unsupported Subject: unexpected reserved character or trailing expression; pins: CA-R-1560@19; keys: passive
+- `Atom` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-D-669@1, CA-R-1430@27, CA-R-1750@41; keys: depends_on, governs
+- `Atom.Content` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-D-669@1; keys: depends_on
+- `Atom/(.Role := Delivery)` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-R-2690@1; keys: depends_on
+- `CAPRMEDIO_STRUCTURE` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-R-2483@6; keys: active
+- `Carrier` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-D-670@1, CA-E-671@1, CA-E-672@1; keys: depends_on
+- `Carrier/Directory` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-D-671@1, CA-R-2690@1; keys: depends_on
+- `Entity/Object/Continuant/Actor/Operator` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-E-621@37, CA-R-1750@41; keys: depends_on
+- `Entity/Object/Continuant/Governing Objects/Governing Configuration` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-E-006@40, CA-R-1750@41; keys: depends_on
+- `Entity/Object/Continuant/History` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-D-670@1; keys: depends_on
+- `Entity/Object/Continuant/Structural Unit/Scope Unit.Children` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-R-2689@1; keys: depends_on
+- `Entity/Object/Continuant/Structural Unit/Scope Unit.Parent` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-R-2689@1; keys: depends_on
+- `Journal` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-D-670@1; keys: depends_on
+- `Project` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-E-671@1, CA-R-1430@27; keys: depends_on
+- `Project.Framework Settings` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-D-669@1, CA-E-671@1; keys: depends_on
+- `Project.Settings` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-D-669@1, CA-E-006@40, CA-E-621@37, CA-E-671@1, CA-R-1430@27, CA-R-1750@41; keys: depends_on, governs
+- `Project.Settings.Authority Modes` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-D-668@2, CA-R-1430@27, CA-R-2632@2; keys: governs
+- `Project.Settings.Name` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-R-1750@41; keys: depends_on
+- `Project.Settings.Prefix` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-R-1750@41; keys: depends_on
+- `Scope Unit` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-D-670@1, CA-D-671@1, CA-E-671@1, CA-E-672@1, CA-R-1430@27, CA-R-2689@1, CA-R-2690@1; keys: depends_on, governs
+- `Scope Unit.Path` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-R-2689@1; keys: governs
+- `{'Entity/Object/Continuant/Projection/Type': 'Scope Unit Graph'}` — Subject lacks an explicit parseable MODEL namespace; review required.; pins: CA-E-672@1; keys: depends_on
 - `CAPRMEDIO_MODEL` — Subject is not one direct known target; review required.; pins: CA-R-2559@2; keys: active
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record` — Subject is not one direct known target; review required.; pins: CA-E-522@19, CA-R-1720@38; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module` — Subject is not one direct known target; review required.; pins: CA-E-382@49, CA-E-444@34, CA-E-472@30, CA-R-1321@35; keys: passive
@@ -1335,35 +1295,3 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Terms Graph` — Subject is not one direct known target; review required.; pins: CA-R-1345@29; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode:silent` — Subject is not one direct known target; review required.; pins: CA-M-277@33; keys: active
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode:verbose` — Subject is not one direct known target; review required.; pins: CA-M-278@30; keys: active
-- `CAPRMEDIO_STRUCTURE` — Subject is not one direct known target; review required.; pins: CA-R-2483@6; keys: active
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Documentation Aspect` — Subject is not one direct known target; review required.; pins: CA-R-1179@30; keys: active
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering` — Subject is not one direct known target; review required.; pins: CA-R-1178@28, CA-R-1355@24, CA-R-1356@26, CA-R-1407@28, CA-R-1554@23, CA-R-1795@15, CA-R-1796@15, CA-R-1798@16, CA-R-1800@19; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Communication` — Subject is not one direct known target; review required.; pins: CA-E-483@21, CA-M-277@33, CA-M-278@30; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure` — Subject is not one direct known target; review required.; pins: CA-E-436@30, CA-E-487@28, CA-R-1407@28, CA-R-1466@23, CA-R-1514@27, CA-R-1515@25, CA-R-1800@19; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring` — Subject is not one direct known target; review required.; pins: CA-M-138@29, CA-M-233@31, CA-M-298@26, CA-M-442@5, CA-M-443@4; keys: active
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English` — Subject is not one direct known target; review required.; pins: CA-D-280@27, CA-D-346@36, CA-E-384@42, CA-E-407@30, CA-E-472@30, CA-E-512@27, CA-E-520@32, CA-M-112@29, CA-M-113@42, CA-M-122@30, CA-M-123@31, CA-M-127@31, CA-M-229@33, CA-M-230@25, CA-M-233@31, CA-M-234@24, CA-M-235@24, CA-M-236@24, CA-M-241@28, CA-M-294@27, CA-M-299@20, CA-M-307@29, CA-M-308@25, CA-M-309@23, CA-M-310@25, CA-M-311@25, CA-M-312@24, CA-M-314@24, CA-M-315@26, CA-M-442@5, CA-M-443@4, CA-M-444@5, CA-R-1297@28, CA-R-2276@6; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring` — Subject is not one direct known target; review required.; pins: CA-M-304@26, CA-R-1354@24; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling` — Subject is not one direct known target; review required.; pins: CA-R-1627@31; keys: active
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation` — Subject is not one direct known target; review required.; pins: CA-E-405@31, CA-E-407@30, CA-M-240@30, CA-M-241@28, CA-R-1360@28, CA-R-1717@32; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation` — Subject is not one direct known target; review required.; pins: CA-E-383@45, CA-E-405@31, CA-M-315@26, CA-R-1650@34; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Output Publication` — Subject is not one direct known target; review required.; pins: CA-D-346@36, CA-D-559@19; keys: passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Parsing` — Subject is not one direct known target; review required.; pins: CA-M-122@30, CA-M-240@30, CA-R-1360@28; keys: passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Serialization` — Subject is not one direct known target; review required.; pins: CA-D-339@29, CA-D-361@32, CA-D-372@27, CA-D-388@23; keys: passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Source Selection` — Subject is not one direct known target; review required.; pins: CA-R-1175@25, CA-R-1769@36, CA-R-622@34; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control` — Subject is not one direct known target; review required.; pins: CA-R-1678@31; keys: active
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence` — Subject is not one direct known target; review required.; pins: CA-D-368@29, CA-D-369@28, CA-D-472@29, CA-D-485@26, CA-E-241@47, CA-E-440@36, CA-E-443@34, CA-E-448@32, CA-E-471@28, CA-E-501@30, CA-E-652@22, CA-E-666@4, CA-M-271@29, CA-M-276@31, CA-M-306@32, CA-R-035@36, CA-R-1044@33, CA-R-1045@27, CA-R-1428@32, CA-R-1555@23, CA-R-1559@26, CA-R-1561@28, CA-R-1587@26, CA-R-1591@28, CA-R-1652@41, CA-R-1713@28, CA-R-2425@4, CA-R-380@44; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization` — Subject is not one direct known target; review required.; pins: CA-E-207@36, CA-E-230@27, CA-M-095@26, CA-M-097@27, CA-M-098@26, CA-M-099@26, CA-M-100@27, CA-M-266@25, CA-R-1206@28, CA-R-1354@24, CA-R-1356@26, CA-R-1555@23, CA-R-1560@19, CA-R-1561@28, CA-R-1641@33, CA-R-1679@31, CA-R-1755@30, CA-R-2158@12, CA-R-2425@4, CA-R-846@31; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Failure Handling` — Subject is not one direct known target; review required.; pins: CA-E-441@35, CA-R-1784@14; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability` — Subject is not one direct known target; review required.; pins: CA-R-1426@25, CA-R-1785@14; keys: active
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging` — Subject is not one direct known target; review required.; pins: CA-D-396@23, CA-D-500@15, CA-D-501@15, CA-R-1779@17, CA-R-1780@14, CA-R-1781@14, CA-R-1782@15, CA-R-1783@14, CA-R-1785@14; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Monitoring` — Subject is not one direct known target; review required.; pins: CA-R-1786@14; keys: active
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability` — Subject is not one direct known target; review required.; pins: CA-E-436@30, CA-E-474@27, CA-E-488@25, CA-E-588@20, CA-E-622@53, CA-E-624@38, CA-M-120@43, CA-M-135@32, CA-M-345@20, CA-R-007@33, CA-R-1226@25, CA-R-1437@32, CA-R-1505@27, CA-R-1611@28, CA-R-1616@25, CA-R-1633@43, CA-R-1646@41, CA-R-1687@34, CA-R-1692@38, CA-R-1695@38, CA-R-1703@40; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification` — Subject is not one direct known target; review required.; pins: CA-E-001@35, CA-E-206@26, CA-E-439@29, CA-R-1503@23, CA-R-1506@21, CA-R-1518@25, CA-R-1612@26, CA-R-1635@42, CA-R-1742@30, CA-R-1787@14, CA-R-637@15; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Coverage` — Subject is not one direct known target; review required.; pins: CA-R-1504@25; keys: active
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Dynamic Testing` — Subject is not one direct known target; review required.; pins: CA-E-230@27; keys: passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Static Analysis` — Subject is not one direct known target; review required.; pins: CA-E-435@26; keys: active
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Test Design` — Subject is not one direct known target; review required.; pins: CA-E-442@26, CA-E-652@22, CA-M-270@29; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Product` — Subject is not one direct known target; review required.; pins: CA-E-228@28, CA-E-229@28, CA-E-437@27, CA-E-520@32, CA-M-094@25, CA-M-138@29, CA-M-139@28, CA-M-263@23, CA-R-004@37, CA-R-007@33, CA-R-024@29, CA-R-028@27, CA-R-035@36, CA-R-047@37, CA-R-053@28, CA-R-1056@30, CA-R-1057@34, CA-R-1058@39, CA-R-1174@27, CA-R-1179@30, CA-R-1180@29, CA-R-1181@30, CA-R-1420@27, CA-R-1423@27, CA-R-1424@28, CA-R-1645@39, CA-R-1736@33, CA-R-1772@37, CA-R-1776@40, CA-R-1778@30, CA-R-1799@20, CA-R-2444@5, CA-R-2445@6, CA-R-2448@5, CA-R-2452@4, CA-R-632@29, CA-R-633@21, CA-R-634@22, CA-R-686@32, CA-R-815@35, CA-R-818@28, CA-R-819@38, CA-R-826@22, CA-R-827@32, CA-R-831@28, CA-R-832@35, CA-R-846@31; keys: active, passive
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Text Writing Style` — Subject is not one direct known target; review required.; pins: CA-M-445@4; keys: active
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ UX <+ Discovery and Navigation` — Subject is not one direct known target; review required.; pins: CA-R-1355@24; keys: active
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ UX <+ Entry` — Subject is not one direct known target; review required.; pins: CA-D-344@23, CA-R-1354@24, CA-R-1355@24, CA-R-1637@33, CA-R-1641@33; keys: active, passive

@@ -25,7 +25,9 @@ Declare Atom.Content.Semantics
 ### Formal Claim
 
 ```CFEL
+# model
 Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
+
 Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
 ```
 

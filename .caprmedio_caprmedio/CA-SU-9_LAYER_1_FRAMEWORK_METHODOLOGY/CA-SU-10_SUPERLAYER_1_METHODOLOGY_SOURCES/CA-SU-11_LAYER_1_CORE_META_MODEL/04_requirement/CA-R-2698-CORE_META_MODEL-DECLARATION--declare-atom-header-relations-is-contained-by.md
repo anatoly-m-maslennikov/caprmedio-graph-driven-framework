@@ -25,6 +25,8 @@ Declare Atom.Header.Relations.IS_CONTAINED_BY
 ### Formal Claim
 
 ```CFEL
+# model
 Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
+
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```

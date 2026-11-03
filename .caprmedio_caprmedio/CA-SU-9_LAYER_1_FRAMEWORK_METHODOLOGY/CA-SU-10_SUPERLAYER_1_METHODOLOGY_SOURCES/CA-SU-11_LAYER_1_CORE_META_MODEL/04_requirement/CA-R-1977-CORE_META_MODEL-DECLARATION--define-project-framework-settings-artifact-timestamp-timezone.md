@@ -23,7 +23,9 @@ Define Project.Framework Settings.Artifact Timestamp Timezone
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.Artifact Timestamp Timezone{:0..1}: [string]{:1};
+
 Project.Settings.Artifact Timestamp Timezone.*[]{:0}
 ```
 

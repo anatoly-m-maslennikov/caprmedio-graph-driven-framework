@@ -21,6 +21,7 @@ Define Git Repository Carrier
 ### Formal Claim
 
 ```CFEL
+# model
 Carrier/Git Repository
 ```
 

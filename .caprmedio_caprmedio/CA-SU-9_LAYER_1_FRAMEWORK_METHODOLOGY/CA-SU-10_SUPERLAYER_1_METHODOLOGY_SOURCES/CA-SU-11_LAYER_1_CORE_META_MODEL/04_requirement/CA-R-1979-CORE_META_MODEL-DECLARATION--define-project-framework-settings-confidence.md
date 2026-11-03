@@ -23,7 +23,9 @@ Define Project.Framework Settings.Confidence
 ### Formal Claim
 
 ```CFEL
+# model
 Project.Settings.Confidence{:0..1}: []{:0};
+
 Project.Settings.Confidence.*[in (Necessary Information Threshold, Semantic Resolution Threshold)]{:0..2}
 ```
 

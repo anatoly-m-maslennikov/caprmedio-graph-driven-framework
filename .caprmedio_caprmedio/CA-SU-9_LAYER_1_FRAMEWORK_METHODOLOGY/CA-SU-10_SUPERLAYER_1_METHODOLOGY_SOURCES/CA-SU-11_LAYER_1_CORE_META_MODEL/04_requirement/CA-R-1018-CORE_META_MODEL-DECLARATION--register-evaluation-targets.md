@@ -32,9 +32,11 @@ Register Evaluation targets
 ### Formal Claim
 
 ```CFEL
+# model
 Relation//evaluation_for ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-Atom/(.Header.Role: Evaluation)// ((evaluation_for)) Atom//
+# instances
+Atom/(.Header.Role: Evaluation)//$atom ((evaluation_for)) Atom//$atom_2
 ```
 
 ### Prose Claim

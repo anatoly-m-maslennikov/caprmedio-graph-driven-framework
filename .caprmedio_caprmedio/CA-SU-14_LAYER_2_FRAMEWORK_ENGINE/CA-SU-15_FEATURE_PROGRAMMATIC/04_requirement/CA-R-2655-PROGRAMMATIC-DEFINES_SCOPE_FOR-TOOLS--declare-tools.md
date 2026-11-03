@@ -19,10 +19,15 @@ Declare TOOLS
 ### Formal Claim
 
 ```CFEL
+# instances
 Scope Unit//TOOLS.ID == "CA-SU-16";
+
 Scope Unit//TOOLS.Name == "TOOLS";
+
 Scope Unit//TOOLS.Label == "FEATURE";
+
 Scope Unit//TOOLS.order.ordered == false;
+
 Scope Unit//TOOLS ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC
 ```
 
