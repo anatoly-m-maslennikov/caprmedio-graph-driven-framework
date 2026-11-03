@@ -7,5 +7,5 @@
 
 Declaration discovery itself reads all 44 Current sources, with the unchanged digest. These observations do not claim live MCP deployment or complete admission of this Project's current rule set.
 
-- **Docker lifecycle reversion (W10):** its reviewed expected-result hash forecasts a fixed Updated At, but the actual immutable-image worker uses real time. The resulting partial failure is truthful. Decide the supported forecast/clock contract in the Engine work; this cutover adds no clock setting or weaker effect verification.
+- **Docker lifecycle reversion (W10):** resolved in Local release `0.4.4.11`. Result comparison excludes the generated Updated At and its derived byte digest, validates the real timestamp, and retains exact input/evidence checks. The native Docker journey and the full 4,001-test suite passed. No clock setting was added.
 - **Queue admission:** the demonstrated immediate post-enqueue status lookup was removed. A confirmed enqueue now returns the existing queued receipt; subsequent status stays strict. Focused admission/status tests passed; a fresh Docker query check is still required.

@@ -1,6 +1,6 @@
 {
   "readiness": "Scope retirement Done; fresh focused Docker query/status and launcher passed. Verification/Epic remain Active for explicit Engine W10 and Current-authority gaps.",
-  "git_owner": "CA #8 local release; Operator requested Local release on 2026-11-03; CA #5 source promotion completed and is idle",
+  "git_owner": "CA #8 final Local-release verification commit; source promotion chat idle",
   "folder_mapping": ".caprmedio_tmp/declaration-folder-migration/scope-unit-folder-mapping.json",
   "physical_moves": "Applied; 71553 files moved via reviewed longest-prefix mapping",
   "source_publications": [
@@ -8,9 +8,7 @@
     ".caprmedio_tmp/declaration-source-cutover/model-publication-result.json",
     ".caprmedio_tmp/declaration-source-cutover/supplemental-retirements.json"
   ],
-  "remaining_validation_failures": [
-    "Final combined run pending; earlier failures are historical after focused corrections"
-  ],
+  "remaining_validation_failures": [],
   "preserve_other_chat_work": true,
   "role_source_promotion_window": false,
   "source_paths_stable": true,
@@ -65,7 +63,7 @@
   "settings_subject_corrections": "Applied five requested Settings Subject corrections; exact Current pins in Scope adoption packet/settings-subject-corrections.json",
   "code_stable_for_checks": true,
   "full_suite_owner": "Scope Unit cutover chat (this root)",
-  "full_suite_running": true,
+  "full_suite_running": false,
   "full_suite_log": ".caprmedio_tmp/local-20261103-tools-cleanup-4.log",
   "parallel_check_scope": "Projection-focused checks only; avoid a second full-suite/Docker run",
   "deferred_runtime_repair": {
@@ -74,24 +72,23 @@
     "operator_decision": "Leave it for the Engine Epic"
   },
   "full_suite_result": {
-    "modules": 519,
-    "tests": 4229,
+    "modules": 485,
+    "tests": 4001,
     "skips": 0,
-    "failed_modules": 134,
-    "launcher": "Image fingerprint mismatch",
-    "log": ".caprmedio_tmp/declaration-source-cutover/full-suite.log"
+    "failed_modules": 0,
+    "launcher": "passed",
+    "log": ".caprmedio_tmp/local-20261103-tools-cleanup-4.log"
   },
   "bounded_remaining_fixes": [
-    "Finish canonical lifecycle/validator and App/MCP fixture closure",
-    "Verify unwanted authority-change rollback removal",
-    "Rebuild one shared test image; rerun combined verification"
+    "Deferred O016 semantic repair remains P2708",
+    "Current source-context admission still names retired D274; remains separate Engine follow-up"
   ],
   "scope_note": "No O016 semantic repair; explicitly deferred by Operator as CA-P-2708",
   "snapshot_window": "CLOSED: focused verification finished; Git remains sole other-chat owner",
   "snapshot_blockers": [],
   "paused_workers": [],
-  "writes_paused": true,
-  "snapshot_validation_status": "FAILED initialfullsuite; focusedfixeslanded, no greencombinedclaim",
+  "writes_paused": false,
+  "snapshot_validation_status": "Passed full suite: 485 modules, 4,001 tests, zero skips; launcher proof passed",
   "post_snapshot_intent": "Resume bounded fixture/runtime fixes only after Gitowner marker; no O016 semantic repair, which Operator deferred asP2708",
   "snapshot_commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
   "fixes_resumed": true,
@@ -114,5 +111,13 @@
   "final_verification": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/verification/final-cutover-verification.json",
   "previous_git_owner": "CA #5: Main 2; this chat does not stage/commit/push",
   "local_release_run_id": "local-20261103-tools-cleanup-4",
-  "local_release_status": "Starting full release after canonical source/digest and inactive-location discovery fixes; 46 focused checks passed; live canonical compile1153 candidates,0conflicts"
+  "local_release_status": "Completed 0.4.4.11; unproven or foreign images retained. Live health and MCP initialization passed; 18 tools listed.",
+  "local_release_verification": {
+    "version": "0.4.4.11",
+    "endpoint": "http://127.0.0.1:56317/mcp",
+    "health_ready": true,
+    "mcp_tools": 18,
+    "outcome": "completed_with_cleanup_pending",
+    "receipt": ".caprmedio_runtime/simple_local_release/reports/local-20261103-tools-cleanup-4.md"
+  }
 }
