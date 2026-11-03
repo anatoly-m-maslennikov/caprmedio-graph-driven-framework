@@ -1,0 +1,46 @@
+---
+atom_id: CA-O-110
+content_role: Operations
+type: Step
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+version: 20
+updated_at: 2026-10-27 19:59:46 +0400
+subjects:
+  governs: Subject/caprmedio/Step//RMED Review Repair Step
+  depends_on:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History
+relations: {}
+tier: 3
+projection:
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-110-PROJECT_CONFIGURATION-STEP--repair-the-evaluated-rmed-review-batch.md
+  source_atom_id: CA-O-110
+  source_atom_revision: 20
+  source_sha256: 68a26a17d04416cb097886177e3a95c49d142bb1af54fef47e4f934d68f1af2f
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+---
+# Summary
+
+Repair the evaluated RMED review batch
+
+## Operation
+
+RMED Review Repair Step **means** the Workflow node invoking **`=1`** Action, CA-O-111, **in** Isolated context.
+
+- bind the local check report, current source, correction boundary, confidence/retry policy, **and** context budget.
+- apply confirmed corrections **and** record them **in** the same report. return `fixed_not_rechecked` **only** **when** **all** initial checks concluded **and** no unresolved findings remain. safe partial fixes retain `blocked` **when** coverage **or** findings remain unresolved; this Step has no proposal review **or** saved-Atom recheck.
+- retain the caller's Run ID on correction records **and** handoffs; return actual edits, rejected findings, **and** unresolved work for its full report **and** shared Journal recording under CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.
+- preserve Entity **and** relation targets; route required identity-changing **or** cross-Atom work as a blocked proposal for separate authorization.
+- at the context threshold, save completed edits **and** unfinished work for a fresh subagent; resume **only** unfinished work.
+
+## Details
+
+the Step passes results **to** the caller **and** does **not** expand the local-review mutation boundary. native file **and** session capabilities are sufficient.
