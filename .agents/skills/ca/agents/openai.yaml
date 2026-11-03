@@ -1,11 +1,11 @@
 interface:
   display_name: "CA"
-  short_description: "Thin CAPRMEDIO entry through Project MCP"
-  default_prompt: "Use $ca to carry out my request through the connected Project's CAPRMEDIO MCP."
+  short_description: "Thin shared-host CAPRMEDIO MCP client"
+  default_prompt: "Use $ca through the shared CAPRMEDIO MCP for the explicitly trusted Project."
 
 dependencies:
   tools:
     - type: "mcp"
       value: "caprmedio"
-      description: "Project-bound CAPRMEDIO discovery, instructions and execution"
-      transport: "stdio"
+      description: "Shared HTTP CAPRMEDIO discovery, context and execution"
+      transport: "streamable_http"
